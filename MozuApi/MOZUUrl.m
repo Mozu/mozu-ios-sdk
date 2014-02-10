@@ -8,11 +8,23 @@
 
 #import "MOZUUrl.h"
 
+@interface MOZUUrl()
+
+@property(readwrite, nonatomic) NSString* jsonResult;
+@property(readwrite, nonatomic) NSURL *url;
+@property(readwrite, nonatomic) MOZUUrlLocation location;
+@property(readwrite, nonatomic) BOOL useSSL;
+@end
+
 @implementation MOZUUrl
 
--(id)initWithUrl:(NSString*)url andLocation:(MOZUUrlLocation)location andUseSSL:(BOOL)useSSL{
-    if (self = [super init]) {
-        self.url = url;
+-(id)initWithTemplate:(NSString*)template
+           parameters:(NSDictionary*)params
+             location:(MOZUUrlLocation)location
+               useSSL:(BOOL)useSSL {
+    
+if (self = [super init]) {
+        self.url = [MOZUUrl buildUrlWithTemplate:template parameters:params];
         self.location = location;
         self.useSSL = useSSL;
         return self;
@@ -20,6 +32,13 @@
     else {
         return nil;
     }
+}
+
++(NSURL*)buildUrlWithTemplate:(NSString*)template parameters:(NSDictionary*)params {
+    // TODO : implement this
+    // loop thru each param and call for formatUrl on template, paramName, and paramValue
+    // create new NSURL* from filled in template and baseURL from MOZUAppAuthenticator
+    return nil;
 }
 
 +(void)formatUrl: (NSString**)url withParamName: (NSString*)paramName andValue: (id)value {
