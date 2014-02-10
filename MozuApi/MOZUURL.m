@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Volusion. All rights reserved.
 //
 
-#import "MOZUUrl.h"
+#import "MOZUURL.h"
 
 @interface MOZUURL()
 
