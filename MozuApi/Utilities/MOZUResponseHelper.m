@@ -10,9 +10,9 @@
 
 @implementation MOZUResponseHelper
 
-+(MOZUApiError*)ensureSuccessOfResponse:(NSHTTPURLResponse*)response andJsonResult:(NSString*)json {
++(MOZUApiError*)ensureSuccessOfResponse:(NSHTTPURLResponse*)response JSONResult:(NSString*)json {
     if (response.statusCode < 200 || response.statusCode > 299) {
-        return [[MOZUApiError alloc] initWithString:json andStatusCode:(int)response.statusCode];
+        return [[MOZUApiError alloc] initWithString:json statusCode:response.statusCode];
     }
     else {
         return nil;

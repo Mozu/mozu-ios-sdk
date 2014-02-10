@@ -15,13 +15,13 @@ typedef NS_ENUM(NSUInteger, MOZUUrlLocation) {
 
 @interface MOZUURL : NSObject
 
-@property(readonly, nonatomic) NSURL *url;
-@property(readonly, nonatomic) MOZUUrlLocation location;
-@property(readonly, nonatomic) BOOL useSSL;
+@property(nonatomic,readonly) NSURL *URL;
+@property(nonatomic,readonly) MOZUUrlLocation location;
+@property(nonatomic,readonly) BOOL useSSL;
 
--(instancetype)initWithTemplate:(NSString*)template
-    parameters:(NSDictionary*)params
-    location:(MOZUUrlLocation)location
-    useSSL:(BOOL)useSSL;
+-(instancetype)initWithTemplate:(NSString *)stringTemplate
+                     parameters:(NSDictionary*)params
+                       location:(MOZUUrlLocation)location
+                         useSSL:(BOOL)useSSL;
 
 @end

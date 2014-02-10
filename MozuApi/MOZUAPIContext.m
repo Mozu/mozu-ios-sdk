@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Volusion. All rights reserved.
 //
 
-#import "MOZUApiContext.h"
+#import "MOZUAPIContext.h"
 #import "MOZUHeaders.h"
 
-@interface MOZUApiContextImpl()
+@interface MOZUAPIContext()
 
 @property(readwrite) NSInteger tenantId;
 @property(readwrite) NSNumber* siteId;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation MOZUApiContextImpl
+@implementation MOZUAPIContext
 
 -(id)init {
     if (self = [super init]) {

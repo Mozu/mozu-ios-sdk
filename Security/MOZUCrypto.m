@@ -11,7 +11,7 @@
 #import "NSString+SHA256.h"
 
 @implementation MOZUCrypto
-+(NSString*)getHashWithSecretKey: (NSString*)secretKey andBody: (NSString*)body {
++(NSString*)hashWithSecretKey: (NSString*)secretKey body: (NSString*)body {
     NSString *payload = [secretKey stringByAppendingString:body];
     return [payload SHA256AsBase64];
 }

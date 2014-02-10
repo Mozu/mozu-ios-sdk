@@ -12,12 +12,11 @@
 @class MozuUserAuthInfo;
 @class MOZUUserProfile;
 
-@protocol MOZUScope
-@end
+@interface MOZUScope : NSObject
 
-@interface MOZUScope : NSObject<MOZUScope>
-@property int id;
-@property NSString* name;
+@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, strong) NSString* name;
+
 @end
 
 typedef NS_ENUM(NSUInteger, MOZUUserScope) {
@@ -27,23 +26,26 @@ typedef NS_ENUM(NSUInteger, MOZUUserScope) {
 };
 
 @interface MOZUAuthenticationProfile : NSObject
-@property MOZUAuthTicket* authTicket;
-@property NSArray<MOZUScope>* authorizedScopes;
-@property MOZUScope* activeScope;
-@property MOZUUserProfile* userProfile;
-//@property MOZUCustomerAccount* shopperAccount;
+
+@property (nonatomic, strong) MOZUAuthTicket* authTicket;
+@property (nonatomic, strong) NSArray* authorizedScopes;
+@property (nonatomic, strong) MOZUScope* activeScope;
+@property (nonatomic, strong) MOZUUserProfile* userProfile;
+
 @end
 
 @interface MOZUUserAuthTicket : MOZUAuthTicket
-@property MOZUUserScope scope;
+
+@property (nonatomic, assign) MOZUUserScope scope;
+
 @end
 
 
 @interface MOZUUserAuthenticator : NSObject
-+(MOZUAuthenticationProfile*)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket andScope:(MOZUScope*)scope;
++(MOZUAuthenticationProfile*)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope;
 +(MOZUAuthenticationProfile*)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket;
-+(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket andId:(NSNumber*)id;
-+(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo andScope:(MOZUUserScope)scope andId:(NSNumber*)id;
++(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)id;
++(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo scope:(MOZUUserScope)scope id:(NSNumber*)id;
 +(void)logoutWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket;
 
 

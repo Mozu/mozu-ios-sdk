@@ -14,7 +14,9 @@
 
 @interface MOZUAppAuthenticator : NSObject
     
-+(void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo andBaseAppAuthUrl:(NSString*)baseUrl andRefeshInterval:(MOZURefreshInterval*)refreshInterval;
++(void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo
+               baseAppAuthUrl:(NSString*)baseUrl
+               refeshInterval:(MOZURefreshInterval*)refreshInterval;
 +(void)deleteAuth;
 +(void)addAuthHeaderToRequest:(NSMutableURLRequest*)request;
 
