@@ -11,7 +11,7 @@
 
 @interface MOZUApiContextImpl()
 
-@property(readwrite) int tenantId;
+@property(readwrite) NSInteger tenantId;
 @property(readwrite) NSNumber* siteId;
 @property(readwrite) NSString* tenantUrl;
 @property(readwrite) NSString* siteUrl;
@@ -20,7 +20,6 @@
 @property(readwrite) NSString* appAuthClaim;
 @property(readwrite) NSNumber* masterCatalogId;
 @property(readwrite) NSNumber* catalogId;
-//@property(readwrite) MOZUTenant* tenant;
 
 @end
 
@@ -35,7 +34,11 @@
     }
 }
 
--(id)initWithTenantId:(int)tenantId andSiteId:(NSNumber*)siteId andMasterCatalogId:(NSNumber*)masterCatalogId andCatalogId:(NSNumber*)catalogId {
+- (id)initWithTenantId:(NSInteger)tenantId
+                siteId:(NSNumber*)siteId
+       masterCatalogId:(NSNumber*)masterCatalogId
+             catalogId:(NSNumber*)catalogId
+{
     if (self = [super init]) {
         self.tenantId = tenantId;
         self.siteId = siteId;

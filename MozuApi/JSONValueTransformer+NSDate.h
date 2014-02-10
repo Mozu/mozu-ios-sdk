@@ -9,6 +9,8 @@
 #import "JSONValueTransformer.h"
 
 @interface JSONValueTransformer (NSDate)
--(NSDate*)NSDateFromNSString:(NSString*)string;
--(id)JSONObjectFromNSDate:(NSDate*)date;
+
+- (NSDate*)NSDateFromNSString:(NSString*)string;
+- (id)JSONObjectFromNSDate:(NSDate*)date;
+
 @end

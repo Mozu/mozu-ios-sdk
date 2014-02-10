@@ -10,16 +10,16 @@
 
 @protocol MOZUApiContext <NSObject>
 
-@property(readonly) int tenantId;
-@property(readonly) NSNumber* siteId;
-@property(readonly) NSString* tenantUrl;
-@property(readonly) NSString* siteUrl;
-@property(readonly) NSString* correlationId;
-@property(readonly) NSString* hmacSHA256;
-@property(readonly) NSString* appAuthClaim;
-@property(readonly) NSNumber* masterCatalogId;
-@property(readonly) NSNumber* catalogId;
-//@property(readonly) MOZUTenant* tenant;
+@property(nonatomic, readonly) NSInteger tenantId;
+@property(nonatomic, readonly) NSNumber* siteId;
+@property(nonatomic, readonly) NSString* tenantUrl;
+@property(nonatomic, readonly) NSString* siteUrl;
+@property(nonatomic, readonly) NSString* correlationId;
+@property(nonatomic, readonly) NSString* hmacSHA256;
+@property(nonatomic, readonly) NSString* appAuthClaim;
+@property(nonatomic, readonly) NSNumber* masterCatalogId;
+@property(nonatomic, readonly) NSNumber* catalogId;
+
 -(NSString*)getUrlForDomain:(NSString*)domain;
 
 @end
@@ -27,21 +27,22 @@
 
 @interface MOZUApiContextImpl : NSObject <MOZUApiContext>
 
-@property(readonly) int tenantId;
-@property(readonly) NSNumber* siteId;
-@property(readonly) NSString* tenantUrl;
-@property(readonly) NSString* siteUrl;
-@property(readonly) NSString* correlationId;
-@property(readonly) NSString* hmacSHA256;
-@property(readonly) NSString* appAuthClaim;
-@property(readonly) NSNumber* masterCatalogId;
-@property(readonly) NSNumber* catalogId;
-//@property(readonly) MOZUTenant* tenant;
--(id)init;
--(id)initWithTenantId:(int)tenantId andSiteId:(NSNumber*)siteId andMasterCatalogId:(NSNumber*)masterCatalogId andCatalogId:(NSNumber*)catalogId;
-//-(id)initWithTenant:(MOZUTenant*)tenant andSite:(MOZUSite*)site andMasterCatalogId:(NSNumber*)masterCatalogId andCatalogId:(NSNumber*)catalogId;
-//-(id)initWithSite:(MOZUSite*)site andMasterCatalogId:(NSNumber*)masterCatalogId andCatalogId:(NSNumber*)catalogId;
--(id)initWithHeaders:(NSDictionary*)headers;
--(NSString*)getUrlForDomain:(NSString*)domain;
+@property(nonatomic, readonly) NSInteger tenantId;
+@property(nonatomic, readonly) NSNumber* siteId;
+@property(nonatomic, readonly) NSString* tenantUrl;
+@property(nonatomic, readonly) NSString* siteUrl;
+@property(nonatomic, readonly) NSString* correlationId;
+@property(nonatomic, readonly) NSString* hmacSHA256;
+@property(nonatomic, readonly) NSString* appAuthClaim;
+@property(nonatomic, readonly) NSNumber* masterCatalogId;
+@property(nonatomic, readonly) NSNumber* catalogId;
+
+- (id)init;
+- (id)initWithTenantId:(NSInteger)tenantId
+                siteId:(NSNumber*)siteId
+       masterCatalogId:(NSNumber*)masterCatalogId
+             catalogId:(NSNumber*)catalogId;
+- (id)initWithHeaders:(NSDictionary*)headers;
+- (NSString*)getUrlForDomain:(NSString*)domain;
 
 @end
