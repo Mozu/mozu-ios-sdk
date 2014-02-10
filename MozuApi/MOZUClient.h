@@ -11,30 +11,29 @@
 #import "MOZUApiError.h"
 #import "MOZUApiContext.h"
 #import "MOZUAuthTicket.h"
+#import "MOZUURL.h"
 
 // add http response and get rid of headers
 //
 typedef void(^MOZUClientCompletionBlock)(id result, MOZUApiError* error, NSHTTPURLResponse* response);
-typedef id(^MOZUClientJsonParserBlock)(NSString* jsonResult);
+typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 
 @interface MOZUClient : NSObject
 
-@property(readonly) NSString* jsonResult;
-@property(readonly) id result;
-@property(readonly) int statusCode;
-@property(readonly) MOZUApiError* error;
-@property(readonly) NSDictionary* headers;
+@property(nonatomic,readonly) NSString* JSONResult;
+@property(nonatomic,readonly) id result; // Is this needed?
+@property(nonatomic,readonly) NSInteger statusCode;
+@property(nonatomic,readonly) MOZUApiError* error;
+@property(nonatomic,readonly) NSDictionary* headers;
 
-// move required propteries to constructor
+@property (nonatomic, strong) MOZUAuthTicket * authTicket;
+@property (nonatomic, strong) JSONModel * body;
+@property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser;
 
--(MOZUClient*)withContext:(id<MOZUApiContext>)context;  // required
--(MOZUClient*)withUserClaims:(MOZUAuthTicket*)authTicket;  // optional
--(MOZUClient*)withHeader:(NSString*)header andValue:(NSString*)value; // optional
--(MOZUClient*)withBody:(JSONModel *)body;  // optional
--(MOZUClient*)withVerb:(NSString *)verb;  // required
--(MOZUClient*)withResourceUrl:(MOZUURL*)resourceURL;  // required
--(MOZUClient*)withJsonParser:(MOZUClientJsonParserBlock)jsonParser;  // optional
--(MOZUClient*)completionHandler:(MOZUClientCompletionBlock)handler; // required ad to execute method
--(void)execute;
+- (MOZUClient *)initWithContext:(id<MOZUApiContext>)context
+                           verb:(NSString *)verb
+                    resourceURL:(MOZUURL *)resourceURL;
+- (void)setHeader:(NSString *)header value:(NSString *)value;
+- (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler;
 
 @end

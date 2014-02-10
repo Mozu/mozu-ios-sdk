@@ -31,8 +31,8 @@
 		643D256A183D4F8300B24AA4 /* NSString+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 643D2568183D4F8300B24AA4 /* NSString+SHA256.m */; };
 		643D256D183D585A00B24AA4 /* MOZURefreshInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 643D256B183D585A00B24AA4 /* MOZURefreshInterval.h */; };
 		643D256E183D585A00B24AA4 /* MOZURefreshInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 643D256C183D585A00B24AA4 /* MOZURefreshInterval.m */; };
-		643D2571183D700A00B24AA4 /* MOZUUrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 643D256F183D700A00B24AA4 /* MOZUUrl.h */; };
-		643D2572183D700A00B24AA4 /* MOZUUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 643D2570183D700A00B24AA4 /* MOZUUrl.m */; };
+		643D2571183D700A00B24AA4 /* MOZUURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 643D256F183D700A00B24AA4 /* MOZUURL.h */; };
+		643D2572183D700A00B24AA4 /* MOZUURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 643D2570183D700A00B24AA4 /* MOZUURL.m */; };
 		64477A11183E8E3E00ACD5B9 /* MOZUUserAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = 64477A0F183E8E3E00ACD5B9 /* MOZUUserAuthenticator.h */; };
 		64477A12183E8E3E00ACD5B9 /* MOZUUserAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64477A10183E8E3E00ACD5B9 /* MOZUUserAuthenticator.m */; };
 		64767DDC18425523000E8CD7 /* MOZUTenantUrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 64767DDA18425523000E8CD7 /* MOZUTenantUrl.h */; };
@@ -123,8 +123,8 @@
 		643D2568183D4F8300B24AA4 /* NSString+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SHA256.m"; path = "Utilities/NSString+SHA256.m"; sourceTree = "<group>"; };
 		643D256B183D585A00B24AA4 /* MOZURefreshInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOZURefreshInterval.h; sourceTree = "<group>"; };
 		643D256C183D585A00B24AA4 /* MOZURefreshInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOZURefreshInterval.m; sourceTree = "<group>"; };
-		643D256F183D700A00B24AA4 /* MOZUUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOZUUrl.h; sourceTree = "<group>"; };
-		643D2570183D700A00B24AA4 /* MOZUUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOZUUrl.m; sourceTree = "<group>"; };
+		643D256F183D700A00B24AA4 /* MOZUURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOZUURL.h; sourceTree = "<group>"; };
+		643D2570183D700A00B24AA4 /* MOZUURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOZUURL.m; sourceTree = "<group>"; };
 		64477A0F183E8E3E00ACD5B9 /* MOZUUserAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOZUUserAuthenticator.h; sourceTree = "<group>"; };
 		64477A10183E8E3E00ACD5B9 /* MOZUUserAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOZUUserAuthenticator.m; sourceTree = "<group>"; };
 		64767DDA18425523000E8CD7 /* MOZUTenantUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOZUTenantUrl.h; path = Urls/Platform/MOZUTenantUrl.h; sourceTree = SOURCE_ROOT; };
@@ -358,8 +358,8 @@
 				642B6CB1183EBDA30056B2B3 /* MOZUClient.m */,
 				642B6CB2183EBDA30056B2B3 /* MOZUHeaders.h */,
 				642B6CB3183EBDA30056B2B3 /* MOZUHeaders.m */,
-				643D256F183D700A00B24AA4 /* MOZUUrl.h */,
-				643D2570183D700A00B24AA4 /* MOZUUrl.m */,
+				643D256F183D700A00B24AA4 /* MOZUURL.h */,
+				643D2570183D700A00B24AA4 /* MOZUURL.m */,
 				6491153818201CA9003A8824 /* Supporting Files */,
 			);
 			path = MozuApi;
@@ -511,7 +511,7 @@
 				6480881D18429FD2000E3999 /* MOZUCatalog.h in Headers */,
 				6485B4BB18450BB5009D3723 /* MOZUTenantResource.h in Headers */,
 				648088251842A2C6000E3999 /* MOZUTenant.h in Headers */,
-				643D2571183D700A00B24AA4 /* MOZUUrl.h in Headers */,
+				643D2571183D700A00B24AA4 /* MOZUURL.h in Headers */,
 				642B6CB6183EBDA30056B2B3 /* MOZUApiError.h in Headers */,
 				64477A11183E8E3E00ACD5B9 /* MOZUUserAuthenticator.h in Headers */,
 				6491159718201D8A003A8824 /* MOZUAppAuthenticator.h in Headers */,
@@ -649,7 +649,7 @@
 				642B6CB7183EBDA30056B2B3 /* MOZUApiError.m in Sources */,
 				6488CE7618242F180065D016 /* JSONValueTransformer+NSDate.m in Sources */,
 				642B6CBB183EBDA30056B2B3 /* MOZUHeaders.m in Sources */,
-				643D2572183D700A00B24AA4 /* MOZUUrl.m in Sources */,
+				643D2572183D700A00B24AA4 /* MOZUURL.m in Sources */,
 				6480881A18429D4F000E3999 /* MOZUSite.m in Sources */,
 				6491156218201D56003A8824 /* MOZUAppAuthInfo.m in Sources */,
 				6491157F18201D69003A8824 /* JSONModel.m in Sources */,
