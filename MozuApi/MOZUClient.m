@@ -185,7 +185,7 @@
                                                     }
                                                     
                                                     if (self->_handler != nil) {
-                                                        self->_handler(self.result, self.error, httpResponse.allHeaderFields);
+                                                        self->_handler(self.result, self.error, httpResponse);
                                                     }
                                                 }];
     [dataTask resume];

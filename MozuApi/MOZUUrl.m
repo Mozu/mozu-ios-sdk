@@ -8,7 +8,7 @@
 
 #import "MOZUUrl.h"
 
-@interface MOZUUrl()
+@interface MOZUURL()
 
 @property(readwrite, nonatomic) NSString* jsonResult;
 @property(readwrite, nonatomic) NSURL *url;
@@ -16,15 +16,15 @@
 @property(readwrite, nonatomic) BOOL useSSL;
 @end
 
-@implementation MOZUUrl
+@implementation MOZUURL
 
--(id)initWithTemplate:(NSString*)template
-           parameters:(NSDictionary*)params
-             location:(MOZUUrlLocation)location
-               useSSL:(BOOL)useSSL {
+-(instancetype)initWithTemplate:(NSString*)template
+                     parameters:(NSDictionary*)params
+                       location:(MOZUUrlLocation)location
+                         useSSL:(BOOL)useSSL {
     
-if (self = [super init]) {
-        self.url = [MOZUUrl buildUrlWithTemplate:template parameters:params];
+    if (self = [super init]) {
+        self.url = [MOZUURL buildUrlWithTemplate:template parameters:params];
         self.location = location;
         self.useSSL = useSSL;
         return self;
