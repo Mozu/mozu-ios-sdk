@@ -12,7 +12,9 @@
 #import "MOZUApiContext.h"
 #import "MOZUAuthTicket.h"
 
-typedef void(^MOZUClientCompletionBlock)(id result, MOZUApiError* error, NSDictionary* headers);
+// add http response and get rid of headers
+//
+typedef void(^MOZUClientCompletionBlock)(id result, MOZUApiError* error, NSHTTPURLResponse* response);
 typedef id(^MOZUClientJsonParserBlock)(NSString* jsonResult);
 
 @interface MOZUClient : NSObject
@@ -23,15 +25,16 @@ typedef id(^MOZUClientJsonParserBlock)(NSString* jsonResult);
 @property(readonly) MOZUApiError* error;
 @property(readonly) NSDictionary* headers;
 
--(MOZUClient*)withContext:(id<MOZUApiContext>)context;
--(MOZUClient*)withUserClaims:(MOZUAuthTicket*)authTicket;
--(MOZUClient*)withHeader:(NSString*)header andValue:(NSString*)value;
--(MOZUClient*)withBody:(JSONModel *)body;
--(MOZUClient*)withBaseAddress:(NSString*)baseUrl;
--(MOZUClient*)withVerb:(NSString *)verb;
--(MOZUClient*)withResourceUrl:(NSString*)resourceUrl;
--(MOZUClient*)withJsonParser:(MOZUClientJsonParserBlock)jsonParser;
--(MOZUClient*)withHandler:(MOZUClientCompletionBlock)handler;
+// move required propteries to constructor
+
+-(MOZUClient*)withContext:(id<MOZUApiContext>)context;  // required
+-(MOZUClient*)withUserClaims:(MOZUAuthTicket*)authTicket;  // optional
+-(MOZUClient*)withHeader:(NSString*)header andValue:(NSString*)value; // optional
+-(MOZUClient*)withBody:(JSONModel *)body;  // optional
+-(MOZUClient*)withVerb:(NSString *)verb;  // required
+-(MOZUClient*)withResourceUrl:(MOZUURL*)resourceURL;  // required
+-(MOZUClient*)withJsonParser:(MOZUClientJsonParserBlock)jsonParser;  // optional
+-(MOZUClient*)completionHandler:(MOZUClientCompletionBlock)handler; // required ad to execute method
 -(void)execute;
 
 @end
