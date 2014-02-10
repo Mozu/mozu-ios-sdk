@@ -27,7 +27,7 @@ static MOZURefreshInterval* _refreshInterval = nil;
 NSMutableData *_responseData;
 
 
-+(void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo andBaseAppAuthUrl:(NSString*)baseUrl andRefeshInterval:(MOZURefreshInterval*)refreshInterval {
++(void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo baseAppAuthUrl:(NSString*)baseUrl refeshInterval:(MOZURefreshInterval*)refreshInterval {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _authInfo = appAuthInfo;
@@ -69,7 +69,7 @@ NSMutableData *_responseData;
                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse andJsonResult:json];
+                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json];
                                                     if (apiError != nil) {
                                                         [NSException raise:@"authenticateApp failed!" format:@"MOZUApiError = %@", apiError];
                                                     }
@@ -98,7 +98,7 @@ NSMutableData *_responseData;
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse andJsonResult:json];
+                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json];
                                                     if (apiError != nil) {
                                                         [NSException raise:@"refreshAppAuthTicket failed!" format:@"MOZUApiError = %@", apiError];
                                                     }

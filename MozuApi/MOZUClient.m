@@ -178,7 +178,7 @@
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     self.statusCode = [httpResponse statusCode];
                                                     self.jsonResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse andJsonResult:self.jsonResult];
+                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.jsonResult];
   
                                                     if (self.jsonResult != nil) {
                                                         self.result = self->_jsonParser(self.jsonResult);

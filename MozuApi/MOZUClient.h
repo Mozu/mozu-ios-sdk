@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUApiError.h"
-#import "MOZUApiContext.h"
+#import "MOZUAPIContext.h"
 #import "MOZUAuthTicket.h"
 #import "MOZUURL.h"
 
@@ -30,7 +30,7 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 @property (nonatomic, strong) JSONModel * body;
 @property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser;
 
-- (MOZUClient *)initWithContext:(id<MOZUApiContext>)context
+- (MOZUClient *)initWithContext:(MOZUAPIContext *)context
                            verb:(NSString *)verb
                     resourceURL:(MOZUURL *)resourceURL;
 - (void)setHeader:(NSString *)header value:(NSString *)value;

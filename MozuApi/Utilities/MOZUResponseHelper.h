@@ -10,5 +10,5 @@
 #import "MOZUApiError.h"
 
 @interface MOZUResponseHelper : NSObject
-+(MOZUApiError*)ensureSuccessOfResponse:(NSHTTPURLResponse*)response andJsonResult:(NSString*)json;
++(MOZUApiError*)ensureSuccessOfResponse:(NSHTTPURLResponse*)response JSONResult:(NSString*)JSON;
 @end

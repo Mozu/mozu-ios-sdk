@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface MOZUCacheItem : NSObject
-@property NSString* id;
-@property id item;
-@property NSString* eTag;
-@property NSDate* createDate;
-// @property MOZUApiContext* apiContext;
+
+@property (nonatomic, strong) NSString* id;
+@property (nonatomic, strong) id item;
+@property (nonatomic, strong) NSString* eTag;
+@property (nonatomic, strong) NSDate* createDate;
+
 @end

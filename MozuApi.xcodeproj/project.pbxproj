@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		642B6CB4183EBDA30056B2B3 /* MOZUApiContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 642B6CAC183EBDA30056B2B3 /* MOZUApiContext.h */; };
-		642B6CB5183EBDA30056B2B3 /* MOZUApiContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B6CAD183EBDA30056B2B3 /* MOZUApiContext.m */; };
+		642B6CB4183EBDA30056B2B3 /* MOZUAPIContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 642B6CAC183EBDA30056B2B3 /* MOZUAPIContext.h */; };
+		642B6CB5183EBDA30056B2B3 /* MOZUAPIContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B6CAD183EBDA30056B2B3 /* MOZUAPIContext.m */; };
 		642B6CB6183EBDA30056B2B3 /* MOZUApiError.h in Headers */ = {isa = PBXBuildFile; fileRef = 642B6CAE183EBDA30056B2B3 /* MOZUApiError.h */; };
 		642B6CB7183EBDA30056B2B3 /* MOZUApiError.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B6CAF183EBDA30056B2B3 /* MOZUApiError.m */; };
 		642B6CB8183EBDA30056B2B3 /* MOZUClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 642B6CB0183EBDA30056B2B3 /* MOZUClient.h */; };
@@ -99,8 +99,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		642B6CAC183EBDA30056B2B3 /* MOZUApiContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOZUApiContext.h; sourceTree = "<group>"; };
-		642B6CAD183EBDA30056B2B3 /* MOZUApiContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOZUApiContext.m; sourceTree = "<group>"; };
+		642B6CAC183EBDA30056B2B3 /* MOZUAPIContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOZUAPIContext.h; sourceTree = "<group>"; };
+		642B6CAD183EBDA30056B2B3 /* MOZUAPIContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOZUAPIContext.m; sourceTree = "<group>"; };
 		642B6CAE183EBDA30056B2B3 /* MOZUApiError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOZUApiError.h; sourceTree = "<group>"; };
 		642B6CAF183EBDA30056B2B3 /* MOZUApiError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOZUApiError.m; sourceTree = "<group>"; };
 		642B6CB0183EBDA30056B2B3 /* MOZUClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOZUClient.h; sourceTree = "<group>"; };
@@ -350,8 +350,8 @@
 				643D2551183C337700B24AA4 /* Utilities */,
 				6488CE7318242F180065D016 /* JSONValueTransformer+NSDate.h */,
 				6488CE7418242F180065D016 /* JSONValueTransformer+NSDate.m */,
-				642B6CAC183EBDA30056B2B3 /* MOZUApiContext.h */,
-				642B6CAD183EBDA30056B2B3 /* MOZUApiContext.m */,
+				642B6CAC183EBDA30056B2B3 /* MOZUAPIContext.h */,
+				642B6CAD183EBDA30056B2B3 /* MOZUAPIContext.m */,
 				642B6CAE183EBDA30056B2B3 /* MOZUApiError.h */,
 				642B6CAF183EBDA30056B2B3 /* MOZUApiError.m */,
 				642B6CB0183EBDA30056B2B3 /* MOZUClient.h */,
@@ -523,7 +523,7 @@
 				6491158B18201D69003A8824 /* JSONHTTPClient.h in Headers */,
 				6480881918429D4F000E3999 /* MOZUSite.h in Headers */,
 				64767DDC18425523000E8CD7 /* MOZUTenantUrl.h in Headers */,
-				642B6CB4183EBDA30056B2B3 /* MOZUApiContext.h in Headers */,
+				642B6CB4183EBDA30056B2B3 /* MOZUAPIContext.h in Headers */,
 				6491156118201D56003A8824 /* MOZUAppAuthInfo.h in Headers */,
 				642B6CBE183FD4550056B2B3 /* MOZUResponseHelper.h in Headers */,
 				6491158418201D69003A8824 /* JSONModelError.h in Headers */,
@@ -653,7 +653,7 @@
 				6480881A18429D4F000E3999 /* MOZUSite.m in Sources */,
 				6491156218201D56003A8824 /* MOZUAppAuthInfo.m in Sources */,
 				6491157F18201D69003A8824 /* JSONModel.m in Sources */,
-				642B6CB5183EBDA30056B2B3 /* MOZUApiContext.m in Sources */,
+				642B6CB5183EBDA30056B2B3 /* MOZUAPIContext.m in Sources */,
 				6491159018201D69003A8824 /* JSONKeyMapper.m in Sources */,
 				6485B4BC18450BB5009D3723 /* MOZUTenantResource.m in Sources */,
 				6491158E18201D69003A8824 /* JSONModel+networking.m in Sources */,

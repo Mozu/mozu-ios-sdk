@@ -13,7 +13,7 @@
 
 @implementation MOZUUserAuthenticator
 
-+(MOZUAuthenticationProfile*)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket andScope:(MOZUScope*)scope {
++(MOZUAuthenticationProfile*)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope {
     return [[self class] refreshWithUserAuthTicket:userAuthTicket andId:@(scope.id)];
 }
 
@@ -26,7 +26,7 @@
     return nil;
 }
 
-+(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket andId:(NSNumber*)id {
++(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)id {
     __block MOZUAuthenticationProfile* authProfile = nil;
     NSString* resourceUrl = [[self class] getResourceRefreshUrlWithAuthTicket:userAuthTicket andId:id];
     NSString* url = [[MOZUAppAuthenticator baseUrl] stringByAppendingString:resourceUrl];
@@ -43,7 +43,7 @@
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse andJsonResult:json];
+                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json];
                                                     if (apiError != nil) {
                                                         [NSException raise:@"refreshAppAuthTicket failed!" format:@"MOZUApiError = %@", apiError];
                                                     }
@@ -54,7 +54,7 @@
     return authProfile;
 }
 
-+(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo andScope:(MOZUUserScope)scope andId:(NSNumber*)id {
++(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo scope:(MOZUUserScope)scope id:(NSNumber*)id {
 /*
     __block MOZUAuthenticationProfile* authProfile = nil;
     NSString* resourceUrl = [[self class] getResourceUrlWithUserScope:scope andId:id];

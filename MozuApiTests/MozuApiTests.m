@@ -93,7 +93,7 @@
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = ss;;
     
-    [MOZUAppAuthenticator initializeWithAuthInfo:authInfo andBaseAppAuthUrl:baseUrl andRefeshInterval:nil];
+    [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil];
     
     [MOZUTenantResource getTenant:tenantId withAuthTicket:nil withResultHandler:^(MOZUTenant *result) {
         NSLog(@"result = %@", result);

@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface MOZUCrypto : NSObject
-+(NSString*)getHashWithSecretKey: (NSString*)secretKey andBody: (NSString*)body;
++(NSString*)hashWithSecretKey:(NSString *)secretKey body:(NSString *)body;
 @end

@@ -8,7 +8,7 @@
 
 #import "MOZUApiError.h"
 
-@implementation MOZUApiExceptionDetail
+@implementation MOZUAPIExceptionDetail
 @end
 
 @implementation MOZUApiApplicationErrorData
@@ -19,11 +19,12 @@
 
 @implementation MOZUApiError
 
-- (id) initWithString: (NSString*)jsonData andStatusCode: (int) statusCode {
+- (id)initWithString:(NSString*)JSONData statusCode:(NSInteger)statusCode
+{
     self.httpStatusCode = statusCode;
 
     JSONModelError *err = nil;
-    self.apiError = [[MOZUApiErrorItem alloc] initWithString:jsonData error:&err];
+    self.apiError = [[MOZUApiErrorItem alloc] initWithString:JSONData error:&err];
     return self;
 }
 
