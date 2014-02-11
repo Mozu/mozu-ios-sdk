@@ -72,11 +72,11 @@
         self.catalogId = [NSNumber numberWithInt:[headers[kX_VOL_CATALOG] intValue]];
         
         if ([self.tenantUrl length] != 0) {
-            self.tenantUrl = [self getUrlForDomain:self.tenantUrl];
+            self.tenantUrl = [self getURLForDomain:self.tenantUrl];
         }
         
         if ([self.siteUrl length] != 0) {
-            self.siteUrl = [self getUrlForDomain:self.siteUrl];
+            self.siteUrl = [self getURLForDomain:self.siteUrl];
         }
         
         return self;
@@ -86,7 +86,7 @@
     }
 }
 
--(NSString*)getUrlForDomain:(NSString*)domain {
+-(NSString*)getURLForDomain:(NSString*)domain {
     return [NSString stringWithFormat:@"http://%@", domain];
 }
 

@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, MOZUUrlLocation) {
-    kHomePod,
-    kTenantPod
+typedef NS_ENUM(NSUInteger, MOZUURLLocation) {
+    MOZUHomePod,
+    MOZUTenantPod
 };
 
 @interface MOZUURL : NSObject
 
 @property(nonatomic,readonly) NSURL *URL;
-@property(nonatomic,readonly) MOZUUrlLocation location;
+@property(nonatomic,readonly) MOZUURLLocation location;
 @property(nonatomic,readonly) BOOL useSSL;
 
--(instancetype)initWithTemplate:(NSString *)stringTemplate
+- (instancetype)initWithTemplate:(NSString *)stringTemplate
                      parameters:(NSDictionary*)params
-                       location:(MOZUUrlLocation)location
+                       location:(MOZUURLLocation)location
                          useSSL:(BOOL)useSSL;
 
 @end

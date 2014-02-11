@@ -32,12 +32,12 @@
 @property (nonatomic, strong) NSString *applicationName;
 @property (nonatomic, strong) NSString *errorCode;
 @property (nonatomic, strong) NSString *message;
-@property (nonatomic, strong) NSArray *additionalErrorData;
+@property (nonatomic, strong) NSArray *additionalApplicationErrorData;
 
 
 @end
 
-@interface MOZUApiError : NSObject
+@interface MOZUApiError : NSError
 
 @property (nonatomic, assign) NSInteger httpStatusCode;
 @property (nonatomic, strong) MOZUApiErrorItem *apiError;

@@ -11,27 +11,25 @@
 @interface MOZUURL()
 
 @property(readwrite, nonatomic) NSString* jsonResult;
-@property(readwrite, nonatomic) NSURL *url;
-@property(readwrite, nonatomic) MOZUUrlLocation location;
+@property(readwrite, nonatomic) NSURL *URL;
+@property(readwrite, nonatomic) MOZUURLLocation location;
 @property(readwrite, nonatomic) BOOL useSSL;
 @end
 
 @implementation MOZUURL
 
--(instancetype)initWithTemplate:(NSString*)template
+- (instancetype)initWithTemplate:(NSString*)template
                      parameters:(NSDictionary*)params
-                       location:(MOZUUrlLocation)location
+                       location:(MOZUURLLocation)location
                          useSSL:(BOOL)useSSL {
     
     if (self = [super init]) {
-        self.url = [MOZUURL buildUrlWithTemplate:template parameters:params];
+        self.URL = [MOZUURL buildUrlWithTemplate:template parameters:params];
         self.location = location;
         self.useSSL = useSSL;
         return self;
     }
-    else {
-        return nil;
-    }
+    return self;
 }
 
 +(NSURL*)buildUrlWithTemplate:(NSString*)template parameters:(NSDictionary*)params {

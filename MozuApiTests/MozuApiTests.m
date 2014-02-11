@@ -39,38 +39,38 @@
     //NSString *ss = @"db969fc376e4497c90cba230012af527";
     //NSString *baseUrl = @"http://mozu-ci.com";
     
+    MOZUURL *url = [[MOZUURL alloc] initWithTemplate:@"/api/platform/tenants/{tenantId}"
+                                          parameters:@{@"tenantId": @"1"}
+                                            location:MOZUHomePod useSSL:YES];
+    
     // dev env
     NSString *appId = @"c00c1693055f4a519d34a2490188d350";
     NSString *ss = @"d0863f54a3b04cb5a66da2490188d350";
-    NSString *baseUrl = @"http://aus02nqrprx001.dev.volusion.com";
+//    NSString *baseUrl = @"http://aus02nqrprx001.dev.volusion.com";
+    
     
     MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
-    authInfo.SharedSecret = ss;;
+    authInfo.SharedSecret = ss;
     
-//    MOZUClient* client = [[[[[[MOZUClient new]
-//                              withBaseAddress:baseUrl]
-//                             withResourceUrl:@"/api/platform/applications/authtickets"]
-//                            withBody:authInfo]
-//                           withVerb:@"POST"]
-//                          withHandler:^(NSString* jsonData, MOZUApiError* error) {
-//                              NSLog(@"jsonData = %@", jsonData);
-//                          }];
+    MOZUClient *client = [[MOZUClient alloc] initWithResourceURL:url verb:@"POST"];
+    client.body = authInfo;
+    client.JSONParser = ^(NSString *JSONResult) {
+        JSONModelError *JSONError = nil;
+        JSONModel *model = [[MOZUAuthTicket alloc] initWithString:JSONResult error:&JSONError];
+        if (!model) {
+            NSLog(@"%@", JSONError.localizedDescription);
+        }
+        return model;
+    };
     
-    MOZUClient* client = [MOZUClient new];
-    [client withBaseAddress:baseUrl];
-    [client withVerb:@"POST"];
-    [client withResourceUrl:@"/api/platform/applications/authtickets"];
-    [client withBody:authInfo];
-    [client withJsonParser:^(NSString* jsonResult) {
-        return [[MOZUAuthTicket alloc] initWithString:jsonResult error:nil];
-        
+    [client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+        } else {
+            NSLog(@"result = %@", result);
+        }
     }];
-    [client withHandler:^(id result, MOZUApiError* error, NSDictionary* headers) {
-        NSLog(@"result = %@", result);
-    }];
-    [client execute];
-    
     
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:30]];
     
@@ -95,7 +95,7 @@
     
     [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil];
     
-    [MOZUTenantResource getTenant:tenantId withAuthTicket:nil withResultHandler:^(MOZUTenant *result) {
+    [MOZUTenantResource tenantWithTenantId:tenantId authTicket:nil completionHandler:^(MOZUTenant *result) {
         NSLog(@"result = %@", result);
     }];
     
@@ -105,7 +105,7 @@
 
 - (void)testTenantUrl
 {
-    MOZUUrl* url = [MOZUTenantUrl getTenantUrl:257];
+    MOZUURL* url = [MOZUTenantUrl getTenantUrl:257];
     NSLog(@"url = %@", url);
 
 }
