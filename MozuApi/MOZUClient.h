@@ -30,7 +30,7 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 @property (nonatomic, strong) JSONModel * body;
 @property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser;
 
-- (MOZUClient *)initWithContext:(MOZUAPIContext *)context
+- (instancetype)initWithContext:(MOZUAPIContext *)context
                            verb:(NSString *)verb
                     resourceURL:(MOZUURL *)resourceURL;
 - (void)setHeader:(NSString *)header value:(NSString *)value;

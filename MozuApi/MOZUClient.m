@@ -16,35 +16,39 @@
 
 @interface MOZUClient()
 
-@property(readwrite) NSString* jsonResult;
-@property(readwrite) id result;
-@property(readwrite) int statusCode;
-@property(readwrite) MOZUApiError* error;
-@property(readwrite) NSDictionary* headers;
+@property(nonatomic, strong) NSString* JSONResult;
+@property(nonatomic, strong) id result; // Is this needed?
+@property(nonatomic, assign) NSInteger statusCode;
+@property(nonatomic, strong) MOZUApiError* error;
+@property(nonatomic, strong) NSDictionary* headers;
+
+@property (nonatomic, strong) NSMutableDictionary *mutableHeaders;
+@property (nonatomic, strong) MOZUAPIContext * APIContext;
+@property (nonatomic, strong) NSString * baseURLString;
+@property (nonatomic, strong) MOZUURL * resourceURL;
+@property (nonatomic, strong) NSString * verb;
+@property (nonatomic, strong) MOZUClientCompletionBlock completionHandler;
 
 @end
 
 @implementation MOZUClient
-{
-    id<MOZUApiContext> _apiContext;
-    NSString* _baseUrl;
-    MOZUUrl* _resourceUrl;
-    NSString* _body;
-    NSString* _verb;
-    NSMutableDictionary* _headers;
-    MOZUClientCompletionBlock _handler;
-    MOZUClientJsonParserBlock _jsonParser;
-}
 
 -(id)init
 {
     if (self = [super init])
     {
-        self->_apiContext = nil;
-        self->_baseUrl = @"";
-        self->_resourceUrl = [[MOZUUrl alloc] initWithUrl:@"" andLocation:kHomePod];
-        self->_headers =  [NSMutableDictionary new];
         
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithContext:(MOZUAPIContext *)context verb:(NSString *)verb resourceURL:(MOZUURL *)resourceURL
+{
+    if (self = [self init]) {
+        NSAssert(context, @"MOZUClient context is missing!");
+        NSAssert(verb, @"MOZUClient verb is missing!");
+        NSAssert(resourceURL, @"MOZUClient resourceURL is missing!");
     }
     
     return self;
@@ -125,8 +129,8 @@
 }
 
 -(void)validateContext {
-    if (self->_resourceUrl.location == kTenantPod) {
-        if (self->_apiContext == nil) {
+    if (self.resourceURL.location == kTenantPod) {
+        if (self.APIContext == nil) {
             [NSException raise:@"MOZUClient apiContext is missing!" format:@""];
         }
         
@@ -156,7 +160,7 @@
     }
 }
 
--(void)execute {
+-(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler {
     
     [self validateContext];
     NSString* url = [self->_baseUrl stringByAppendingString:self->_resourceUrl.url];

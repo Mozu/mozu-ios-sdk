@@ -14,13 +14,13 @@
 @implementation MOZUUserAuthenticator
 
 +(MOZUAuthenticationProfile*)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope {
-    return [[self class] refreshWithUserAuthTicket:userAuthTicket andId:@(scope.id)];
+    return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:@(scope.id)];
 }
 
 +(MOZUAuthenticationProfile*)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket {
     NSDate* refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:userAuthTicket.accessTokenExpiration];
     if ([[NSDate date] compare:refreshTime] == NSOrderedDescending) {
-        return [[self class] refreshWithUserAuthTicket:userAuthTicket andId:nil];
+        return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:nil];
     }
     
     return nil;
