@@ -64,6 +64,10 @@
         return model;
     };
     
+    // TODO: Create api context.
+    // client.apicontext = lkjdflj;
+    
+    
     [client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
         if (error) {
             NSLog(@"%@", error.localizedDescription);

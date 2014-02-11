@@ -13,8 +13,8 @@
 
 @property(readwrite) NSInteger tenantId;
 @property(readwrite) NSNumber* siteId;
-@property(readwrite) NSString* tenantUrl;
-@property(readwrite) NSString* siteUrl;
+@property(readwrite) NSString* tenantHost;
+@property(readwrite) NSString* siteHost;
 @property(readwrite) NSString* correlationId;
 @property(readwrite) NSString* hmacSHA256;
 @property(readwrite) NSString* appAuthClaim;
@@ -64,20 +64,20 @@
     if (self = [super init]) {
         self.tenantId = [headers[kX_VOL_TENANT] intValue];
         self.siteId = [NSNumber numberWithInt:[headers[kX_VOL_SITE] intValue]];
-        self.tenantUrl = headers[kX_VOL_TENANT_DOMAIN];
-        self.siteUrl = headers[kX_VOL_SITE_DOMAIN];
+        self.tenantHost = headers[kX_VOL_TENANT_DOMAIN];
+        self.siteHost = headers[kX_VOL_SITE_DOMAIN];
         self.correlationId = headers[kX_VOL_CORRELATION];
         self.hmacSHA256 = headers[kX_VOL_HMAC_SHA256];
         self.masterCatalogId = [NSNumber numberWithInt:[headers[kX_VOL_MASTER_CATALOG] intValue]];
         self.catalogId = [NSNumber numberWithInt:[headers[kX_VOL_CATALOG] intValue]];
         
-        if ([self.tenantUrl length] != 0) {
-            self.tenantUrl = [self getURLForDomain:self.tenantUrl];
-        }
-        
-        if ([self.siteUrl length] != 0) {
-            self.siteUrl = [self getURLForDomain:self.siteUrl];
-        }
+//        if ([self.tenantHost length] != 0) {
+//            self.tenantHost = [self getURLForHost:self.tenantHost];
+//        }
+//        
+//        if ([self.siteHost length] != 0) {
+//            self.siteHost = [self getURLForHost:self.siteHost];
+//        }
         
         return self;
     }
@@ -86,8 +86,11 @@
     }
 }
 
--(NSString*)getURLForDomain:(NSString*)domain {
-    return [NSString stringWithFormat:@"http://%@", domain];
+-(NSURL *)getURLForHost:(NSString*)host {
+    NSURLComponents *URLComponents = [NSURLComponents new];
+    URLComponents.host = host;
+    URLComponents.scheme = @"http";
+    return URLComponents.URL;
 }
 
 

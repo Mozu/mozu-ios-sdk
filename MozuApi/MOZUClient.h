@@ -10,7 +10,7 @@
 #import "JSONModel.h"
 #import "MOZUApiError.h"
 #import "MOZUAPIContext.h"
-#import "MOZUAuthTicket.h"
+#import "MOZUUserAuthenticator.h"
 #import "MOZUURL.h"
 
 // add http response and get rid of headers
@@ -26,7 +26,7 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 @property(nonatomic,readonly) MOZUApiError* error;
 @property(nonatomic,readonly) NSDictionary* headers;
 
-@property (nonatomic, strong) MOZUAuthTicket * authTicket;
+@property (nonatomic, strong) MOZUUserAuthTicket * userClaims;
 @property (nonatomic, strong) JSONModel * body;
 @property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser;
 @property (nonatomic, strong) MOZUAPIContext  *context;

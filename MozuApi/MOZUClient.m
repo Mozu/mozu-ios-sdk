@@ -24,7 +24,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *mutableHeaders;
 @property (nonatomic, strong) MOZUAPIContext * APIContext;
-@property (nonatomic, strong) NSString * baseURLString;
+@property (nonatomic, strong) NSURL * baseURL;
 @property (nonatomic, strong) MOZUURL * resourceURL;
 @property (nonatomic, strong) NSString * verb;
 @property (nonatomic, strong) NSString *bodyString;
@@ -38,15 +38,12 @@
     if (self = [super init])
     {
         _mutableHeaders = [NSMutableDictionary new];
-        NSString *baseURL = [MOZUAppAuthenticator baseUrl];
-        if (!baseURL || [baseURL isEqualToString:@""]) {
-            [NSException raise:@"MOZUMissingBaseURLException" format:@"MOZUAppAuthenticator baseUrl is missing!"];
-        }
-        if ([[MOZUAppAuthenticator baseUrl] length] == 0) {
-            
-        }
-        
-        _baseURLString = baseURL;
+//        NSString *baseURL = [MOZUAppAuthenticator baseUrl];
+//        if (!baseURL || [baseURL isEqualToString:@""]) {
+//            [NSException raise:@"MOZUMissingBaseURLException" format:@"MOZUAppAuthenticator baseUrl is missing!"];
+//        } else {
+//            _baseURLString = baseURL;
+//        }
 
     }
     
@@ -90,19 +87,19 @@
     }
 }
 
-/*
--(MOZUClient*)withUserClaims:(MOZUAuthTicket*)authTicket {
-    MOZUAuthenticationProfile* userInfo = [MOZUUserAuthenticator ensureAuthTicket:authTicket];
-    if (userInfo != nil)
-    {
-        authTicket.accessToken = userInfo.authTicket.accessToken;
-        authTicket.accessTokenExpiration = userInfo.authTicket.accessTokenExpiration;
+- (void)setUserClaims:(MOZUUserAuthTicket *)userClaims
+{
+    _userClaims = userClaims;
+    
+    MOZUAuthenticationProfile* userInfo = [MOZUUserAuthenticator ensureUserAuthTicket:userClaims];
+    if (userInfo) {
+        userClaims.accessToken = userInfo.authTicket.accessToken;
+        userClaims.accessTokenExpiration = userInfo.authTicket.accessTokenExpiration;
     }
     
-    [self setHeader:kX_VOL_USER_CLAIMS value:authTicket.accessToken];
-    return self;
+    [self setHeader:kX_VOL_USER_CLAIMS value:userClaims.accessToken];
 }
-*/
+
 - (void)setHeader:(NSString *)header value:(NSString *)value
 {
     NSAssert(header, @"Header cannot be nil.");
@@ -117,36 +114,35 @@
     self.bodyString = [body toJSONString];
 }
 
-/*
--(MOZUClient*)withBaseAddress:(NSString *)baseUrl {
-    self->_baseUrl = baseUrl;
-    return self;
-}
-*/
-
 - (void)validateContext:(MOZUAPIContext *)APIContext {
     if (self.resourceURL.location == MOZUTenantPod) {
         NSAssert(APIContext, @"MOZUClient APIContext is missing.");
         NSAssert(APIContext.tenantId >=0, @"APIContext.tenantId less than 0.");
         
-        if (APIContext.tenantUrl.length == 0) {
+        if (APIContext.tenantHost.length == 0) {
+            dispatch_group_t group = dispatch_group_create();
+            
+            dispatch_group_enter(group);
             [MOZUTenantResource tenantWithTenantId:APIContext.tenantId authTicket:nil completionHandler:^(MOZUTenant *result) {
                 if (!result) {
                     [NSException raise:@"MOZUTenantNotFoundException" format:@"tenantId = %d", APIContext.tenantId];
                 }
                 
-                self.baseURLString = [APIContext getURLForDomain:result.domain];
+                self.baseURL = [APIContext getURLForHost:result.domain];
+                dispatch_group_leave(group);
             }];
+            dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
         } else {
-            self.baseURLString = APIContext.tenantUrl;
+            self.baseURL = [APIContext getURLForHost:APIContext.tenantHost];
         }
     }
 }
 
 -(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
 {
-    NSString* url = [self.baseURLString stringByAppendingString:self.resourceURL.URL.absoluteString];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSURLComponents *URLComponents = [[NSURLComponents alloc] initWithString:self.baseURL.absoluteString];
+    URLComponents.path = self.resourceURL.URL.absoluteString;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URLComponents.URL];
     [request setAllHTTPHeaderFields:self->_headers];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:self->_verb];
