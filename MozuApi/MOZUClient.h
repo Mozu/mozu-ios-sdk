@@ -29,10 +29,11 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 @property (nonatomic, strong) MOZUAuthTicket * authTicket;
 @property (nonatomic, strong) JSONModel * body;
 @property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser;
+@property (nonatomic, strong) MOZUAPIContext  *context;
 
-- (MOZUClient *)initWithContext:(MOZUAPIContext *)context
-                           verb:(NSString *)verb
-                    resourceURL:(MOZUURL *)resourceURL;
+
+- (MOZUClient *)initWithResourceURL:(MOZUURL *)resourceURL
+                               verb:(NSString *)verb;
 - (void)setHeader:(NSString *)header value:(NSString *)value;
 - (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler;
 
