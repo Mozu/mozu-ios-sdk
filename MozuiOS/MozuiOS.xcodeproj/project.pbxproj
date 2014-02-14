@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		040538B818AEABC600881E86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040538B718AEABC600881E86 /* Foundation.framework */; };
+		040538BD18AEABC600881E86 /* MozuiOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 040538BC18AEABC600881E86 /* MozuiOS.h */; };
+		040538BF18AEABC600881E86 /* MozuiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 040538BE18AEABC600881E86 /* MozuiOS.m */; };
+		040538C618AEABC600881E86 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040538C518AEABC600881E86 /* XCTest.framework */; };
+		040538C718AEABC600881E86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040538B718AEABC600881E86 /* Foundation.framework */; };
+		040538C918AEABC600881E86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040538C818AEABC600881E86 /* UIKit.framework */; };
+		040538CC18AEABC600881E86 /* libMozuiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 040538B418AEABC600881E86 /* libMozuiOS.a */; };
+		040538D218AEABC600881E86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040538D018AEABC600881E86 /* InfoPlist.strings */; };
+		040538D418AEABC600881E86 /* MozuiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 040538D318AEABC600881E86 /* MozuiOSTests.m */; };
+		040538DE18AEAC1B00881E86 /* MozuApi in Resources */ = {isa = PBXBuildFile; fileRef = 040538DD18AEAC1B00881E86 /* MozuApi */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		040538CA18AEABC600881E86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 040538AC18AEABC600881E86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 040538B318AEABC600881E86;
+			remoteInfo = MozuiOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		040538B218AEABC600881E86 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				040538BD18AEABC600881E86 /* MozuiOS.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		040538B418AEABC600881E86 /* libMozuiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMozuiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		040538B718AEABC600881E86 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		040538BB18AEABC600881E86 /* MozuiOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MozuiOS-Prefix.pch"; sourceTree = "<group>"; };
+		040538BC18AEABC600881E86 /* MozuiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MozuiOS.h; sourceTree = "<group>"; };
+		040538BE18AEABC600881E86 /* MozuiOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MozuiOS.m; sourceTree = "<group>"; };
+		040538C418AEABC600881E86 /* MozuiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MozuiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		040538C518AEABC600881E86 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		040538C818AEABC600881E86 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		040538CF18AEABC600881E86 /* MozuiOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MozuiOSTests-Info.plist"; sourceTree = "<group>"; };
+		040538D118AEABC600881E86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		040538D318AEABC600881E86 /* MozuiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MozuiOSTests.m; sourceTree = "<group>"; };
+		040538DD18AEAC1B00881E86 /* MozuApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MozuApi; path = ../MozuApi; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		040538B118AEABC600881E86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040538B818AEABC600881E86 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		040538C118AEABC600881E86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040538CC18AEABC600881E86 /* libMozuiOS.a in Frameworks */,
+				040538C618AEABC600881E86 /* XCTest.framework in Frameworks */,
+				040538C918AEABC600881E86 /* UIKit.framework in Frameworks */,
+				040538C718AEABC600881E86 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		040538AB18AEABC600881E86 = {
+			isa = PBXGroup;
+			children = (
+				040538DD18AEAC1B00881E86 /* MozuApi */,
+				040538B918AEABC600881E86 /* MozuiOS */,
+				040538CD18AEABC600881E86 /* MozuiOSTests */,
+				040538B618AEABC600881E86 /* Frameworks */,
+				040538B518AEABC600881E86 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		040538B518AEABC600881E86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				040538B418AEABC600881E86 /* libMozuiOS.a */,
+				040538C418AEABC600881E86 /* MozuiOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		040538B618AEABC600881E86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				040538B718AEABC600881E86 /* Foundation.framework */,
+				040538C518AEABC600881E86 /* XCTest.framework */,
+				040538C818AEABC600881E86 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		040538B918AEABC600881E86 /* MozuiOS */ = {
+			isa = PBXGroup;
+			children = (
+				040538BC18AEABC600881E86 /* MozuiOS.h */,
+				040538BE18AEABC600881E86 /* MozuiOS.m */,
+				040538BA18AEABC600881E86 /* Supporting Files */,
+			);
+			path = MozuiOS;
+			sourceTree = "<group>";
+		};
+		040538BA18AEABC600881E86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				040538BB18AEABC600881E86 /* MozuiOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		040538CD18AEABC600881E86 /* MozuiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				040538D318AEABC600881E86 /* MozuiOSTests.m */,
+				040538CE18AEABC600881E86 /* Supporting Files */,
+			);
+			path = MozuiOSTests;
+			sourceTree = "<group>";
+		};
+		040538CE18AEABC600881E86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				040538CF18AEABC600881E86 /* MozuiOSTests-Info.plist */,
+				040538D018AEABC600881E86 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		040538B318AEABC600881E86 /* MozuiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 040538D718AEABC600881E86 /* Build configuration list for PBXNativeTarget "MozuiOS" */;
+			buildPhases = (
+				040538B018AEABC600881E86 /* Sources */,
+				040538B118AEABC600881E86 /* Frameworks */,
+				040538B218AEABC600881E86 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MozuiOS;
+			productName = MozuiOS;
+			productReference = 040538B418AEABC600881E86 /* libMozuiOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		040538C318AEABC600881E86 /* MozuiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 040538DA18AEABC600881E86 /* Build configuration list for PBXNativeTarget "MozuiOSTests" */;
+			buildPhases = (
+				040538C018AEABC600881E86 /* Sources */,
+				040538C118AEABC600881E86 /* Frameworks */,
+				040538C218AEABC600881E86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				040538CB18AEABC600881E86 /* PBXTargetDependency */,
+			);
+			name = MozuiOSTests;
+			productName = MozuiOSTests;
+			productReference = 040538C418AEABC600881E86 /* MozuiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		040538AC18AEABC600881E86 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Volusion;
+			};
+			buildConfigurationList = 040538AF18AEABC600881E86 /* Build configuration list for PBXProject "MozuiOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 040538AB18AEABC600881E86;
+			productRefGroup = 040538B518AEABC600881E86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				040538B318AEABC600881E86 /* MozuiOS */,
+				040538C318AEABC600881E86 /* MozuiOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		040538C218AEABC600881E86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040538DE18AEAC1B00881E86 /* MozuApi in Resources */,
+				040538D218AEABC600881E86 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		040538B018AEABC600881E86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040538BF18AEABC600881E86 /* MozuiOS.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		040538C018AEABC600881E86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040538D418AEABC600881E86 /* MozuiOSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		040538CB18AEABC600881E86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 040538B318AEABC600881E86 /* MozuiOS */;
+			targetProxy = 040538CA18AEABC600881E86 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		040538D018AEABC600881E86 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				040538D118AEABC600881E86 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		040538D518AEABC600881E86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		040538D618AEABC600881E86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		040538D818AEABC600881E86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MozuiOS.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MozuiOS/MozuiOS-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		040538D918AEABC600881E86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MozuiOS.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MozuiOS/MozuiOS-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		040538DB18AEABC600881E86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MozuiOS/MozuiOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MozuiOSTests/MozuiOSTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		040538DC18AEABC600881E86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MozuiOS/MozuiOS-Prefix.pch";
+				INFOPLIST_FILE = "MozuiOSTests/MozuiOSTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		040538AF18AEABC600881E86 /* Build configuration list for PBXProject "MozuiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040538D518AEABC600881E86 /* Debug */,
+				040538D618AEABC600881E86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		040538D718AEABC600881E86 /* Build configuration list for PBXNativeTarget "MozuiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040538D818AEABC600881E86 /* Debug */,
+				040538D918AEABC600881E86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		040538DA18AEABC600881E86 /* Build configuration list for PBXNativeTarget "MozuiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040538DB18AEABC600881E86 /* Debug */,
+				040538DC18AEABC600881E86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 040538AC18AEABC600881E86 /* Project object */;
+}
