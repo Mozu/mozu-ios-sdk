@@ -4,11 +4,11 @@ PODS:
     - JSONModel
 
 DEPENDENCIES:
-  - mozu-ios-sdk (from `~/Documents/mozu-ios-sdk`)
+  - mozu-ios-sdk (from `../`)
 
 EXTERNAL SOURCES:
   mozu-ios-sdk:
-    :path: ~/Documents/mozu-ios-sdk
+    :path: ../
 
 SPEC CHECKSUMS:
   JSONModel: a5f2eb85c46df008a67569447ec408d1040d4bf4
