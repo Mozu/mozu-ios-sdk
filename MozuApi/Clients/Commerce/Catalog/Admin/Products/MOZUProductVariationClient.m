@@ -27,7 +27,9 @@
 	id url = [MOZUProductVariationURL URLForGetProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -44,7 +46,9 @@
 	id url = [MOZUProductVariationURL URLForGetProductVariationsOperationWithProductCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -75,7 +79,9 @@
 	id url = [MOZUProductVariationURL URLForUpdateProductVariationsOperationWithProductCode:productCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -92,7 +98,9 @@
 	id url = [MOZUProductVariationURL URLForUpdateProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -116,7 +124,9 @@
 	id url = [MOZUProductVariationURL URLForDeleteProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

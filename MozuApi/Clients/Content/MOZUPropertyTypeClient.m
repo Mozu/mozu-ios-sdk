@@ -27,7 +27,9 @@
 	id url = [MOZUPropertyTypeURL URLForGetPropertyTypesOperationWithPageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -44,7 +46,9 @@
 	id url = [MOZUPropertyTypeURL URLForGetPropertyTypeOperationWithPropertyTypeName:propertyTypeName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -61,7 +65,9 @@
 	id url = [MOZUPropertyTypeURL URLForPropertyValueTypesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

@@ -27,7 +27,9 @@
 	id url = [MOZUCategoryURL URLForGetCategoriesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -44,7 +46,9 @@
 	id url = [MOZUCategoryURL URLForGetCategoryOperationWithCategoryId:categoryId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -61,7 +65,9 @@
 	id url = [MOZUCategoryURL URLForGetChildCategoriesOperationWithCategoryId:categoryId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -85,7 +91,9 @@
 	id url = [MOZUCategoryURL URLForAddCategoryOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -109,7 +117,9 @@
 	id url = [MOZUCategoryURL URLForUpdateCategoryOperationWithCategoryId:categoryId cascadeVisibility:cascadeVisibility];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -133,7 +143,9 @@
 	id url = [MOZUCategoryURL URLForDeleteCategoryByIdOperationWithCategoryId:categoryId cascadeDelete:cascadeDelete];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

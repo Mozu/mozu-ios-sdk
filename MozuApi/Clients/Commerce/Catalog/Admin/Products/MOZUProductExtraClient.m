@@ -25,7 +25,9 @@
 	id url = [MOZUProductExtraURL URLForGetExtrasOperationWithProductCode:productCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -43,7 +45,9 @@
 	id url = [MOZUProductExtraURL URLForGetExtraOperationWithProductCode:productCode attributeFQN:attributeFQN];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -67,7 +71,9 @@
 	id url = [MOZUProductExtraURL URLForAddExtraOperationWithProductCode:productCode];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -91,7 +97,9 @@
 	id url = [MOZUProductExtraURL URLForUpdateExtraOperationWithProductCode:productCode attributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -115,7 +123,9 @@
 	id url = [MOZUProductExtraURL URLForDeleteExtraOperationWithProductCode:productCode attributeFQN:attributeFQN];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

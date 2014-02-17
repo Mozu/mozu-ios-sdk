@@ -26,7 +26,9 @@
 	id url = [MOZULocationInventoryURL URLForGetLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -43,7 +45,9 @@
 	id url = [MOZULocationInventoryURL URLForGetLocationInventoriesOperationWithLocationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -67,7 +71,9 @@
 	id url = [MOZULocationInventoryURL URLForAddLocationInventoryOperationWithLocationCode:locationCode];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -92,7 +98,9 @@
 	id url = [MOZULocationInventoryURL URLForUpdateLocationInventoryOperationWithLocationCode:locationCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -117,7 +125,9 @@
 	id url = [MOZULocationInventoryURL URLForDeleteLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
+
+	NSString *dataViewModeString = [NSString stringWithFormat:@"%lu", dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
