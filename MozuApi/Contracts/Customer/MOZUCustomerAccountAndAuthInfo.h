@@ -36,7 +36,7 @@ The password required to authenticate this customer account.
 /**
 The unique identifier of the customer account.
 */
-@property(nonatomic) CustomerAccount account;
+@property(nonatomic) MOZUCustomerAccount* account;
 
 @end
 

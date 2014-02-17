@@ -24,7 +24,7 @@
 		@"documentName" : documentName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName {
@@ -34,7 +34,7 @@
 		@"documentName" : documentName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -58,7 +58,7 @@
 		@"documentName" : documentName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -75,7 +75,7 @@
 		@"documentName" : documentName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

@@ -24,7 +24,7 @@
 		@"noteId" : @(noteId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
@@ -37,7 +37,7 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -53,7 +53,7 @@
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -70,7 +70,7 @@
 		@"noteId" : @(noteId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -87,7 +87,7 @@
 		@"noteId" : @(noteId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

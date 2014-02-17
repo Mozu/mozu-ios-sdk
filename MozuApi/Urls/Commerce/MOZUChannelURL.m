@@ -26,7 +26,7 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetChannelOperationWithCode:(NSString*)code {
@@ -35,7 +35,7 @@
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -49,7 +49,7 @@
 	NSString* template = @"/api/commerce/channels/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -65,7 +65,7 @@
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -81,7 +81,7 @@
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

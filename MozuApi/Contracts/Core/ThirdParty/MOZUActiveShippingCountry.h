@@ -25,7 +25,7 @@
 /**
 Array list of the active shipping carriers for the country.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* activeCarriers;
+@property(nonatomic) NSArray* activeCarriers;
 
 @property(nonatomic) NSString* countryCode;
 

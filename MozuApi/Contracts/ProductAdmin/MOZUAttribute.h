@@ -100,17 +100,17 @@ List of key-value pairs that store metadata associated with the product attribut
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) AttributeLocalizedContent content;
+@property(nonatomic) MOZUAttributeLocalizedContent* content;
 
 /**
 Properties of the validation of a product attribute, which contains rules that dictate what values are valid entries for product attributes.
 */
-@property(nonatomic) AdminAttributeValidation validation;
+@property(nonatomic) MOZUAdminAttributeValidation* validation;
 
 /**
 Array list of the defined vocabulary values for the specified product attribute. For example, for a Color attribute, vocabulary values might include black, white, and purple.

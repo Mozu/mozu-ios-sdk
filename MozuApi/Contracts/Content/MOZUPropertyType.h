@@ -92,7 +92,7 @@ List of content entity display names localized to the site or site group's defau
 /**
 Wrapper for property value type.
 */
-@property(nonatomic) PropertyValueType propertyValueType;
+@property(nonatomic) MOZUPropertyValueType* propertyValueType;
 
 @end
 

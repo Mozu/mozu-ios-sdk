@@ -42,7 +42,7 @@ Unique identifier of the shipment.
 /**
 Array list of identifiers that represent the packages in this shipment.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* packageIds;
+@property(nonatomic) NSArray* packageIds;
 
 /**
 Code that identifies the service type method used to perform the shipment, such as UPS_GROUND.
@@ -62,17 +62,17 @@ The shipping tracking number supplied by the shipping provider to track the ship
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 The address to which to shipment will ship.
 */
-@property(nonatomic) Contact destinationAddress;
+@property(nonatomic) MOZUContact* destinationAddress;
 
 /**
 The address from which the shipment will ship.
 */
-@property(nonatomic) Contact originAddress;
+@property(nonatomic) MOZUContact* originAddress;
 
 @end
 

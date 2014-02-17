@@ -21,7 +21,7 @@
 	NSString* template = @"/api/commerce/admin/locationtypes/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode {
@@ -30,7 +30,7 @@
 		@"locationTypeCode" : locationTypeCode,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -44,7 +44,7 @@
 	NSString* template = @"/api/commerce/admin/locationtypes/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -60,7 +60,7 @@
 		@"locationTypeCode" : locationTypeCode,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -76,7 +76,7 @@
 		@"locationTypeCode" : locationTypeCode,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

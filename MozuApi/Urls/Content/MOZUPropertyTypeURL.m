@@ -24,7 +24,7 @@
 		@"startIndex" : @(startIndex),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetPropertyTypeOperationWithPropertyTypeName:(NSString*)propertyTypeName {
@@ -33,14 +33,14 @@
 		@"propertyTypeName" : propertyTypeName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 +(MOZUURL*)URLForPropertyValueTypesOperation {
 	NSString* template = @"/api/content/propertytypes/propertyvaluetypes";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

@@ -30,7 +30,7 @@ The query term entered by the shopper.
 /**
 The term suggestions to return based on the specified query value.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* suggestions;
+@property(nonatomic) NSArray* suggestions;
 
 @end
 

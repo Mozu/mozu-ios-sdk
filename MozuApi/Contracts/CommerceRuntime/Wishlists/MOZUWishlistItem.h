@@ -120,12 +120,12 @@ The total of an item in a wish list. This property is not calculated at this tim
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 The properties of the product associated with an item in a wish list.
 */
-@property(nonatomic) CommerceProduct product;
+@property(nonatomic) MOZUCommerceProduct* product;
 
 /**
 Array of product discounts applicable to an item in a wish list. This property is not used at this time and is reserved for future functionality.
@@ -140,7 +140,7 @@ Array of shipping discounts applicable for an item in a wish list. This property
 /**
 The unit price of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 */
-@property(nonatomic) CommerceUnitPrice unitPrice;
+@property(nonatomic) MOZUCommerceUnitPrice* unitPrice;
 
 @end
 

@@ -36,7 +36,7 @@ The number of messages in the collection.
 /**
 Container for an item in a collection.
 */
-@property(nonatomic) ChangeMessage item;
+@property(nonatomic) MOZUChangeMessage* item;
 
 @end
 

@@ -46,7 +46,7 @@ The number of wish lists associated with a customer account. This number represe
 /**
 The aggregate total amount of all orders the shopper submitted, across all sites associated with the tenant.
 */
-@property(nonatomic) CurrencyAmount totalOrderAmount;
+@property(nonatomic) MOZUCurrencyAmount* totalOrderAmount;
 
 @end
 

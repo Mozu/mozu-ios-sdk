@@ -43,7 +43,7 @@ The total amount originally requested for this payment.
 /**
 The actions a user can perform for a payment at this time.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* availableActions;
+@property(nonatomic) NSArray* availableActions;
 
 /**
 Unique identifier of the payment transaction.
@@ -78,12 +78,12 @@ Current status of the payment transaction for the order.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Properties of the customer billing information associated with this payment.
 */
-@property(nonatomic) BillingInfo billingInfo;
+@property(nonatomic) MOZUBillingInfo* billingInfo;
 
 /**
 Container for the interactions associated with the payment, which includes details for each action performed for the payment.

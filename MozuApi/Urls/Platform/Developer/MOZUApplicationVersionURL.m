@@ -21,7 +21,7 @@
 	NSString* template = @"/api/platform/developer/applications/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetApplicationOperationWithApplicationId:(NSNumber*)applicationId {
@@ -30,7 +30,7 @@
 		@"applicationId" : @(applicationId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetApplicationVersionOperationWithApplicationVersionId:(NSInteger)applicationVersionId {
@@ -39,7 +39,7 @@
 		@"applicationVersionId" : @(applicationVersionId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetPackagesOperationWithApplicationVersionId:(NSInteger)applicationVersionId {
@@ -48,7 +48,7 @@
 		@"applicationVersionId" : @(applicationVersionId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetPackageOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
@@ -58,7 +58,7 @@
 		@"packageId" : @(packageId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetPackageItemsMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
@@ -68,7 +68,7 @@
 		@"packageId" : @(packageId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath {
@@ -79,7 +79,7 @@
 		@"itempath" : itempath,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetPackageFilesZipOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
@@ -89,7 +89,7 @@
 		@"packageId" : @(packageId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -105,7 +105,7 @@
 		@"applicationVersionId" : @(applicationVersionId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForChangePackageFileNameOrPathOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
@@ -115,7 +115,7 @@
 		@"packageId" : @(packageId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForAddPackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
@@ -126,7 +126,7 @@
 		@"filepath" : filepath,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -144,7 +144,7 @@
 		@"filepath" : filepath,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -162,7 +162,7 @@
 		@"filepath" : filepath,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

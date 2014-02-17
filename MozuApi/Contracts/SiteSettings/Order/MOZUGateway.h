@@ -32,17 +32,17 @@ If true, the credential fields for the gateway are configured with valid values.
 /**
 The types of credit cards the merchant supports using this payment gateway.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* supportedCards;
+@property(nonatomic) NSArray* supportedCards;
 
 /**
 Account information associated with the specified payment gateway.
 */
-@property(nonatomic) GatewayAccount gatewayAccount;
+@property(nonatomic) MOZUGatewayAccount* gatewayAccount;
 
 /**
 Properties of the payment gateway definition.
 */
-@property(nonatomic) GatewayDefinition gatewayDefinition;
+@property(nonatomic) MOZUGatewayDefinition* gatewayDefinition;
 
 @end
 

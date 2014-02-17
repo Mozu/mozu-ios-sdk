@@ -41,12 +41,12 @@ If the order is exempt from sales tax, the unique identifier of the tax exempt e
 /**
 The address to which the order ships.
 */
-@property(nonatomic) Address destinationAddress;
+@property(nonatomic) MOZUAddress* destinationAddress;
 
 /**
 The address from which the order ships.
 */
-@property(nonatomic) Address originAddress;
+@property(nonatomic) MOZUAddress* originAddress;
 
 @end
 

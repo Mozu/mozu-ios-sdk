@@ -67,7 +67,7 @@ List of line items in a taxable order object.
 /**
 The tax properties associated with the order.
 */
-@property(nonatomic) TaxContext taxContext;
+@property(nonatomic) MOZUTaxContext* taxContext;
 
 @end
 

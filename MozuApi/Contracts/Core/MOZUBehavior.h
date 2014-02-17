@@ -45,12 +45,12 @@ The name of the behavior.
 /**
 For validation purposes, the integer value must be a list of behavior IDs.
 */
-@property(nonatomic) NSArray<MOZUNSInteger>* requiresBehaviorIds;
+@property(nonatomic) NSArray* requiresBehaviorIds;
 
 /**
 The user types that are valid for this behavior.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* validUserTypes;
+@property(nonatomic) NSArray* validUserTypes;
 
 @end
 

@@ -56,7 +56,7 @@ The quantity of a component product in its product bundle. System-supplied and r
 /**
 Dimensions of the packaged product.
 */
-@property(nonatomic) PackageMeasurements measurements;
+@property(nonatomic) MOZUPackageMeasurements* measurements;
 
 @end
 

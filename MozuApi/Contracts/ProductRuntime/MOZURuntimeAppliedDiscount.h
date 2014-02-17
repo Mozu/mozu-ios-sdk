@@ -36,7 +36,7 @@ The value of the discount applied to the product, represented as a negative curr
 /**
 Properties of the discount currently applied to the product.
 */
-@property(nonatomic) RuntimeDiscount discount;
+@property(nonatomic) MOZURuntimeDiscount* discount;
 
 @end
 

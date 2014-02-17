@@ -42,7 +42,7 @@ If true, the product property has multiple values.
 /**
 Details of a product attribute.
 */
-@property(nonatomic) ProductAttribute attributeDetail;
+@property(nonatomic) MOZUProductAttribute* attributeDetail;
 
 /**
 List of values predefined for the product property attribute.

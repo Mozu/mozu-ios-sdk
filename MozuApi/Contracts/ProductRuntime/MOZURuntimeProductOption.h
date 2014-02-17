@@ -42,7 +42,7 @@ If true, the entity is required for the request to return a valid response.
 /**
 Details of the product option attribute.
 */
-@property(nonatomic) AttributeDetail attributeDetail;
+@property(nonatomic) MOZUAttributeDetail* attributeDetail;
 
 /**
 List of possible values for a product option attribute.

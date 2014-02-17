@@ -61,7 +61,7 @@ The type of value for the attribute, which is either ShopperEntered, AdminEntere
 /**
 Validation rules of an attribute that determine which values are valid for ShopperEntered and AdminEntered ValueTypes.
 */
-@property(nonatomic) RuntimeAttributeValidation validation;
+@property(nonatomic) MOZURuntimeAttributeValidation* validation;
 
 @end
 

@@ -57,12 +57,12 @@ The middle name or the first initial of the middle name of the contact. The maxi
 /**
 Address information for the contact.
 */
-@property(nonatomic) Address address;
+@property(nonatomic) MOZUAddress* address;
 
 /**
 List of phone numbers associated with the customer account contact.
 */
-@property(nonatomic) Phone phoneNumbers;
+@property(nonatomic) MOZUPhone* phoneNumbers;
 
 @end
 

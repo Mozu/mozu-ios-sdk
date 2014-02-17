@@ -28,7 +28,7 @@
 	NSString* template = @"/api/platform/applications/authtickets/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -42,7 +42,7 @@
 	NSString* template = @"/api/platform/applications/authtickets/refresh-ticket";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -58,7 +58,7 @@
 		@"refreshToken" : refreshToken,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

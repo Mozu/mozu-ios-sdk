@@ -122,7 +122,7 @@ The name of the website to display on the storefront with no spaces.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 The territories configured for the site that are subject to sales tax.

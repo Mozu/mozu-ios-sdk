@@ -21,7 +21,7 @@
 	NSString* template = @"/api/commerce/catalog/admin/mastercatalogs/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId {
@@ -30,7 +30,7 @@
 		@"masterCatalogId" : @(masterCatalogId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -53,7 +53,7 @@
 		@"masterCatalogId" : @(masterCatalogId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

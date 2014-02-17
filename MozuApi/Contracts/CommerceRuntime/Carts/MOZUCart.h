@@ -145,7 +145,7 @@ Unique identifier of the web session in which the cart was created or last modif
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Messages logged or created each time the cart was modified.
@@ -155,7 +155,7 @@ Messages logged or created each time the cart was modified.
 /**
 Properties of the information required to fulfill this cart.
 */
-@property(nonatomic) FulfillmentInfo fulfillmentInfo;
+@property(nonatomic) MOZUFulfillmentInfo* fulfillmentInfo;
 
 /**
 An array list of objects in the returned collection.

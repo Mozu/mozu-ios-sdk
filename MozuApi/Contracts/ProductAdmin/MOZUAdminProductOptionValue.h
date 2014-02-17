@@ -31,7 +31,7 @@ Value of the product option attribute.
 /**
 Detailed properties of the product option attribute's vocabulary value.
 */
-@property(nonatomic) AttributeVocabularyValue attributeVocabularyValueDetail;
+@property(nonatomic) MOZUAttributeVocabularyValue* attributeVocabularyValueDetail;
 
 @end
 

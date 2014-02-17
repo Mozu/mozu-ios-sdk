@@ -59,12 +59,12 @@ The numeric value that denotes the place this entity occupies in the order of th
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) CategoryLocalizedContent content;
+@property(nonatomic) MOZUCategoryLocalizedContent* content;
 
 @end
 

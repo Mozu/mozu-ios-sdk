@@ -42,12 +42,12 @@ Properties of a defined value for a product extra attribute.
 /**
 Detail of the product extra attribute vocabulary value.
 */
-@property(nonatomic) AttributeVocabularyValue attributeVocabularyValueDetail;
+@property(nonatomic) MOZUAttributeVocabularyValue* attributeVocabularyValueDetail;
 
 /**
 The difference between the price associated with this product extra and the base product. For example, if a product with a defined monogram extra costs an additional $10, the DeltaPrice value is "10".
 */
-@property(nonatomic) ProductExtraValueDeltaPrice deltaPrice;
+@property(nonatomic) MOZUProductExtraValueDeltaPrice* deltaPrice;
 
 @end
 

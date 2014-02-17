@@ -59,22 +59,22 @@ Current status of the product discount. Possible values are "Active", "Scheduled
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 List of conditions that must be met for the discount to apply.
 */
-@property(nonatomic) DiscountCondition conditions;
+@property(nonatomic) MOZUDiscountCondition* conditions;
 
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) DiscountLocalizedContent content;
+@property(nonatomic) MOZUDiscountLocalizedContent* content;
 
 /**
 Properties of the target object to which the discount applies, such as a product or an order.
 */
-@property(nonatomic) DiscountTarget target;
+@property(nonatomic) MOZUDiscountTarget* target;
 
 @end
 

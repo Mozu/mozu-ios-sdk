@@ -55,17 +55,17 @@ If true, the SEO content defined for this product in the master catalog in overr
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Localizable content for a product associated with a specific catalog. If no catalog-level content is specified, the master catalog content is used. To override content at the catalog level, the IsContentOverridden flag must be set to "true".
 */
-@property(nonatomic) ProductLocalizedContent content;
+@property(nonatomic) MOZUProductLocalizedContent* content;
 
 /**
 The price of the product associated with the specified catalog. If no price is specified in the request, this catalog uses the price defined in the master catalog. To override the product price for this catalog, the IsPriceOverridden flag must be set to "true".
 */
-@property(nonatomic) AdminProductPrice price;
+@property(nonatomic) MOZUAdminProductPrice* price;
 
 /**
 The product categories to define for the product associated with the specified catalog.
@@ -75,7 +75,7 @@ The product categories to define for the product associated with the specified c
 /**
 The SEO content of the product associated with the specific catalog. If no SEO content is specified in the request, this catalog uses the SEO content defined in the master catalog. To override the SEO content for this catalog, the IsSEOContentOverridden flag must be set to "true".
 */
-@property(nonatomic) ProductLocalizedSEOContent seoContent;
+@property(nonatomic) MOZUProductLocalizedSEOContent* seoContent;
 
 @end
 

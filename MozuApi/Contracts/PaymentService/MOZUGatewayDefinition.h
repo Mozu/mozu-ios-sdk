@@ -56,7 +56,7 @@ URL of the test payment service environment.
 /**
 Definition of the preauthorization gateway.
 */
-@property(nonatomic) PreAuthorizeDefinition preAuthorizeDefinition;
+@property(nonatomic) MOZUPreAuthorizeDefinition* preAuthorizeDefinition;
 
 @end
 

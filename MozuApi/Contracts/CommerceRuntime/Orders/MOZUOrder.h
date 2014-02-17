@@ -56,7 +56,7 @@ The total amount of the order not currently associated with a payment. The shopp
 /**
 The available order, payment, and shipment actions a user can perform for the order.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* availableActions;
+@property(nonatomic) NSArray* availableActions;
 
 /**
 Date when the order was cancelled. System-supplied and read-only.
@@ -76,7 +76,7 @@ Date when the order was closed. Closed order is an order that has been processed
 /**
 Array list of coupon codes associated with an order submitted using an external system. Mozu populates this list during the order import process.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* couponCodes;
+@property(nonatomic) NSArray* couponCodes;
 
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
@@ -311,7 +311,7 @@ Unique identifier of the web session in which the order was created or last upda
 /**
 Properties of an ad-hoc price adjustment for an order.
 */
-@property(nonatomic) Adjustment adjustment;
+@property(nonatomic) MOZUAdjustment* adjustment;
 
 /**
 Paged list collection of order attributes.
@@ -321,12 +321,12 @@ Paged list collection of order attributes.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Container for the customer billing information associated with an order.
 */
-@property(nonatomic) BillingInfo billingInfo;
+@property(nonatomic) MOZUBillingInfo* billingInfo;
 
 /**
 Paged list of notes entered when the order was modified.
@@ -336,7 +336,7 @@ Paged list of notes entered when the order was modified.
 /**
 Properties of the item fulfillment information associated with the order. Shoppers can fulfill order items using in-store pickup or direct shipping.
 */
-@property(nonatomic) FulfillmentInfo fulfillmentInfo;
+@property(nonatomic) MOZUFulfillmentInfo* fulfillmentInfo;
 
 /**
 An array list of objects in the returned collection.
@@ -376,7 +376,7 @@ Array list of the shipments defined to fulfill items in this order using the dir
 /**
 Properties of an ad-hoc price adjustment made for an order.
 */
-@property(nonatomic) Adjustment shippingAdjustment;
+@property(nonatomic) MOZUAdjustment* shippingAdjustment;
 
 /**
 List of shipping discounts to apply to the order.
@@ -386,7 +386,7 @@ List of shipping discounts to apply to the order.
 /**
 A paged list collection of shopper notes for the order.
 */
-@property(nonatomic) ShopperNotes shopperNotes;
+@property(nonatomic) MOZUShopperNotes* shopperNotes;
 
 /**
 Response returned by an order validation capability application.

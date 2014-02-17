@@ -115,12 +115,12 @@ Estimated total amount of the item, including the product price, sales tax, ship
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 The properties of the associated product.
 */
-@property(nonatomic) CommerceProduct product;
+@property(nonatomic) MOZUCommerceProduct* product;
 
 /**
 List of product-level discounts projected to apply to the cart item at checkout.
@@ -135,7 +135,7 @@ List of shipping discounts projected to apply to the cart item at checkout.
 /**
 Properties of the unit price associated with the cart item.
 */
-@property(nonatomic) CommerceUnitPrice unitPrice;
+@property(nonatomic) MOZUCommerceUnitPrice* unitPrice;
 
 @end
 

@@ -23,7 +23,7 @@
 		@"userId" : userId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetTenantScopesForUserOperationWithUserId:(NSString*)userId {
@@ -32,7 +32,7 @@
 		@"userId" : userId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

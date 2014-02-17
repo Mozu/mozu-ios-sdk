@@ -67,14 +67,14 @@ If true, this location maintains its own product inventory. If the location uses
 /**
 List of tenant-defined tags associated with this location.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* tags;
+@property(nonatomic) NSArray* tags;
 
 /**
 The physical address properties of the location.
 */
-@property(nonatomic) Address address;
+@property(nonatomic) MOZUAddress* address;
 
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 List of order fulfillment types associated with this location. The location can have fulfillment types of direct ship (DS), in-store pickup (SP), or both.
@@ -84,7 +84,7 @@ List of order fulfillment types associated with this location. The location can 
 /**
 The geographical coordinates associated with this location.
 */
-@property(nonatomic) Coordinates geo;
+@property(nonatomic) MOZUCoordinates* geo;
 
 /**
 List of location types associated with this location. You can associate individual locations with any number of location types.
@@ -94,12 +94,12 @@ List of location types associated with this location. You can associate individu
 /**
 List of standard operating hours for each day of the week this location is open for shopper business.
 */
-@property(nonatomic) RegularHours regularHours;
+@property(nonatomic) MOZURegularHours* regularHours;
 
 /**
 Properties of a fulfillment contact for the shipping origin address associated with a location.
 */
-@property(nonatomic) ShippingOriginContact shippingOriginContact;
+@property(nonatomic) MOZUShippingOriginContact* shippingOriginContact;
 
 @end
 

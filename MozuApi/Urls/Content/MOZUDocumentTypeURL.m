@@ -24,7 +24,7 @@
 		@"startIndex" : @(startIndex),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetDocumentTypeOperationWithDocumentTypeName:(NSString*)documentTypeName {
@@ -33,7 +33,7 @@
 		@"documentTypeName" : documentTypeName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kTenantPod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

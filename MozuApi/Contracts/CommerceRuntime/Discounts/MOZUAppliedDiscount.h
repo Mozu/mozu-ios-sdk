@@ -41,7 +41,7 @@ The value of the discount applied to the cart or order, represented as a negativ
 /**
 Discount currently applied to the cart or order.
 */
-@property(nonatomic) CommerceDiscount discount;
+@property(nonatomic) MOZUCommerceDiscount* discount;
 
 @end
 

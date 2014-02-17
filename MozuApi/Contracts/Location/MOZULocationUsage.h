@@ -26,19 +26,19 @@
 /**
 List of location codes to associate with the location usage. At this time, you can only specify one location code in the request for the direct ship location usage type.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* locationCodes;
+@property(nonatomic) NSArray* locationCodes;
 
 /**
 List of location type codes associated with the location usage. The location service identifies the locations of the designated type. The in-store pickup (SP) and store finder (storeFinder) location usage types allow specification or multiple location type codes.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* locationTypeCodes;
+@property(nonatomic) NSArray* locationTypeCodes;
 
 /**
 The system-defined code used to identify the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder".
 */
 @property(nonatomic) NSString* locationUsageTypeCode;
 
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 @end
 

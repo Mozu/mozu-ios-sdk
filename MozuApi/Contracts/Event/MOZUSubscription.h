@@ -42,7 +42,7 @@
 
 @property(nonatomic) NSString* notificationDeliveryType;
 
-@property(nonatomic) NSArray<MOZUNSString*>* topics;
+@property(nonatomic) NSArray* topics;
 
 @property(nonatomic) NSString* updateBy;
 

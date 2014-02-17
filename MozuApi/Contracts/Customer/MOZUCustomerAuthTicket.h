@@ -51,7 +51,7 @@ User ID associated with the customer account authentication ticket.
 /**
 Properties of the customer account associated with the authentication ticket.
 */
-@property(nonatomic) CustomerAccount customerAccount;
+@property(nonatomic) MOZUCustomerAccount* customerAccount;
 
 @end
 

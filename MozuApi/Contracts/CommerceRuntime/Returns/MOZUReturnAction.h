@@ -30,7 +30,7 @@ The name of the action to perform for the return.
 /**
 The list of returns for which to perform the action.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* returnIds;
+@property(nonatomic) NSArray* returnIds;
 
 @end
 

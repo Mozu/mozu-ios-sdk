@@ -25,7 +25,7 @@
 /**
 A document type is a template.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* documentTypes;
+@property(nonatomic) NSArray* documentTypes;
 
 /**
 If true, publishing of draft documents in this document list is enabled for the site. If false, all document changes are immediately published in live mode.

@@ -37,7 +37,7 @@ The name of the application version.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Properties of a development package of files for an application version.
@@ -47,7 +47,7 @@ Properties of a development package of files for an application version.
 /**
 Properties of a releasable package of files for an application version.
 */
-@property(nonatomic) AppDevPackage releasePackage;
+@property(nonatomic) MOZUAppDevPackage* releasePackage;
 
 @end
 

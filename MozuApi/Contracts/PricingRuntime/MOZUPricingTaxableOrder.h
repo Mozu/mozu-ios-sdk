@@ -67,7 +67,7 @@ The line items associated with the order.
 /**
 The tax properties associated with the order.
 */
-@property(nonatomic) PricingTaxContext taxContext;
+@property(nonatomic) MOZUPricingTaxContext* taxContext;
 
 @end
 

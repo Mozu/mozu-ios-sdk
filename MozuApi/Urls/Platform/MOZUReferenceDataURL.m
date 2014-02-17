@@ -23,14 +23,14 @@
 		@"countryCode" : countryCode,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetAddressSchemasOperation {
 	NSString* template = @"/api/platform/reference/addressschemas";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId {
@@ -39,14 +39,14 @@
 		@"behaviorId" : @(behaviorId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetBehaviorCategoriesOperation {
 	NSString* template = @"/api/platform/reference/behaviors/categories";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId {
@@ -55,7 +55,7 @@
 		@"categoryId" : @(categoryId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetBehaviorsOperationWithUserType:(NSString*)userType {
@@ -64,42 +64,42 @@
 		@"userType" : userType,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetContentLocalesOperation {
 	NSString* template = @"/api/platform/reference/contentLocales";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetCountriesOperation {
 	NSString* template = @"/api/platform/reference/countries";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetCurrenciesOperation {
 	NSString* template = @"/api/platform/reference/currencies";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetTimeZonesOperation {
 	NSString* template = @"/api/platform/reference/timezones";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetTopLevelDomainsOperation {
 	NSString* template = @"/api/platform/reference/topleveldomains";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter {
@@ -108,7 +108,7 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

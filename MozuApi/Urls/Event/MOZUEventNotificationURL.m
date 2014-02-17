@@ -26,7 +26,7 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 +(MOZUURL*)URLForGetEventOperationWithEventId:(NSString*)eventId {
@@ -35,7 +35,7 @@
 		@"eventId" : eventId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:kHomePod useSSL:NO];
+	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

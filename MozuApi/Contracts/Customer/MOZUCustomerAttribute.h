@@ -36,12 +36,12 @@ The fully qualified name of the attribute, which is a user defined attribute ide
 /**
 List of values for the attribute.
 */
-@property(nonatomic) NSArray<MOZUid>* values;
+@property(nonatomic) NSArray* values;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 @end
 

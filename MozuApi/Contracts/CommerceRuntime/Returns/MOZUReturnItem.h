@@ -79,7 +79,7 @@ List of merchant-supplied notes associated with the return item.
 /**
 Properties of the product definition associated with the item in the return.
 */
-@property(nonatomic) CommerceProduct product;
+@property(nonatomic) MOZUCommerceProduct* product;
 
 /**
 The list of return reasons for the item and the quantity associated with each return reason.

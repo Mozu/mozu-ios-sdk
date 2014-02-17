@@ -39,7 +39,7 @@
 
 @property(nonatomic) NSString* userId;
 
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 @end
 

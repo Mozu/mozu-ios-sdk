@@ -36,7 +36,7 @@ The number that denotes the order of the entity value within a list of entity va
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) AttributeVocabularyValueLocalizedContent content;
+@property(nonatomic) MOZUAttributeVocabularyValueLocalizedContent* content;
 
 @end
 

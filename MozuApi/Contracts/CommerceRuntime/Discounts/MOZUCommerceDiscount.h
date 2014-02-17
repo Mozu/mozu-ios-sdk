@@ -35,7 +35,7 @@ Unique identifier of the discount.
 /**
 List of cart or order items to which the discount applies, if applicable.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* itemIds;
+@property(nonatomic) NSArray* itemIds;
 
 /**
 The name of the discount, in the language specified by the LocaleCode of the storefront.

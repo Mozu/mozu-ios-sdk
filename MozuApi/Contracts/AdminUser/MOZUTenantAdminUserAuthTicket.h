@@ -42,7 +42,7 @@ Date and time when the entity was created, represented in UTC Date/Time.
 /**
 Collection of behaviors encrypted in the user authentication ticket. Behaviors are granted to users as part of the role assigned for the given tenant or developer account.
 */
-@property(nonatomic) NSArray<MOZUNSInteger>* grantedBehaviors;
+@property(nonatomic) NSArray* grantedBehaviors;
 
 /**
 Alphanumeric string used to generate a new user authentication ticket after the access token expires.
@@ -62,12 +62,12 @@ Collection of tenants for which the user authentication ticket grants access.
 /**
 Tenant information associated with the user authentication ticket.
 */
-@property(nonatomic) Tenant tenant;
+@property(nonatomic) MOZUTenant* tenant;
 
 /**
 User information associated with the authentication ticket.
 */
-@property(nonatomic) UserProfile user;
+@property(nonatomic) MOZUUserProfile* user;
 
 @end
 

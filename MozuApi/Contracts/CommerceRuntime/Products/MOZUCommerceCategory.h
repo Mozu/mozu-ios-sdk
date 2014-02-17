@@ -31,7 +31,7 @@ Identifier of the category.
 /**
 If applicable, the parent category in the category tree.
 */
-@property(nonatomic) CommerceCategory parent;
+@property(nonatomic) MOZUCommerceCategory* parent;
 
 @end
 

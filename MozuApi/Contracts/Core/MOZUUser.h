@@ -67,7 +67,7 @@ Collection of roles assigned to the user.
 /**
 Collection of system-supplied data about the user.
 */
-@property(nonatomic) UserSystemData systemData;
+@property(nonatomic) MOZUUserSystemData* systemData;
 
 @end
 

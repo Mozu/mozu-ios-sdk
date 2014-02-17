@@ -36,7 +36,7 @@ The vocabulary value of an attribute defined for a product type.
 /**
 Navigates vocabulary value details for an attribute defined for a product type.
 */
-@property(nonatomic) AttributeVocabularyValue vocabularyValueDetail;
+@property(nonatomic) MOZUAttributeVocabularyValue* vocabularyValueDetail;
 
 @end
 

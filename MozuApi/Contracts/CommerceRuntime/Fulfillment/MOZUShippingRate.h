@@ -35,7 +35,7 @@ If true, the estimated shipping rate is valid.
 /**
 Array list of validation messages associated with the shipping rate.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* messages;
+@property(nonatomic) NSArray* messages;
 
 /**
 The amount the company and the shopper pay for shipping based on the current rate. Depending on any company discounts or fees, the price the company pays for shipping may differ from what the shopper pays.

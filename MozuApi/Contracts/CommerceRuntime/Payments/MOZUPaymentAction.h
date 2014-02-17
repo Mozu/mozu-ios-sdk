@@ -67,12 +67,12 @@ The URL provided to redirect users who submit payments using PayPal Express or a
 /**
 Properties of a manually performed interaction with the payment gateway.
 */
-@property(nonatomic) PaymentGatewayInteraction manualGatewayInteraction;
+@property(nonatomic) MOZUPaymentGatewayInteraction* manualGatewayInteraction;
 
 /**
 The billing information associated with this payment action.
 */
-@property(nonatomic) BillingInfo newBillingInfo;
+@property(nonatomic) MOZUBillingInfo* newBillingInfo;
 
 @end
 

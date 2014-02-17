@@ -31,7 +31,7 @@ Carrier-supplied code that represents the shipping method service type associate
 /**
 Properties of the shipping discount.
 */
-@property(nonatomic) AppliedDiscount discount;
+@property(nonatomic) MOZUAppliedDiscount* discount;
 
 @end
 

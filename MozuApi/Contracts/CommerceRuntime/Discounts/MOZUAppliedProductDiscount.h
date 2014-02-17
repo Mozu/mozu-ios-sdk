@@ -51,7 +51,7 @@ The number of product units priced with the associated discount.
 /**
 Properties of a discount applied to a product on a storefront.
 */
-@property(nonatomic) CommerceDiscount discount;
+@property(nonatomic) MOZUCommerceDiscount* discount;
 
 @end
 

@@ -28,17 +28,17 @@
 /**
 Settings for the checkout login. Choose whether or not shoppers must first login before a purchase can be processed. Choose the option for guests to purchase without logging in, prompt guests to login, or require them to login before a purchase can be completed.
 */
-@property(nonatomic) CustomerCheckoutSettings customerCheckoutSettings;
+@property(nonatomic) MOZUCustomerCheckoutSettings* customerCheckoutSettings;
 
 /**
 Credit card payment authorization setting defined for the site for order processing.
 */
-@property(nonatomic) OrderProcessingSettings orderProcessingSettings;
+@property(nonatomic) MOZUOrderProcessingSettings* orderProcessingSettings;
 
 /**
 Payment gateway settings defined for the site. A payment gateway is an eCommerce application service provider that authorizes payments for eBusinesses, online retailers, and other stores that have an online commerce component. Currently, only the Authorize.net gateway is supported.
 */
-@property(nonatomic) PaymentSettings paymentSettings;
+@property(nonatomic) MOZUPaymentSettings* paymentSettings;
 
 @end
 

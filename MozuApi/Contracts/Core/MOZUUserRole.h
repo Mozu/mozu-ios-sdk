@@ -42,12 +42,12 @@ Unique identifier of the user the role is assigned to.
 /**
 Properties of the developer account or Mozu tenant associated with the user role.
 */
-@property(nonatomic) UserScope assignedInScope;
+@property(nonatomic) MOZUUserScope* assignedInScope;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 @end
 

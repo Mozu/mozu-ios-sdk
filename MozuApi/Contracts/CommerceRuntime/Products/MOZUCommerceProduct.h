@@ -101,7 +101,7 @@ The list of all categories associated with the product.
 /**
 Dimensions of the packaged product.
 */
-@property(nonatomic) PackageMeasurements measurements;
+@property(nonatomic) MOZUPackageMeasurements* measurements;
 
 /**
 The list of option attributes configured for the product.
@@ -111,7 +111,7 @@ The list of option attributes configured for the product.
 /**
 The price of the product that appears on the storefront including any applied discounts.
 */
-@property(nonatomic) CommerceProductPrice price;
+@property(nonatomic) MOZUCommerceProductPrice* price;
 
 /**
 Collection of property attributes defined for the item in the cart or order.

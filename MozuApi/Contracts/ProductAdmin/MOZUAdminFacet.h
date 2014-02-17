@@ -59,7 +59,7 @@ If true, disables a facet inherited from a parent category.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 For range type facets, an array of ranges to use for the facet values. For example, a price facet might have range queries for $0-$25, $25-$50, and $50-$100.
@@ -69,12 +69,12 @@ For range type facets, an array of ranges to use for the facet values. For examp
 /**
 Container for the facet source information, which includes the category, price, or attribute properties.
 */
-@property(nonatomic) FacetSource source;
+@property(nonatomic) MOZUFacetSource* source;
 
 /**
 System-supplied and read only parameter that validates a facet for its associated category.
 */
-@property(nonatomic) FacetValidity validity;
+@property(nonatomic) MOZUFacetValidity* validity;
 
 @end
 

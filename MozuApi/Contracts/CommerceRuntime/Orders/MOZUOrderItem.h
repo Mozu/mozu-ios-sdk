@@ -120,12 +120,12 @@ The total monetary sum of a specific item in an order.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 The product properties of an item in an order.
 */
-@property(nonatomic) CommerceProduct product;
+@property(nonatomic) MOZUCommerceProduct* product;
 
 /**
 List of product discounts that apply to the item in the order.
@@ -140,7 +140,7 @@ List of shipping discounts that apply to the item in the order.
 /**
 Properties of the unit price associated with the order item.
 */
-@property(nonatomic) CommerceUnitPrice unitPrice;
+@property(nonatomic) MOZUCommerceUnitPrice* unitPrice;
 
 @end
 

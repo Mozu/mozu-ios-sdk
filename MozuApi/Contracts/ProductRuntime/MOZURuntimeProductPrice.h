@@ -36,7 +36,7 @@ The sale price defined for the product.
 /**
 The discount applied to the product price.
 */
-@property(nonatomic) RuntimeAppliedDiscount discount;
+@property(nonatomic) MOZURuntimeAppliedDiscount* discount;
 
 @end
 

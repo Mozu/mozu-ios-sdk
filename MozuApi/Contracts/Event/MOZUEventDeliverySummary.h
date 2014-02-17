@@ -37,7 +37,7 @@
 
 @property(nonatomic) NSArray<MOZUEventDeliveryAttempt>* deliveryAttempts;
 
-@property(nonatomic) EventSummary eventSummary;
+@property(nonatomic) MOZUEventSummary* eventSummary;
 
 @end
 

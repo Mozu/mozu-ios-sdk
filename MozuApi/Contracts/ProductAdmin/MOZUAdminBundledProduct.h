@@ -42,27 +42,27 @@ The quantity of an individual component product in a bundle. For example, if a p
 /**
 Height of the bundle package in imperial units of feet and inches.
 */
-@property(nonatomic) Measurement packageHeight;
+@property(nonatomic) MOZUMeasurement* packageHeight;
 
 /**
 Length of the bundle package in imperial units of feet and inches.
 */
-@property(nonatomic) Measurement packageLength;
+@property(nonatomic) MOZUMeasurement* packageLength;
 
 /**
 Weight of the bundle package in imperial units of pounds and ounces.
 */
-@property(nonatomic) Measurement packageWeight;
+@property(nonatomic) MOZUMeasurement* packageWeight;
 
 /**
 Width of the bundle package in imperial units of feet and inches.
 */
-@property(nonatomic) Measurement packageWidth;
+@property(nonatomic) MOZUMeasurement* packageWidth;
 
 /**
 The price of the bundled product set for the tenant.
 */
-@property(nonatomic) AdminProductPrice price;
+@property(nonatomic) MOZUAdminProductPrice* price;
 
 @end
 

@@ -43,17 +43,17 @@ The code that identifies the store credit to apply to the order.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 The cardholder's billing contact information, including addresses.
 */
-@property(nonatomic) Contact billingContact;
+@property(nonatomic) MOZUContact* billingContact;
 
 /**
 If the customer is paying by card, the credit card information.
 */
-@property(nonatomic) PaymentCard card;
+@property(nonatomic) MOZUPaymentCard* card;
 
 @end
 

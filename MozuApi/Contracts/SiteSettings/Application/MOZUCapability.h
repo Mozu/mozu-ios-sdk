@@ -29,12 +29,12 @@
 /**
 Array list of credit types active for the capability.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* activeCreditTypes;
+@property(nonatomic) NSArray* activeCreditTypes;
 
 /**
 Array list of the countries for which this capability can actively shop.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* activeShoppingCountries;
+@property(nonatomic) NSArray* activeShoppingCountries;
 
 /**
 The enablement mode of the capability.

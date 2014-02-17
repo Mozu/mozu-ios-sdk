@@ -42,7 +42,7 @@ Date and time when the entity was created, represented in UTC Date/Time.
 /**
 Collection of behaviors encrypted in the developer account authentication ticket. Behaviors are granted to users as part of the role assigned for the given developer account.
 */
-@property(nonatomic) NSArray<MOZUNSInteger>* grantedBehaviors;
+@property(nonatomic) NSArray* grantedBehaviors;
 
 /**
 Alphanumeric string used to generate a new developer account authentication ticket after the access token expires.
@@ -57,7 +57,7 @@ The date and time the developer account refresh token expires.
 /**
 Properties of the developer account for which the user authentication ticket grants access.
 */
-@property(nonatomic) DeveloperAccount account;
+@property(nonatomic) MOZUDeveloperAccount* account;
 
 /**
 Collection of developer accounts for which the user authentication ticket grants access.
@@ -67,7 +67,7 @@ Collection of developer accounts for which the user authentication ticket grants
 /**
 User information associated with the authentication ticket.
 */
-@property(nonatomic) UserProfile user;
+@property(nonatomic) MOZUUserProfile* user;
 
 @end
 

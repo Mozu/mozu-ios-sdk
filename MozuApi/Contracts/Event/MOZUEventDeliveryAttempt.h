@@ -28,7 +28,7 @@
 
 @property(nonatomic) NSString* message;
 
-@property(nonatomic) HttpStatus httpStatus;
+@property(nonatomic) MOZUHttpStatus* httpStatus;
 
 @end
 

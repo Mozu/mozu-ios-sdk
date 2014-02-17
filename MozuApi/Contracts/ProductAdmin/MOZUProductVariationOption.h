@@ -36,7 +36,7 @@ The value of an attribute option specified for this product variation.
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) AttributeVocabularyValueLocalizedContent content;
+@property(nonatomic) MOZUAttributeVocabularyValueLocalizedContent* content;
 
 @end
 

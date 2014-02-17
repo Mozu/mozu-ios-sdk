@@ -78,22 +78,22 @@ The list of product categories for the storefront.
 /**
 The image configured for the product on the storefront.
 */
-@property(nonatomic) ProductImage image;
+@property(nonatomic) MOZUProductImage* image;
 
 /**
 Properties of the active inventory level of the associated product.
 */
-@property(nonatomic) RuntimeProductInventoryInfo inventoryInfo;
+@property(nonatomic) MOZURuntimeProductInventoryInfo* inventoryInfo;
 
 /**
 Dimensions of the packaged product.
 */
-@property(nonatomic) RuntimePackageMeasurements measurements;
+@property(nonatomic) MOZURuntimePackageMeasurements* measurements;
 
 /**
 Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
 */
-@property(nonatomic) RuntimeProductPrice price;
+@property(nonatomic) MOZURuntimeProductPrice* price;
 
 /**
 The list of product properties configured in product admin.
@@ -103,7 +103,7 @@ The list of product properties configured in product admin.
 /**
 The current state of the product and whether or not it is available for purchasing. If the product is not eligible for purchase, the validation message is included.
 */
-@property(nonatomic) ProductPurchasableState purchasableState;
+@property(nonatomic) MOZUProductPurchasableState* purchasableState;
 
 @end
 

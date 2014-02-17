@@ -185,7 +185,7 @@ Unique identifier of the web session in which the wish list was created or last 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Collection of change messages logged for each modification to a shopper wish list. System-supplied and read only.
@@ -195,7 +195,7 @@ Collection of change messages logged for each modification to a shopper wish lis
 /**
 Properties that determine how items in the wish list are fulfilled.
 */
-@property(nonatomic) FulfillmentInfo fulfillmentInfo;
+@property(nonatomic) MOZUFulfillmentInfo* fulfillmentInfo;
 
 /**
 An array list of objects in the returned collection.

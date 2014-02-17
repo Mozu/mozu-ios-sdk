@@ -69,17 +69,17 @@ The middle name or the first initial of the middle name of the contact. The maxi
 /**
 Address associated with the customer account contact.
 */
-@property(nonatomic) Address address;
+@property(nonatomic) MOZUAddress* address;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 List of phone numbers associated with the customer account contact.
 */
-@property(nonatomic) Phone phoneNumbers;
+@property(nonatomic) MOZUPhone* phoneNumbers;
 
 /**
 List of the types associated with a customer contact, such as Billing or Fulfillment.

@@ -33,7 +33,7 @@ The name of the location type.
 */
 @property(nonatomic) NSString* name;
 
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 @end
 

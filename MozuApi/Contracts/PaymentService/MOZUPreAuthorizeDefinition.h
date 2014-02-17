@@ -41,7 +41,7 @@ The test environment URL associated with the preauthorization gateway.
 /**
 The type of preauthorization gateway.
 */
-@property(nonatomic) PreAuthorizeTransactionTypeDataContract type;
+@property(nonatomic) MOZUPreAuthorizeTransactionTypeDataContract* type;
 
 @end
 

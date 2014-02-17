@@ -27,7 +27,7 @@
 /**
 Array list of actions that can be performed for the in-store pickup.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* availableActions;
+@property(nonatomic) NSArray* availableActions;
 
 /**
 The date and time the customer picked up the order items.
@@ -52,7 +52,7 @@ The fulfillment status of the in-store pickup, which is "Fulfilled," "NotFulfill
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 An array list of objects in the returned collection.

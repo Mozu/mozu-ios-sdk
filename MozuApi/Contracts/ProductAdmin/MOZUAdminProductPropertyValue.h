@@ -32,12 +32,12 @@ Value details for a product property attribute.
 /**
 Details of the vocabulary value for predefined product property attributes.
 */
-@property(nonatomic) AttributeVocabularyValue attributeVocabularyValueDetail;
+@property(nonatomic) MOZUAttributeVocabularyValue* attributeVocabularyValueDetail;
 
 /**
 Content of the product property value.
 */
-@property(nonatomic) ProductPropertyValueLocalizedContent content;
+@property(nonatomic) MOZUProductPropertyValueLocalizedContent* content;
 
 @end
 

@@ -46,12 +46,12 @@ The taxable amount that can be levied against shipping charges.
 /**
 The address to which item in the order will ship.
 */
-@property(nonatomic) Address destinationAddress;
+@property(nonatomic) MOZUAddress* destinationAddress;
 
 /**
 The address from which the item in the order will ship.
 */
-@property(nonatomic) Address originAddress;
+@property(nonatomic) MOZUAddress* originAddress;
 
 @end
 

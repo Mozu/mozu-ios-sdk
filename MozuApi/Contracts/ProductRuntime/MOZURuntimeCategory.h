@@ -37,7 +37,7 @@ The numeric value that denotes the place this entity occupies in the order of th
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) CategoryContent content;
+@property(nonatomic) MOZUCategoryContent* content;
 
 /**
 List of the subcategories in the hierarchy for the specified categories.
@@ -47,7 +47,7 @@ List of the subcategories in the hierarchy for the specified categories.
 /**
 If applicable, the parent category in the hierarchy for the specified category.
 */
-@property(nonatomic) RuntimeCategory parentCategory;
+@property(nonatomic) MOZURuntimeCategory* parentCategory;
 
 @end
 

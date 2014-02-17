@@ -129,7 +129,7 @@ List of discounts available for a product.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
@@ -139,7 +139,7 @@ Properties of a collection of component products that make up a single product b
 /**
 Product content set in product admin.
 */
-@property(nonatomic) ProductLocalizedContent content;
+@property(nonatomic) MOZUProductLocalizedContent* content;
 
 /**
 The list of extras set up in product admin.
@@ -149,7 +149,7 @@ The list of extras set up in product admin.
 /**
 Properties of the inventory levels manages for the product.
 */
-@property(nonatomic) AdminProductInventoryInfo inventoryInfo;
+@property(nonatomic) MOZUAdminProductInventoryInfo* inventoryInfo;
 
 /**
 The list of options set up in product admin.
@@ -159,24 +159,24 @@ The list of options set up in product admin.
 /**
 Height of the package in imperial units of feet and inches.
 */
-@property(nonatomic) Measurement packageHeight;
+@property(nonatomic) MOZUMeasurement* packageHeight;
 
 /**
 Length of the package in imperial units of feet and inches.
 */
-@property(nonatomic) Measurement packageLength;
+@property(nonatomic) MOZUMeasurement* packageLength;
 
 /**
 Weight of the package in imperial units of pounds and ounces.
 */
-@property(nonatomic) Measurement packageWeight;
+@property(nonatomic) MOZUMeasurement* packageWeight;
 
 /**
 Width of the package in imperial units of feet and inches.
 */
-@property(nonatomic) Measurement packageWidth;
+@property(nonatomic) MOZUMeasurement* packageWidth;
 
-@property(nonatomic) AdminProductPrice price;
+@property(nonatomic) MOZUAdminProductPrice* price;
 
 /**
 Properties defined for a product as they appear in its associated catalogs.
@@ -191,12 +191,12 @@ The list of product properties to set in product admin.
 /**
 Properties of the product publishing settings for the associated product.
 */
-@property(nonatomic) ProductPublishingInfo publishingInfo;
+@property(nonatomic) MOZUProductPublishingInfo* publishingInfo;
 
 /**
 search engine optimized product content.
 */
-@property(nonatomic) ProductLocalizedSEOContent seoContent;
+@property(nonatomic) MOZUProductLocalizedSEOContent* seoContent;
 
 /**
 The list of product variation options that exist in product admin.

@@ -30,7 +30,7 @@
 /**
 The actions a user can perform for the return at this time.
 */
-@property(nonatomic) NSArray<MOZUNSString*>* availableActions;
+@property(nonatomic) NSArray* availableActions;
 
 /**
 The code that identifies the channel associated with the return, which is typically the same channel associated with the order.
@@ -150,7 +150,7 @@ Unique identifier of the web session in which the return was created or last mod
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 An array list of objects in the returned collection.

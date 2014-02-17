@@ -48,7 +48,7 @@ The geographical region associated with this channel. This region could represen
 /**
 Array list of site identifiers associated with this channel. Each tenant site must have a channel association.
 */
-@property(nonatomic) NSArray<MOZUNSInteger>* siteIds;
+@property(nonatomic) NSArray* siteIds;
 
 /**
 Unique identifier of the Mozu tenant.
@@ -58,7 +58,7 @@ Unique identifier of the Mozu tenant.
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 @end
 

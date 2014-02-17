@@ -42,12 +42,12 @@ The carrier-supplied name for the shipping service type, such as "UPS Ground" or
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) AuditInfo auditInfo;
+@property(nonatomic) MOZUAuditInfo* auditInfo;
 
 /**
 The contact information of the person receiving the shipment or performing the pickup.
 */
-@property(nonatomic) Contact fulfillmentContact;
+@property(nonatomic) MOZUContact* fulfillmentContact;
 
 @end
 

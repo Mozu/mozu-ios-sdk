@@ -42,12 +42,12 @@ The quantity of the component product in the product bundle. System-supplied and
 /**
 Localizable product content defined for the product bundle. System-supplied and read only.
 */
-@property(nonatomic) ProductContent content;
+@property(nonatomic) MOZUProductContent* content;
 
 /**
 Dimensions of the packaged product.
 */
-@property(nonatomic) RuntimePackageMeasurements measurements;
+@property(nonatomic) MOZURuntimePackageMeasurements* measurements;
 
 @end
 
