@@ -20,12 +20,12 @@
 +(MOZUURL*)URLForGetProductsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit noCount:(NSNumber*)noCount {
 	NSString* template = @"/api/commerce/catalog/admin/products/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}&noCount={noCount}";
 	NSDictionary* params = @{
-		@"startIndex" : @(startIndex),
-		@"pageSize" : @(pageSize),
+		@"startIndex" : startIndex,
+		@"pageSize" : pageSize,
 		@"sortBy" : sortBy,
 		@"filter" : filter,
 		@"q" : q,
-		@"qLimit" : @(qLimit),
+		@"qLimit" : qLimit,
 		@"noCount" : noCount,
 	};
 

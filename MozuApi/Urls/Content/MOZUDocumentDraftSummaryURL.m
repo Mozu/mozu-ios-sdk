@@ -20,8 +20,8 @@
 +(MOZUURL*)URLForListDocumentDraftSummariesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists {
 	NSString* template = @"/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}";
 	NSDictionary* params = @{
-		@"pageSize" : @(pageSize),
-		@"startIndex" : @(startIndex),
+		@"pageSize" : pageSize,
+		@"startIndex" : startIndex,
 		@"documentLists" : documentLists,
 	};
 

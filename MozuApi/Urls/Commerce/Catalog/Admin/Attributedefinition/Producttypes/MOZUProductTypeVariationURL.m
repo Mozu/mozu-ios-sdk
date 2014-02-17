@@ -29,8 +29,8 @@
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
 		@"productCode" : productCode,
-		@"startIndex" : @(startIndex),
-		@"pageSize" : @(pageSize),
+		@"startIndex" : startIndex,
+		@"pageSize" : pageSize,
 		@"sortBy" : sortBy,
 		@"filter" : filter,
 	};

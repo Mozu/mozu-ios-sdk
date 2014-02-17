@@ -20,8 +20,8 @@
 +(MOZUURL*)URLForGetSubscriptionsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/event/push/subscriptions/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
-		@"startIndex" : @(startIndex),
-		@"pageSize" : @(pageSize),
+		@"startIndex" : startIndex,
+		@"pageSize" : pageSize,
 		@"sortBy" : sortBy,
 		@"filter" : filter,
 	};

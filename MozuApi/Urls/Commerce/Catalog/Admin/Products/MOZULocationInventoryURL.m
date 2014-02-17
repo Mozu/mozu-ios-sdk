@@ -21,8 +21,8 @@
 	NSString* template = @"/api/commerce/catalog/admin/products/{ProductCode}/LocationInventory/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
-		@"startIndex" : @(startIndex),
-		@"pageSize" : @(pageSize),
+		@"startIndex" : startIndex,
+		@"pageSize" : pageSize,
 		@"sortBy" : sortBy,
 		@"filter" : filter,
 	};

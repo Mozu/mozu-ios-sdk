@@ -20,12 +20,12 @@
 +(MOZUURL*)URLForGetOrdersOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit {
 	NSString* template = @"/api/commerce/orders/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}";
 	NSDictionary* params = @{
-		@"startIndex" : @(startIndex),
-		@"pageSize" : @(pageSize),
+		@"startIndex" : startIndex,
+		@"pageSize" : pageSize,
 		@"sortBy" : sortBy,
 		@"filter" : filter,
 		@"q" : q,
-		@"qLimit" : @(qLimit),
+		@"qLimit" : qLimit,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

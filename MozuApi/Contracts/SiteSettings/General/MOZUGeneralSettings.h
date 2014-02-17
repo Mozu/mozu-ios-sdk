@@ -25,21 +25,6 @@
 @interface MOZUGeneralSettings : JSONModel<MOZUGeneralSettings>
 
 /**
-Unique identifier of the tenant site that site uses to render content for the shopper. For example, if this site represents a third-party sales channel such as Amazon but the company wants to send shopper emails, this value represents the Mozu-hosted web storefront site that maintains this content.
-*/
-@property(nonatomic) NSNumber* templateSiteId;
-
-/**
-The name of the theme used on the storefront.
-*/
-@property(nonatomic) NSString* theme;
-
-/**
-The name of the website to display on the storefront with no spaces.
-*/
-@property(nonatomic) NSString* websiteName;
-
-/**
 If true, the site allows entry of addresses not verified by an address validation service.
 */
 @property(nonatomic) NSNumber* allowInvalidAddresses;
@@ -118,6 +103,21 @@ Choose a format to use on the site: 12-hour (hh:mm:ss tt) or 24-hour format (HH:
 Choose the time zone to use for the site.
 */
 @property(nonatomic) NSString* siteTimeZone;
+
+/**
+Unique identifier of the tenant site that site uses to render content for the shopper. For example, if this site represents a third-party sales channel such as Amazon but the company wants to send shopper emails, this value represents the Mozu-hosted web storefront site that maintains this content.
+*/
+@property(nonatomic) NSNumber* templateSiteId;
+
+/**
+The name of the theme used on the storefront.
+*/
+@property(nonatomic) NSString* theme;
+
+/**
+The name of the website to display on the storefront with no spaces.
+*/
+@property(nonatomic) NSString* websiteName;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

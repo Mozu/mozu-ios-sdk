@@ -27,7 +27,7 @@
 +(MOZUURL*)URLForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId {
 	NSString* template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
 	NSDictionary* params = @{
-		@"developerAccountId" : @(developerAccountId),
+		@"developerAccountId" : developerAccountId,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
@@ -43,7 +43,7 @@
 +(MOZUURL*)URLForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId {
 	NSString* template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
 	NSDictionary* params = @{
-		@"developerAccountId" : @(developerAccountId),
+		@"developerAccountId" : developerAccountId,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];

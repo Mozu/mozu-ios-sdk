@@ -20,8 +20,8 @@
 +(MOZUURL*)URLForGetDocumentListsOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
 	NSString* template = @"/api/content/documentlists/?pageSize={pageSize}&startIndex={startIndex}";
 	NSDictionary* params = @{
-		@"pageSize" : @(pageSize),
-		@"startIndex" : @(startIndex),
+		@"pageSize" : pageSize,
+		@"startIndex" : startIndex,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

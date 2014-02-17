@@ -27,7 +27,7 @@
 +(MOZUURL*)URLForCreateUserAuthTicketOperationWithTenantId:(NSNumber*)tenantId {
 	NSString* template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
 	NSDictionary* params = @{
-		@"tenantId" : @(tenantId),
+		@"tenantId" : tenantId,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
@@ -43,7 +43,7 @@
 +(MOZUURL*)URLForRefreshAuthTicketOperationWithTenantId:(NSNumber*)tenantId {
 	NSString* template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
 	NSDictionary* params = @{
-		@"tenantId" : @(tenantId),
+		@"tenantId" : tenantId,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];

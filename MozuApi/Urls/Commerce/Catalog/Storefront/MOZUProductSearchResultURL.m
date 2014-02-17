@@ -34,8 +34,8 @@
 		@"facetSettings" : facetSettings,
 		@"facetValueFilter" : facetValueFilter,
 		@"sortBy" : sortBy,
-		@"pageSize" : @(pageSize),
-		@"startIndex" : @(startIndex),
+		@"pageSize" : pageSize,
+		@"startIndex" : startIndex,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -45,7 +45,7 @@
 	NSString* template = @"/api/commerce/catalog/storefront/productsearch/suggest?q={q}&pageSize={pageSize}";
 	NSDictionary* params = @{
 		@"q" : q,
-		@"pageSize" : @(pageSize),
+		@"pageSize" : pageSize,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

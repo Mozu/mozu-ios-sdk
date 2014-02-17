@@ -43,8 +43,8 @@
 		@"documentListName" : documentListName,
 		@"filter" : filter,
 		@"sortBy" : sortBy,
-		@"pageSize" : @(pageSize),
-		@"startIndex" : @(startIndex),
+		@"pageSize" : pageSize,
+		@"startIndex" : startIndex,
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
