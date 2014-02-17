@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUOrderClient.h"
 #import "MOZUOrderUrl.h"
 #import "MozuOrder.h"
@@ -62,8 +61,8 @@
 	}
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUPricingTaxableOrder arrayOfModelFromDictionaries:jsonAsArray error:nil];
+		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUPricingTaxableOrder arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;

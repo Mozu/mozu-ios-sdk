@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUChannelClient.h"
 #import "MOZUChannelUrl.h"
 #import "MozuChannel.h"

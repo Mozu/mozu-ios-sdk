@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUCheckoutSettingsClient.h"
 #import "MOZUCheckoutSettingsUrl.h"
 #import "MozuCheckoutSettings.h"

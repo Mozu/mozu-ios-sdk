@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUEventDeliverySummaryClient.h"
 #import "MOZUEventDeliverySummaryUrl.h"
 #import "MozuEventDeliverySummaryCollection.h"

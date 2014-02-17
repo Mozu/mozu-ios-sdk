@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUOrderAttributeClient.h"
 #import "MOZUOrderAttributeUrl.h"
 #import "MozuOrderAttribute.h"
@@ -32,8 +31,8 @@
 	}
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUOrderAttribute arrayOfModelFromDictionaries:jsonAsArray error:nil];
+		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUOrderAttribute arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;
@@ -56,8 +55,8 @@
 	}
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUOrderAttribute arrayOfModelFromDictionaries:jsonAsArray error:nil];
+		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUOrderAttribute arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;
@@ -80,8 +79,8 @@
 	}
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUOrderAttribute arrayOfModelFromDictionaries:jsonAsArray error:nil];
+		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUOrderAttribute arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;

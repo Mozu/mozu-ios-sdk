@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUAttributeVocabularyValueClient.h"
 #import "MOZUAttributeVocabularyValueUrl.h"
 #import "MozuAttributeVocabularyValue.h"
@@ -35,8 +34,8 @@
 	}
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUAttributeVocabularyValue arrayOfModelFromDictionaries:jsonAsArray error:nil];
+		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUAttributeVocabularyValue arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;
@@ -107,8 +106,8 @@
 	}
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUAttributeVocabularyValue arrayOfModelFromDictionaries:jsonAsArray error:nil];
+		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUAttributeVocabularyValue arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;

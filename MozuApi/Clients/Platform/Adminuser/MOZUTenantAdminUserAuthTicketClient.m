@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUTenantAdminUserAuthTicketClient.h"
 #import "MOZUTenantAdminUserAuthTicketUrl.h"
 #import "MozuTenantAdminUserAuthTicket.h"

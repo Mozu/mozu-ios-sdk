@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUTransactionClient.h"
 #import "MOZUTransactionUrl.h"
 #import "MozuTransaction.h"
@@ -32,8 +31,8 @@
 	}
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUTransaction arrayOfModelFromDictionaries:jsonAsArray error:nil];
+		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUTransaction arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;

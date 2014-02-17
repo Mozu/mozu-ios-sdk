@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUReferenceDataClient.h"
 #import "MOZUReferenceDataUrl.h"
 #import "MozuTopLevelDomainCollection.h"

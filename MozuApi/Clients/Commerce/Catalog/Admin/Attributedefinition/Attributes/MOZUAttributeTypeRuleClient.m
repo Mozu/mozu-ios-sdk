@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUAttributeTypeRuleClient.h"
 #import "MOZUAttributeTypeRuleUrl.h"
 #import "MozuAttributeTypeRuleCollection.h"

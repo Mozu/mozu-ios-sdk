@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUAddressValidationRequestClient.h"
 #import "MOZUAddressValidationRequestUrl.h"
 #import "MozuAddressValidationResponse.h"

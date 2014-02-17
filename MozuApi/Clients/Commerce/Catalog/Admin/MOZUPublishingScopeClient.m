@@ -8,7 +8,6 @@
 * </auto-generated>
 */
 
-#import <Foundation/NSJSONSerialization.h>
 #import "MOZUPublishingScopeClient.h"
 #import "MOZUPublishingScopeUrl.h"
 
