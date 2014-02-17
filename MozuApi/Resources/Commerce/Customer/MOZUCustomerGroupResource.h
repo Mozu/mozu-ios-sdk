@@ -57,7 +57,7 @@ Creates a new customer group. New customer groups do not have any associated cus
 @param group Properties of the customer group to add.
 */
 
--(void)addGroupWithWithgroup:((MOZUCustomerGroup*))group userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addGroupWithWithGroup:(MOZUCustomerGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Updates the name of a defined customer group.
 @param groupId Identifier of the customer group to update.
 */
 
--(void)updateGroupWithWithgroup:((MOZUCustomerGroup*))group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateGroupWithWithGroup:(MOZUCustomerGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

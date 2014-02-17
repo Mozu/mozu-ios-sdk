@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:((MOZUAttributeVocabularyValue*))attributeVocabularyValue attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUAttributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForAddAttributeVocabularyValueOperationWithDataViewMode:dataViewMode attributeVocabularyValue:attributeVocabularyValue attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -88,7 +88,7 @@
 	}];
 }
 
--(void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:((MOZUAttributeVocabularyValue*))attributeVocabularyValue attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUAttributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:dataViewMode attributeVocabularyValue:attributeVocabularyValue attributeFQN:attributeFQN value:value userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

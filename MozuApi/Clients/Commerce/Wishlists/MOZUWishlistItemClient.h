@@ -68,7 +68,7 @@ Adds a product in a site's catalog as an item in a shopper wish list.
 @param wishlistId Unique identifier of the wish list associated with the item to add.
 */
 
-+(MOZUClient*)clientForAddItemToWishlistOperationWithWithwishlistItem:((MOZUWishlistItem*))wishlistItem wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddItemToWishlistOperationWithWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -84,7 +84,7 @@ Updates the details of an item in a shopper wish list.
 @param wishlistItemId Unique identifier of the item in the shopper wish list to update.
 */
 
-+(MOZUClient*)clientForUpdateWishlistItemOperationWithWithwishlistItem:((MOZUWishlistItem*))wishlistItem wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateWishlistItemOperationWithWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Updates the quantity of an item in a shopper wish list.

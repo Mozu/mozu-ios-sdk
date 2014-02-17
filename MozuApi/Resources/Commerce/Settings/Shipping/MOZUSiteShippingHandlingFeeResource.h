@@ -45,7 +45,7 @@ Creates a new order handling fee for the site.
 @param orderHandlingFee Properties of the order handling fee to assess for order shipment.
 */
 
--(void)createOrderHandlingFeeWithWithorderHandlingFee:((MOZUSiteShippingHandlingFee*))orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createOrderHandlingFeeWithWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -59,7 +59,7 @@ Updates the order handling fee amount for the site.
 @param orderHandlingFee The combined price for all items in the order, including all selected options but excluding any discounts.
 */
 
--(void)updateOrderHandlingFeeWithWithorderHandlingFee:((MOZUSiteShippingHandlingFee*))orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateOrderHandlingFeeWithWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

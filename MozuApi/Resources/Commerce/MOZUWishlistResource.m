@@ -71,7 +71,7 @@
 #pragma mark -
 //
 
--(void)createWishlistWithWithwishlist:((MOZUWishlist*))wishlist userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlist* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createWishlistWithWithWishlist:(MOZUWishlist*)wishlist userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlist* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUWishlistClient clientForCreateWishlistOperationWithWithwishlist:wishlist userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -88,7 +88,7 @@
 #pragma mark -
 //
 
--(void)updateWishlistWithWithwishlist:((MOZUWishlist*))wishlist wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlist* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateWishlistWithWithWishlist:(MOZUWishlist*)wishlist wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlist* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUWishlistClient clientForUpdateWishlistOperationWithWithwishlist:wishlist wishlistId:wishlistId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

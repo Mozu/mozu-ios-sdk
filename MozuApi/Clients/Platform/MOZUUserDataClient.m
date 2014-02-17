@@ -39,7 +39,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateDBValueOperationWithWithvalue:((NSString*))value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateDBValueOperationWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUUserDataURL URLForCreateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -58,7 +58,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateDBValueOperationWithWithvalue:((NSString*))value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateDBValueOperationWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUUserDataURL URLForUpdateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

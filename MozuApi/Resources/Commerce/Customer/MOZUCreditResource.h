@@ -57,7 +57,7 @@ Creates a new store credit for the customer account specified in the request.
 @param credit Properties of the store credit to create.
 */
 
--(void)addCreditWithWithcredit:((MOZUCredit*))credit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addCreditWithWithCredit:(MOZUCredit*)credit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Updates one or more properties of a defined store credit applied to a customer a
 @param code User-defined code of the store credit to update.
 */
 
--(void)updateCreditWithWithcredit:((MOZUCredit*))credit code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateCreditWithWithCredit:(MOZUCredit*)credit code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Associates an unclaimed customer credit with the shopper user authenticated in the request header.

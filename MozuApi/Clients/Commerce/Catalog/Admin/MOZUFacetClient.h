@@ -52,7 +52,7 @@ Creates a new category, price, or attribute facet. Supply the category or attrib
 @param facet Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
 */
 
-+(MOZUClient*)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:((MOZUAdminFacet*))facet userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Modifies one or more properties of a defined facet.
 @param facetId Unique identifier of the facet to modify.
 */
 
-+(MOZUClient*)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:((MOZUAdminFacet*))facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

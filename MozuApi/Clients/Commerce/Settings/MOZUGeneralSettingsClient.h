@@ -47,7 +47,7 @@ Updates a site's general global settings.
 @param generalSettings The properties of the site's general settings to update.
 */
 
-+(MOZUClient*)clientForUpdateGeneralSettingsOperationWithWithgeneralSettings:((MOZUGeneralSettings*))generalSettings userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateGeneralSettingsOperationWithWithGeneralSettings:(MOZUGeneralSettings*)generalSettings userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

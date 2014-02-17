@@ -50,7 +50,7 @@ Adds a new attribute vocabulary value.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+(MOZUClient*)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:((MOZUAttributeVocabularyValue*))attributeVocabularyValue attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUAttributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -74,7 +74,7 @@ Updates existing attribute vocabulary values.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-+(MOZUClient*)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:((MOZUAttributeVocabularyValue*))attributeVocabularyValue attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUAttributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

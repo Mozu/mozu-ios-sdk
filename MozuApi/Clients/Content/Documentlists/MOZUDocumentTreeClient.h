@@ -60,7 +60,7 @@ Updates the content associated with a document, such as a product image or PDF s
 @param documentName The name of the document, which is unique within its folder.
 */
 
-+(MOZUClient*)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:((NSInputStream*))stream documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:(NSInputStream*)stream documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -76,7 +76,7 @@ Deletes the content associated with a document, such as a product image or PDF s
 @param documentName The name of the document, which is unique within its folder.
 */
 
-+(MOZUClient*)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:((NSInputStream*))stream documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:(NSInputStream*)stream documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

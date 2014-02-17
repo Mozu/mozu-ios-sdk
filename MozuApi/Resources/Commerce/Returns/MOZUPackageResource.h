@@ -57,7 +57,7 @@ Creates a new physical package of return replacement items.
 @param returnId Unique identifier of the return for which to create a replacement package.
 */
 
--(void)createPackageWithWithpackage:((MOZUCommercePackage*))package returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createPackageWithWithPackage:(MOZUCommercePackage*)package returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -73,7 +73,7 @@ Updates one or more properties of a package associated with a return replacement
 @param returnId Unique identifier of the return associated with the replacement package to update.
 */
 
--(void)updatePackageWithWithpackage:((MOZUCommercePackage*))package returnId:(NSString*)returnId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updatePackageWithWithPackage:(MOZUCommercePackage*)package returnId:(NSString*)returnId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

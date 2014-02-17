@@ -74,7 +74,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForPerformPaymentActionOperationWithWithaction:((MOZUPaymentAction*))action orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPerformPaymentActionOperationWithWithAction:(MOZUPaymentAction*)action orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPaymentURL URLForPerformPaymentActionOperationWithOrderId:orderId paymentId:paymentId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -90,7 +90,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForCreatePaymentActionOperationWithWithaction:((MOZUPaymentAction*))action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreatePaymentActionOperationWithWithAction:(MOZUPaymentAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPaymentURL URLForCreatePaymentActionOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

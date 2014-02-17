@@ -73,7 +73,7 @@ Creates a new customer account based on the information specified in the request
 @param account Properties of the customer account to update.
 */
 
--(void)addAccountWithWithaccount:((MOZUCustomerAccount*))account userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAccountWithWithAccount:(MOZUCustomerAccount*)account userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Adds a new user login to a defined customer account.
@@ -81,7 +81,7 @@ Adds a new user login to a defined customer account.
 @param accountId Unique identifier of the customer account.
 */
 
--(void)addLoginToExistingCustomerWithWithcustomerAuthInfo:((MOZUCustomerLoginInfo*))customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addLoginToExistingCustomerWithWithCustomerAuthInfo:(MOZUCustomerLoginInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
@@ -96,7 +96,7 @@ Lock or unlock a customer account.
 @param accountId The unique identifier of the customer account.
 */
 
--(void)setLoginLockedWithWithisLocked:((BOOL))isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)setLoginLockedWithWithIsLocked:(BOOL)isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Requires the password for the customer account to be changed.
@@ -104,21 +104,21 @@ Requires the password for the customer account to be changed.
 @param accountId Unique identifier of the customer account.
 */
 
--(void)setPasswordChangeRequiredWithWithisPasswordChangeRequired:((BOOL))isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)setPasswordChangeRequiredWithWithIsPasswordChangeRequired:(BOOL)isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Creates a new customer account and logs the user associated with the customer account into the site.
 @param accountAndAuthInfo Properties of the customer account to create, including the user authentication information.
 */
 
--(void)addAccountAndLoginWithWithaccountAndAuthInfo:((MOZUCustomerAccountAndAuthInfo*))accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAccountAndLoginWithWithAccountAndAuthInfo:(MOZUCustomerAccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Creates multiple customer accounts based on the information specified in the request.
 @param customers Properties of the customer accounts to create.
 */
 
--(void)addAccountsWithWithcustomers:(NSArray<MOZUCustomerAccountAndAuthInfo>*)customers userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAccountsWithWithCustomers:(NSArray<MOZUCustomerAccountAndAuthInfo>*)customers userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the current login state of a customer account by providing the customer's email address.
@@ -139,7 +139,7 @@ Resets the password for a customer account.
 @param resetPasswordInfo Information required to reset the password for a customer account.
 */
 
--(void)resetPasswordWithWithresetPasswordInfo:((MOZUResetPasswordInfo*))resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)resetPasswordWithWithResetPasswordInfo:(MOZUResetPasswordInfo*)resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -154,7 +154,7 @@ Updates a customer account.
 @param accountId Unique identifier of the customer account.
 */
 
--(void)updateAccountWithWithaccount:((MOZUCustomerAccount*))account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateAccountWithWithAccount:(MOZUCustomerAccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

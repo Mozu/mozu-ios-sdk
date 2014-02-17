@@ -41,7 +41,7 @@
 #pragma mark -
 //
 
--(void)validateAddressWithWithaddressValidationRequest:((MOZUAddressValidationRequest*))addressValidationRequest userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAddressValidationResponse* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)validateAddressWithWithAddressValidationRequest:(MOZUAddressValidationRequest*)addressValidationRequest userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAddressValidationResponse* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUAddressValidationRequestClient clientForValidateAddressOperationWithWithaddressValidationRequest:addressValidationRequest userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)createPackageShipmentsWithWithpackageIds:((NSString*))packageIds orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createPackageShipmentsWithWithPackageIds:(NSString*)packageIds orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUShipmentClient clientForCreatePackageShipmentsOperationWithWithpackageIds:packageIds orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

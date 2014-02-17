@@ -28,7 +28,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForValidateAddressOperationWithWithaddressValidationRequest:((MOZUAddressValidationRequest*))addressValidationRequest userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForValidateAddressOperationWithWithAddressValidationRequest:(MOZUAddressValidationRequest*)addressValidationRequest userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAddressValidationRequestURL URLForValidateAddressOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

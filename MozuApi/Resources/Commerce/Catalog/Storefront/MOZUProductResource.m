@@ -71,7 +71,7 @@
 #pragma mark -
 //
 
--(void)configuredProductWithWithproductOptionSelections:((MOZUProductOptionSelections*))productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUConfiguredProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)configuredProductWithWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUConfiguredProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductClient clientForConfiguredProductOperationWithWithproductOptionSelections:productOptionSelections productCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -81,7 +81,7 @@
 	}];
 }
 
--(void)validateProductWithWithproductOptionSelections:((MOZUProductOptionSelections*))productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductValidationSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)validateProductWithWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductValidationSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductClient clientForValidateProductOperationWithWithproductOptionSelections:productOptionSelections productCode:productCode skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

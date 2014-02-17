@@ -91,7 +91,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateOrderOperationWithWithorder:((MOZUOrder*))order userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateOrderOperationWithWithOrder:(MOZUOrder*)order userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUOrderURL URLForCreateOrderOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -123,7 +123,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForPerformOrderActionOperationWithWithaction:((MOZUOrderAction*))action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPerformOrderActionOperationWithWithAction:(MOZUOrderAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUOrderURL URLForPerformOrderActionOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -146,7 +146,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateOrderDiscountOperationWithWithdiscount:((MOZUAppliedDiscount*))discount orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateOrderDiscountOperationWithWithDiscount:(MOZUAppliedDiscount*)discount orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUOrderURL URLForUpdateOrderDiscountOperationWithOrderId:orderId discountId:discountId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -190,7 +190,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForUpdateOrderOperationWithWithorder:((MOZUOrder*))order orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateOrderOperationWithWithOrder:(MOZUOrder*)order orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUOrderURL URLForUpdateOrderOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddItemToWishlistOperationWithWithwishlistItem:((MOZUWishlistItem*))wishlistItem wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddItemToWishlistOperationWithWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUWishlistItemURL URLForAddItemToWishlistOperationWithWishlistId:wishlistId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -101,7 +101,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateWishlistItemOperationWithWithwishlistItem:((MOZUWishlistItem*))wishlistItem wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateWishlistItemOperationWithWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUWishlistItemURL URLForUpdateWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

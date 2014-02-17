@@ -50,7 +50,7 @@ Creates a new merchant note for the specified order.
 @param orderId Unique identifier of the order for which to add a note.
 */
 
-+(MOZUClient*)clientForCreateOrderNoteOperationWithWithorderNote:((MOZUOrderNote*))orderNote orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateOrderNoteOperationWithWithOrderNote:(MOZUOrderNote*)orderNote orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -66,7 +66,7 @@ Updates a specific note for an order.
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForUpdateOrderNoteOperationWithWithorderNote:((MOZUOrderNote*))orderNote orderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderNoteOperationWithWithOrderNote:(MOZUOrderNote*)orderNote orderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

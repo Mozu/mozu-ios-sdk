@@ -40,7 +40,7 @@ Validates the customer address supplied in the request.
 @param addressValidationRequest Properties of the address to validate.
 */
 
--(void)validateAddressWithWithaddressValidationRequest:((MOZUAddressValidationRequest*))addressValidationRequest userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAddressValidationResponse* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)validateAddressWithWithAddressValidationRequest:(MOZUAddressValidationRequest*)addressValidationRequest userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAddressValidationResponse* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

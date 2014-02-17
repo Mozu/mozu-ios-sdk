@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateCustomerCheckoutSettingsOperationWithWithcustomerCheckoutSettings:((MOZUCustomerCheckoutSettings*))customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateCustomerCheckoutSettingsOperationWithWithCustomerCheckoutSettings:(MOZUCustomerCheckoutSettings*)customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerCheckoutSettingsURL URLForUpdateCustomerCheckoutSettingsOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

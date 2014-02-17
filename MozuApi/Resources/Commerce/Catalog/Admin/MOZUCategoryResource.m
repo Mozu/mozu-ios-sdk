@@ -71,7 +71,7 @@
 #pragma mark -
 //
 
--(void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode category:((MOZUAdminCategory*))category userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUAdminCategory*)category userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCategoryClient clientForAddCategoryOperationWithDataViewMode:dataViewMode category:category userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -88,7 +88,7 @@
 #pragma mark -
 //
 
--(void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode category:((MOZUAdminCategory*))category categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUAdminCategory*)category categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCategoryClient clientForUpdateCategoryOperationWithDataViewMode:dataViewMode category:category categoryId:categoryId cascadeVisibility:cascadeVisibility userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

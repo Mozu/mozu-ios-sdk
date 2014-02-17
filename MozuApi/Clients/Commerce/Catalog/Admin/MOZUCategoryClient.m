@@ -81,7 +81,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode category:((MOZUAdminCategory*))category userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUAdminCategory*)category userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCategoryURL URLForAddCategoryOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -105,7 +105,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode category:((MOZUAdminCategory*))category categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUAdminCategory*)category categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCategoryURL URLForUpdateCategoryOperationWithCategoryId:categoryId cascadeVisibility:cascadeVisibility];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -119,7 +119,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateReturnOperationWithWithret:((MOZUReturn*))ret userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateReturnOperationWithWithRet:(MOZUReturn*)ret userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURL URLForCreateReturnOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -135,7 +135,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForPerformPaymentActionForReturnOperationWithWithaction:((MOZUPaymentAction*))action returnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPerformPaymentActionForReturnOperationWithWithAction:(MOZUPaymentAction*)action returnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURL URLForPerformPaymentActionForReturnOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -151,7 +151,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForCreatePaymentActionForReturnOperationWithWithaction:((MOZUPaymentAction*))action returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreatePaymentActionForReturnOperationWithWithAction:(MOZUPaymentAction*)action returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURL URLForCreatePaymentActionForReturnOperationWithReturnId:returnId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -167,7 +167,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForPerformReturnActionsOperationWithWithaction:((MOZUReturnAction*))action userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPerformReturnActionsOperationWithWithAction:(MOZUReturnAction*)action userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURL URLForPerformReturnActionsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -190,7 +190,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateReturnOperationWithWithret:((MOZUReturn*))ret returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateReturnOperationWithWithRet:(MOZUReturn*)ret returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURL URLForUpdateReturnOperationWithReturnId:returnId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
--(void)createOrderAttributesWithWithorderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createOrderAttributesWithWithOrderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUOrderAttributeClient clientForCreateOrderAttributesOperationWithWithorderAttributes:orderAttributes orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
--(void)updateOrderAttributesWithWithorderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateOrderAttributesWithWithOrderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUOrderAttributeClient clientForUpdateOrderAttributesOperationWithWithorderAttributes:orderAttributes orderId:orderId removeMissing:removeMissing userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

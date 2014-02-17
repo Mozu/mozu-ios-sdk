@@ -51,7 +51,7 @@ Create a new pickup for the order specified in the request for in-store fufillme
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForCreatePickupOperationWithWithpickup:((MOZUPickup*))pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreatePickupOperationWithWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more details of a defined in-store pickup.
 @param pickupId Unique identifier of the pickup to update.
 */
 
-+(MOZUClient*)clientForUpdatePickupOperationWithWithpickup:((MOZUPickup*))pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdatePickupOperationWithWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

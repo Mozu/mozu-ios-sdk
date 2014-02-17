@@ -52,7 +52,7 @@ Creates a new channel that defines a new logical business division to use for fi
 @param channel Properties of the channel to create.
 */
 
-+(MOZUClient*)clientForCreateChannelOperationWithWithchannel:((MOZUChannel*))channel userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateChannelOperationWithWithChannel:(MOZUChannel*)channel userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more details of a defined channel, including the associated sites
 @param code User-defined code that identifies the channel to update.
 */
 
-+(MOZUClient*)clientForUpdateChannelOperationWithWithchannel:((MOZUChannel*))channel code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateChannelOperationWithWithChannel:(MOZUChannel*)channel code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

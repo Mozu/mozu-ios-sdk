@@ -42,7 +42,7 @@ Creates a new transaction for the customer account specified in the request.
 @param accountId Unique identifier of the customer account.
 */
 
-+(MOZUClient*)clientForAddTransactionOperationWithWithtransaction:((MOZUTransaction*))transaction accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddTransactionOperationWithWithTransaction:(MOZUTransaction*)transaction accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

@@ -42,7 +42,7 @@ Applies a list of attributes to the order specified in the request and defines a
 @param orderId Unique identifier of the order for which to assign the attributes.
 */
 
-+(MOZUClient*)clientForCreateOrderAttributesOperationWithWithorderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateOrderAttributesOperationWithWithOrderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -58,7 +58,7 @@ Updates one or more properties of an attribute defined for the order specified i
 @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 */
 
-+(MOZUClient*)clientForUpdateOrderAttributesOperationWithWithorderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderAttributesOperationWithWithOrderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

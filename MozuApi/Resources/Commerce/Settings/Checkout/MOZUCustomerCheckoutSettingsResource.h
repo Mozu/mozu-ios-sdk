@@ -52,7 +52,7 @@ Modifies existing site checkout settings. Modify Payment, Customer Checkout, and
 @param customerCheckoutSettings All the properties to update in the checkout settings.
 */
 
--(void)updateCustomerCheckoutSettingsWithWithcustomerCheckoutSettings:((MOZUCustomerCheckoutSettings*))customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateCustomerCheckoutSettingsWithWithCustomerCheckoutSettings:(MOZUCustomerCheckoutSettings*)customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

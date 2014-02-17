@@ -56,7 +56,7 @@ Creates a new credit card record and stores it for the customer account.
 @param accountId Unique identifier of the customer account.
 */
 
--(void)addAccountCardWithWithcard:((MOZUCard*))card accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAccountCardWithWithCard:(MOZUCard*)card accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Update one or more properties of a credit card defined for a customer account.
 @param cardId Unique identifier of the credit card.
 */
 
--(void)updateAccountCardWithWithcard:((MOZUCard*))card accountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateAccountCardWithWithCard:(MOZUCard*)card accountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

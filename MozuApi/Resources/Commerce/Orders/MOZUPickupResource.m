@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)createPickupWithWithpickup:((MOZUPickup*))pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createPickupWithWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUPickupClient clientForCreatePickupOperationWithWithpickup:pickup orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updatePickupWithWithpickup:((MOZUPickup*))pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updatePickupWithWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUPickupClient clientForUpdatePickupOperationWithWithpickup:pickup orderId:orderId pickupId:pickupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

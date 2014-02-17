@@ -45,7 +45,7 @@ Creates a new territory for which to calculate sales tax.
 @param taxableTerritory Properties of the taxable territory to create.
 */
 
--(void)addTaxableTerritoryWithWithtaxableTerritory:((MOZUTaxableTerritory*))taxableTerritory userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTaxableTerritory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addTaxableTerritoryWithWithTaxableTerritory:(MOZUTaxableTerritory*)taxableTerritory userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTaxableTerritory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -59,7 +59,7 @@ Updates one or more taxable territories configured for a site.
 @param taxableterritories Properties of the taxable territories to update.
 */
 
--(void)updateTaxableTerritoriesWithWithtaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateTaxableTerritoriesWithWithTaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

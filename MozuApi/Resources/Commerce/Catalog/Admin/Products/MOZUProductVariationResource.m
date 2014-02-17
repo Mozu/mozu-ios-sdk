@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
--(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:((MOZUProductVariationCollection*))productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariationCollection*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationsOperationWithDataViewMode:dataViewMode productVariations:productVariations productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 	}];
 }
 
--(void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariation:((MOZUProductVariation*))productVariation productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariation:(MOZUProductVariation*)productVariation productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationOperationWithDataViewMode:dataViewMode productVariation:productVariation productCode:productCode variationKey:variationKey userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

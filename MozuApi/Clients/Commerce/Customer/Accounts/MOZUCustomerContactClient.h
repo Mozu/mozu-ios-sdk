@@ -55,7 +55,7 @@ Creates a new contact for a customer account such as a new shipping address.
 @param accountId Unique identifier of the customer account containing the new contact.
 */
 
-+(MOZUClient*)clientForAddAccountContactOperationWithWithcontact:((MOZUCustomerContact*))contact accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAccountContactOperationWithWithContact:(MOZUCustomerContact*)contact accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -71,7 +71,7 @@ Updates a contact for a specified customer account such as to update addresses o
 @param contactId Unique identifer of the customer account contact being updated.
 */
 
-+(MOZUClient*)clientForUpdateAccountContactOperationWithWithcontact:((MOZUCustomerContact*))contact accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateAccountContactOperationWithWithContact:(MOZUCustomerContact*)contact accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

@@ -58,7 +58,7 @@
 #pragma mark -
 //
 
--(void)updateDiscountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode discountTarget:((MOZUDiscountTarget*))discountTarget discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountTarget* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateDiscountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode discountTarget:(MOZUDiscountTarget*)discountTarget discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountTarget* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDiscountTargetClient clientForUpdateDiscountTargetOperationWithDataViewMode:dataViewMode discountTarget:discountTarget discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

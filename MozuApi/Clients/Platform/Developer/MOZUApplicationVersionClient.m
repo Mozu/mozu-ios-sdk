@@ -158,7 +158,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddPackageOperationWithWithpackage:((MOZUAppDevPackage*))package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddPackageOperationWithWithPackage:(MOZUAppDevPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURL URLForAddPackageOperationWithApplicationVersionId:applicationVersionId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -174,7 +174,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForChangePackageFileNameOrPathOperationWithWithrenameInfo:((MOZURenameInfo*))renameInfo applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForChangePackageFileNameOrPathOperationWithWithRenameInfo:(MOZURenameInfo*)renameInfo applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURL URLForChangePackageFileNameOrPathOperationWithApplicationVersionId:applicationVersionId packageId:packageId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -190,7 +190,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForAddPackageFileOperationWithWithstream:((NSInputStream*))stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddPackageFileOperationWithWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURL URLForAddPackageFileOperationWithApplicationVersionId:applicationVersionId packageId:packageId filepath:filepath];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -213,7 +213,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdatePackageFileOperationWithWithstream:((NSInputStream*))stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdatePackageFileOperationWithWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURL URLForUpdatePackageFileOperationWithApplicationVersionId:applicationVersionId packageId:packageId filepath:filepath];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -79,7 +79,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddAccountOperationWithWithaccount:((MOZUCustomerAccount*))account userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddAccountOperationWithWithAccount:(MOZUCustomerAccount*)account userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURL URLForAddAccountOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -95,7 +95,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForAddLoginToExistingCustomerOperationWithWithcustomerAuthInfo:((MOZUCustomerLoginInfo*))customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddLoginToExistingCustomerOperationWithWithCustomerAuthInfo:(MOZUCustomerLoginInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURL URLForAddLoginToExistingCustomerOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -123,7 +123,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForSetLoginLockedOperationWithWithisLocked:((BOOL))isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForSetLoginLockedOperationWithWithIsLocked:(BOOL)isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURL URLForSetLoginLockedOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -135,7 +135,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForSetPasswordChangeRequiredOperationWithWithisPasswordChangeRequired:((BOOL))isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForSetPasswordChangeRequiredOperationWithWithIsPasswordChangeRequired:(BOOL)isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURL URLForSetPasswordChangeRequiredOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -147,7 +147,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForAddAccountAndLoginOperationWithWithaccountAndAuthInfo:((MOZUCustomerAccountAndAuthInfo*))accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddAccountAndLoginOperationWithWithAccountAndAuthInfo:(MOZUCustomerAccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURL URLForAddAccountAndLoginOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -163,7 +163,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForAddAccountsOperationWithWithcustomers:(NSArray<MOZUCustomerAccountAndAuthInfo>*)customers userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddAccountsOperationWithWithCustomers:(NSArray<MOZUCustomerAccountAndAuthInfo>*)customers userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURL URLForAddAccountsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -211,7 +211,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForResetPasswordOperationWithWithresetPasswordInfo:((MOZUResetPasswordInfo*))resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForResetPasswordOperationWithWithResetPasswordInfo:(MOZUResetPasswordInfo*)resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURL URLForResetPasswordOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -230,7 +230,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateAccountOperationWithWithaccount:((MOZUCustomerAccount*))account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateAccountOperationWithWithAccount:(MOZUCustomerAccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURL URLForUpdateAccountOperationWithAccountId:accountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

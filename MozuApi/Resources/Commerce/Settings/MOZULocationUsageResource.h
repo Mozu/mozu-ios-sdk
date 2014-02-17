@@ -61,7 +61,7 @@ Updates the location usage for the site based on the location usage code specifi
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
 
--(void)updateLocationUsageWithWithusage:((MOZULocationUsage*))usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationUsage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateLocationUsageWithWithUsage:(MOZULocationUsage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationUsage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

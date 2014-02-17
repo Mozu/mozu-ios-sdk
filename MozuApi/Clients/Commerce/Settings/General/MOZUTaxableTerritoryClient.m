@@ -45,7 +45,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddTaxableTerritoryOperationWithWithtaxableTerritory:((MOZUTaxableTerritory*))taxableTerritory userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddTaxableTerritoryOperationWithWithTaxableTerritory:(MOZUTaxableTerritory*)taxableTerritory userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTaxableTerritoryURL URLForAddTaxableTerritoryOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithWithtaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithWithTaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTaxableTerritoryURL URLForUpdateTaxableTerritoriesOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

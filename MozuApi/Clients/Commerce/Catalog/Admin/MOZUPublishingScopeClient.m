@@ -27,7 +27,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:((MOZUPublishingScope*))publishScope userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUPublishingScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPublishingScopeURL URLForDiscardDraftsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -40,7 +40,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:((MOZUPublishingScope*))publishScope userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUPublishingScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPublishingScopeURL URLForPublishDraftsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

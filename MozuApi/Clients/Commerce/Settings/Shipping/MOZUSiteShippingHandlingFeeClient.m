@@ -44,7 +44,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateOrderHandlingFeeOperationWithWithorderHandlingFee:((MOZUSiteShippingHandlingFee*))orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateOrderHandlingFeeOperationWithWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUSiteShippingHandlingFeeURL URLForCreateOrderHandlingFeeOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -67,7 +67,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateOrderHandlingFeeOperationWithWithorderHandlingFee:((MOZUSiteShippingHandlingFee*))orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateOrderHandlingFeeOperationWithWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUSiteShippingHandlingFeeURL URLForUpdateOrderHandlingFeeOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

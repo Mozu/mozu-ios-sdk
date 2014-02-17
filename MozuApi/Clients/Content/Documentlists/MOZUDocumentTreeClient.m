@@ -65,7 +65,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:((NSInputStream*))stream documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:(NSInputStream*)stream documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentTreeURL URLForUpdateTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -85,7 +85,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:((NSInputStream*))stream documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:(NSInputStream*)stream documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentTreeURL URLForDeleteTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -63,7 +63,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:((MOZUAdminFacet*))facet userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUFacetURL URLForAddFacetOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -87,7 +87,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:((MOZUAdminFacet*))facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUFacetURL URLForUpdateFacetOperationWithFacetId:facetId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

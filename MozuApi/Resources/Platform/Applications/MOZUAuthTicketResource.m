@@ -41,7 +41,7 @@
 #pragma mark -
 //
 
--(void)authenticateAppWithWithappAuthInfo:((MOZUAppAuthInfo*))appAuthInfo completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)authenticateAppWithWithAppAuthInfo:(MOZUAppAuthInfo*)appAuthInfo completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUAuthTicketClient clientForAuthenticateAppOperationWithWithappAuthInfo:appAuthInfo];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -58,7 +58,7 @@
 #pragma mark -
 //
 
--(void)refreshAppAuthTicketWithWithauthTicketRequest:((MOZUAuthTicketRequest*))authTicketRequest completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)refreshAppAuthTicketWithWithAuthTicketRequest:(MOZUAuthTicketRequest*)authTicketRequest completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUAuthTicketClient clientForRefreshAppAuthTicketOperationWithWithauthTicketRequest:authTicketRequest];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

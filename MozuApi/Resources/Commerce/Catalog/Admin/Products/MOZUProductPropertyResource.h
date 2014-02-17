@@ -55,7 +55,7 @@ Configures a property attribute for the product specified in the request.
 @param productCode 
 */
 
--(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:((MOZUAdminProductProperty*))productProperty productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -71,7 +71,7 @@ Update one or more details of a property attribute configuration for the product
 @param productCode 
 */
 
--(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:((MOZUAdminProductProperty*))productProperty productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

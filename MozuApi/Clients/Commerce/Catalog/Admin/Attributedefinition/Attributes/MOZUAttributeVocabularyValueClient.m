@@ -63,7 +63,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:((MOZUAttributeVocabularyValue*))attributeVocabularyValue attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUAttributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURL URLForAddAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -105,7 +105,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:((MOZUAttributeVocabularyValue*))attributeVocabularyValue attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUAttributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURL URLForUpdateAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

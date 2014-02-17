@@ -40,7 +40,7 @@ Generate an authentication ticket for an application.
 @param appAuthInfo Authentication information required to generate an authentication ticket includes the application id and the shared secret.
 */
 
--(void)authenticateAppWithWithappAuthInfo:((MOZUAppAuthInfo*))appAuthInfo completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)authenticateAppWithWithAppAuthInfo:(MOZUAppAuthInfo*)appAuthInfo completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -54,7 +54,7 @@ Refreshes the application's authentication ticket and generates a new access tok
 @param authTicketRequest The refresh token string required to update the application authentication ticket.
 */
 
--(void)refreshAppAuthTicketWithWithauthTicketRequest:((MOZUAuthTicketRequest*))authTicketRequest completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)refreshAppAuthTicketWithWithAuthTicketRequest:(MOZUAuthTicketRequest*)authTicketRequest completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

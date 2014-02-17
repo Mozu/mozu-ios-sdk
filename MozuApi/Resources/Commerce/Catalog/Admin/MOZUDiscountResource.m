@@ -81,7 +81,7 @@
 #pragma mark -
 //
 
--(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:((MOZUAdminDiscount*))discount userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUAdminDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDiscountClient clientForCreateDiscountOperationWithDataViewMode:dataViewMode discount:discount userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -91,7 +91,7 @@
 	}];
 }
 
--(void)redeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode redemption:((MOZURedemption*))redemption userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURedemption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)redeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode redemption:(MOZURedemption*)redemption userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURedemption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDiscountClient clientForRedeemDiscountOperationWithDataViewMode:dataViewMode redemption:redemption userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -108,7 +108,7 @@
 #pragma mark -
 //
 
--(void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:((MOZUAdminDiscount*))discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUAdminDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDiscountClient clientForUpdateDiscountOperationWithDataViewMode:dataViewMode discount:discount discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -118,7 +118,7 @@
 	}];
 }
 
--(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode content:((MOZUDiscountLocalizedContent*))content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUDiscountLocalizedContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDiscountClient clientForUpdateDiscountContentOperationWithDataViewMode:dataViewMode content:content discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

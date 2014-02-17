@@ -65,7 +65,7 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 @param category Properties of the new category. Required properties: ParentCategoryID and Content.Name.
 */
 
--(void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode category:((MOZUAdminCategory*))category userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUAdminCategory*)category userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -81,7 +81,7 @@ Modifies a category such as moving it to another location in the category tree, 
 @param categoryId Unique identifier of the category to modify.
 */
 
--(void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode category:((MOZUAdminCategory*))category categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUAdminCategory*)category categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

@@ -57,7 +57,7 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 @param attribute Properties of the new product attribute to create.
 */
 
--(void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:((MOZUAttribute*))attribute userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Updates an existing attribute with attribute properties to set.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:((MOZUAttribute*))attribute attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

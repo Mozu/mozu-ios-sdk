@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateChannelGroupOperationWithWithchannelGroup:((MOZUChannelGroup*))channelGroup userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateChannelGroupOperationWithWithChannelGroup:(MOZUChannelGroup*)channelGroup userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChannelGroupURL URLForCreateChannelGroupOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -84,7 +84,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateChannelGroupOperationWithWithchannelGroup:((MOZUChannelGroup*))channelGroup code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateChannelGroupOperationWithWithChannelGroup:(MOZUChannelGroup*)channelGroup code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChannelGroupURL URLForUpdateChannelGroupOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
