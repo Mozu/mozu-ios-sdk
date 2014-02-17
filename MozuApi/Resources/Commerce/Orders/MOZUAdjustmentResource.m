@@ -13,7 +13,7 @@
 
 
 @interface MOZUAdjustmentResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUAdjustmentResource

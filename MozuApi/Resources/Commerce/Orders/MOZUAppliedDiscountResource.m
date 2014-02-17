@@ -13,7 +13,7 @@
 
 
 @interface MOZUAppliedDiscountResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUAppliedDiscountResource

@@ -13,7 +13,7 @@
 
 
 @interface MOZUOrderNoteResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUOrderNoteResource

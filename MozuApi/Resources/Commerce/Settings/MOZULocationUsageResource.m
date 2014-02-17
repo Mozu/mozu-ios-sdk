@@ -13,7 +13,7 @@
 
 
 @interface MOZULocationUsageResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZULocationUsageResource

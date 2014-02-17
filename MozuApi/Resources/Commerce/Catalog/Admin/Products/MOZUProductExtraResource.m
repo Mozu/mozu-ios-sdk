@@ -13,7 +13,7 @@
 
 
 @interface MOZUProductExtraResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUProductExtraResource

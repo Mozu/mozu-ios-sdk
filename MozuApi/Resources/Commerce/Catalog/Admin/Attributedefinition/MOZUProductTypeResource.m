@@ -13,7 +13,7 @@
 
 
 @interface MOZUProductTypeResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUProductTypeResource

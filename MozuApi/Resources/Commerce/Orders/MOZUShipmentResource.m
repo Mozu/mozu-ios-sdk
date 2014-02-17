@@ -13,7 +13,7 @@
 
 
 @interface MOZUShipmentResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUShipmentResource

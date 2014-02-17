@@ -13,7 +13,7 @@
 
 
 @interface MOZUProductSearchResultResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUProductSearchResultResource

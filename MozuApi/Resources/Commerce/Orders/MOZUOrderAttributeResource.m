@@ -13,7 +13,7 @@
 
 
 @interface MOZUOrderAttributeResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUOrderAttributeResource

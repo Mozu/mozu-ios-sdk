@@ -13,7 +13,7 @@
 
 
 @interface MOZUCategoryResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUCategoryResource

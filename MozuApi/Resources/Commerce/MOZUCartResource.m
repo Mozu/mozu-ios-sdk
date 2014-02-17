@@ -13,7 +13,7 @@
 
 
 @interface MOZUCartResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUCartResource

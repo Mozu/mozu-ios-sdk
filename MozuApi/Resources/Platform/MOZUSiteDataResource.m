@@ -13,7 +13,7 @@
 
 
 @interface MOZUSiteDataResource()
-@property(readwrite, nonatomic) MOZUApiContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
 @implementation MOZUSiteDataResource
