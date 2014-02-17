@@ -26,7 +26,7 @@
 	id url = [MOZUProductReservationURL URLForGetProductReservationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -43,7 +43,7 @@
 	id url = [MOZUProductReservationURL URLForGetProductReservationOperationWithProductReservationId:productReservationId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -67,7 +67,7 @@
 	id url = [MOZUProductReservationURL URLForAddProductReservationsOperationWithSkipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -85,7 +85,7 @@
 	id url = [MOZUProductReservationURL URLForCommitReservationsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -105,7 +105,7 @@
 	id url = [MOZUProductReservationURL URLForUpdateProductReservationsOperationWithSkipInventoryCheck:skipInventoryCheck];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -130,7 +130,7 @@
 	id url = [MOZUProductReservationURL URLForDeleteProductReservationOperationWithProductReservationId:productReservationId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

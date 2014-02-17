@@ -26,7 +26,7 @@
 	id url = [MOZUDocumentListURL URLForGetDocumentListsOperationWithPageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -43,7 +43,7 @@
 	id url = [MOZUDocumentListURL URLForGetDocumentListOperationWithDocumentListName:documentListName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

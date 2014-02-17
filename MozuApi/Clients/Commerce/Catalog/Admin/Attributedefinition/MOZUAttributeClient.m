@@ -26,7 +26,7 @@
 	id url = [MOZUAttributeURL URLForGetAttributesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -43,7 +43,7 @@
 	id url = [MOZUAttributeURL URLForGetAttributeOperationWithAttributeFQN:attributeFQN];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -67,7 +67,7 @@
 	id url = [MOZUAttributeURL URLForAddAttributeOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -91,7 +91,7 @@
 	id url = [MOZUAttributeURL URLForUpdateAttributeOperationWithAttributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -115,7 +115,7 @@
 	id url = [MOZUAttributeURL URLForDeleteAttributeOperationWithAttributeFQN:attributeFQN];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

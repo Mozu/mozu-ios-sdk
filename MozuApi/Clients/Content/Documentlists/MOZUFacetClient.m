@@ -25,7 +25,7 @@
 	id url = [MOZUFacetURL URLForGetFacetsOperationWithDocumentListName:documentListName propertyName:propertyName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

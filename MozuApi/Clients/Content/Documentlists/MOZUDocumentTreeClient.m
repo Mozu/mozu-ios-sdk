@@ -25,7 +25,7 @@
 	id url = [MOZUDocumentTreeURL URLForGetTreeDocumentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -42,7 +42,7 @@
 	id url = [MOZUDocumentTreeURL URLForGetTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -69,7 +69,7 @@
 	id url = [MOZUDocumentTreeURL URLForUpdateTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -89,7 +89,7 @@
 	id url = [MOZUDocumentTreeURL URLForDeleteTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
-	[client setHeader:kX_VOL_DATAVIEW_MODE value:dataViewMode];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewMode];
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

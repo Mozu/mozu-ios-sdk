@@ -27,6 +27,16 @@
 @interface MOZUAdminFacet : JSONModel<MOZUAdminFacet>
 
 /**
+The numeric sequence of the facet for its associated category.
+*/
+@property(nonatomic) NSInteger order;
+
+/**
+Overrides a facet inherited from a parent category for a specified subcategory. System-supplied and read only.
+*/
+@property(nonatomic) NSNumber* overrideFacetId;
+
+/**
 Unique identifier for the storefront container used to organize products.
 */
 @property(nonatomic) NSInteger categoryId;
@@ -45,16 +55,6 @@ The type of facet. Valid values are "range," which enables creation of a range o
 If true, disables a facet inherited from a parent category.
 */
 @property(nonatomic) BOOL isHidden;
-
-/**
-The numeric sequence of the facet for its associated category.
-*/
-@property(nonatomic) NSInteger order;
-
-/**
-Overrides a facet inherited from a parent category for a specified subcategory. System-supplied and read only.
-*/
-@property(nonatomic) NSNumber* overrideFacetId;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

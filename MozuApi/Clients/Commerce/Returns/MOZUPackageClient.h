@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAuthTicket.h"
 #import "MOZUCommercePackage.h"
-#import "MOZUStream.h"
 
 
 @interface MOZUPackageClient : NSObject

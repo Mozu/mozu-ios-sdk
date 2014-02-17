@@ -13,7 +13,6 @@
 #import "MOZUAuthTicket.h"
 #import "MOZUDocument.h"
 #import "MOZUDocumentCollection.h"
-#import "MOZUStream.h"
 
 
 @interface MOZUDocumentClient : NSObject
