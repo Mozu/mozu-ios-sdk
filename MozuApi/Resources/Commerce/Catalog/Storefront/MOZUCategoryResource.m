@@ -55,7 +55,7 @@
 }
 
 -(void)categoryTreeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCategoryClient clientForGetCategoryTreeOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUCategoryClient clientForGetCategoryTreeOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

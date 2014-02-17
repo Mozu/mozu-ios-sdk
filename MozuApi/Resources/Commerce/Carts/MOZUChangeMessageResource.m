@@ -35,7 +35,7 @@
 //
 
 -(void)messagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartChangeMessageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUChangeMessageClient clientForGetMessagesOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUChangeMessageClient clientForGetMessagesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -66,7 +66,7 @@
 //
 
 -(void)removeAllMessagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUChangeMessageClient clientForRemoveAllMessagesOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUChangeMessageClient clientForRemoveAllMessagesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

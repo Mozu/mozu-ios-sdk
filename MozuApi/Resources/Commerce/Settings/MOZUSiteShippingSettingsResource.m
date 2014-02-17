@@ -35,7 +35,7 @@
 //
 
 -(void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

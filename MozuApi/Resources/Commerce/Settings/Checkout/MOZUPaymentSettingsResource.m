@@ -35,7 +35,7 @@
 //
 
 -(void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUPaymentSettingsClient clientForGetThirdPartyPaymentWorkflowsOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUPaymentSettingsClient clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

@@ -45,7 +45,7 @@
 }
 
 -(void)orCreateCartWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCartClient clientForGetOrCreateCartOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUCartClient clientForGetOrCreateCartOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -55,7 +55,7 @@
 }
 
 -(void)cartSummaryWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCartClient clientForGetCartSummaryOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUCartClient clientForGetCartSummaryOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -126,7 +126,7 @@
 }
 
 -(void)deleteCurrentCartWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCartClient clientForDeleteCurrentCartOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUCartClient clientForDeleteCurrentCartOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

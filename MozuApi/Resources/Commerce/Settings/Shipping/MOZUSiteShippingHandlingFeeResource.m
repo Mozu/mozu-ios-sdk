@@ -35,7 +35,7 @@
 //
 
 -(void)orderHandlingFeeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForGetOrderHandlingFeeOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForGetOrderHandlingFeeOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

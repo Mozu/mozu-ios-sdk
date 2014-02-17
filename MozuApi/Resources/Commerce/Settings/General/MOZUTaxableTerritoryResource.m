@@ -35,7 +35,7 @@
 //
 
 -(void)taxableTerritoriesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUTaxableTerritoryClient clientForGetTaxableTerritoriesOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUTaxableTerritoryClient clientForGetTaxableTerritoriesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

@@ -35,7 +35,7 @@
 //
 
 -(void)generalSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUGeneralSettingsClient clientForGetGeneralSettingsOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUGeneralSettingsClient clientForGetGeneralSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

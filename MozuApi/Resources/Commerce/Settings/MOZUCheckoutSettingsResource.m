@@ -35,7 +35,7 @@
 //
 
 -(void)checkoutSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCheckoutSettingsClient clientForGetCheckoutSettingsOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUCheckoutSettingsClient clientForGetCheckoutSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

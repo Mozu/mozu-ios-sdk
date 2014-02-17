@@ -65,7 +65,7 @@
 }
 
 -(void)directShipLocationWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZULocationClient clientForGetDirectShipLocationOperation userClaims:userClaims];
+	MOZUClient * client = [MOZULocationClient clientForGetDirectShipLocationOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

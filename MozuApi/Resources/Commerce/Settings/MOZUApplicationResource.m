@@ -35,7 +35,7 @@
 //
 
 -(void)thirdPartyGetApplicationWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUApplicationClient clientForThirdPartyGetApplicationOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationClient clientForThirdPartyGetApplicationOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

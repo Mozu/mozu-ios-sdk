@@ -35,7 +35,7 @@
 //
 
 -(void)locationTypesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZULocationType>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZULocationTypeClient clientForGetLocationTypesOperation userClaims:userClaims];
+	MOZUClient * client = [MOZULocationTypeClient clientForGetLocationTypesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

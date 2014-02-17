@@ -35,7 +35,7 @@
 //
 
 -(void)masterCatalogsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUMasterCatalogCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUMasterCatalogClient clientForGetMasterCatalogsOperation userClaims:userClaims];
+	MOZUClient * client = [MOZUMasterCatalogClient clientForGetMasterCatalogsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
