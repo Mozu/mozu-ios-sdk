@@ -62,14 +62,14 @@
 
 -(id)initWithHeaders:(NSDictionary*)headers {
     if (self = [super init]) {
-        self.tenantId = [headers[kX_VOL_TENANT] intValue];
-        self.siteId = [NSNumber numberWithInt:[headers[kX_VOL_SITE] intValue]];
-        self.tenantHost = headers[kX_VOL_TENANT_DOMAIN];
-        self.siteHost = headers[kX_VOL_SITE_DOMAIN];
-        self.correlationId = headers[kX_VOL_CORRELATION];
-        self.hmacSHA256 = headers[kX_VOL_HMAC_SHA256];
-        self.masterCatalogId = [NSNumber numberWithInt:[headers[kX_VOL_MASTER_CATALOG] intValue]];
-        self.catalogId = [NSNumber numberWithInt:[headers[kX_VOL_CATALOG] intValue]];
+        self.tenantId = [headers[MOZU_X_VOL_TENANT] intValue];
+        self.siteId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_SITE] intValue]];
+        self.tenantHost = headers[MOZU_X_VOL_TENANT_DOMAIN];
+        self.siteHost = headers[MOZU_X_VOL_SITE_DOMAIN];
+        self.correlationId = headers[MOZU_X_VOL_CORRELATION];
+        self.hmacSHA256 = headers[MOZU_X_VOL_HMAC_SHA256];
+        self.masterCatalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_MASTER_CATALOG] intValue]];
+        self.catalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_CATALOG] intValue]];
         
 //        if ([self.tenantHost length] != 0) {
 //            self.tenantHost = [self getURLForHost:self.tenantHost];
