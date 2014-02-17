@@ -52,7 +52,7 @@
 //
 
 -(void)performFulfillmentActionWithWithAction:(MOZUFulfillmentAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUFulfillmentActionClient clientForPerformFulfillmentActionOperationWithWithaction:action orderId:orderId userClaims:userClaims];
+	MOZUClient * client = [MOZUFulfillmentActionClient clientForPerformFulfillmentActionOperationWithWithAction:action orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -69,7 +69,7 @@
 //
 
 -(void)setFulFillmentInfoWithWithFulfillmentInfo:(MOZUFulfillmentInfo*)fulfillmentInfo orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFulfillmentInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUFulfillmentActionClient clientForSetFulFillmentInfoOperationWithWithfulfillmentInfo:fulfillmentInfo orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient * client = [MOZUFulfillmentActionClient clientForSetFulFillmentInfoOperationWithWithFulfillmentInfo:fulfillmentInfo orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

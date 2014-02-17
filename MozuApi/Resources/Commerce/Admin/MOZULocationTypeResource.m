@@ -62,7 +62,7 @@
 //
 
 -(void)addLocationTypeWithWithLocationType:(MOZULocationType*)locationType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZULocationTypeClient clientForAddLocationTypeOperationWithWithlocationType:locationType userClaims:userClaims];
+	MOZUClient * client = [MOZULocationTypeClient clientForAddLocationTypeOperationWithWithLocationType:locationType userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -79,7 +79,7 @@
 //
 
 -(void)updateLocationTypeWithWithLocationType:(MOZULocationType*)locationType locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZULocationTypeClient clientForUpdateLocationTypeOperationWithWithlocationType:locationType locationTypeCode:locationTypeCode userClaims:userClaims];
+	MOZUClient * client = [MOZULocationTypeClient clientForUpdateLocationTypeOperationWithWithLocationType:locationType locationTypeCode:locationTypeCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

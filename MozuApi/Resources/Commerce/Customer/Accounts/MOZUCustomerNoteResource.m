@@ -62,7 +62,7 @@
 //
 
 -(void)addAccountNoteWithWithNote:(MOZUCustomerNote*)note accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerNoteClient clientForAddAccountNoteOperationWithWithnote:note accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerNoteClient clientForAddAccountNoteOperationWithWithNote:note accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -79,7 +79,7 @@
 //
 
 -(void)updateAccountNoteWithWithNote:(MOZUCustomerNote*)note accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerNoteClient clientForUpdateAccountNoteOperationWithWithnote:note accountId:accountId noteId:noteId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerNoteClient clientForUpdateAccountNoteOperationWithWithNote:note accountId:accountId noteId:noteId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

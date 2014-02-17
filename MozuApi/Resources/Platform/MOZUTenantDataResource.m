@@ -52,7 +52,7 @@
 //
 
 -(void)createDBValueWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUTenantDataClient clientForCreateDBValueOperationWithWithvalue:value dbEntryQuery:dbEntryQuery];
+	MOZUClient * client = [MOZUTenantDataClient clientForCreateDBValueOperationWithWithValue:value dbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -69,7 +69,7 @@
 //
 
 -(void)updateDBValueWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUTenantDataClient clientForUpdateDBValueOperationWithWithvalue:value dbEntryQuery:dbEntryQuery];
+	MOZUClient * client = [MOZUTenantDataClient clientForUpdateDBValueOperationWithWithValue:value dbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

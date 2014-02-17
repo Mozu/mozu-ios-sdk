@@ -72,7 +72,7 @@
 //
 
 -(void)addAccountWithWithAccount:(MOZUCustomerAccount*)account userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountOperationWithWithaccount:account userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountOperationWithWithAccount:account userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -82,7 +82,7 @@
 }
 
 -(void)addLoginToExistingCustomerWithWithCustomerAuthInfo:(MOZUCustomerLoginInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForAddLoginToExistingCustomerOperationWithWithcustomerAuthInfo:customerAuthInfo accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForAddLoginToExistingCustomerOperationWithWithCustomerAuthInfo:customerAuthInfo accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -102,7 +102,7 @@
 }
 
 -(void)setLoginLockedWithWithIsLocked:(BOOL)isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForSetLoginLockedOperationWithWithisLocked:isLocked accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForSetLoginLockedOperationWithWithIsLocked:isLocked accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -112,7 +112,7 @@
 }
 
 -(void)setPasswordChangeRequiredWithWithIsPasswordChangeRequired:(BOOL)isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForSetPasswordChangeRequiredOperationWithWithisPasswordChangeRequired:isPasswordChangeRequired accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForSetPasswordChangeRequiredOperationWithWithIsPasswordChangeRequired:isPasswordChangeRequired accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -122,7 +122,7 @@
 }
 
 -(void)addAccountAndLoginWithWithAccountAndAuthInfo:(MOZUCustomerAccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountAndLoginOperationWithWithaccountAndAuthInfo:accountAndAuthInfo userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountAndLoginOperationWithWithAccountAndAuthInfo:accountAndAuthInfo userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -132,7 +132,7 @@
 }
 
 -(void)addAccountsWithWithCustomers:(NSArray<MOZUCustomerAccountAndAuthInfo>*)customers userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountsOperationWithWithcustomers:customers userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountsOperationWithWithCustomers:customers userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -162,7 +162,7 @@
 }
 
 -(void)resetPasswordWithWithResetPasswordInfo:(MOZUResetPasswordInfo*)resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForResetPasswordOperationWithWithresetPasswordInfo:resetPasswordInfo userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForResetPasswordOperationWithWithResetPasswordInfo:resetPasswordInfo userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -179,7 +179,7 @@
 //
 
 -(void)updateAccountWithWithAccount:(MOZUCustomerAccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForUpdateAccountOperationWithWithaccount:account accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForUpdateAccountOperationWithWithAccount:account accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

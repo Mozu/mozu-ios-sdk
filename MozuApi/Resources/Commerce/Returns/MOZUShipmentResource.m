@@ -52,7 +52,7 @@
 //
 
 -(void)createPackageShipmentsWithWithPackageIds:(NSString*)packageIds returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUShipmentClient clientForCreatePackageShipmentsOperationWithWithpackageIds:packageIds returnId:returnId userClaims:userClaims];
+	MOZUClient * client = [MOZUShipmentClient clientForCreatePackageShipmentsOperationWithWithPackageIds:packageIds returnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

@@ -52,7 +52,7 @@
 //
 
 -(void)addTaxableTerritoryWithWithTaxableTerritory:(MOZUTaxableTerritory*)taxableTerritory userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTaxableTerritory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUTaxableTerritoryClient clientForAddTaxableTerritoryOperationWithWithtaxableTerritory:taxableTerritory userClaims:userClaims];
+	MOZUClient * client = [MOZUTaxableTerritoryClient clientForAddTaxableTerritoryOperationWithWithTaxableTerritory:taxableTerritory userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -69,7 +69,7 @@
 //
 
 -(void)updateTaxableTerritoriesWithWithTaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUTaxableTerritoryClient clientForUpdateTaxableTerritoriesOperationWithWithtaxableterritories:taxableterritories userClaims:userClaims];
+	MOZUClient * client = [MOZUTaxableTerritoryClient clientForUpdateTaxableTerritoriesOperationWithWithTaxableterritories:taxableterritories userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

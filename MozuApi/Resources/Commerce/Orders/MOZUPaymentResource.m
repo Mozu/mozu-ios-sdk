@@ -72,7 +72,7 @@
 //
 
 -(void)performPaymentActionWithWithAction:(MOZUPaymentAction*)action orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUPaymentClient clientForPerformPaymentActionOperationWithWithaction:action orderId:orderId paymentId:paymentId userClaims:userClaims];
+	MOZUClient * client = [MOZUPaymentClient clientForPerformPaymentActionOperationWithWithAction:action orderId:orderId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -82,7 +82,7 @@
 }
 
 -(void)createPaymentActionWithWithAction:(MOZUPaymentAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUPaymentClient clientForCreatePaymentActionOperationWithWithaction:action orderId:orderId userClaims:userClaims];
+	MOZUClient * client = [MOZUPaymentClient clientForCreatePaymentActionOperationWithWithAction:action orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

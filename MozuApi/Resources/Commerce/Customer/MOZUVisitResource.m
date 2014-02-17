@@ -62,7 +62,7 @@
 //
 
 -(void)addVisitWithWithVisit:(MOZUVisit*)visit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUVisitClient clientForAddVisitOperationWithWithvisit:visit userClaims:userClaims];
+	MOZUClient * client = [MOZUVisitClient clientForAddVisitOperationWithWithVisit:visit userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -79,7 +79,7 @@
 //
 
 -(void)updateVisitWithWithVisit:(MOZUVisit*)visit visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUVisitClient clientForUpdateVisitOperationWithWithvisit:visit visitId:visitId userClaims:userClaims];
+	MOZUClient * client = [MOZUVisitClient clientForUpdateVisitOperationWithWithVisit:visit visitId:visitId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

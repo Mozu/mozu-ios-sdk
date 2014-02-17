@@ -59,7 +59,7 @@
 //
 
 -(void)updateCustomerCheckoutSettingsWithWithCustomerCheckoutSettings:(MOZUCustomerCheckoutSettings*)customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerCheckoutSettingsClient clientForUpdateCustomerCheckoutSettingsOperationWithWithcustomerCheckoutSettings:customerCheckoutSettings userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerCheckoutSettingsClient clientForUpdateCustomerCheckoutSettingsOperationWithWithCustomerCheckoutSettings:customerCheckoutSettings userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

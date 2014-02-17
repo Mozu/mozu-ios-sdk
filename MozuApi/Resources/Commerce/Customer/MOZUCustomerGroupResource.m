@@ -62,7 +62,7 @@
 //
 
 -(void)addGroupWithWithGroup:(MOZUCustomerGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerGroupClient clientForAddGroupOperationWithWithgroup:group userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerGroupClient clientForAddGroupOperationWithWithGroup:group userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -79,7 +79,7 @@
 //
 
 -(void)updateGroupWithWithGroup:(MOZUCustomerGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerGroupClient clientForUpdateGroupOperationWithWithgroup:group groupId:groupId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerGroupClient clientForUpdateGroupOperationWithWithGroup:group groupId:groupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

@@ -62,7 +62,7 @@
 //
 
 -(void)addInStockNotificationSubscriptionWithWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithWithinStockNotificationSubscription:inStockNotificationSubscription userClaims:userClaims];
+	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithWithInStockNotificationSubscription:inStockNotificationSubscription userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

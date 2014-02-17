@@ -59,7 +59,7 @@
 //
 
 -(void)updateGeneralSettingsWithWithGeneralSettings:(MOZUGeneralSettings*)generalSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUGeneralSettingsClient clientForUpdateGeneralSettingsOperationWithWithgeneralSettings:generalSettings userClaims:userClaims];
+	MOZUClient * client = [MOZUGeneralSettingsClient clientForUpdateGeneralSettingsOperationWithWithGeneralSettings:generalSettings userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

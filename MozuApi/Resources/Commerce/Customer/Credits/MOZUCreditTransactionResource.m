@@ -52,7 +52,7 @@
 //
 
 -(void)addTransactionWithWithCreditTransaction:(MOZUCreditTransaction*)creditTransaction code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCreditTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCreditTransactionClient clientForAddTransactionOperationWithWithcreditTransaction:creditTransaction code:code userClaims:userClaims];
+	MOZUClient * client = [MOZUCreditTransactionClient clientForAddTransactionOperationWithWithCreditTransaction:creditTransaction code:code userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

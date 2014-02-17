@@ -42,7 +42,7 @@
 //
 
 -(void)createUserAuthTicketWithWithUserAuthInfo:(MOZUCustomerUserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithWithuserAuthInfo:userAuthInfo userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithWithUserAuthInfo:userAuthInfo userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

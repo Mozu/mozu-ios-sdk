@@ -62,7 +62,7 @@
 //
 
 -(void)createChannelWithWithChannel:(MOZUChannel*)channel userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUChannelClient clientForCreateChannelOperationWithWithchannel:channel userClaims:userClaims];
+	MOZUClient * client = [MOZUChannelClient clientForCreateChannelOperationWithWithChannel:channel userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -79,7 +79,7 @@
 //
 
 -(void)updateChannelWithWithChannel:(MOZUChannel*)channel code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUChannelClient clientForUpdateChannelOperationWithWithchannel:channel code:code userClaims:userClaims];
+	MOZUClient * client = [MOZUChannelClient clientForUpdateChannelOperationWithWithChannel:channel code:code userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

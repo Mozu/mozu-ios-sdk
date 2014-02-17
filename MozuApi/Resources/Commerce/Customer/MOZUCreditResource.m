@@ -62,7 +62,7 @@
 //
 
 -(void)addCreditWithWithCredit:(MOZUCredit*)credit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCreditClient clientForAddCreditOperationWithWithcredit:credit userClaims:userClaims];
+	MOZUClient * client = [MOZUCreditClient clientForAddCreditOperationWithWithCredit:credit userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -79,7 +79,7 @@
 //
 
 -(void)updateCreditWithWithCredit:(MOZUCredit*)credit code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCreditClient clientForUpdateCreditOperationWithWithcredit:credit code:code userClaims:userClaims];
+	MOZUClient * client = [MOZUCreditClient clientForUpdateCreditOperationWithWithCredit:credit code:code userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {

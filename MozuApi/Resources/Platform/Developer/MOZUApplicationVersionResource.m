@@ -122,7 +122,7 @@
 //
 
 -(void)addPackageWithWithPackage:(MOZUAppDevPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevPackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageOperationWithWithpackage:package applicationVersionId:applicationVersionId userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageOperationWithWithPackage:package applicationVersionId:applicationVersionId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -132,7 +132,7 @@
 }
 
 -(void)changePackageFileNameOrPathWithWithRenameInfo:(MOZURenameInfo*)renameInfo applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUApplicationVersionClient clientForChangePackageFileNameOrPathOperationWithWithrenameInfo:renameInfo applicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationVersionClient clientForChangePackageFileNameOrPathOperationWithWithRenameInfo:renameInfo applicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -142,7 +142,7 @@
 }
 
 -(void)addPackageFileWithWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageFileOperationWithWithstream:stream applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageFileOperationWithWithStream:stream applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
@@ -159,7 +159,7 @@
 //
 
 -(void)updatePackageFileWithWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUApplicationVersionClient clientForUpdatePackageFileOperationWithWithstream:stream applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationVersionClient clientForUpdatePackageFileOperationWithWithStream:stream applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil {
