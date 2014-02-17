@@ -39,13 +39,13 @@ Retrieves the cart specified in the request.
 Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
 */
 
--(void)orCreateCart userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)orCreateCartWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 */
 
--(void)cartSummary userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)cartSummaryWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the cart of the user specified in the request.
@@ -100,7 +100,7 @@ Deletes the cart specified in the request.
 Deletes the cart of the currently active shopper.
 */
 
--(void)deleteCurrentCart userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)deleteCurrentCartWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 

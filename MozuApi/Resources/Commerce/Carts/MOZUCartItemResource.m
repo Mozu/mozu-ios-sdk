@@ -34,7 +34,7 @@
 #pragma mark -
 //
 
--(void)cartItems userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItemCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)cartItemsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItemCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCartItemClient clientForGetCartItemsOperation userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -105,7 +105,7 @@
 #pragma mark -
 //
 
--(void)removeAllCartItems userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)removeAllCartItemsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCartItemClient clientForRemoveAllCartItemsOperation userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

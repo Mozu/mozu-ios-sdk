@@ -27,7 +27,7 @@
 Retrieves the configured site location usages for the location usage code specified in the request.
 */
 
-+(MOZUClient*)clientForGetLocationUsagesOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLocationUsagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the location usages for the site specified in the request header.

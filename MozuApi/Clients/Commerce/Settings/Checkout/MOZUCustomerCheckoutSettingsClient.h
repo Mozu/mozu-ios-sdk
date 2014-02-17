@@ -26,7 +26,7 @@
 Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
 */
 
-+(MOZUClient*)clientForGetCustomerCheckoutSettingsOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCustomerCheckoutSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

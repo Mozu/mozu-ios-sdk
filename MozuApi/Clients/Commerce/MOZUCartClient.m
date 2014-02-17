@@ -38,7 +38,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetOrCreateCartOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetOrCreateCartOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForGetOrCreateCartOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -54,7 +54,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetCartSummaryOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetCartSummaryOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForGetCartSummaryOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -151,7 +151,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForDeleteCurrentCartOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeleteCurrentCartOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForDeleteCurrentCartOperation];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

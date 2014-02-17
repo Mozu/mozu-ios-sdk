@@ -26,7 +26,7 @@
 Retrieve a site's general global settings.
 */
 
-+(MOZUClient*)clientForGetGeneralSettingsOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetGeneralSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

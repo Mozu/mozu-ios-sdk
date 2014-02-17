@@ -55,7 +55,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetCategoryTreeOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetCategoryTreeOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCategoryURL URLForGetCategoryTreeOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

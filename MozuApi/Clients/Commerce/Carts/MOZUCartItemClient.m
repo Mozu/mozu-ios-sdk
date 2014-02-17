@@ -23,7 +23,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetCartItemsOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetCartItemsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartItemURL URLForGetCartItemsOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -124,7 +124,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRemoveAllCartItemsOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForRemoveAllCartItemsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartItemURL URLForRemoveAllCartItemsOperation];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

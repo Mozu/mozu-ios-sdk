@@ -31,7 +31,7 @@
 Retrieves a list of the shipping settings configured for a site.
 */
 
--(void)siteShippingSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

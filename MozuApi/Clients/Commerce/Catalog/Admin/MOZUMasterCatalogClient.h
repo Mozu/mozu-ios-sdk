@@ -27,7 +27,7 @@
 Retrieve the details of all master catalog associated with a tenant.
 */
 
-+(MOZUClient*)clientForGetMasterCatalogsOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetMasterCatalogsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieve the details of the master catalog specified in the request.

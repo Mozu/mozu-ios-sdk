@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetOrderHandlingFeeOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetOrderHandlingFeeOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUSiteShippingHandlingFeeURL URLForGetOrderHandlingFeeOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

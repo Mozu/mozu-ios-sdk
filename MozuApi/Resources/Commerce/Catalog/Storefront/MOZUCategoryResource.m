@@ -54,7 +54,7 @@
 	}];
 }
 
--(void)categoryTree userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)categoryTreeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCategoryClient clientForGetCategoryTreeOperation userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

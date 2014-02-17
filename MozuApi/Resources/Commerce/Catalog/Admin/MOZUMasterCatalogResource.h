@@ -32,7 +32,7 @@
 Retrieve the details of all master catalog associated with a tenant.
 */
 
--(void)masterCatalogs userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUMasterCatalogCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)masterCatalogsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUMasterCatalogCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieve the details of the master catalog specified in the request.

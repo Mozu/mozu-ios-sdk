@@ -34,7 +34,7 @@
 #pragma mark -
 //
 
--(void)allApplications userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApplicationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)allApplicationsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApplicationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUApplicationVersionClient clientForGetAllApplicationsOperation userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

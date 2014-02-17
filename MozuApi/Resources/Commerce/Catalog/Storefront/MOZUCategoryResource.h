@@ -51,7 +51,7 @@ Retrieves the details of a single category.
 Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
 */
 
--(void)categoryTree userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)categoryTreeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

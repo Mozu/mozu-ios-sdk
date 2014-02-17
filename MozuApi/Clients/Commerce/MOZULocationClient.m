@@ -70,7 +70,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetDirectShipLocationOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetDirectShipLocationOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationURL URLForGetDirectShipLocationOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

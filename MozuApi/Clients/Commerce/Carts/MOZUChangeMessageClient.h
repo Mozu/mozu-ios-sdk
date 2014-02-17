@@ -26,7 +26,7 @@
 Retrieves the messages associated with the current shopper's cart.
 */
 
-+(MOZUClient*)clientForGetMessagesOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetMessagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -53,7 +53,7 @@ Retrieves the messages associated with the current shopper's cart.
 Deletes all messages associated with the cart of the current shopper.
 */
 
-+(MOZUClient*)clientForRemoveAllMessagesOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForRemoveAllMessagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Removes a single message associated with the cart of the current shopper.

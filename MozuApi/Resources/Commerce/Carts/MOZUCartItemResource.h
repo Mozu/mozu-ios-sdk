@@ -33,7 +33,7 @@
 Retrieves a list of cart items including the total number of items in the cart.
 */
 
--(void)cartItems userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItemCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)cartItemsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItemCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves a particular cart item by providing the cart item ID.
@@ -90,7 +90,7 @@ Update the quantity of an individual cart item in the cart of the current shoppe
 Removes all items in the current shopper's active cart.
 */
 
--(void)removeAllCartItems userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)removeAllCartItemsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Deletes a specific cart item by providing the cart item ID.

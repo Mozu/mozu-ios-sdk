@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetTaxableTerritoriesOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetTaxableTerritoriesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTaxableTerritoryURL URLForGetTaxableTerritoriesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

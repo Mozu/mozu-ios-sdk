@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetMessagesOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetMessagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChangeMessageURL URLForGetMessagesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -58,7 +58,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRemoveAllMessagesOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForRemoveAllMessagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChangeMessageURL URLForRemoveAllMessagesOperation];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetLocationUsagesOperation userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetLocationUsagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationUsageURL URLForGetLocationUsagesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

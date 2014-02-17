@@ -31,7 +31,7 @@
 Retrieves the messages associated with the current shopper's cart.
 */
 
--(void)messages userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartChangeMessageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)messagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartChangeMessageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -58,7 +58,7 @@ Retrieves the messages associated with the current shopper's cart.
 Deletes all messages associated with the cart of the current shopper.
 */
 
--(void)removeAllMessages userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)removeAllMessagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Removes a single message associated with the cart of the current shopper.

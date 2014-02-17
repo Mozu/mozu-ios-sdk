@@ -34,7 +34,7 @@
 Retrieves the list of applications associated with the developer account scoped to the user claim specified in the request.
 */
 
-+(MOZUClient*)clientForGetAllApplicationsOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAllApplicationsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of the application specified in the request. The application specified in the request must be associated with the developer account scoped to the user claim specified in the request header, otherwise the operation returns an error.

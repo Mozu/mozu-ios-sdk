@@ -26,7 +26,7 @@
 Retrieve the settings of a third-party application.
 */
 
-+(MOZUClient*)clientForThirdPartyGetApplicationOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

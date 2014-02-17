@@ -32,7 +32,7 @@
 Retrieves the configured site location usages for the location usage code specified in the request.
 */
 
--(void)locationUsages userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationUsageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)locationUsagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationUsageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the location usages for the site specified in the request header.

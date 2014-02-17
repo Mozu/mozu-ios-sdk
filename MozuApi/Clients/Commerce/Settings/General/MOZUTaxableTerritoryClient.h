@@ -26,7 +26,7 @@
 Retrieves a list of the taxable territories configured for the site.
 */
 
-+(MOZUClient*)clientForGetTaxableTerritoriesOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetTaxableTerritoriesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

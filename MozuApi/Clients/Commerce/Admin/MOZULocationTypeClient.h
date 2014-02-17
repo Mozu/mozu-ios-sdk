@@ -26,7 +26,7 @@
 Retrieve a list of all location types defined for the tenant.
 */
 
-+(MOZUClient*)clientForGetLocationTypesOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLocationTypesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of the location type specified in the request.

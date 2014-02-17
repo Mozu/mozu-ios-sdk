@@ -34,13 +34,13 @@ Retrieves the cart specified in the request.
 Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
 */
 
-+(MOZUClient*)clientForGetOrCreateCartOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOrCreateCartOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 */
 
-+(MOZUClient*)clientForGetCartSummaryOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCartSummaryOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the cart of the user specified in the request.
@@ -95,7 +95,7 @@ Deletes the cart specified in the request.
 Deletes the cart of the currently active shopper.
 */
 
-+(MOZUClient*)clientForDeleteCurrentCartOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteCurrentCartOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

@@ -26,7 +26,7 @@
 Retrieves the details of the order handling fee configured for the site.
 */
 
-+(MOZUClient*)clientForGetOrderHandlingFeeOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOrderHandlingFeeOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

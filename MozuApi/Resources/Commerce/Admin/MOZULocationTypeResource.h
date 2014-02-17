@@ -31,7 +31,7 @@
 Retrieve a list of all location types defined for the tenant.
 */
 
--(void)locationTypes userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZULocationType>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)locationTypesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZULocationType>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the details of the location type specified in the request.

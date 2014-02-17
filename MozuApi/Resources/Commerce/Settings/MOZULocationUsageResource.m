@@ -34,7 +34,7 @@
 #pragma mark -
 //
 
--(void)locationUsages userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationUsageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)locationUsagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationUsageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZULocationUsageClient clientForGetLocationUsagesOperation userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

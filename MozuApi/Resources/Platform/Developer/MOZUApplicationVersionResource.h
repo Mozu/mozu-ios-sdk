@@ -39,7 +39,7 @@
 Retrieves the list of applications associated with the developer account scoped to the user claim specified in the request.
 */
 
--(void)allApplications userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApplicationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)allApplicationsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApplicationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the details of the application specified in the request. The application specified in the request must be associated with the developer account scoped to the user claim specified in the request header, otherwise the operation returns an error.

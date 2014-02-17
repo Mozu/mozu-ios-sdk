@@ -28,7 +28,7 @@
 Retrieves a list of cart items including the total number of items in the cart.
 */
 
-+(MOZUClient*)clientForGetCartItemsOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCartItemsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves a particular cart item by providing the cart item ID.
@@ -85,7 +85,7 @@ Update the quantity of an individual cart item in the cart of the current shoppe
 Removes all items in the current shopper's active cart.
 */
 
-+(MOZUClient*)clientForRemoveAllCartItemsOperation userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForRemoveAllCartItemsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Deletes a specific cart item by providing the cart item ID.
