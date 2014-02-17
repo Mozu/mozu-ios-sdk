@@ -12,9 +12,14 @@
 #import "MOZUAPIContext.h"
 #import "MOZUUserAuthenticator.h"
 #import "MOZUURL.h"
+#import "MOZUHeaders.h"
 
-// add http response and get rid of headers
-//
+typedef NS_ENUM(NSUInteger, MOZUDataViewMode) {
+    MOZULive,
+    MOZUPending
+};
+
+
 typedef void(^MOZUClientCompletionBlock)(id result, MOZUApiError* error, NSHTTPURLResponse* response);
 typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 

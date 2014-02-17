@@ -50,7 +50,7 @@ NSMutableData *_responseData;
 
 +(void)addAuthHeaderToRequest:(NSMutableURLRequest*)request {
     [[self class] ensureAuthTicket];
-    [request setValue:_authTicket.accessToken forHTTPHeaderField:kX_VOL_APP_CLAIMS];
+    [request setValue:_authTicket.accessToken forHTTPHeaderField:MOZU_X_VOL_APP_CLAIMS];
 }
 
 +(void)authenticateApp {
