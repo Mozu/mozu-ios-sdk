@@ -19,10 +19,10 @@
 
 @end
 
-typedef NS_ENUM(NSUInteger, MOZUUserScope) {
-    kTenant,
-    kShopper,
-    kDeveloper
+typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
+    MOZU_Tenant,
+    MOZU_Shopper,
+    MOZU_Developer
 };
 
 @interface MOZUAuthenticationProfile : NSObject
@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, MOZUUserScope) {
 
 @interface MOZUUserAuthTicket : MOZUAuthTicket
 
-@property (nonatomic, assign) MOZUUserScope scope;
+@property (nonatomic, assign) MOZUAuthenticationScope scope;
 
 @end
 
@@ -45,7 +45,7 @@ typedef NS_ENUM(NSUInteger, MOZUUserScope) {
 +(MOZUAuthenticationProfile*)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope;
 +(MOZUAuthenticationProfile*)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket;
 +(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)id;
-+(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo scope:(MOZUUserScope)scope id:(NSNumber*)id;
++(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo scope:(MOZUAuthenticationScope)scope id:(NSNumber*)id;
 +(void)logoutWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket;
 
 
