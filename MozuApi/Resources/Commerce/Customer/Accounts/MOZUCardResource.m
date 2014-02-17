@@ -38,7 +38,7 @@
 	MOZUClient * client = [MOZUCardClient clientForGetAccountCardsOperationWithWithAccountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -48,7 +48,7 @@
 	MOZUClient * client = [MOZUCardClient clientForGetAccountCardOperationWithWithAccountId:accountId cardId:cardId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -65,7 +65,7 @@
 	MOZUClient * client = [MOZUCardClient clientForAddAccountCardOperationWithWithCard:card accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -82,7 +82,7 @@
 	MOZUClient * client = [MOZUCardClient clientForUpdateAccountCardOperationWithWithCard:card accountId:accountId cardId:cardId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -99,7 +99,7 @@
 	MOZUClient * client = [MOZUCardClient clientForDeleteAccountCardOperationWithWithAccountId:accountId cardId:cardId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(error, response);
 		}
 	}];

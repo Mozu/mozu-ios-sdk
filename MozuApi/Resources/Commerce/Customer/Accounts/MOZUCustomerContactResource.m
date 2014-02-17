@@ -38,7 +38,7 @@
 	MOZUClient * client = [MOZUCustomerContactClient clientForGetAccountContactOperationWithWithAccountId:accountId contactId:contactId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -48,7 +48,7 @@
 	MOZUClient * client = [MOZUCustomerContactClient clientForGetAccountContactsOperationWithWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -65,7 +65,7 @@
 	MOZUClient * client = [MOZUCustomerContactClient clientForAddAccountContactOperationWithWithContact:contact accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -82,7 +82,7 @@
 	MOZUClient * client = [MOZUCustomerContactClient clientForUpdateAccountContactOperationWithWithContact:contact accountId:accountId contactId:contactId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -99,7 +99,7 @@
 	MOZUClient * client = [MOZUCustomerContactClient clientForDeleteAccountContactOperationWithWithAccountId:accountId contactId:contactId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(error, response);
 		}
 	}];

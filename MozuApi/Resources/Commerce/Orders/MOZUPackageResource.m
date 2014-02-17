@@ -38,7 +38,7 @@
 	MOZUClient * client = [MOZUPackageClient clientForGetPackageOperationWithWithOrderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -48,7 +48,7 @@
 	MOZUClient * client = [MOZUPackageClient clientForGetAvailablePackageFulfillmentActionsOperationWithWithOrderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -58,7 +58,7 @@
 	MOZUClient * client = [MOZUPackageClient clientForGetPackageLabelOperationWithWithOrderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -75,7 +75,7 @@
 	MOZUClient * client = [MOZUPackageClient clientForCreatePackageOperationWithWithPackage:package orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -92,7 +92,7 @@
 	MOZUClient * client = [MOZUPackageClient clientForUpdatePackageOperationWithWithPackage:package orderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -109,7 +109,7 @@
 	MOZUClient * client = [MOZUPackageClient clientForDeletePackageOperationWithWithOrderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(error, response);
 		}
 	}];

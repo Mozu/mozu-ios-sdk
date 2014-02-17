@@ -38,7 +38,7 @@
 	MOZUClient * client = [MOZUProductSearchResultClient clientForSearchOperationWithWithQuery:query filter:filter facetTemplate:facetTemplate facetTemplateSubset:facetTemplateSubset facet:facet facetFieldRangeQuery:facetFieldRangeQuery facetHierPrefix:facetHierPrefix facetHierValue:facetHierValue facetHierDepth:facetHierDepth facetStartIndex:facetStartIndex facetPageSize:facetPageSize facetSettings:facetSettings facetValueFilter:facetValueFilter sortBy:sortBy pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -48,7 +48,7 @@
 	MOZUClient * client = [MOZUProductSearchResultClient clientForSuggestOperationWithWithQ:q pageSize:pageSize userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];

@@ -38,7 +38,7 @@
 	MOZUClient * client = [MOZUWishlistItemClient clientForGetWishlistItemOperationWithWithWishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -48,7 +48,7 @@
 	MOZUClient * client = [MOZUWishlistItemClient clientForGetWishlistItemsOperationWithWithWishlistId:wishlistId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -58,7 +58,7 @@
 	MOZUClient * client = [MOZUWishlistItemClient clientForGetWishlistItemsByWishlistNameOperationWithWithCustomerAccountId:customerAccountId wishlistName:wishlistName startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -75,7 +75,7 @@
 	MOZUClient * client = [MOZUWishlistItemClient clientForAddItemToWishlistOperationWithWithWishlistItem:wishlistItem wishlistId:wishlistId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -92,7 +92,7 @@
 	MOZUClient * client = [MOZUWishlistItemClient clientForUpdateWishlistItemOperationWithWithWishlistItem:wishlistItem wishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -102,7 +102,7 @@
 	MOZUClient * client = [MOZUWishlistItemClient clientForUpdateWishlistItemQuantityOperationWithWithWishlistId:wishlistId wishlistItemId:wishlistItemId quantity:quantity userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -119,7 +119,7 @@
 	MOZUClient * client = [MOZUWishlistItemClient clientForRemoveAllWishlistItemsOperationWithWithWishlistId:wishlistId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -129,7 +129,7 @@
 	MOZUClient * client = [MOZUWishlistItemClient clientForDeleteWishlistItemOperationWithWithWishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(error, response);
 		}
 	}];

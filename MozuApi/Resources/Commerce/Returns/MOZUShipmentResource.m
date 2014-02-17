@@ -38,7 +38,7 @@
 	MOZUClient * client = [MOZUShipmentClient clientForGetShipmentOperationWithWithReturnId:returnId shipmentId:shipmentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -55,7 +55,7 @@
 	MOZUClient * client = [MOZUShipmentClient clientForCreatePackageShipmentsOperationWithWithPackageIds:packageIds returnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -79,7 +79,7 @@
 	MOZUClient * client = [MOZUShipmentClient clientForDeleteShipmentOperationWithWithReturnId:returnId shipmentId:shipmentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(error, response);
 		}
 	}];

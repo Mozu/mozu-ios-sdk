@@ -38,7 +38,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetAddressSchemaOperationWithWithCountryCode:countryCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -48,7 +48,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetAddressSchemasOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -58,7 +58,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorOperationWithWithBehaviorId:behaviorId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -68,7 +68,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorCategoriesOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -78,7 +78,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorCategoryOperationWithWithCategoryId:categoryId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -88,7 +88,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorsOperationWithWithUserType:userType];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -98,7 +98,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetContentLocalesOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -108,7 +108,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetCountriesOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -118,7 +118,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetCurrenciesOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -128,7 +128,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetTimeZonesOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -138,7 +138,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetTopLevelDomainsOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -148,7 +148,7 @@
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetUnitsOfMeasureOperationWithWithFilter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];

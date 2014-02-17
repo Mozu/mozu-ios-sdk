@@ -45,7 +45,7 @@
 	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithWithUserAuthInfo:userAuthInfo userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
@@ -62,7 +62,7 @@
 	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForRefreshUserAuthTicketOperationWithWithRefreshToken:refreshToken userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];

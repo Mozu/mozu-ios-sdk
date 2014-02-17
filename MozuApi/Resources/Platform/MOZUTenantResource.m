@@ -49,7 +49,7 @@
 		NSString* key = [@(tenantId) stringValue];
 		[MOZUCacheManager setCache:result forKey:key];
 
-		if (handler != nil {
+		if (handler != nil) {
 			handler(result, error, response);
 		}
 	}];
