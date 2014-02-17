@@ -8,6 +8,7 @@
 * </auto-generated>
 */
 
+#import <Foundation/NSJSONSerialization.h>
 #import "MOZUPickupClient.h"
 #import "MOZUPickupUrl.h"
 #import "MozuPickup.h"

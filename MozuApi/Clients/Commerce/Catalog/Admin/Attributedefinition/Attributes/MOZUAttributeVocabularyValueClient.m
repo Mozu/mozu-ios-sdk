@@ -8,6 +8,7 @@
 * </auto-generated>
 */
 
+#import <Foundation/NSJSONSerialization.h>
 #import "MOZUAttributeVocabularyValueClient.h"
 #import "MOZUAttributeVocabularyValueUrl.h"
 #import "MozuAttributeVocabularyValue.h"

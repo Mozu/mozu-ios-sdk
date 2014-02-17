@@ -8,6 +8,7 @@
 * </auto-generated>
 */
 
+#import <Foundation/NSJSONSerialization.h>
 #import "MOZULocationInventoryClient.h"
 #import "MOZULocationInventoryUrl.h"
 #import "MozuAdminLocationInventory.h"

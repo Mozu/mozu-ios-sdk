@@ -8,6 +8,7 @@
 * </auto-generated>
 */
 
+#import <Foundation/NSJSONSerialization.h>
 #import "MOZUProductExtraClient.h"
 #import "MOZUProductExtraUrl.h"
 #import "MozuProductExtra.h"

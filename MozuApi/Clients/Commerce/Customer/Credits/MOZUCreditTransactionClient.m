@@ -8,6 +8,7 @@
 * </auto-generated>
 */
 
+#import <Foundation/NSJSONSerialization.h>
 #import "MOZUCreditTransactionClient.h"
 #import "MOZUCreditTransactionUrl.h"
 #import "MozuCreditTransaction.h"

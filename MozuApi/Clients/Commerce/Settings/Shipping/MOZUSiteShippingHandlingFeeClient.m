@@ -8,6 +8,7 @@
 * </auto-generated>
 */
 
+#import <Foundation/NSJSONSerialization.h>
 #import "MOZUSiteShippingHandlingFeeClient.h"
 #import "MOZUSiteShippingHandlingFeeUrl.h"
 #import "MozuSiteShippingHandlingFee.h"

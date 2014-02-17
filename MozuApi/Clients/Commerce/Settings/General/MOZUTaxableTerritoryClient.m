@@ -8,6 +8,7 @@
 * </auto-generated>
 */
 
+#import <Foundation/NSJSONSerialization.h>
 #import "MOZUTaxableTerritoryClient.h"
 #import "MOZUTaxableTerritoryUrl.h"
 #import "MozuTaxableTerritory.h"
