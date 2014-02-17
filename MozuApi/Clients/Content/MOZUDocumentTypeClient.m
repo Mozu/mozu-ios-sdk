@@ -34,7 +34,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDocumentTypeCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -51,7 +51,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDocumentType alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

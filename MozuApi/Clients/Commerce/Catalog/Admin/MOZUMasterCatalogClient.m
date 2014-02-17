@@ -33,7 +33,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUMasterCatalogCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -50,7 +50,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminMasterCatalog alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -81,7 +81,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminMasterCatalog alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

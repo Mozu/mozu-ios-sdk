@@ -34,7 +34,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUShipment alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -51,7 +51,7 @@
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUShippingRate arrayOfModelFromDictionaries:jsonAsArray error:nil];
-	}
+	};
 
 	return client;
 }
@@ -75,7 +75,7 @@
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUCommercePackage arrayOfModelFromDictionaries:jsonAsArray error:nil];
-	}
+	};
 
 	return client;
 }

@@ -33,7 +33,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUInStockNotificationSubscriptionCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -49,7 +49,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUInStockNotificationSubscription alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -72,7 +72,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUInStockNotificationSubscription alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

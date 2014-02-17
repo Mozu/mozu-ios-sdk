@@ -32,7 +32,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCartChangeMessageCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

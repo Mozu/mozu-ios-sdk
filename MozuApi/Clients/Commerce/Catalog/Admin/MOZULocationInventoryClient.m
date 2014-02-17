@@ -34,7 +34,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminLocationInventory alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -51,7 +51,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminLocationInventoryCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -76,7 +76,7 @@
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUAdminLocationInventory arrayOfModelFromDictionaries:jsonAsArray error:nil];
-	}
+	};
 
 	return client;
 }
@@ -101,7 +101,7 @@
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUAdminLocationInventory arrayOfModelFromDictionaries:jsonAsArray error:nil];
-	}
+	};
 
 	return client;
 }

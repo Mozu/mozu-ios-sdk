@@ -33,7 +33,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAttributeTypeRuleCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

@@ -33,7 +33,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUChannelGroupCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -49,7 +49,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUChannelGroup alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -72,7 +72,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUChannelGroup alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -95,7 +95,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUChannelGroup alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

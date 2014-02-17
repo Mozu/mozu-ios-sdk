@@ -35,7 +35,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUPropertyTypeCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -52,7 +52,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUPropertyType alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -70,7 +70,7 @@
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUPropertyValueType arrayOfModelFromDictionaries:jsonAsArray error:nil];
-	}
+	};
 
 	return client;
 }

@@ -32,7 +32,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerCheckoutSettings alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -62,7 +62,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerCheckoutSettings alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

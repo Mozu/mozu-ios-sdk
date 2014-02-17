@@ -34,7 +34,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminFacet alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -51,7 +51,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUFacetSet alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -75,7 +75,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminFacet alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -99,7 +99,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminFacet alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

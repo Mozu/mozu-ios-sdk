@@ -33,7 +33,7 @@
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray * jsonAsArray = [[NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUExternalPaymentWorkflowDefinition arrayOfModelFromDictionaries:jsonAsArray error:nil];
-	}
+	};
 
 	return client;
 }

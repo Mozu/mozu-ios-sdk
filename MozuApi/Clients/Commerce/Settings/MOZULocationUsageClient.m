@@ -33,7 +33,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocationUsageCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -49,7 +49,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocationUsage alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -79,7 +79,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocationUsage alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

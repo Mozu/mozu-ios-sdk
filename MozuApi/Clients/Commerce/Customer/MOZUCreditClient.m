@@ -33,7 +33,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCreditCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -49,7 +49,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCredit alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -72,7 +72,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCredit alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -95,7 +95,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCredit alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -111,7 +111,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCredit alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

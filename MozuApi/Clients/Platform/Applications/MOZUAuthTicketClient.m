@@ -35,7 +35,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAuthTicket alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -54,7 +54,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAuthTicket alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

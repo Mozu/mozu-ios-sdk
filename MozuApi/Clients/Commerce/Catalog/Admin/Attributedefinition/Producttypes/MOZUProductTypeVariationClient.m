@@ -40,7 +40,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUProductVariationPagedCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

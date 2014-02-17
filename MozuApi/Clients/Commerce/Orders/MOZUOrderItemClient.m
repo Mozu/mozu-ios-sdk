@@ -34,7 +34,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrderItem alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -50,7 +50,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrderItemCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -73,7 +73,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -96,7 +96,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -112,7 +112,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -128,7 +128,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -144,7 +144,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -167,7 +167,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

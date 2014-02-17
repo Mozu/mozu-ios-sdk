@@ -39,7 +39,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAddressValidationResponse alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

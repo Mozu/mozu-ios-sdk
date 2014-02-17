@@ -35,7 +35,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerAccountCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -51,7 +51,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerAccount alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -67,7 +67,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULoginState alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -90,7 +90,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerAccount alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -106,7 +106,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerAuthTicket alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -158,7 +158,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerAuthTicket alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -174,7 +174,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerAccountCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -190,7 +190,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULoginState alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -206,7 +206,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULoginState alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -241,7 +241,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerAccount alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }

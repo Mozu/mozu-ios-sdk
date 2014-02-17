@@ -34,7 +34,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZURuntimeCategoryPagedCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -50,7 +50,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZURuntimeCategory alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
@@ -66,7 +66,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZURuntimeCategoryCollection alloc] initWithString:jsonResult error:nil];
-	}
+	};
 
 	return client;
 }
