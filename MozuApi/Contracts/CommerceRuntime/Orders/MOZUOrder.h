@@ -19,7 +19,7 @@
 #import "MOZUOrderItem.h"
 #import "MOZUOrderNote.h"
 #import "MOZUAppliedDiscount.h"
-#import "MOZUPackage.h"
+#import "MOZUCommercePackage.h"
 #import "MOZUPayment.h"
 #import "MOZUPickup.h"
 #import "MOZUShipment.h"

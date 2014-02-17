@@ -12,7 +12,7 @@
 #import "JSONModel.h"
 #import "MOZUReturnBundle.h"
 #import "MOZUOrderNote.h"
-#import "MOZUProduct.h"
+#import "MOZUCommerceProduct.h"
 #import "MOZUReturnReason.h"
 
 

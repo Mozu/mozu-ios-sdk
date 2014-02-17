@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUProductProperty.h"
+#import "MOZUPricingProductProperty.h"
 
 
 

@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUProductContent.h"
-#import "MOZUPackageMeasurements.h"
+#import "MOZURuntimePackageMeasurements.h"
 
 
 

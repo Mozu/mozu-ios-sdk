@@ -13,7 +13,7 @@
 #import "MOZUAttributeMetadataItem.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUAttributeLocalizedContent.h"
-#import "MOZUAttributeValidation.h"
+#import "MOZUAdminAttributeValidation.h"
 #import "MOZUAttributeVocabularyValue.h"
 
 

@@ -12,7 +12,7 @@
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUProductLocalizedContent.h"
-#import "MOZUProductPrice.h"
+#import "MOZUAdminProductPrice.h"
 #import "MOZUProductCategory.h"
 #import "MOZUProductLocalizedSEOContent.h"
 

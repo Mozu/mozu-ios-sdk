@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUTaxableLineItem.h"
-#import "MOZUTaxContext.h"
+#import "MOZUPricingTaxContext.h"
 
 
 

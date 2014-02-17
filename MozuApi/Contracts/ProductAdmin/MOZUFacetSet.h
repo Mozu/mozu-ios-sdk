@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUFacetSource.h"
-#import "MOZUFacet.h"
+#import "MOZUAdminFacet.h"
 
 
 

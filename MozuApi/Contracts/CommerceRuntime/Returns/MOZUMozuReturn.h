@@ -13,7 +13,7 @@
 #import "MOZUAuditInfo.h"
 #import "MOZUReturnItem.h"
 #import "MOZUOrderNote.h"
-#import "MOZUPackage.h"
+#import "MOZUCommercePackage.h"
 #import "MOZUPayment.h"
 
 

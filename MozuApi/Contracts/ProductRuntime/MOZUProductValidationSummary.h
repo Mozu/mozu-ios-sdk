@@ -11,12 +11,12 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUBundledProductSummary.h"
-#import "MOZUCategory.h"
+#import "MOZURuntimeCategory.h"
 #import "MOZUProductImage.h"
-#import "MOZUProductInventoryInfo.h"
-#import "MOZUPackageMeasurements.h"
-#import "MOZUProductPrice.h"
-#import "MOZUProductProperty.h"
+#import "MOZURuntimeProductInventoryInfo.h"
+#import "MOZURuntimePackageMeasurements.h"
+#import "MOZURuntimeProductPrice.h"
+#import "MOZURuntimeProductProperty.h"
 #import "MOZUProductPurchasableState.h"
 
 

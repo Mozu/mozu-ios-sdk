@@ -10,8 +10,8 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUFacet.h"
-#import "MOZUProduct.h"
+#import "MOZURuntimeFacet.h"
+#import "MOZURuntimeProduct.h"
 
 
 
