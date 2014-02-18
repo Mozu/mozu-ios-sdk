@@ -68,20 +68,20 @@
     _APIContext = APIContext;
     
     if (APIContext.tenantId > 0) {
-        [self setHeader:kX_VOL_TENANT value:[@(APIContext.tenantId) description]];
+        [self setHeader:MOZU_X_VOL_TENANT value:[@(APIContext.tenantId) description]];
     }
     
     if (APIContext.siteId != nil && [APIContext.siteId intValue] > 0) {
-        [self setHeader:kX_VOL_SITE value:[APIContext.siteId stringValue]];
+        [self setHeader:MOZU_X_VOL_SITE value:[APIContext.siteId stringValue]];
     }
     
     if (APIContext.masterCatalogId != nil && [APIContext.masterCatalogId intValue] > 0) {
-        [self setHeader:kX_VOL_MASTER_CATALOG value:[APIContext.masterCatalogId stringValue]];
+        [self setHeader:MOZU_X_VOL_MASTER_CATALOG value:[APIContext.masterCatalogId stringValue]];
     }
     
     if (APIContext.catalogId != nil && [APIContext.catalogId intValue] > 0)
     {
-        [self setHeader:kX_VOL_CATALOG value:[APIContext.catalogId stringValue]];
+        [self setHeader:MOZU_X_VOL_CATALOG value:[APIContext.catalogId stringValue]];
     }
 }
 
@@ -95,7 +95,7 @@
         userClaims.accessTokenExpiration = userInfo.authTicket.accessTokenExpiration;
     }
     
-    [self setHeader:kX_VOL_USER_CLAIMS value:userClaims.accessToken];
+    [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
 }
 
 - (void)setHeader:(NSString *)header value:(NSString *)value
@@ -118,9 +118,9 @@
         NSAssert(APIContext.tenantId >=0, @"APIContext.tenantId less than 0.");
         
         if (APIContext.tenantHost.length == 0) {
-            [MOZUTenantResource tenantWithTenantId:APIContext.tenantId authTicket:nil completionHandler:^(MOZUTenant *result) {
+            [MOZUTenantResource tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response) {
                 if (!result) {
-                    [NSException raise:@"MOZUTenantNotFoundException" format:@"tenantId = %d", APIContext.tenantId];
+                    [NSException raise:@"MOZUTenantNotFoundException" format:@"tenantId = %li", APIContext.tenantId];
                 }
                 
                 self.baseURL = [APIContext getURLForHost:result.domain];
