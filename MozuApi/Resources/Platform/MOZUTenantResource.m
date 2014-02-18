@@ -39,7 +39,7 @@
 	NSString* cacheKey = [@(tenantId) stringValue];
 	id tenant = [MOZUCacheManager getCacheForKey:cacheKey];
 	if (tenant != nil && handler != nil) {
-		handler(tenant, nill, nil);
+		handler(tenant, nil, nil);
 		return;
 	}
 
