@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddAccountAttributeOperationWithCustomerAccountAttribute:(MOZUcustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddAccountAttributeOperationWithCustomerAccountAttribute:(MOZUCustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAttributeURL URLForAddAccountAttributeOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -84,7 +84,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateAccountAttributeOperationWithCustomerAccountAttribute:(MOZUcustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateAccountAttributeOperationWithCustomerAccountAttribute:(MOZUCustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAttributeURL URLForUpdateAccountAttributeOperationWithAccountId:accountId removeMissing:removeMissing];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddCreditOperationWithCredit:(MOZUcredit*)credit userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddCreditOperationWithCredit:(MOZUCredit*)credit userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCreditURL URLForAddCreditOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -84,7 +84,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateCreditOperationWithCredit:(MOZUcredit*)credit code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateCreditOperationWithCredit:(MOZUCredit*)credit code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCreditURL URLForUpdateCreditOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

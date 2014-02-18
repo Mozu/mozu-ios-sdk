@@ -71,7 +71,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalog:(MOZUmasterCatalog*)masterCatalog masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalog:(MOZUMasterCatalog*)masterCatalog masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUMasterCatalogURL URLForUpdateMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

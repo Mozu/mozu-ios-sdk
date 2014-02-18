@@ -41,7 +41,7 @@
 #pragma mark -
 //
 
--(void)createDeveloperUserAuthTicketWithUserAuthInfo:(MOZUuserAuthInfo*)userAuthInfo developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createDeveloperUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForCreateDeveloperUserAuthTicketOperationWithUserAuthInfo:userAuthInfo developerAccountId:developerAccountId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -58,7 +58,7 @@
 #pragma mark -
 //
 
--(void)refreshDeveloperAuthTicketWithExistingAuthTicket:(MOZUexistingAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)refreshDeveloperAuthTicketWithExistingAuthTicket:(MOZUExistingAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForRefreshDeveloperAuthTicketOperationWithExistingAuthTicket:existingAuthTicket developerAccountId:developerAccountId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addAccountContactWithContact:(MOZUcontact*)contact accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addAccountContactWithContact:(MOZUContact*)contact accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCustomerContactClient clientForAddAccountContactOperationWithContact:contact accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateAccountContactWithContact:(MOZUcontact*)contact accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateAccountContactWithContact:(MOZUContact*)contact accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCustomerContactClient clientForUpdateAccountContactOperationWithContact:contact accountId:accountId contactId:contactId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

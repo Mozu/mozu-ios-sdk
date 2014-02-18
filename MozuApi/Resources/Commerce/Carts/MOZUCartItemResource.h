@@ -54,7 +54,7 @@ Adds a product to the current shopper's cart.
 @param cartItem All properties of the new cart item. The product code is required.
 */
 
--(void)addItemToCartWithCartItem:(MOZUcartItem*)cartItem userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addItemToCartWithCartItem:(MOZUCartItem*)cartItem userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -69,7 +69,7 @@ Update the product or product quantity of an item in the current shopper's cart.
 @param cartItemId Identifier of the cart item to update.
 */
 
--(void)updateCartItemWithCartItem:(MOZUcartItem*)cartItem cartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateCartItemWithCartItem:(MOZUCartItem*)cartItem cartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Update the quantity of an individual cart item in the cart of the current shopper.

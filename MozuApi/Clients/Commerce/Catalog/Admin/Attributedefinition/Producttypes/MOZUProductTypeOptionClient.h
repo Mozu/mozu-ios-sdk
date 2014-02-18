@@ -50,7 +50,7 @@ Assigns an option attribute to the product type based on the information supplie
 @param productTypeId Identifier of the product type.
 */
 
-+(MOZUClient*)clientForAddOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUattributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUAttributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -66,7 +66,7 @@ Updates an option attribute definition for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
-+(MOZUClient*)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUattributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUAttributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

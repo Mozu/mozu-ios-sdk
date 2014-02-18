@@ -35,7 +35,7 @@ Generates a new authentication ticket for a customer account.
 @param userAuthInfo The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
 */
 
-+(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUuserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

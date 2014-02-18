@@ -63,7 +63,7 @@ Creates a new document in an existing list.
 @param documentListName The descriptive alphanumeric document list name being created.
 */
 
-+(MOZUClient*)clientForCreateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode document:(MOZUdocument*)document documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode document:(MOZUDocument*)document documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -79,7 +79,7 @@ Updates a document in a document list.
 @param documentListName Name of the document list associated with the document.
 */
 
-+(MOZUClient*)clientForUpdateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode document:(MOZUdocument*)document documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode document:(MOZUDocument*)document documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.

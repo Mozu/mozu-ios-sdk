@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
--(void)addTransactionWithCreditTransaction:(MOZUcreditTransaction*)creditTransaction code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCreditTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addTransactionWithCreditTransaction:(MOZUCreditTransaction*)creditTransaction code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCreditTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCreditTransactionClient clientForAddTransactionOperationWithCreditTransaction:creditTransaction code:code userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

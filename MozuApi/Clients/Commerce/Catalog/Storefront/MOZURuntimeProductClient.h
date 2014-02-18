@@ -70,7 +70,7 @@ Creates a new product selection. A create occurs each time a shopper selects a p
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
 
-+(MOZUClient*)clientForConfiguredProductOperationWithProductOptionSelections:(MOZUproductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForConfiguredProductOperationWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Validate the final state of shopper-selected options.
@@ -79,7 +79,7 @@ Validate the final state of shopper-selected options.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
 
-+(MOZUClient*)clientForValidateProductOperationWithProductOptionSelections:(MOZUproductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForValidateProductOperationWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

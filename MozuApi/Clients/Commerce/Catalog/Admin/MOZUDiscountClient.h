@@ -67,14 +67,14 @@ Creates a discount.
 @param discount Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 */
 
-+(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUdiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Redeems a discount configured in the product admin.
 @param redemption Properties of the product discount redemption.
 */
 
-+(MOZUClient*)clientForRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode redemption:(MOZUredemption*)redemption userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode redemption:(MOZURedemption*)redemption userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -89,7 +89,7 @@ Modifies a discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUdiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
@@ -97,7 +97,7 @@ Modifies the localized content for the specified discount. Rename the discount w
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+(MOZUClient*)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUcontent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

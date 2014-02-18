@@ -75,7 +75,7 @@ Update the current shopper's cart.
 @param cart All of the properties of the cart to update. The product code is required.
 */
 
-+(MOZUClient*)clientForUpdateCartOperationWithCart:(MOZUcart*)cart userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateCartOperationWithCart:(MOZUCart*)cart userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

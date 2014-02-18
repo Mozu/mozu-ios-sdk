@@ -56,7 +56,7 @@ Creates a new location inventory definition for the product code specified in th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryList:(NSArray<MOZUlocationInventoryList>*)locationInventoryList productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryList:(NSArray<MOZULocationInventoryList>*)locationInventoryList productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -71,7 +71,7 @@ Updates the current level of stock at each location associated with the product 
 @param productCode The product code of the product for which to update active stock on hand inventory at a specified location.
 */
 
-+(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryAdjustments:(NSArray<MOZUlocationInventoryAdjustments>*)locationInventoryAdjustments productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryAdjustments:(NSArray<MOZULocationInventoryAdjustments>*)locationInventoryAdjustments productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

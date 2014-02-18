@@ -71,7 +71,7 @@
 #pragma mark -
 //
 
--(void)performPaymentActionWithAction:(MOZUaction*)action orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)performPaymentActionWithAction:(MOZUAction*)action orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUPaymentClient clientForPerformPaymentActionOperationWithAction:action orderId:orderId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -81,7 +81,7 @@
 	}];
 }
 
--(void)createPaymentActionWithAction:(MOZUaction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createPaymentActionWithAction:(MOZUAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUPaymentClient clientForCreatePaymentActionOperationWithAction:action orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

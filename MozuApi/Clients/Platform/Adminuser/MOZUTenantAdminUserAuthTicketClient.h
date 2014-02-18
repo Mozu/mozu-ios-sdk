@@ -36,7 +36,7 @@ Creates an authentication ticket for the supplied user to specify in API request
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 */
 
-+(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUuserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -51,7 +51,7 @@ Generates a new user authentication ticket for the specified tenant by supplying
 @param tenantId 
 */
 
-+(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUexistingAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUExistingAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

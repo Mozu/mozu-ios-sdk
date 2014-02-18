@@ -56,7 +56,7 @@ Updates the location usage for the site based on the location usage code specifi
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
 
-+(MOZUClient*)clientForUpdateLocationUsageOperationWithUsage:(MOZUusage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateLocationUsageOperationWithUsage:(MOZUUsage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

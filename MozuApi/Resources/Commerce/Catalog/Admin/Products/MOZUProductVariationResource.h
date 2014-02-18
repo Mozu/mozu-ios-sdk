@@ -68,7 +68,7 @@ Modifies the collection of variations for the specified product code. Because th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUproductVariations*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariations*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Modifies the details of a variation, based on the supplied variation key, for the specified product code.
@@ -77,7 +77,7 @@ Modifies the details of a variation, based on the supplied variation key, for th
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
--(void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariation:(MOZUproductVariation*)productVariation productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariation:(MOZUProductVariation*)productVariation productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

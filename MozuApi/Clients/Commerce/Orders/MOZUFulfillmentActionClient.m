@@ -45,7 +45,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForPerformFulfillmentActionOperationWithAction:(MOZUaction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPerformFulfillmentActionOperationWithAction:(MOZUAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUFulfillmentActionURL URLForPerformFulfillmentActionOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForSetFulFillmentInfoOperationWithFulfillmentInfo:(MOZUfulfillmentInfo*)fulfillmentInfo orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForSetFulFillmentInfoOperationWithFulfillmentInfo:(MOZUFulfillmentInfo*)fulfillmentInfo orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUFulfillmentActionURL URLForSetFulFillmentInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

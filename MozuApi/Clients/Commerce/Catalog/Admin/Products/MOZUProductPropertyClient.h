@@ -50,7 +50,7 @@ Configures a property attribute for the product specified in the request.
 @param productCode 
 */
 
-+(MOZUClient*)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUproductProperty*)productProperty productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUProductProperty*)productProperty productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -66,7 +66,7 @@ Update one or more details of a property attribute configuration for the product
 @param productCode 
 */
 
-+(MOZUClient*)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUproductProperty*)productProperty productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUProductProperty*)productProperty productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

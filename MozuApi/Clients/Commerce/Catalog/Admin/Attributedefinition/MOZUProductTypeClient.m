@@ -67,7 +67,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUproductType*)productType userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUProductType*)productType userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductTypeURL URLForAddProductTypeOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -93,7 +93,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUproductType*)productType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUProductType*)productType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductTypeURL URLForUpdateProductTypeOperationWithProductTypeId:productTypeId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -61,7 +61,7 @@ Updates the product publishing mode for the master catalog specified in the requ
 @param masterCatalogId 
 */
 
--(void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalog:(MOZUmasterCatalog*)masterCatalog masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalog:(MOZUMasterCatalog*)masterCatalog masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

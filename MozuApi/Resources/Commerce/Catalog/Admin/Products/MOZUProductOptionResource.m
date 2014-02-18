@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productOption:(MOZUproductOption*)productOption productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductOption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productOption:(MOZUProductOption*)productOption productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductOption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductOptionClient clientForAddOptionOperationWithDataViewMode:dataViewMode productOption:productOption productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productOption:(MOZUproductOption*)productOption productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductOption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productOption:(MOZUProductOption*)productOption productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductOption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductOptionClient clientForUpdateOptionOperationWithDataViewMode:dataViewMode productOption:productOption productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -116,7 +116,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateCartOperationWithCart:(MOZUcart*)cart userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateCartOperationWithCart:(MOZUCart*)cart userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForUpdateCartOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

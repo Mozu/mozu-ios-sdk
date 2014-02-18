@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)createChannelGroupWithChannelGroup:(MOZUchannelGroup*)channelGroup userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createChannelGroupWithChannelGroup:(MOZUChannelGroup*)channelGroup userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUChannelGroupClient clientForCreateChannelGroupOperationWithChannelGroup:channelGroup userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateChannelGroupWithChannelGroup:(MOZUchannelGroup*)channelGroup code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateChannelGroupWithChannelGroup:(MOZUChannelGroup*)channelGroup code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUChannelGroupClient clientForUpdateChannelGroupOperationWithChannelGroup:channelGroup code:code userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

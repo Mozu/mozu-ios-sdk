@@ -55,7 +55,7 @@ Creates a new merchant note for the specified order.
 @param orderId Unique identifier of the order for which to add a note.
 */
 
--(void)createOrderNoteWithOrderNote:(MOZUorderNote*)orderNote orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createOrderNoteWithOrderNote:(MOZUOrderNote*)orderNote orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -71,7 +71,7 @@ Updates a specific note for an order.
 @param orderId Unique identifier of the order.
 */
 
--(void)updateOrderNoteWithOrderNote:(MOZUorderNote*)orderNote orderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateOrderNoteWithOrderNote:(MOZUOrderNote*)orderNote orderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

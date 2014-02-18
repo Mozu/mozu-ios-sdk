@@ -47,7 +47,7 @@ Creates a new transaction and updates the amount of a store credit or gift card.
 @param code User-defined code that identifies the customer credit to update.
 */
 
-+(MOZUClient*)clientForAddTransactionOperationWithCreditTransaction:(MOZUcreditTransaction*)creditTransaction code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddTransactionOperationWithCreditTransaction:(MOZUCreditTransaction*)creditTransaction code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

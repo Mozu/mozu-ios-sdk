@@ -67,7 +67,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryList:(NSArray<MOZUlocationInventoryList>*)locationInventoryList locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryList:(NSArray<MOZULocationInventoryList>*)locationInventoryList locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminLocationInventoryURL URLForAddLocationInventoryOperationWithLocationCode:locationCode];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -94,7 +94,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryAdjustments:(NSArray<MOZUlocationInventoryAdjustments>*)locationInventoryAdjustments locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryAdjustments:(NSArray<MOZULocationInventoryAdjustments>*)locationInventoryAdjustments locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminLocationInventoryURL URLForUpdateLocationInventoryOperationWithLocationCode:locationCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

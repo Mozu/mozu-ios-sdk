@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addAccountAttributeWithCustomerAccountAttribute:(MOZUcustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addAccountAttributeWithCustomerAccountAttribute:(MOZUCustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCustomerAttributeClient clientForAddAccountAttributeOperationWithCustomerAccountAttribute:customerAccountAttribute accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateAccountAttributeWithCustomerAccountAttribute:(MOZUcustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateAccountAttributeWithCustomerAccountAttribute:(MOZUCustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCustomerAttributeClient clientForUpdateAccountAttributeOperationWithCustomerAccountAttribute:customerAccountAttribute accountId:accountId removeMissing:removeMissing userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

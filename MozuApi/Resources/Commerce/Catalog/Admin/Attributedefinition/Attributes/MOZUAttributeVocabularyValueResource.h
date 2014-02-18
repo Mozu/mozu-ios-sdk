@@ -55,7 +55,7 @@ Adds a new attribute vocabulary value.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUattributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUAttributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -70,7 +70,7 @@ Update existing vocabulary values for an attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode vocabularyValues:(NSArray<MOZUvocabularyValues>*)vocabularyValues attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode vocabularyValues:(NSArray<MOZUVocabularyValues>*)vocabularyValues attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Updates existing attribute vocabulary values.
@@ -79,7 +79,7 @@ Updates existing attribute vocabulary values.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
--(void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUattributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeVocabularyValue:(MOZUAttributeVocabularyValue*)attributeVocabularyValue attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

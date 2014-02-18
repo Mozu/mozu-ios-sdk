@@ -52,7 +52,7 @@ Initializes an application with the necessary configured settings.
 @param application Properties of the application to update.
 */
 
--(void)thirdPartyUpdateApplicationWithApplication:(MOZUapplication*)application userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)thirdPartyUpdateApplicationWithApplication:(MOZUApplication*)application userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

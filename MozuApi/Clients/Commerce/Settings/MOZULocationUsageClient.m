@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateLocationUsageOperationWithUsage:(MOZUusage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateLocationUsageOperationWithUsage:(MOZUUsage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationUsageURL URLForUpdateLocationUsageOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

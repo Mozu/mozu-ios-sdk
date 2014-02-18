@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addLocationTypeWithLocationType:(MOZUlocationType*)locationType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addLocationTypeWithLocationType:(MOZULocationType*)locationType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZULocationTypeClient clientForAddLocationTypeOperationWithLocationType:locationType userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateLocationTypeWithLocationType:(MOZUlocationType*)locationType locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateLocationTypeWithLocationType:(MOZULocationType*)locationType locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZULocationTypeClient clientForUpdateLocationTypeOperationWithLocationType:locationType locationTypeCode:locationTypeCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

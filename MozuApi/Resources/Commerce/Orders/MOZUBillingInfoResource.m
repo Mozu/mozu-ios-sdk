@@ -58,7 +58,7 @@
 #pragma mark -
 //
 
--(void)setBillingInfoWithBillingInfo:(MOZUbillingInfo*)billingInfo orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUBillingInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)setBillingInfoWithBillingInfo:(MOZUBillingInfo*)billingInfo orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUBillingInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUBillingInfoClient clientForSetBillingInfoOperationWithBillingInfo:billingInfo orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

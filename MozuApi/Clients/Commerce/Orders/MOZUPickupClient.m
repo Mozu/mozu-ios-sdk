@@ -56,7 +56,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreatePickupOperationWithPickup:(MOZUpickup*)pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreatePickupOperationWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPickupURL URLForCreatePickupOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -79,7 +79,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdatePickupOperationWithPickup:(MOZUpickup*)pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdatePickupOperationWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPickupURL URLForUpdatePickupOperationWithOrderId:orderId pickupId:pickupId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

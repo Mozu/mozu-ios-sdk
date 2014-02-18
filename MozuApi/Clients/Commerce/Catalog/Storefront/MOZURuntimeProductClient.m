@@ -80,7 +80,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForConfiguredProductOperationWithProductOptionSelections:(MOZUproductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForConfiguredProductOperationWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeProductURL URLForConfiguredProductOperationWithProductCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -96,7 +96,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForValidateProductOperationWithProductOptionSelections:(MOZUproductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForValidateProductOperationWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeProductURL URLForValidateProductOperationWithProductCode:productCode skipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

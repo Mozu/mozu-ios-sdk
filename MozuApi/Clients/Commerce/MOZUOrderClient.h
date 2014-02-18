@@ -72,7 +72,7 @@ Creates a new order for no-cart quick-ordering scenarios.
 @param order All properties of the order to place.
 */
 
-+(MOZUClient*)clientForCreateOrderOperationWithOrder:(MOZUorder*)order userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateOrderOperationWithOrder:(MOZUOrder*)order userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Creates a new order from an existing cart when the customer chooses to proceed to checkout.
@@ -87,7 +87,7 @@ Perform the specified action for an order. Available actions depend on the curre
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForPerformOrderActionOperationWithAction:(MOZUaction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForPerformOrderActionOperationWithAction:(MOZUAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -105,7 +105,7 @@ Update the properties of a discount applied to an order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForUpdateOrderDiscountOperationWithDiscount:(MOZUdiscount*)discount orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderDiscountOperationWithDiscount:(MOZUDiscount*)discount orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Deletes the current draft version of the order, which also deletes any uncommitted changes made to the order in draft mode.
@@ -130,7 +130,7 @@ Updates the specified order when additional order information, such as shipping 
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForUpdateOrderOperationWithOrder:(MOZUorder*)order orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderOperationWithOrder:(MOZUOrder*)order orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

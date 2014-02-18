@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
--(void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalog:(MOZUmasterCatalog*)masterCatalog masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalog:(MOZUMasterCatalog*)masterCatalog masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUMasterCatalogClient clientForUpdateMasterCatalogOperationWithDataViewMode:dataViewMode masterCatalog:masterCatalog masterCatalogId:masterCatalogId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

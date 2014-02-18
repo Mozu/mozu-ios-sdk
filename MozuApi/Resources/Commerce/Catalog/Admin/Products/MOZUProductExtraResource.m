@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode productExtra:(MOZUproductExtra*)productExtra productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductExtra* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode productExtra:(MOZUProductExtra*)productExtra productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductExtra* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductExtraClient clientForAddExtraOperationWithDataViewMode:dataViewMode productExtra:productExtra productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode productExtra:(MOZUproductExtra*)productExtra productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductExtra* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode productExtra:(MOZUProductExtra*)productExtra productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductExtra* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductExtraClient clientForUpdateExtraOperationWithDataViewMode:dataViewMode productExtra:productExtra productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
--(void)createOrderHandlingFeeWithOrderHandlingFee:(MOZUorderHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)createOrderHandlingFeeWithOrderHandlingFee:(MOZUOrderHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForCreateOrderHandlingFeeOperationWithOrderHandlingFee:orderHandlingFee userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
--(void)updateOrderHandlingFeeWithOrderHandlingFee:(MOZUorderHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateOrderHandlingFeeWithOrderHandlingFee:(MOZUOrderHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForUpdateOrderHandlingFeeOperationWithOrderHandlingFee:orderHandlingFee userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

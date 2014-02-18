@@ -67,7 +67,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUproductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductReservationURL URLForAddProductReservationsOperationWithSkipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -87,7 +87,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForCommitReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUproductReservations>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCommitReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductReservationURL URLForCommitReservationsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -109,7 +109,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUproductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductReservationURL URLForUpdateProductReservationsOperationWithSkipInventoryCheck:skipInventoryCheck];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -40,7 +40,7 @@ Creates a new order handling fee for the site.
 @param orderHandlingFee Properties of the order handling fee to assess for order shipment.
 */
 
-+(MOZUClient*)clientForCreateOrderHandlingFeeOperationWithOrderHandlingFee:(MOZUorderHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateOrderHandlingFeeOperationWithOrderHandlingFee:(MOZUOrderHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -54,7 +54,7 @@ Updates the order handling fee amount for the site.
 @param orderHandlingFee The combined price for all items in the order, including all selected options but excluding any discounts.
 */
 
-+(MOZUClient*)clientForUpdateOrderHandlingFeeOperationWithOrderHandlingFee:(MOZUorderHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderHandlingFeeOperationWithOrderHandlingFee:(MOZUOrderHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

@@ -28,7 +28,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUuserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTenantAdminUserAuthTicketURL URLForCreateUserAuthTicketOperationWithTenantId:tenantId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUexistingAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUExistingAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTenantAdminUserAuthTicketURL URLForRefreshAuthTicketOperationWithTenantId:tenantId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

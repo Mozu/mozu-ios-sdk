@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
--(void)updateLocationUsageWithUsage:(MOZUusage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationUsage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateLocationUsageWithUsage:(MOZUUsage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationUsage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZULocationUsageClient clientForUpdateLocationUsageOperationWithUsage:usage code:code userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

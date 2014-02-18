@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUattributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeInProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUAttributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeInProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductTypePropertyClient clientForAddPropertyOperationWithDataViewMode:dataViewMode attributeInProductType:attributeInProductType productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUattributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeInProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUAttributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeInProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductTypePropertyClient clientForUpdatePropertyOperationWithDataViewMode:dataViewMode attributeInProductType:attributeInProductType productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

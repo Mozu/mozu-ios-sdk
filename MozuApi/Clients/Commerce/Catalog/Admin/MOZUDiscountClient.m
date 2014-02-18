@@ -103,7 +103,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUdiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURL URLForCreateDiscountOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -122,7 +122,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode redemption:(MOZUredemption*)redemption userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode redemption:(MOZURedemption*)redemption userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURL URLForRedeemDiscountOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -148,7 +148,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUdiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURL URLForUpdateDiscountOperationWithDiscountId:discountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -167,7 +167,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUcontent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURL URLForUpdateDiscountContentOperationWithDiscountId:discountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -49,7 +49,7 @@ Modifies properties of the discount target, for example, the dollar amount, or p
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+(MOZUClient*)clientForUpdateDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountTarget:(MOZUdiscountTarget*)discountTarget discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountTarget:(MOZUDiscountTarget*)discountTarget discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

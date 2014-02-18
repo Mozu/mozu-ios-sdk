@@ -67,7 +67,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUattributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUAttributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductTypeOptionURL URLForAddOptionOperationWithProductTypeId:productTypeId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -93,7 +93,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUattributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeInProductType:(MOZUAttributeInProductType*)attributeInProductType productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductTypeOptionURL URLForUpdateOptionOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

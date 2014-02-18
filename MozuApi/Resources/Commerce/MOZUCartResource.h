@@ -80,7 +80,7 @@ Update the current shopper's cart.
 @param cart All of the properties of the cart to update. The product code is required.
 */
 
--(void)updateCartWithCart:(MOZUcart*)cart userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateCartWithCart:(MOZUCart*)cart userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

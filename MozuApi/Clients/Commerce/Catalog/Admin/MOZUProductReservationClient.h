@@ -53,14 +53,14 @@ Creates a new product reservation for a product. This action places a hold on th
 @param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 
-+(MOZUClient*)clientForAddProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUproductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
 @param productReservations List of unique identifiers of the reservations to commit.
 */
 
-+(MOZUClient*)clientForCommitReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUproductReservations>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCommitReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -75,7 +75,7 @@ Updates an existing product reservation for a product.
 @param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
 */
 
-+(MOZUClient*)clientForUpdateProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUproductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

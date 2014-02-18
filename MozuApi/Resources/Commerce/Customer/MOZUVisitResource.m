@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addVisitWithVisit:(MOZUvisit*)visit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addVisitWithVisit:(MOZUVisit*)visit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUVisitClient clientForAddVisitOperationWithVisit:visit userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateVisitWithVisit:(MOZUvisit*)visit visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateVisitWithVisit:(MOZUVisit*)visit visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUVisitClient clientForUpdateVisitOperationWithVisit:visit visitId:visitId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

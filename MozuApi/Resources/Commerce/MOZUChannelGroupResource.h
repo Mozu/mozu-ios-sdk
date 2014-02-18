@@ -57,7 +57,7 @@ Creates a new group of channels with common information.
 @param channelGroup Properties of the channel group to create.
 */
 
--(void)createChannelGroupWithChannelGroup:(MOZUchannelGroup*)channelGroup userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createChannelGroupWithChannelGroup:(MOZUChannelGroup*)channelGroup userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Updates one or more properties of a defined channel group.
 @param code Code that identifies the channel group.
 */
 
--(void)updateChannelGroupWithChannelGroup:(MOZUchannelGroup*)channelGroup code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateChannelGroupWithChannelGroup:(MOZUChannelGroup*)channelGroup code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

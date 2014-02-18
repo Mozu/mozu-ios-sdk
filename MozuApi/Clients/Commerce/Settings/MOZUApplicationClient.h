@@ -47,7 +47,7 @@ Initializes an application with the necessary configured settings.
 @param application Properties of the application to update.
 */
 
-+(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithApplication:(MOZUapplication*)application userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithApplication:(MOZUApplication*)application userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

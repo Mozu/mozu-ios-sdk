@@ -58,7 +58,7 @@
 #pragma mark -
 //
 
--(void)thirdPartyUpdateApplicationWithApplication:(MOZUapplication*)application userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)thirdPartyUpdateApplicationWithApplication:(MOZUApplication*)application userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUApplicationClient clientForThirdPartyUpdateApplicationOperationWithApplication:application userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -56,7 +56,7 @@ Creates an array of product inventory definitions for the location specified in 
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
-+(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryList:(NSArray<MOZUlocationInventoryList>*)locationInventoryList locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryList:(NSArray<MOZULocationInventoryList>*)locationInventoryList locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -71,7 +71,7 @@ Updates the active stock on hand inventory of products for the location code spe
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
-+(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryAdjustments:(NSArray<MOZUlocationInventoryAdjustments>*)locationInventoryAdjustments locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryAdjustments:(NSArray<MOZULocationInventoryAdjustments>*)locationInventoryAdjustments locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

@@ -73,7 +73,7 @@ Creates a new customer account based on the information specified in the request
 @param account Properties of the customer account to update.
 */
 
--(void)addAccountWithAccount:(MOZUaccount*)account userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAccountWithAccount:(MOZUAccount*)account userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Adds a new user login to a defined customer account.
@@ -81,7 +81,7 @@ Adds a new user login to a defined customer account.
 @param accountId Unique identifier of the customer account.
 */
 
--(void)addLoginToExistingCustomerWithCustomerAuthInfo:(MOZUcustomerAuthInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addLoginToExistingCustomerWithCustomerAuthInfo:(MOZUCustomerAuthInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
@@ -111,14 +111,14 @@ Creates a new customer account and logs the user associated with the customer ac
 @param accountAndAuthInfo Properties of the customer account to create, including the user authentication information.
 */
 
--(void)addAccountAndLoginWithAccountAndAuthInfo:(MOZUaccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAccountAndLoginWithAccountAndAuthInfo:(MOZUAccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Creates multiple customer accounts based on the information specified in the request.
 @param customers Properties of the customer accounts to create.
 */
 
--(void)addAccountsWithCustomers:(NSArray<MOZUcustomers>*)customers userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAccountsWithCustomers:(NSArray<MOZUCustomers>*)customers userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the current login state of a customer account by providing the customer's email address.
@@ -139,7 +139,7 @@ Resets the password for a customer account.
 @param resetPasswordInfo Information required to reset the password for a customer account.
 */
 
--(void)resetPasswordWithResetPasswordInfo:(MOZUresetPasswordInfo*)resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)resetPasswordWithResetPasswordInfo:(MOZUResetPasswordInfo*)resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -154,7 +154,7 @@ Updates a customer account.
 @param accountId Unique identifier of the customer account.
 */
 
--(void)updateAccountWithAccount:(MOZUaccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateAccountWithAccount:(MOZUAccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

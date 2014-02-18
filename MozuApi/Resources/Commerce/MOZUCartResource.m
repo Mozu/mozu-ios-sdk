@@ -98,7 +98,7 @@
 #pragma mark -
 //
 
--(void)updateCartWithCart:(MOZUcart*)cart userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateCartWithCart:(MOZUCart*)cart userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUCartClient clientForUpdateCartOperationWithCart:cart userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

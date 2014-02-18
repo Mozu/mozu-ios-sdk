@@ -107,7 +107,7 @@ Creates a new development or release package for the application version specifi
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 */
 
--(void)addPackageWithPackage:(MOZUpackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevPackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addPackageWithPackage:(MOZUPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevPackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Update the file name or file path of a development package or release package.
@@ -116,7 +116,7 @@ Update the file name or file path of a development package or release package.
 @param packageId The unique identifier of the development or release package.
 */
 
--(void)changePackageFileNameOrPathWithRenameInfo:(MOZUrenameInfo*)renameInfo applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)changePackageFileNameOrPathWithRenameInfo:(MOZURenameInfo*)renameInfo applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Uploads a file to a defined package for an application version in the file location specified in the request.

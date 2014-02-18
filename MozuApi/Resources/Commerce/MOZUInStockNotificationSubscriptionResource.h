@@ -57,7 +57,7 @@ Creates a new subscription that notifies the customer when the product specified
 @param inStockNotificationSubscription Properties of a subscription that sends the customer a notification when a product returns to active stock.
 */
 
--(void)addInStockNotificationSubscriptionWithInStockNotificationSubscription:(MOZUinStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addInStockNotificationSubscriptionWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

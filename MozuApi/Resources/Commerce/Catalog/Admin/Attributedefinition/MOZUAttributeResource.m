@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUattribute*)attribute userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUAttributeClient clientForAddAttributeOperationWithDataViewMode:dataViewMode attribute:attribute userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUattribute*)attribute attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUAttributeClient clientForUpdateAttributeOperationWithDataViewMode:dataViewMode attribute:attribute attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

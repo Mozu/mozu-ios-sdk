@@ -67,7 +67,7 @@ Performs the specified action for an individual order payment transaction.
 @param paymentId Unique identifer of the payment for which to perform the action.
 */
 
--(void)performPaymentActionWithAction:(MOZUaction*)action orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)performPaymentActionWithAction:(MOZUAction*)action orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Creates a new payment transaction for the specified order and performs the specified action.
@@ -75,7 +75,7 @@ Creates a new payment transaction for the specified order and performs the speci
 @param orderId Unique identifier of the order for which to apply the payment.
 */
 
--(void)createPaymentActionWithAction:(MOZUaction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createPaymentActionWithAction:(MOZUAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

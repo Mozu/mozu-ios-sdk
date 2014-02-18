@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addInStockNotificationSubscriptionWithInStockNotificationSubscription:(MOZUinStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addInStockNotificationSubscriptionWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithInStockNotificationSubscription:inStockNotificationSubscription userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
