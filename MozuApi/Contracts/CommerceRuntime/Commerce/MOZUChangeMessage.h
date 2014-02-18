@@ -45,7 +45,7 @@ The text of the change message, such as "This product is no longer available". S
 /**
 The new value of the object affected by the change, such as the new price of the product. System-supplied and read-only.
 */
-@property(nonatomic) NSString* newValue;
+@property(nonatomic) NSString* theNewValue;
 
 /**
 The prior value of the object affected by the change, such as the price of the product when it was added to the cart. System-supplied and read-only.

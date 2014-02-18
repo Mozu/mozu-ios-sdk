@@ -24,6 +24,31 @@
 @interface MOZUPaymentInteraction : JSONModel<MOZUPaymentInteraction>
 
 /**
+Unique identifier of the order associated with this payment interaction.
+*/
+@property(nonatomic) NSString* orderId;
+
+/**
+The status of the payment prior to the interaction being performed, which enables manual rollback of previous transactions.
+*/
+@property(nonatomic) NSString* paymentEntryStatus;
+
+/**
+Unique identifier of the payment associated with this transaction.
+*/
+@property(nonatomic) NSString* paymentId;
+
+/**
+Unique identifier of previous interaction that this payment interaction is modifying. For example, when refunding a payment, the crediting interaction would reference the capture interaction.
+*/
+@property(nonatomic) NSNumber* paymentTransactionInteractionIdReference;
+
+/**
+The status of this payment interaction. Possible values are New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack.
+*/
+@property(nonatomic) NSString* status;
+
+/**
 If applicable, the total monetary amount associated with this payment interaction.
 */
 @property(nonatomic) NSDecimalNumber* amount;
@@ -97,31 +122,6 @@ If true, this payment interaction repeats on a scheduled interval.
 Note content entered for a payment interaction.
 */
 @property(nonatomic) NSString* note;
-
-/**
-Unique identifier of the order associated with this payment interaction.
-*/
-@property(nonatomic) NSString* orderId;
-
-/**
-The status of the payment prior to the interaction being performed, which enables manual rollback of previous transactions.
-*/
-@property(nonatomic) NSString* paymentEntryStatus;
-
-/**
-Unique identifier of the payment associated with this transaction.
-*/
-@property(nonatomic) NSString* paymentId;
-
-/**
-Unique identifier of previous interaction that this payment interaction is modifying. For example, when refunding a payment, the crediting interaction would reference the capture interaction.
-*/
-@property(nonatomic) NSNumber* paymentTransactionInteractionIdReference;
-
-/**
-The status of this payment interaction. Possible values are New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack.
-*/
-@property(nonatomic) NSString* status;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
