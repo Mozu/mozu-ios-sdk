@@ -34,8 +34,8 @@
 #pragma mark -
 //
 
--(void)transactionsWithWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTransaction>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUTransactionClient clientForGetTransactionsOperationWithWithAccountId:accountId userClaims:userClaims];
+-(void)transactionsWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTransaction>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUTransactionClient clientForGetTransactionsOperationWithAccountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -51,8 +51,8 @@
 #pragma mark -
 //
 
--(void)addTransactionWithWithTransaction:(MOZUTransaction*)transaction accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUTransactionClient clientForAddTransactionOperationWithWithTransaction:transaction accountId:accountId userClaims:userClaims];
+-(void)addTransactionWithTransaction:(MOZUTransaction*)transaction accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUTransactionClient clientForAddTransactionOperationWithTransaction:transaction accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -75,8 +75,8 @@
 #pragma mark -
 //
 
--(void)removeTransactionWithWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUTransactionClient clientForRemoveTransactionOperationWithWithAccountId:accountId transactionId:transactionId userClaims:userClaims];
+-(void)removeTransactionWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUTransactionClient clientForRemoveTransactionOperationWithAccountId:accountId transactionId:transactionId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

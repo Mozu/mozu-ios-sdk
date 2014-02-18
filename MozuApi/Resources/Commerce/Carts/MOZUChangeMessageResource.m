@@ -75,8 +75,8 @@
 	}];
 }
 
--(void)removeMessageWithWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUChangeMessageClient clientForRemoveMessageOperationWithWithMessageId:messageId userClaims:userClaims];
+-(void)removeMessageWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUChangeMessageClient clientForRemoveMessageOperationWithMessageId:messageId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

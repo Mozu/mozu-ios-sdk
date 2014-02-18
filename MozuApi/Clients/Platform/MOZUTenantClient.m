@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetTenantOperationWithWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetTenantOperationWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTenantURL URLForGetTenantOperationWithTenantId:tenantId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

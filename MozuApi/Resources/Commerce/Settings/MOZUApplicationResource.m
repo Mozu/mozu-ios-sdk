@@ -58,8 +58,8 @@
 #pragma mark -
 //
 
--(void)thirdPartyUpdateApplicationWithWithApplication:(MOZUSiteSettingsApplication*)application userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUApplicationClient clientForThirdPartyUpdateApplicationOperationWithWithApplication:application userClaims:userClaims];
+-(void)thirdPartyUpdateApplicationWithApplication:(MOZUSiteSettingsApplication*)application userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUApplicationClient clientForThirdPartyUpdateApplicationOperationWithApplication:application userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

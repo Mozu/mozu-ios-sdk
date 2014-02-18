@@ -32,7 +32,7 @@ Retrieve a list of customer groups associated with the customer account.
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetAccountGroupsOperationWithWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountGroupsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves details of a customer account in a group.
@@ -40,7 +40,7 @@ Retrieves details of a customer account in a group.
 @param groupId Unique identifier of the customer group.
 */
 
-+(MOZUClient*)clientForGetAccountGroupOperationWithWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -55,7 +55,7 @@ Adds a customer account to a group.
 @param groupId Unique identifier of the customer group to add the customer to.
 */
 
-+(MOZUClient*)clientForAddAccountGroupOperationWithWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -77,7 +77,7 @@ Removes a customer account from a group.
 @param groupId Unique identifier of the customer group.
 */
 
-+(MOZUClient*)clientForDeleteAccountGroupOperationWithWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

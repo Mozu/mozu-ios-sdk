@@ -31,14 +31,14 @@ Retrieves a list of all locations associated with a tenant, according to any fil
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetLocationsOperationWithWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLocationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of the location specified in the request by location code.
 @param locationCode The merchant-defined code of the location to retrieve.
 */
 
-+(MOZUClient*)clientForGetLocationOperationWithWithLocationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLocationOperationWithLocationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a new physical location for the tenant specified in the request header.
 @param location Properties of the location to create.
 */
 
-+(MOZUClient*)clientForAddLocationOperationWithWithLocation:(MOZULocation*)location userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddLocationOperationWithLocation:(MOZULocation*)location userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more details of a the location specified in the request by locati
 @param locationCode The merchant-defined code associated with the location to update.
 */
 
-+(MOZUClient*)clientForUpdateLocationOperationWithWithLocation:(MOZULocation*)location locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateLocationOperationWithLocation:(MOZULocation*)location locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -81,7 +81,7 @@ Deletes the location specified in the request.
 @param locationCode The merchant-defined code of the location to delete.
 */
 
-+(MOZUClient*)clientForDeleteLocationOperationWithWithLocationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteLocationOperationWithLocationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

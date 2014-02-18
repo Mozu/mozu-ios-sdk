@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetEventsOperationWithWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetEventsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUEventNotificationURL URLForGetEventsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -38,7 +38,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetEventOperationWithWithEventId:(NSString*)eventId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetEventOperationWithEventId:(NSString*)eventId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUEventNotificationURL URLForGetEventOperationWithEventId:eventId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

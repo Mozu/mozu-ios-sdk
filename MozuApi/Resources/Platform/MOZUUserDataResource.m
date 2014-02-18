@@ -34,8 +34,8 @@
 #pragma mark -
 //
 
--(void)dBValueWithWithDbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUUserDataClient clientForGetDBValueOperationWithWithDbEntryQuery:dbEntryQuery userClaims:userClaims];
+-(void)dBValueWithDbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUUserDataClient clientForGetDBValueOperationWithDbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -51,8 +51,8 @@
 #pragma mark -
 //
 
--(void)createDBValueWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUUserDataClient clientForCreateDBValueOperationWithWithValue:value dbEntryQuery:dbEntryQuery userClaims:userClaims];
+-(void)createDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUUserDataClient clientForCreateDBValueOperationWithValue:value dbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -68,8 +68,8 @@
 #pragma mark -
 //
 
--(void)updateDBValueWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUUserDataClient clientForUpdateDBValueOperationWithWithValue:value dbEntryQuery:dbEntryQuery userClaims:userClaims];
+-(void)updateDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUUserDataClient clientForUpdateDBValueOperationWithValue:value dbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -85,8 +85,8 @@
 #pragma mark -
 //
 
--(void)deleteDBValueWithWithDbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUUserDataClient clientForDeleteDBValueOperationWithWithDbEntryQuery:dbEntryQuery userClaims:userClaims];
+-(void)deleteDBValueWithDbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUUserDataClient clientForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

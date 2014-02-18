@@ -34,8 +34,8 @@
 #pragma mark -
 //
 
--(void)dBValueWithWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUSiteDataClient clientForGetDBValueOperationWithWithDbEntryQuery:dbEntryQuery];
+-(void)dBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUSiteDataClient clientForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -51,8 +51,8 @@
 #pragma mark -
 //
 
--(void)createDBValueWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUSiteDataClient clientForCreateDBValueOperationWithWithValue:value dbEntryQuery:dbEntryQuery];
+-(void)createDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUSiteDataClient clientForCreateDBValueOperationWithValue:value dbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -68,8 +68,8 @@
 #pragma mark -
 //
 
--(void)updateDBValueWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUSiteDataClient clientForUpdateDBValueOperationWithWithValue:value dbEntryQuery:dbEntryQuery];
+-(void)updateDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUSiteDataClient clientForUpdateDBValueOperationWithValue:value dbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -85,8 +85,8 @@
 #pragma mark -
 //
 
--(void)deleteDBValueWithWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUSiteDataClient clientForDeleteDBValueOperationWithWithDbEntryQuery:dbEntryQuery];
+-(void)deleteDBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUSiteDataClient clientForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

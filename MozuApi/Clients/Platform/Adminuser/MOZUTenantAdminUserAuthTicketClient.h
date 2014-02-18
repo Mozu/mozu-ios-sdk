@@ -36,7 +36,7 @@ Creates an authentication ticket for the supplied user to specify in API request
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 */
 
-+(MOZUClient*)clientForCreateUserAuthTicketOperationWithWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -51,7 +51,7 @@ Generates a new user authentication ticket for the specified tenant by supplying
 @param tenantId 
 */
 
-+(MOZUClient*)clientForRefreshAuthTicketOperationWithWithExistingAuthTicket:(MOZUTenantAdminUserAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUTenantAdminUserAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -65,7 +65,7 @@ Deletes the authentication ticket for the user by supplying the refresh token.
 @param refreshToken Refresh token string associated with the user authentication ticket.
 */
 
-+(MOZUClient*)clientForDeleteUserAuthTicketOperationWithWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

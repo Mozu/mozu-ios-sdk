@@ -38,7 +38,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLocationUsageOperationWithWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetLocationUsageOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationUsageURL URLForGetLocationUsageOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateLocationUsageOperationWithWithUsage:(MOZULocationUsage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateLocationUsageOperationWithUsage:(MOZULocationUsage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationUsageURL URLForUpdateLocationUsageOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

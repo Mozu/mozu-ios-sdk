@@ -34,7 +34,7 @@ Retrieves the location usages for the site specified in the request header.
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
 
-+(MOZUClient*)clientForGetLocationUsageOperationWithWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLocationUsageOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -56,7 +56,7 @@ Updates the location usage for the site based on the location usage code specifi
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
 
-+(MOZUClient*)clientForUpdateLocationUsageOperationWithWithUsage:(MOZULocationUsage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateLocationUsageOperationWithUsage:(MOZULocationUsage*)usage code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

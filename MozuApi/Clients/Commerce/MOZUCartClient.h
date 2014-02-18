@@ -28,7 +28,7 @@ Retrieves the cart specified in the request.
 @param cartId Identifier of the cart to retrieve.
 */
 
-+(MOZUClient*)clientForGetCartOperationWithWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCartOperationWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
@@ -47,14 +47,14 @@ Retrieves the cart of the user specified in the request.
 @param userId Unique identifier of the user whose cart you want to retrieve.
 */
 
-+(MOZUClient*)clientForGetUserCartOperationWithWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetUserCartOperationWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 @param userId Unique identifier of the user whose cart details you want to retrieve.
 */
 
-+(MOZUClient*)clientForGetUserCartSummaryOperationWithWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetUserCartSummaryOperationWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -75,7 +75,7 @@ Update the current shopper's cart.
 @param cart All of the properties of the cart to update. The product code is required.
 */
 
-+(MOZUClient*)clientForUpdateCartOperationWithWithCart:(MOZUCart*)cart userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateCartOperationWithCart:(MOZUCart*)cart userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -89,7 +89,7 @@ Deletes the cart specified in the request.
 @param cartId Identifier of the cart to delete.
 */
 
-+(MOZUClient*)clientForDeleteCartOperationWithWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteCartOperationWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Deletes the cart of the currently active shopper.

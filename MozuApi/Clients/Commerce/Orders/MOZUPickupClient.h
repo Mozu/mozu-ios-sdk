@@ -28,7 +28,7 @@ Retrieves the details of the in-store pickup specified in the request.
 @param pickupId Unique identifier of the pickup to retrieve.
 */
 
-+(MOZUClient*)clientForGetPickupOperationWithWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetPickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves a list of the actions available to perform for the pickup specified in the request.
@@ -36,7 +36,7 @@ Retrieves a list of the actions available to perform for the pickup specified in
 @param pickupId Unique identifier of the pickup for which to retrieve available actions.
 */
 
-+(MOZUClient*)clientForGetAvailablePickupFulfillmentActionsOperationWithWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -51,7 +51,7 @@ Create a new pickup for the order specified in the request for in-store fufillme
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForCreatePickupOperationWithWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreatePickupOperationWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more details of a defined in-store pickup.
 @param pickupId Unique identifier of the pickup to update.
 */
 
-+(MOZUClient*)clientForUpdatePickupOperationWithWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdatePickupOperationWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -82,7 +82,7 @@ Removes a pickup previously defined for order item in-store pickup fulfillment.
 @param pickupId Unique identifier of the pickup to remove.
 */
 
-+(MOZUClient*)clientForDeletePickupOperationWithWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeletePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

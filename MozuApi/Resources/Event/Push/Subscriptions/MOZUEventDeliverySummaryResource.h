@@ -36,7 +36,7 @@
 @param subscriptionId 
 */
 
--(void)deliveryAttemptSummariesWithWithSubscriptionId:(NSString*)subscriptionId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEventDeliverySummaryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)deliveryAttemptSummariesWithSubscriptionId:(NSString*)subscriptionId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEventDeliverySummaryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

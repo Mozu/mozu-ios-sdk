@@ -32,7 +32,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetAddressSchemaOperationWithWithCountryCode:(NSString*)countryCode {
++(MOZUClient*)clientForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode {
 	id url = [MOZUReferenceDataURL URLForGetAddressSchemaOperationWithCountryCode:countryCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -56,7 +56,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetBehaviorOperationWithWithBehaviorId:(NSInteger)behaviorId {
++(MOZUClient*)clientForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId {
 	id url = [MOZUReferenceDataURL URLForGetBehaviorOperationWithBehaviorId:behaviorId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -80,7 +80,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetBehaviorCategoryOperationWithWithCategoryId:(NSInteger)categoryId {
++(MOZUClient*)clientForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId {
 	id url = [MOZUReferenceDataURL URLForGetBehaviorCategoryOperationWithCategoryId:categoryId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -92,7 +92,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetBehaviorsOperationWithWithUserType:(NSString*)userType {
++(MOZUClient*)clientForGetBehaviorsOperationWithUserType:(NSString*)userType {
 	id url = [MOZUReferenceDataURL URLForGetBehaviorsOperationWithUserType:userType];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -164,7 +164,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetUnitsOfMeasureOperationWithWithFilter:(NSString*)filter {
++(MOZUClient*)clientForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter {
 	id url = [MOZUReferenceDataURL URLForGetUnitsOfMeasureOperationWithFilter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

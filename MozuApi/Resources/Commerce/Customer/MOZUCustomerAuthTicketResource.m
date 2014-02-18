@@ -41,8 +41,8 @@
 #pragma mark -
 //
 
--(void)createUserAuthTicketWithWithUserAuthInfo:(MOZUCustomerUserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithWithUserAuthInfo:userAuthInfo userClaims:userClaims];
+-(void)createUserAuthTicketWithUserAuthInfo:(MOZUCustomerUserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithUserAuthInfo:userAuthInfo userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -58,8 +58,8 @@
 #pragma mark -
 //
 
--(void)refreshUserAuthTicketWithWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForRefreshUserAuthTicketOperationWithWithRefreshToken:refreshToken userClaims:userClaims];
+-(void)refreshUserAuthTicketWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

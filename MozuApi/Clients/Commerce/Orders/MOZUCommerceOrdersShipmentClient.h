@@ -30,14 +30,14 @@ Retrieves the details of the order shipment specified in the request.
 @param shipmentId Unique identifier of the shipment to retrieve.
 */
 
-+(MOZUClient*)clientForGetShipmentOperationWithWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 */
 
-+(MOZUClient*)clientForGetAvailableShipmentMethodsOperationWithWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a shipment from one or more package associated with an order and assign 
 @param orderId Unique identifier of the order for this shipment.
 */
 
-+(MOZUClient*)clientForCreatePackageShipmentsOperationWithWithPackageIds:(NSString*)packageIds orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreatePackageShipmentsOperationWithPackageIds:(NSString*)packageIds orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -74,7 +74,7 @@ Deletes the shipment specified in the request.
 @param shipmentId Unique identifier of the shipment to cancel.
 */
 
-+(MOZUClient*)clientForDeleteShipmentOperationWithWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

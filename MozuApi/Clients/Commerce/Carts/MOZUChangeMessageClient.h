@@ -60,7 +60,7 @@ Removes a single message associated with the cart of the current shopper.
 @param messageId Identifier of the message to remove from the cart.
 */
 
-+(MOZUClient*)clientForRemoveMessageOperationWithWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForRemoveMessageOperationWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

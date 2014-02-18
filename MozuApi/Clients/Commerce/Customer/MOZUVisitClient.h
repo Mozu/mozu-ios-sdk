@@ -31,14 +31,14 @@ Retrieves a list of customer visits according to any filter or sort criteria spe
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetVisitsOperationWithWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetVisitsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of the customer visit specified in the request.
 @param visitId Unique identifier of the customer visit to retrieve.
 */
 
-+(MOZUClient*)clientForGetVisitOperationWithWithVisitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetVisitOperationWithVisitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a new visit for the customer account specified in the request.
 @param visit Properties of the visit to add to the customer account.
 */
 
-+(MOZUClient*)clientForAddVisitOperationWithWithVisit:(MOZUVisit*)visit userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddVisitOperationWithVisit:(MOZUVisit*)visit userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more properties of a defined customer visit.
 @param visitId Unique identifier of the customer visit to update.
 */
 
-+(MOZUClient*)clientForUpdateVisitOperationWithWithVisit:(MOZUVisit*)visit visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateVisitOperationWithVisit:(MOZUVisit*)visit visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

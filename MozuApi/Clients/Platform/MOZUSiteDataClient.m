@@ -20,7 +20,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetDBValueOperationWithWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUClient*)clientForGetDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
 	id url = [MOZUSiteDataURL URLForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -35,7 +35,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateDBValueOperationWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUClient*)clientForCreateDBValueOperationWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery {
 	id url = [MOZUSiteDataURL URLForCreateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -50,7 +50,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateDBValueOperationWithWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUClient*)clientForUpdateDBValueOperationWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery {
 	id url = [MOZUSiteDataURL URLForUpdateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -65,7 +65,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteDBValueOperationWithWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUClient*)clientForDeleteDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
 	id url = [MOZUSiteDataURL URLForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -70,7 +70,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForRemoveMessageOperationWithWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForRemoveMessageOperationWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChangeMessageURL URLForRemoveMessageOperationWithMessageId:messageId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

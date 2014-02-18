@@ -40,7 +40,7 @@ Retrieves a list of products that appear on the storefront according to any spec
 @param startIndex 
 */
 
--(void)productsWithWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeProductCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)productsWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeProductCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the active inventory level information associated with the product or location specified in the request.
@@ -48,7 +48,7 @@ Retrieves the active inventory level information associated with the product or 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)productInventoryWithWithProductCode:(NSString*)productCode locationCodes:(NSString*)locationCodes userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeLocationInventoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)productInventoryWithProductCode:(NSString*)productCode locationCodes:(NSString*)locationCodes userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeLocationInventoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves information about a single product given its product code.
@@ -58,7 +58,7 @@ Retrieves information about a single product given its product code.
 @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
 
--(void)productWithWithProductCode:(NSString*)productCode variationProductCode:(NSString*)variationProductCode allowInactive:(NSNumber*)allowInactive skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)productWithProductCode:(NSString*)productCode variationProductCode:(NSString*)variationProductCode allowInactive:(NSNumber*)allowInactive skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -75,7 +75,7 @@ Creates a new product selection. A create occurs each time a shopper selects a p
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
 
--(void)configuredProductWithWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUConfiguredProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)configuredProductWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUConfiguredProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Validate the final state of shopper-selected options.
@@ -84,7 +84,7 @@ Validate the final state of shopper-selected options.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
 
--(void)validateProductWithWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductValidationSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)validateProductWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductValidationSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

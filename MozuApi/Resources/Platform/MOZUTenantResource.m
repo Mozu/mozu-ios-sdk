@@ -35,7 +35,7 @@
 #pragma mark -
 //
 
--(void)tenantWithWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)tenantWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	NSString* cacheKey = [@(tenantId) stringValue];
 	id tenant = [MOZUCacheManager getCacheForKey:cacheKey];
 	if (tenant != nil && handler != nil) {
@@ -43,7 +43,7 @@
 		return;
 	}
 
-	MOZUClient * client = [MOZUTenantClient clientForGetTenantOperationWithWithTenantId:tenantId userClaims:userClaims];
+	MOZUClient * client = [MOZUTenantClient clientForGetTenantOperationWithTenantId:tenantId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		NSString* key = [@(tenantId) stringValue];

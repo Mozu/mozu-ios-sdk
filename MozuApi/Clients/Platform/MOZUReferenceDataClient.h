@@ -37,7 +37,7 @@ Retrieves a specific address schema based on the country code provided. This ope
 @param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 
-+(MOZUClient*)clientForGetAddressSchemaOperationWithWithCountryCode:(NSString*)countryCode;
++(MOZUClient*)clientForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode;
 
 /**
 Retrieves the entire list of address schemas that the system supports.
@@ -50,7 +50,7 @@ Retrieves the details of a behavior based on the behavior ID specified in the re
 @param behaviorId Unique identifier of the behavior.
 */
 
-+(MOZUClient*)clientForGetBehaviorOperationWithWithBehaviorId:(NSInteger)behaviorId;
++(MOZUClient*)clientForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId;
 
 /**
 Retrieves the list of behavior categories.
@@ -63,14 +63,14 @@ Retrieves the details of the behavior category specified in the request.
 @param categoryId Unique identifier of the behavior category.
 */
 
-+(MOZUClient*)clientForGetBehaviorCategoryOperationWithWithCategoryId:(NSInteger)categoryId;
++(MOZUClient*)clientForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId;
 
 /**
 Retrieves a list of application behaviors.
 @param userType The user type associated with the behaviors to retrieve.
 */
 
-+(MOZUClient*)clientForGetBehaviorsOperationWithWithUserType:(NSString*)userType;
++(MOZUClient*)clientForGetBehaviorsOperationWithUserType:(NSString*)userType;
 
 /**
 Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
@@ -107,7 +107,7 @@ Retrieves an array list of all units of measure the system supports.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
 
-+(MOZUClient*)clientForGetUnitsOfMeasureOperationWithWithFilter:(NSString*)filter;
++(MOZUClient*)clientForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter;
 
 
 //

@@ -29,7 +29,7 @@ Retrieves the contents of a particular note attached to a specified customer acc
 @param noteId Unique identifier of a particular note to retrieve.
 */
 
-+(MOZUClient*)clientForGetAccountNoteOperationWithWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
@@ -40,7 +40,7 @@ Retrieves a list of notes added to a customer account according to any specified
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetAccountNotesOperationWithWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -55,7 +55,7 @@ Adds a new note to the specified customer account.
 @param accountId Unique identifier of the customer account for which to create the note.
 */
 
-+(MOZUClient*)clientForAddAccountNoteOperationWithWithNote:(MOZUCustomerNote*)note accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAccountNoteOperationWithNote:(MOZUCustomerNote*)note accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -71,7 +71,7 @@ Modifies an existing note for a customer account.
 @param noteId Unique identifier of the note to update.
 */
 
-+(MOZUClient*)clientForUpdateAccountNoteOperationWithWithNote:(MOZUCustomerNote*)note accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateAccountNoteOperationWithNote:(MOZUCustomerNote*)note accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -86,7 +86,7 @@ Removes a note from the specified customer account.
 @param noteId Unique identifier of the customer account note being deleted.
 */
 
-+(MOZUClient*)clientForDeleteAccountNoteOperationWithWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

@@ -34,8 +34,8 @@
 #pragma mark -
 //
 
--(void)addressSchemaWithWithCountryCode:(NSString*)countryCode completionHandler:(void(^)(MOZUAddressSchema* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUReferenceDataClient clientForGetAddressSchemaOperationWithWithCountryCode:countryCode];
+-(void)addressSchemaWithCountryCode:(NSString*)countryCode completionHandler:(void(^)(MOZUAddressSchema* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUReferenceDataClient clientForGetAddressSchemaOperationWithCountryCode:countryCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -54,8 +54,8 @@
 	}];
 }
 
--(void)behaviorWithWithBehaviorId:(NSInteger)behaviorId completionHandler:(void(^)(MOZUBehavior* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorOperationWithWithBehaviorId:behaviorId];
+-(void)behaviorWithBehaviorId:(NSInteger)behaviorId completionHandler:(void(^)(MOZUBehavior* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorOperationWithBehaviorId:behaviorId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -74,8 +74,8 @@
 	}];
 }
 
--(void)behaviorCategoryWithWithCategoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUBehaviorCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorCategoryOperationWithWithCategoryId:categoryId];
+-(void)behaviorCategoryWithCategoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUBehaviorCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorCategoryOperationWithCategoryId:categoryId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -84,8 +84,8 @@
 	}];
 }
 
--(void)behaviorsWithWithUserType:(NSString*)userType completionHandler:(void(^)(MOZUBehaviorCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorsOperationWithWithUserType:userType];
+-(void)behaviorsWithUserType:(NSString*)userType completionHandler:(void(^)(MOZUBehaviorCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorsOperationWithUserType:userType];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -144,8 +144,8 @@
 	}];
 }
 
--(void)unitsOfMeasureWithWithFilter:(NSString*)filter completionHandler:(void(^)(MOZUUnitOfMeasureCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
-	MOZUClient * client = [MOZUReferenceDataClient clientForGetUnitsOfMeasureOperationWithWithFilter:filter];
+-(void)unitsOfMeasureWithFilter:(NSString*)filter completionHandler:(void(^)(MOZUUnitOfMeasureCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+	MOZUClient * client = [MOZUReferenceDataClient clientForGetUnitsOfMeasureOperationWithFilter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

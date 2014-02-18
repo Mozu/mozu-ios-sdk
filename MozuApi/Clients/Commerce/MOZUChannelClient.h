@@ -31,14 +31,14 @@ Retrieves a list of channels defined for a tenant according to any filter or sor
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetChannelsOperationWithWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetChannelsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of the channel specified in the request.
 @param code User-defined code that identifies the channel to retrieve.
 */
 
-+(MOZUClient*)clientForGetChannelOperationWithWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetChannelOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a new channel that defines a new logical business division to use for fi
 @param channel Properties of the channel to create.
 */
 
-+(MOZUClient*)clientForCreateChannelOperationWithWithChannel:(MOZUChannel*)channel userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateChannelOperationWithChannel:(MOZUChannel*)channel userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more details of a defined channel, including the associated sites
 @param code User-defined code that identifies the channel to update.
 */
 
-+(MOZUClient*)clientForUpdateChannelOperationWithWithChannel:(MOZUChannel*)channel code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateChannelOperationWithChannel:(MOZUChannel*)channel code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -81,7 +81,7 @@ Deletes a defined channel for the tenant and removes the defined site associatio
 @param code User-defined code that identifies the channel to delete.
 */
 
-+(MOZUClient*)clientForDeleteChannelOperationWithWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteChannelOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

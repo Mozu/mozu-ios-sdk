@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetCartOperationWithWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetCartOperationWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForGetCartOperationWithCartId:cartId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -70,7 +70,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetUserCartOperationWithWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetUserCartOperationWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForGetUserCartOperationWithUserId:userId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -86,7 +86,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetUserCartSummaryOperationWithWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetUserCartSummaryOperationWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForGetUserCartSummaryOperationWithUserId:userId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -116,7 +116,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateCartOperationWithWithCart:(MOZUCart*)cart userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateCartOperationWithCart:(MOZUCart*)cart userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForUpdateCartOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -139,7 +139,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteCartOperationWithWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeleteCartOperationWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCartURL URLForDeleteCartOperationWithCartId:cartId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

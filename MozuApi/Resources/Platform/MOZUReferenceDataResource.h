@@ -42,7 +42,7 @@ Retrieves a specific address schema based on the country code provided. This ope
 @param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 
--(void)addressSchemaWithWithCountryCode:(NSString*)countryCode completionHandler:(void(^)(MOZUAddressSchema* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addressSchemaWithCountryCode:(NSString*)countryCode completionHandler:(void(^)(MOZUAddressSchema* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the entire list of address schemas that the system supports.
@@ -55,7 +55,7 @@ Retrieves the details of a behavior based on the behavior ID specified in the re
 @param behaviorId Unique identifier of the behavior.
 */
 
--(void)behaviorWithWithBehaviorId:(NSInteger)behaviorId completionHandler:(void(^)(MOZUBehavior* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)behaviorWithBehaviorId:(NSInteger)behaviorId completionHandler:(void(^)(MOZUBehavior* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the list of behavior categories.
@@ -68,14 +68,14 @@ Retrieves the details of the behavior category specified in the request.
 @param categoryId Unique identifier of the behavior category.
 */
 
--(void)behaviorCategoryWithWithCategoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUBehaviorCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)behaviorCategoryWithCategoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUBehaviorCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves a list of application behaviors.
 @param userType The user type associated with the behaviors to retrieve.
 */
 
--(void)behaviorsWithWithUserType:(NSString*)userType completionHandler:(void(^)(MOZUBehaviorCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)behaviorsWithUserType:(NSString*)userType completionHandler:(void(^)(MOZUBehaviorCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
@@ -112,7 +112,7 @@ Retrieves an array list of all units of measure the system supports.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
 
--(void)unitsOfMeasureWithWithFilter:(NSString*)filter completionHandler:(void(^)(MOZUUnitOfMeasureCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)unitsOfMeasureWithFilter:(NSString*)filter completionHandler:(void(^)(MOZUUnitOfMeasureCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

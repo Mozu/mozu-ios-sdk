@@ -36,21 +36,21 @@ Retrieves a list of orders according to any specified filter criteria and sort o
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetOrdersOperationWithWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOrdersOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves available order actions which depends on the status of the order. Actions are "CreateOrder," "SubmitOrder," "SetOrderAsProcessing," "CloseOrder," or "CancelOrder."
 @param orderId Unique identifier of the available order actions to get.
 */
 
-+(MOZUClient*)clientForGetAvailableActionsOperationWithWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAvailableActionsOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves an order for the purpose of splitting it into multiple taxable orders in order to fulfill the order in multiple locations.
 @param orderId Unique identifier of the order to retrieve.
 */
 
-+(MOZUClient*)clientForGetTaxableOrdersOperationWithWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetTaxableOrdersOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of an order specified by the order ID.
@@ -58,7 +58,7 @@ Retrieves the details of an order specified by the order ID.
 @param orderId Unique identifier of the order details to get.
 */
 
-+(MOZUClient*)clientForGetOrderOperationWithWithOrderId:(NSString*)orderId draft:(NSNumber*)draft userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOrderOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -72,14 +72,14 @@ Creates a new order for no-cart quick-ordering scenarios.
 @param order All properties of the order to place.
 */
 
-+(MOZUClient*)clientForCreateOrderOperationWithWithOrder:(MOZUOrder*)order userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateOrderOperationWithOrder:(MOZUOrder*)order userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Creates a new order from an existing cart when the customer chooses to proceed to checkout.
 @param cartId Unique identifier of the cart. This is the original cart ID expressed as a GUID.
 */
 
-+(MOZUClient*)clientForCreateOrderFromCartOperationWithWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateOrderFromCartOperationWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Perform the specified action for an order. Available actions depend on the current status of the order. When in doubt, first get a list of available order actions.
@@ -87,7 +87,7 @@ Perform the specified action for an order. Available actions depend on the curre
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForPerformOrderActionOperationWithWithAction:(MOZUOrderAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForPerformOrderActionOperationWithAction:(MOZUOrderAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -105,7 +105,7 @@ Update the properties of a discount applied to an order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForUpdateOrderDiscountOperationWithWithDiscount:(MOZUAppliedDiscount*)discount orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderDiscountOperationWithDiscount:(MOZUAppliedDiscount*)discount orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Deletes the current draft version of the order, which also deletes any uncommitted changes made to the order in draft mode.
@@ -113,14 +113,14 @@ Deletes the current draft version of the order, which also deletes any uncommitt
 @param version If applicable, the version of the order draft to delete.
 */
 
-+(MOZUClient*)clientForDeleteOrderDraftOperationWithWithOrderId:(NSString*)orderId version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteOrderDraftOperationWithOrderId:(NSString*)orderId version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Updates the user ID of the shopper who placed the order to the current user.
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForChangeOrderUserIdOperationWithWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForChangeOrderUserIdOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Updates the specified order when additional order information, such as shipping or billing information, is modified during the checkout process.
@@ -130,7 +130,7 @@ Updates the specified order when additional order information, such as shipping 
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForUpdateOrderOperationWithWithOrder:(MOZUOrder*)order orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderOperationWithOrder:(MOZUOrder*)order orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

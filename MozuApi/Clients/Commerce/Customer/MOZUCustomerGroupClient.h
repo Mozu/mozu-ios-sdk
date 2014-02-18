@@ -31,14 +31,14 @@ Retrieves a list of all customer groups defined for the site according to any sp
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetGroupsOperationWithWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetGroupsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the name of a customer group specified the customer group ID.
 @param groupId Identifier of the customer group to retrieve.
 */
 
-+(MOZUClient*)clientForGetGroupOperationWithWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetGroupOperationWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a new customer group. New customer groups do not have any associated cus
 @param group Properties of the customer group to add.
 */
 
-+(MOZUClient*)clientForAddGroupOperationWithWithGroup:(MOZUCustomerGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddGroupOperationWithGroup:(MOZUCustomerGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates the name of a defined customer group.
 @param groupId Identifier of the customer group to update.
 */
 
-+(MOZUClient*)clientForUpdateGroupOperationWithWithGroup:(MOZUCustomerGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateGroupOperationWithGroup:(MOZUCustomerGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -81,7 +81,7 @@ Deletes a customer group specified by its unique identifier. Deleting a group re
 @param groupId Identifier of the customer group to delete.
 */
 
-+(MOZUClient*)clientForDeleteGroupOperationWithWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteGroupOperationWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

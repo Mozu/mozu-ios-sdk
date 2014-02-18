@@ -34,7 +34,7 @@ Retrieves the specified contact for a customer account such as a billing or ship
 @param contactId Unique identifier of the customer account contact to retrieve.
 */
 
--(void)accountContactWithWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)accountContactWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Retrieves a list of contacts for a customer according to any specified filter criteria and sort options.
@@ -45,7 +45,7 @@ Retrieves a list of contacts for a customer according to any specified filter cr
 @param startIndex 
 */
 
--(void)accountContactsWithWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContactCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)accountContactsWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContactCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -60,7 +60,7 @@ Creates a new contact for a customer account such as a new shipping address.
 @param accountId Unique identifier of the customer account containing the new contact.
 */
 
--(void)addAccountContactWithWithContact:(MOZUCustomerContact*)contact accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addAccountContactWithContact:(MOZUCustomerContact*)contact accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -76,7 +76,7 @@ Updates a contact for a specified customer account such as to update addresses o
 @param contactId Unique identifer of the customer account contact being updated.
 */
 
--(void)updateAccountContactWithWithContact:(MOZUCustomerContact*)contact accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateAccountContactWithContact:(MOZUCustomerContact*)contact accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -91,7 +91,7 @@ Deletes a contact for the specified customer account.
 @param contactId Unique identifier of the customer account contact to delete.
 */
 
--(void)deleteAccountContactWithWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)deleteAccountContactWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 

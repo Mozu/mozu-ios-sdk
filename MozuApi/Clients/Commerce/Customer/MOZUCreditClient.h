@@ -31,14 +31,14 @@ Retrieves a list of store credits applied to customer accounts, according any fi
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetCreditsOperationWithWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCreditsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of a store credit applied to a customer account.
 @param code User-defined code that identifies the store credit to retrieve.
 */
 
-+(MOZUClient*)clientForGetCreditOperationWithWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCreditOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a new store credit for the customer account specified in the request.
 @param credit Properties of the store credit to create.
 */
 
-+(MOZUClient*)clientForAddCreditOperationWithWithCredit:(MOZUCredit*)credit userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddCreditOperationWithCredit:(MOZUCredit*)credit userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,14 +67,14 @@ Updates one or more properties of a defined store credit applied to a customer a
 @param code User-defined code of the store credit to update.
 */
 
-+(MOZUClient*)clientForUpdateCreditOperationWithWithCredit:(MOZUCredit*)credit code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateCreditOperationWithCredit:(MOZUCredit*)credit code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Associates an unclaimed customer credit with the shopper user authenticated in the request header.
 @param code The code that represents the credit to claim for the shopper.
 */
 
-+(MOZUClient*)clientForAssociateCreditToShopperOperationWithWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAssociateCreditToShopperOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -88,7 +88,7 @@ Deletes a store credit previously applied to a customer account.
 @param code User-defined code of the store credit to delete.
 */
 
-+(MOZUClient*)clientForDeleteCreditOperationWithWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteCreditOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 
