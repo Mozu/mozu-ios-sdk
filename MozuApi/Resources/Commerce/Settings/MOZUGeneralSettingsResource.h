@@ -52,7 +52,7 @@ Updates a site's general global settings.
 @param generalSettings The properties of the site's general settings to update.
 */
 
--(void)updateGeneralSettingsWithGeneralSettings:(MOZUGeneralSettings*)generalSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateGeneralSettingsWithGeneralSettings:(MOZUgeneralSettings*)generalSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

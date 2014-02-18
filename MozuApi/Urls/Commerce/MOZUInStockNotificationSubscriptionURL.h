@@ -28,9 +28,9 @@ Resource Url for getInStockNotificationSubscriptions
 
 /**
 Resource Url for getInStockNotificationSubscription
-@param id Unique identifier of the in-stock notification subscription to retrieve.
+@param identifier Unique identifier of the in-stock notification subscription to retrieve.
 */
-+(MOZUURL*)URLForGetInStockNotificationSubscriptionOperationWithId:(NSInteger)id;
++(MOZUURL*)URLForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
 
 
 //
@@ -60,9 +60,9 @@ Resource Url for addInStockNotificationSubscription
 
 /**
 Resource Url for deleteInStockNotificationSubscription
-@param id Unique identifier of the customer in-stock notification subscription to delete.
+@param identifier Unique identifier of the customer in-stock notification subscription to delete.
 */
-+(MOZUURL*)URLForDeleteInStockNotificationSubscriptionOperationWithId:(NSInteger)id;
++(MOZUURL*)URLForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
 
 
 

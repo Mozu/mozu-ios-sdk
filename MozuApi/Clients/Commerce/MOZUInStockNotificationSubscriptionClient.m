@@ -38,8 +38,8 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetInStockNotificationSubscriptionOperationWithId:(NSInteger)id userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUInStockNotificationSubscriptionURL URLForGetInStockNotificationSubscriptionOperationWithId:id];
++(MOZUClient*)clientForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims {
+	id url = [MOZUInStockNotificationSubscriptionURL URLForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddInStockNotificationSubscriptionOperationWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddInStockNotificationSubscriptionOperationWithInStockNotificationSubscription:(MOZUinStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUInStockNotificationSubscriptionURL URLForAddInStockNotificationSubscriptionOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -91,8 +91,8 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteInStockNotificationSubscriptionOperationWithId:(NSInteger)id userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUInStockNotificationSubscriptionURL URLForDeleteInStockNotificationSubscriptionOperationWithId:id];
++(MOZUClient*)clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims {
+	id url = [MOZUInStockNotificationSubscriptionURL URLForDeleteInStockNotificationSubscriptionOperationWithIdentifier:identifier];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -57,7 +57,7 @@ Creates a new visit for the customer account specified in the request.
 @param visit Properties of the visit to add to the customer account.
 */
 
--(void)addVisitWithVisit:(MOZUVisit*)visit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addVisitWithVisit:(MOZUvisit*)visit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Updates one or more properties of a defined customer visit.
 @param visitId Unique identifier of the customer visit to update.
 */
 
--(void)updateVisitWithVisit:(MOZUVisit*)visit visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateVisitWithVisit:(MOZUvisit*)visit visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

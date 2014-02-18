@@ -75,7 +75,7 @@ Creates a new product selection. A create occurs each time a shopper selects a p
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
 
--(void)configuredProductWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUConfiguredProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)configuredProductWithProductOptionSelections:(MOZUproductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUConfiguredProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Validate the final state of shopper-selected options.
@@ -84,7 +84,7 @@ Validate the final state of shopper-selected options.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
 
--(void)validateProductWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductValidationSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)validateProductWithProductOptionSelections:(MOZUproductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductValidationSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

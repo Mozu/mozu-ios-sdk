@@ -57,7 +57,7 @@ Creates a new product type based on the information supplied in the request.
 @param productType Properties of the product type to create.
 */
 
--(void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUProductType*)productType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUproductType*)productType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Updates one or more properties of a product type.
 @param productTypeId Identifier of the product type to update.
 */
 
--(void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUProductType*)productType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUproductType*)productType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

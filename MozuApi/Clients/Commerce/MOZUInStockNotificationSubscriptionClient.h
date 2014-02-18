@@ -35,10 +35,10 @@ Retrieves a list of in-stock notification subscriptions.
 
 /**
 Retrieves the details of a subscription that sends a push notification when a product returns to active stock.
-@param id Unique identifier of the in-stock notification subscription to retrieve.
+@param identifier Unique identifier of the in-stock notification subscription to retrieve.
 */
 
-+(MOZUClient*)clientForGetInStockNotificationSubscriptionOperationWithId:(NSInteger)id userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a new subscription that notifies the customer when the product specified
 @param inStockNotificationSubscription Properties of a subscription that sends the customer a notification when a product returns to active stock.
 */
 
-+(MOZUClient*)clientForAddInStockNotificationSubscriptionOperationWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddInStockNotificationSubscriptionOperationWithInStockNotificationSubscription:(MOZUinStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -70,10 +70,10 @@ Creates a new subscription that notifies the customer when the product specified
 
 /**
 Deletes a subscription for a customer in-stock notification.
-@param id Unique identifier of the customer in-stock notification subscription to delete.
+@param identifier Unique identifier of the customer in-stock notification subscription to delete.
 */
 
-+(MOZUClient*)clientForDeleteInStockNotificationSubscriptionOperationWithId:(NSInteger)id userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

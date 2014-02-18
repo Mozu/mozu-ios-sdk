@@ -62,7 +62,7 @@ Creates a new shopper wish list for the associated customer account. Although cu
 @param wishlist Properties of the wish list to create.
 */
 
-+(MOZUClient*)clientForCreateWishlistOperationWithWishlist:(MOZUWishlist*)wishlist userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateWishlistOperationWithWishlist:(MOZUwishlist*)wishlist userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -77,7 +77,7 @@ Updates one or more properties of a shopper wish list defined for a customer acc
 @param wishlistId Unique identifier of the shopper wish list to update.
 */
 
-+(MOZUClient*)clientForUpdateWishlistOperationWithWishlist:(MOZUWishlist*)wishlist wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateWishlistOperationWithWishlist:(MOZUwishlist*)wishlist wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

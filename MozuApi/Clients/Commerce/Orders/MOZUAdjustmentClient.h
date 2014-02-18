@@ -45,7 +45,7 @@ Applies a shipping adjustment to the specified order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForApplyShippingAdjustmentOperationWithAdjustment:(MOZUAdjustment*)adjustment orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForApplyShippingAdjustmentOperationWithAdjustment:(MOZUadjustment*)adjustment orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Applies a price adjustment to the specified order.
@@ -55,7 +55,7 @@ Applies a price adjustment to the specified order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForApplyAdjustmentOperationWithAdjustment:(MOZUAdjustment*)adjustment orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForApplyAdjustmentOperationWithAdjustment:(MOZUadjustment*)adjustment orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

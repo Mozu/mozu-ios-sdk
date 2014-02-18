@@ -57,7 +57,7 @@ Creates a new physical location for the tenant specified in the request header.
 @param location Properties of the location to create.
 */
 
--(void)addLocationWithLocation:(MOZULocation*)location userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addLocationWithLocation:(MOZUlocation*)location userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Updates one or more details of a the location specified in the request by locati
 @param locationCode The merchant-defined code associated with the location to update.
 */
 
--(void)updateLocationWithLocation:(MOZULocation*)location locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateLocationWithLocation:(MOZUlocation*)location locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

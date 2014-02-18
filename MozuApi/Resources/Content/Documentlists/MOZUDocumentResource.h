@@ -68,7 +68,7 @@ Creates a new document in an existing list.
 @param documentListName The descriptive alphanumeric document list name being created.
 */
 
--(void)createDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode document:(MOZUDocument*)document documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode document:(MOZUdocument*)document documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -84,7 +84,7 @@ Updates a document in a document list.
 @param documentListName Name of the document list associated with the document.
 */
 
--(void)updateDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode document:(MOZUDocument*)document documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode document:(MOZUdocument*)document documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
@@ -93,7 +93,7 @@ Updates the content associated with a document, such as a product image or PDF s
 @param documentListName The name of the document list associated with the document.
 */
 
--(void)updateDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:(NSInputStream*)stream documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:(stream)stream documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

@@ -41,7 +41,7 @@
 #pragma mark -
 //
 
--(void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUPublishingScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUpublishScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUPublishingScopeClient clientForDiscardDraftsOperationWithDataViewMode:dataViewMode publishScope:publishScope userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -51,7 +51,7 @@
 	}];
 }
 
--(void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUPublishingScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUpublishScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUPublishingScopeClient clientForPublishDraftsOperationWithDataViewMode:dataViewMode publishScope:publishScope userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

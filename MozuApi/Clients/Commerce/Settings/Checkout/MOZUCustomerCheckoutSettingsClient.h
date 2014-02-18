@@ -47,7 +47,7 @@ Modifies existing site checkout settings. Modify Payment, Customer Checkout, and
 @param customerCheckoutSettings All the properties to update in the checkout settings.
 */
 
-+(MOZUClient*)clientForUpdateCustomerCheckoutSettingsOperationWithCustomerCheckoutSettings:(MOZUCustomerCheckoutSettings*)customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateCustomerCheckoutSettingsOperationWithCustomerCheckoutSettings:(MOZUcustomerCheckoutSettings*)customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

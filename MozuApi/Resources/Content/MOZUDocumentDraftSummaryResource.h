@@ -49,7 +49,7 @@ Deletes the drafts of the specified documents. Published documents cannot be del
 @param documentLists List of document lists that contain documents to delete.
 */
 
--(void)deleteDocumentDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)deleteDocumentDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(documentIds)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -64,7 +64,7 @@ Publish one or more document drafts to live content on the site.
 @param documentLists List of document lists that contain documents to publish.
 */
 
--(void)publishDocumentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)publishDocumentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(documentIds)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

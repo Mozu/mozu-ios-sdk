@@ -57,7 +57,7 @@ Creates a new channel that defines a new logical business division to use for fi
 @param channel Properties of the channel to create.
 */
 
--(void)createChannelWithChannel:(MOZUChannel*)channel userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createChannelWithChannel:(MOZUchannel*)channel userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Updates one or more details of a defined channel, including the associated sites
 @param code User-defined code that identifies the channel to update.
 */
 
--(void)updateChannelWithChannel:(MOZUChannel*)channel code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateChannelWithChannel:(MOZUchannel*)channel code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

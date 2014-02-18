@@ -52,7 +52,7 @@ Creates a new product type based on the information supplied in the request.
 @param productType Properties of the product type to create.
 */
 
-+(MOZUClient*)clientForAddProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUProductType*)productType userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUproductType*)productType userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more properties of a product type.
 @param productTypeId Identifier of the product type to update.
 */
 
-+(MOZUClient*)clientForUpdateProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUProductType*)productType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUproductType*)productType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

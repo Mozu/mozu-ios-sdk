@@ -47,7 +47,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(documentIds)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentDraftSummaryURL URLForDeleteDocumentDraftsOperationWithDocumentLists:documentLists];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -69,7 +69,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(documentIds)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentDraftSummaryURL URLForPublishDocumentsOperationWithDocumentLists:documentLists];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

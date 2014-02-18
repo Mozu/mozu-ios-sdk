@@ -29,10 +29,10 @@
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetInStockNotificationSubscriptionOperationWithId:(NSInteger)id {
-	NSString* template = @"/api/commerce/instocknotifications/{id}";
++(MOZUURL*)URLForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
+	NSString* template = @"/api/commerce/instocknotifications/{identifier}";
 	NSDictionary* params = @{
-		@"id" : @(id),
+		@"identifier" : @(identifier),
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -66,10 +66,10 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteInStockNotificationSubscriptionOperationWithId:(NSInteger)id {
-	NSString* template = @"/api/commerce/instocknotifications/{id}";
++(MOZUURL*)URLForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
+	NSString* template = @"/api/commerce/instocknotifications/{identifier}";
 	NSDictionary* params = @{
-		@"id" : @(id),
+		@"identifier" : @(identifier),
 	};
 
 	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

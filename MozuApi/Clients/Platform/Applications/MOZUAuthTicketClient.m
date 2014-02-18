@@ -28,7 +28,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAuthenticateAppOperationWithAppAuthInfo:(MOZUAppAuthInfo*)appAuthInfo {
++(MOZUClient*)clientForAuthenticateAppOperationWithAppAuthInfo:(MOZUappAuthInfo*)appAuthInfo {
 	id url = [MOZUAuthTicketURL URLForAuthenticateAppOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -47,7 +47,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRefreshAppAuthTicketOperationWithAuthTicketRequest:(MOZUAuthTicketRequest*)authTicketRequest {
++(MOZUClient*)clientForRefreshAppAuthTicketOperationWithAuthTicketRequest:(MOZUauthTicketRequest*)authTicketRequest {
 	id url = [MOZUAuthTicketURL URLForRefreshAppAuthTicketOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

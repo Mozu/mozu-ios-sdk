@@ -40,10 +40,10 @@ Retrieves a list of in-stock notification subscriptions.
 
 /**
 Retrieves the details of a subscription that sends a push notification when a product returns to active stock.
-@param id Unique identifier of the in-stock notification subscription to retrieve.
+@param identifier Unique identifier of the in-stock notification subscription to retrieve.
 */
 
--(void)inStockNotificationSubscriptionWithId:(NSInteger)id userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -57,7 +57,7 @@ Creates a new subscription that notifies the customer when the product specified
 @param inStockNotificationSubscription Properties of a subscription that sends the customer a notification when a product returns to active stock.
 */
 
--(void)addInStockNotificationSubscriptionWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addInStockNotificationSubscriptionWithInStockNotificationSubscription:(MOZUinStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -75,10 +75,10 @@ Creates a new subscription that notifies the customer when the product specified
 
 /**
 Deletes a subscription for a customer in-stock notification.
-@param id Unique identifier of the customer in-stock notification subscription to delete.
+@param identifier Unique identifier of the customer in-stock notification subscription to delete.
 */
 
--(void)deleteInStockNotificationSubscriptionWithId:(NSInteger)id userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 
