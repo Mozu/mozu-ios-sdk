@@ -121,7 +121,7 @@
             id tenantRes = [[MOZUTenantResource alloc] initWithAPIContext:APIContext];
             [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response) {
                 if (!result) {
-                    [NSException raise:@"MOZUTenantNotFoundException" format:@"tenantId = %li", APIContext.tenantId];
+                    [NSException raise:@"MOZUTenantNotFoundException" format:@"tenantId = %@", [@(APIContext.tenantId) stringValue]];
                 }
                 
                 self.baseURL = [APIContext getURLForHost:result.domain];
