@@ -26,9 +26,9 @@
     return nil;
 }
 
-+(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)id {
++(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)identifier {
     __block MOZUAuthenticationProfile* authProfile = nil;
-    NSString* resourceUrl = [[self class] getResourceRefreshUrlWithAuthTicket:userAuthTicket andId:id];
+    NSString* resourceUrl = [[self class] getResourceRefreshUrlWithAuthTicket:userAuthTicket andId:identifier];
     NSString* url = [[MOZUAppAuthenticator baseUrl] stringByAppendingString:resourceUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
@@ -54,7 +54,7 @@
     return authProfile;
 }
 
-+(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo scope:(MOZUUserScope)scope id:(NSNumber*)id {
++(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo scope:(MOZUAuthenticationScope)scope id:(NSNumber*)id {
 /*
     __block MOZUAuthenticationProfile* authProfile = nil;
     NSString* resourceUrl = [[self class] getResourceUrlWithUserScope:scope andId:id];
@@ -90,15 +90,15 @@
 
 }
 
-+(MOZUAuthenticationProfile*)setUserAuthWithJsonData:(NSString*)jsonData andUserScope:(MOZUUserScope)scope {
++(MOZUAuthenticationProfile*)setUserAuthWithJsonData:(NSString*)jsonData andUserScope:(MOZUAuthenticationScope)scope {
     return nil; // todo : implement this
 }
 
-+(NSString*)getResourceRefreshUrlWithAuthTicket:(MOZUUserAuthTicket*)authTicket andId:(NSNumber*)id {
++(NSString*)getResourceRefreshUrlWithAuthTicket:(MOZUUserAuthTicket*)authTicket andId:(NSNumber*)identifier {
     return nil; // todo : implement this
 }
 
-+(NSString*)getResourceUrlWithUserScope:(MOZUUserScope)scope andId:(NSNumber*)id {
++(NSString*)getResourceUrlWithUserScope:(MOZUAuthenticationScope)scope andId:(NSNumber*)identifier {
     return nil; // todo : implement this
 }
 
