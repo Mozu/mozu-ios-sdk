@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUMozuReturn.h"
+#import "MOZUReturn.h"
 
-@implementation MOZUMozuReturn
+@implementation MOZUReturn
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
 	return YES;

@@ -18,14 +18,14 @@
 
 
 
-@protocol MOZUMozuReturn
+@protocol MOZUReturn
 @end
 
 
 /**
 	Properties of a return of one or more previously fulfilled items.
 */
-@interface MOZUMozuReturn : JSONModel<MOZUMozuReturn>
+@interface MOZUReturn : JSONModel<MOZUReturn>
 
 /**
 The actions a user can perform for the return at this time.
