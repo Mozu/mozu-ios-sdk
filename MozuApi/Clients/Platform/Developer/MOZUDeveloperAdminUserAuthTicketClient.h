@@ -50,7 +50,7 @@ Generates a new developer account authentication ticket for the specified tenant
 @param developerAccountId Unique identifier of the developer account.
 */
 
-+(MOZUClient*)clientForRefreshDeveloperAuthTicketOperationWithExistingAuthTicket:(MOZUExistingAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId;
++(MOZUClient*)clientForRefreshDeveloperAuthTicketOperationWithExistingAuthTicket:(MOZUDeveloperAdminUserAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId;
 
 
 //

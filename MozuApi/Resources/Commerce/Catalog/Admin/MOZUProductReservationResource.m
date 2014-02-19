@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
--(void)addProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)addProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductReservationClient clientForAddProductReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -71,7 +71,7 @@
 	}];
 }
 
--(void)commitReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)commitReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductReservationClient clientForCommitReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -88,7 +88,7 @@
 #pragma mark -
 //
 
--(void)updateProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservations>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductReservationClient clientForUpdateProductReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

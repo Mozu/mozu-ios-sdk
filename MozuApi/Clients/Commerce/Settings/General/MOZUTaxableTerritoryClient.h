@@ -54,7 +54,7 @@ Updates one or more taxable territories configured for a site.
 @param taxableterritories Properties of the taxable territories to update.
 */
 
-+(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithTaxableterritories:(NSArray<MOZUTaxableterritories>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithTaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

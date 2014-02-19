@@ -47,7 +47,7 @@ Applies a list of attributes to the order specified in the request and defines a
 @param orderId Unique identifier of the order for which to assign the attributes.
 */
 
--(void)createOrderAttributesWithOrderAttributes:(NSArray<MOZUOrderAttributes>*)orderAttributes orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createOrderAttributesWithOrderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -63,7 +63,7 @@ Updates one or more properties of an attribute defined for the order specified i
 @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 */
 
--(void)updateOrderAttributesWithOrderAttributes:(NSArray<MOZUOrderAttributes>*)orderAttributes orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateOrderAttributesWithOrderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

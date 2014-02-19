@@ -45,7 +45,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForPerformFulfillmentActionOperationWithAction:(MOZUAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPerformFulfillmentActionOperationWithAction:(MOZUFulfillmentAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUFulfillmentActionURL URLForPerformFulfillmentActionOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

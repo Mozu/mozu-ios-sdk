@@ -28,7 +28,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateUserAuthTicketOperationWithUserAuthInfo:(MOZUCustomerUserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAuthTicketURL URLForCreateUserAuthTicketOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

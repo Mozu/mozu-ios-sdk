@@ -52,7 +52,7 @@ Creates a new customer group. New customer groups do not have any associated cus
 @param group Properties of the customer group to add.
 */
 
-+(MOZUClient*)clientForAddGroupOperationWithGroup:(MOZUGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddGroupOperationWithGroup:(MOZUCustomerGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates the name of a defined customer group.
 @param groupId Identifier of the customer group to update.
 */
 
-+(MOZUClient*)clientForUpdateGroupOperationWithGroup:(MOZUGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateGroupOperationWithGroup:(MOZUCustomerGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

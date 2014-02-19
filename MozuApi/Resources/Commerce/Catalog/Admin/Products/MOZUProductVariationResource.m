@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
--(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariations*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariationCollection*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationsOperationWithDataViewMode:dataViewMode productVariations:productVariations productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

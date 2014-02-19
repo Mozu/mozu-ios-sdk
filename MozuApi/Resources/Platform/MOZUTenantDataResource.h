@@ -45,7 +45,7 @@ Creates a new record in the Mozu database based on the information supplied in t
 @param dbEntryQuery The database entry string to create.
 */
 
--(void)createDBValueWithValue:(value)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -60,7 +60,7 @@ Updates a record in the Mozu database based on the information supplied in the r
 @param dbEntryQuery The database entry query string used to update the record information.
 */
 
--(void)updateDBValueWithValue:(value)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

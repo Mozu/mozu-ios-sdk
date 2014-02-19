@@ -55,7 +55,7 @@ Applies a defined attribute to the customer account specified in the request and
 @param accountId Unique identifier of the customer account.
 */
 
-+(MOZUClient*)clientForAddAccountAttributeOperationWithCustomerAccountAttribute:(MOZUCustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAccountAttributeOperationWithCustomerAccountAttribute:(MOZUCustomerAttribute*)customerAccountAttribute accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -71,7 +71,7 @@ Updates one or more details of a customer account attribute.
 @param removeMissing If true, remove the items missing from the collection.
 */
 
-+(MOZUClient*)clientForUpdateAccountAttributeOperationWithCustomerAccountAttribute:(MOZUCustomerAccountAttribute*)customerAccountAttribute accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateAccountAttributeOperationWithCustomerAccountAttribute:(MOZUCustomerAttribute*)customerAccountAttribute accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

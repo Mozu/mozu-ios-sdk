@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithTaxableterritories:(NSArray<MOZUTaxableterritories>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithTaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTaxableTerritoryURL URLForUpdateTaxableTerritoriesOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

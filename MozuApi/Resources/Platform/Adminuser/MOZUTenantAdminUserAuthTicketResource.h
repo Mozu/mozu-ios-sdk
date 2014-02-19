@@ -56,7 +56,7 @@ Generates a new user authentication ticket for the specified tenant by supplying
 @param tenantId 
 */
 
--(void)refreshAuthTicketWithExistingAuthTicket:(MOZUExistingAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)refreshAuthTicketWithExistingAuthTicket:(MOZUTenantAdminUserAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

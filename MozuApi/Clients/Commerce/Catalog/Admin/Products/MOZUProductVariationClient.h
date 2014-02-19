@@ -63,7 +63,7 @@ Modifies the collection of variations for the specified product code. Because th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariations*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariationCollection*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Modifies the details of a variation, based on the supplied variation key, for the specified product code.

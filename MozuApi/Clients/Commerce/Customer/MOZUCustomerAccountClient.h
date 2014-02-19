@@ -68,7 +68,7 @@ Creates a new customer account based on the information specified in the request
 @param account Properties of the customer account to update.
 */
 
-+(MOZUClient*)clientForAddAccountOperationWithAccount:(MOZUAccount*)account userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAccountOperationWithAccount:(MOZUCustomerAccount*)account userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Adds a new user login to a defined customer account.
@@ -76,7 +76,7 @@ Adds a new user login to a defined customer account.
 @param accountId Unique identifier of the customer account.
 */
 
-+(MOZUClient*)clientForAddLoginToExistingCustomerOperationWithCustomerAuthInfo:(MOZUCustomerAuthInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddLoginToExistingCustomerOperationWithCustomerAuthInfo:(MOZUCustomerLoginInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
@@ -91,7 +91,7 @@ Lock or unlock a customer account.
 @param accountId The unique identifier of the customer account.
 */
 
-+(MOZUClient*)clientForSetLoginLockedOperationWithIsLocked:(isLocked)isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForSetLoginLockedOperationWithIsLocked:(BOOL)isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Requires the password for the customer account to be changed.
@@ -99,21 +99,21 @@ Requires the password for the customer account to be changed.
 @param accountId Unique identifier of the customer account.
 */
 
-+(MOZUClient*)clientForSetPasswordChangeRequiredOperationWithIsPasswordChangeRequired:(isPasswordChangeRequired)isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForSetPasswordChangeRequiredOperationWithIsPasswordChangeRequired:(BOOL)isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Creates a new customer account and logs the user associated with the customer account into the site.
 @param accountAndAuthInfo Properties of the customer account to create, including the user authentication information.
 */
 
-+(MOZUClient*)clientForAddAccountAndLoginOperationWithAccountAndAuthInfo:(MOZUAccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAccountAndLoginOperationWithAccountAndAuthInfo:(MOZUCustomerAccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Creates multiple customer accounts based on the information specified in the request.
 @param customers Properties of the customer accounts to create.
 */
 
-+(MOZUClient*)clientForAddAccountsOperationWithCustomers:(NSArray<MOZUCustomers>*)customers userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAccountsOperationWithCustomers:(NSArray<MOZUCustomerAccountAndAuthInfo>*)customers userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the current login state of a customer account by providing the customer's email address.
@@ -149,7 +149,7 @@ Updates a customer account.
 @param accountId Unique identifier of the customer account.
 */
 
-+(MOZUClient*)clientForUpdateAccountOperationWithAccount:(MOZUAccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateAccountOperationWithAccount:(MOZUCustomerAccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

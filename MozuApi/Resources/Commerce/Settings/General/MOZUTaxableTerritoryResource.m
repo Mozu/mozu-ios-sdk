@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
--(void)updateTaxableTerritoriesWithTaxableterritories:(NSArray<MOZUTaxableterritories>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateTaxableTerritoriesWithTaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUTaxableTerritoryClient clientForUpdateTaxableTerritoriesOperationWithTaxableterritories:taxableterritories userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

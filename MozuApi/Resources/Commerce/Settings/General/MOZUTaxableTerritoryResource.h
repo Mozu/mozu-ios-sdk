@@ -59,7 +59,7 @@ Updates one or more taxable territories configured for a site.
 @param taxableterritories Properties of the taxable territories to update.
 */
 
--(void)updateTaxableTerritoriesWithTaxableterritories:(NSArray<MOZUTaxableterritories>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateTaxableTerritoriesWithTaxableterritories:(NSArray<MOZUTaxableTerritory>*)taxableterritories userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

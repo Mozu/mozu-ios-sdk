@@ -75,7 +75,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariations*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariationCollection*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductVariationURL URLForUpdateProductVariationsOperationWithProductCode:productCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

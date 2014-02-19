@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUExistingAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUTenantAdminUserAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTenantAdminUserAuthTicketURL URLForRefreshAuthTicketOperationWithTenantId:tenantId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

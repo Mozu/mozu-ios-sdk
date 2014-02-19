@@ -118,7 +118,7 @@
 	}];
 }
 
--(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUDiscountLocalizedContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDiscountClient clientForUpdateDiscountContentOperationWithDataViewMode:dataViewMode content:content discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

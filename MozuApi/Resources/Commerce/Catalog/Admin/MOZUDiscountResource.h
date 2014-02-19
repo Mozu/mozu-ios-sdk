@@ -102,7 +102,7 @@ Modifies the localized content for the specified discount. Rename the discount w
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
--(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUDiscountLocalizedContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

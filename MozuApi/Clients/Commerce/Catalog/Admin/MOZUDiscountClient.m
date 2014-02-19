@@ -167,7 +167,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode content:(MOZUDiscountLocalizedContent*)content discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURL URLForUpdateDiscountContentOperationWithDiscountId:discountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

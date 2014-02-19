@@ -41,7 +41,7 @@ Creates a new record in the Mozu database based on the information supplied in t
 @param dbEntryQuery The database entry string to create.
 */
 
-+(MOZUClient*)clientForCreateDBValueOperationWithValue:(value)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateDBValueOperationWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -56,7 +56,7 @@ Updates a record in the Mozu database based on the information supplied in the r
 @param dbEntryQuery The database entry query string used to update the record information.
 */
 
-+(MOZUClient*)clientForUpdateDBValueOperationWithValue:(value)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateDBValueOperationWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

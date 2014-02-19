@@ -93,7 +93,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode vocabularyValues:(NSArray<MOZUVocabularyValues>*)vocabularyValues attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode vocabularyValues:(NSArray<MOZUAttributeVocabularyValue>*)vocabularyValues attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURL URLForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

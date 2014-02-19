@@ -51,7 +51,7 @@ Generates a new user authentication ticket for the specified tenant by supplying
 @param tenantId 
 */
 
-+(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUExistingAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForRefreshAuthTicketOperationWithExistingAuthTicket:(MOZUTenantAdminUserAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

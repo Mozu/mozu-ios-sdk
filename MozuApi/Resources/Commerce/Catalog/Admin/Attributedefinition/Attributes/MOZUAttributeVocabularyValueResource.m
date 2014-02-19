@@ -78,7 +78,7 @@
 #pragma mark -
 //
 
--(void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode vocabularyValues:(NSArray<MOZUVocabularyValues>*)vocabularyValues attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode vocabularyValues:(NSArray<MOZUAttributeVocabularyValue>*)vocabularyValues attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:dataViewMode vocabularyValues:vocabularyValues attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

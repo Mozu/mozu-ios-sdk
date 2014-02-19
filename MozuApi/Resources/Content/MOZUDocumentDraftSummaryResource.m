@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
--(void)deleteDocumentDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(documentIds)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)deleteDocumentDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForDeleteDocumentDraftsOperationWithDataViewMode:dataViewMode documentIds:documentIds documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
--(void)publishDocumentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(documentIds)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+-(void)publishDocumentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
 	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForPublishDocumentsOperationWithDataViewMode:dataViewMode documentIds:documentIds documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
