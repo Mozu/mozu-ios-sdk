@@ -127,7 +127,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForUpdateDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:(stream)stream documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode stream:(NSInputStream*)stream documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentURL URLForUpdateDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
