@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   s.header_mappings_dir = 'MozuApi'
   # s.header_dir = 'Classes'
-  s.source_files = 'MozuApi/**/*.{m,h}'
+  s.source_files = 'MozuApi/*.{m,h}'
 
 
   s.ios.exclude_files = 'MozuApi/osx'
@@ -37,4 +37,33 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
   s.dependency 'JSONModel'
+
+  s.subspec 'Cache' do |ss|
+    ss.source_files = 'MozuApi/Cache/**/*.{m,h}'
+  end
+
+  s.subspec 'Clients' do |ss|
+    ss.source_files = 'MozuApi/Clients/**/*.{m,h}'
+  end
+
+  s.subspec 'Contracts' do |ss|
+    ss.source_files = 'MozuApi/Contracts/**/*.{m,h}'
+  end
+
+  s.subspec 'Resources' do |ss|
+    ss.source_files = 'MozuApi/Resources/**/*.{m,h}'
+  end
+
+  s.subspec 'Security' do |ss|
+    ss.source_files = 'MozuApi/Security/**/*.{m,h}'
+  end
+
+  s.subspec 'Urls' do |ss|
+    ss.source_files = 'MozuApi/Urls/**/*.{m,h}'
+  end
+
+  s.subspec 'Utilities' do |ss|
+    ss.source_files = 'MozuApi/Utilities/**/*.{m,h}'
+  end
+
 end

@@ -98,7 +98,6 @@
     authInfo.SharedSecret = ss;;
     
     [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil];
-    
     [MOZUTenantResource tenantWithTenantId:tenantId authTicket:nil completionHandler:^(MOZUTenant *result) {
         NSLog(@"result = %@", result);
     }];
@@ -109,7 +108,7 @@
 
 - (void)testTenantUrl
 {
-    MOZUURL* url = [MOZUTenantUrl getTenantUrl:257];
+    MOZUURL* url = [MOZUTenantURL URLForGetTenantOperationWithTenantId:257];
     NSLog(@"url = %@", url);
 
 }
