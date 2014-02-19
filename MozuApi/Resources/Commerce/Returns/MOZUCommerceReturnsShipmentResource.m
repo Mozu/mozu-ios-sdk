@@ -64,10 +64,14 @@ Creates a shipment from one or more packages associated with a return replacemen
 @param returnId Unique identifier of the return for which to create replacement package shipments.
 */
 
--(void)createPackageShipmentsWithPackageIds:(NSString*)packageIds returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createPackageShipmentsWithBody:(NSString*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCommerceReturnsShipmentClient clientForCreatePackageShipmentsOperationWithPackageIds:packageIds returnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -82,10 +82,14 @@ Creates a new product reservation for a product. This action places a hold on th
 @param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 
--(void)addProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductReservationClient clientForAddProductReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -98,10 +102,14 @@ Commits a product reservation to decrement the product's inventory by the quanti
 @param productReservations List of unique identifiers of the reservations to commit.
 */
 
--(void)commitReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)commitReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductReservationClient clientForCommitReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -122,10 +130,14 @@ Updates an existing product reservation for a product.
 @param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
 */
 
--(void)updateProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductReservationClient clientForUpdateProductReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

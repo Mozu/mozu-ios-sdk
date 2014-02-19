@@ -84,10 +84,14 @@ Creates an array of product inventory definitions for the location specified in 
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
--(void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryList:(NSArray<MOZUAdminLocationInventory>*)locationInventoryList locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminLocationInventoryClient clientForAddLocationInventoryOperationWithDataViewMode:dataViewMode locationInventoryList:locationInventoryList locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -108,10 +112,14 @@ Updates the active stock on hand inventory of products for the location code spe
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
--(void)updateLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode locationInventoryAdjustments:(NSArray<MOZULocationInventoryAdjustment>*)locationInventoryAdjustments locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminLocationInventoryClient clientForUpdateLocationInventoryOperationWithDataViewMode:dataViewMode locationInventoryAdjustments:locationInventoryAdjustments locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddLocationTypeOperationWithLocationType:(MOZULocationType*)locationType userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddLocationTypeOperationWithBody:(MOZULocationType*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationTypeURL URLForAddLocationTypeOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -84,7 +84,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateLocationTypeOperationWithLocationType:(MOZULocationType*)locationType locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType*)body locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationTypeURL URLForUpdateLocationTypeOperationWithLocationTypeCode:locationTypeCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithApplication:(MOZUSiteSettingsApplication*)application userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationURL URLForThirdPartyUpdateApplicationOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

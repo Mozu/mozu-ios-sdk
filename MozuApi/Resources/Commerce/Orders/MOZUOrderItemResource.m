@@ -85,10 +85,14 @@ Adds a new item to an existing order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
--(void)createOrderItemWithOrderItem:(MOZUOrderItem*)orderItem orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createOrderItemWithBody:(MOZUOrderItem*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderItemClient clientForCreateOrderItemOperationWithOrderItem:orderItem orderId:orderId updateMode:updateMode version:version skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -113,10 +117,14 @@ Update the discount applied to an item in an order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
--(void)updateOrderItemDiscountWithDiscount:(MOZUAppliedDiscount*)discount orderId:(NSString*)orderId orderItemId:(NSString*)orderItemId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateOrderItemDiscountWithBody:(MOZUAppliedDiscount*)body orderId:(NSString*)orderId orderItemId:(NSString*)orderItemId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderItemClient clientForUpdateOrderItemDiscountOperationWithDiscount:discount orderId:orderId orderItemId:orderItemId discountId:discountId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -133,10 +141,14 @@ Updates the item fulfillment information for the order specified in the request.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
--(void)updateItemFulfillmentWithOrderItem:(MOZUOrderItem*)orderItem orderId:(NSString*)orderId orderItemId:(NSString*)orderItemId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateItemFulfillmentWithBody:(MOZUOrderItem*)body orderId:(NSString*)orderId orderItemId:(NSString*)orderItemId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderItemClient clientForUpdateItemFulfillmentOperationWithOrderItem:orderItem orderId:orderId orderItemId:orderItemId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

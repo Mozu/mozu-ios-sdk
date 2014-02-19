@@ -47,10 +47,14 @@ Generate an authentication ticket for a developer account.
 @param developerAccountId Unique identifier of the developer account.
 */
 
--(void)createDeveloperUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createDeveloperUserAuthTicketWithBody:(MOZUUserAuthInfo*)body developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForCreateDeveloperUserAuthTicketOperationWithUserAuthInfo:userAuthInfo developerAccountId:developerAccountId];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -71,10 +75,14 @@ Generates a new developer account authentication ticket for the specified tenant
 @param developerAccountId Unique identifier of the developer account.
 */
 
--(void)refreshDeveloperAuthTicketWithExistingAuthTicket:(MOZUDeveloperAdminUserAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)refreshDeveloperAuthTicketWithBody:(MOZUDeveloperAdminUserAuthTicket*)body developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForRefreshDeveloperAuthTicketOperationWithExistingAuthTicket:existingAuthTicket developerAccountId:developerAccountId];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

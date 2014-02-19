@@ -64,10 +64,14 @@ Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare i
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
 */
 
--(void)performFulfillmentActionWithAction:(MOZUFulfillmentAction*)action orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)performFulfillmentActionWithBody:(MOZUFulfillmentAction*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUFulfillmentActionClient clientForPerformFulfillmentActionOperationWithAction:action orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -90,10 +94,14 @@ Updates one or more propertes of fulfillment information for the specified order
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
--(void)setFulFillmentInfoWithFulfillmentInfo:(MOZUFulfillmentInfo*)fulfillmentInfo orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFulfillmentInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)setFulFillmentInfoWithBody:(MOZUFulfillmentInfo*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFulfillmentInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUFulfillmentActionClient clientForSetFulFillmentInfoOperationWithFulfillmentInfo:fulfillmentInfo orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

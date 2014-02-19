@@ -63,10 +63,14 @@ Creates a new record in the Mozu database based on the information supplied in t
 @param dbEntryQuery The database entry string to create.
 */
 
--(void)createDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createDBValueWithBody:(NSString*)body dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUUserDataClient clientForCreateDBValueOperationWithValue:value dbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -87,10 +91,14 @@ Updates a record in the Mozu database based on the information supplied in the r
 @param dbEntryQuery The database entry query string used to update the record information.
 */
 
--(void)updateDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateDBValueWithBody:(NSString*)body dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUUserDataClient clientForUpdateDBValueOperationWithValue:value dbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);

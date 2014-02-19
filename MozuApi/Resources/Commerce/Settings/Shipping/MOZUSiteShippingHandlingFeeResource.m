@@ -61,10 +61,14 @@ Creates a new order handling fee for the site.
 @param orderHandlingFee Properties of the order handling fee to assess for order shipment.
 */
 
--(void)createOrderHandlingFeeWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForCreateOrderHandlingFeeOperationWithOrderHandlingFee:orderHandlingFee userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -84,10 +88,14 @@ Updates the order handling fee amount for the site.
 @param orderHandlingFee The combined price for all items in the order, including all selected options but excluding any discounts.
 */
 
--(void)updateOrderHandlingFeeWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForUpdateOrderHandlingFeeOperationWithOrderHandlingFee:orderHandlingFee userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

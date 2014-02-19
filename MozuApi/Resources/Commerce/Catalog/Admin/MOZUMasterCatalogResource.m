@@ -85,10 +85,14 @@ Updates the product publishing mode for the master catalog specified in the requ
 @param masterCatalogId 
 */
 
--(void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalog:(MOZUAdminMasterCatalog*)masterCatalog masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog*)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUMasterCatalogClient clientForUpdateMasterCatalogOperationWithDataViewMode:dataViewMode masterCatalog:masterCatalog masterCatalogId:masterCatalogId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

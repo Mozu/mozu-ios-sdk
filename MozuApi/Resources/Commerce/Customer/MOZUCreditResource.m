@@ -81,10 +81,14 @@ Creates a new store credit for the customer account specified in the request.
 @param credit Properties of the store credit to create.
 */
 
--(void)addCreditWithCredit:(MOZUCredit*)credit userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addCreditWithBody:(MOZUCredit*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCreditClient clientForAddCreditOperationWithCredit:credit userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,10 +109,14 @@ Updates one or more properties of a defined store credit applied to a customer a
 @param code User-defined code of the store credit to update.
 */
 
--(void)updateCreditWithCredit:(MOZUCredit*)credit code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateCreditWithBody:(MOZUCredit*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCreditClient clientForUpdateCreditOperationWithCredit:credit code:code userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -77,10 +77,14 @@ Adds a product to the current shopper's cart.
 @param cartItem All properties of the new cart item. The product code is required.
 */
 
--(void)addItemToCartWithCartItem:(MOZUCartItem*)cartItem userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addItemToCartWithBody:(MOZUCartItem*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCartItemClient clientForAddItemToCartOperationWithCartItem:cartItem userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -101,10 +105,14 @@ Update the product or product quantity of an item in the current shopper's cart.
 @param cartItemId Identifier of the cart item to update.
 */
 
--(void)updateCartItemWithCartItem:(MOZUCartItem*)cartItem cartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateCartItemWithBody:(MOZUCartItem*)body cartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCartItemClient clientForUpdateCartItemOperationWithCartItem:cartItem cartItemId:cartItemId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

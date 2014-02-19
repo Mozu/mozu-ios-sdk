@@ -41,7 +41,7 @@ Creates an authentication ticket for the supplied user to specify in API request
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 */
 
--(void)createUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createUserAuthTicketWithBody:(MOZUUserAuthInfo*)body tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -56,7 +56,7 @@ Generates a new user authentication ticket for the specified tenant by supplying
 @param tenantId 
 */
 
--(void)refreshAuthTicketWithExistingAuthTicket:(MOZUTenantAdminUserAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)refreshAuthTicketWithBody:(MOZUTenantAdminUserAuthTicket*)body tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //

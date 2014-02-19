@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddGroupOperationWithGroup:(MOZUCustomerGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddGroupOperationWithBody:(MOZUCustomerGroup*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerGroupURL URLForAddGroupOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -84,7 +84,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateGroupOperationWithGroup:(MOZUCustomerGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateGroupOperationWithBody:(MOZUCustomerGroup*)body groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerGroupURL URLForUpdateGroupOperationWithGroupId:groupId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

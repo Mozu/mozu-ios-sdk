@@ -98,10 +98,14 @@ Creates a new physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
 */
 
--(void)createPackageWithPackage:(MOZUCommercePackage*)package orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createPackageWithBody:(MOZUCommercePackage*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCommerceOrdersPackageClient clientForCreatePackageOperationWithPackage:package orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -123,10 +127,14 @@ Updates one or more properties of a physical package of order items.
 @param packageId Unique identifier of the package of order items to update.
 */
 
--(void)updatePackageWithPackage:(MOZUCommercePackage*)package orderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updatePackageWithBody:(MOZUCommercePackage*)body orderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCommerceOrdersPackageClient clientForUpdatePackageOperationWithPackage:package orderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

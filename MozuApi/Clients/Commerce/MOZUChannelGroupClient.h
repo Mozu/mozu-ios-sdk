@@ -52,7 +52,7 @@ Creates a new group of channels with common information.
 @param channelGroup Properties of the channel group to create.
 */
 
-+(MOZUClient*)clientForCreateChannelGroupOperationWithChannelGroup:(MOZUChannelGroup*)channelGroup userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateChannelGroupOperationWithBody:(MOZUChannelGroup*)body userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more properties of a defined channel group.
 @param code Code that identifies the channel group.
 */
 
-+(MOZUClient*)clientForUpdateChannelGroupOperationWithChannelGroup:(MOZUChannelGroup*)channelGroup code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateChannelGroupOperationWithBody:(MOZUChannelGroup*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

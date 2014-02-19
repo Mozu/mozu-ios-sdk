@@ -77,10 +77,14 @@ Creates a new location type based on the information specified in the request.
 @param locationType Properties of the location type to create.
 */
 
--(void)addLocationTypeWithLocationType:(MOZULocationType*)locationType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addLocationTypeWithBody:(MOZULocationType*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZULocationTypeClient clientForAddLocationTypeOperationWithLocationType:locationType userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -101,10 +105,14 @@ Updates the name of a defined location type.
 @param locationTypeCode The user-defined code that identifies the location type.
 */
 
--(void)updateLocationTypeWithLocationType:(MOZULocationType*)locationType locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateLocationTypeWithBody:(MOZULocationType*)body locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZULocationTypeClient clientForUpdateLocationTypeOperationWithLocationType:locationType locationTypeCode:locationTypeCode userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
