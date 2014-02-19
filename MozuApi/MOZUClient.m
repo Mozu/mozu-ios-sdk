@@ -112,6 +112,11 @@
     self.bodyString = [body toJSONString];
 }
 
+- (void)setBodyStream:(NSInputStream *)bodyStream
+{
+    self.bodyStream = bodyStream;
+}
+
 - (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)())completion {
     if (self.resourceURL.location == MOZUTenantPod) {
         NSAssert(APIContext, @"MOZUClient APIContext is missing.");
