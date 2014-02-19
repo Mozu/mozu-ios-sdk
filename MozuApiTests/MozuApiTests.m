@@ -18,6 +18,8 @@
 
 @end
 
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @implementation MozuApiTests
 
 - (void)setUp
@@ -100,7 +102,7 @@
     [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil];
     MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] initWithAPIContext:nil];
     [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUApiError *error, NSHTTPURLResponse *response) {
-        
+        DDLogError(@"%@", error.localizedDescription);
         
     }];
     

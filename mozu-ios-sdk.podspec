@@ -37,6 +37,7 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
   s.dependency 'JSONModel'
+  s.dependency 'CocoaLumberjack'
 
   s.subspec 'Cache' do |ss|
     ss.source_files = 'MozuApi/Cache/**/*.{m,h}'
