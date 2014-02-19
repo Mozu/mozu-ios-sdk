@@ -91,15 +91,17 @@
     NSString *appId = @"c00c1693055f4a519d34a2490188d350";
     NSString *ss = @"d0863f54a3b04cb5a66da2490188d350";
     NSString *baseUrl = @"http://aus02nqrprx001.dev.volusion.com";
-    int tenantId = 257;
+    NSInteger tenantId = 257;
     
     MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = ss;;
     
     [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil];
-    [MOZUTenantResource tenantWithTenantId:tenantId authTicket:nil completionHandler:^(MOZUTenant *result) {
-        NSLog(@"result = %@", result);
+    MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] initWithAPIContext:nil];
+    [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUApiError *error, NSHTTPURLResponse *response) {
+        
+        
     }];
     
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:30]];
