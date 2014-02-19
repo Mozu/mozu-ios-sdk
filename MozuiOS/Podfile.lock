@@ -6,6 +6,7 @@ PODS:
     - CocoaLumberjack/Core
   - JSONModel (0.11.0)
   - mozu-ios-sdk (0.1.0):
+    - CocoaLumberjack
     - JSONModel
     - mozu-ios-sdk/Cache
     - mozu-ios-sdk/Clients
@@ -15,22 +16,28 @@ PODS:
     - mozu-ios-sdk/Urls
     - mozu-ios-sdk/Utilities
   - mozu-ios-sdk/Cache (0.1.0):
+    - CocoaLumberjack
     - JSONModel
   - mozu-ios-sdk/Clients (0.1.0):
+    - CocoaLumberjack
     - JSONModel
   - mozu-ios-sdk/Contracts (0.1.0):
+    - CocoaLumberjack
     - JSONModel
   - mozu-ios-sdk/Resources (0.1.0):
+    - CocoaLumberjack
     - JSONModel
   - mozu-ios-sdk/Security (0.1.0):
+    - CocoaLumberjack
     - JSONModel
   - mozu-ios-sdk/Urls (0.1.0):
+    - CocoaLumberjack
     - JSONModel
   - mozu-ios-sdk/Utilities (0.1.0):
+    - CocoaLumberjack
     - JSONModel
 
 DEPENDENCIES:
-  - CocoaLumberjack
   - mozu-ios-sdk (from `../`)
 
 EXTERNAL SOURCES:
@@ -40,6 +47,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
   JSONModel: a5f2eb85c46df008a67569447ec408d1040d4bf4
-  mozu-ios-sdk: 417a4833bf5063545c121bda6b0c815c3f235437
+  mozu-ios-sdk: d4f0f73fe4674a3e0c3a3f3199b9ea2f560e9202
 
 COCOAPODS: 0.29.0
