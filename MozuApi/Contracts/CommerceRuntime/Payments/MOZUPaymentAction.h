@@ -72,7 +72,7 @@ Properties of a manually performed interaction with the payment gateway.
 /**
 The billing information associated with this payment action.
 */
-@property(nonatomic) MOZUBillingInfo* newBillingInfo;
+@property(nonatomic) MOZUBillingInfo* theNewBillingInfo;
 
 @end
 

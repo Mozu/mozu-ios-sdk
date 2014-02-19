@@ -16,6 +16,14 @@
 	return YES;
 }
 
++(JSONKeyMapper*)keyMapper {
+	NSDictionary* dict = @{
+		@"newValue" : @"theNewValue",
+		@"newBillingInfo" : @"theNewBillingInfo",
+	};
+
+	return [[JSONKeyMapper alloc] initWithDictionary:dict];
+}
 
 
 @end
