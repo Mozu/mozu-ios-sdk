@@ -34,7 +34,12 @@
 #pragma mark -
 //
 
--(void)orderHandlingFeeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the details of the order handling fee configured for the site.
+*/
+
+-(void)orderHandlingFeeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForGetOrderHandlingFeeOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -51,7 +56,13 @@
 #pragma mark -
 //
 
--(void)createOrderHandlingFeeWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a new order handling fee for the site.
+@param orderHandlingFee Properties of the order handling fee to assess for order shipment.
+*/
+
+-(void)createOrderHandlingFeeWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForCreateOrderHandlingFeeOperationWithOrderHandlingFee:orderHandlingFee userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -68,7 +79,13 @@
 #pragma mark -
 //
 
--(void)updateOrderHandlingFeeWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Updates the order handling fee amount for the site.
+@param orderHandlingFee The combined price for all items in the order, including all selected options but excluding any discounts.
+*/
+
+-(void)updateOrderHandlingFeeWithOrderHandlingFee:(MOZUSiteShippingHandlingFee*)orderHandlingFee userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingHandlingFee* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUSiteShippingHandlingFeeClient clientForUpdateOrderHandlingFeeOperationWithOrderHandlingFee:orderHandlingFee userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -34,7 +34,12 @@
 #pragma mark -
 //
 
--(void)generalSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieve a site's general global settings.
+*/
+
+-(void)generalSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUGeneralSettingsClient clientForGetGeneralSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -58,7 +63,13 @@
 #pragma mark -
 //
 
--(void)updateGeneralSettingsWithGeneralSettings:(MOZUGeneralSettings*)generalSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Updates a site's general global settings.
+@param generalSettings The properties of the site's general settings to update.
+*/
+
+-(void)updateGeneralSettingsWithGeneralSettings:(MOZUGeneralSettings*)generalSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUGeneralSettingsClient clientForUpdateGeneralSettingsOperationWithGeneralSettings:generalSettings userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -30,8 +30,8 @@ Retrieves the value of a record in the Mozu database.
 @param dbEntryQuery The database entry query string used to retrieve the record information.
 */
 
--(void)dBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)dBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -45,8 +45,8 @@ Creates a new record in the Mozu database based on the information supplied in t
 @param dbEntryQuery The database entry string to create.
 */
 
--(void)createDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)createDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -60,8 +60,8 @@ Updates a record in the Mozu database based on the information supplied in the r
 @param dbEntryQuery The database entry query string used to update the record information.
 */
 
--(void)updateDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updateDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -74,8 +74,8 @@ Removes a previously defined record in the Mozu database.
 @param dbEntryQuery The database entry string to delete.
 */
 
--(void)deleteDBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deleteDBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

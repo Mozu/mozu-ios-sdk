@@ -34,8 +34,8 @@ Retrieves a facet specified by its unique identifier and displays its properties
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
--(void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves a list of the facets defined for the specified category.
 @param categoryId Unique identifier of the category associated with the facets to retrieve.
@@ -43,8 +43,8 @@ Retrieves a list of the facets defined for the specified category.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
--(void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFacetSet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFacetSet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -57,8 +57,8 @@ Creates a new category, price, or attribute facet. Supply the category or attrib
 @param facet Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
 */
 
--(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -72,8 +72,8 @@ Modifies one or more properties of a defined facet.
 @param facetId Unique identifier of the facet to modify.
 */
 
--(void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -86,8 +86,8 @@ Deletes the facet specified by its unique identifier.
 @param facetId Unique identifier of the facet to delete.
 */
 
--(void)deleteFacetByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deleteFacetByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

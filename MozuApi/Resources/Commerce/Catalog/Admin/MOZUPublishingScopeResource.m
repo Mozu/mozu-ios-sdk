@@ -41,7 +41,13 @@
 #pragma mark -
 //
 
--(void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUPublishingScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes the draft version of product changes for each product code specified in the request.
+@param publishScope Properties of the pending product changes to include in this operation.
+*/
+
+-(void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUPublishingScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUPublishingScopeClient clientForDiscardDraftsOperationWithDataViewMode:dataViewMode publishScope:publishScope userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -51,7 +57,13 @@
 	}];
 }
 
--(void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUPublishingScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
+@param publishScope Properties of the pending product changes to include in this operation.
+*/
+
+-(void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode publishScope:(MOZUPublishingScope*)publishScope userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUPublishingScopeClient clientForPublishDraftsOperationWithDataViewMode:dataViewMode publishScope:publishScope userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

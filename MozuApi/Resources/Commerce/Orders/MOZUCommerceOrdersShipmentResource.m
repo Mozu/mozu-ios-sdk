@@ -34,7 +34,14 @@
 #pragma mark -
 //
 
--(void)shipmentWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUShipment* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the details of the order shipment specified in the request.
+@param orderId Unique identifier of the order associated with the shipment to retrieve.
+@param shipmentId Unique identifier of the shipment to retrieve.
+*/
+
+-(void)shipmentWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUShipment* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCommerceOrdersShipmentClient clientForGetShipmentOperationWithOrderId:orderId shipmentId:shipmentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +51,13 @@
 	}];
 }
 
--(void)availableShipmentMethodsWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUShippingRate>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
+@param orderId Unique identifier of the order for the available shipment methods being retrieved.
+*/
+
+-(void)availableShipmentMethodsWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUShippingRate>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCommerceOrdersShipmentClient clientForGetAvailableShipmentMethodsOperationWithOrderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -61,7 +74,14 @@
 #pragma mark -
 //
 
--(void)createPackageShipmentsWithPackageIds:(NSString*)packageIds orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
+@param packageIds List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
+@param orderId Unique identifier of the order for this shipment.
+*/
+
+-(void)createPackageShipmentsWithPackageIds:(NSString*)packageIds orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCommerceOrdersShipmentClient clientForCreatePackageShipmentsOperationWithPackageIds:packageIds orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -85,7 +105,14 @@
 #pragma mark -
 //
 
--(void)deleteShipmentWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes the shipment specified in the request.
+@param orderId Unique identifier of the order to cancel shipment.
+@param shipmentId Unique identifier of the shipment to cancel.
+*/
+
+-(void)deleteShipmentWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCommerceOrdersShipmentClient clientForDeleteShipmentOperationWithOrderId:orderId shipmentId:shipmentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

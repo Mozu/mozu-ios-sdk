@@ -34,7 +34,13 @@
 #pragma mark -
 //
 
--(void)accountCardsWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCardCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves all stored credit cards for the customer account.
+@param accountId Unique identifier of the customer account.
+*/
+
+-(void)accountCardsWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCardCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCardClient clientForGetAccountCardsOperationWithAccountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +50,14 @@
 	}];
 }
 
--(void)accountCardWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the details of a credit card stored with a customer account billing contact.
+@param accountId Unique identifier of the customer account.
+@param cardId Unique identifier of the card associated with the customer account billing contact.
+*/
+
+-(void)accountCardWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCardClient clientForGetAccountCardOperationWithAccountId:accountId cardId:cardId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -61,7 +74,14 @@
 #pragma mark -
 //
 
--(void)addAccountCardWithCard:(MOZUCard*)card accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a new credit card record and stores it for the customer account.
+@param card Properties of the customer credit card to add to the account.
+@param accountId Unique identifier of the customer account.
+*/
+
+-(void)addAccountCardWithCard:(MOZUCard*)card accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCardClient clientForAddAccountCardOperationWithCard:card accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +98,15 @@
 #pragma mark -
 //
 
--(void)updateAccountCardWithCard:(MOZUCard*)card accountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Update one or more properties of a credit card defined for a customer account.
+@param card Properties of the customer account credit card to update.
+@param accountId Unique identifier of the customer account.
+@param cardId Unique identifier of the credit card.
+*/
+
+-(void)updateAccountCardWithCard:(MOZUCard*)card accountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCardClient clientForUpdateAccountCardOperationWithCard:card accountId:accountId cardId:cardId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -95,7 +123,14 @@
 #pragma mark -
 //
 
--(void)deleteAccountCardWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Removes a stored credit card from a customer account.
+@param accountId Unique identifier of the customer account.
+@param cardId Unique identifier of the credit card to delete.
+*/
+
+-(void)deleteAccountCardWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCardClient clientForDeleteAccountCardOperationWithAccountId:accountId cardId:cardId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

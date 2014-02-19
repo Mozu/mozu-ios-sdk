@@ -41,7 +41,13 @@
 #pragma mark -
 //
 
--(void)authenticateAppWithAppAuthInfo:(MOZUAppAuthInfo*)appAuthInfo completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Generate an authentication ticket for an application.
+@param appAuthInfo Authentication information required to generate an authentication ticket includes the application id and the shared secret.
+*/
+
+-(void)authenticateAppWithAppAuthInfo:(MOZUAppAuthInfo*)appAuthInfo completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUAuthTicketClient clientForAuthenticateAppOperationWithAppAuthInfo:appAuthInfo];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -58,7 +64,13 @@
 #pragma mark -
 //
 
--(void)refreshAppAuthTicketWithAuthTicketRequest:(MOZUAuthTicketRequest*)authTicketRequest completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
+@param authTicketRequest The refresh token string required to update the application authentication ticket.
+*/
+
+-(void)refreshAppAuthTicketWithAuthTicketRequest:(MOZUAuthTicketRequest*)authTicketRequest completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUAuthTicketClient clientForRefreshAppAuthTicketOperationWithAuthTicketRequest:authTicketRequest];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -75,7 +87,13 @@
 #pragma mark -
 //
 
--(void)deleteAppAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes an authentication for an application based on the specified refresh token.
+@param refreshToken The refresh token string from the application's authentication ticket.
+*/
+
+-(void)deleteAppAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUAuthTicketClient clientForDeleteAppAuthTicketOperationWithRefreshToken:refreshToken];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

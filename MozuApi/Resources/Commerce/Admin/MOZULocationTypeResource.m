@@ -34,7 +34,12 @@
 #pragma mark -
 //
 
--(void)locationTypesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZULocationType>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieve a list of all location types defined for the tenant.
+*/
+
+-(void)locationTypesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZULocationType>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZULocationTypeClient clientForGetLocationTypesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +49,13 @@
 	}];
 }
 
--(void)locationTypeWithLocationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the details of the location type specified in the request.
+@param locationTypeCode The user-defined code that identifies the location type.
+*/
+
+-(void)locationTypeWithLocationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZULocationTypeClient clientForGetLocationTypeOperationWithLocationTypeCode:locationTypeCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -61,7 +72,13 @@
 #pragma mark -
 //
 
--(void)addLocationTypeWithLocationType:(MOZULocationType*)locationType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a new location type based on the information specified in the request.
+@param locationType Properties of the location type to create.
+*/
+
+-(void)addLocationTypeWithLocationType:(MOZULocationType*)locationType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZULocationTypeClient clientForAddLocationTypeOperationWithLocationType:locationType userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +95,14 @@
 #pragma mark -
 //
 
--(void)updateLocationTypeWithLocationType:(MOZULocationType*)locationType locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Updates the name of a defined location type.
+@param locationType Properties of the location type to update.
+@param locationTypeCode The user-defined code that identifies the location type.
+*/
+
+-(void)updateLocationTypeWithLocationType:(MOZULocationType*)locationType locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZULocationTypeClient clientForUpdateLocationTypeOperationWithLocationType:locationType locationTypeCode:locationTypeCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -95,7 +119,13 @@
 #pragma mark -
 //
 
--(void)deleteLocationTypeWithLocationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes the location type specified in the request.
+@param locationTypeCode User-defined code used to identify the location type.
+*/
+
+-(void)deleteLocationTypeWithLocationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZULocationTypeClient clientForDeleteLocationTypeOperationWithLocationTypeCode:locationTypeCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

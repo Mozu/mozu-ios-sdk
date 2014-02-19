@@ -34,7 +34,16 @@
 #pragma mark -
 //
 
--(void)groupsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroupCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a list of all customer groups defined for the site according to any specified filter criteria and sort options.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+*/
+
+-(void)groupsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroupCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerGroupClient clientForGetGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +53,13 @@
 	}];
 }
 
--(void)groupWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the name of a customer group specified the customer group ID.
+@param groupId Identifier of the customer group to retrieve.
+*/
+
+-(void)groupWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerGroupClient clientForGetGroupOperationWithGroupId:groupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -61,7 +76,13 @@
 #pragma mark -
 //
 
--(void)addGroupWithGroup:(MOZUCustomerGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a new customer group. New customer groups do not have any associated customer accounts.
+@param group Properties of the customer group to add.
+*/
+
+-(void)addGroupWithGroup:(MOZUCustomerGroup*)group userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerGroupClient clientForAddGroupOperationWithGroup:group userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +99,14 @@
 #pragma mark -
 //
 
--(void)updateGroupWithGroup:(MOZUCustomerGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Updates the name of a defined customer group.
+@param group Properties of the customer group to update.
+@param groupId Identifier of the customer group to update.
+*/
+
+-(void)updateGroupWithGroup:(MOZUCustomerGroup*)group groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerGroupClient clientForUpdateGroupOperationWithGroup:group groupId:groupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -95,7 +123,13 @@
 #pragma mark -
 //
 
--(void)deleteGroupWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes a customer group specified by its unique identifier. Deleting a group removes any customer account associations, but does not delete the customer account itself.
+@param groupId Identifier of the customer group to delete.
+*/
+
+-(void)deleteGroupWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerGroupClient clientForDeleteGroupOperationWithGroupId:groupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

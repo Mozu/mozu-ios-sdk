@@ -35,8 +35,8 @@ Retrieves a list of attribute type rules according to optional filter criteria a
 @param startIndex 
 */
 
--(void)attributeTypeRulesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeTypeRuleCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)attributeTypeRulesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeTypeRuleCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -

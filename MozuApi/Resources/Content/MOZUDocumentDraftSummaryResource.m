@@ -34,7 +34,15 @@
 #pragma mark -
 //
 
--(void)listDocumentDraftSummariesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentDraftSummaryPagedCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
+@param documentLists Lists that contain the document drafts.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+*/
+
+-(void)listDocumentDraftSummariesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentDraftSummaryPagedCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForListDocumentDraftSummariesOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -51,7 +59,14 @@
 #pragma mark -
 //
 
--(void)deleteDocumentDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes the drafts of the specified documents. Published documents cannot be deleted.
+@param documentIds Unique identifiers of the documents to delete.
+@param documentLists List of document lists that contain documents to delete.
+*/
+
+-(void)deleteDocumentDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForDeleteDocumentDraftsOperationWithDataViewMode:dataViewMode documentIds:documentIds documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -68,7 +83,14 @@
 #pragma mark -
 //
 
--(void)publishDocumentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Publish one or more document drafts to live content on the site.
+@param documentIds List of unique identifiers of the document drafts to publish.
+@param documentLists List of document lists that contain documents to publish.
+*/
+
+-(void)publishDocumentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentIds:(NSString*)documentIds documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForPublishDocumentsOperationWithDataViewMode:dataViewMode documentIds:documentIds documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

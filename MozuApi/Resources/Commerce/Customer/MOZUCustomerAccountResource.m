@@ -34,7 +34,20 @@
 #pragma mark -
 //
 
--(void)accountsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a list of customer accounts.
+@param fields The fields to include in the response.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param isAnonymous 
+@param pageSize 
+@param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
+@param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
+@param sortBy 
+@param startIndex 
+*/
+
+-(void)accountsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForGetAccountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter fields:fields q:q qLimit:qLimit isAnonymous:isAnonymous userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +57,13 @@
 	}];
 }
 
--(void)accountWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieve details of a customer account.
+@param accountId Unique identifier of the customer account to retrieve.
+*/
+
+-(void)accountWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForGetAccountOperationWithAccountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -54,7 +73,13 @@
 	}];
 }
 
--(void)loginStateWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the current login state of the customer account specified in the request.
+@param accountId Unique identifier of the customer account.
+*/
+
+-(void)loginStateWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForGetLoginStateOperationWithAccountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -71,7 +96,13 @@
 #pragma mark -
 //
 
--(void)addAccountWithAccount:(MOZUCustomerAccount*)account userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a new customer account based on the information specified in the request.
+@param account Properties of the customer account to update.
+*/
+
+-(void)addAccountWithAccount:(MOZUCustomerAccount*)account userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountOperationWithAccount:account userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -81,7 +112,14 @@
 	}];
 }
 
--(void)addLoginToExistingCustomerWithCustomerAuthInfo:(MOZUCustomerLoginInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Adds a new user login to a defined customer account.
+@param customerAuthInfo The authentication information for the customer account.
+@param accountId Unique identifier of the customer account.
+*/
+
+-(void)addLoginToExistingCustomerWithCustomerAuthInfo:(MOZUCustomerLoginInfo*)customerAuthInfo accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForAddLoginToExistingCustomerOperationWithCustomerAuthInfo:customerAuthInfo accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -91,7 +129,13 @@
 	}];
 }
 
--(void)recomputeCustomerLifetimeValueWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
+@param accountId The unique identifier of the customer account for which to calculate customer lifetime value.
+*/
+
+-(void)recomputeCustomerLifetimeValueWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForRecomputeCustomerLifetimeValueOperationWithAccountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -101,7 +145,14 @@
 	}];
 }
 
--(void)setLoginLockedWithIsLocked:(BOOL)isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Lock or unlock a customer account.
+@param isLocked If true, the customer account is locked from logging in.
+@param accountId The unique identifier of the customer account.
+*/
+
+-(void)setLoginLockedWithIsLocked:(BOOL)isLocked accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForSetLoginLockedOperationWithIsLocked:isLocked accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -111,7 +162,14 @@
 	}];
 }
 
--(void)setPasswordChangeRequiredWithIsPasswordChangeRequired:(BOOL)isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Requires the password for the customer account to be changed.
+@param isPasswordChangeRequired If true, the password for the customer account must be changed.
+@param accountId Unique identifier of the customer account.
+*/
+
+-(void)setPasswordChangeRequiredWithIsPasswordChangeRequired:(BOOL)isPasswordChangeRequired accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForSetPasswordChangeRequiredOperationWithIsPasswordChangeRequired:isPasswordChangeRequired accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -121,7 +179,13 @@
 	}];
 }
 
--(void)addAccountAndLoginWithAccountAndAuthInfo:(MOZUCustomerAccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a new customer account and logs the user associated with the customer account into the site.
+@param accountAndAuthInfo Properties of the customer account to create, including the user authentication information.
+*/
+
+-(void)addAccountAndLoginWithAccountAndAuthInfo:(MOZUCustomerAccountAndAuthInfo*)accountAndAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountAndLoginOperationWithAccountAndAuthInfo:accountAndAuthInfo userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -131,7 +195,13 @@
 	}];
 }
 
--(void)addAccountsWithCustomers:(NSArray<MOZUCustomerAccountAndAuthInfo>*)customers userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates multiple customer accounts based on the information specified in the request.
+@param customers Properties of the customer accounts to create.
+*/
+
+-(void)addAccountsWithCustomers:(NSArray<MOZUCustomerAccountAndAuthInfo>*)customers userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountsOperationWithCustomers:customers userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -141,7 +211,13 @@
 	}];
 }
 
--(void)loginStateByEmailAddressWithEmailAddress:(NSString*)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the current login state of a customer account by providing the customer's email address.
+@param emailAddress The email address associated with the customer account.
+*/
+
+-(void)loginStateByEmailAddressWithEmailAddress:(NSString*)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForGetLoginStateByEmailAddressOperationWithEmailAddress:emailAddress userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -151,7 +227,13 @@
 	}];
 }
 
--(void)loginStateByUserNameWithUserName:(NSString*)userName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the current login state of a customer account by providing the user name associated with the customer account.
+@param userName The user name associated with the customer account.
+*/
+
+-(void)loginStateByUserNameWithUserName:(NSString*)userName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForGetLoginStateByUserNameOperationWithUserName:userName userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -161,7 +243,13 @@
 	}];
 }
 
--(void)resetPasswordWithResetPasswordInfo:(MOZUResetPasswordInfo*)resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Resets the password for a customer account.
+@param resetPasswordInfo Information required to reset the password for a customer account.
+*/
+
+-(void)resetPasswordWithResetPasswordInfo:(MOZUResetPasswordInfo*)resetPasswordInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForResetPasswordOperationWithResetPasswordInfo:resetPasswordInfo userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -178,7 +266,14 @@
 #pragma mark -
 //
 
--(void)updateAccountWithAccount:(MOZUCustomerAccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Updates a customer account.
+@param account Properties of the customer account to update.
+@param accountId Unique identifier of the customer account.
+*/
+
+-(void)updateAccountWithAccount:(MOZUCustomerAccount*)account accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForUpdateAccountOperationWithAccount:account accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -195,7 +290,13 @@
 #pragma mark -
 //
 
--(void)deleteAccountWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
+@param accountId Unique identifier of the customer account to delete.
+*/
+
+-(void)deleteAccountWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForDeleteAccountOperationWithAccountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

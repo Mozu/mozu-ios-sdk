@@ -34,7 +34,12 @@
 #pragma mark -
 //
 
--(void)messagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartChangeMessageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the messages associated with the current shopper's cart.
+*/
+
+-(void)messagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartChangeMessageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUChangeMessageClient clientForGetMessagesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -65,7 +70,12 @@
 #pragma mark -
 //
 
--(void)removeAllMessagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes all messages associated with the cart of the current shopper.
+*/
+
+-(void)removeAllMessagesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUChangeMessageClient clientForRemoveAllMessagesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -75,7 +85,13 @@
 	}];
 }
 
--(void)removeMessageWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Removes a single message associated with the cart of the current shopper.
+@param messageId Identifier of the message to remove from the cart.
+*/
+
+-(void)removeMessageWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUChangeMessageClient clientForRemoveMessageOperationWithMessageId:messageId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

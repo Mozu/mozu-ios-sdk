@@ -36,15 +36,15 @@ Retrieves a paged list of attributes according to any specified filter criteria 
 @param startIndex 
 */
 
--(void)attributesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)attributesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the details of the specified product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)attributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)attributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -57,8 +57,8 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 @param attribute Properties of the new product attribute to create.
 */
 
--(void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -72,8 +72,8 @@ Updates an existing attribute with attribute properties to set.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -86,8 +86,8 @@ Deletes a defined product attribute. You cannot delete an attribute assigned a v
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)deleteAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deleteAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

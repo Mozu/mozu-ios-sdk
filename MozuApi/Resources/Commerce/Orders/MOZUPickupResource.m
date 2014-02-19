@@ -34,7 +34,14 @@
 #pragma mark -
 //
 
--(void)pickupWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the details of the in-store pickup specified in the request.
+@param orderId Unique identifier of the order associated with the pickup.
+@param pickupId Unique identifier of the pickup to retrieve.
+*/
+
+-(void)pickupWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUPickupClient clientForGetPickupOperationWithOrderId:orderId pickupId:pickupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +51,14 @@
 	}];
 }
 
--(void)availablePickupFulfillmentActionsWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a list of the actions available to perform for the pickup specified in the request.
+@param orderId Unique identifier of the order associated with the pickup.
+@param pickupId Unique identifier of the pickup for which to retrieve available actions.
+*/
+
+-(void)availablePickupFulfillmentActionsWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUPickupClient clientForGetAvailablePickupFulfillmentActionsOperationWithOrderId:orderId pickupId:pickupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -61,7 +75,14 @@
 #pragma mark -
 //
 
--(void)createPickupWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Create a new pickup for the order specified in the request for in-store fufillment.
+@param pickup Properties of the in-store pickup to create.
+@param orderId Unique identifier of the order.
+*/
+
+-(void)createPickupWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUPickupClient clientForCreatePickupOperationWithPickup:pickup orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +99,15 @@
 #pragma mark -
 //
 
--(void)updatePickupWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Updates one or more details of a defined in-store pickup.
+@param pickup Properties of the in-store pickup to update.
+@param orderId Unique identifier of the order associated with the in-store pickup.
+@param pickupId Unique identifier of the pickup to update.
+*/
+
+-(void)updatePickupWithPickup:(MOZUPickup*)pickup orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUPickupClient clientForUpdatePickupOperationWithPickup:pickup orderId:orderId pickupId:pickupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -95,7 +124,14 @@
 #pragma mark -
 //
 
--(void)deletePickupWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Removes a pickup previously defined for order item in-store pickup fulfillment.
+@param orderId Unique identifier of the order associated with the pickup.
+@param pickupId Unique identifier of the pickup to remove.
+*/
+
+-(void)deletePickupWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUPickupClient clientForDeletePickupOperationWithOrderId:orderId pickupId:pickupId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

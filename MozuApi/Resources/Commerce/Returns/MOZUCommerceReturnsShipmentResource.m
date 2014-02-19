@@ -34,7 +34,14 @@
 #pragma mark -
 //
 
--(void)shipmentWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUShipment* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the details of the specified return replacement shipment.
+@param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
+@param shipmentId Unique identifier of the return replacement shipment to retrieve.
+*/
+
+-(void)shipmentWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUShipment* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCommerceReturnsShipmentClient clientForGetShipmentOperationWithReturnId:returnId shipmentId:shipmentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -51,7 +58,14 @@
 #pragma mark -
 //
 
--(void)createPackageShipmentsWithPackageIds:(NSString*)packageIds returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a shipment from one or more packages associated with a return replacement.
+@param packageIds List of packages in the return replacement shipment.
+@param returnId Unique identifier of the return for which to create replacement package shipments.
+*/
+
+-(void)createPackageShipmentsWithPackageIds:(NSString*)packageIds returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCommerceReturnsShipmentClient clientForCreatePackageShipmentsOperationWithPackageIds:packageIds returnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -75,7 +89,14 @@
 #pragma mark -
 //
 
--(void)deleteShipmentWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes a shipment for a return replacement.
+@param returnId Unique identifier of the return associated with the replacement shipment to delete.
+@param shipmentId Unique identifier of the return replacement shipment to delete.
+*/
+
+-(void)deleteShipmentWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCommerceReturnsShipmentClient clientForDeleteShipmentOperationWithReturnId:returnId shipmentId:shipmentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

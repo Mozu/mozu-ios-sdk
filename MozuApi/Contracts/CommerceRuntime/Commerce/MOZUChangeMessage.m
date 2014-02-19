@@ -20,6 +20,7 @@
 	NSDictionary* dict = @{
 		@"newValue" : @"theNewValue",
 		@"newBillingInfo" : @"theNewBillingInfo",
+		@"newFullPath" : @"theNewFullPath",
 	};
 
 	return [[JSONKeyMapper alloc] initWithDictionary:dict];

@@ -34,7 +34,14 @@
 #pragma mark -
 //
 
--(void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a facet specified by its unique identifier and displays its properties.
+@param facetId Unique identifier of the facet to retrieve.
+@param validate Validates that the product category associated with a facet is active. System-supplied and read only.
+*/
+
+-(void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUAdminFacetClient clientForGetFacetOperationWithDataViewMode:dataViewMode facetId:facetId validate:validate userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +51,15 @@
 	}];
 }
 
--(void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFacetSet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a list of the facets defined for the specified category.
+@param categoryId Unique identifier of the category associated with the facets to retrieve.
+@param includeAvailable If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
+@param validate Validates that the product category associated with a facet is active. System-supplied and read only.
+*/
+
+-(void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFacetSet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUAdminFacetClient clientForGetFacetCategoryListOperationWithDataViewMode:dataViewMode categoryId:categoryId includeAvailable:includeAvailable validate:validate userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -61,7 +76,13 @@
 #pragma mark -
 //
 
--(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
+@param facet Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
+*/
+
+-(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUAdminFacetClient clientForAddFacetOperationWithDataViewMode:dataViewMode facet:facet userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +99,14 @@
 #pragma mark -
 //
 
--(void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Modifies one or more properties of a defined facet.
+@param facet Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.
+@param facetId Unique identifier of the facet to modify.
+*/
+
+-(void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUAdminFacetClient clientForUpdateFacetOperationWithDataViewMode:dataViewMode facet:facet facetId:facetId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -95,7 +123,13 @@
 #pragma mark -
 //
 
--(void)deleteFacetByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes the facet specified by its unique identifier.
+@param facetId Unique identifier of the facet to delete.
+*/
+
+-(void)deleteFacetByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUAdminFacetClient clientForDeleteFacetByIdOperationWithDataViewMode:dataViewMode facetId:facetId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -41,7 +41,14 @@
 #pragma mark -
 //
 
--(void)createDeveloperUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Generate an authentication ticket for a developer account.
+@param userAuthInfo The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.
+@param developerAccountId Unique identifier of the developer account.
+*/
+
+-(void)createDeveloperUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForCreateDeveloperUserAuthTicketOperationWithUserAuthInfo:userAuthInfo developerAccountId:developerAccountId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -58,7 +65,14 @@
 #pragma mark -
 //
 
--(void)refreshDeveloperAuthTicketWithExistingAuthTicket:(MOZUDeveloperAdminUserAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
+@param existingAuthTicket Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
+@param developerAccountId Unique identifier of the developer account.
+*/
+
+-(void)refreshDeveloperAuthTicketWithExistingAuthTicket:(MOZUDeveloperAdminUserAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForRefreshDeveloperAuthTicketOperationWithExistingAuthTicket:existingAuthTicket developerAccountId:developerAccountId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -75,7 +89,13 @@
 #pragma mark -
 //
 
--(void)deleteUserAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes the authentication ticket for the developer account by supplying the refresh token.
+@param refreshToken Refresh token string associated with the developer account authentication ticket.
+*/
+
+-(void)deleteUserAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForDeleteUserAuthTicketOperationWithRefreshToken:refreshToken];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -34,7 +34,12 @@
 #pragma mark -
 //
 
--(void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a list of the shipping settings configured for a site.
+*/
+
+-(void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

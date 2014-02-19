@@ -36,15 +36,15 @@ Retrieves a list of product reservations according to any specified filter crite
 @param startIndex 
 */
 
--(void)productReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductReservationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)productReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductReservationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the details of a product reservation.
 @param productReservationId Unique identifier of the product reservation.
 */
 
--(void)productReservationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductReservation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)productReservationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductReservation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -58,15 +58,15 @@ Creates a new product reservation for a product. This action places a hold on th
 @param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 
--(void)addProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)addProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
 @param productReservations List of unique identifiers of the reservations to commit.
 */
 
--(void)commitReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)commitReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -80,8 +80,8 @@ Updates an existing product reservation for a product.
 @param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
 */
 
--(void)updateProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updateProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservations:(NSArray<MOZUProductReservation>*)productReservations skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -94,8 +94,8 @@ Deletes a product reservation. For example, delete a reservation when an order i
 @param productReservationId Unique identifier of the reservation.
 */
 
--(void)deleteProductReservationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deleteProductReservationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

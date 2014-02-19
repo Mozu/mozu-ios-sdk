@@ -25,7 +25,7 @@
 /**
 The destination file location and file name to specify.
 */
-@property(nonatomic) NSString* newFullPath;
+@property(nonatomic) NSString* theNewFullPath;
 
 /**
 The original file location and file name.

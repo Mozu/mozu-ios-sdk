@@ -34,7 +34,14 @@
 #pragma mark -
 //
 
--(void)documentListsWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentListCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a collection of document lists.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param startIndex 
+*/
+
+-(void)documentListsWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentListCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUDocumentListClient clientForGetDocumentListsOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +51,13 @@
 	}];
 }
 
--(void)documentListWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentList* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieve the details of a document list by providing the list name.
+@param documentListName The name of the document list.
+*/
+
+-(void)documentListWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentList* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUDocumentListClient clientForGetDocumentListOperationWithDataViewMode:dataViewMode documentListName:documentListName userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

@@ -37,22 +37,22 @@ Retrieves a list of categories according to any specified filter criteria and so
 @param startIndex 
 */
 
--(void)categoriesWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryPagedCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)categoriesWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryPagedCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the details of a single category.
 @param allowInactive If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
 @param categoryId Unique identifier for the storefront container used to organize products.
 */
 
--(void)categoryWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber*)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)categoryWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber*)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
 */
 
--(void)categoryTreeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)categoryTreeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -

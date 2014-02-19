@@ -32,16 +32,16 @@ Retrieves a list of the property attributes configured for the product specified
 @param productCode 
 */
 
--(void)propertiesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminProductProperty>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)propertiesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminProductProperty>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the details of a property attribute configuration for the product specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)propertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)propertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -55,8 +55,8 @@ Configures a property attribute for the product specified in the request.
 @param productCode 
 */
 
--(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -71,8 +71,8 @@ Update one or more details of a property attribute configuration for the product
 @param productCode 
 */
 
--(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -86,8 +86,8 @@ Deletes the configuration of a property attribute for the product specified in t
 @param productCode 
 */
 
--(void)deletePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deletePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

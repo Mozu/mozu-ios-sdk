@@ -38,45 +38,45 @@
 Retrieves the list of applications associated with the developer account scoped to the user claim specified in the request.
 */
 
--(void)allApplicationsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApplicationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)allApplicationsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApplicationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the details of the application specified in the request. The application specified in the request must be associated with the developer account scoped to the user claim specified in the request header, otherwise the operation returns an error.
 @param applicationId Unique identifier of the application.
 */
 
--(void)applicationWithApplicationId:(NSNumber*)applicationId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)applicationWithApplicationId:(NSNumber*)applicationId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the details of a specific version of an application associated with the developer account scoped to the user claim specified in the request.
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 */
 
--(void)applicationVersionWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApplicationVersion* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)applicationVersionWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApplicationVersion* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves a list of the package definitions created for an application version, including all development packages and release packages. The application must be associated with the developer account scoped to the user claim specified in the request.
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 */
 
--(void)packagesWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPackageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)packagesWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPackageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the details of a package definition associated with an application version. The application ust be associated with the developer account scoped to the user claim specified in the request.
 @param applicationVersionId Unique identifier of the application version associated with the package. Application version IDs are unique across all applications associated with the developer account.
 @param packageId Unique identifier of the package to retrieve.
 */
 
--(void)packageWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevPackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)packageWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevPackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the metadata for items in a package associated with an application version, including a list of all files and subfolders. The application must be associated with the developer account scoped to the user claim specified in the request.
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 @param packageId Unique identifier of the package.
 */
 
--(void)packageItemsMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFolderMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)packageItemsMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFolderMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the metadata of a file in a package for an application version. The application must be associated with the developer account scoped to the user claim specified in the request.
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
@@ -84,16 +84,16 @@ Retrieves the metadata of a file in a package for an application version. The ap
 @param packageId Unique identifier of the package.
 */
 
--(void)packageItemMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)packageItemMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the package of files and sends them to a compressed (zipped) archive.
 @param applicationVersionId The unique identifier of the application version.
 @param packageId The unique identifier of the package to zip.
 */
 
--(void)packageFilesZipWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)packageFilesZipWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -107,8 +107,8 @@ Creates a new development or release package for the application version specifi
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 */
 
--(void)addPackageWithPackage:(MOZUAppDevPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevPackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)addPackageWithPackage:(MOZUAppDevPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevPackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Update the file name or file path of a development package or release package.
 @param renameInfo The file name or path to rename the package.
@@ -116,8 +116,8 @@ Update the file name or file path of a development package or release package.
 @param packageId The unique identifier of the development or release package.
 */
 
--(void)changePackageFileNameOrPathWithRenameInfo:(MOZURenameInfo*)renameInfo applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)changePackageFileNameOrPathWithRenameInfo:(MOZURenameInfo*)renameInfo applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Uploads a file to a defined package for an application version in the file location specified in the request.
 @param stream The contents of the package file to upload, which requires a content-type value of "application/octet-stream" in the request header.
@@ -126,8 +126,8 @@ Uploads a file to a defined package for an application version in the file locat
 @param packageId Unique identifier of the package.
 */
 
--(void)addPackageFileWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)addPackageFileWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -143,8 +143,8 @@ Updates one or more properties of a file in a package associated with an applica
 @param packageId The unique identifier of the package.
 */
 
--(void)updatePackageFileWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updatePackageFileWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -159,8 +159,8 @@ Deletes the specified file from a package associated with an application version
 @param packageId Unique identifier of the package.
 */
 
--(void)deletePackageFileWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deletePackageFileWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

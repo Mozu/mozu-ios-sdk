@@ -34,7 +34,12 @@
 #pragma mark -
 //
 
--(void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the details of the third-party payment service workflows configured for the site.
+*/
+
+-(void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUPaymentSettingsClient clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

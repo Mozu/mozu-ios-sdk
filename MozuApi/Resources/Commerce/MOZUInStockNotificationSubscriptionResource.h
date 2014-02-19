@@ -36,15 +36,15 @@ Retrieves a list of in-stock notification subscriptions.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)inStockNotificationSubscriptionsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscriptionCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)inStockNotificationSubscriptionsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscriptionCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the details of a subscription that sends a push notification when a product returns to active stock.
 @param identifier Unique identifier of the in-stock notification subscription to retrieve.
 */
 
--(void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -57,8 +57,8 @@ Creates a new subscription that notifies the customer when the product specified
 @param inStockNotificationSubscription Properties of a subscription that sends the customer a notification when a product returns to active stock.
 */
 
--(void)addInStockNotificationSubscriptionWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)addInStockNotificationSubscriptionWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -78,8 +78,8 @@ Deletes a subscription for a customer in-stock notification.
 @param identifier Unique identifier of the customer in-stock notification subscription to delete.
 */
 
--(void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

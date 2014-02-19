@@ -34,7 +34,12 @@
 #pragma mark -
 //
 
--(void)customerCheckoutSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
+*/
+
+-(void)customerCheckoutSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerCheckoutSettingsClient clientForGetCustomerCheckoutSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -58,7 +63,13 @@
 #pragma mark -
 //
 
--(void)updateCustomerCheckoutSettingsWithCustomerCheckoutSettings:(MOZUCustomerCheckoutSettings*)customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
+@param customerCheckoutSettings All the properties to update in the checkout settings.
+*/
+
+-(void)updateCustomerCheckoutSettingsWithCustomerCheckoutSettings:(MOZUCustomerCheckoutSettings*)customerCheckoutSettings userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUCustomerCheckoutSettingsClient clientForUpdateCustomerCheckoutSettingsOperationWithCustomerCheckoutSettings:customerCheckoutSettings userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

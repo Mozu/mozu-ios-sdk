@@ -35,7 +35,13 @@
 #pragma mark -
 //
 
--(void)tenantWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieve details about a specific tenant by providing the tenant ID.
+@param tenantId Unique identifier of the Mozu tenant.
+*/
+
+-(void)tenantWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	NSString* cacheKey = [@(tenantId) stringValue];
 	id tenant = [MOZUCacheManager getCacheForKey:cacheKey];
 	if (tenant != nil && handler != nil) {

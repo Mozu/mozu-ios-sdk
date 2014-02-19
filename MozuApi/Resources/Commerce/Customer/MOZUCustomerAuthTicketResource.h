@@ -40,8 +40,8 @@ Generates a new authentication ticket for a customer account.
 @param userAuthInfo The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
 */
 
--(void)createUserAuthTicketWithUserAuthInfo:(MOZUCustomerUserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)createUserAuthTicketWithUserAuthInfo:(MOZUCustomerUserAuthInfo*)userAuthInfo userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -54,8 +54,8 @@ Refreshes an existing authentication ticket for a customer account by providing 
 @param refreshToken The refresh token string required to refresh a user's authentication ticket.
 */
 
--(void)refreshUserAuthTicketWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)refreshUserAuthTicketWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -

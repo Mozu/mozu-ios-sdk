@@ -41,7 +41,14 @@
 #pragma mark -
 //
 
--(void)createUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
+@param userAuthInfo The user authentication information required to generate the user authentication ticket, which consists of a user name and password.
+@param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
+*/
+
+-(void)createUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUTenantAdminUserAuthTicketClient clientForCreateUserAuthTicketOperationWithUserAuthInfo:userAuthInfo tenantId:tenantId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -58,7 +65,14 @@
 #pragma mark -
 //
 
--(void)refreshAuthTicketWithExistingAuthTicket:(MOZUTenantAdminUserAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
+@param existingAuthTicket Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
+@param tenantId 
+*/
+
+-(void)refreshAuthTicketWithExistingAuthTicket:(MOZUTenantAdminUserAuthTicket*)existingAuthTicket tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUTenantAdminUserAuthTicketClient clientForRefreshAuthTicketOperationWithExistingAuthTicket:existingAuthTicket tenantId:tenantId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -75,7 +89,13 @@
 #pragma mark -
 //
 
--(void)deleteUserAuthTicketWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes the authentication ticket for the user by supplying the refresh token.
+@param refreshToken Refresh token string associated with the user authentication ticket.
+*/
+
+-(void)deleteUserAuthTicketWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUTenantAdminUserAuthTicketClient clientForDeleteUserAuthTicketOperationWithRefreshToken:refreshToken userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

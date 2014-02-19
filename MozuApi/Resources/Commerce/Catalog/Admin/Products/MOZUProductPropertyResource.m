@@ -34,7 +34,13 @@
 #pragma mark -
 //
 
--(void)propertiesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminProductProperty>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves a list of the property attributes configured for the product specified in the request.
+@param productCode 
+*/
+
+-(void)propertiesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminProductProperty>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUProductPropertyClient clientForGetPropertiesOperationWithDataViewMode:dataViewMode productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -44,7 +50,14 @@
 	}];
 }
 
--(void)propertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the details of a property attribute configuration for the product specified in the request.
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+*/
+
+-(void)propertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUProductPropertyClient clientForGetPropertyOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -61,7 +74,14 @@
 #pragma mark -
 //
 
--(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Configures a property attribute for the product specified in the request.
+@param productProperty Properties of the property attribute to configure for a product.
+@param productCode 
+*/
+
+-(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUProductPropertyClient clientForAddPropertyOperationWithDataViewMode:dataViewMode productProperty:productProperty productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -78,7 +98,15 @@
 #pragma mark -
 //
 
--(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Update one or more details of a property attribute configuration for the product specified in the request.
+@param productProperty Details of the property attribute to update for the product configuration.
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param productCode 
+*/
+
+-(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productProperty:(MOZUAdminProductProperty*)productProperty productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUProductPropertyClient clientForUpdatePropertyOperationWithDataViewMode:dataViewMode productProperty:productProperty productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -95,7 +123,14 @@
 #pragma mark -
 //
 
--(void)deletePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Deletes the configuration of a property attribute for the product specified in the request.
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param productCode 
+*/
+
+-(void)deletePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUProductPropertyClient clientForDeletePropertyOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

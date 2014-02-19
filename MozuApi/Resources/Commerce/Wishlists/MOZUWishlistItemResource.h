@@ -35,8 +35,8 @@ Retrieves the details of an item in a shopper wish list.
 @param wishlistItemId Unique identifier of the wish list associated with the item to retrieve.
 */
 
--(void)wishlistItemWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)wishlistItemWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves a list of items in a shopper wish list according to any specified filter and sort criteria.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
@@ -46,8 +46,8 @@ Retrieves a list of items in a shopper wish list according to any specified filt
 @param wishlistId Unique identifier of the wish list associated with the items to retrieve.
 */
 
--(void)wishlistItemsWithWishlistId:(NSString*)wishlistId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItemCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)wishlistItemsWithWishlistId:(NSString*)wishlistId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItemCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieve a list of items in a customer wish list by supplying the wish list name.
 @param customerAccountId The unique identifier of the customer account associated with the wish list.
@@ -58,8 +58,8 @@ Retrieve a list of items in a customer wish list by supplying the wish list name
 @param wishlistName The name of the wish list that contains the items to retrieve.
 */
 
--(void)wishlistItemsByWishlistNameWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString*)wishlistName startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItemCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)wishlistItemsByWishlistNameWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString*)wishlistName startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItemCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -73,8 +73,8 @@ Adds a product in a site's catalog as an item in a shopper wish list.
 @param wishlistId Unique identifier of the wish list associated with the item to add.
 */
 
--(void)addItemToWishlistWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)addItemToWishlistWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -89,8 +89,8 @@ Updates the details of an item in a shopper wish list.
 @param wishlistItemId Unique identifier of the item in the shopper wish list to update.
 */
 
--(void)updateWishlistItemWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updateWishlistItemWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Updates the quantity of an item in a shopper wish list.
 @param quantity The quantity of the item in the wish list.
@@ -98,8 +98,8 @@ Updates the quantity of an item in a shopper wish list.
 @param wishlistItemId Unique identifier of the item in the wish list to update quantity.
 */
 
--(void)updateWishlistItemQuantityWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updateWishlistItemQuantityWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -112,16 +112,16 @@ Removes all items associated with a shopper wish list.
 @param wishlistId Unique identifier of the wish list associated with the items to remove.
 */
 
--(void)removeAllWishlistItemsWithWishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlist* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)removeAllWishlistItemsWithWishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlist* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Removes an item from the wish list specified in the request.
 @param wishlistId Unique identifier of the wish list associated with the item to remove.
 @param wishlistItemId Unique identifier of the item to remove from the shopper wish list.
 */
 
--(void)deleteWishlistItemWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deleteWishlistItemWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

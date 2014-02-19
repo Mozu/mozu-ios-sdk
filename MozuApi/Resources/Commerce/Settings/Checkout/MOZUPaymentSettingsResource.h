@@ -31,8 +31,8 @@
 Retrieves the details of the third-party payment service workflows configured for the site.
 */
 
--(void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -

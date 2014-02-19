@@ -40,8 +40,8 @@ Generate an authentication ticket for a developer account.
 @param developerAccountId Unique identifier of the developer account.
 */
 
--(void)createDeveloperUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)createDeveloperUserAuthTicketWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -55,8 +55,8 @@ Generates a new developer account authentication ticket for the specified tenant
 @param developerAccountId Unique identifier of the developer account.
 */
 
--(void)refreshDeveloperAuthTicketWithExistingAuthTicket:(MOZUDeveloperAdminUserAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)refreshDeveloperAuthTicketWithExistingAuthTicket:(MOZUDeveloperAdminUserAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -69,8 +69,8 @@ Deletes the authentication ticket for the developer account by supplying the ref
 @param refreshToken Refresh token string associated with the developer account authentication ticket.
 */
 
--(void)deleteUserAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deleteUserAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

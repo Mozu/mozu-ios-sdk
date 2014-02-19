@@ -33,24 +33,24 @@ Retrieves the details of a package of order items.
 @param packageId Unique identifier of the package to retrieve.
 */
 
--(void)packageWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)packageWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves a list of the actions available to perform for a package associated with order fulfillment.
 @param orderId Unique identifier of the order associated with the package fulfillment.
 @param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 */
 
--(void)availablePackageFulfillmentActionsWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)availablePackageFulfillmentActionsWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 /**
 Retrieves the package label image supplied by the carrier.
 @param orderId Unique identifier of the order associated with the package label to retrieve.
 @param packageId Unique identifier of the package for which to retrieve the label.
 */
 
--(void)packageLabelWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)packageLabelWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -64,8 +64,8 @@ Creates a new physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
 */
 
--(void)createPackageWithPackage:(MOZUCommercePackage*)package orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)createPackageWithPackage:(MOZUCommercePackage*)package orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -80,8 +80,8 @@ Updates one or more properties of a physical package of order items.
 @param packageId Unique identifier of the package of order items to update.
 */
 
--(void)updatePackageWithPackage:(MOZUCommercePackage*)package orderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)updatePackageWithPackage:(MOZUCommercePackage*)package orderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 //
 #pragma mark -
@@ -95,8 +95,8 @@ Removes a physical package of items from the specified order.
 @param packageId Unique identifier of the package to delete.
 */
 
--(void)deletePackageWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler;
-
+-(void)deletePackageWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+;
 
 
 @end

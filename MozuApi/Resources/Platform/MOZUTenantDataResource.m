@@ -34,7 +34,13 @@
 #pragma mark -
 //
 
--(void)dBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Retrieves the value of a record in the Mozu database.
+@param dbEntryQuery The database entry query string used to retrieve the record information.
+*/
+
+-(void)dBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUTenantDataClient clientForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -51,7 +57,14 @@
 #pragma mark -
 //
 
--(void)createDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Creates a new record in the Mozu database based on the information supplied in the request.
+@param value The value string to create.
+@param dbEntryQuery The database entry string to create.
+*/
+
+-(void)createDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUTenantDataClient clientForCreateDBValueOperationWithValue:value dbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -68,7 +81,14 @@
 #pragma mark -
 //
 
--(void)updateDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Updates a record in the Mozu database based on the information supplied in the request.
+@param value The database value to update.
+@param dbEntryQuery The database entry query string used to update the record information.
+*/
+
+-(void)updateDBValueWithValue:(NSString*)value dbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUTenantDataClient clientForUpdateDBValueOperationWithValue:value dbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -85,7 +105,13 @@
 #pragma mark -
 //
 
--(void)deleteDBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler {
+/**
+Removes a previously defined record in the Mozu database.
+@param dbEntryQuery The database entry string to delete.
+*/
+
+-(void)deleteDBValueWithDbEntryQuery:(NSString*)dbEntryQuery completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+ {
 	MOZUClient * client = [MOZUTenantDataClient clientForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
