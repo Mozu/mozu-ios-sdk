@@ -1,4 +1,4 @@
-platform :osx, '10.9'
+platform :ios, '7.0'
 pod 'mozu-ios-sdk', :path => '../'
 # pod 'mozu-ios-sdk', :git => 'https://github.com/Mozu/mozu-ios-sdk.git'
 pod 'CocoaLumberjack'
