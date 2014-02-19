@@ -67,7 +67,7 @@ Creates a discount.
 @param discount Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 */
 
-+(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUAdminDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Redeems a discount configured in the product admin.
@@ -89,7 +89,7 @@ Modifies a discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUAdminDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.

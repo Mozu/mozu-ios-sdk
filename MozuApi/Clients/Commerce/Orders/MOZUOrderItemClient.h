@@ -77,7 +77,7 @@ Update the discount applied to an item in an order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForUpdateOrderItemDiscountOperationWithDiscount:(MOZUDiscount*)discount orderId:(NSString*)orderId orderItemId:(NSString*)orderItemId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderItemDiscountOperationWithDiscount:(MOZUCommerceDiscount*)discount orderId:(NSString*)orderId orderItemId:(NSString*)orderItemId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Updates the item fulfillment information for the order specified in the request.

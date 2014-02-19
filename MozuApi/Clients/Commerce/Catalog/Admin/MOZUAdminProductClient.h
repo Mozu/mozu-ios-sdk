@@ -71,7 +71,7 @@ Creates a new product definition in the specified master catalog.
 @param product Properties of the new product. You must supply values for the product code, product name, and price.
 */
 
-+(MOZUClient*)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode product:(MOZUProduct*)product userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode product:(MOZUAdminProduct*)product userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Associates a new product defined in the master catalog with a specific catalog.
@@ -94,7 +94,7 @@ Updates one or more properties of a product definition in a master catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForUpdateProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode product:(MOZUProduct*)product productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode product:(MOZUAdminProduct*)product productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Updates the properties of a product specific to each catalog associated with the product.

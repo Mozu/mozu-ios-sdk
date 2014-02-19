@@ -146,7 +146,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateOrderDiscountOperationWithDiscount:(MOZUDiscount*)discount orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateOrderDiscountOperationWithDiscount:(MOZUCommerceDiscount*)discount orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUOrderURL URLForUpdateOrderDiscountOperationWithOrderId:orderId discountId:discountId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

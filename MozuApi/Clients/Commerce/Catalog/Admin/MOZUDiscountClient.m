@@ -103,7 +103,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUAdminDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURL URLForCreateDiscountOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -148,7 +148,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUAdminDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURL URLForUpdateDiscountOperationWithDiscountId:discountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

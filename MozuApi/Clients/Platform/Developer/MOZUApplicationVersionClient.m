@@ -158,7 +158,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddPackageOperationWithPackage:(MOZUPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddPackageOperationWithPackage:(MOZUAppDevPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURL URLForAddPackageOperationWithApplicationVersionId:applicationVersionId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

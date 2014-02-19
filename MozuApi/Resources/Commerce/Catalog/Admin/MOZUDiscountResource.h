@@ -72,7 +72,7 @@ Creates a discount.
 @param discount Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 */
 
--(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUAdminDiscount*)discount userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Redeems a discount configured in the product admin.
@@ -94,7 +94,7 @@ Modifies a discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
--(void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discount:(MOZUAdminDiscount*)discount discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 /**
 Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.

@@ -64,7 +64,7 @@ Creates a new physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
 */
 
--(void)createPackageWithPackage:(MOZUPackage*)package orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)createPackageWithPackage:(MOZUCommercePackage*)package orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -80,7 +80,7 @@ Updates one or more properties of a physical package of order items.
 @param packageId Unique identifier of the package of order items to update.
 */
 
--(void)updatePackageWithPackage:(MOZUPackage*)package orderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updatePackageWithPackage:(MOZUCommercePackage*)package orderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

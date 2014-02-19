@@ -57,7 +57,7 @@ Creates a new category, price, or attribute facet. Supply the category or attrib
 @param facet Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
 */
 
--(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUFacet*)facet userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //
@@ -72,7 +72,7 @@ Modifies one or more properties of a defined facet.
 @param facetId Unique identifier of the facet to modify.
 */
 
--(void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUFacet*)facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
+-(void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode facet:(MOZUAdminFacet*)facet facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler;
 
 
 //

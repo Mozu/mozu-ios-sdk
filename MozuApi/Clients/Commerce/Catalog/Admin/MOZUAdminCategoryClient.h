@@ -60,7 +60,7 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 @param category Properties of the new category. Required properties: ParentCategoryID and Content.Name.
 */
 
-+(MOZUClient*)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUCategory*)category userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUAdminCategory*)category userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -76,7 +76,7 @@ Modifies a category such as moving it to another location in the category tree, 
 @param categoryId Unique identifier of the category to modify.
 */
 
-+(MOZUClient*)clientForUpdateCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUCategory*)category categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode category:(MOZUAdminCategory*)category categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

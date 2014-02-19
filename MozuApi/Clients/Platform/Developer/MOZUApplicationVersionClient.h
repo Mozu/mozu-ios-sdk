@@ -102,7 +102,7 @@ Creates a new development or release package for the application version specifi
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 */
 
-+(MOZUClient*)clientForAddPackageOperationWithPackage:(MOZUPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddPackageOperationWithPackage:(MOZUAppDevPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Update the file name or file path of a development package or release package.
