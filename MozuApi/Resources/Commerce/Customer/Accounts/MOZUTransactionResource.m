@@ -63,10 +63,14 @@ Creates a new transaction for the customer account specified in the request.
 @param accountId Unique identifier of the customer account.
 */
 
--(void)addTransactionWithTransaction:(MOZUTransaction*)transaction accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addTransactionWithBody:(MOZUTransaction*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUTransactionClient clientForAddTransactionOperationWithTransaction:transaction accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

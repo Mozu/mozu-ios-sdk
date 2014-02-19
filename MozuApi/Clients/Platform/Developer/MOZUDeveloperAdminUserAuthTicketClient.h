@@ -35,7 +35,7 @@ Generate an authentication ticket for a developer account.
 @param developerAccountId Unique identifier of the developer account.
 */
 
-+(MOZUClient*)clientForCreateDeveloperUserAuthTicketOperationWithUserAuthInfo:(MOZUUserAuthInfo*)userAuthInfo developerAccountId:(NSNumber*)developerAccountId;
++(MOZUClient*)clientForCreateDeveloperUserAuthTicketOperationWithBody:(MOZUUserAuthInfo*)body developerAccountId:(NSNumber*)developerAccountId;
 
 
 //
@@ -50,7 +50,7 @@ Generates a new developer account authentication ticket for the specified tenant
 @param developerAccountId Unique identifier of the developer account.
 */
 
-+(MOZUClient*)clientForRefreshDeveloperAuthTicketOperationWithExistingAuthTicket:(MOZUDeveloperAdminUserAuthTicket*)existingAuthTicket developerAccountId:(NSNumber*)developerAccountId;
++(MOZUClient*)clientForRefreshDeveloperAuthTicketOperationWithBody:(MOZUDeveloperAdminUserAuthTicket*)body developerAccountId:(NSNumber*)developerAccountId;
 
 
 //

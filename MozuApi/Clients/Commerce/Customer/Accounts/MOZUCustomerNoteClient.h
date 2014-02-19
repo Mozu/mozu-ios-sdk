@@ -55,7 +55,7 @@ Adds a new note to the specified customer account.
 @param accountId Unique identifier of the customer account for which to create the note.
 */
 
-+(MOZUClient*)clientForAddAccountNoteOperationWithNote:(MOZUCustomerNote*)note accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAccountNoteOperationWithBody:(MOZUCustomerNote*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -71,7 +71,7 @@ Modifies an existing note for a customer account.
 @param noteId Unique identifier of the note to update.
 */
 
-+(MOZUClient*)clientForUpdateAccountNoteOperationWithNote:(MOZUCustomerNote*)note accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateAccountNoteOperationWithBody:(MOZUCustomerNote*)body accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

@@ -63,10 +63,14 @@ Applies a list of attributes to the order specified in the request and defines a
 @param orderId Unique identifier of the order for which to assign the attributes.
 */
 
--(void)createOrderAttributesWithOrderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createOrderAttributesWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderAttributeClient clientForCreateOrderAttributesOperationWithOrderAttributes:orderAttributes orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -88,10 +92,14 @@ Updates one or more properties of an attribute defined for the order specified i
 @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 */
 
--(void)updateOrderAttributesWithOrderAttributes:(NSArray<MOZUOrderAttribute>*)orderAttributes orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateOrderAttributesWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderAttributeClient clientForUpdateOrderAttributesOperationWithOrderAttributes:orderAttributes orderId:orderId removeMissing:removeMissing userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

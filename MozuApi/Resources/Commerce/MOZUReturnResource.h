@@ -91,7 +91,7 @@ Creates a return for previously fulfilled items. Each return must either be asso
 @param ret Wrapper for the properties of the return to create.
 */
 
--(void)createReturnWithRet:(MOZUReturn*)ret userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createReturnWithBody:(MOZUReturn*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Updates a refund payment associated with a customer return by performing the specified action.
@@ -100,7 +100,7 @@ Updates a refund payment associated with a customer return by performing the spe
 @param returnId Unique identifier of the return associated with the refund payment.
 */
 
--(void)performPaymentActionForReturnWithAction:(MOZUPaymentAction*)action returnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)performPaymentActionForReturnWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Creates a new payment for a return that results in a refund to the customer.
@@ -108,14 +108,14 @@ Creates a new payment for a return that results in a refund to the customer.
 @param returnId Unique identifier of the return associated with the payment action.
 */
 
--(void)createPaymentActionForReturnWithAction:(MOZUPaymentAction*)action returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createPaymentActionForReturnWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Updates the return by performing the specified action.
 @param action The name of the return action to perform, such as "Refund" or "Replace".
 */
 
--(void)performReturnActionsWithAction:(MOZUReturnAction*)action userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturnCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)performReturnActionsWithBody:(MOZUReturnAction*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturnCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -130,7 +130,7 @@ Updates one or more properties of a return for items previously shipped in a com
 @param returnId Unique identifier of the return.
 */
 
--(void)updateReturnWithRet:(MOZUReturn*)ret returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateReturnWithBody:(MOZUReturn*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //

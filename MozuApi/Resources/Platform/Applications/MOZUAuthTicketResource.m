@@ -46,10 +46,14 @@ Generate an authentication ticket for an application.
 @param appAuthInfo Authentication information required to generate an authentication ticket includes the application id and the shared secret.
 */
 
--(void)authenticateAppWithAppAuthInfo:(MOZUAppAuthInfo*)appAuthInfo completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)authenticateAppWithBody:(MOZUAppAuthInfo*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAuthTicketClient clientForAuthenticateAppOperationWithAppAuthInfo:appAuthInfo];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -69,10 +73,14 @@ Refreshes the application's authentication ticket and generates a new access tok
 @param authTicketRequest The refresh token string required to update the application authentication ticket.
 */
 
--(void)refreshAppAuthTicketWithAuthTicketRequest:(MOZUAuthTicketRequest*)authTicketRequest completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAuthTicketClient clientForRefreshAppAuthTicketOperationWithAuthTicketRequest:authTicketRequest];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

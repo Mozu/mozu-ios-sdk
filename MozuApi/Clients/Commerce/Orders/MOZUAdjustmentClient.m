@@ -35,7 +35,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForApplyShippingAdjustmentOperationWithAdjustment:(MOZUAdjustment*)adjustment orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForApplyShippingAdjustmentOperationWithBody:(MOZUAdjustment*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdjustmentURL URLForApplyShippingAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
@@ -51,7 +51,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForApplyAdjustmentOperationWithAdjustment:(MOZUAdjustment*)adjustment orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForApplyAdjustmentOperationWithBody:(MOZUAdjustment*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdjustmentURL URLForApplyAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

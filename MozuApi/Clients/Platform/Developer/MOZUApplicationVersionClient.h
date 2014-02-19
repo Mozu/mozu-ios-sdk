@@ -102,7 +102,7 @@ Creates a new development or release package for the application version specifi
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 */
 
-+(MOZUClient*)clientForAddPackageOperationWithPackage:(MOZUAppDevPackage*)package applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddPackageOperationWithBody:(MOZUAppDevPackage*)body applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Update the file name or file path of a development package or release package.
@@ -111,7 +111,7 @@ Update the file name or file path of a development package or release package.
 @param packageId The unique identifier of the development or release package.
 */
 
-+(MOZUClient*)clientForChangePackageFileNameOrPathOperationWithRenameInfo:(MOZURenameInfo*)renameInfo applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForChangePackageFileNameOrPathOperationWithBody:(MOZURenameInfo*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Uploads a file to a defined package for an application version in the file location specified in the request.
@@ -121,7 +121,7 @@ Uploads a file to a defined package for an application version in the file locat
 @param packageId Unique identifier of the package.
 */
 
-+(MOZUClient*)clientForAddPackageFileOperationWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddPackageFileOperationWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -138,7 +138,7 @@ Updates one or more properties of a file in a package associated with an applica
 @param packageId The unique identifier of the package.
 */
 
-+(MOZUClient*)clientForUpdatePackageFileOperationWithStream:(NSInputStream*)stream applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdatePackageFileOperationWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

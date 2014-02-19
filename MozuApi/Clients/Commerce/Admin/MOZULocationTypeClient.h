@@ -47,7 +47,7 @@ Creates a new location type based on the information specified in the request.
 @param locationType Properties of the location type to create.
 */
 
-+(MOZUClient*)clientForAddLocationTypeOperationWithLocationType:(MOZULocationType*)locationType userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddLocationTypeOperationWithBody:(MOZULocationType*)body userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -62,7 +62,7 @@ Updates the name of a defined location type.
 @param locationTypeCode The user-defined code that identifies the location type.
 */
 
-+(MOZUClient*)clientForUpdateLocationTypeOperationWithLocationType:(MOZULocationType*)locationType locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType*)body locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

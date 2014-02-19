@@ -81,10 +81,14 @@ Creates a new product type based on the information supplied in the request.
 @param productType Properties of the product type to create.
 */
 
--(void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUProductType*)productType userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductTypeClient clientForAddProductTypeOperationWithDataViewMode:dataViewMode productType:productType userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,10 +109,14 @@ Updates one or more properties of a product type.
 @param productTypeId Identifier of the product type to update.
 */
 
--(void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productType:(MOZUProductType*)productType productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType*)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductTypeClient clientForUpdateProductTypeOperationWithDataViewMode:dataViewMode productType:productType productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

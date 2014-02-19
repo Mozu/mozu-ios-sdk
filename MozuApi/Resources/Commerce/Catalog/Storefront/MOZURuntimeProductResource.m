@@ -104,10 +104,14 @@ Creates a new product selection. A create occurs each time a shopper selects a p
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
 
--(void)configuredProductWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUConfiguredProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)configuredProductWithBody:(MOZUProductOptionSelections*)body productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUConfiguredProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZURuntimeProductClient clientForConfiguredProductOperationWithProductOptionSelections:productOptionSelections productCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -122,10 +126,14 @@ Validate the final state of shopper-selected options.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
 
--(void)validateProductWithProductOptionSelections:(MOZUProductOptionSelections*)productOptionSelections productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductValidationSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)validateProductWithBody:(MOZUProductOptionSelections*)body productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductValidationSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZURuntimeProductClient clientForValidateProductOperationWithProductOptionSelections:productOptionSelections productCode:productCode skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

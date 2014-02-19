@@ -52,7 +52,7 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 @param attribute Properties of the new product attribute to create.
 */
 
-+(MOZUClient*)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute*)body userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates an existing attribute with attribute properties to set.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+(MOZUClient*)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attribute:(MOZUAttribute*)attribute attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute*)body attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddInStockNotificationSubscriptionOperationWithInStockNotificationSubscription:(MOZUInStockNotificationSubscription*)inStockNotificationSubscription userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddInStockNotificationSubscriptionOperationWithBody:(MOZUInStockNotificationSubscription*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUInStockNotificationSubscriptionURL URLForAddInStockNotificationSubscriptionOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];

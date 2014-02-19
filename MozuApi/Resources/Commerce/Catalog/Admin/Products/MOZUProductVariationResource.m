@@ -91,10 +91,14 @@ Modifies the collection of variations for the specified product code. Because th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariations:(MOZUProductVariationCollection*)productVariations productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationsOperationWithDataViewMode:dataViewMode productVariations:productVariations productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -109,10 +113,14 @@ Modifies the details of a variation, based on the supplied variation key, for th
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
--(void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productVariation:(MOZUProductVariation*)productVariation productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation*)body productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationOperationWithDataViewMode:dataViewMode productVariation:productVariation productCode:productCode variationKey:variationKey userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

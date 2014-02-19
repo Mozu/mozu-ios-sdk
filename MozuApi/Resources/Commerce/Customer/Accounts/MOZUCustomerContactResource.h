@@ -60,7 +60,7 @@ Creates a new contact for a customer account such as a new shipping address.
 @param accountId Unique identifier of the customer account containing the new contact.
 */
 
--(void)addAccountContactWithContact:(MOZUCustomerContact*)contact accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addAccountContactWithBody:(MOZUCustomerContact*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -76,7 +76,7 @@ Updates a contact for a specified customer account such as to update addresses o
 @param contactId Unique identifer of the customer account contact being updated.
 */
 
--(void)updateAccountContactWithContact:(MOZUCustomerContact*)contact accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateAccountContactWithBody:(MOZUCustomerContact*)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //

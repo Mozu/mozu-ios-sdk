@@ -35,7 +35,7 @@ Validates the customer address supplied in the request.
 @param addressValidationRequest Properties of the address to validate.
 */
 
-+(MOZUClient*)clientForValidateAddressOperationWithAddressValidationRequest:(MOZUAddressValidationRequest*)addressValidationRequest userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

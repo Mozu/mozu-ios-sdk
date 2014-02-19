@@ -105,10 +105,14 @@ Adds a product in a site's catalog as an item in a shopper wish list.
 @param wishlistId Unique identifier of the wish list associated with the item to add.
 */
 
--(void)addItemToWishlistWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addItemToWishlistWithBody:(MOZUWishlistItem*)body wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUWishlistItemClient clientForAddItemToWishlistOperationWithWishlistItem:wishlistItem wishlistId:wishlistId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -130,10 +134,14 @@ Updates the details of an item in a shopper wish list.
 @param wishlistItemId Unique identifier of the item in the shopper wish list to update.
 */
 
--(void)updateWishlistItemWithWishlistItem:(MOZUWishlistItem*)wishlistItem wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateWishlistItemWithBody:(MOZUWishlistItem*)body wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUWishlistItemClient clientForUpdateWishlistItemOperationWithWishlistItem:wishlistItem wishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
 	client.context = self.apiContext;
+	if (body != nil) {
+		client.body = body;
+	}
+
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
