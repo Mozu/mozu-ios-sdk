@@ -36,7 +36,7 @@
 
 /**
 Generate an authentication ticket for a developer account.
-@param userAuthInfo The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.
+@param body The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.
 @param developerAccountId Unique identifier of the developer account.
 */
 
@@ -51,7 +51,7 @@ Generate an authentication ticket for a developer account.
 
 /**
 Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
-@param existingAuthTicket Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
+@param body Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
 @param developerAccountId Unique identifier of the developer account.
 */
 

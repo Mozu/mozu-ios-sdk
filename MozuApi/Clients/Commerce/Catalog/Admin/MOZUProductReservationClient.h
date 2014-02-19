@@ -49,7 +49,7 @@ Retrieves the details of a product reservation.
 
 /**
 Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
-@param productReservations Details of the product reservations to add.
+@param body Details of the product reservations to add.
 @param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 
@@ -57,7 +57,7 @@ Creates a new product reservation for a product. This action places a hold on th
 
 /**
 Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
-@param productReservations List of unique identifiers of the reservations to commit.
+@param body List of unique identifiers of the reservations to commit.
 */
 
 +(MOZUClient*)clientForCommitReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body userClaims:(MOZUUserAuthTicket*)userClaims;
@@ -71,7 +71,7 @@ Commits a product reservation to decrement the product's inventory by the quanti
 
 /**
 Updates an existing product reservation for a product.
-@param productReservations Properties of the product reservations to update.
+@param body Properties of the product reservations to update.
 @param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
 */
 

@@ -49,7 +49,7 @@ Retrieve the settings of a third-party application.
 
 /**
 Initializes an application with the necessary configured settings.
-@param application Properties of the application to update.
+@param body Properties of the application to update.
 */
 
 -(void)thirdPartyUpdateApplicationWithBody:(MOZUSiteSettingsApplication*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler

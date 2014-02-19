@@ -83,6 +83,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
 	}
@@ -105,6 +109,10 @@
 	id url = [MOZUWishlistItemURL URLForUpdateWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

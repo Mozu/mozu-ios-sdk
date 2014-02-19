@@ -38,7 +38,7 @@ Retrieves a list of transactions associated with the customer account specified 
 
 /**
 Creates a new transaction for the customer account specified in the request.
-@param transaction Properties of the transaction to create for the customer account.
+@param body Properties of the transaction to create for the customer account.
 @param accountId Unique identifier of the customer account.
 */
 

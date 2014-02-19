@@ -84,6 +84,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
 	}
@@ -99,6 +103,10 @@
 	id url = [MOZUCustomerAccountURL URLForAddLoginToExistingCustomerOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -128,6 +136,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
 	}
@@ -140,6 +152,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
 	}
@@ -151,6 +167,10 @@
 	id url = [MOZUCustomerAccountURL URLForAddAccountAndLoginOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -167,6 +187,10 @@
 	id url = [MOZUCustomerAccountURL URLForAddAccountsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -216,6 +240,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
 	}
@@ -234,6 +262,10 @@
 	id url = [MOZUCustomerAccountURL URLForUpdateAccountOperationWithAccountId:accountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

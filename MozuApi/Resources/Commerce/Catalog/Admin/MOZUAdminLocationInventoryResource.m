@@ -80,18 +80,14 @@ Retrieves a list of all product inventory definitions for the location code spec
 
 /**
 Creates an array of product inventory definitions for the location specified in the request. When adding a new inventory definition, you must specify the productCode and stockOnHand value in each array you define. All other properties are system-supplied and read only.
-@param locationInventoryList Array list of product inventory definitions for all associated locations. For each location inventory in the list, define the productCode and stockOnHand values.
+@param body Array list of product inventory definitions for all associated locations. For each location inventory in the list, define the productCode and stockOnHand values.
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
 -(void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminLocationInventoryClient clientForAddLocationInventoryOperationWithDataViewMode:dataViewMode locationInventoryList:locationInventoryList locationCode:locationCode userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminLocationInventoryClient clientForAddLocationInventoryOperationWithDataViewMode:dataViewMode body:body locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -108,18 +104,14 @@ Creates an array of product inventory definitions for the location specified in 
 
 /**
 Updates the active stock on hand inventory of products for the location code specified in the request.
-@param locationInventoryAdjustments Properties of the inventory adjustments to perform for the specified location.
+@param body Properties of the inventory adjustments to perform for the specified location.
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
 -(void)updateLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminLocationInventoryClient clientForUpdateLocationInventoryOperationWithDataViewMode:dataViewMode locationInventoryAdjustments:locationInventoryAdjustments locationCode:locationCode userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminLocationInventoryClient clientForUpdateLocationInventoryOperationWithDataViewMode:dataViewMode body:body locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

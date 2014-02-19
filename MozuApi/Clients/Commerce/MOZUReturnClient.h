@@ -83,14 +83,14 @@ Retrieves a list of the payment actions available to perform for the specified r
 
 /**
 Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
-@param ret Wrapper for the properties of the return to create.
+@param body Wrapper for the properties of the return to create.
 */
 
 +(MOZUClient*)clientForCreateReturnOperationWithBody:(MOZUReturn*)body userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Updates a refund payment associated with a customer return by performing the specified action.
-@param action The payment action to perform for the refund payment.
+@param body The payment action to perform for the refund payment.
 @param paymentId Unique identifier of the return payment to update.
 @param returnId Unique identifier of the return associated with the refund payment.
 */
@@ -99,7 +99,7 @@ Updates a refund payment associated with a customer return by performing the spe
 
 /**
 Creates a new payment for a return that results in a refund to the customer.
-@param action The payment action to perform for the customer return.
+@param body The payment action to perform for the customer return.
 @param returnId Unique identifier of the return associated with the payment action.
 */
 
@@ -107,7 +107,7 @@ Creates a new payment for a return that results in a refund to the customer.
 
 /**
 Updates the return by performing the specified action.
-@param action The name of the return action to perform, such as "Refund" or "Replace".
+@param body The name of the return action to perform, such as "Refund" or "Replace".
 */
 
 +(MOZUClient*)clientForPerformReturnActionsOperationWithBody:(MOZUReturnAction*)body userClaims:(MOZUUserAuthTicket*)userClaims;
@@ -121,7 +121,7 @@ Updates the return by performing the specified action.
 
 /**
 Updates one or more properties of a return for items previously shipped in a completed order.
-@param ret Wrapper for the array of properties to update for the return.
+@param body Wrapper for the array of properties to update for the return.
 @param returnId Unique identifier of the return.
 */
 

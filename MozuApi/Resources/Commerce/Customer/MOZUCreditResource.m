@@ -78,17 +78,13 @@ Retrieves the details of a store credit applied to a customer account.
 
 /**
 Creates a new store credit for the customer account specified in the request.
-@param credit Properties of the store credit to create.
+@param body Properties of the store credit to create.
 */
 
 -(void)addCreditWithBody:(MOZUCredit*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCreditClient clientForAddCreditOperationWithCredit:credit userClaims:userClaims];
+	MOZUClient * client = [MOZUCreditClient clientForAddCreditOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,18 +101,14 @@ Creates a new store credit for the customer account specified in the request.
 
 /**
 Updates one or more properties of a defined store credit applied to a customer account.
-@param credit Properties of the store credit to update.
+@param body Properties of the store credit to update.
 @param code User-defined code of the store credit to update.
 */
 
 -(void)updateCreditWithBody:(MOZUCredit*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCreditClient clientForUpdateCreditOperationWithCredit:credit code:code userClaims:userClaims];
+	MOZUClient * client = [MOZUCreditClient clientForUpdateCreditOperationWithBody:body code:code userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

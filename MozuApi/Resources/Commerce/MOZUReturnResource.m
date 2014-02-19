@@ -144,17 +144,13 @@ Retrieves a list of the payment actions available to perform for the specified r
 
 /**
 Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
-@param ret Wrapper for the properties of the return to create.
+@param body Wrapper for the properties of the return to create.
 */
 
 -(void)createReturnWithBody:(MOZUReturn*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUReturnClient clientForCreateReturnOperationWithRet:ret userClaims:userClaims];
+	MOZUClient * client = [MOZUReturnClient clientForCreateReturnOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -164,19 +160,15 @@ Creates a return for previously fulfilled items. Each return must either be asso
 
 /**
 Updates a refund payment associated with a customer return by performing the specified action.
-@param action The payment action to perform for the refund payment.
+@param body The payment action to perform for the refund payment.
 @param paymentId Unique identifier of the return payment to update.
 @param returnId Unique identifier of the return associated with the refund payment.
 */
 
 -(void)performPaymentActionForReturnWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUReturnClient clientForPerformPaymentActionForReturnOperationWithAction:action returnId:returnId paymentId:paymentId userClaims:userClaims];
+	MOZUClient * client = [MOZUReturnClient clientForPerformPaymentActionForReturnOperationWithBody:body returnId:returnId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -186,18 +178,14 @@ Updates a refund payment associated with a customer return by performing the spe
 
 /**
 Creates a new payment for a return that results in a refund to the customer.
-@param action The payment action to perform for the customer return.
+@param body The payment action to perform for the customer return.
 @param returnId Unique identifier of the return associated with the payment action.
 */
 
 -(void)createPaymentActionForReturnWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUReturnClient clientForCreatePaymentActionForReturnOperationWithAction:action returnId:returnId userClaims:userClaims];
+	MOZUClient * client = [MOZUReturnClient clientForCreatePaymentActionForReturnOperationWithBody:body returnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -207,17 +195,13 @@ Creates a new payment for a return that results in a refund to the customer.
 
 /**
 Updates the return by performing the specified action.
-@param action The name of the return action to perform, such as "Refund" or "Replace".
+@param body The name of the return action to perform, such as "Refund" or "Replace".
 */
 
 -(void)performReturnActionsWithBody:(MOZUReturnAction*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturnCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUReturnClient clientForPerformReturnActionsOperationWithAction:action userClaims:userClaims];
+	MOZUClient * client = [MOZUReturnClient clientForPerformReturnActionsOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -234,18 +218,14 @@ Updates the return by performing the specified action.
 
 /**
 Updates one or more properties of a return for items previously shipped in a completed order.
-@param ret Wrapper for the array of properties to update for the return.
+@param body Wrapper for the array of properties to update for the return.
 @param returnId Unique identifier of the return.
 */
 
 -(void)updateReturnWithBody:(MOZUReturn*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUReturnClient clientForUpdateReturnOperationWithRet:ret returnId:returnId userClaims:userClaims];
+	MOZUClient * client = [MOZUReturnClient clientForUpdateReturnOperationWithBody:body returnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

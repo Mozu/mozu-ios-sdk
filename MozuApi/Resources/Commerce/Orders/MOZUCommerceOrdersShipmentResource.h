@@ -53,7 +53,7 @@ Retrieves the available shipping methods applicable to the order. Typically used
 
 /**
 Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
-@param packageIds List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
+@param body List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
 @param orderId Unique identifier of the order for this shipment.
 */
 

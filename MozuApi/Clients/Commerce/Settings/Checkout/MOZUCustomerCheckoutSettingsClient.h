@@ -44,7 +44,7 @@ Retrieves all checkout settings defined for the site: Payment settings, such as 
 
 /**
 Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
-@param customerCheckoutSettings All the properties to update in the checkout settings.
+@param body All the properties to update in the checkout settings.
 */
 
 +(MOZUClient*)clientForUpdateCustomerCheckoutSettingsOperationWithBody:(MOZUCustomerCheckoutSettings*)body userClaims:(MOZUUserAuthTicket*)userClaims;

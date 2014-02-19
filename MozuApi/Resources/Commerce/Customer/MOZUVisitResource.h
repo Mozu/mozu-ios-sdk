@@ -54,7 +54,7 @@ Retrieves the details of the customer visit specified in the request.
 
 /**
 Creates a new visit for the customer account specified in the request.
-@param visit Properties of the visit to add to the customer account.
+@param body Properties of the visit to add to the customer account.
 */
 
 -(void)addVisitWithBody:(MOZUVisit*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -68,7 +68,7 @@ Creates a new visit for the customer account specified in the request.
 
 /**
 Updates one or more properties of a defined customer visit.
-@param visit Properties of the customer visit to update.
+@param body Properties of the customer visit to update.
 @param visitId Unique identifier of the customer visit to update.
 */
 

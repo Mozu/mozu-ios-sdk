@@ -43,17 +43,13 @@
 
 /**
 Generates a new authentication ticket for a customer account.
-@param userAuthInfo The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
+@param body The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
 */
 
 -(void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithUserAuthInfo:userAuthInfo userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

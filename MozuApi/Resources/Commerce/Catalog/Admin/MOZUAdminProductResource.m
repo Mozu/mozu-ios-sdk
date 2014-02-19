@@ -114,17 +114,13 @@ Retrieves the details of a product associated with a specific catalog.
 
 /**
 Creates a new product definition in the specified master catalog.
-@param product Properties of the new product. You must supply values for the product code, product name, and price.
+@param body Properties of the new product. You must supply values for the product code, product name, and price.
 */
 
 -(void)addProductWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminProductClient clientForAddProductOperationWithDataViewMode:dataViewMode product:product userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminProductClient clientForAddProductOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -134,18 +130,14 @@ Creates a new product definition in the specified master catalog.
 
 /**
 Associates a new product defined in the master catalog with a specific catalog.
-@param productInCatalogInfoIn Properties of the product to define for the specific catalog association.
+@param body Properties of the product to define for the specific catalog association.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 -(void)addProductInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductInCatalogInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminProductClient clientForAddProductInCatalogOperationWithDataViewMode:dataViewMode productInCatalogInfoIn:productInCatalogInfoIn productCode:productCode userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminProductClient clientForAddProductInCatalogOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -162,18 +154,14 @@ Associates a new product defined in the master catalog with a specific catalog.
 
 /**
 Updates one or more properties of a product definition in a master catalog.
-@param product Properties of the product definition to update in the master catalog.
+@param body Properties of the product definition to update in the master catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 -(void)updateProductWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminProductClient clientForUpdateProductOperationWithDataViewMode:dataViewMode product:product productCode:productCode userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminProductClient clientForUpdateProductOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -183,18 +171,14 @@ Updates one or more properties of a product definition in a master catalog.
 
 /**
 Updates the properties of a product specific to each catalog associated with the product.
-@param productInCatalogsIn Properties of the product to update for each associated catalog.
+@param body Properties of the product to update for each associated catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 -(void)updateProductInCatalogsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductInCatalogInfo>*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductInCatalogInfo>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminProductClient clientForUpdateProductInCatalogsOperationWithDataViewMode:dataViewMode productInCatalogsIn:productInCatalogsIn productCode:productCode userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminProductClient clientForUpdateProductInCatalogsOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -204,19 +188,15 @@ Updates the properties of a product specific to each catalog associated with the
 
 /**
 Updates one or more properties of a product associated with a specific catalog.
-@param productInCatalogInfoIn Properties of the product associated with the catalog specified in the request.
+@param body Properties of the product associated with the catalog specified in the request.
 @param catalogId The unique identifier of the catalog of products used by a site.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 -(void)updateProductInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo*)body productCode:(NSString*)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductInCatalogInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminProductClient clientForUpdateProductInCatalogOperationWithDataViewMode:dataViewMode productInCatalogInfoIn:productInCatalogInfoIn productCode:productCode catalogId:catalogId userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminProductClient clientForUpdateProductInCatalogOperationWithDataViewMode:dataViewMode body:body productCode:productCode catalogId:catalogId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

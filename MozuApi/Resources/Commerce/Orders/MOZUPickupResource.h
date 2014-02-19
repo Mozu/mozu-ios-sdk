@@ -52,7 +52,7 @@ Retrieves a list of the actions available to perform for the pickup specified in
 
 /**
 Create a new pickup for the order specified in the request for in-store fufillment.
-@param pickup Properties of the in-store pickup to create.
+@param body Properties of the in-store pickup to create.
 @param orderId Unique identifier of the order.
 */
 
@@ -67,7 +67,7 @@ Create a new pickup for the order specified in the request for in-store fufillme
 
 /**
 Updates one or more details of a defined in-store pickup.
-@param pickup Properties of the in-store pickup to update.
+@param body Properties of the in-store pickup to update.
 @param orderId Unique identifier of the order associated with the in-store pickup.
 @param pickupId Unique identifier of the pickup to update.
 */

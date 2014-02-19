@@ -43,17 +43,13 @@
 
 /**
 Generate an authentication ticket for an application.
-@param appAuthInfo Authentication information required to generate an authentication ticket includes the application id and the shared secret.
+@param body Authentication information required to generate an authentication ticket includes the application id and the shared secret.
 */
 
 -(void)authenticateAppWithBody:(MOZUAppAuthInfo*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAuthTicketClient clientForAuthenticateAppOperationWithAppAuthInfo:appAuthInfo];
+	MOZUClient * client = [MOZUAuthTicketClient clientForAuthenticateAppOperationWithBody:body];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -70,17 +66,13 @@ Generate an authentication ticket for an application.
 
 /**
 Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
-@param authTicketRequest The refresh token string required to update the application authentication ticket.
+@param body The refresh token string required to update the application authentication ticket.
 */
 
 -(void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAuthTicketClient clientForRefreshAppAuthTicketOperationWithAuthTicketRequest:authTicketRequest];
+	MOZUClient * client = [MOZUAuthTicketClient clientForRefreshAppAuthTicketOperationWithBody:body];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

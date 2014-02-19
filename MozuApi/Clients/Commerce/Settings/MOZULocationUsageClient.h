@@ -52,7 +52,7 @@ Retrieves the location usages for the site specified in the request header.
 
 /**
 Updates the location usage for the site based on the location usage code specified in the request.
-@param usage Properties of the location usage type to update.
+@param body Properties of the location usage type to update.
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
 

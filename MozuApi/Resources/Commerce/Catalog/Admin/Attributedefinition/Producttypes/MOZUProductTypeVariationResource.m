@@ -43,7 +43,7 @@
 
 /**
 Generates the variations possible for a product associated with the product type based on the option values supplied in the request.
-@param productOptionsIn The product option attributes configured for this product type.
+@param body The product option attributes configured for this product type.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param productCode 
@@ -54,12 +54,8 @@ Generates the variations possible for a product associated with the product type
 
 -(void)generateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminProductOption>*)body productTypeId:(NSInteger)productTypeId productCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationPagedCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductTypeVariationClient clientForGenerateProductVariationsOperationWithDataViewMode:dataViewMode productOptionsIn:productOptionsIn productTypeId:productTypeId productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient * client = [MOZUProductTypeVariationClient clientForGenerateProductVariationsOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

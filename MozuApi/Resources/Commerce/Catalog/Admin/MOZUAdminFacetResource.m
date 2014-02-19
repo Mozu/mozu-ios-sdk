@@ -78,17 +78,13 @@ Retrieves a list of the facets defined for the specified category.
 
 /**
 Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
-@param facet Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
+@param body Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
 */
 
 -(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminFacetClient clientForAddFacetOperationWithDataViewMode:dataViewMode facet:facet userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminFacetClient clientForAddFacetOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,18 +101,14 @@ Creates a new category, price, or attribute facet. Supply the category or attrib
 
 /**
 Modifies one or more properties of a defined facet.
-@param facet Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.
+@param body Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.
 @param facetId Unique identifier of the facet to modify.
 */
 
 -(void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminFacetClient clientForUpdateFacetOperationWithDataViewMode:dataViewMode facet:facet facetId:facetId userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminFacetClient clientForUpdateFacetOperationWithDataViewMode:dataViewMode body:body facetId:facetId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

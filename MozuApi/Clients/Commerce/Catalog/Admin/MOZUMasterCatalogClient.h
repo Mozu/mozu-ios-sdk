@@ -52,7 +52,7 @@ Retrieve the details of the master catalog specified in the request.
 
 /**
 Updates the product publishing mode for the master catalog specified in the request.
-@param masterCatalog Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
+@param body Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
 @param masterCatalogId 
 */
 

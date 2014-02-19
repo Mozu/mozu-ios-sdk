@@ -63,18 +63,14 @@ Retrieves a list of the transactions performed using a customer credit that upda
 
 /**
 Creates a new transaction and updates the amount of a store credit or gift card.
-@param creditTransaction Properties of the transaction to create for the customer credit.
+@param body Properties of the transaction to create for the customer credit.
 @param code User-defined code that identifies the customer credit to update.
 */
 
 -(void)addTransactionWithBody:(MOZUCreditTransaction*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCreditTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCreditTransactionClient clientForAddTransactionOperationWithCreditTransaction:creditTransaction code:code userClaims:userClaims];
+	MOZUClient * client = [MOZUCreditTransactionClient clientForAddTransactionOperationWithBody:body code:code userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

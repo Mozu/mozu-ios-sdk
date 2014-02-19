@@ -78,17 +78,13 @@ Retrieves the details of a subscription that sends a push notification when a pr
 
 /**
 Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
-@param inStockNotificationSubscription Properties of a subscription that sends the customer a notification when a product returns to active stock.
+@param body Properties of a subscription that sends the customer a notification when a product returns to active stock.
 */
 
 -(void)addInStockNotificationSubscriptionWithBody:(MOZUInStockNotificationSubscription*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithInStockNotificationSubscription:inStockNotificationSubscription userClaims:userClaims];
+	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

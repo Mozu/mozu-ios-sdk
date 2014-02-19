@@ -69,14 +69,14 @@ Generates a random code for a coupon.
 
 /**
 Creates a discount.
-@param discount Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
+@param body Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 */
 
 -(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Redeems a discount configured in the product admin.
-@param redemption Properties of the product discount redemption.
+@param body Properties of the product discount redemption.
 */
 
 -(void)redeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURedemption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -90,7 +90,7 @@ Redeems a discount configured in the product admin.
 
 /**
 Modifies a discount.
-@param discount Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
+@param body Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
@@ -98,7 +98,7 @@ Modifies a discount.
 ;
 /**
 Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
-@param content New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
+@param body New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 

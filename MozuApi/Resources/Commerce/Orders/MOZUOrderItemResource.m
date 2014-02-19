@@ -78,7 +78,7 @@ Retrieves the details of all items in an order.
 
 /**
 Adds a new item to an existing order.
-@param orderItem The properties of the item to create in the existing order.
+@param body The properties of the item to create in the existing order.
 @param orderId Unique identifier of the order for which to add the item.
 @param skipInventoryCheck If true, do not validate the product inventory when adding this item to the order.
 @param updateMode Specifies whether to add the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
@@ -87,12 +87,8 @@ Adds a new item to an existing order.
 
 -(void)createOrderItemWithBody:(MOZUOrderItem*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderItemClient clientForCreateOrderItemOperationWithOrderItem:orderItem orderId:orderId updateMode:updateMode version:version skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderItemClient clientForCreateOrderItemOperationWithBody:body orderId:orderId updateMode:updateMode version:version skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -109,7 +105,7 @@ Adds a new item to an existing order.
 
 /**
 Update the discount applied to an item in an order.
-@param discount Properties of the discount to modify for the order item.
+@param body Properties of the discount to modify for the order item.
 @param discountId Unique identifier of the discount. System-supplied and read only.
 @param orderId Unique identifier of the order associated with the item discount.
 @param orderItemId Unique identifier of the item in the order.
@@ -119,12 +115,8 @@ Update the discount applied to an item in an order.
 
 -(void)updateOrderItemDiscountWithBody:(MOZUAppliedDiscount*)body orderId:(NSString*)orderId orderItemId:(NSString*)orderItemId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderItemClient clientForUpdateOrderItemDiscountOperationWithDiscount:discount orderId:orderId orderItemId:orderItemId discountId:discountId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderItemClient clientForUpdateOrderItemDiscountOperationWithBody:body orderId:orderId orderItemId:orderItemId discountId:discountId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -134,7 +126,7 @@ Update the discount applied to an item in an order.
 
 /**
 Updates the item fulfillment information for the order specified in the request.
-@param orderItem Properties of the order item to update for fulfillment.
+@param body Properties of the order item to update for fulfillment.
 @param orderId Unique identifier of the order.
 @param orderItemId Unique identifier of the item in the order.
 @param updateMode Specifies whether to apply the coupon by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
@@ -143,12 +135,8 @@ Updates the item fulfillment information for the order specified in the request.
 
 -(void)updateItemFulfillmentWithBody:(MOZUOrderItem*)body orderId:(NSString*)orderId orderItemId:(NSString*)orderItemId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderItemClient clientForUpdateItemFulfillmentOperationWithOrderItem:orderItem orderId:orderId orderItemId:orderItemId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderItemClient clientForUpdateItemFulfillmentOperationWithBody:body orderId:orderId orderItemId:orderItemId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

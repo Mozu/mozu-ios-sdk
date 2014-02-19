@@ -62,7 +62,7 @@ Retrieves the list of all available payment actions dependent on the order payme
 
 /**
 Performs the specified action for an individual order payment transaction.
-@param action The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
+@param body The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 @param orderId Unique identifier of the order associated with the payment.
 @param paymentId Unique identifer of the payment for which to perform the action.
 */
@@ -71,7 +71,7 @@ Performs the specified action for an individual order payment transaction.
 ;
 /**
 Creates a new payment transaction for the specified order and performs the specified action.
-@param action To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
+@param body To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 @param orderId Unique identifier of the order for which to apply the payment.
 */
 

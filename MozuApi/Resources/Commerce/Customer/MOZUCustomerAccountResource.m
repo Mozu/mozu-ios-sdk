@@ -98,17 +98,13 @@ Retrieves the current login state of the customer account specified in the reque
 
 /**
 Creates a new customer account based on the information specified in the request.
-@param account Properties of the customer account to update.
+@param body Properties of the customer account to update.
 */
 
 -(void)addAccountWithBody:(MOZUCustomerAccount*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountOperationWithAccount:account userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -118,18 +114,14 @@ Creates a new customer account based on the information specified in the request
 
 /**
 Adds a new user login to a defined customer account.
-@param customerAuthInfo The authentication information for the customer account.
+@param body The authentication information for the customer account.
 @param accountId Unique identifier of the customer account.
 */
 
 -(void)addLoginToExistingCustomerWithBody:(MOZUCustomerLoginInfo*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForAddLoginToExistingCustomerOperationWithCustomerAuthInfo:customerAuthInfo accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForAddLoginToExistingCustomerOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -155,18 +147,14 @@ Updates the customer lifetime value of the specified customer account in the eve
 
 /**
 Lock or unlock a customer account.
-@param isLocked If true, the customer account is locked from logging in.
+@param body If true, the customer account is locked from logging in.
 @param accountId The unique identifier of the customer account.
 */
 
 -(void)setLoginLockedWithBody:(BOOL)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForSetLoginLockedOperationWithIsLocked:isLocked accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForSetLoginLockedOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -176,18 +164,14 @@ Lock or unlock a customer account.
 
 /**
 Requires the password for the customer account to be changed.
-@param isPasswordChangeRequired If true, the password for the customer account must be changed.
+@param body If true, the password for the customer account must be changed.
 @param accountId Unique identifier of the customer account.
 */
 
 -(void)setPasswordChangeRequiredWithBody:(BOOL)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForSetPasswordChangeRequiredOperationWithIsPasswordChangeRequired:isPasswordChangeRequired accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForSetPasswordChangeRequiredOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -197,17 +181,13 @@ Requires the password for the customer account to be changed.
 
 /**
 Creates a new customer account and logs the user associated with the customer account into the site.
-@param accountAndAuthInfo Properties of the customer account to create, including the user authentication information.
+@param body Properties of the customer account to create, including the user authentication information.
 */
 
 -(void)addAccountAndLoginWithBody:(MOZUCustomerAccountAndAuthInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountAndLoginOperationWithAccountAndAuthInfo:accountAndAuthInfo userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountAndLoginOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -217,17 +197,13 @@ Creates a new customer account and logs the user associated with the customer ac
 
 /**
 Creates multiple customer accounts based on the information specified in the request.
-@param customers Properties of the customer accounts to create.
+@param body Properties of the customer accounts to create.
 */
 
 -(void)addAccountsWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo>*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountsOperationWithCustomers:customers userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForAddAccountsOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -269,17 +245,13 @@ Retrieves the current login state of a customer account by providing the user na
 
 /**
 Resets the password for a customer account.
-@param resetPasswordInfo Information required to reset the password for a customer account.
+@param body Information required to reset the password for a customer account.
 */
 
 -(void)resetPasswordWithBody:(MOZUResetPasswordInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForResetPasswordOperationWithResetPasswordInfo:resetPasswordInfo userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForResetPasswordOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -296,18 +268,14 @@ Resets the password for a customer account.
 
 /**
 Updates a customer account.
-@param account Properties of the customer account to update.
+@param body Properties of the customer account to update.
 @param accountId Unique identifier of the customer account.
 */
 
 -(void)updateAccountWithBody:(MOZUCustomerAccount*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAccountClient clientForUpdateAccountOperationWithAccount:account accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAccountClient clientForUpdateAccountOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

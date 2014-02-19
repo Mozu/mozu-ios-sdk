@@ -74,17 +74,13 @@ Retrieves a particular cart item by providing the cart item ID.
 
 /**
 Adds a product to the current shopper's cart.
-@param cartItem All properties of the new cart item. The product code is required.
+@param body All properties of the new cart item. The product code is required.
 */
 
 -(void)addItemToCartWithBody:(MOZUCartItem*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCartItemClient clientForAddItemToCartOperationWithCartItem:cartItem userClaims:userClaims];
+	MOZUClient * client = [MOZUCartItemClient clientForAddItemToCartOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -101,18 +97,14 @@ Adds a product to the current shopper's cart.
 
 /**
 Update the product or product quantity of an item in the current shopper's cart.
-@param cartItem The properties of the cart item to update.
+@param body The properties of the cart item to update.
 @param cartItemId Identifier of the cart item to update.
 */
 
 -(void)updateCartItemWithBody:(MOZUCartItem*)body cartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCartItemClient clientForUpdateCartItemOperationWithCartItem:cartItem cartItemId:cartItemId userClaims:userClaims];
+	MOZUClient * client = [MOZUCartItemClient clientForUpdateCartItemOperationWithBody:body cartItemId:cartItemId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -51,7 +51,7 @@ Retrieves the details of an option attribute defined for the specified product t
 
 /**
 Assigns an option attribute to the product type based on the information supplied in the request.
-@param attributeInProductType Properties of the option attribute to define for the specified product type.
+@param body Properties of the option attribute to define for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
@@ -66,7 +66,7 @@ Assigns an option attribute to the product type based on the information supplie
 
 /**
 Updates an option attribute definition for the specified product type.
-@param attributeInProductType Properties of the option product attribute to define for the specified product type.
+@param body Properties of the option product attribute to define for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type.
 */

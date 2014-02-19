@@ -54,7 +54,7 @@ Retrieves the name of a customer group specified the customer group ID.
 
 /**
 Creates a new customer group. New customer groups do not have any associated customer accounts.
-@param group Properties of the customer group to add.
+@param body Properties of the customer group to add.
 */
 
 -(void)addGroupWithBody:(MOZUCustomerGroup*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -68,7 +68,7 @@ Creates a new customer group. New customer groups do not have any associated cus
 
 /**
 Updates the name of a defined customer group.
-@param group Properties of the customer group to update.
+@param body Properties of the customer group to update.
 @param groupId Identifier of the customer group to update.
 */
 

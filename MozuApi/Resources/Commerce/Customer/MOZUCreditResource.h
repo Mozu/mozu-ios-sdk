@@ -54,7 +54,7 @@ Retrieves the details of a store credit applied to a customer account.
 
 /**
 Creates a new store credit for the customer account specified in the request.
-@param credit Properties of the store credit to create.
+@param body Properties of the store credit to create.
 */
 
 -(void)addCreditWithBody:(MOZUCredit*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCredit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -68,7 +68,7 @@ Creates a new store credit for the customer account specified in the request.
 
 /**
 Updates one or more properties of a defined store credit applied to a customer account.
-@param credit Properties of the store credit to update.
+@param body Properties of the store credit to update.
 @param code User-defined code of the store credit to update.
 */
 

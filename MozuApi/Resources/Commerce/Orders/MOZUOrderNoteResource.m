@@ -76,18 +76,14 @@ Retrieves the details of a specific order note.
 
 /**
 Creates a new merchant note for the specified order.
-@param orderNote The alphanumeric text contained in the note. The maximum length is 256 characters.
+@param body The alphanumeric text contained in the note. The maximum length is 256 characters.
 @param orderId Unique identifier of the order for which to add a note.
 */
 
 -(void)createOrderNoteWithBody:(MOZUOrderNote*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderNoteClient clientForCreateOrderNoteOperationWithOrderNote:orderNote orderId:orderId userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderNoteClient clientForCreateOrderNoteOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -104,19 +100,15 @@ Creates a new merchant note for the specified order.
 
 /**
 Updates a specific note for an order.
-@param orderNote The content of the order note. The maximum length is 256 characters.
+@param body The content of the order note. The maximum length is 256 characters.
 @param noteId Unique identifier of the order note.
 @param orderId Unique identifier of the order.
 */
 
 -(void)updateOrderNoteWithBody:(MOZUOrderNote*)body orderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderNoteClient clientForUpdateOrderNoteOperationWithOrderNote:orderNote orderId:orderId noteId:noteId userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderNoteClient clientForUpdateOrderNoteOperationWithBody:body orderId:orderId noteId:noteId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -52,7 +52,7 @@ Retrieves the details of a credit card stored with a customer account billing co
 
 /**
 Creates a new credit card record and stores it for the customer account.
-@param card Properties of the customer credit card to add to the account.
+@param body Properties of the customer credit card to add to the account.
 @param accountId Unique identifier of the customer account.
 */
 
@@ -67,7 +67,7 @@ Creates a new credit card record and stores it for the customer account.
 
 /**
 Update one or more properties of a credit card defined for a customer account.
-@param card Properties of the customer account credit card to update.
+@param body Properties of the customer account credit card to update.
 @param accountId Unique identifier of the customer account.
 @param cardId Unique identifier of the credit card.
 */

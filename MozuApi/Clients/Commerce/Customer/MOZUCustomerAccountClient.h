@@ -65,14 +65,14 @@ Retrieves the current login state of the customer account specified in the reque
 
 /**
 Creates a new customer account based on the information specified in the request.
-@param account Properties of the customer account to update.
+@param body Properties of the customer account to update.
 */
 
 +(MOZUClient*)clientForAddAccountOperationWithBody:(MOZUCustomerAccount*)body userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Adds a new user login to a defined customer account.
-@param customerAuthInfo The authentication information for the customer account.
+@param body The authentication information for the customer account.
 @param accountId Unique identifier of the customer account.
 */
 
@@ -87,7 +87,7 @@ Updates the customer lifetime value of the specified customer account in the eve
 
 /**
 Lock or unlock a customer account.
-@param isLocked If true, the customer account is locked from logging in.
+@param body If true, the customer account is locked from logging in.
 @param accountId The unique identifier of the customer account.
 */
 
@@ -95,7 +95,7 @@ Lock or unlock a customer account.
 
 /**
 Requires the password for the customer account to be changed.
-@param isPasswordChangeRequired If true, the password for the customer account must be changed.
+@param body If true, the password for the customer account must be changed.
 @param accountId Unique identifier of the customer account.
 */
 
@@ -103,14 +103,14 @@ Requires the password for the customer account to be changed.
 
 /**
 Creates a new customer account and logs the user associated with the customer account into the site.
-@param accountAndAuthInfo Properties of the customer account to create, including the user authentication information.
+@param body Properties of the customer account to create, including the user authentication information.
 */
 
 +(MOZUClient*)clientForAddAccountAndLoginOperationWithBody:(MOZUCustomerAccountAndAuthInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Creates multiple customer accounts based on the information specified in the request.
-@param customers Properties of the customer accounts to create.
+@param body Properties of the customer accounts to create.
 */
 
 +(MOZUClient*)clientForAddAccountsOperationWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo>*)body userClaims:(MOZUUserAuthTicket*)userClaims;
@@ -131,7 +131,7 @@ Retrieves the current login state of a customer account by providing the user na
 
 /**
 Resets the password for a customer account.
-@param resetPasswordInfo Information required to reset the password for a customer account.
+@param body Information required to reset the password for a customer account.
 */
 
 +(MOZUClient*)clientForResetPasswordOperationWithBody:(MOZUResetPasswordInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims;
@@ -145,7 +145,7 @@ Resets the password for a customer account.
 
 /**
 Updates a customer account.
-@param account Properties of the customer account to update.
+@param body Properties of the customer account to update.
 @param accountId Unique identifier of the customer account.
 */
 

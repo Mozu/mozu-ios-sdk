@@ -69,7 +69,7 @@ Retrieves information about a single product given its product code.
 
 /**
 Creates a new product selection. A create occurs each time a shopper selects a product option as they configure a product. Once all the required product options are configured, the product can be added to a cart.
-@param productOptionSelections For a product with shopper-configurable options, the properties of the product options selected by the shopper.
+@param body For a product with shopper-configurable options, the properties of the product options selected by the shopper.
 @param includeOptionDetails If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
@@ -79,7 +79,7 @@ Creates a new product selection. A create occurs each time a shopper selects a p
 ;
 /**
 Validate the final state of shopper-selected options.
-@param productOptionSelections For a product with shopper-configurable options, the properties of the product options selected by the shopper.
+@param body For a product with shopper-configurable options, the properties of the product options selected by the shopper.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */

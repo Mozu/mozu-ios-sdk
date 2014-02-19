@@ -37,7 +37,7 @@ Retrieves a list of the taxable territories configured for the site.
 
 /**
 Creates a new territory for which to calculate sales tax.
-@param taxableTerritory Properties of the taxable territory to create.
+@param body Properties of the taxable territory to create.
 */
 
 +(MOZUClient*)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory*)body userClaims:(MOZUUserAuthTicket*)userClaims;
@@ -51,7 +51,7 @@ Creates a new territory for which to calculate sales tax.
 
 /**
 Updates one or more taxable territories configured for a site.
-@param taxableterritories Properties of the taxable territories to update.
+@param body Properties of the taxable territories to update.
 */
 
 +(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithBody:(NSArray<MOZUTaxableTerritory>*)body userClaims:(MOZUUserAuthTicket*)userClaims;

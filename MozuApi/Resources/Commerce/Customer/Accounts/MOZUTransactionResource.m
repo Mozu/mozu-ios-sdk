@@ -59,18 +59,14 @@ Retrieves a list of transactions associated with the customer account specified 
 
 /**
 Creates a new transaction for the customer account specified in the request.
-@param transaction Properties of the transaction to create for the customer account.
+@param body Properties of the transaction to create for the customer account.
 @param accountId Unique identifier of the customer account.
 */
 
 -(void)addTransactionWithBody:(MOZUTransaction*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUTransactionClient clientForAddTransactionOperationWithTransaction:transaction accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUTransactionClient clientForAddTransactionOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -62,7 +62,7 @@ Retrieves the subcategories of a category. This is a list of subcategories at th
 
 /**
 Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to locate the category in the hierarchy. If a ParentCategoryID is not specified, the new category becomes a top-level category.
-@param category Properties of the new category. Required properties: ParentCategoryID and Content.Name.
+@param body Properties of the new category. Required properties: ParentCategoryID and Content.Name.
 */
 
 -(void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -76,7 +76,7 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 
 /**
 Modifies a category such as moving it to another location in the category tree, or changing whether it is visible on the storefront. This PUT replaces the existing resource, so be sure to include all the information to maintain for the category.
-@param category Properties of the category to modify.
+@param body Properties of the category to modify.
 @param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. Default: False.
 @param categoryId Unique identifier of the category to modify.
 */

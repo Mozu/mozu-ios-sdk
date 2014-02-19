@@ -40,6 +40,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	return client;
 }
 
@@ -54,6 +58,10 @@
 	id url = [MOZUTenantDataURL URLForUpdateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	return client;
 }

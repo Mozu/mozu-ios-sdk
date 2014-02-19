@@ -128,17 +128,13 @@ Retrieves summary information associated with the cart of user specified in the 
 
 /**
 Update the current shopper's cart.
-@param cart All of the properties of the cart to update. The product code is required.
+@param body All of the properties of the cart to update. The product code is required.
 */
 
 -(void)updateCartWithBody:(MOZUCart*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCartClient clientForUpdateCartOperationWithCart:cart userClaims:userClaims];
+	MOZUClient * client = [MOZUCartClient clientForUpdateCartOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

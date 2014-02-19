@@ -87,18 +87,14 @@ Retrieves a list of the product variations configured for the specified product 
 
 /**
 Modifies the collection of variations for the specified product code. Because this PUT replaces the existing resource, supply all information necessary to maintain for the product variation.
-@param productVariations Wrapper for the collection of variations configured for the specified product code.
+@param body Wrapper for the collection of variations configured for the specified product code.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 -(void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationsOperationWithDataViewMode:dataViewMode productVariations:productVariations productCode:productCode userClaims:userClaims];
+	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationsOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -108,19 +104,15 @@ Modifies the collection of variations for the specified product code. Because th
 
 /**
 Modifies the details of a variation, based on the supplied variation key, for the specified product code.
-@param productVariation Wrapper for the properties of the specified product variation.
+@param body Wrapper for the properties of the specified product variation.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
 -(void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation*)body productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductVariation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationOperationWithDataViewMode:dataViewMode productVariation:productVariation productCode:productCode variationKey:variationKey userClaims:userClaims];
+	MOZUClient * client = [MOZUProductVariationClient clientForUpdateProductVariationOperationWithDataViewMode:dataViewMode body:body productCode:productCode variationKey:variationKey userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

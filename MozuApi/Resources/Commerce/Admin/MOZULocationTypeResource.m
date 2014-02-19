@@ -74,17 +74,13 @@ Retrieves the details of the location type specified in the request.
 
 /**
 Creates a new location type based on the information specified in the request.
-@param locationType Properties of the location type to create.
+@param body Properties of the location type to create.
 */
 
 -(void)addLocationTypeWithBody:(MOZULocationType*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZULocationTypeClient clientForAddLocationTypeOperationWithLocationType:locationType userClaims:userClaims];
+	MOZUClient * client = [MOZULocationTypeClient clientForAddLocationTypeOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -101,18 +97,14 @@ Creates a new location type based on the information specified in the request.
 
 /**
 Updates the name of a defined location type.
-@param locationType Properties of the location type to update.
+@param body Properties of the location type to update.
 @param locationTypeCode The user-defined code that identifies the location type.
 */
 
 -(void)updateLocationTypeWithBody:(MOZULocationType*)body locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZULocationTypeClient clientForUpdateLocationTypeOperationWithLocationType:locationType locationTypeCode:locationTypeCode userClaims:userClaims];
+	MOZUClient * client = [MOZULocationTypeClient clientForUpdateLocationTypeOperationWithBody:body locationTypeCode:locationTypeCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

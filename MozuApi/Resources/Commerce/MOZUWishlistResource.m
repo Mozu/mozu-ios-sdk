@@ -97,17 +97,13 @@ Retrieves the details of a wish list by supplying the wish list name.
 
 /**
 Creates a new shopper wish list for the associated customer account. Although customer accounts are maintained at the tenant level, the system stores wish lists at the site level. Newly created wish lists do not have any items.
-@param wishlist Properties of the wish list to create.
+@param body Properties of the wish list to create.
 */
 
 -(void)createWishlistWithBody:(MOZUWishlist*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlist* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUWishlistClient clientForCreateWishlistOperationWithWishlist:wishlist userClaims:userClaims];
+	MOZUClient * client = [MOZUWishlistClient clientForCreateWishlistOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -124,18 +120,14 @@ Creates a new shopper wish list for the associated customer account. Although cu
 
 /**
 Updates one or more properties of a shopper wish list defined for a customer account.
-@param wishlist Properties of the shopper wish list to update.
+@param body Properties of the shopper wish list to update.
 @param wishlistId Unique identifier of the shopper wish list to update.
 */
 
 -(void)updateWishlistWithBody:(MOZUWishlist*)body wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlist* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUWishlistClient clientForUpdateWishlistOperationWithWishlist:wishlist wishlistId:wishlistId userClaims:userClaims];
+	MOZUClient * client = [MOZUWishlistClient clientForUpdateWishlistOperationWithBody:body wishlistId:wishlistId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

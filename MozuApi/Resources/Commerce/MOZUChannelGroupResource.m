@@ -78,17 +78,13 @@ Retrieves the details of a defined channel group.
 
 /**
 Creates a new group of channels with common information.
-@param channelGroup Properties of the channel group to create.
+@param body Properties of the channel group to create.
 */
 
 -(void)createChannelGroupWithBody:(MOZUChannelGroup*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUChannelGroupClient clientForCreateChannelGroupOperationWithChannelGroup:channelGroup userClaims:userClaims];
+	MOZUClient * client = [MOZUChannelGroupClient clientForCreateChannelGroupOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,18 +101,14 @@ Creates a new group of channels with common information.
 
 /**
 Updates one or more properties of a defined channel group.
-@param channelGroup Properties of the channel group to update.
+@param body Properties of the channel group to update.
 @param code Code that identifies the channel group.
 */
 
 -(void)updateChannelGroupWithBody:(MOZUChannelGroup*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUChannelGroupClient clientForUpdateChannelGroupOperationWithChannelGroup:channelGroup code:code userClaims:userClaims];
+	MOZUClient * client = [MOZUChannelGroupClient clientForUpdateChannelGroupOperationWithBody:body code:code userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

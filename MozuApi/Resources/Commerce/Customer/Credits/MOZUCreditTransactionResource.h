@@ -48,7 +48,7 @@ Retrieves a list of the transactions performed using a customer credit that upda
 
 /**
 Creates a new transaction and updates the amount of a store credit or gift card.
-@param creditTransaction Properties of the transaction to create for the customer credit.
+@param body Properties of the transaction to create for the customer credit.
 @param code User-defined code that identifies the customer credit to update.
 */
 

@@ -68,14 +68,14 @@ Retrieves the details of a product associated with a specific catalog.
 
 /**
 Creates a new product definition in the specified master catalog.
-@param product Properties of the new product. You must supply values for the product code, product name, and price.
+@param body Properties of the new product. You must supply values for the product code, product name, and price.
 */
 
 +(MOZUClient*)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Associates a new product defined in the master catalog with a specific catalog.
-@param productInCatalogInfoIn Properties of the product to define for the specific catalog association.
+@param body Properties of the product to define for the specific catalog association.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -90,7 +90,7 @@ Associates a new product defined in the master catalog with a specific catalog.
 
 /**
 Updates one or more properties of a product definition in a master catalog.
-@param product Properties of the product definition to update in the master catalog.
+@param body Properties of the product definition to update in the master catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -98,7 +98,7 @@ Updates one or more properties of a product definition in a master catalog.
 
 /**
 Updates the properties of a product specific to each catalog associated with the product.
-@param productInCatalogsIn Properties of the product to update for each associated catalog.
+@param body Properties of the product to update for each associated catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -106,7 +106,7 @@ Updates the properties of a product specific to each catalog associated with the
 
 /**
 Updates one or more properties of a product associated with a specific catalog.
-@param productInCatalogInfoIn Properties of the product associated with the catalog specified in the request.
+@param body Properties of the product associated with the catalog specified in the request.
 @param catalogId The unique identifier of the catalog of products used by a site.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */

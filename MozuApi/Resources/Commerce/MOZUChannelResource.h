@@ -54,7 +54,7 @@ Retrieves the details of the channel specified in the request.
 
 /**
 Creates a new channel that defines a new logical business division to use for financial reporting.
-@param channel Properties of the channel to create.
+@param body Properties of the channel to create.
 */
 
 -(void)createChannelWithBody:(MOZUChannel*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -68,7 +68,7 @@ Creates a new channel that defines a new logical business division to use for fi
 
 /**
 Updates one or more details of a defined channel, including the associated sites.
-@param channel Properties of a the channel to update.
+@param body Properties of a the channel to update.
 @param code User-defined code that identifies the channel to update.
 */
 

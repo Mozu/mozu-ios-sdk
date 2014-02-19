@@ -51,7 +51,7 @@ Retrieves the list of customer account attributes.
 
 /**
 Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
-@param customerAccountAttribute Properties of the customer account attribute to create.
+@param body Properties of the customer account attribute to create.
 @param accountId Unique identifier of the customer account.
 */
 
@@ -66,7 +66,7 @@ Applies a defined attribute to the customer account specified in the request and
 
 /**
 Updates one or more details of a customer account attribute.
-@param customerAccountAttribute The properties of the customer account attribute to update.
+@param body The properties of the customer account attribute to update.
 @param accountId Identifier of the customer account associated with the attribute.
 @param removeMissing If true, remove the items missing from the collection.
 */

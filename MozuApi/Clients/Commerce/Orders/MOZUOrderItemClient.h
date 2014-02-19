@@ -51,7 +51,7 @@ Retrieves the details of all items in an order.
 
 /**
 Adds a new item to an existing order.
-@param orderItem The properties of the item to create in the existing order.
+@param body The properties of the item to create in the existing order.
 @param orderId Unique identifier of the order for which to add the item.
 @param skipInventoryCheck If true, do not validate the product inventory when adding this item to the order.
 @param updateMode Specifies whether to add the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
@@ -69,7 +69,7 @@ Adds a new item to an existing order.
 
 /**
 Update the discount applied to an item in an order.
-@param discount Properties of the discount to modify for the order item.
+@param body Properties of the discount to modify for the order item.
 @param discountId Unique identifier of the discount. System-supplied and read only.
 @param orderId Unique identifier of the order associated with the item discount.
 @param orderItemId Unique identifier of the item in the order.
@@ -81,7 +81,7 @@ Update the discount applied to an item in an order.
 
 /**
 Updates the item fulfillment information for the order specified in the request.
-@param orderItem Properties of the order item to update for fulfillment.
+@param body Properties of the order item to update for fulfillment.
 @param orderId Unique identifier of the order.
 @param orderItemId Unique identifier of the item in the order.
 @param updateMode Specifies whether to apply the coupon by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."

@@ -45,7 +45,7 @@ Retrieves the details of the specified return replacement shipment.
 
 /**
 Creates a shipment from one or more packages associated with a return replacement.
-@param packageIds List of packages in the return replacement shipment.
+@param body List of packages in the return replacement shipment.
 @param returnId Unique identifier of the return for which to create replacement package shipments.
 */
 

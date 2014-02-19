@@ -80,18 +80,14 @@ Retrieves a list of notes added to a customer account according to any specified
 
 /**
 Adds a new note to the specified customer account.
-@param note Properties of the customer account note to create.
+@param body Properties of the customer account note to create.
 @param accountId Unique identifier of the customer account for which to create the note.
 */
 
 -(void)addAccountNoteWithBody:(MOZUCustomerNote*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerNoteClient clientForAddAccountNoteOperationWithNote:note accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerNoteClient clientForAddAccountNoteOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -108,19 +104,15 @@ Adds a new note to the specified customer account.
 
 /**
 Modifies an existing note for a customer account.
-@param note The new content to replace the existing note.
+@param body The new content to replace the existing note.
 @param accountId Unique identifier of the customer account note to modify.
 @param noteId Unique identifier of the note to update.
 */
 
 -(void)updateAccountNoteWithBody:(MOZUCustomerNote*)body accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerNoteClient clientForUpdateAccountNoteOperationWithNote:note accountId:accountId noteId:noteId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerNoteClient clientForUpdateAccountNoteOperationWithBody:body accountId:accountId noteId:noteId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

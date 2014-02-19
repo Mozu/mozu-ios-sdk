@@ -77,18 +77,14 @@ Retrieves a list of the actions available to perform for the pickup specified in
 
 /**
 Create a new pickup for the order specified in the request for in-store fufillment.
-@param pickup Properties of the in-store pickup to create.
+@param body Properties of the in-store pickup to create.
 @param orderId Unique identifier of the order.
 */
 
 -(void)createPickupWithBody:(MOZUPickup*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUPickupClient clientForCreatePickupOperationWithPickup:pickup orderId:orderId userClaims:userClaims];
+	MOZUClient * client = [MOZUPickupClient clientForCreatePickupOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,19 +101,15 @@ Create a new pickup for the order specified in the request for in-store fufillme
 
 /**
 Updates one or more details of a defined in-store pickup.
-@param pickup Properties of the in-store pickup to update.
+@param body Properties of the in-store pickup to update.
 @param orderId Unique identifier of the order associated with the in-store pickup.
 @param pickupId Unique identifier of the pickup to update.
 */
 
 -(void)updatePickupWithBody:(MOZUPickup*)body orderId:(NSString*)orderId pickupId:(NSString*)pickupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPickup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUPickupClient clientForUpdatePickupOperationWithPickup:pickup orderId:orderId pickupId:pickupId userClaims:userClaims];
+	MOZUClient * client = [MOZUPickupClient clientForUpdatePickupOperationWithBody:body orderId:orderId pickupId:pickupId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

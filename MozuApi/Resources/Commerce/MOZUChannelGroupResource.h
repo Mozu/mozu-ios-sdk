@@ -54,7 +54,7 @@ Retrieves the details of a defined channel group.
 
 /**
 Creates a new group of channels with common information.
-@param channelGroup Properties of the channel group to create.
+@param body Properties of the channel group to create.
 */
 
 -(void)createChannelGroupWithBody:(MOZUChannelGroup*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -68,7 +68,7 @@ Creates a new group of channels with common information.
 
 /**
 Updates one or more properties of a defined channel group.
-@param channelGroup Properties of the channel group to update.
+@param body Properties of the channel group to update.
 @param code Code that identifies the channel group.
 */
 

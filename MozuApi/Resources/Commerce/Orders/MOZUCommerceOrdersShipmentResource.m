@@ -76,18 +76,14 @@ Retrieves the available shipping methods applicable to the order. Typically used
 
 /**
 Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
-@param packageIds List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
+@param body List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
 @param orderId Unique identifier of the order for this shipment.
 */
 
 -(void)createPackageShipmentsWithBody:(NSString*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCommerceOrdersShipmentClient clientForCreatePackageShipmentsOperationWithPackageIds:packageIds orderId:orderId userClaims:userClaims];
+	MOZUClient * client = [MOZUCommerceOrdersShipmentClient clientForCreatePackageShipmentsOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

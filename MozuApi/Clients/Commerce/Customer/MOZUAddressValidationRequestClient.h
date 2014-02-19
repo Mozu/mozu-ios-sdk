@@ -32,7 +32,7 @@
 
 /**
 Validates the customer address supplied in the request.
-@param addressValidationRequest Properties of the address to validate.
+@param body Properties of the address to validate.
 */
 
 +(MOZUClient*)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims;

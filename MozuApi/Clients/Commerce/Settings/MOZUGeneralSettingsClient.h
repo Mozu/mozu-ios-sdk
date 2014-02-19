@@ -44,7 +44,7 @@ Retrieve a site's general global settings.
 
 /**
 Updates a site's general global settings.
-@param generalSettings The properties of the site's general settings to update.
+@param body The properties of the site's general settings to update.
 */
 
 +(MOZUClient*)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings*)body userClaims:(MOZUUserAuthTicket*)userClaims;

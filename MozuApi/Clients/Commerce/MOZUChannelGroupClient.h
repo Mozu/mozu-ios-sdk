@@ -49,7 +49,7 @@ Retrieves the details of a defined channel group.
 
 /**
 Creates a new group of channels with common information.
-@param channelGroup Properties of the channel group to create.
+@param body Properties of the channel group to create.
 */
 
 +(MOZUClient*)clientForCreateChannelGroupOperationWithBody:(MOZUChannelGroup*)body userClaims:(MOZUUserAuthTicket*)userClaims;
@@ -63,7 +63,7 @@ Creates a new group of channels with common information.
 
 /**
 Updates one or more properties of a defined channel group.
-@param channelGroup Properties of the channel group to update.
+@param body Properties of the channel group to update.
 @param code Code that identifies the channel group.
 */
 

@@ -56,7 +56,7 @@ Retrieves a list of notes added to a customer account according to any specified
 
 /**
 Adds a new note to the specified customer account.
-@param note Properties of the customer account note to create.
+@param body Properties of the customer account note to create.
 @param accountId Unique identifier of the customer account for which to create the note.
 */
 
@@ -71,7 +71,7 @@ Adds a new note to the specified customer account.
 
 /**
 Modifies an existing note for a customer account.
-@param note The new content to replace the existing note.
+@param body The new content to replace the existing note.
 @param accountId Unique identifier of the customer account note to modify.
 @param noteId Unique identifier of the note to update.
 */

@@ -64,7 +64,7 @@ Retrieve a list of items in a customer wish list by supplying the wish list name
 
 /**
 Adds a product in a site's catalog as an item in a shopper wish list.
-@param wishlistItem Properties of the item to add to the wish list.
+@param body Properties of the item to add to the wish list.
 @param wishlistId Unique identifier of the wish list associated with the item to add.
 */
 
@@ -79,7 +79,7 @@ Adds a product in a site's catalog as an item in a shopper wish list.
 
 /**
 Updates the details of an item in a shopper wish list.
-@param wishlistItem Properties of the shopper wish list item to update.
+@param body Properties of the shopper wish list item to update.
 @param wishlistId Unique identifier of the wish list associated with the item to update.
 @param wishlistItemId Unique identifier of the item in the shopper wish list to update.
 */

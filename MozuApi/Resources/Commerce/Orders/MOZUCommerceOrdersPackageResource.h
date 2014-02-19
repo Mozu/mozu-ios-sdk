@@ -60,7 +60,7 @@ Retrieves the package label image supplied by the carrier.
 
 /**
 Creates a new physical package of order items.
-@param package Properties of the physical package of order items.
+@param body Properties of the physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
 */
 
@@ -75,7 +75,7 @@ Creates a new physical package of order items.
 
 /**
 Updates one or more properties of a physical package of order items.
-@param package Wrapper of properties for the package of order items to update.
+@param body Wrapper of properties for the package of order items to update.
 @param orderId Unique identifier of the order associated with the package to update.
 @param packageId Unique identifier of the package of order items to update.
 */

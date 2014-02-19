@@ -113,17 +113,13 @@ Retrieves the details of an order specified by the order ID.
 
 /**
 Creates a new order for no-cart quick-ordering scenarios.
-@param order All properties of the order to place.
+@param body All properties of the order to place.
 */
 
 -(void)createOrderWithBody:(MOZUOrder*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderClient clientForCreateOrderOperationWithOrder:order userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderClient clientForCreateOrderOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -149,18 +145,14 @@ Creates a new order from an existing cart when the customer chooses to proceed t
 
 /**
 Perform the specified action for an order. Available actions depend on the current status of the order. When in doubt, first get a list of available order actions.
-@param action Action to perform, which can be "CreateOrder," "SubmitOrder," "SetOrderAsProcessing," "CloseOrder," or "CancelOrder."
+@param body Action to perform, which can be "CreateOrder," "SubmitOrder," "SetOrderAsProcessing," "CloseOrder," or "CancelOrder."
 @param orderId Unique identifier of the order.
 */
 
 -(void)performOrderActionWithBody:(MOZUOrderAction*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderClient clientForPerformOrderActionOperationWithAction:action orderId:orderId userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderClient clientForPerformOrderActionOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -177,7 +169,7 @@ Perform the specified action for an order. Available actions depend on the curre
 
 /**
 Update the properties of a discount applied to an order.
-@param discount Properties of the order discount to update.
+@param body Properties of the order discount to update.
 @param discountId Unique identifier of the discount. System-supplied and read only.
 @param orderId Unique identifier of the order discount. System-supplied and read only.
 @param updateMode Specifies whether to modify the discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
@@ -186,12 +178,8 @@ Update the properties of a discount applied to an order.
 
 -(void)updateOrderDiscountWithBody:(MOZUAppliedDiscount*)body orderId:(NSString*)orderId discountId:(NSInteger)discountId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderClient clientForUpdateOrderDiscountOperationWithDiscount:discount orderId:orderId discountId:discountId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderClient clientForUpdateOrderDiscountOperationWithBody:body orderId:orderId discountId:discountId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -234,7 +222,7 @@ Updates the user ID of the shopper who placed the order to the current user.
 
 /**
 Updates the specified order when additional order information, such as shipping or billing information, is modified during the checkout process.
-@param order The properties of the order to update.
+@param body The properties of the order to update.
 @param orderId Unique identifier of the order to update.
 @param updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
@@ -242,12 +230,8 @@ Updates the specified order when additional order information, such as shipping 
 
 -(void)updateOrderWithBody:(MOZUOrder*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUOrderClient clientForUpdateOrderOperationWithOrder:order orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient * client = [MOZUOrderClient clientForUpdateOrderOperationWithBody:body orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

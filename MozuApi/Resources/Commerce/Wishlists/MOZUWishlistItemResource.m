@@ -101,18 +101,14 @@ Retrieve a list of items in a customer wish list by supplying the wish list name
 
 /**
 Adds a product in a site's catalog as an item in a shopper wish list.
-@param wishlistItem Properties of the item to add to the wish list.
+@param body Properties of the item to add to the wish list.
 @param wishlistId Unique identifier of the wish list associated with the item to add.
 */
 
 -(void)addItemToWishlistWithBody:(MOZUWishlistItem*)body wishlistId:(NSString*)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUWishlistItemClient clientForAddItemToWishlistOperationWithWishlistItem:wishlistItem wishlistId:wishlistId userClaims:userClaims];
+	MOZUClient * client = [MOZUWishlistItemClient clientForAddItemToWishlistOperationWithBody:body wishlistId:wishlistId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -129,19 +125,15 @@ Adds a product in a site's catalog as an item in a shopper wish list.
 
 /**
 Updates the details of an item in a shopper wish list.
-@param wishlistItem Properties of the shopper wish list item to update.
+@param body Properties of the shopper wish list item to update.
 @param wishlistId Unique identifier of the wish list associated with the item to update.
 @param wishlistItemId Unique identifier of the item in the shopper wish list to update.
 */
 
 -(void)updateWishlistItemWithBody:(MOZUWishlistItem*)body wishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUWishlistItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUWishlistItemClient clientForUpdateWishlistItemOperationWithWishlistItem:wishlistItem wishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
+	MOZUClient * client = [MOZUWishlistItemClient clientForUpdateWishlistItemOperationWithBody:body wishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

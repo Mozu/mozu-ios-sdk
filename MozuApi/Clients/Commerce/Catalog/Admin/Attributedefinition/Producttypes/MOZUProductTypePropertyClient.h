@@ -46,7 +46,7 @@ Retrieves a product property attribute definition for the specified product type
 
 /**
 Assigns a property attribute to the specified product type, according to the information defined in the request.
-@param attributeInProductType Properties of the property attribute to define for the specified product type.
+@param body Properties of the property attribute to define for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
@@ -61,7 +61,7 @@ Assigns a property attribute to the specified product type, according to the inf
 
 /**
 Updates the definition of a property attribute for the specified product type.
-@param attributeInProductType Properties of the property attribute to define for the product type.
+@param body Properties of the property attribute to define for the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type.
 */

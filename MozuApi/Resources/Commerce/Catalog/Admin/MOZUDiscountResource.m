@@ -109,17 +109,13 @@ Generates a random code for a coupon.
 
 /**
 Creates a discount.
-@param discount Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
+@param body Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 */
 
 -(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDiscountClient clientForCreateDiscountOperationWithDataViewMode:dataViewMode discount:discount userClaims:userClaims];
+	MOZUClient * client = [MOZUDiscountClient clientForCreateDiscountOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -129,17 +125,13 @@ Creates a discount.
 
 /**
 Redeems a discount configured in the product admin.
-@param redemption Properties of the product discount redemption.
+@param body Properties of the product discount redemption.
 */
 
 -(void)redeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURedemption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDiscountClient clientForRedeemDiscountOperationWithDataViewMode:dataViewMode redemption:redemption userClaims:userClaims];
+	MOZUClient * client = [MOZUDiscountClient clientForRedeemDiscountOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -156,18 +148,14 @@ Redeems a discount configured in the product admin.
 
 /**
 Modifies a discount.
-@param discount Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
+@param body Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
 -(void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDiscountClient clientForUpdateDiscountOperationWithDataViewMode:dataViewMode discount:discount discountId:discountId userClaims:userClaims];
+	MOZUClient * client = [MOZUDiscountClient clientForUpdateDiscountOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -177,18 +165,14 @@ Modifies a discount.
 
 /**
 Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
-@param content New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
+@param body New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
 -(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDiscountClient clientForUpdateDiscountContentOperationWithDataViewMode:dataViewMode content:content discountId:discountId userClaims:userClaims];
+	MOZUClient * client = [MOZUDiscountClient clientForUpdateDiscountContentOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

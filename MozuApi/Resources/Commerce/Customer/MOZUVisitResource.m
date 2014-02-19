@@ -78,17 +78,13 @@ Retrieves the details of the customer visit specified in the request.
 
 /**
 Creates a new visit for the customer account specified in the request.
-@param visit Properties of the visit to add to the customer account.
+@param body Properties of the visit to add to the customer account.
 */
 
 -(void)addVisitWithBody:(MOZUVisit*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUVisitClient clientForAddVisitOperationWithVisit:visit userClaims:userClaims];
+	MOZUClient * client = [MOZUVisitClient clientForAddVisitOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,18 +101,14 @@ Creates a new visit for the customer account specified in the request.
 
 /**
 Updates one or more properties of a defined customer visit.
-@param visit Properties of the customer visit to update.
+@param body Properties of the customer visit to update.
 @param visitId Unique identifier of the customer visit to update.
 */
 
 -(void)updateVisitWithBody:(MOZUVisit*)body visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUVisitClient clientForUpdateVisitOperationWithVisit:visit visitId:visitId userClaims:userClaims];
+	MOZUClient * client = [MOZUVisitClient clientForUpdateVisitOperationWithBody:body visitId:visitId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -78,17 +78,13 @@ Retrieves the details of the specified product attribute.
 
 /**
 Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
-@param attribute Properties of the new product attribute to create.
+@param body Properties of the new product attribute to create.
 */
 
 -(void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAttributeClient clientForAddAttributeOperationWithDataViewMode:dataViewMode attribute:attribute userClaims:userClaims];
+	MOZUClient * client = [MOZUAttributeClient clientForAddAttributeOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,18 +101,14 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 
 /**
 Updates an existing attribute with attribute properties to set.
-@param attribute Any properties of the attribute that to update.
+@param body Any properties of the attribute that to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
 -(void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute*)body attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAttributeClient clientForUpdateAttributeOperationWithDataViewMode:dataViewMode attribute:attribute attributeFQN:attributeFQN userClaims:userClaims];
+	MOZUClient * client = [MOZUAttributeClient clientForUpdateAttributeOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -51,7 +51,7 @@ Retrieves a particular cart item by providing the cart item ID.
 
 /**
 Adds a product to the current shopper's cart.
-@param cartItem All properties of the new cart item. The product code is required.
+@param body All properties of the new cart item. The product code is required.
 */
 
 -(void)addItemToCartWithBody:(MOZUCartItem*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -65,7 +65,7 @@ Adds a product to the current shopper's cart.
 
 /**
 Update the product or product quantity of an item in the current shopper's cart.
-@param cartItem The properties of the cart item to update.
+@param body The properties of the cart item to update.
 @param cartItemId Identifier of the cart item to update.
 */
 

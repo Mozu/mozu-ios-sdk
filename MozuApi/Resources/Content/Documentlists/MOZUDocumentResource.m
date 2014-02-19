@@ -97,18 +97,14 @@ Retrieves a collection of documents according to any filter and sort criteria.
 
 /**
 Creates a new document in an existing list.
-@param document The descriptive name of the newly created document.
+@param body The descriptive name of the newly created document.
 @param documentListName The descriptive alphanumeric document list name being created.
 */
 
 -(void)createDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument*)body documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForCreateDocumentOperationWithDataViewMode:dataViewMode document:document documentListName:documentListName userClaims:userClaims];
+	MOZUClient * client = [MOZUDocumentClient clientForCreateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -125,19 +121,15 @@ Creates a new document in an existing list.
 
 /**
 Updates a document in a document list.
-@param document Properties of the document to update.
+@param body Properties of the document to update.
 @param documentId Unique identifier of the document to update.
 @param documentListName Name of the document list associated with the document.
 */
 
 -(void)updateDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument*)body documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForUpdateDocumentOperationWithDataViewMode:dataViewMode document:document documentListName:documentListName documentId:documentId userClaims:userClaims];
+	MOZUClient * client = [MOZUDocumentClient clientForUpdateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -147,19 +139,15 @@ Updates a document in a document list.
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
-@param stream Input output stream that delivers information.
+@param body Input output stream that delivers information.
 @param documentId Unique identifier of the document.
 @param documentListName The name of the document list associated with the document.
 */
 
 -(void)updateDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream*)body documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForUpdateDocumentContentOperationWithDataViewMode:dataViewMode stream:stream documentListName:documentListName documentId:documentId userClaims:userClaims];
+	MOZUClient * client = [MOZUDocumentClient clientForUpdateDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.bodyStream = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);

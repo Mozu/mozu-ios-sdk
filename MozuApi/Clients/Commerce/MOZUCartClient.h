@@ -72,7 +72,7 @@ Retrieves summary information associated with the cart of user specified in the 
 
 /**
 Update the current shopper's cart.
-@param cart All of the properties of the cart to update. The product code is required.
+@param body All of the properties of the cart to update. The product code is required.
 */
 
 +(MOZUClient*)clientForUpdateCartOperationWithBody:(MOZUCart*)body userClaims:(MOZUUserAuthTicket*)userClaims;

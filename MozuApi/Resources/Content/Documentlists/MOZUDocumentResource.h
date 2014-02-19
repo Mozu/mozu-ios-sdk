@@ -64,7 +64,7 @@ Retrieves a collection of documents according to any filter and sort criteria.
 
 /**
 Creates a new document in an existing list.
-@param document The descriptive name of the newly created document.
+@param body The descriptive name of the newly created document.
 @param documentListName The descriptive alphanumeric document list name being created.
 */
 
@@ -79,7 +79,7 @@ Creates a new document in an existing list.
 
 /**
 Updates a document in a document list.
-@param document Properties of the document to update.
+@param body Properties of the document to update.
 @param documentId Unique identifier of the document to update.
 @param documentListName Name of the document list associated with the document.
 */
@@ -88,7 +88,7 @@ Updates a document in a document list.
 ;
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
-@param stream Input output stream that delivers information.
+@param body Input output stream that delivers information.
 @param documentId Unique identifier of the document.
 @param documentListName The name of the document list associated with the document.
 */

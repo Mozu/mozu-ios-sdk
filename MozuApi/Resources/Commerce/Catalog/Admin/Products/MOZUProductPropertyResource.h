@@ -51,7 +51,7 @@ Retrieves the details of a property attribute configuration for the product spec
 
 /**
 Configures a property attribute for the product specified in the request.
-@param productProperty Properties of the property attribute to configure for a product.
+@param body Properties of the property attribute to configure for a product.
 @param productCode 
 */
 
@@ -66,7 +66,7 @@ Configures a property attribute for the product specified in the request.
 
 /**
 Update one or more details of a property attribute configuration for the product specified in the request.
-@param productProperty Details of the property attribute to update for the product configuration.
+@param body Details of the property attribute to update for the product configuration.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode 
 */

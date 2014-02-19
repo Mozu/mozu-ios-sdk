@@ -51,7 +51,7 @@ Retrieves an attribute vocabulary value by providing the attribute FQN and value
 
 /**
 Adds a new attribute vocabulary value.
-@param attributeVocabularyValue The predefined vocabulary value to add to the attribute content.
+@param body The predefined vocabulary value to add to the attribute content.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
@@ -66,7 +66,7 @@ Adds a new attribute vocabulary value.
 
 /**
 Update existing vocabulary values for an attribute.
-@param vocabularyValues The actual vocabulary values for the attribute being updated.
+@param body The actual vocabulary values for the attribute being updated.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
@@ -74,7 +74,7 @@ Update existing vocabulary values for an attribute.
 ;
 /**
 Updates existing attribute vocabulary values.
-@param attributeVocabularyValue The predefined vocabulary value to add to the attribute content to update.
+@param body The predefined vocabulary value to add to the attribute content to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */

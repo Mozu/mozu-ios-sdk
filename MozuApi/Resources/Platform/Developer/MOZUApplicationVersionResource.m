@@ -175,18 +175,14 @@ Retrieves the package of files and sends them to a compressed (zipped) archive.
 
 /**
 Creates a new development or release package for the application version specified in the request.
-@param package Properties of the development or release package to define.
+@param body Properties of the development or release package to define.
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 */
 
 -(void)addPackageWithBody:(MOZUAppDevPackage*)body applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevPackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageOperationWithPackage:package applicationVersionId:applicationVersionId userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageOperationWithBody:body applicationVersionId:applicationVersionId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -196,19 +192,15 @@ Creates a new development or release package for the application version specifi
 
 /**
 Update the file name or file path of a development package or release package.
-@param renameInfo The file name or path to rename the package.
+@param body The file name or path to rename the package.
 @param applicationVersionId The unique identifier of the theme or application version.
 @param packageId The unique identifier of the development or release package.
 */
 
 -(void)changePackageFileNameOrPathWithBody:(MOZURenameInfo*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUApplicationVersionClient clientForChangePackageFileNameOrPathOperationWithRenameInfo:renameInfo applicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationVersionClient clientForChangePackageFileNameOrPathOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -218,7 +210,7 @@ Update the file name or file path of a development package or release package.
 
 /**
 Uploads a file to a defined package for an application version in the file location specified in the request.
-@param stream The contents of the package file to upload, which requires a content-type value of "application/octet-stream" in the request header.
+@param body The contents of the package file to upload, which requires a content-type value of "application/octet-stream" in the request header.
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 @param filepath The file location to which to add the package file.
 @param packageId Unique identifier of the package.
@@ -226,12 +218,8 @@ Uploads a file to a defined package for an application version in the file locat
 
 -(void)addPackageFileWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageFileOperationWithStream:stream applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageFileOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.bodyStream = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -248,7 +236,7 @@ Uploads a file to a defined package for an application version in the file locat
 
 /**
 Updates one or more properties of a file in a package associated with an application version.
-@param stream The contents of the package file to update, which requires a content-type value of "application/octet-stream" in the request header.
+@param body The contents of the package file to update, which requires a content-type value of "application/octet-stream" in the request header.
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 @param filepath The location path and name that identifies the package file to update.
 @param packageId The unique identifier of the package.
@@ -256,12 +244,8 @@ Updates one or more properties of a file in a package associated with an applica
 
 -(void)updatePackageFileWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUApplicationVersionClient clientForUpdatePackageFileOperationWithStream:stream applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
+	MOZUClient * client = [MOZUApplicationVersionClient clientForUpdatePackageFileOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.bodyStream = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

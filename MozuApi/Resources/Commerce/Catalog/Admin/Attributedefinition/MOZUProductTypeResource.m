@@ -78,17 +78,13 @@ Retrieves the details of the product type specified in the request.
 
 /**
 Creates a new product type based on the information supplied in the request.
-@param productType Properties of the product type to create.
+@param body Properties of the product type to create.
 */
 
 -(void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductTypeClient clientForAddProductTypeOperationWithDataViewMode:dataViewMode productType:productType userClaims:userClaims];
+	MOZUClient * client = [MOZUProductTypeClient clientForAddProductTypeOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,18 +101,14 @@ Creates a new product type based on the information supplied in the request.
 
 /**
 Updates one or more properties of a product type.
-@param productType The details of the product type to update.
+@param body The details of the product type to update.
 @param productTypeId Identifier of the product type to update.
 */
 
 -(void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType*)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductTypeClient clientForUpdateProductTypeOperationWithDataViewMode:dataViewMode productType:productType productTypeId:productTypeId userClaims:userClaims];
+	MOZUClient * client = [MOZUProductTypeClient clientForUpdateProductTypeOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

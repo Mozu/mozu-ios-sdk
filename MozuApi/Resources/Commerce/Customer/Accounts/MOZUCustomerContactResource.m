@@ -80,18 +80,14 @@ Retrieves a list of contacts for a customer according to any specified filter cr
 
 /**
 Creates a new contact for a customer account such as a new shipping address.
-@param contact Properties of the new contact. Required properties: Contact.Email, ContactType.
+@param body Properties of the new contact. Required properties: Contact.Email, ContactType.
 @param accountId Unique identifier of the customer account containing the new contact.
 */
 
 -(void)addAccountContactWithBody:(MOZUCustomerContact*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerContactClient clientForAddAccountContactOperationWithContact:contact accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerContactClient clientForAddAccountContactOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -108,19 +104,15 @@ Creates a new contact for a customer account such as a new shipping address.
 
 /**
 Updates a contact for a specified customer account such as to update addresses or change which contact is the primary contact for billing.
-@param contact All properties the updated contact will have. Required properties: Name and email address.
+@param body All properties the updated contact will have. Required properties: Name and email address.
 @param accountId Unique identifier of the customer account whose contact information is being updated.
 @param contactId Unique identifer of the customer account contact being updated.
 */
 
 -(void)updateAccountContactWithBody:(MOZUCustomerContact*)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerContact* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerContactClient clientForUpdateAccountContactOperationWithContact:contact accountId:accountId contactId:contactId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerContactClient clientForUpdateAccountContactOperationWithBody:body accountId:accountId contactId:contactId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

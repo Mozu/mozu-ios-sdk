@@ -49,7 +49,7 @@ Retrieves the details of the location type specified in the request.
 
 /**
 Creates a new location type based on the information specified in the request.
-@param locationType Properties of the location type to create.
+@param body Properties of the location type to create.
 */
 
 -(void)addLocationTypeWithBody:(MOZULocationType*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -63,7 +63,7 @@ Creates a new location type based on the information specified in the request.
 
 /**
 Updates the name of a defined location type.
-@param locationType Properties of the location type to update.
+@param body Properties of the location type to update.
 @param locationTypeCode The user-defined code that identifies the location type.
 */
 

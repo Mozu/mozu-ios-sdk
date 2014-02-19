@@ -46,7 +46,7 @@ Retrieves the details of an option attribute configuration for the specified pro
 
 /**
 Configures an option attribute for the product specified in the request.
-@param productOption Properties of the option attribute to define for the product.
+@param body Properties of the option attribute to define for the product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -61,7 +61,7 @@ Configures an option attribute for the product specified in the request.
 
 /**
 Updates one or more properties of an option attribute configured for a product.
-@param productOption Properties of the product option attribute configuration to update.
+@param body Properties of the product option attribute configuration to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */

@@ -76,18 +76,14 @@ Retrieves the details of a property attribute configuration for the product spec
 
 /**
 Configures a property attribute for the product specified in the request.
-@param productProperty Properties of the property attribute to configure for a product.
+@param body Properties of the property attribute to configure for a product.
 @param productCode 
 */
 
 -(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductPropertyClient clientForAddPropertyOperationWithDataViewMode:dataViewMode productProperty:productProperty productCode:productCode userClaims:userClaims];
+	MOZUClient * client = [MOZUProductPropertyClient clientForAddPropertyOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -104,19 +100,15 @@ Configures a property attribute for the product specified in the request.
 
 /**
 Update one or more details of a property attribute configuration for the product specified in the request.
-@param productProperty Details of the property attribute to update for the product configuration.
+@param body Details of the property attribute to update for the product configuration.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode 
 */
 
 -(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty*)body productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductPropertyClient clientForUpdatePropertyOperationWithDataViewMode:dataViewMode productProperty:productProperty productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
+	MOZUClient * client = [MOZUProductPropertyClient clientForUpdatePropertyOperationWithDataViewMode:dataViewMode body:body productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

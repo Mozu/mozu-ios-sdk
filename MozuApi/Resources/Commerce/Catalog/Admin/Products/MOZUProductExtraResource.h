@@ -51,7 +51,7 @@ Retrieves the details of an extra attribute configuration for the product specif
 
 /**
 Configure an extra attribute for the product specified in the request.
-@param productExtra Properties of the product extra to configure for the specified product.
+@param body Properties of the product extra to configure for the specified product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -66,7 +66,7 @@ Configure an extra attribute for the product specified in the request.
 
 /**
 Updates the configuration of an extra attribute for the product specified in the request.
-@param productExtra Properties of the extra attribute to update for the specified product.
+@param body Properties of the extra attribute to update for the specified product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */

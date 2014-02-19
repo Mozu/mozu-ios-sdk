@@ -96,6 +96,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
 	}
@@ -128,6 +132,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
 	}
@@ -150,6 +158,10 @@
 	id url = [MOZUOrderURL URLForUpdateOrderDiscountOperationWithOrderId:orderId discountId:discountId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
@@ -194,6 +206,10 @@
 	id url = [MOZUOrderURL URLForUpdateOrderOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	if (userClaims != nil) {
 		client.userClaims = userClaims;

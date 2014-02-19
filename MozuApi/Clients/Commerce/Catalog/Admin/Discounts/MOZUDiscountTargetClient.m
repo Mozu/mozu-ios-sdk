@@ -62,6 +62,10 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	if (userClaims != nil) {
 		client.userClaims = userClaims;
 	}

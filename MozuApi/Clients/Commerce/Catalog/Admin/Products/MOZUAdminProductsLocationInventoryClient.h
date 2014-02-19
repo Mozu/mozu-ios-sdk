@@ -52,7 +52,7 @@ Retrieves the details of the inventory of the product in the location specified 
 
 /**
 Creates a new location inventory definition for the product code specified in the request.
-@param locationInventoryList Array list of the location inventory definitions associated with the product code specified in the request. For each location, you must define the locationCode value and the stockOnHand value. All other properties in the array are system-supplied and read only.
+@param body Array list of the location inventory definitions associated with the product code specified in the request. For each location, you must define the locationCode value and the stockOnHand value. All other properties in the array are system-supplied and read only.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -67,7 +67,7 @@ Creates a new location inventory definition for the product code specified in th
 
 /**
 Updates the current level of stock at each location associated with the product code specified in the request.
-@param locationInventoryAdjustments Properties of the inventory adjustments to perform for the specified location.
+@param body Properties of the inventory adjustments to perform for the specified location.
 @param productCode The product code of the product for which to update active stock on hand inventory at a specified location.
 */
 

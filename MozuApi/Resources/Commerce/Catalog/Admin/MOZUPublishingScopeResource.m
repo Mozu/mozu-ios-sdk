@@ -43,17 +43,13 @@
 
 /**
 Deletes the draft version of product changes for each product code specified in the request.
-@param publishScope Properties of the pending product changes to include in this operation.
+@param body Properties of the pending product changes to include in this operation.
 */
 
 -(void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUPublishingScopeClient clientForDiscardDraftsOperationWithDataViewMode:dataViewMode publishScope:publishScope userClaims:userClaims];
+	MOZUClient * client = [MOZUPublishingScopeClient clientForDiscardDraftsOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -63,17 +59,13 @@ Deletes the draft version of product changes for each product code specified in 
 
 /**
 Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
-@param publishScope Properties of the pending product changes to include in this operation.
+@param body Properties of the pending product changes to include in this operation.
 */
 
 -(void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUPublishingScopeClient clientForPublishDraftsOperationWithDataViewMode:dataViewMode publishScope:publishScope userClaims:userClaims];
+	MOZUClient * client = [MOZUPublishingScopeClient clientForPublishDraftsOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);

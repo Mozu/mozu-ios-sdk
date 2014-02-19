@@ -65,17 +65,13 @@ Retrieves all checkout settings defined for the site: Payment settings, such as 
 
 /**
 Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
-@param customerCheckoutSettings All the properties to update in the checkout settings.
+@param body All the properties to update in the checkout settings.
 */
 
 -(void)updateCustomerCheckoutSettingsWithBody:(MOZUCustomerCheckoutSettings*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerCheckoutSettingsClient clientForUpdateCustomerCheckoutSettingsOperationWithCustomerCheckoutSettings:customerCheckoutSettings userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerCheckoutSettingsClient clientForUpdateCustomerCheckoutSettingsOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

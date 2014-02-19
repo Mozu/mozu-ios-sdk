@@ -45,7 +45,7 @@ Retrieves a list of the documents currently in draft state, according to any def
 
 /**
 Deletes the drafts of the specified documents. Published documents cannot be deleted.
-@param documentIds Unique identifiers of the documents to delete.
+@param body Unique identifiers of the documents to delete.
 @param documentLists List of document lists that contain documents to delete.
 */
 
@@ -60,7 +60,7 @@ Deletes the drafts of the specified documents. Published documents cannot be del
 
 /**
 Publish one or more document drafts to live content on the site.
-@param documentIds List of unique identifiers of the document drafts to publish.
+@param body List of unique identifiers of the document drafts to publish.
 @param documentLists List of document lists that contain documents to publish.
 */
 

@@ -54,7 +54,7 @@ Retrieves a list of the facets defined for the specified category.
 
 /**
 Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
-@param facet Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
+@param body Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
 */
 
 -(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -68,7 +68,7 @@ Creates a new category, price, or attribute facet. Supply the category or attrib
 
 /**
 Modifies one or more properties of a defined facet.
-@param facet Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.
+@param body Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.
 @param facetId Unique identifier of the facet to modify.
 */
 

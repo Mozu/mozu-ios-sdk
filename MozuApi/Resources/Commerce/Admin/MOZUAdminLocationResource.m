@@ -78,17 +78,13 @@ Retrieves the details of the location specified in the request by location code.
 
 /**
 Creates a new physical location for the tenant specified in the request header.
-@param location Properties of the location to create.
+@param body Properties of the location to create.
 */
 
 -(void)addLocationWithBody:(MOZULocation*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminLocationClient clientForAddLocationOperationWithLocation:location userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminLocationClient clientForAddLocationOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -105,18 +101,14 @@ Creates a new physical location for the tenant specified in the request header.
 
 /**
 Updates one or more details of a the location specified in the request by location code.
-@param location Properties of the location to update.
+@param body Properties of the location to update.
 @param locationCode The merchant-defined code associated with the location to update.
 */
 
 -(void)updateLocationWithBody:(MOZULocation*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAdminLocationClient clientForUpdateLocationOperationWithLocation:location locationCode:locationCode userClaims:userClaims];
+	MOZUClient * client = [MOZUAdminLocationClient clientForUpdateLocationOperationWithBody:body locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

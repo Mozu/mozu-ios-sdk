@@ -33,6 +33,10 @@
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+	if (body != nil) {
+		client.body = body;
+	}
+
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAuthTicket alloc] initWithString:jsonResult error:nil];
 	};
@@ -51,6 +55,10 @@
 	id url = [MOZUAuthTicketURL URLForRefreshAppAuthTicketOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
+	if (body != nil) {
+		client.body = body;
+	}
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAuthTicket alloc] initWithString:jsonResult error:nil];

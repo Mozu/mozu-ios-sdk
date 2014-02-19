@@ -84,19 +84,15 @@ Retrieve the content associated with the document, such as a product image or PD
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
-@param stream Input output stream that delivers information.
+@param body Input output stream that delivers information.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 
 -(void)updateTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream*)body documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDocumentTreeClient clientForUpdateTreeDocumentContentOperationWithDataViewMode:dataViewMode stream:stream documentListName:documentListName documentName:documentName userClaims:userClaims];
+	MOZUClient * client = [MOZUDocumentTreeClient clientForUpdateTreeDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.bodyStream = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -113,19 +109,15 @@ Updates the content associated with a document, such as a product image or PDF s
 
 /**
 Deletes the content associated with a document, such as a product image or PDF specifications file.
-@param stream Input output stream that delivers information.
+@param body Input output stream that delivers information.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 
 -(void)deleteTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream*)body documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDocumentTreeClient clientForDeleteTreeDocumentContentOperationWithDataViewMode:dataViewMode stream:stream documentListName:documentListName documentName:documentName userClaims:userClaims];
+	MOZUClient * client = [MOZUDocumentTreeClient clientForDeleteTreeDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.bodyStream = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);

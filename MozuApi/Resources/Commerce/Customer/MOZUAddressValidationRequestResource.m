@@ -43,17 +43,13 @@
 
 /**
 Validates the customer address supplied in the request.
-@param addressValidationRequest Properties of the address to validate.
+@param body Properties of the address to validate.
 */
 
 -(void)validateAddressWithBody:(MOZUAddressValidationRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAddressValidationResponse* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUAddressValidationRequestClient clientForValidateAddressOperationWithAddressValidationRequest:addressValidationRequest userClaims:userClaims];
+	MOZUClient * client = [MOZUAddressValidationRequestClient clientForValidateAddressOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -61,18 +61,14 @@ Retrieves a list of the documents currently in draft state, according to any def
 
 /**
 Deletes the drafts of the specified documents. Published documents cannot be deleted.
-@param documentIds Unique identifiers of the documents to delete.
+@param body Unique identifiers of the documents to delete.
 @param documentLists List of document lists that contain documents to delete.
 */
 
 -(void)deleteDocumentDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString*)body documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForDeleteDocumentDraftsOperationWithDataViewMode:dataViewMode documentIds:documentIds documentLists:documentLists userClaims:userClaims];
+	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForDeleteDocumentDraftsOperationWithDataViewMode:dataViewMode body:body documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -89,18 +85,14 @@ Deletes the drafts of the specified documents. Published documents cannot be del
 
 /**
 Publish one or more document drafts to live content on the site.
-@param documentIds List of unique identifiers of the document drafts to publish.
+@param body List of unique identifiers of the document drafts to publish.
 @param documentLists List of document lists that contain documents to publish.
 */
 
 -(void)publishDocumentsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString*)body documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForPublishDocumentsOperationWithDataViewMode:dataViewMode documentIds:documentIds documentLists:documentLists userClaims:userClaims];
+	MOZUClient * client = [MOZUDocumentDraftSummaryClient clientForPublishDocumentsOperationWithDataViewMode:dataViewMode body:body documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);

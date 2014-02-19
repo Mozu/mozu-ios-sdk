@@ -80,18 +80,14 @@ Retrieves the list of customer account attributes.
 
 /**
 Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
-@param customerAccountAttribute Properties of the customer account attribute to create.
+@param body Properties of the customer account attribute to create.
 @param accountId Unique identifier of the customer account.
 */
 
 -(void)addAccountAttributeWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAttributeClient clientForAddAccountAttributeOperationWithCustomerAccountAttribute:customerAccountAttribute accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAttributeClient clientForAddAccountAttributeOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -108,19 +104,15 @@ Applies a defined attribute to the customer account specified in the request and
 
 /**
 Updates one or more details of a customer account attribute.
-@param customerAccountAttribute The properties of the customer account attribute to update.
+@param body The properties of the customer account attribute to update.
 @param accountId Identifier of the customer account associated with the attribute.
 @param removeMissing If true, remove the items missing from the collection.
 */
 
 -(void)updateAccountAttributeWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCustomerAttributeClient clientForUpdateAccountAttributeOperationWithCustomerAccountAttribute:customerAccountAttribute accountId:accountId removeMissing:removeMissing userClaims:userClaims];
+	MOZUClient * client = [MOZUCustomerAttributeClient clientForUpdateAccountAttributeOperationWithBody:body accountId:accountId removeMissing:removeMissing userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

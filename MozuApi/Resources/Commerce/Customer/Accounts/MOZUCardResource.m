@@ -76,18 +76,14 @@ Retrieves the details of a credit card stored with a customer account billing co
 
 /**
 Creates a new credit card record and stores it for the customer account.
-@param card Properties of the customer credit card to add to the account.
+@param body Properties of the customer credit card to add to the account.
 @param accountId Unique identifier of the customer account.
 */
 
 -(void)addAccountCardWithBody:(MOZUCard*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCardClient clientForAddAccountCardOperationWithCard:card accountId:accountId userClaims:userClaims];
+	MOZUClient * client = [MOZUCardClient clientForAddAccountCardOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -104,19 +100,15 @@ Creates a new credit card record and stores it for the customer account.
 
 /**
 Update one or more properties of a credit card defined for a customer account.
-@param card Properties of the customer account credit card to update.
+@param body Properties of the customer account credit card to update.
 @param accountId Unique identifier of the customer account.
 @param cardId Unique identifier of the credit card.
 */
 
 -(void)updateAccountCardWithBody:(MOZUCard*)body accountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCard* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCardClient clientForUpdateAccountCardOperationWithCard:card accountId:accountId cardId:cardId userClaims:userClaims];
+	MOZUClient * client = [MOZUCardClient clientForUpdateAccountCardOperationWithBody:body accountId:accountId cardId:cardId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

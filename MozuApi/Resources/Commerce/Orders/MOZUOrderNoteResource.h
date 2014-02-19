@@ -51,7 +51,7 @@ Retrieves the details of a specific order note.
 
 /**
 Creates a new merchant note for the specified order.
-@param orderNote The alphanumeric text contained in the note. The maximum length is 256 characters.
+@param body The alphanumeric text contained in the note. The maximum length is 256 characters.
 @param orderId Unique identifier of the order for which to add a note.
 */
 
@@ -66,7 +66,7 @@ Creates a new merchant note for the specified order.
 
 /**
 Updates a specific note for an order.
-@param orderNote The content of the order note. The maximum length is 256 characters.
+@param body The content of the order note. The maximum length is 256 characters.
 @param noteId Unique identifier of the order note.
 @param orderId Unique identifier of the order.
 */

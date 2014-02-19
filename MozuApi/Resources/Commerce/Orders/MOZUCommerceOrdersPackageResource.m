@@ -94,18 +94,14 @@ Retrieves the package label image supplied by the carrier.
 
 /**
 Creates a new physical package of order items.
-@param package Properties of the physical package of order items.
+@param body Properties of the physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
 */
 
 -(void)createPackageWithBody:(MOZUCommercePackage*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCommerceOrdersPackageClient clientForCreatePackageOperationWithPackage:package orderId:orderId userClaims:userClaims];
+	MOZUClient * client = [MOZUCommerceOrdersPackageClient clientForCreatePackageOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -122,19 +118,15 @@ Creates a new physical package of order items.
 
 /**
 Updates one or more properties of a physical package of order items.
-@param package Wrapper of properties for the package of order items to update.
+@param body Wrapper of properties for the package of order items to update.
 @param orderId Unique identifier of the order associated with the package to update.
 @param packageId Unique identifier of the package of order items to update.
 */
 
 -(void)updatePackageWithBody:(MOZUCommercePackage*)body orderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUCommerceOrdersPackageClient clientForUpdatePackageOperationWithPackage:package orderId:orderId packageId:packageId userClaims:userClaims];
+	MOZUClient * client = [MOZUCommerceOrdersPackageClient clientForUpdatePackageOperationWithBody:body orderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

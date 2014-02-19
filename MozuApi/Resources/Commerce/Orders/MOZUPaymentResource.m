@@ -93,19 +93,15 @@ Retrieves the list of all available payment actions dependent on the order payme
 
 /**
 Performs the specified action for an individual order payment transaction.
-@param action The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
+@param body The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 @param orderId Unique identifier of the order associated with the payment.
 @param paymentId Unique identifer of the payment for which to perform the action.
 */
 
 -(void)performPaymentActionWithBody:(MOZUPaymentAction*)body orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUPaymentClient clientForPerformPaymentActionOperationWithAction:action orderId:orderId paymentId:paymentId userClaims:userClaims];
+	MOZUClient * client = [MOZUPaymentClient clientForPerformPaymentActionOperationWithBody:body orderId:orderId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -115,18 +111,14 @@ Performs the specified action for an individual order payment transaction.
 
 /**
 Creates a new payment transaction for the specified order and performs the specified action.
-@param action To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
+@param body To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 @param orderId Unique identifier of the order for which to apply the payment.
 */
 
 -(void)createPaymentActionWithBody:(MOZUPaymentAction*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUPaymentClient clientForCreatePaymentActionOperationWithAction:action orderId:orderId userClaims:userClaims];
+	MOZUClient * client = [MOZUPaymentClient clientForCreatePaymentActionOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

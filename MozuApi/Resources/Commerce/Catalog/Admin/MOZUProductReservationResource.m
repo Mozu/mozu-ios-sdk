@@ -78,18 +78,14 @@ Retrieves the details of a product reservation.
 
 /**
 Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
-@param productReservations Details of the product reservations to add.
+@param body Details of the product reservations to add.
 @param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 
 -(void)addProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductReservationClient clientForAddProductReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
+	MOZUClient * client = [MOZUProductReservationClient clientForAddProductReservationsOperationWithDataViewMode:dataViewMode body:body skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -99,17 +95,13 @@ Creates a new product reservation for a product. This action places a hold on th
 
 /**
 Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
-@param productReservations List of unique identifiers of the reservations to commit.
+@param body List of unique identifiers of the reservations to commit.
 */
 
 -(void)commitReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductReservationClient clientForCommitReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations userClaims:userClaims];
+	MOZUClient * client = [MOZUProductReservationClient clientForCommitReservationsOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
@@ -126,18 +118,14 @@ Commits a product reservation to decrement the product's inventory by the quanti
 
 /**
 Updates an existing product reservation for a product.
-@param productReservations Properties of the product reservations to update.
+@param body Properties of the product reservations to update.
 @param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
 */
 
 -(void)updateProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductReservation>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
-	MOZUClient * client = [MOZUProductReservationClient clientForUpdateProductReservationsOperationWithDataViewMode:dataViewMode productReservations:productReservations skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
+	MOZUClient * client = [MOZUProductReservationClient clientForUpdateProductReservationsOperationWithDataViewMode:dataViewMode body:body skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	if (body != nil) {
-		client.body = body;
-	}
-
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

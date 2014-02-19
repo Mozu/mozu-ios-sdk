@@ -46,7 +46,7 @@ Retrieves the details of an extra attribute definition for the specified product
 
 /**
 Assigns a defined extra attribute to the product type based on the information supplied in the request.
-@param attributeInProductType The properties of the extra attribute definition for this product type assignment.
+@param body The properties of the extra attribute definition for this product type assignment.
 @param productTypeId Identifier of the product type.
 */
 
@@ -61,7 +61,7 @@ Assigns a defined extra attribute to the product type based on the information s
 
 /**
 Update the definition of an extra attribute for the specified product type.
-@param attributeInProductType The properties of the extra attribute definition to update for the product type.
+@param body The properties of the extra attribute definition to update for the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type.
 */
