@@ -78,7 +78,7 @@
     //"items\": []"
     "}";
     
-   MOZUApiError *mozuError = [[MOZUApiError alloc] initWithString:jsonData andStatusCode:200];
+   MOZUApiError *mozuError = [[MOZUApiError alloc] initWithString:jsonData statusCode:200];
     XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
 }
 
