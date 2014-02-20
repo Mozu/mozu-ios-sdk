@@ -30,9 +30,7 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	if (userClaims != nil) {
-		client.userClaims = userClaims;
-	}
+	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDocumentTypeCollection alloc] initWithString:jsonResult error:nil];
@@ -49,9 +47,7 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	if (userClaims != nil) {
-		client.userClaims = userClaims;
-	}
+	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDocumentType alloc] initWithString:jsonResult error:nil];

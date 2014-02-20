@@ -27,9 +27,7 @@
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
-	if (userClaims != nil) {
-		client.userClaims = userClaims;
-	}
+	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUEventCollection alloc] initWithString:jsonResult error:nil];
@@ -43,9 +41,7 @@
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
-	if (userClaims != nil) {
-		client.userClaims = userClaims;
-	}
+	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUEvent alloc] initWithString:jsonResult error:nil];

@@ -29,9 +29,7 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	if (userClaims != nil) {
-		client.userClaims = userClaims;
-	}
+	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDiscountTarget alloc] initWithString:jsonResult error:nil];
@@ -62,13 +60,8 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	if (body != nil) {
-		client.body = body;
-	}
-
-	if (userClaims != nil) {
-		client.userClaims = userClaims;
-	}
+	client.body = body;
+	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDiscountTarget alloc] initWithString:jsonResult error:nil];

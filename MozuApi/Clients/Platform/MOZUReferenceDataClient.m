@@ -37,6 +37,7 @@
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAddressSchema alloc] initWithString:jsonResult error:nil];
 	};
@@ -48,6 +49,7 @@
 	id url = [MOZUReferenceDataURL URLForGetAddressSchemasOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAddressSchemaCollection alloc] initWithString:jsonResult error:nil];
@@ -61,6 +63,7 @@
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUBehavior alloc] initWithString:jsonResult error:nil];
 	};
@@ -72,6 +75,7 @@
 	id url = [MOZUReferenceDataURL URLForGetBehaviorCategoriesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUBehaviorCategoryCollection alloc] initWithString:jsonResult error:nil];
@@ -85,6 +89,7 @@
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUBehaviorCategory alloc] initWithString:jsonResult error:nil];
 	};
@@ -96,6 +101,7 @@
 	id url = [MOZUReferenceDataURL URLForGetBehaviorsOperationWithUserType:userType];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUBehaviorCollection alloc] initWithString:jsonResult error:nil];
@@ -109,6 +115,7 @@
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUContentLocaleCollection alloc] initWithString:jsonResult error:nil];
 	};
@@ -120,6 +127,7 @@
 	id url = [MOZUReferenceDataURL URLForGetCountriesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCountryCollection alloc] initWithString:jsonResult error:nil];
@@ -133,6 +141,7 @@
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCurrencyCollection alloc] initWithString:jsonResult error:nil];
 	};
@@ -144,6 +153,7 @@
 	id url = [MOZUReferenceDataURL URLForGetTimeZonesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUTimeZoneCollection alloc] initWithString:jsonResult error:nil];
@@ -157,6 +167,7 @@
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
+
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUTopLevelDomainCollection alloc] initWithString:jsonResult error:nil];
 	};
@@ -168,6 +179,7 @@
 	id url = [MOZUReferenceDataURL URLForGetUnitsOfMeasureOperationWithFilter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUUnitOfMeasureCollection alloc] initWithString:jsonResult error:nil];
