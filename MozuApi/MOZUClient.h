@@ -32,7 +32,7 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 @property(nonatomic,readonly) NSDictionary* headers;
 
 @property (nonatomic, strong) MOZUUserAuthTicket * userClaims;
-@property (nonatomic, strong) JSONModel * body;
+@property (nonatomic, strong) id body;
 @property (nonatomic, strong) NSInputStream * bodyStream;
 @property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser;
 @property (nonatomic, strong) MOZUAPIContext  *context;
