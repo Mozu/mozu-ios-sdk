@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <Foundation/Foundation.h>
+#import "DDLog.h"
 #import "MOZUApiError.h"
 
 @interface MOZUApiErrorTests : XCTestCase
@@ -80,7 +81,7 @@
     //    //"items\": []"
     //    "}";
     
-NSString* jsonData = @"{ \
+NSString* jsonStr = @"{ \
         \"applicationName\": \"AppDev\", \
         \"errorCode\": \"INVALID_CREDENTIALS\", \
         \"message\": \"Invalid Credentials: Invalid credentials. \", \
@@ -96,13 +97,17 @@ NSString* jsonData = @"{ \
             \"message\": \"Invalid Credentials: Invalid credentials. \", \
             \"source\": \"Mozu.AppDev.Domain\", \
             \"targetSite\": \"Mozu.AppDev.Domain.Auth.AuthTicket CreateAuthTicket(System.String, System.String)\", \
-            \"stackTrace\": \"   at Mozu.AppDev.Domain.Auth.Handlers.AuthenticateAppHandler.CreateAuthTicket(String appId, String sharedSecret) in d:\\Build\\03\\Mozu\\Dev_Mozu.AppDev\\Sources\\Mozu.AppDev.Domain\\Auth\\Handlers\\AuthenticateAppHandler.cs:line 59\r\n   at Mozu.AppDev.WebApi.Controllers.AppAuthTicketsController.AuthenticateApp(AppAuthInfo appAuthInfo) in d:\\Build\\03\\Mozu\\Dev_Mozu.AppDev\\Sources\\Mozu.AppDev.WebApi\\Controllers\\AppAuthTicketsController.cs:line 48\r\n   at lambda_method(Closure , Object , Object[] )\r\n   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.b__c(Object instance, Object[] methodParameters)\r\n   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)\r\n   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)\" \
+            \"stackTrace\": \"trace sample stack \" \
         } \
     }";
     
-    id data = [NSJSONSerialization JSONObjectWithData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    NSData* jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    id data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
     //MOZUApiError *mozuError = [[MOZUApiError alloc] initWithString:jsonData statusCode:200];
-    DDLog(@"%@", data);
+    //DDLogDebug(@"data = %@", data);
+    NSLog(@"data = %@", data);
+    XCTAssertNotNil(data, @"failed to parse MOZUApiError");
     //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
 }
 
