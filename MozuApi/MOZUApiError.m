@@ -9,15 +9,35 @@
 #import "MOZUApiError.h"
 
 @implementation MOZUApiExceptionDetail
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+	return YES;
+}
+
 @end
 
 @implementation MOZUApiApplicationErrorData
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+	return YES;
+}
+
 @end
 
 @implementation MOZUApiErrorItem
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+	return YES;
+}
+
 @end
 
 @implementation MOZUApiAdditionalErrorData
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+	return YES;
+}
+
 @end
 
 @implementation MOZUApiError
