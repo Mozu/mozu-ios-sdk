@@ -27,7 +27,10 @@ static MOZURefreshInterval* _refreshInterval = nil;
 NSMutableData *_responseData;
 
 
-+(void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo baseAppAuthUrl:(NSString*)baseUrl refeshInterval:(MOZURefreshInterval*)refreshInterval {
++ (void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo
+                baseAppAuthUrl:(NSString*)baseUrl
+                refeshInterval:(MOZURefreshInterval*)refreshInterval
+                    completion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _authInfo = appAuthInfo;
@@ -38,7 +41,9 @@ NSMutableData *_responseData;
             _usesSSL = YES;
         }
         
-        [[self class] authenticateApp];
+        [[self class] authenticateAppWithCompletion:^(NSURLResponse *response, MOZUApiError *error) {
+            completion(response, error);
+        }];
     });
 }
 
@@ -48,12 +53,15 @@ NSMutableData *_responseData;
     }
 }
 
-+(void)addAuthHeaderToRequest:(NSMutableURLRequest*)request {
-    [[self class] ensureAuthTicket];
-    [request setValue:_authTicket.accessToken forHTTPHeaderField:MOZU_X_VOL_APP_CLAIMS];
++ (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
+                    completion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion {
+    [[self class] ensureAuthTicketWithCompletion:^(NSURLResponse *response, MOZUApiError *error) {
+        [request setValue:_authTicket.accessToken forHTTPHeaderField:MOZU_X_VOL_APP_CLAIMS];
+        completion(response, error);
+    }];
 }
 
-+(void)authenticateApp {
++ (void)authenticateAppWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion {
     NSString* resourceUrl = @"/api/platform/applications/authtickets/"; // todo : get this from authTicketUrl.authenticateAppUrl
     NSString* url = [_baseUrl stringByAppendingString:resourceUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -76,11 +84,12 @@ NSMutableData *_responseData;
                                                     
                                                     _authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
                                                     [[self class] setRefreshIntervalsIncludeRefreshTokenExpiration:YES];
+                                                    completion(response, apiError);
                                                 }];
     [dataTask resume];
 }
 
-+(void)refreshAppAuthTicket {
++ (void)refreshAppAuthTicketWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion {
     NSString* resourceUrl = @"/api/platform/applications/authtickets/refresh-ticket"; // todo : get this from authTicketUrl.authenticateAppUrl
     NSString* url = [_baseUrl stringByAppendingString:resourceUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -105,17 +114,21 @@ NSMutableData *_responseData;
                                                     
                                                     _authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
                                                     [[self class] setRefreshIntervalsIncludeRefreshTokenExpiration:NO];
-
+                                                    completion(response, apiError);
                                                 }];
     [dataTask resume];
 }
 
-+(void)ensureAuthTicket {
++ (void)ensureAuthTicketWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion {
     if (_authTicket == nil || [[NSDate date] compare:_refreshInterval.refreshTokenExpiration] == NSOrderedDescending) {
-        [[self class] authenticateApp];
+        [[self class] authenticateAppWithCompletion:^(NSURLResponse *response, MOZUApiError *error) {
+            completion(response, error);
+        }];
     }
     else if ([[NSDate date] compare:_refreshInterval.accessTokenExpiration] == NSOrderedDescending) {
-        [[self class] refreshAppAuthTicket];
+        [[self class] refreshAppAuthTicketWithCompletion:^(NSURLResponse *response, MOZUApiError *error) {
+            completion(response, error);
+        }];
     }
 }
 

@@ -149,7 +149,9 @@
     if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
         // Add MOZU_X_VOL_APP_CLAIMS to headers
         if (!self.APIContext || !self.APIContext.appAuthClaim || [self.APIContext.appAuthClaim isEqualToString:@""]) {
-            [MOZUAppAuthenticator addAuthHeaderToRequest:request];
+            [MOZUAppAuthenticator addAuthHeaderToRequest:request completion:^(NSURLResponse *response, MOZUApiError *error) {
+                completion();
+            }];
         } else {
             [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.APIContext.appAuthClaim];
         }
@@ -166,6 +168,17 @@
     }
     
     completion();
+}
+
+- (void)validateUserClaims:(MOZUUserAuthTicket *)userClaims
+{
+    MOZUAuthenticationProfile* userInfo = [MOZUUserAuthenticator ensureUserAuthTicket:userClaims];
+    if (userInfo) {
+        userClaims.accessToken = userInfo.authTicket.accessToken;
+        userClaims.accessTokenExpiration = userInfo.authTicket.accessTokenExpiration;
+    }
+    
+    [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
 }
 
 -(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
