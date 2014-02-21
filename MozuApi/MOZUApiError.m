@@ -8,14 +8,14 @@
 
 #import "MOZUApiError.h"
 
-@implementation MOZUAPIExceptionDetail
-@end
+//@implementation MOZUAPIExceptionDetail
+//@end
+//
+//@implementation MOZUApiApplicationErrorData
+//@end
 
-@implementation MOZUApiApplicationErrorData
-@end
-
-@implementation MOZUApiErrorItem
-@end
+//@implementation MOZUApiErrorItem
+//@end
 
 @implementation MOZUApiError
 
@@ -23,15 +23,15 @@ static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
 
 - (instancetype)initWithString:(NSString*)JSONData statusCode:(NSInteger)statusCode
 {
-    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:2];
-    userInfo[@"httpStatusCode"] = @(statusCode);
+//    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:2];
+//    userInfo[@"httpStatusCode"] = @(statusCode);
     
     JSONModelError *err = nil;
-    MOZUApiErrorItem *apiError = [[MOZUApiErrorItem alloc] initWithString:JSONData error:&err];
+//    MOZUApiErrorItem *apiError = [[MOZUApiErrorItem alloc] initWithString:JSONData error:&err];
     
-    if (!err) {
-        userInfo[@"apiError"] = apiError;
-    }
+//    if (!err) {
+//        userInfo[@"apiError"] = apiError;
+//    }
     
     // TODO: Add these NSError keys to user info. See NSError documentation.
 //    NSString * const NSLocalizedDescriptionKey;
@@ -49,12 +49,13 @@ static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
 //    NSString * const NSURLErrorFailingURLStringErrorKey;
 //    NSString * const NSURLErrorFailingURLPeerTrustErrorKey;
     
-    self = [NSError errorWithDomain:MOZUAPIErrorDomain code:statusCode userInfo:[userInfo copy]];
-    if (self) {
-        _httpStatusCode = statusCode;
-        _apiError = apiError;
-    }
-    return self;
+//    self = [NSError errorWithDomain:MOZUAPIErrorDomain code:statusCode userInfo:[userInfo copy]];
+//    if (self) {
+//        _httpStatusCode = statusCode;
+//        _apiError = apiError;
+//    }
+//    return self;
+    return nil;
 }
 
 @end

@@ -20,6 +20,8 @@
 @property(readwrite) NSString* appAuthClaim;
 @property(readwrite) NSNumber* masterCatalogId;
 @property(readwrite) NSNumber* catalogId;
+@property(readwrite) MOZUTenant* tenant;
+@property(readwrite) NSString* date;
 
 @end
 
@@ -52,13 +54,51 @@
     }
 }
 
-//-(id)initWithTenant:(MOZUTenant*)tenant andSite:(MOZUSite*)site andMasterCatalogId:(NSNumber*)masterCatalogId andCatalogId:(NSNumber*)catalogId {
-//
-//}
+- (id)initWithTenant:(MOZUTenant*)tenant
+                site:(MOZUSite*)site
+     masterCatalogId:(NSNumber*)masterCatalogId
+           catalogId:(NSNumber*)catalogId {
+    
+    if (self = [super init]) {
+        self.tenant= tenant;
+        self.tenantId = tenant.id;
+        self.tenantHost = tenant.domain;
+        [self updateBySite:site];
+        self.masterCatalogId = masterCatalogId;
+        self.catalogId = catalogId;
+        
+        if (masterCatalogId == nil && [tenant.masterCatalogs count] == 1) {
+            MOZUTenantMasterCatalog* masterCatalog = [tenant.masterCatalogs firstObject];
+            self.masterCatalogId = @(masterCatalog.id);
+            
+            MOZUCatalog* catalog = [masterCatalog.catalogs firstObject];
+            self.catalogId = @(catalog.id);
+        }
+        
+        return self;
+    }
+    else {
+        return nil;
+    }
+}
 
-//-(id)initWithSite:(MOZUSite*)site andMasterCatalogId:(NSNumber*)masterCatalogId andCatalogId:(NSNumber*)catalogId {
-//
-//}
+- (id)initWithSite:(MOZUSite*)site
+   masterCatalogId:(NSNumber*)masterCatalogId
+         catalogId:(NSNumber*)catalogId {
+
+    if (self = [super init]) {
+        self.tenantId = site.tenantId;
+        [self updateBySite:site];
+        self.masterCatalogId = masterCatalogId;
+        self.catalogId = catalogId;
+        
+        return self;
+    }
+    else {
+        return nil;
+    }
+
+}
 
 -(id)initWithHeaders:(NSDictionary*)headers {
     if (self = [super init]) {
@@ -70,14 +110,6 @@
         self.hmacSHA256 = headers[MOZU_X_VOL_HMAC_SHA256];
         self.masterCatalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_MASTER_CATALOG] intValue]];
         self.catalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_CATALOG] intValue]];
-        
-//        if ([self.tenantHost length] != 0) {
-//            self.tenantHost = [self getURLForHost:self.tenantHost];
-//        }
-//        
-//        if ([self.siteHost length] != 0) {
-//            self.siteHost = [self getURLForHost:self.siteHost];
-//        }
         
         return self;
     }
@@ -93,5 +125,20 @@
     return URLComponents.URL;
 }
 
+-(void)updateBySite:(MOZUSite*)site {
+    if (site != nil && site.id >= 0) {
+        self.siteId = @(site.id);
+        self.siteHost = site.domain;
+    }
+}
+
++(JSONKeyMapper*)keyMapper {
+    NSDictionary* dict = @{
+        @"tenantUrl" : @"tenantHost",
+        @"siteUrl" : @"siteHost",
+        };
+    
+    return [[JSONKeyMapper alloc] initWithDictionary:dict];
+}
 
 @end
