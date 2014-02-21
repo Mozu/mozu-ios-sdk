@@ -12,21 +12,9 @@
 #import "MOZUAuthTicketResource.h"
 
 
-@interface MOZUAuthTicketResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
-@end
 
 @implementation MOZUAuthTicketResource
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
-	if (self = [super init]) {
-		self.apiContext = apiContext;
-		return self;
-	}
-	else {
-		return nil;
-	}
-}
 
 //
 #pragma mark -
@@ -49,7 +37,6 @@ Generate an authentication ticket for an application.
 -(void)authenticateAppWithBody:(MOZUAppAuthInfo*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAuthTicketClient clientForAuthenticateAppOperationWithBody:body];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -72,7 +59,6 @@ Refreshes the application's authentication ticket and generates a new access tok
 -(void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAuthTicketClient clientForRefreshAppAuthTicketOperationWithBody:body];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -95,7 +81,6 @@ Deletes an authentication for an application based on the specified refresh toke
 -(void)deleteAppAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAuthTicketClient clientForDeleteAppAuthTicketOperationWithRefreshToken:refreshToken];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);

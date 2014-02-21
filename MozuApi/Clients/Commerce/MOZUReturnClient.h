@@ -46,7 +46,7 @@ Retrieves a list of properties for the specified return.
 
 /**
 Retrieves a list of the actions available to perform for the specified return based on its current state.
-@param returnId Retrieves a list of the actions available to perform for the specified return based on its current state.
+@param returnId Unique identifier of the return for which to retrieve available actions.
 */
 
 +(MOZUClient*)clientForGetAvailableReturnActionsOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims;

@@ -12,11 +12,14 @@
 #import "MOZUCustomerGroupResource.h"
 
 
+
 @interface MOZUCustomerGroupResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUCustomerGroupResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

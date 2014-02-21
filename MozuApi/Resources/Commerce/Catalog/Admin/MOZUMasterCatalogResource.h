@@ -18,9 +18,12 @@
 
 
 @interface MOZUMasterCatalogResource : NSObject
+
+
 @property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+
 
 //
 #pragma mark -

@@ -12,11 +12,14 @@
 #import "MOZUInStockNotificationSubscriptionResource.h"
 
 
+
 @interface MOZUInStockNotificationSubscriptionResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUInStockNotificationSubscriptionResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

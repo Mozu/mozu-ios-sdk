@@ -35,7 +35,7 @@ If true, this variation of this product is marked available for sale.
 @property(nonatomic) NSNumber* isActive;
 
 /**
-If true, the production variation is no longer available for sale. For example, if a merchant stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read-only.
+If true, the production variation is no longer available for sale. For example, if a client stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read only.
 */
 @property(nonatomic) NSNumber* isOrphan;
 

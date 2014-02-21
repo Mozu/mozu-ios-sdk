@@ -12,11 +12,14 @@
 #import "MOZUCartResource.h"
 
 
+
 @interface MOZUCartResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUCartResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

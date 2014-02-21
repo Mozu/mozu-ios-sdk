@@ -18,7 +18,7 @@
 
 
 /**
-	A high level description of the document draft.
+	Summary properties of an unpublished document draft.
 */
 @interface MOZUDocumentDraftSummary : JSONModel<MOZUDocumentDraftSummary>
 

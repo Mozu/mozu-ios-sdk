@@ -12,11 +12,14 @@
 #import "MOZUChannelResource.h"
 
 
+
 @interface MOZUChannelResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUChannelResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

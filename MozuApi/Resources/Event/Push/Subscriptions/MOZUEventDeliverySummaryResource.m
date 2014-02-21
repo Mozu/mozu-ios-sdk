@@ -12,11 +12,14 @@
 #import "MOZUEventDeliverySummaryResource.h"
 
 
+
 @interface MOZUEventDeliverySummaryResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUEventDeliverySummaryResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

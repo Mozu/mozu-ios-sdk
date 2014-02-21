@@ -23,7 +23,7 @@
 @interface MOZUDocumentList : JSONModel<MOZUDocumentList>
 
 /**
-A document type is a template.
+List of document types associated with this document list.
 */
 @property(nonatomic) NSArray* documentTypes;
 

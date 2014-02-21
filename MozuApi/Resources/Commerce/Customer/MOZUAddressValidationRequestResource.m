@@ -12,11 +12,14 @@
 #import "MOZUAddressValidationRequestResource.h"
 
 
+
 @interface MOZUAddressValidationRequestResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUAddressValidationRequestResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

@@ -12,11 +12,14 @@
 #import "MOZUFulfillmentActionResource.h"
 
 
+
 @interface MOZUFulfillmentActionResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUFulfillmentActionResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

@@ -12,11 +12,14 @@
 #import "MOZUDocumentTypeResource.h"
 
 
+
 @interface MOZUDocumentTypeResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUDocumentTypeResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

@@ -20,9 +20,12 @@
 
 
 @interface MOZUDiscountResource : NSObject
+
+
 @property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+
 
 //
 #pragma mark -
@@ -68,8 +71,8 @@ Generates a random code for a coupon.
 //
 
 /**
-Creates a discount.
-@param body Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
+Creates a new discount or coupon to apply to a product, category, order, or shipping.
+@param body Properties of the discount to create. You must specify the discount name, amount type, start date, and target.
 */
 
 -(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
@@ -89,16 +92,16 @@ Redeems a discount configured in the product admin.
 //
 
 /**
-Modifies a discount.
-@param body Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+Updates one or more properties of a defined discount.
+@param body Properties of the discount to update.
+@param discountId Unique identifier of the discount to update.
 */
 
 -(void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
-Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
-@param body New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
+Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+@param body The discount content to update, including the discount name.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 

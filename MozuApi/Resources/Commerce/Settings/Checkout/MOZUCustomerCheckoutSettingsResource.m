@@ -12,11 +12,14 @@
 #import "MOZUCustomerCheckoutSettingsResource.h"
 
 
+
 @interface MOZUCustomerCheckoutSettingsResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUCustomerCheckoutSettingsResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

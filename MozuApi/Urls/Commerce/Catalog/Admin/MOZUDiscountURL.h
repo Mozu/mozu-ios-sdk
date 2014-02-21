@@ -69,7 +69,7 @@ Resource Url for redeemDiscount
 
 /**
 Resource Url for updateDiscount
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param discountId Unique identifier of the discount to update.
 */
 +(MOZUURL*)URLForUpdateDiscountOperationWithDiscountId:(NSInteger)discountId;
 

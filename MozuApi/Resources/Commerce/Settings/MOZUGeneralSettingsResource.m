@@ -12,11 +12,14 @@
 #import "MOZUGeneralSettingsResource.h"
 
 
+
 @interface MOZUGeneralSettingsResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUGeneralSettingsResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

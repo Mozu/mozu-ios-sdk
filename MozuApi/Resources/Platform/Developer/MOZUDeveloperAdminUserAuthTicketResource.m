@@ -12,21 +12,9 @@
 #import "MOZUDeveloperAdminUserAuthTicketResource.h"
 
 
-@interface MOZUDeveloperAdminUserAuthTicketResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
-@end
 
 @implementation MOZUDeveloperAdminUserAuthTicketResource
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
-	if (self = [super init]) {
-		self.apiContext = apiContext;
-		return self;
-	}
-	else {
-		return nil;
-	}
-}
 
 //
 #pragma mark -
@@ -50,7 +38,6 @@ Generate an authentication ticket for a developer account.
 -(void)createDeveloperUserAuthTicketWithBody:(MOZUUserAuthInfo*)body developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForCreateDeveloperUserAuthTicketOperationWithBody:body developerAccountId:developerAccountId];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -74,7 +61,6 @@ Generates a new developer account authentication ticket for the specified tenant
 -(void)refreshDeveloperAuthTicketWithBody:(MOZUDeveloperAdminUserAuthTicket*)body developerAccountId:(NSNumber*)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForRefreshDeveloperAuthTicketOperationWithBody:body developerAccountId:developerAccountId];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -97,7 +83,6 @@ Deletes the authentication ticket for the developer account by supplying the ref
 -(void)deleteUserAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDeveloperAdminUserAuthTicketClient clientForDeleteUserAuthTicketOperationWithRefreshToken:refreshToken];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);

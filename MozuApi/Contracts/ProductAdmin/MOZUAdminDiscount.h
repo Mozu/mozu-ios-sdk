@@ -37,7 +37,7 @@ The type of discount amount, such as an amount or a percentage.
 @property(nonatomic) NSString* amountType;
 
 /**
-The most recent number of redeemed discounts.
+The number of times this discount has been redeemed.
 */
 @property(nonatomic) NSNumber* currentRedemptionCount;
 

@@ -29,7 +29,7 @@ The unique identifier of the catalog of products used by a site.
 @property(nonatomic) NSNumber* catalogId;
 
 /**
-The unique identifier of the object associated with the event action. For example, if the event is 'Order Created,' the correlation ID represents the order ID of the newly created order.
+The unique identifier of the API request associated with the event action, which might contain multiple actions.
 */
 @property(nonatomic) NSString* correlationId;
 

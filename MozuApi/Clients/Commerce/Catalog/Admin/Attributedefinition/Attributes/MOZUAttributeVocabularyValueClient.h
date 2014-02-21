@@ -23,14 +23,14 @@
 //
 
 /**
-Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
+Retrieves a list of vocabulary values defined for the attribute specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
 +(MOZUClient*)clientForGetAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
-Retrieves an attribute vocabulary value by providing the attribute FQN and value.
+Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
@@ -45,7 +45,7 @@ Retrieves an attribute vocabulary value by providing the attribute FQN and value
 //
 
 /**
-Adds a new attribute vocabulary value.
+Creates a vocabulary value for a defined product attribute.
 @param body The predefined vocabulary value to add to the attribute content.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */

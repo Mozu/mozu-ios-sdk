@@ -12,21 +12,9 @@
 #import "MOZUAdminUserResource.h"
 
 
-@interface MOZUAdminUserResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
-@end
 
 @implementation MOZUAdminUserResource
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
-	if (self = [super init]) {
-		self.apiContext = apiContext;
-		return self;
-	}
-	else {
-		return nil;
-	}
-}
 
 //
 #pragma mark -
@@ -42,7 +30,6 @@ Retrieves the details of the specified administrator user account.
 -(void)userWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUUser* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminUserClient clientForGetUserOperationWithUserId:userId userClaims:userClaims];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -58,7 +45,6 @@ Retrieves a list of the Mozu tenants or development stores for which the specifi
 -(void)tenantScopesForUserWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenantCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminUserClient clientForGetTenantScopesForUserOperationWithUserId:userId userClaims:userClaims];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

@@ -39,7 +39,7 @@ Retrieves a list of orders according to any specified filter criteria and sort o
 +(MOZUClient*)clientForGetOrdersOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
-Retrieves available order actions which depends on the status of the order. Actions are "CreateOrder," "SubmitOrder," "SetOrderAsProcessing," "CloseOrder," or "CancelOrder."
+Retrieves the actions available to perform for an order based on its current status.
 @param orderId Unique identifier of the available order actions to get.
 */
 
@@ -69,7 +69,7 @@ Retrieves the details of an order specified by the order ID.
 
 /**
 Creates a new order for no-cart quick-ordering scenarios.
-@param body All properties of the order to place.
+@param body Properties of the order to create and submit.
 */
 
 +(MOZUClient*)clientForCreateOrderOperationWithBody:(MOZUOrder*)body userClaims:(MOZUUserAuthTicket*)userClaims;
@@ -82,8 +82,8 @@ Creates a new order from an existing cart when the customer chooses to proceed t
 +(MOZUClient*)clientForCreateOrderFromCartOperationWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
-Perform the specified action for an order. Available actions depend on the current status of the order. When in doubt, first get a list of available order actions.
-@param body Action to perform, which can be "CreateOrder," "SubmitOrder," "SetOrderAsProcessing," "CloseOrder," or "CancelOrder."
+Perform the specified action for an order. The actions you can perform depend on the current status of the order.
+@param body The action to perform for the order.
 @param orderId Unique identifier of the order.
 */
 
