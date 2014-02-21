@@ -1,0 +1,19 @@
+{
+ "applicationName": "AppDev",
+ "errorCode": "INVALID_CREDENTIALS",
+ "message": "Invalid Credentials: Invalid credentials. ",
+ "additionalErrorData": [
+  {
+   "name": "CredentialsName",
+   "value": "Invalid credentials"
+  }
+ ],
+ "items": [],
+ "exceptionDetail": {
+  "type": "Mozu.Core.Exceptions.VaeInvalidCredentialsException",
+  "message": "Invalid Credentials: Invalid credentials. ",
+  "source": "Mozu.AppDev.Domain",
+  "targetSite": "Mozu.AppDev.Domain.Auth.AuthTicket CreateAuthTicket(System.String, System.String)",
+  "stackTrace": "test stack trace"
+ }
+}
