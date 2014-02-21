@@ -19,14 +19,14 @@
 
 @implementation MOZUApiError
 
-static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
+static NSString * const MOZUApiErrorDomain = @"MOZUAPIErrorDomain";
 
 - (instancetype)initWithString:(NSString*)JSONData statusCode:(NSInteger)statusCode
 {
 //    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:2];
 //    userInfo[@"httpStatusCode"] = @(statusCode);
     
-    JSONModelError *err = nil;
+//    JSONModelError *err = nil;
 //    MOZUApiErrorItem *apiError = [[MOZUApiErrorItem alloc] initWithString:JSONData error:&err];
     
 //    if (!err) {
@@ -55,8 +55,54 @@ static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
 //        _apiError = apiError;
 //    }
 //    return self;
-    return nil;
+    
+    
+//    NSData* jsonData = [JSONData dataUsingEncoding:NSUTF8StringEncoding];
+//    NSError *error = nil;
+//    id dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+//    
+//    id exceptionDetail = [dict objectForKey:@"exceptionDetail"];
+//    if (exceptionDetail == nil) {
+//        exceptionDetail = [dict objectForKey:@"ExceptionDetail"];
+//    }
+    
+    // convert exceptionDetail to JSONMOdel
+    // if (exceptionDetail != nill {
+    //    message = exceptionDetail.message;
+    // }
+    // else {
+    //    look for message in dict
+    // }
+    
+//    id items = [dict objectForKey:@"items"];
+//    if (items == nil) {
+//        exceptionDetail = [dict objectForKey:@"Items"];
+//    }
+    
+    // convert items to JSONMOdel
+
+    NSError *error = nil;
+//    [MOZUApiAdditionalErrorData class];
+    MOZUApiError* apiError = [[MOZUApiError alloc] initWithString:JSONData error:&error];
+    apiError.httpStatusCode = statusCode;
+    return apiError;
 }
+
++(JSONKeyMapper*)keyMapper {
+    NSDictionary *dict = @{
+                           @"exceptionDetail" : @"exceptionDetail",
+                           @"ExceptionDetail" : @"exceptionDetail",
+                           @"items" : @"items",
+                           @"Items" : @"items",
+                           };
+    return [[JSONKeyMapper alloc] initWithDictionary:dict];
+}
+
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+	return YES;
+}
+
 
 @end
 

@@ -111,4 +111,61 @@ NSString* jsonStr = @"{ \
     //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
 }
 
+- (void)testApiError1
+{
+    NSString* jsonStr = @"{ \
+    \"applicationName\": \"AppDev\", \
+    \"errorCode\": \"INVALID_CREDENTIALS\", \
+    \"message\": \"Invalid Credentials: Invalid credentials. \", \
+    \"additionalErrorData\": [ \
+    { \
+    \"name\": \"CredentialsName\", \
+    \"value\": \"Invalid credentials\" \
+    } \
+    ], \
+    \"items\": [], \
+    \"exceptionDetail\": { \
+    \"type\": \"Mozu.Core.Exceptions.VaeInvalidCredentialsException\", \
+    \"message\": \"Invalid Credentials: Invalid credentials. \", \
+    \"source\": \"Mozu.AppDev.Domain\", \
+    \"targetSite\": \"Mozu.AppDev.Domain.Auth.AuthTicket CreateAuthTicket(System.String, System.String)\", \
+    \"stackTrace\": \"trace sample stack \" \
+    } \
+    }";
+    
+    //NSError *error = nil;
+    MOZUApiError* apiError = [[MOZUApiError alloc] initWithString:jsonStr statusCode:200];
+    NSLog(@"apiError = %@", apiError);
+    XCTAssertNotNil(apiError, @"failed to parse MOZUApiError");
+    //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
+}
+
+- (void)testApiError2
+{
+    NSString* jsonStr = @"{ \
+    \"applicationName\": \"AppDev\", \
+    \"errorCode\": \"INVALID_CREDENTIALS\", \
+    \"message\": \"Invalid Credentials: Invalid credentials. \", \
+    \"additionalErrorData\": [ \
+    { \
+    \"name\": \"CredentialsName\", \
+    \"value\": \"Invalid credentials\" \
+    } \
+    ], \
+    \"Items\": [], \
+    \"ExceptionDetail\": { \
+    \"type\": \"Mozu.Core.Exceptions.VaeInvalidCredentialsException\", \
+    \"message\": \"Invalid Credentials: Invalid credentials. \", \
+    \"source\": \"Mozu.AppDev.Domain\", \
+    \"targetSite\": \"Mozu.AppDev.Domain.Auth.AuthTicket CreateAuthTicket(System.String, System.String)\", \
+    \"stackTrace\": \"trace sample stack \" \
+    } \
+    }";
+    
+    MOZUApiError* apiError = [[MOZUApiError alloc] initWithString:jsonStr error:nil];
+    NSLog(@"apiError = %@", apiError);
+    XCTAssertNotNil(apiError, @"failed to parse MOZUApiError");
+    //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
+}
+
 @end
