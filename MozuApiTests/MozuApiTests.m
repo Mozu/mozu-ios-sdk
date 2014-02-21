@@ -100,7 +100,7 @@
     [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil];
     MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] initWithAPIContext:nil];
     [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUApiError *error, NSHTTPURLResponse *response) {
-        DDLogError(@"%@", error.localizedDescription);
+        DDLogError(@"%@", error);
         
     }];
     
