@@ -6,7 +6,5 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
-    #import "DDlog.h"
+    #import "MOZUAPILogger.h"
 #endif
-
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;

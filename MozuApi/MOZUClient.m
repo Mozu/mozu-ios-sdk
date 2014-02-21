@@ -13,6 +13,8 @@
 #import "MOZUUserAuthenticator.h"
 #import "MOZUUrl.h"
 #import "MOZUTenantResource.h"
+#import "MOZUAPIVersion.h"
+#import "MOZUAPILogger.h"
 
 @interface MOZUClient()
 
@@ -117,7 +119,8 @@
     self.bodyStream = bodyStream;
 }
 
-- (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)())completion {
+- (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)())completion
+{
     if (self.resourceURL.location == MOZUTenantPod) {
         NSAssert(APIContext, @"MOZUClient APIContext is missing.");
         NSAssert(APIContext.tenantId >=0, @"APIContext.tenantId less than 0.");
@@ -141,45 +144,82 @@
     }
 }
 
+- (void)validateHeaders:(NSMutableDictionary *)headers request:(NSMutableURLRequest *)request completionHandler:(void (^)())completion
+{
+    if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
+        // Add MOZU_X_VOL_APP_CLAIMS to headers
+        if (!self.APIContext || !self.APIContext.appAuthClaim || [self.APIContext.appAuthClaim isEqualToString:@""]) {
+            [MOZUAppAuthenticator addAuthHeaderToRequest:request];
+        } else {
+            [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.APIContext.appAuthClaim];
+        }
+    }
+    
+    // Add MOZU_X_VOL_VERSION
+    [self setHeader:MOZU_X_VOL_VERSION value:[MOZUAPIVersion version]];
+
+    // MOZU_X_VOL_CORRELATION
+    if (self.APIContext.correlationId && ![self.APIContext.correlationId isEqualToString:@""]) {
+        [self setHeader:MOZU_X_VOL_CORRELATION value:self.APIContext.correlationId];
+    } else {
+        DDLogInfo(@"CorrelationId not set on API Context.");
+    }
+    
+    completion();
+}
+
 -(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
 {
-    typeof(self) __weak weakSelf = self;
+    
+    
+    NSURLComponents *URLComponents = [[NSURLComponents alloc] initWithString:self.baseURL.absoluteString];
+    URLComponents.path = self.resourceURL.URL.absoluteString;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URLComponents.URL];
+    
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_enter(group);
     [self validateContext:self.APIContext completionHandler:^{
-        typeof(weakSelf) __strong strongSelf = weakSelf;
-        if (strongSelf) {
-            NSURLComponents *URLComponents = [[NSURLComponents alloc] initWithString:strongSelf.baseURL.absoluteString];
-            URLComponents.path = strongSelf.resourceURL.URL.absoluteString;
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URLComponents.URL];
-            [request setAllHTTPHeaderFields:strongSelf.headers];
-            [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
-            [request setHTTPMethod:strongSelf.verb];
-            
-            if (![strongSelf.verb isEqualToString:@"GET"]) {
-                NSData* body = [strongSelf.bodyString dataUsingEncoding:NSUTF8StringEncoding];
-                [request setHTTPBody:body];
-            }
-            
-            //NSLog(@"%@",url);
-            NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-            NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
-            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
-                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-                                                            strongSelf.statusCode = [httpResponse statusCode];
-                                                            strongSelf.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                            strongSelf.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:strongSelf.JSONResult];
-                                                            
-                                                            if (strongSelf.JSONResult) {
-                                                                strongSelf.result = strongSelf.JSONParser(strongSelf.JSONResult);
-                                                            }
-                                                            
-                                                            if (completionHandler) {
-                                                                completionHandler(strongSelf.result, strongSelf.error, httpResponse);
-                                                            }
-                                                        }];
-            [dataTask resume];
-        }
+        dispatch_group_leave(group);
     }];
+    
+    dispatch_group_enter(group);
+    [self validateHeaders:self.mutableHeaders request:request completionHandler:^{
+        dispatch_group_leave(group);
+    }];
+    
+    // Wait until all dispatch groups leave.
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    
+    
+    [request setAllHTTPHeaderFields:self.headers];
+    [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+    [request setHTTPMethod:self.verb];
+    
+    if (![self.verb isEqualToString:@"GET"]) {
+        NSData* body = [self.bodyString dataUsingEncoding:NSUTF8StringEncoding];
+        [request setHTTPBody:body];
+    }
+    
+    //NSLog(@"%@",url);
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+                                                    self.statusCode = [httpResponse statusCode];
+                                                    self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult];
+                                                    
+                                                    if (self.JSONResult) {
+                                                        self.result = self.JSONParser(self.JSONResult);
+                                                    }
+                                                    
+                                                    if (completionHandler) {
+                                                        completionHandler(self.result, self.error, httpResponse);
+                                                    }
+                                                }];
+    [dataTask resume];
+    
 }
 
 
