@@ -8,14 +8,17 @@
 
 #import "MOZUApiError.h"
 
-//@implementation MOZUAPIExceptionDetail
-//@end
-//
-//@implementation MOZUApiApplicationErrorData
-//@end
+@implementation MOZUApiExceptionDetail
+@end
 
-//@implementation MOZUApiErrorItem
-//@end
+@implementation MOZUApiApplicationErrorData
+@end
+
+@implementation MOZUApiErrorItem
+@end
+
+@implementation MOZUApiAdditionalErrorData
+@end
 
 @implementation MOZUApiError
 
@@ -82,7 +85,6 @@ static NSString * const MOZUApiErrorDomain = @"MOZUAPIErrorDomain";
     // convert items to JSONMOdel
 
     NSError *error = nil;
-//    [MOZUApiAdditionalErrorData class];
     MOZUApiError* apiError = [[MOZUApiError alloc] initWithString:JSONData error:&error];
     apiError.httpStatusCode = statusCode;
     return apiError;

@@ -72,7 +72,7 @@
         if (result) {
             DDLogDebug(@"result = %@", result);
         } else {
-            DDLogError(@"%@", error.localizedDescription);
+//            DDLogError(@"%@", error.localizedDescription);
         }
     }];
     
