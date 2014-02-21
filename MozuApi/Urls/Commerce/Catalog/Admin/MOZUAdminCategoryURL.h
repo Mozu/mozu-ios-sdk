@@ -34,7 +34,7 @@ Resource Url for getCategory
 
 /**
 Resource Url for getChildCategories
-@param categoryId Unique identifier of the category whose subcategories are retrieved.
+@param categoryId Unique identifier of the category for which to retrieve subcategories.
 */
 +(MOZUURL*)URLForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId;
 
@@ -74,7 +74,7 @@ Resource Url for updateCategory
 /**
 Resource Url for deleteCategoryById
 @param categoryId Unique identifier of the category to delete.
-@param cascadeDelete If true, any subcategories of a category are deleted when this category is deleted. Default: False.
+@param cascadeDelete If true, also delete all subcategories associated with the specified category.
 */
 +(MOZUURL*)URLForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber*)cascadeDelete;
 

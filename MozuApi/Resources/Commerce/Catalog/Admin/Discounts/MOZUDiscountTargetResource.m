@@ -12,11 +12,14 @@
 #import "MOZUDiscountTargetResource.h"
 
 
+
 @interface MOZUDiscountTargetResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUDiscountTargetResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

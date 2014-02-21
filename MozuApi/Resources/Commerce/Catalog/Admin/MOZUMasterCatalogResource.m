@@ -12,11 +12,14 @@
 #import "MOZUMasterCatalogResource.h"
 
 
+
 @interface MOZUMasterCatalogResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUMasterCatalogResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

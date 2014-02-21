@@ -50,7 +50,7 @@ Retrieves the details of all items in an order.
 //
 
 /**
-Adds a new item to an existing order.
+Adds a new item to a defined order.
 @param body The properties of the item to create in the existing order.
 @param orderId Unique identifier of the order for which to add the item.
 @param skipInventoryCheck If true, do not validate the product inventory when adding this item to the order.
@@ -120,7 +120,7 @@ Update the quantity of an item in an order.
 //
 
 /**
-Removes a previously added item from an existing order.
+Removes a previously added item from a defined order.
 @param orderId Unique identifier of the order with the item to remove.
 @param orderItemId Unique identifier of the item to remove from the order.
 @param updateMode Specifies whether to remove the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."

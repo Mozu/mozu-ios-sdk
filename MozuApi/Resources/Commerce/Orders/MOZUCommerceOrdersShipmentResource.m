@@ -12,11 +12,14 @@
 #import "MOZUCommerceOrdersShipmentResource.h"
 
 
+
 @interface MOZUCommerceOrdersShipmentResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUCommerceOrdersShipmentResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

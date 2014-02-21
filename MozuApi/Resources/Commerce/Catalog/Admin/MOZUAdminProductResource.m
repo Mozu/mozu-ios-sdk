@@ -12,11 +12,14 @@
 #import "MOZUAdminProductResource.h"
 
 
+
 @interface MOZUAdminProductResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUAdminProductResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -
@@ -57,8 +61,8 @@ Retrieves a list of products according to any specified facets, filter criteria,
 }
 
 /**
-Retrieves an existing product.
-@param productCode Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹-ÃƒÆ’Ã†â€™Ãƒâ€¹Ã…â€œ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.
+Retrieves the details of a product definition.
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 -(void)productWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler

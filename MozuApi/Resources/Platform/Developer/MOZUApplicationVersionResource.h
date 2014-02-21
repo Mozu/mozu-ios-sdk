@@ -24,9 +24,7 @@
 
 
 @interface MOZUApplicationVersionResource : NSObject
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 //
 #pragma mark -
@@ -62,7 +60,7 @@ Retrieves a list of the package definitions created for an application version, 
 -(void)packagesWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPackageCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
-Retrieves the details of a package definition associated with an application version. The application ust be associated with the developer account scoped to the user claim specified in the request.
+Retrieves the details of a package definition associated with an application version. The application must be associated with the developer account scoped to the user claim specified in the request.
 @param applicationVersionId Unique identifier of the application version associated with the package. Application version IDs are unique across all applications associated with the developer account.
 @param packageId Unique identifier of the package to retrieve.
 */

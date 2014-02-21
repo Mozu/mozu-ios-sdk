@@ -25,7 +25,7 @@
 
 
 /**
-	Properties of a created product selection.
+	Properties of a product configuration with shopper-selected options.
 */
 @interface MOZUConfiguredProduct : JSONModel<MOZUConfiguredProduct>
 
@@ -60,7 +60,7 @@ The list of options set up in product admin.
 @property(nonatomic) NSArray<MOZURuntimeProductOption>* options;
 
 /**
-Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+Unit price that the tenant intends to sell the product if no sale price is set.
 */
 @property(nonatomic) MOZURuntimeProductPrice* price;
 

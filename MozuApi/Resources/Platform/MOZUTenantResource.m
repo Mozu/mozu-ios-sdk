@@ -13,21 +13,9 @@
 #import "MOZUCacheManager.h"
 
 
-@interface MOZUTenantResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
-@end
 
 @implementation MOZUTenantResource
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
-	if (self = [super init]) {
-		self.apiContext = apiContext;
-		return self;
-	}
-	else {
-		return nil;
-	}
-}
 
 //
 #pragma mark -
@@ -50,7 +38,6 @@ Retrieve details about a specific tenant by providing the tenant ID.
 	}
 
 	MOZUClient * client = [MOZUTenantClient clientForGetTenantOperationWithTenantId:tenantId userClaims:userClaims];
-	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
 		NSString* key = [@(tenantId) stringValue];
 		[MOZUCacheManager setCache:result forKey:key];

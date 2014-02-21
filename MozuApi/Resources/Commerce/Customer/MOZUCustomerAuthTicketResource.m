@@ -12,11 +12,14 @@
 #import "MOZUCustomerAuthTicketResource.h"
 
 
+
 @interface MOZUCustomerAuthTicketResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUCustomerAuthTicketResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -

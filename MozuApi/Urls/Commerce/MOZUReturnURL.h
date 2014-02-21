@@ -34,7 +34,7 @@ Resource Url for getReturn
 
 /**
 Resource Url for getAvailableReturnActions
-@param returnId Retrieves a list of the actions available to perform for the specified return based on its current state.
+@param returnId Unique identifier of the return for which to retrieve available actions.
 */
 +(MOZUURL*)URLForGetAvailableReturnActionsOperationWithReturnId:(NSString*)returnId;
 

@@ -89,7 +89,7 @@ Numeric identifer of the customer account.
 @property(nonatomic) NSNumber* customerAccountId;
 
 /**
-The type of interaction the shopper used to submit the order. Possibel values are Website, Call, Store, or Unknown.
+The type of interaction the shopper used to submit the order. Possible values are Website, Call, Store, or Unknown.
 */
 @property(nonatomic) NSString* customerInteractionType;
 

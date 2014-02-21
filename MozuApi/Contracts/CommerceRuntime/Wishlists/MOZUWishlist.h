@@ -43,7 +43,7 @@ Unique identifier of the customer account associated with the wish list.
 @property(nonatomic) NSNumber* customerAccountId;
 
 /**
-The interaction type the shopper uses to create the wish list, wich is Website, Store, Call, or Unknown. This property is not used at this time and is reserved for future functionality.
+The interaction type the shopper uses to create the wish list, which is Website, Store, Call, or Unknown. This property is not used at this time and is reserved for future functionality.
 */
 @property(nonatomic) NSString* customerInteractionType;
 

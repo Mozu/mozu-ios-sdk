@@ -110,28 +110,37 @@ NSString* jsonStr = @"{ \
     //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
 }
 
+-(NSString*)loadFile:(NSString*)name
+{
+    NSBundle *unitTestBundle = [NSBundle bundleForClass:[self class]];
+    NSString *pathForFile = [unitTestBundle pathForResource:name ofType:nil];
+    NSString* retVal = [[NSString alloc] initWithContentsOfFile:pathForFile encoding:NSUTF8StringEncoding error:nil];
+    return retVal;
+}
+
 - (void)testApiError1
 {
-    NSString* jsonStr = @"{ \
-    \"applicationName\": \"AppDev\", \
-    \"errorCode\": \"INVALID_CREDENTIALS\", \
-    \"message\": \"Invalid Credentials: Invalid credentials. \", \
-    \"additionalErrorData\": [ \
-    { \
-    \"name\": \"CredentialsName\", \
-    \"value\": \"Invalid credentials\" \
-    } \
-    ], \
-    \"items\": [], \
-    \"exceptionDetail\": { \
-    \"type\": \"Mozu.Core.Exceptions.VaeInvalidCredentialsException\", \
-    \"message\": \"Invalid Credentials: Invalid credentials. \", \
-    \"source\": \"Mozu.AppDev.Domain\", \
-    \"targetSite\": \"Mozu.AppDev.Domain.Auth.AuthTicket CreateAuthTicket(System.String, System.String)\", \
-    \"stackTrace\": \"trace sample stack \" \
-    } \
-    }";
-    
+//    NSString* jsonStr = @"{ \
+//    \"applicationName\": \"AppDev\", \
+//    \"errorCode\": \"INVALID_CREDENTIALS\", \
+//    \"message\": \"Invalid Credentials: Invalid credentials. \", \
+//    \"additionalErrorData\": [ \
+//    { \
+//    \"name\": \"CredentialsName\", \
+//    \"value\": \"Invalid credentials\" \
+//    } \
+//    ], \
+//    \"items\": [], \
+//    \"exceptionDetail\": { \
+//    \"type\": \"Mozu.Core.Exceptions.VaeInvalidCredentialsException\", \
+//    \"message\": \"Invalid Credentials: Invalid credentials. \", \
+//    \"source\": \"Mozu.AppDev.Domain\", \
+//    \"targetSite\": \"Mozu.AppDev.Domain.Auth.AuthTicket CreateAuthTicket(System.String, System.String)\", \
+//    \"stackTrace\": \"trace sample stack \" \
+//    } \
+//    }";
+
+    NSString *jsonStr = [self loadFile:@"ApiError1.txt"];
     //NSError *error = nil;
     MOZUApiError* apiError = [[MOZUApiError alloc] initWithString:jsonStr statusCode:200];
     NSLog(@"apiError = %@", apiError);

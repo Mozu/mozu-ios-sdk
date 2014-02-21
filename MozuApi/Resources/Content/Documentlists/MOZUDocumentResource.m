@@ -12,11 +12,14 @@
 #import "MOZUDocumentResource.h"
 
 
+
 @interface MOZUDocumentResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUDocumentResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -28,6 +31,7 @@
 	}
 }
 
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -35,7 +39,7 @@
 //
 
 /**
-Retrieves a specific document within the specified document list by providing the document ID.
+Retrieves a document within the specified document list.
 @param documentId Identifier of the document being retrieved.
 @param documentListName The name of the document list associated with the document to retrieve.
 */
@@ -96,7 +100,7 @@ Retrieves a collection of documents according to any filter and sort criteria.
 //
 
 /**
-Creates a new document in an existing list.
+Creates a new document in an defined document list.
 @param body The descriptive name of the newly created document.
 @param documentListName The descriptive alphanumeric document list name being created.
 */

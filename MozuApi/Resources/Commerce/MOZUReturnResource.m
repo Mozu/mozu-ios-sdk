@@ -12,11 +12,14 @@
 #import "MOZUReturnResource.h"
 
 
+
 @interface MOZUReturnResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
+
 @implementation MOZUReturnResource
+
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -27,6 +30,7 @@
 		return nil;
 	}
 }
+
 
 //
 #pragma mark -
@@ -71,7 +75,7 @@ Retrieves a list of properties for the specified return.
 
 /**
 Retrieves a list of the actions available to perform for the specified return based on its current state.
-@param returnId Retrieves a list of the actions available to perform for the specified return based on its current state.
+@param returnId Unique identifier of the return for which to retrieve available actions.
 */
 
 -(void)availableReturnActionsWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler

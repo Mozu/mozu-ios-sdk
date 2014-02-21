@@ -19,9 +19,12 @@
 
 
 @interface MOZUAdminProductResource : NSObject
+
+
 @property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+
 
 //
 #pragma mark -
@@ -43,8 +46,8 @@ Retrieves a list of products according to any specified facets, filter criteria,
 -(void)productsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit noCount:(NSNumber*)noCount userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
-Retrieves an existing product.
-@param productCode Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹-ÃƒÆ’Ã†â€™Ãƒâ€¹Ã…â€œ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.
+Retrieves the details of a product definition.
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 -(void)productWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProduct* result, MOZUApiError* error, NSHTTPURLResponse* response))handler

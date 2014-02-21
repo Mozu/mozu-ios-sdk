@@ -32,12 +32,12 @@
 
 
 /**
-	Properties of a product in a catalog, such as product code, product name, and product price.
+	Properties of a product in a master catalog. Product properties include discounts, localizable content, inventory information, attribute configurations, price data, and the catalogs associated with a product.
 */
 @interface MOZUAdminProduct : JSONModel<MOZUAdminProduct>
 
 /**
-Merchant-generated product code for the product that any variation stems from.
+Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
 */
 @property(nonatomic) NSString* baseProductCode;
 
@@ -47,7 +47,7 @@ If true, the product has configurable options. This option means that a product 
 @property(nonatomic) BOOL hasConfigurableOptions;
 
 /**
-If true, this product has stand alone options that a shopper can select which can exist without product variations. Stand alone options. System-supplied and read-only.
+If true, this product has standalone options that a shopper can select without configuring a defined product variations. System-supplied and read only.
 */
 @property(nonatomic) BOOL hasStandAloneOptions;
 
@@ -62,17 +62,17 @@ If true, the product can be purchased or fulfilled at regular intervals such as 
 @property(nonatomic) NSNumber* isRecurring;
 
 /**
-If true, the entity is subject to tax based on the relevant tax rate.
+If true, the entity is subject to sales tax based on the relevant tax rate.
 */
 @property(nonatomic) NSNumber* isTaxable;
 
 /**
-If true, the entity is valid for the product type provided.
+If true, this product is valid for the assigned product type.
 */
 @property(nonatomic) NSNumber* isValidForProductType;
 
 /**
-If true, the product in this request is a product variation of a product that has configurable options. System-supplied and read-only.
+If true, this configured product represents a product variation defined with configurable options. System-supplied and read only.
 */
 @property(nonatomic) BOOL isVariation;
 
@@ -92,7 +92,7 @@ Integer that represents the sequential order of the product.
 @property(nonatomic) NSNumber* productSequence;
 
 /**
-Identifier of the product type.
+Unique identifier of the product type assigned for this product. Tenant administrators can only define one product type per product.
 */
 @property(nonatomic) NSNumber* productTypeId;
 
@@ -136,13 +136,10 @@ Properties of a collection of component products that make up a single product b
 */
 @property(nonatomic) NSArray<MOZUAdminBundledProduct>* bundledProducts;
 
-/**
-Product content set in product admin.
-*/
 @property(nonatomic) MOZUProductLocalizedContent* content;
 
 /**
-The list of extras set up in product admin.
+List of extra product attributes defined for this product.
 */
 @property(nonatomic) NSArray<MOZUProductExtra>* extras;
 
@@ -152,7 +149,7 @@ Properties of the inventory levels manages for the product.
 @property(nonatomic) MOZUAdminProductInventoryInfo* inventoryInfo;
 
 /**
-The list of options set up in product admin.
+List of option product attributes defined for this product.
 */
 @property(nonatomic) NSArray<MOZUAdminProductOption>* options;
 
@@ -176,6 +173,9 @@ Width of the package in imperial units of feet and inches.
 */
 @property(nonatomic) MOZUMeasurement* packageWidth;
 
+/**
+Unit price that the client intends to sell the product if no sale price is set.
+*/
 @property(nonatomic) MOZUAdminProductPrice* price;
 
 /**
@@ -184,7 +184,7 @@ Properties defined for a product as they appear in its associated catalogs.
 @property(nonatomic) NSArray<MOZUProductInCatalogInfo>* productInCatalogs;
 
 /**
-The list of product properties to set in product admin.
+List of property product attributes defined for this product.
 */
 @property(nonatomic) NSArray<MOZUAdminProductProperty>* properties;
 
@@ -194,12 +194,12 @@ Properties of the product publishing settings for the associated product.
 @property(nonatomic) MOZUProductPublishingInfo* publishingInfo;
 
 /**
-search engine optimized product content.
+The search engine optimized content defined for this product.
 */
 @property(nonatomic) MOZUProductLocalizedSEOContent* seoContent;
 
 /**
-The list of product variation options that exist in product admin.
+The list of product variation configurations defined for this product based on its available product option attributes.
 */
 @property(nonatomic) NSArray<MOZUProductVariationOption>* variationOptions;
 
