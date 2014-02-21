@@ -8,3 +8,5 @@
     #import <Foundation/Foundation.h>
     #import "DDlog.h"
 #endif
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;

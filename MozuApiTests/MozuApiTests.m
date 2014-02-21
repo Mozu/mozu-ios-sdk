@@ -18,8 +18,6 @@
 
 @end
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-
 @implementation MozuApiTests
 
 - (void)setUp
@@ -61,7 +59,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         JSONModelError *JSONError = nil;
         JSONModel *model = [[MOZUAuthTicket alloc] initWithString:JSONResult error:&JSONError];
         if (!model) {
-            NSLog(@"%@", JSONError.localizedDescription);
+            DDLogError(@"%@", JSONError.localizedDescription);
         }
         return model;
     };
@@ -71,10 +69,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     
     [client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-        if (error) {
-            NSLog(@"%@", error.localizedDescription);
+        if (result) {
+            DDLogDebug(@"result = %@", result);
         } else {
-            NSLog(@"result = %@", result);
+            DDLogError(@"%@", error.localizedDescription);
         }
     }];
     
@@ -113,7 +111,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)testTenantUrl
 {
     MOZUURL* url = [MOZUTenantURL URLForGetTenantOperationWithTenantId:257];
-    NSLog(@"url = %@", url);
+    DDLogDebug(@"url = %@", url);
 
 }
 
