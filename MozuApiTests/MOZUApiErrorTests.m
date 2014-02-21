@@ -20,7 +20,6 @@
 - (void)setUp
 {
     [super setUp];
-    [MOZUApiAdditionalErrorData class];
 }
 
 - (void)tearDown
