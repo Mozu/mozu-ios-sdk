@@ -126,7 +126,7 @@
         NSAssert(APIContext.tenantId >=0, @"APIContext.tenantId less than 0.");
         
         if (APIContext.tenantHost.length == 0) {
-            id tenantRes = [[MOZUTenantResource alloc] initWithAPIContext:APIContext];
+            id tenantRes = [[MOZUTenantResource alloc] init];
             [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response) {
                 if (!result) {
                     [NSException raise:@"MOZUTenantNotFoundException" format:@"tenantId = %@", [@(APIContext.tenantId) stringValue]];
