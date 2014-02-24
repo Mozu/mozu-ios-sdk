@@ -13,24 +13,26 @@
 @class MOZUAuthTicket;
 @class MOZURefreshInterval;
 
+typedef void(^MOZUAppAuthenticationCompletionBlock)(NSHTTPURLResponse* response, MOZUApiError* error);
+
 @interface MOZUAppAuthenticator : NSObject
     
 + (void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo
                 baseAppAuthUrl:(NSString*)baseUrl
                 refeshInterval:(MOZURefreshInterval*)refreshInterval
-                    completion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
-+(void)deleteAuth;
+             completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
++ (void)deleteAuth;
 + (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
-                    completion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
+             completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 
-+ (void)authenticateAppWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
-+ (void)refreshAppAuthTicketWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
-+ (void)ensureAuthTicketWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
++ (void)authenticateAppWithCompletionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
++ (void)refreshAppAuthTicketWithCompletionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
++ (void)ensureAuthTicketWithCompletionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 
-+(MOZUAppAuthInfo*)authInfo;
-+(NSString*)baseUrl;
-+(MOZUAuthTicket*)authTicket;
-+(BOOL)usesSSL;
++ (MOZUAppAuthInfo*)authInfo;
++ (NSString*)baseUrl;
++ (MOZUAuthTicket*)authTicket;
++ (BOOL)usesSSL;
 
 
 @end

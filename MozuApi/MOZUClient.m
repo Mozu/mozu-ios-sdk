@@ -87,17 +87,26 @@
     }
 }
 
-- (void)setUserClaims:(MOZUUserAuthTicket *)userClaims
+- (void)validateUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void (^)())completion
 {
-    _userClaims = userClaims;
+    __block MOZUAuthenticationProfile* userInfo = nil;
     
-    MOZUAuthenticationProfile* userInfo = [MOZUUserAuthenticator ensureUserAuthTicket:userClaims];
-    if (userInfo) {
-        userClaims.accessToken = userInfo.authTicket.accessToken;
-        userClaims.accessTokenExpiration = userInfo.authTicket.accessTokenExpiration;
+    if (userClaims.scope == MOZUShopperAuthenticationScope) {
+        // Logic missing from C#
     }
     
-    [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
+    [MOZUUserAuthenticator ensureUserAuthTicket:userClaims completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUApiError *error) {
+        if (userInfo) {
+            userClaims.accessToken = userInfo.authTicket.accessToken;
+            userClaims.accessTokenExpiration = userInfo.authTicket.accessTokenExpiration;
+        } else {
+            DDLogError(@"%@", error);
+        }
+        
+        [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
+        completion();
+    }];
+    
 }
 
 - (void)setHeader:(NSString *)header value:(NSString *)value
@@ -149,7 +158,7 @@
     if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
         // Add MOZU_X_VOL_APP_CLAIMS to headers
         if (!self.APIContext || !self.APIContext.appAuthClaim || [self.APIContext.appAuthClaim isEqualToString:@""]) {
-            [MOZUAppAuthenticator addAuthHeaderToRequest:request completion:^(NSURLResponse *response, MOZUApiError *error) {
+            [MOZUAppAuthenticator addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
                 completion();
             }];
         } else {
@@ -170,17 +179,6 @@
     completion();
 }
 
-- (void)validateUserClaims:(MOZUUserAuthTicket *)userClaims
-{
-    MOZUAuthenticationProfile* userInfo = [MOZUUserAuthenticator ensureUserAuthTicket:userClaims];
-    if (userInfo) {
-        userClaims.accessToken = userInfo.authTicket.accessToken;
-        userClaims.accessTokenExpiration = userInfo.authTicket.accessTokenExpiration;
-    }
-    
-    [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
-}
-
 -(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
 {
     
@@ -189,6 +187,7 @@
     URLComponents.path = self.resourceURL.URL.absoluteString;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URLComponents.URL];
     
+    // Create dispatch group that waits for three validations before submitting client request.
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
     [self validateContext:self.APIContext completionHandler:^{
@@ -199,6 +198,12 @@
     [self validateHeaders:self.mutableHeaders request:request completionHandler:^{
         dispatch_group_leave(group);
     }];
+    
+    dispatch_group_enter(group);
+    [self validateUserClaims:self.userClaims completionHandler:^{
+        dispatch_group_leave(group);
+    }];
+    
     
     // Wait until all dispatch groups leave.
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);

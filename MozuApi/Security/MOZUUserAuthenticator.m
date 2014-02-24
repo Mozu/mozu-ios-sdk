@@ -13,20 +13,22 @@
 
 @implementation MOZUUserAuthenticator
 
-+(MOZUAuthenticationProfile*)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope {
-    return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:@(scope.id)];
++ (void)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope completionHandler:(MOZUUserAuthenticationCompletionBlock)completion {
+    return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:@(scope.id) completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUApiError *error) {
+        completion(profile, response, error);
+    }];
 }
 
-+(MOZUAuthenticationProfile*)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket {
++ (void)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket completionHandler:(MOZUUserAuthenticationCompletionBlock)completion {
     NSDate* refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:userAuthTicket.accessTokenExpiration];
     if ([[NSDate date] compare:refreshTime] == NSOrderedDescending) {
-        return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:nil];
+        return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:nil completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUApiError *error) {
+            completion(profile, response, error);
+        }];
     }
-    
-    return nil;
 }
 
-+(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)identifier {
++ (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)identifier completionHandler:(MOZUUserAuthenticationCompletionBlock)completion {
     __block MOZUAuthenticationProfile* authProfile = nil;
     NSString* resourceUrl = [[self class] getResourceRefreshUrlWithAuthTicket:userAuthTicket andId:identifier];
     NSString* url = [[MOZUAppAuthenticator baseUrl] stringByAppendingString:resourceUrl];
@@ -49,9 +51,9 @@
                                                     }
                                                     
                                                     authProfile = [[self class] setUserAuthWithJsonData:json andUserScope:userAuthTicket.scope];
+                                                    completion(authProfile, httpResponse, apiError);
                                                 }];
     [dataTask resume];
-    return authProfile;
 }
 
 +(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo scope:(MOZUAuthenticationScope)scope id:(NSNumber*)id {

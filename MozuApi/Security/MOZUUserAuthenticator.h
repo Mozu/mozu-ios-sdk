@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUAuthTicket.h"
+#import "MOZUApiError.h"
 
 @class MozuUserAuthInfo;
 @class MOZUUserProfile;
@@ -34,6 +35,8 @@ typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
 
 @end
 
+typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse* response, MOZUApiError* error);
+
 @interface MOZUUserAuthTicket : MOZUAuthTicket
 
 @property (nonatomic, assign) MOZUAuthenticationScope scope;
@@ -42,10 +45,14 @@ typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
 
 
 @interface MOZUUserAuthenticator : NSObject
-+(MOZUAuthenticationProfile*)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope;
-+(MOZUAuthenticationProfile*)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket;
-+(MOZUAuthenticationProfile*)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)identifier;
-+(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo scope:(MOZUAuthenticationScope)scope id:(NSNumber*)id;
++ (void)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
++ (void)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
++ (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket
+                                                     id:(NSNumber*)identifier
+                                             completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
++(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo
+                                                    scope:(MOZUAuthenticationScope)scope
+                                                       id:(NSNumber*)id;
 +(void)logoutWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket;
 
 
