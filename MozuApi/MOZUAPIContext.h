@@ -12,17 +12,17 @@
 
 @interface MOZUAPIContext : JSONModel
 
-@property(nonatomic, readonly) NSInteger tenantId;
-@property(nonatomic, readonly) NSNumber* siteId;
-@property(nonatomic, readonly) NSString* tenantHost;
-@property(nonatomic, readonly) NSString* siteHost;
-@property(nonatomic, readonly) NSString* correlationId;
-@property(nonatomic, readonly) NSString* hmacSHA256;
-@property(nonatomic, readonly) NSString* appAuthClaim;
-@property(nonatomic, readonly) NSNumber* masterCatalogId;
-@property(nonatomic, readonly) NSNumber* catalogId;
-@property(nonatomic, readonly) MOZUTenant* tenant;
-@property(nonatomic, readonly) NSString* date;
+@property(nonatomic) NSInteger tenantId;
+@property(nonatomic) NSNumber* siteId;
+@property(nonatomic) NSString* tenantHost;
+@property(nonatomic) NSString* siteHost;
+@property(nonatomic) NSString* correlationId;
+@property(nonatomic) NSString* hmacSHA256;
+@property(nonatomic) NSString* appAuthClaim;
+@property(nonatomic) NSNumber* masterCatalogId;
+@property(nonatomic) NSNumber* catalogId;
+@property(nonatomic) MOZUTenant* tenant;
+@property(nonatomic) NSString* date;
 
 - (id)initWithTenantId:(NSInteger)tenantId
                 siteId:(NSNumber*)siteId
