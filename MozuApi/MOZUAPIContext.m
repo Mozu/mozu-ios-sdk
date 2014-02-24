@@ -9,21 +9,6 @@
 #import "MOZUAPIContext.h"
 #import "MOZUHeaders.h"
 
-@interface MOZUAPIContext()
-
-@property(readwrite) NSInteger tenantId;
-@property(readwrite) NSNumber* siteId;
-@property(readwrite) NSString* tenantHost;
-@property(readwrite) NSString* siteHost;
-@property(readwrite) NSString* correlationId;
-@property(readwrite) NSString* hmacSHA256;
-@property(readwrite) NSString* appAuthClaim;
-@property(readwrite) NSNumber* masterCatalogId;
-@property(readwrite) NSNumber* catalogId;
-@property(readwrite) MOZUTenant* tenant;
-@property(readwrite) NSString* date;
-
-@end
 
 @implementation MOZUAPIContext
 
