@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MOZUApiError.h"
 
 @class MOZUAppAuthInfo;
 @class MOZUAuthTicket;
@@ -14,15 +15,17 @@
 
 @interface MOZUAppAuthenticator : NSObject
     
-+(void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo
-               baseAppAuthUrl:(NSString*)baseUrl
-               refeshInterval:(MOZURefreshInterval*)refreshInterval;
++ (void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo
+                baseAppAuthUrl:(NSString*)baseUrl
+                refeshInterval:(MOZURefreshInterval*)refreshInterval
+                    completion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
 +(void)deleteAuth;
-+(void)addAuthHeaderToRequest:(NSMutableURLRequest*)request;
++ (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
+                    completion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
 
-+(void)authenticateApp;
-+(void)refreshAppAuthTicket;
-+(void)ensureAuthTicket;
++ (void)authenticateAppWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
++ (void)refreshAppAuthTicketWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
++ (void)ensureAuthTicketWithCompletion:(void (^)(NSURLResponse *response, MOZUApiError *error))completion;
 
 +(MOZUAppAuthInfo*)authInfo;
 +(NSString*)baseUrl;
