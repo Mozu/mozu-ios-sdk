@@ -97,7 +97,9 @@
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = ss;;
     
-    [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil];
+    [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil completion:^(NSURLResponse *response, MOZUApiError *error) {
+
+    }];
     MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
     [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUApiError *error, NSHTTPURLResponse *response) {
         DDLogError(@"%@", error);

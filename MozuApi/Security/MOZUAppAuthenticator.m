@@ -15,6 +15,7 @@
 #import "MOZUAuthTicketRequest.h"
 #import "MOZURefreshInterval.h"
 #import "MOZUHeaders.h"
+#import "MOZUAPILogger.h"
 
 @implementation MOZUAppAuthenticator
 
@@ -78,8 +79,8 @@ NSMutableData *_responseData;
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                     MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json];
-                                                    if (apiError != nil) {
-                                                        [NSException raise:@"authenticateApp failed!" format:@"MOZUApiError = %@", apiError];
+                                                    if (apiError) {
+                                                        DDLogError(@"%@", apiError);
                                                     }
                                                     
                                                     _authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
