@@ -36,6 +36,5 @@
      masterCatalogId:(NSNumber*)masterCatalogId
            catalogId:(NSNumber*)catalogId;
 - (id)initWithHeaders:(NSDictionary*)headers;
-- (NSURL *)getURLForHost:(NSString*)host;
 
 @end

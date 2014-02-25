@@ -26,8 +26,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *mutableHeaders;
 @property (nonatomic, strong) MOZUAPIContext * APIContext;
-@property (nonatomic, strong) NSURL * baseURL;
-@property (nonatomic, strong) MOZUURL * resourceURL;
+@property (nonatomic, strong) NSString *host;
+@property (nonatomic, strong) MOZUURL *resourceURLComponents;
 @property (nonatomic, strong) NSString * verb;
 @property (nonatomic, strong) NSString *bodyString;
 
@@ -40,13 +40,6 @@
     if (self = [super init])
     {
         _mutableHeaders = [NSMutableDictionary new];
-//        NSString *baseURL = [MOZUAppAuthenticator baseUrl];
-//        if (!baseURL || [baseURL isEqualToString:@""]) {
-//            [NSException raise:@"MOZUMissingBaseURLException" format:@"MOZUAppAuthenticator baseUrl is missing!"];
-//        } else {
-//            _baseURLString = baseURL;
-//        }
-
     }
     
     return self;
@@ -58,7 +51,7 @@
     if (self = [self init]) {
         NSAssert(verb, @"MOZUClient verb is missing!");
         NSAssert(resourceURL, @"MOZUClient resourceURL is missing!");
-        _resourceURL = resourceURL;
+        _resourceURLComponents = resourceURL;
         _verb = [verb lowercaseString];
     }
     
@@ -128,28 +121,33 @@
     self.bodyStream = bodyStream;
 }
 
-- (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)())completion
+- (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)(NSString *host))completion
 {
-    if (self.resourceURL.location == MOZUTenantPod) {
+    if (self.resourceURLComponents.location == MOZUTenantPod) {
         NSAssert(APIContext, @"MOZUClient APIContext is missing.");
         NSAssert(APIContext.tenantId >=0, @"APIContext.tenantId less than 0.");
         
         if (APIContext.tenantHost.length == 0) {
             id tenantRes = [[MOZUTenantResource alloc] init];
             [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response) {
-                if (!result) {
-                    [NSException raise:@"MOZUTenantNotFoundException" format:@"tenantId = %@", [@(APIContext.tenantId) stringValue]];
+                if (result) {
+                    completion(result.domain);
+                } else {
+                    DDLogError(@"%@", error.localizedDescription);
+                    completion(nil);
                 }
-                
-                self.baseURL = [APIContext getURLForHost:result.domain];
-                completion();
             }];
         } else {
-            self.baseURL = [APIContext getURLForHost:APIContext.tenantHost];
-            completion();
+            completion(APIContext.tenantHost);
         }
     } else {
-        completion();
+        NSString *host = [MOZUAppAuthenticator baseUrl];
+        if (!host || [host isEqualToString:@""]) {
+            DDLogError(@"MOZUAppAuthenticator baseUrl is missing!");
+            completion(nil);
+        } else {
+            completion(host);
+        }
     }
 }
 
@@ -181,22 +179,17 @@
 
 -(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
 {
-    
-    
-    NSURLComponents *URLComponents = [[NSURLComponents alloc] initWithString:self.baseURL.absoluteString];
-    URLComponents.path = self.resourceURL.URL.absoluteString;
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URLComponents.URL];
+    __block NSMutableURLRequest *request = nil;
     
     // Create dispatch group that waits for three validations before submitting client request.
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
-    [self validateContext:self.APIContext completionHandler:^{
-        dispatch_group_leave(group);
-    }];
-    
-    dispatch_group_enter(group);
-    [self validateHeaders:self.mutableHeaders request:request completionHandler:^{
-        dispatch_group_leave(group);
+    [self validateContext:self.APIContext completionHandler:^(NSString *host) {
+        self.resourceURLComponents.host = host;
+        request = [NSMutableURLRequest requestWithURL:self.resourceURLComponents.URL];
+        [self validateHeaders:self.mutableHeaders request:request completionHandler:^{
+            dispatch_group_leave(group);
+        }];
     }];
     
     dispatch_group_enter(group);
@@ -219,22 +212,32 @@
     }
     
     //NSLog(@"%@",url);
+    typeof(self) __weak weakSelf = self;
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-                                                    self.statusCode = [httpResponse statusCode];
-                                                    self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult];
-                                                    
-                                                    if (self.JSONResult) {
-                                                        self.result = self.JSONParser(self.JSONResult);
+                                                    typeof(weakSelf) __strong strongSelf = weakSelf;
+                                                    if (strongSelf) {
+                                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+                                                        strongSelf.statusCode = [httpResponse statusCode];
+                                                        strongSelf.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                        strongSelf.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:strongSelf.JSONResult];
+                                                        
+                                                        if (strongSelf.JSONResult) {
+                                                            strongSelf.result = strongSelf.JSONParser(strongSelf.JSONResult);
+                                                        }
+                                                        
+                                                        if (completionHandler) {
+                                                            completionHandler(strongSelf.result, strongSelf.error, httpResponse);
+                                                        }
+                                                    } else {
+                                                        if (completionHandler) {
+                                                            NSError *error = [NSError errorWithDomain:@"MOZUClientError" code:0 userInfo:@{NSLocalizedDescriptionKey: @"Completion handler executing after reference to self is nil."}];
+                                                            completionHandler(nil, (MOZUApiError *)error, nil);
+                                                        }
                                                     }
                                                     
-                                                    if (completionHandler) {
-                                                        completionHandler(self.result, self.error, httpResponse);
-                                                    }
                                                 }];
     [dataTask resume];
     

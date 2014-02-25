@@ -13,11 +13,10 @@ typedef NS_ENUM(NSUInteger, MOZUURLLocation) {
     MOZUTenantPod
 };
 
-@interface MOZUURL : NSObject
+@interface MOZUURL : NSURLComponents
 
-@property(nonatomic,readonly) NSURL *URL;
-@property(nonatomic,readonly) MOZUURLLocation location;
-@property(nonatomic,readonly) BOOL useSSL;
+@property (nonatomic, assign, readonly) MOZUURLLocation location;
+@property (nonatomic, assign, readonly) BOOL useSSL;
 
 - (instancetype)initWithTemplate:(NSString *)stringTemplate
                      parameters:(NSDictionary*)params

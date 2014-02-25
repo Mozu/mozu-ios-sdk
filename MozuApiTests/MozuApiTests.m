@@ -72,7 +72,7 @@
         if (result) {
             DDLogDebug(@"result = %@", result);
         } else {
-//            DDLogError(@"%@", error.localizedDescription);
+            DDLogError(@"%@", error.localizedDescription);
         }
     }];
     
@@ -97,12 +97,14 @@
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = ss;;
     
-    [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthUrl:baseUrl refeshInterval:nil completion:^(NSURLResponse *response, MOZUApiError *error) {
-
+    [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthURL:baseUrl refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+        if (!response) {
+            DDLogError(@"%@", error.localizedDescription);
+        }
     }];
     MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
     [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUApiError *error, NSHTTPURLResponse *response) {
-        DDLogError(@"%@", error);
+        DDLogError(@"%@", error.localizedDescription);
         
     }];
     

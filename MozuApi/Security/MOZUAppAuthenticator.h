@@ -18,7 +18,7 @@ typedef void(^MOZUAppAuthenticationCompletionBlock)(NSHTTPURLResponse* response,
 @interface MOZUAppAuthenticator : NSObject
     
 + (void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo
-                baseAppAuthUrl:(NSString*)baseUrl
+                baseAppAuthURL:(NSString*)baseUrl
                 refeshInterval:(MOZURefreshInterval*)refreshInterval
              completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 + (void)deleteAuth;

@@ -29,7 +29,7 @@ NSMutableData *_responseData;
 
 
 + (void)initializeWithAuthInfo:(MOZUAppAuthInfo*)appAuthInfo
-                baseAppAuthUrl:(NSString*)baseUrl
+                baseAppAuthURL:(NSString*)baseUrl
                 refeshInterval:(MOZURefreshInterval*)refreshInterval
                     completionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
     static dispatch_once_t onceToken;

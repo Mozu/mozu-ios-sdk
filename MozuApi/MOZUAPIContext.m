@@ -103,13 +103,6 @@
     }
 }
 
--(NSURL *)getURLForHost:(NSString*)host {
-    NSURLComponents *URLComponents = [NSURLComponents new];
-    URLComponents.host = host;
-    URLComponents.scheme = @"http";
-    return URLComponents.URL;
-}
-
 -(void)updateBySite:(MOZUSite*)site {
     if (site != nil && site.id >= 0) {
         self.siteId = @(site.id);

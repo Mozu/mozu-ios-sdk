@@ -10,13 +10,25 @@
 
 @interface MOZUURL()
 
-@property(readwrite, nonatomic) NSString* jsonResult;
-@property(readwrite, nonatomic) NSURL *URL;
-@property(readwrite, nonatomic) MOZUURLLocation location;
-@property(readwrite, nonatomic) BOOL useSSL;
+@property (nonatomic, strong) NSURL *URL;
+@property (nonatomic, assign) MOZUURLLocation location;
+@property (nonatomic, assign) BOOL useSSL;
+@property (nonatomic, strong) NSURLComponents *components;
+
 @end
 
 @implementation MOZUURL
+
+/*
+ NSString* template = @"/api/commerce/customer/accounts/{accountId}/groups/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+ NSDictionary* params = @{
+ @"accountId" : @(accountId),
+ @"startIndex" : startIndex,
+ @"pageSize" : pageSize,
+ @"sortBy" : sortBy,
+ @"filter" : filter,
+ };
+*/
 
 - (instancetype)initWithTemplate:(NSString*)template
                      parameters:(NSDictionary*)params
@@ -24,7 +36,9 @@
                          useSSL:(BOOL)useSSL {
     
     if (self = [super init]) {
-        self.URL = [MOZUURL buildUrlWithTemplate:template parameters:params];
+        _components = [[NSURLComponents alloc] init];
+        _components.scheme = @"http";
+//        self.URL = [MOZUURL buildUrlWithTemplate:template parameters:params];
         self.location = location;
         self.useSSL = useSSL;
         return self;
@@ -32,14 +46,14 @@
     return self;
 }
 
-+(NSURL*)buildUrlWithTemplate:(NSString*)template parameters:(NSDictionary*)params {
++ (NSURLComponents *)buildComponentslWithTemplate:(NSString *)template parameters:(NSDictionary *)params {
     // TODO : implement this
     // loop thru each param and call for formatUrl on template, paramName, and paramValue
     // create new NSURL* from filled in template and baseURL from MOZUAppAuthenticator
     return nil;
 }
 
-+(void)formatUrl: (NSString**)url withParamName: (NSString*)paramName andValue: (id)value {
++ (void)formatUrl:(NSString**)url parameterName:(NSString*)paramName value:(id)value {
 /*
     url = url.Replace("{" + paramName + "}", value == null ? "" : value.ToString());
     url = url.Replace("{*" + paramName + "}", value == null ? "" : value.ToString());
