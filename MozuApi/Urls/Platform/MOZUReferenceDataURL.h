@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUReferenceDataURL : NSObject
+@interface MOZUReferenceDataURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,69 +18,69 @@
 //
 
 /**
-Resource Url for getAddressSchema
+Resource Url Components for getAddressSchema
 @param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
-+(MOZUURL*)URLForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode;
++(MOZUURLComponents*)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode;
 
 /**
-Resource Url for getAddressSchemas
+Resource Url Components for getAddressSchemas
 */
-+(MOZUURL*)URLForGetAddressSchemasOperation;
++(MOZUURLComponents*)URLComponentsForGetAddressSchemasOperation;
 
 /**
-Resource Url for getBehavior
+Resource Url Components for getBehavior
 @param behaviorId Unique identifier of the behavior.
 */
-+(MOZUURL*)URLForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId;
++(MOZUURLComponents*)URLComponentsForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId;
 
 /**
-Resource Url for getBehaviorCategories
+Resource Url Components for getBehaviorCategories
 */
-+(MOZUURL*)URLForGetBehaviorCategoriesOperation;
++(MOZUURLComponents*)URLComponentsForGetBehaviorCategoriesOperation;
 
 /**
-Resource Url for getBehaviorCategory
+Resource Url Components for getBehaviorCategory
 @param categoryId Unique identifier of the behavior category.
 */
-+(MOZUURL*)URLForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId;
++(MOZUURLComponents*)URLComponentsForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId;
 
 /**
-Resource Url for getBehaviors
+Resource Url Components for getBehaviors
 @param userType The user type associated with the behaviors to retrieve.
 */
-+(MOZUURL*)URLForGetBehaviorsOperationWithUserType:(NSString*)userType;
++(MOZUURLComponents*)URLComponentsForGetBehaviorsOperationWithUserType:(NSString*)userType;
 
 /**
-Resource Url for getContentLocales
+Resource Url Components for getContentLocales
 */
-+(MOZUURL*)URLForGetContentLocalesOperation;
++(MOZUURLComponents*)URLComponentsForGetContentLocalesOperation;
 
 /**
-Resource Url for getCountries
+Resource Url Components for getCountries
 */
-+(MOZUURL*)URLForGetCountriesOperation;
++(MOZUURLComponents*)URLComponentsForGetCountriesOperation;
 
 /**
-Resource Url for getCurrencies
+Resource Url Components for getCurrencies
 */
-+(MOZUURL*)URLForGetCurrenciesOperation;
++(MOZUURLComponents*)URLComponentsForGetCurrenciesOperation;
 
 /**
-Resource Url for getTimeZones
+Resource Url Components for getTimeZones
 */
-+(MOZUURL*)URLForGetTimeZonesOperation;
++(MOZUURLComponents*)URLComponentsForGetTimeZonesOperation;
 
 /**
-Resource Url for getTopLevelDomains
+Resource Url Components for getTopLevelDomains
 */
-+(MOZUURL*)URLForGetTopLevelDomainsOperation;
++(MOZUURLComponents*)URLComponentsForGetTopLevelDomainsOperation;
 
 /**
-Resource Url for getUnitsOfMeasure
+Resource Url Components for getUnitsOfMeasure
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter;
 
 
 //

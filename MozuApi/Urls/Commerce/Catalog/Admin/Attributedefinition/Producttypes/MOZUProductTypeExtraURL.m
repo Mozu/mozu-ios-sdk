@@ -9,7 +9,7 @@
 
 #import "MOZUProductTypeExtraURL.h"
 
-@implementation MOZUProductTypeExtraURL
+@implementation MOZUProductTypeExtraURLComponents
 
 //
 #pragma mark -
@@ -17,23 +17,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetExtrasOperationWithProductTypeId:(NSInteger)productTypeId {
++(MOZUURLComponents*)URLComponentsForGetExtrasOperationWithProductTypeId:(NSInteger)productTypeId {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
 		@"attributeFQN" : attributeFQN,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -43,13 +43,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddExtraOperationWithProductTypeId:(NSInteger)productTypeId {
++(MOZUURLComponents*)URLComponentsForAddExtraOperationWithProductTypeId:(NSInteger)productTypeId {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -59,14 +59,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
 		@"attributeFQN" : attributeFQN,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -76,14 +76,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForDeleteExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
 		@"attributeFQN" : attributeFQN,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

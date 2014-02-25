@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUPublishingScopeURL : NSObject
+@interface MOZUPublishingScopeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -25,14 +25,14 @@
 //
 
 /**
-Resource Url for discardDrafts
+Resource Url Components for discardDrafts
 */
-+(MOZUURL*)URLForDiscardDraftsOperation;
++(MOZUURLComponents*)URLComponentsForDiscardDraftsOperation;
 
 /**
-Resource Url for publishDrafts
+Resource Url Components for publishDrafts
 */
-+(MOZUURL*)URLForPublishDraftsOperation;
++(MOZUURLComponents*)URLComponentsForPublishDraftsOperation;
 
 
 //

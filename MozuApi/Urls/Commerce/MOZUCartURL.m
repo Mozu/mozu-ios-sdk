@@ -9,7 +9,7 @@
 
 #import "MOZUCartURL.h"
 
-@implementation MOZUCartURL
+@implementation MOZUCartURLComponents
 
 //
 #pragma mark -
@@ -17,45 +17,45 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetCartOperationWithCartId:(NSString*)cartId {
++(MOZUURLComponents*)URLComponentsForGetCartOperationWithCartId:(NSString*)cartId {
 	NSString* template = @"/api/commerce/carts/{cartId}";
 	NSDictionary* params = @{
 		@"cartId" : cartId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetOrCreateCartOperation {
++(MOZUURLComponents*)URLComponentsForGetOrCreateCartOperation {
 	NSString* template = @"/api/commerce/carts/current";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetCartSummaryOperation {
++(MOZUURLComponents*)URLComponentsForGetCartSummaryOperation {
 	NSString* template = @"/api/commerce/carts/summary";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetUserCartOperationWithUserId:(NSString*)userId {
++(MOZUURLComponents*)URLComponentsForGetUserCartOperationWithUserId:(NSString*)userId {
 	NSString* template = @"/api/commerce/carts/user/{userId}";
 	NSDictionary* params = @{
 		@"userId" : userId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetUserCartSummaryOperationWithUserId:(NSString*)userId {
++(MOZUURLComponents*)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString*)userId {
 	NSString* template = @"/api/commerce/carts/user/{userId}/summary";
 	NSDictionary* params = @{
 		@"userId" : userId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -72,11 +72,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateCartOperation {
++(MOZUURLComponents*)URLComponentsForUpdateCartOperation {
 	NSString* template = @"/api/commerce/carts/current";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -86,20 +86,20 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteCartOperationWithCartId:(NSString*)cartId {
++(MOZUURLComponents*)URLComponentsForDeleteCartOperationWithCartId:(NSString*)cartId {
 	NSString* template = @"/api/commerce/carts/{cartId}";
 	NSDictionary* params = @{
 		@"cartId" : cartId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForDeleteCurrentCartOperation {
++(MOZUURLComponents*)URLComponentsForDeleteCurrentCartOperation {
 	NSString* template = @"/api/commerce/carts/current";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

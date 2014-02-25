@@ -9,7 +9,7 @@
 */
 
 #import "MOZUEventNotificationClient.h"
-#import "MOZUEventNotificationUrl.h"
+#import "MOZUEventNotificationUrlComponents.h"
 #import "MozuEvent.h"
 #import "MozuEventCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetEventsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUEventNotificationURL URLForGetEventsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUEventNotificationURLComponents URLComponentsForGetEventsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetEventOperationWithEventId:(NSString*)eventId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUEventNotificationURL URLForGetEventOperationWithEventId:eventId];
+	id url = [MOZUEventNotificationURLComponents URLComponentsForGetEventOperationWithEventId:eventId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

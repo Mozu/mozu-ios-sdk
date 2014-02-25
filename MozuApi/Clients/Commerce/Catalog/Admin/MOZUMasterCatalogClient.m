@@ -9,7 +9,7 @@
 */
 
 #import "MOZUMasterCatalogClient.h"
-#import "MOZUMasterCatalogUrl.h"
+#import "MOZUMasterCatalogUrlComponents.h"
 #import "MozuAdminMasterCatalog.h"
 #import "MozuMasterCatalogCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetMasterCatalogsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUMasterCatalogURL URLForGetMasterCatalogsOperation];
+	id url = [MOZUMasterCatalogURLComponents URLComponentsForGetMasterCatalogsOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUMasterCatalogURL URLForGetMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
+	id url = [MOZUMasterCatalogURLComponents URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -68,7 +68,7 @@
 //
 
 +(MOZUClient*)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog*)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUMasterCatalogURL URLForUpdateMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
+	id url = [MOZUMasterCatalogURLComponents URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

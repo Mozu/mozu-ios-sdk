@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUFulfillmentActionURL : NSObject
+@interface MOZUFulfillmentActionURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,11 +18,11 @@
 //
 
 /**
-Resource Url for getFulfillmentInfo
+Resource Url Components for getFulfillmentInfo
 @param orderId Retrieves a list of the fulfillment information for the specified order.
 @param draft If true, retrieve the draft version of the order's fulfillment information, which might include uncommitted changes.
 */
-+(MOZUURL*)URLForGetFulfillmentInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft;
++(MOZUURLComponents*)URLComponentsForGetFulfillmentInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft;
 
 
 //
@@ -32,10 +32,10 @@ Resource Url for getFulfillmentInfo
 //
 
 /**
-Resource Url for performFulfillmentAction
+Resource Url Components for performFulfillmentAction
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
 */
-+(MOZUURL*)URLForPerformFulfillmentActionOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString*)orderId;
 
 
 //
@@ -45,12 +45,12 @@ Resource Url for performFulfillmentAction
 //
 
 /**
-Resource Url for setFulFillmentInfo
+Resource Url Components for setFulFillmentInfo
 @param orderId Unique identifier of the order associated with the fulfillment information to update.
 @param updateMode Specifies whether to set the fulfillment information by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
-+(MOZUURL*)URLForSetFulFillmentInfoOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version;
++(MOZUURLComponents*)URLComponentsForSetFulFillmentInfoOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version;
 
 
 //

@@ -9,7 +9,7 @@
 
 #import "MOZUCustomerAccountURL.h"
 
-@implementation MOZUCustomerAccountURL
+@implementation MOZUCustomerAccountURLComponents
 
 //
 #pragma mark -
@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetAccountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous {
++(MOZUURLComponents*)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous {
 	NSString* template = @"/api/commerce/customer/accounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&fields={fields}&q={q}&qLimit={qLimit}&isAnonymous={isAnonymous}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex,
@@ -30,25 +30,25 @@
 		@"isAnonymous" : isAnonymous,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetAccountOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForGetAccountOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetLoginStateOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForGetLoginStateOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/loginstate";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -58,86 +58,86 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddAccountOperation {
++(MOZUURLComponents*)URLComponentsForAddAccountOperation {
 	NSString* template = @"/api/commerce/customer/accounts/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForAddLoginToExistingCustomerOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/Create-Login";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/recomputelifetimevalue";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForSetLoginLockedOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForSetLoginLockedOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/Set-Login-Locked";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForSetPasswordChangeRequiredOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForSetPasswordChangeRequiredOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/Set-Password-Change-Required";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForAddAccountAndLoginOperation {
++(MOZUURLComponents*)URLComponentsForAddAccountAndLoginOperation {
 	NSString* template = @"/api/commerce/customer/accounts/Add-Account-And-Login";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForAddAccountsOperation {
++(MOZUURLComponents*)URLComponentsForAddAccountsOperation {
 	NSString* template = @"/api/commerce/customer/accounts/Bulk";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString*)emailAddress {
++(MOZUURLComponents*)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString*)emailAddress {
 	NSString* template = @"/api/commerce/customer/accounts/loginstatebyemailaddress?emailAddress={emailAddress}";
 	NSDictionary* params = @{
 		@"emailAddress" : emailAddress,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetLoginStateByUserNameOperationWithUserName:(NSString*)userName {
++(MOZUURLComponents*)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString*)userName {
 	NSString* template = @"/api/commerce/customer/accounts/loginstatebyusername?userName={userName}";
 	NSDictionary* params = @{
 		@"userName" : userName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForResetPasswordOperation {
++(MOZUURLComponents*)URLComponentsForResetPasswordOperation {
 	NSString* template = @"/api/commerce/customer/accounts/Reset-Password";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -147,13 +147,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateAccountOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForUpdateAccountOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -163,13 +163,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteAccountOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForDeleteAccountOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

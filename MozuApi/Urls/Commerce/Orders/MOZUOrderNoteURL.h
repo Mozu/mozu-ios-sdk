@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUOrderNoteURL : NSObject
+@interface MOZUOrderNoteURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,17 +18,17 @@
 //
 
 /**
-Resource Url for getOrderNotes
+Resource Url Components for getOrderNotes
 @param orderId Unique identifier of the order.
 */
-+(MOZUURL*)URLForGetOrderNotesOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForGetOrderNotesOperationWithOrderId:(NSString*)orderId;
 
 /**
-Resource Url for getOrderNote
+Resource Url Components for getOrderNote
 @param orderId Unique identifier of the order associated with the note.
 @param noteId Unique identifier of the order note to retrieve.
 */
-+(MOZUURL*)URLForGetOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
++(MOZUURLComponents*)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for getOrderNote
 //
 
 /**
-Resource Url for createOrderNote
+Resource Url Components for createOrderNote
 @param orderId Unique identifier of the order for which to add a note.
 */
-+(MOZUURL*)URLForCreateOrderNoteOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString*)orderId;
 
 
 //
@@ -51,11 +51,11 @@ Resource Url for createOrderNote
 //
 
 /**
-Resource Url for updateOrderNote
+Resource Url Components for updateOrderNote
 @param orderId Unique identifier of the order.
 @param noteId Unique identifier of the order note.
 */
-+(MOZUURL*)URLForUpdateOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
++(MOZUURLComponents*)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
 
 
 //
@@ -65,11 +65,11 @@ Resource Url for updateOrderNote
 //
 
 /**
-Resource Url for deleteOrderNote
+Resource Url Components for deleteOrderNote
 @param orderId Unique identifier of the order associated with the note.
 @param noteId Unique identifier of the order note to delete.
 */
-+(MOZUURL*)URLForDeleteOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
++(MOZUURLComponents*)URLComponentsForDeleteOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
 
 
 

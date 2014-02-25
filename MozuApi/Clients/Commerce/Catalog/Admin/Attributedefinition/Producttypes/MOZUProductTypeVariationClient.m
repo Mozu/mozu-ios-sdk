@@ -9,7 +9,7 @@
 */
 
 #import "MOZUProductTypeVariationClient.h"
-#import "MOZUProductTypeVariationUrl.h"
+#import "MOZUProductTypeVariationUrlComponents.h"
 #import "MozuProductVariationPagedCollection.h"
 
 
@@ -29,7 +29,7 @@
 //
 
 +(MOZUClient*)clientForGenerateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminProductOption>*)body productTypeId:(NSInteger)productTypeId productCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductTypeVariationURL URLForGenerateProductVariationsOperationWithProductTypeId:productTypeId productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUProductTypeVariationURLComponents URLComponentsForGenerateProductVariationsOperationWithProductTypeId:productTypeId productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

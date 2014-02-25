@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUCartItemURL : NSObject
+@interface MOZUCartItemURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,15 +18,15 @@
 //
 
 /**
-Resource Url for getCartItems
+Resource Url Components for getCartItems
 */
-+(MOZUURL*)URLForGetCartItemsOperation;
++(MOZUURLComponents*)URLComponentsForGetCartItemsOperation;
 
 /**
-Resource Url for getCartItem
+Resource Url Components for getCartItem
 @param cartItemId Identifier of the cart item to retrieve.
 */
-+(MOZUURL*)URLForGetCartItemOperationWithCartItemId:(NSString*)cartItemId;
++(MOZUURLComponents*)URLComponentsForGetCartItemOperationWithCartItemId:(NSString*)cartItemId;
 
 
 //
@@ -36,9 +36,9 @@ Resource Url for getCartItem
 //
 
 /**
-Resource Url for addItemToCart
+Resource Url Components for addItemToCart
 */
-+(MOZUURL*)URLForAddItemToCartOperation;
++(MOZUURLComponents*)URLComponentsForAddItemToCartOperation;
 
 
 //
@@ -48,17 +48,17 @@ Resource Url for addItemToCart
 //
 
 /**
-Resource Url for updateCartItem
+Resource Url Components for updateCartItem
 @param cartItemId Identifier of the cart item to update.
 */
-+(MOZUURL*)URLForUpdateCartItemOperationWithCartItemId:(NSString*)cartItemId;
++(MOZUURLComponents*)URLComponentsForUpdateCartItemOperationWithCartItemId:(NSString*)cartItemId;
 
 /**
-Resource Url for updateCartItemQuantity
+Resource Url Components for updateCartItemQuantity
 @param cartItemId Identifier of the cart item to update quantity.
 @param quantity The number of cart items in the shopper's active cart.
 */
-+(MOZUURL*)URLForUpdateCartItemQuantityOperationWithCartItemId:(NSString*)cartItemId quantity:(NSInteger)quantity;
++(MOZUURLComponents*)URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:(NSString*)cartItemId quantity:(NSInteger)quantity;
 
 
 //
@@ -68,15 +68,15 @@ Resource Url for updateCartItemQuantity
 //
 
 /**
-Resource Url for removeAllCartItems
+Resource Url Components for removeAllCartItems
 */
-+(MOZUURL*)URLForRemoveAllCartItemsOperation;
++(MOZUURLComponents*)URLComponentsForRemoveAllCartItemsOperation;
 
 /**
-Resource Url for deleteCartItem
+Resource Url Components for deleteCartItem
 @param cartItemId Identifier of the cart item to delete.
 */
-+(MOZUURL*)URLForDeleteCartItemOperationWithCartItemId:(NSString*)cartItemId;
++(MOZUURLComponents*)URLComponentsForDeleteCartItemOperationWithCartItemId:(NSString*)cartItemId;
 
 
 

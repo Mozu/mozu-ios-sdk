@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUDocumentTreeURL : NSObject
+@interface MOZUDocumentTreeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,18 +18,18 @@
 //
 
 /**
-Resource Url for getTreeDocument
+Resource Url Components for getTreeDocument
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
-+(MOZUURL*)URLForGetTreeDocumentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName;
++(MOZUURLComponents*)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName;
 
 /**
-Resource Url for getTreeDocumentContent
+Resource Url Components for getTreeDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
-+(MOZUURL*)URLForGetTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName;
++(MOZUURLComponents*)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName;
 
 
 //
@@ -46,11 +46,11 @@ Resource Url for getTreeDocumentContent
 //
 
 /**
-Resource Url for updateTreeDocumentContent
+Resource Url Components for updateTreeDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
-+(MOZUURL*)URLForUpdateTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName;
++(MOZUURLComponents*)URLComponentsForUpdateTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName;
 
 
 //
@@ -60,11 +60,11 @@ Resource Url for updateTreeDocumentContent
 //
 
 /**
-Resource Url for deleteTreeDocumentContent
+Resource Url Components for deleteTreeDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
-+(MOZUURL*)URLForDeleteTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName;
++(MOZUURLComponents*)URLComponentsForDeleteTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName;
 
 
 

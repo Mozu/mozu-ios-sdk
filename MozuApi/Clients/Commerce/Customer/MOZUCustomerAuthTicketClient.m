@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCustomerAuthTicketClient.h"
-#import "MOZUCustomerAuthTicketUrl.h"
+#import "MOZUCustomerAuthTicketUrlComponents.h"
 #import "MozuCustomerAuthTicket.h"
 
 
@@ -29,7 +29,7 @@
 //
 
 +(MOZUClient*)clientForCreateUserAuthTicketOperationWithBody:(MOZUCustomerUserAuthInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCustomerAuthTicketURL URLForCreateUserAuthTicketOperation];
+	id url = [MOZUCustomerAuthTicketURLComponents URLComponentsForCreateUserAuthTicketOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -51,7 +51,7 @@
 //
 
 +(MOZUClient*)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCustomerAuthTicketURL URLForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken];
+	id url = [MOZUCustomerAuthTicketURLComponents URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

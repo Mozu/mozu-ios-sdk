@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUProductTypeExtraURL : NSObject
+@interface MOZUProductTypeExtraURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,17 +18,17 @@
 //
 
 /**
-Resource Url for getExtras
+Resource Url Components for getExtras
 @param productTypeId Identifier of the product type.
 */
-+(MOZUURL*)URLForGetExtrasOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForGetExtrasOperationWithProductTypeId:(NSInteger)productTypeId;
 
 /**
-Resource Url for getExtra
+Resource Url Components for getExtra
 @param productTypeId Identifier of the product type whose extra is being retrieved.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for getExtra
 //
 
 /**
-Resource Url for addExtra
+Resource Url Components for addExtra
 @param productTypeId Identifier of the product type.
 */
-+(MOZUURL*)URLForAddExtraOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForAddExtraOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -51,11 +51,11 @@ Resource Url for addExtra
 //
 
 /**
-Resource Url for updateExtra
+Resource Url Components for updateExtra
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -65,11 +65,11 @@ Resource Url for updateExtra
 //
 
 /**
-Resource Url for deleteExtra
+Resource Url Components for deleteExtra
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForDeleteExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForDeleteExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 

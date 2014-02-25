@@ -9,7 +9,7 @@
 
 #import "MOZUPickupURL.h"
 
-@implementation MOZUPickupURL
+@implementation MOZUPickupURLComponents
 
 //
 #pragma mark -
@@ -17,24 +17,24 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetPickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
++(MOZUURLComponents*)URLComponentsForGetPickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups/{pickupId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"pickupId" : pickupId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
++(MOZUURLComponents*)URLComponentsForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups/{pickupId}/actions";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"pickupId" : pickupId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -44,13 +44,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreatePickupOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForCreatePickupOperationWithOrderId:(NSString*)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -60,14 +60,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdatePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
++(MOZUURLComponents*)URLComponentsForUpdatePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups/{pickupId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"pickupId" : pickupId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -77,14 +77,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeletePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
++(MOZUURLComponents*)URLComponentsForDeletePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups/{pickupId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"pickupId" : pickupId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

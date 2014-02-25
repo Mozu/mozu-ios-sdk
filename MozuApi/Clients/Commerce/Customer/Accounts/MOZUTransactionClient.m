@@ -9,7 +9,7 @@
 */
 
 #import "MOZUTransactionClient.h"
-#import "MOZUTransactionUrl.h"
+#import "MOZUTransactionUrlComponents.h"
 #import "MozuTransaction.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetTransactionsOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTransactionURL URLForGetTransactionsOperationWithAccountId:accountId];
+	id url = [MOZUTransactionURLComponents URLComponentsForGetTransactionsOperationWithAccountId:accountId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -44,7 +44,7 @@
 //
 
 +(MOZUClient*)clientForAddTransactionOperationWithBody:(MOZUTransaction*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTransactionURL URLForAddTransactionOperationWithAccountId:accountId];
+	id url = [MOZUTransactionURLComponents URLComponentsForAddTransactionOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -73,7 +73,7 @@
 //
 
 +(MOZUClient*)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTransactionURL URLForRemoveTransactionOperationWithAccountId:accountId transactionId:transactionId];
+	id url = [MOZUTransactionURLComponents URLComponentsForRemoveTransactionOperationWithAccountId:accountId transactionId:transactionId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

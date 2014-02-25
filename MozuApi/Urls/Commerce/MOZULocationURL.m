@@ -9,7 +9,7 @@
 
 #import "MOZULocationURL.h"
 
-@implementation MOZULocationURL
+@implementation MOZULocationURLComponents
 
 //
 #pragma mark -
@@ -17,26 +17,26 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetLocationOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetLocationOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/storefront/locations/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString*)locationUsageType code:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString*)locationUsageType code:(NSString*)code {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/{locationUsageType}/locations/{code}";
 	NSDictionary* params = @{
 		@"locationUsageType" : locationUsageType,
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString*)locationUsageType startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString*)locationUsageType startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/{locationUsageType}/locations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"locationUsageType" : locationUsageType,
@@ -46,26 +46,26 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetDirectShipLocationOperation {
++(MOZUURLComponents*)URLComponentsForGetDirectShipLocationOperation {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/DS/location";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetInStorePickupLocationOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetInStorePickupLocationOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/SP/locations/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/SP/locations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex,
@@ -74,7 +74,7 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

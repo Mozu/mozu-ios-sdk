@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCreditTransactionClient.h"
-#import "MOZUCreditTransactionUrl.h"
+#import "MOZUCreditTransactionUrlComponents.h"
 #import "MozuCreditTransaction.h"
 #import "MozuCreditTransactionCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetTransactionsOperationWithCode:(NSString*)code startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditTransactionURL URLForGetTransactionsOperationWithCode:code startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUCreditTransactionURLComponents URLComponentsForGetTransactionsOperationWithCode:code startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -44,7 +44,7 @@
 //
 
 +(MOZUClient*)clientForAddTransactionOperationWithBody:(MOZUCreditTransaction*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditTransactionURL URLForAddTransactionOperationWithCode:code];
+	id url = [MOZUCreditTransactionURLComponents URLComponentsForAddTransactionOperationWithCode:code];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

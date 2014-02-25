@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUEventDeliverySummaryURL : NSObject
+@interface MOZUEventDeliverySummaryURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,14 +18,14 @@
 //
 
 /**
-Resource Url for getDeliveryAttemptSummaries
+Resource Url Components for getDeliveryAttemptSummaries
 @param subscriptionId 
 @param startIndex 
 @param pageSize 
 @param sortBy 
 @param filter 
 */
-+(MOZUURL*)URLForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString*)subscriptionId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString*)subscriptionId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 
 //

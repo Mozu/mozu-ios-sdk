@@ -9,7 +9,7 @@
 
 #import "MOZUTenantDataURL.h"
 
-@implementation MOZUTenantDataURL
+@implementation MOZUTenantDataURLComponents
 
 //
 #pragma mark -
@@ -17,13 +17,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUURLComponents*)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
 	NSString* template = @"/api/platform/tenantdata/{*dbEntryQuery}";
 	NSDictionary* params = @{
 		@"dbEntryQuery" : dbEntryQuery,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -33,13 +33,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUURLComponents*)URLComponentsForCreateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
 	NSString* template = @"/api/platform/tenantdata/{*dbEntryQuery}";
 	NSDictionary* params = @{
 		@"dbEntryQuery" : dbEntryQuery,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -49,13 +49,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUURLComponents*)URLComponentsForUpdateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
 	NSString* template = @"/api/platform/tenantdata/{*dbEntryQuery}";
 	NSDictionary* params = @{
 		@"dbEntryQuery" : dbEntryQuery,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -65,13 +65,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUURLComponents*)URLComponentsForDeleteDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
 	NSString* template = @"/api/platform/tenantdata/{*dbEntryQuery}";
 	NSDictionary* params = @{
 		@"dbEntryQuery" : dbEntryQuery,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

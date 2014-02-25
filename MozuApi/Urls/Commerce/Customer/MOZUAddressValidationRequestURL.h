@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAddressValidationRequestURL : NSObject
+@interface MOZUAddressValidationRequestURLComponents : NSObject
 
 //
 #pragma mark -
@@ -25,9 +25,9 @@
 //
 
 /**
-Resource Url for validateAddress
+Resource Url Components for validateAddress
 */
-+(MOZUURL*)URLForValidateAddressOperation;
++(MOZUURLComponents*)URLComponentsForValidateAddressOperation;
 
 
 //

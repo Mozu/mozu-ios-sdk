@@ -9,7 +9,7 @@
 */
 
 #import "MOZUChannelGroupClient.h"
-#import "MOZUChannelGroupUrl.h"
+#import "MOZUChannelGroupUrlComponents.h"
 #import "MozuChannelGroup.h"
 #import "MozuChannelGroupCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetChannelGroupsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUChannelGroupURL URLForGetChannelGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUChannelGroupURLComponents URLComponentsForGetChannelGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetChannelGroupOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUChannelGroupURL URLForGetChannelGroupOperationWithCode:code];
+	id url = [MOZUChannelGroupURLComponents URLComponentsForGetChannelGroupOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 //
 
 +(MOZUClient*)clientForCreateChannelGroupOperationWithBody:(MOZUChannelGroup*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUChannelGroupURL URLForCreateChannelGroupOperation];
+	id url = [MOZUChannelGroupURLComponents URLComponentsForCreateChannelGroupOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -80,7 +80,7 @@
 //
 
 +(MOZUClient*)clientForUpdateChannelGroupOperationWithBody:(MOZUChannelGroup*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUChannelGroupURL URLForUpdateChannelGroupOperationWithCode:code];
+	id url = [MOZUChannelGroupURLComponents URLComponentsForUpdateChannelGroupOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -102,7 +102,7 @@
 //
 
 +(MOZUClient*)clientForDeleteChannelGroupOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUChannelGroupURL URLForDeleteChannelGroupOperationWithCode:code];
+	id url = [MOZUChannelGroupURLComponents URLComponentsForDeleteChannelGroupOperationWithCode:code];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

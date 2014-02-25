@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDocumentDraftSummaryClient.h"
-#import "MOZUDocumentDraftSummaryUrl.h"
+#import "MOZUDocumentDraftSummaryUrlComponents.h"
 #import "MozuDocumentDraftSummaryPagedCollection.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForListDocumentDraftSummariesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentDraftSummaryURL URLForListDocumentDraftSummariesOperationWithPageSize:pageSize startIndex:startIndex documentLists:documentLists];
+	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForListDocumentDraftSummariesOperationWithPageSize:pageSize startIndex:startIndex documentLists:documentLists];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -46,7 +46,7 @@
 //
 
 +(MOZUClient*)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString*)body documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentDraftSummaryURL URLForDeleteDocumentDraftsOperationWithDocumentLists:documentLists];
+	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:documentLists];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -66,7 +66,7 @@
 //
 
 +(MOZUClient*)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString*)body documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentDraftSummaryURL URLForPublishDocumentsOperationWithDocumentLists:documentLists];
+	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForPublishDocumentsOperationWithDocumentLists:documentLists];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

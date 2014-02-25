@@ -9,7 +9,7 @@
 
 #import "MOZUTenantAdminUserAuthTicketURL.h"
 
-@implementation MOZUTenantAdminUserAuthTicketURL
+@implementation MOZUTenantAdminUserAuthTicketURLComponents
 
 //
 #pragma mark -
@@ -24,13 +24,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreateUserAuthTicketOperationWithTenantId:(NSNumber*)tenantId {
++(MOZUURLComponents*)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber*)tenantId {
 	NSString* template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
 	NSDictionary* params = @{
 		@"tenantId" : tenantId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -40,13 +40,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForRefreshAuthTicketOperationWithTenantId:(NSNumber*)tenantId {
++(MOZUURLComponents*)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber*)tenantId {
 	NSString* template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
 	NSDictionary* params = @{
 		@"tenantId" : tenantId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -56,13 +56,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
++(MOZUURLComponents*)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
 	NSString* template = @"/api/platform/adminuser/authtickets/?refreshToken={refreshToken}";
 	NSDictionary* params = @{
 		@"refreshToken" : refreshToken,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

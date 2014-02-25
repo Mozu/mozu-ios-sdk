@@ -9,7 +9,7 @@
 
 #import "MOZUOrderAttributeURL.h"
 
-@implementation MOZUOrderAttributeURL
+@implementation MOZUOrderAttributeURLComponents
 
 //
 #pragma mark -
@@ -17,13 +17,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetOrderAttributesOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForGetOrderAttributesOperationWithOrderId:(NSString*)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/attributes";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -33,13 +33,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreateOrderAttributesOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForCreateOrderAttributesOperationWithOrderId:(NSString*)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/attributes";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -49,14 +49,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateOrderAttributesOperationWithOrderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing {
++(MOZUURLComponents*)URLComponentsForUpdateOrderAttributesOperationWithOrderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing {
 	NSString* template = @"/api/commerce/orders/{orderId}/attributes?removeMissing={removeMissing}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"removeMissing" : removeMissing,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

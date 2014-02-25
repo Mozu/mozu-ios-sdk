@@ -9,7 +9,7 @@
 */
 
 #import "MOZUTaxableTerritoryClient.h"
-#import "MOZUTaxableTerritoryUrl.h"
+#import "MOZUTaxableTerritoryUrlComponents.h"
 #import "MozuTaxableTerritory.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetTaxableTerritoriesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTaxableTerritoryURL URLForGetTaxableTerritoriesOperation];
+	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForGetTaxableTerritoriesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -44,7 +44,7 @@
 //
 
 +(MOZUClient*)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTaxableTerritoryURL URLForAddTaxableTerritoryOperation];
+	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForAddTaxableTerritoryOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -66,7 +66,7 @@
 //
 
 +(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithBody:(NSArray<MOZUTaxableTerritory>*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTaxableTerritoryURL URLForUpdateTaxableTerritoriesOperation];
+	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForUpdateTaxableTerritoriesOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

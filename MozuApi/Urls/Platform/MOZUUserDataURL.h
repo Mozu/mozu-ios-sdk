@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUUserDataURL : NSObject
+@interface MOZUUserDataURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,10 +18,10 @@
 //
 
 /**
-Resource Url for getDBValue
+Resource Url Components for getDBValue
 @param dbEntryQuery The database entry query string used to retrieve the record information.
 */
-+(MOZUURL*)URLForGetDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery;
++(MOZUURLComponents*)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery;
 
 
 //
@@ -31,10 +31,10 @@ Resource Url for getDBValue
 //
 
 /**
-Resource Url for createDBValue
+Resource Url Components for createDBValue
 @param dbEntryQuery The database entry string to create.
 */
-+(MOZUURL*)URLForCreateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery;
++(MOZUURLComponents*)URLComponentsForCreateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery;
 
 
 //
@@ -44,10 +44,10 @@ Resource Url for createDBValue
 //
 
 /**
-Resource Url for updateDBValue
+Resource Url Components for updateDBValue
 @param dbEntryQuery The database entry query string used to update the record information.
 */
-+(MOZUURL*)URLForUpdateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery;
++(MOZUURLComponents*)URLComponentsForUpdateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery;
 
 
 //
@@ -57,10 +57,10 @@ Resource Url for updateDBValue
 //
 
 /**
-Resource Url for deleteDBValue
+Resource Url Components for deleteDBValue
 @param dbEntryQuery The database entry string to delete.
 */
-+(MOZUURL*)URLForDeleteDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery;
++(MOZUURLComponents*)URLComponentsForDeleteDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery;
 
 
 

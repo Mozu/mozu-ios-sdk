@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUDeveloperAdminUserAuthTicketURL : NSObject
+@interface MOZUDeveloperAdminUserAuthTicketURLComponents : NSObject
 
 //
 #pragma mark -
@@ -25,10 +25,10 @@
 //
 
 /**
-Resource Url for createDeveloperUserAuthTicket
+Resource Url Components for createDeveloperUserAuthTicket
 @param developerAccountId Unique identifier of the developer account.
 */
-+(MOZUURL*)URLForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId;
++(MOZUURLComponents*)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for createDeveloperUserAuthTicket
 //
 
 /**
-Resource Url for refreshDeveloperAuthTicket
+Resource Url Components for refreshDeveloperAuthTicket
 @param developerAccountId Unique identifier of the developer account.
 */
-+(MOZUURL*)URLForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId;
++(MOZUURLComponents*)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId;
 
 
 //
@@ -51,10 +51,10 @@ Resource Url for refreshDeveloperAuthTicket
 //
 
 /**
-Resource Url for deleteUserAuthTicket
+Resource Url Components for deleteUserAuthTicket
 @param refreshToken Refresh token string associated with the developer account authentication ticket.
 */
-+(MOZUURL*)URLForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
++(MOZUURLComponents*)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
 
 
 

@@ -9,7 +9,7 @@
 
 #import "MOZUProductVariationURL.h"
 
-@implementation MOZUProductVariationURL
+@implementation MOZUProductVariationURLComponents
 
 //
 #pragma mark -
@@ -17,17 +17,17 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetProductVariationOperationWithProductCode:(NSString*)productCode variationKey:(NSString*)variationKey {
++(MOZUURLComponents*)URLComponentsForGetProductVariationOperationWithProductCode:(NSString*)productCode variationKey:(NSString*)variationKey {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
 		@"variationKey" : variationKey,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetProductVariationsOperationWithProductCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetProductVariationsOperationWithProductCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/variations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
@@ -37,7 +37,7 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -54,23 +54,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateProductVariationsOperationWithProductCode:(NSString*)productCode {
++(MOZUURLComponents*)URLComponentsForUpdateProductVariationsOperationWithProductCode:(NSString*)productCode {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/variations";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForUpdateProductVariationOperationWithProductCode:(NSString*)productCode variationKey:(NSString*)variationKey {
++(MOZUURLComponents*)URLComponentsForUpdateProductVariationOperationWithProductCode:(NSString*)productCode variationKey:(NSString*)variationKey {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
 		@"variationKey" : variationKey,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -80,14 +80,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteProductVariationOperationWithProductCode:(NSString*)productCode variationKey:(NSString*)variationKey {
++(MOZUURLComponents*)URLComponentsForDeleteProductVariationOperationWithProductCode:(NSString*)productCode variationKey:(NSString*)variationKey {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
 		@"variationKey" : variationKey,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

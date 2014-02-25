@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUPropertyTypeURL : NSObject
+@interface MOZUPropertyTypeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,22 +18,22 @@
 //
 
 /**
-Resource Url for getPropertyTypes
+Resource Url Components for getPropertyTypes
 @param pageSize 
 @param startIndex 
 */
-+(MOZUURL*)URLForGetPropertyTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
++(MOZUURLComponents*)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
 
 /**
-Resource Url for getPropertyType
+Resource Url Components for getPropertyType
 @param propertyTypeName 
 */
-+(MOZUURL*)URLForGetPropertyTypeOperationWithPropertyTypeName:(NSString*)propertyTypeName;
++(MOZUURLComponents*)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString*)propertyTypeName;
 
 /**
-Resource Url for propertyValueTypes
+Resource Url Components for propertyValueTypes
 */
-+(MOZUURL*)URLForPropertyValueTypesOperation;
++(MOZUURLComponents*)URLComponentsForPropertyValueTypesOperation;
 
 
 //

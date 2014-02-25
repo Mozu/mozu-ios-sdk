@@ -9,7 +9,7 @@
 */
 
 #import "MOZURuntimeProductClient.h"
-#import "MOZURuntimeProductUrl.h"
+#import "MOZURuntimeProductUrlComponents.h"
 #import "MozuRuntimeProduct.h"
 #import "MozuRuntimeLocationInventoryCollection.h"
 #import "MozuConfiguredProduct.h"
@@ -26,7 +26,7 @@
 //
 
 +(MOZUClient*)clientForGetProductsOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZURuntimeProductURL URLForGetProductsOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
+	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductsOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -40,7 +40,7 @@
 }
 
 +(MOZUClient*)clientForGetProductInventoryOperationWithProductCode:(NSString*)productCode locationCodes:(NSString*)locationCodes userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZURuntimeProductURL URLForGetProductInventoryOperationWithProductCode:productCode locationCodes:locationCodes];
+	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductInventoryOperationWithProductCode:productCode locationCodes:locationCodes];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -54,7 +54,7 @@
 }
 
 +(MOZUClient*)clientForGetProductOperationWithProductCode:(NSString*)productCode variationProductCode:(NSString*)variationProductCode allowInactive:(NSNumber*)allowInactive skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZURuntimeProductURL URLForGetProductOperationWithProductCode:productCode variationProductCode:variationProductCode allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck];
+	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductOperationWithProductCode:productCode variationProductCode:variationProductCode allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -75,7 +75,7 @@
 //
 
 +(MOZUClient*)clientForConfiguredProductOperationWithBody:(MOZUProductOptionSelections*)body productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZURuntimeProductURL URLForConfiguredProductOperationWithProductCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck];
+	id url = [MOZURuntimeProductURLComponents URLComponentsForConfiguredProductOperationWithProductCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -90,7 +90,7 @@
 }
 
 +(MOZUClient*)clientForValidateProductOperationWithBody:(MOZUProductOptionSelections*)body productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZURuntimeProductURL URLForValidateProductOperationWithProductCode:productCode skipInventoryCheck:skipInventoryCheck];
+	id url = [MOZURuntimeProductURLComponents URLComponentsForValidateProductOperationWithProductCode:productCode skipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

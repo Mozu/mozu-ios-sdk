@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUPaymentURL : NSObject
+@interface MOZUPaymentURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,24 +18,24 @@
 //
 
 /**
-Resource Url for getPayments
+Resource Url Components for getPayments
 @param orderId Unique identifier of the order.
 */
-+(MOZUURL*)URLForGetPaymentsOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForGetPaymentsOperationWithOrderId:(NSString*)orderId;
 
 /**
-Resource Url for getPayment
+Resource Url Components for getPayment
 @param orderId Unique identifier of the order associated with the payment transaction.
 @param paymentId Unique identifier of the payment transaction submitted for the order.
 */
-+(MOZUURL*)URLForGetPaymentOperationWithOrderId:(NSString*)orderId paymentId:(NSString*)paymentId;
++(MOZUURLComponents*)URLComponentsForGetPaymentOperationWithOrderId:(NSString*)orderId paymentId:(NSString*)paymentId;
 
 /**
-Resource Url for getAvailablePaymentActions
+Resource Url Components for getAvailablePaymentActions
 @param orderId Unique identifier of the order associated with the payment.
 @param paymentId Unique identifer of the payment for which to retrieve available actions.
 */
-+(MOZUURL*)URLForGetAvailablePaymentActionsOperationWithOrderId:(NSString*)orderId paymentId:(NSString*)paymentId;
++(MOZUURLComponents*)URLComponentsForGetAvailablePaymentActionsOperationWithOrderId:(NSString*)orderId paymentId:(NSString*)paymentId;
 
 
 //
@@ -45,17 +45,17 @@ Resource Url for getAvailablePaymentActions
 //
 
 /**
-Resource Url for performPaymentAction
+Resource Url Components for performPaymentAction
 @param orderId Unique identifier of the order associated with the payment.
 @param paymentId Unique identifer of the payment for which to perform the action.
 */
-+(MOZUURL*)URLForPerformPaymentActionOperationWithOrderId:(NSString*)orderId paymentId:(NSString*)paymentId;
++(MOZUURLComponents*)URLComponentsForPerformPaymentActionOperationWithOrderId:(NSString*)orderId paymentId:(NSString*)paymentId;
 
 /**
-Resource Url for createPaymentAction
+Resource Url Components for createPaymentAction
 @param orderId Unique identifier of the order for which to apply the payment.
 */
-+(MOZUURL*)URLForCreatePaymentActionOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForCreatePaymentActionOperationWithOrderId:(NSString*)orderId;
 
 
 //

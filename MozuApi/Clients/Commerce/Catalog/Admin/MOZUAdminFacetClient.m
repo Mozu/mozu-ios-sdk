@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminFacetClient.h"
-#import "MOZUAdminFacetUrl.h"
+#import "MOZUAdminFacetUrlComponents.h"
 #import "MozuAdminFacet.h"
 #import "MozuFacetSet.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminFacetURL URLForGetFacetOperationWithFacetId:facetId validate:validate];
+	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetOperationWithFacetId:facetId validate:validate];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -40,7 +40,7 @@
 }
 
 +(MOZUClient*)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminFacetURL URLForGetFacetCategoryListOperationWithCategoryId:categoryId includeAvailable:includeAvailable validate:validate];
+	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetCategoryListOperationWithCategoryId:categoryId includeAvailable:includeAvailable validate:validate];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -64,7 +64,7 @@
 //
 
 +(MOZUClient*)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminFacetURL URLForAddFacetOperation];
+	id url = [MOZUAdminFacetURLComponents URLComponentsForAddFacetOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -89,7 +89,7 @@
 //
 
 +(MOZUClient*)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminFacetURL URLForUpdateFacetOperationWithFacetId:facetId];
+	id url = [MOZUAdminFacetURLComponents URLComponentsForUpdateFacetOperationWithFacetId:facetId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -114,7 +114,7 @@
 //
 
 +(MOZUClient*)clientForDeleteFacetByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminFacetURL URLForDeleteFacetByIdOperationWithFacetId:facetId];
+	id url = [MOZUAdminFacetURLComponents URLComponentsForDeleteFacetByIdOperationWithFacetId:facetId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

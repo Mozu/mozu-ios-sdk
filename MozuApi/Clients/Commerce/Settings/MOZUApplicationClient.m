@@ -9,7 +9,7 @@
 */
 
 #import "MOZUApplicationClient.h"
-#import "MOZUApplicationUrl.h"
+#import "MOZUApplicationUrlComponents.h"
 #import "MozuSiteSettingsApplication.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUApplicationURL URLForThirdPartyGetApplicationOperation];
+	id url = [MOZUApplicationURLComponents URLComponentsForThirdPartyGetApplicationOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -50,7 +50,7 @@
 //
 
 +(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUApplicationURL URLForThirdPartyUpdateApplicationOperation];
+	id url = [MOZUApplicationURLComponents URLComponentsForThirdPartyUpdateApplicationOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -9,7 +9,7 @@
 
 #import "MOZUCreditURL.h"
 
-@implementation MOZUCreditURL
+@implementation MOZUCreditURLComponents
 
 //
 #pragma mark -
@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetCreditsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetCreditsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/customer/credits/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex,
@@ -26,16 +26,16 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetCreditOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetCreditOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/customer/credits/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -45,11 +45,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddCreditOperation {
++(MOZUURLComponents*)URLComponentsForAddCreditOperation {
 	NSString* template = @"/api/commerce/customer/credits/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -59,22 +59,22 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateCreditOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForUpdateCreditOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/customer/credits/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForAssociateCreditToShopperOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForAssociateCreditToShopperOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/customer/credits/{code}/associate-to-shopper";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -84,13 +84,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteCreditOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForDeleteCreditOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/customer/credits/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

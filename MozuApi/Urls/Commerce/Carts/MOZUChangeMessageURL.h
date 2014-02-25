@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUChangeMessageURL : NSObject
+@interface MOZUChangeMessageURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,9 +18,9 @@
 //
 
 /**
-Resource Url for getMessages
+Resource Url Components for getMessages
 */
-+(MOZUURL*)URLForGetMessagesOperation;
++(MOZUURLComponents*)URLComponentsForGetMessagesOperation;
 
 
 //
@@ -44,15 +44,15 @@ Resource Url for getMessages
 //
 
 /**
-Resource Url for removeAllMessages
+Resource Url Components for removeAllMessages
 */
-+(MOZUURL*)URLForRemoveAllMessagesOperation;
++(MOZUURLComponents*)URLComponentsForRemoveAllMessagesOperation;
 
 /**
-Resource Url for removeMessage
+Resource Url Components for removeMessage
 @param messageId Identifier of the message to remove from the cart.
 */
-+(MOZUURL*)URLForRemoveMessageOperationWithMessageId:(NSString*)messageId;
++(MOZUURLComponents*)URLComponentsForRemoveMessageOperationWithMessageId:(NSString*)messageId;
 
 
 

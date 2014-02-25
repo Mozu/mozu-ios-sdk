@@ -9,7 +9,7 @@
 
 #import "MOZUPaymentSettingsURL.h"
 
-@implementation MOZUPaymentSettingsURL
+@implementation MOZUPaymentSettingsURLComponents
 
 //
 #pragma mark -
@@ -17,11 +17,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetThirdPartyPaymentWorkflowsOperation {
++(MOZUURLComponents*)URLComponentsForGetThirdPartyPaymentWorkflowsOperation {
 	NSString* template = @"/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

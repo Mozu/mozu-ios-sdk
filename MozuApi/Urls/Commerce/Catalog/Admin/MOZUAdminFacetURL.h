@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAdminFacetURL : NSObject
+@interface MOZUAdminFacetURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,19 +18,19 @@
 //
 
 /**
-Resource Url for getFacet
+Resource Url Components for getFacet
 @param facetId Unique identifier of the facet to retrieve.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
-+(MOZUURL*)URLForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber*)validate;
++(MOZUURLComponents*)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber*)validate;
 
 /**
-Resource Url for getFacetCategoryList
+Resource Url Components for getFacetCategoryList
 @param categoryId Unique identifier of the category associated with the facets to retrieve.
 @param includeAvailable If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
-+(MOZUURL*)URLForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate;
++(MOZUURLComponents*)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate;
 
 
 //
@@ -40,9 +40,9 @@ Resource Url for getFacetCategoryList
 //
 
 /**
-Resource Url for addFacet
+Resource Url Components for addFacet
 */
-+(MOZUURL*)URLForAddFacetOperation;
++(MOZUURLComponents*)URLComponentsForAddFacetOperation;
 
 
 //
@@ -52,10 +52,10 @@ Resource Url for addFacet
 //
 
 /**
-Resource Url for updateFacet
+Resource Url Components for updateFacet
 @param facetId Unique identifier of the facet to modify.
 */
-+(MOZUURL*)URLForUpdateFacetOperationWithFacetId:(NSInteger)facetId;
++(MOZUURLComponents*)URLComponentsForUpdateFacetOperationWithFacetId:(NSInteger)facetId;
 
 
 //
@@ -65,10 +65,10 @@ Resource Url for updateFacet
 //
 
 /**
-Resource Url for deleteFacetById
+Resource Url Components for deleteFacetById
 @param facetId Unique identifier of the facet to delete.
 */
-+(MOZUURL*)URLForDeleteFacetByIdOperationWithFacetId:(NSInteger)facetId;
++(MOZUURLComponents*)URLComponentsForDeleteFacetByIdOperationWithFacetId:(NSInteger)facetId;
 
 
 

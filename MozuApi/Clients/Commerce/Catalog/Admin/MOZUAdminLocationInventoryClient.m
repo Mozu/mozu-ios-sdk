@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminLocationInventoryClient.h"
-#import "MOZUAdminLocationInventoryUrl.h"
+#import "MOZUAdminLocationInventoryUrlComponents.h"
 #import "MozuAdminLocationInventory.h"
 #import "MozuAdminLocationInventoryCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString*)locationCode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminLocationInventoryURL URLForGetLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
+	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForGetLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -40,7 +40,7 @@
 }
 
 +(MOZUClient*)clientForGetLocationInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString*)locationCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminLocationInventoryURL URLForGetLocationInventoriesOperationWithLocationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForGetLocationInventoriesOperationWithLocationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -64,7 +64,7 @@
 //
 
 +(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminLocationInventoryURL URLForAddLocationInventoryOperationWithLocationCode:locationCode];
+	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForAddLocationInventoryOperationWithLocationCode:locationCode];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -90,7 +90,7 @@
 //
 
 +(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminLocationInventoryURL URLForUpdateLocationInventoryOperationWithLocationCode:locationCode];
+	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForUpdateLocationInventoryOperationWithLocationCode:locationCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -116,7 +116,7 @@
 //
 
 +(MOZUClient*)clientForDeleteLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString*)locationCode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminLocationInventoryURL URLForDeleteLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
+	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForDeleteLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

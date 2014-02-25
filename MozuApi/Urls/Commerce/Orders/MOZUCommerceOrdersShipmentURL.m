@@ -9,7 +9,7 @@
 
 #import "MOZUCommerceOrdersShipmentURL.h"
 
-@implementation MOZUCommerceOrdersShipmentURL
+@implementation MOZUCommerceOrdersShipmentURLComponents
 
 //
 #pragma mark -
@@ -17,23 +17,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId {
++(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId {
 	NSString* template = @"/api/commerce/orders/{orderId}/shipments/{shipmentId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"shipmentId" : shipmentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetAvailableShipmentMethodsOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString*)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/shipments/methods";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -43,13 +43,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreatePackageShipmentsOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithOrderId:(NSString*)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/shipments";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -66,14 +66,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId {
++(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId {
 	NSString* template = @"/api/commerce/orders/{orderId}/shipments/{shipmentId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"shipmentId" : shipmentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

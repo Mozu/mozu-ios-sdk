@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUWishlistItemURL : NSObject
+@interface MOZUWishlistItemURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,24 +18,24 @@
 //
 
 /**
-Resource Url for getWishlistItem
+Resource Url Components for getWishlistItem
 @param wishlistId Unique identifier of the wish list item to retrieve.
 @param wishlistItemId Unique identifier of the wish list associated with the item to retrieve.
 */
-+(MOZUURL*)URLForGetWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId;
++(MOZUURLComponents*)URLComponentsForGetWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId;
 
 /**
-Resource Url for getWishlistItems
+Resource Url Components for getWishlistItems
 @param wishlistId Unique identifier of the wish list associated with the items to retrieve.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetWishlistItemsOperationWithWishlistId:(NSString*)wishlistId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetWishlistItemsOperationWithWishlistId:(NSString*)wishlistId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 /**
-Resource Url for getWishlistItemsByWishlistName
+Resource Url Components for getWishlistItemsByWishlistName
 @param customerAccountId The unique identifier of the customer account associated with the wish list.
 @param wishlistName The name of the wish list that contains the items to retrieve.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
@@ -43,7 +43,7 @@ Resource Url for getWishlistItemsByWishlistName
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString*)wishlistName startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString*)wishlistName startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 
 //
@@ -53,10 +53,10 @@ Resource Url for getWishlistItemsByWishlistName
 //
 
 /**
-Resource Url for addItemToWishlist
+Resource Url Components for addItemToWishlist
 @param wishlistId Unique identifier of the wish list associated with the item to add.
 */
-+(MOZUURL*)URLForAddItemToWishlistOperationWithWishlistId:(NSString*)wishlistId;
++(MOZUURLComponents*)URLComponentsForAddItemToWishlistOperationWithWishlistId:(NSString*)wishlistId;
 
 
 //
@@ -66,19 +66,19 @@ Resource Url for addItemToWishlist
 //
 
 /**
-Resource Url for updateWishlistItem
+Resource Url Components for updateWishlistItem
 @param wishlistId Unique identifier of the wish list associated with the item to update.
 @param wishlistItemId Unique identifier of the item in the shopper wish list to update.
 */
-+(MOZUURL*)URLForUpdateWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId;
++(MOZUURLComponents*)URLComponentsForUpdateWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId;
 
 /**
-Resource Url for updateWishlistItemQuantity
+Resource Url Components for updateWishlistItemQuantity
 @param wishlistId Unique identifier of the wish list associated with the item quantity to update.
 @param wishlistItemId Unique identifier of the item in the wish list to update quantity.
 @param quantity The quantity of the item in the wish list.
 */
-+(MOZUURL*)URLForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId quantity:(NSInteger)quantity;
++(MOZUURLComponents*)URLComponentsForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId quantity:(NSInteger)quantity;
 
 
 //
@@ -88,17 +88,17 @@ Resource Url for updateWishlistItemQuantity
 //
 
 /**
-Resource Url for removeAllWishlistItems
+Resource Url Components for removeAllWishlistItems
 @param wishlistId Unique identifier of the wish list associated with the items to remove.
 */
-+(MOZUURL*)URLForRemoveAllWishlistItemsOperationWithWishlistId:(NSString*)wishlistId;
++(MOZUURLComponents*)URLComponentsForRemoveAllWishlistItemsOperationWithWishlistId:(NSString*)wishlistId;
 
 /**
-Resource Url for deleteWishlistItem
+Resource Url Components for deleteWishlistItem
 @param wishlistId Unique identifier of the wish list associated with the item to remove.
 @param wishlistItemId Unique identifier of the item to remove from the shopper wish list.
 */
-+(MOZUURL*)URLForDeleteWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId;
++(MOZUURLComponents*)URLComponentsForDeleteWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId;
 
 
 

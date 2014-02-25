@@ -9,7 +9,7 @@
 */
 
 #import "MOZURuntimeCategoryClient.h"
-#import "MOZURuntimeCategoryUrl.h"
+#import "MOZURuntimeCategoryUrlComponents.h"
 #import "MozuRuntimeCategory.h"
 #import "MozuRuntimeCategoryCollection.h"
 #import "MozuRuntimeCategoryPagedCollection.h"
@@ -24,7 +24,7 @@
 //
 
 +(MOZUClient*)clientForGetCategoriesOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZURuntimeCategoryURL URLForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
+	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -38,7 +38,7 @@
 }
 
 +(MOZUClient*)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber*)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZURuntimeCategoryURL URLForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive];
+	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -52,7 +52,7 @@
 }
 
 +(MOZUClient*)clientForGetCategoryTreeOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZURuntimeCategoryURL URLForGetCategoryTreeOperation];
+	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryTreeOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

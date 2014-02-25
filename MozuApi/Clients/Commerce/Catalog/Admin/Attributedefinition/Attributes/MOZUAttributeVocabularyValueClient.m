@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAttributeVocabularyValueClient.h"
-#import "MOZUAttributeVocabularyValueUrl.h"
+#import "MOZUAttributeVocabularyValueUrlComponents.h"
 #import "MozuAttributeVocabularyValue.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAttributeVocabularyValueURL URLForGetAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
+	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForGetAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -40,7 +40,7 @@
 }
 
 +(MOZUClient*)clientForGetAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAttributeVocabularyValueURL URLForGetAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
+	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForGetAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -64,7 +64,7 @@
 //
 
 +(MOZUClient*)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAttributeVocabularyValueURL URLForAddAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN];
+	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForAddAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -89,7 +89,7 @@
 //
 
 +(MOZUClient*)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue>*)body attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAttributeVocabularyValueURL URLForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
+	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -108,7 +108,7 @@
 }
 
 +(MOZUClient*)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAttributeVocabularyValueURL URLForUpdateAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
+	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForUpdateAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -133,7 +133,7 @@
 //
 
 +(MOZUClient*)clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAttributeVocabularyValueURL URLForDeleteAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
+	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForDeleteAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

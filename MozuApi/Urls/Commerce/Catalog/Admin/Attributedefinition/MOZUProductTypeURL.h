@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUProductTypeURL : NSObject
+@interface MOZUProductTypeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,19 +18,19 @@
 //
 
 /**
-Resource Url for getProductTypes
+Resource Url Components for getProductTypes
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
 */
-+(MOZUURL*)URLForGetProductTypesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetProductTypesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 /**
-Resource Url for getProductType
+Resource Url Components for getProductType
 @param productTypeId Identifier of the product type to retrieve.
 */
-+(MOZUURL*)URLForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -40,9 +40,9 @@ Resource Url for getProductType
 //
 
 /**
-Resource Url for addProductType
+Resource Url Components for addProductType
 */
-+(MOZUURL*)URLForAddProductTypeOperation;
++(MOZUURLComponents*)URLComponentsForAddProductTypeOperation;
 
 
 //
@@ -52,10 +52,10 @@ Resource Url for addProductType
 //
 
 /**
-Resource Url for updateProductType
+Resource Url Components for updateProductType
 @param productTypeId Identifier of the product type to update.
 */
-+(MOZUURL*)URLForUpdateProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForUpdateProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -65,10 +65,10 @@ Resource Url for updateProductType
 //
 
 /**
-Resource Url for deleteProductType
+Resource Url Components for deleteProductType
 @param productTypeId Identifier of the product type to delete.
 */
-+(MOZUURL*)URLForDeleteProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForDeleteProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 

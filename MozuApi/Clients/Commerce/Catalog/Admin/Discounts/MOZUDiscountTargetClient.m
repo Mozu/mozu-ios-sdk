@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDiscountTargetClient.h"
-#import "MOZUDiscountTargetUrl.h"
+#import "MOZUDiscountTargetUrlComponents.h"
 #import "MozuDiscountTarget.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountTargetURL URLForGetDiscountTargetOperationWithDiscountId:discountId];
+	id url = [MOZUDiscountTargetURLComponents URLComponentsForGetDiscountTargetOperationWithDiscountId:discountId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -53,7 +53,7 @@
 //
 
 +(MOZUClient*)clientForUpdateDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountTargetURL URLForUpdateDiscountTargetOperationWithDiscountId:discountId];
+	id url = [MOZUDiscountTargetURLComponents URLComponentsForUpdateDiscountTargetOperationWithDiscountId:discountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

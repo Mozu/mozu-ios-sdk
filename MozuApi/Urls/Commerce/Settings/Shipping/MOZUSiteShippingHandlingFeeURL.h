@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUSiteShippingHandlingFeeURL : NSObject
+@interface MOZUSiteShippingHandlingFeeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,9 +18,9 @@
 //
 
 /**
-Resource Url for getOrderHandlingFee
+Resource Url Components for getOrderHandlingFee
 */
-+(MOZUURL*)URLForGetOrderHandlingFeeOperation;
++(MOZUURLComponents*)URLComponentsForGetOrderHandlingFeeOperation;
 
 
 //
@@ -30,9 +30,9 @@ Resource Url for getOrderHandlingFee
 //
 
 /**
-Resource Url for createOrderHandlingFee
+Resource Url Components for createOrderHandlingFee
 */
-+(MOZUURL*)URLForCreateOrderHandlingFeeOperation;
++(MOZUURLComponents*)URLComponentsForCreateOrderHandlingFeeOperation;
 
 
 //
@@ -42,9 +42,9 @@ Resource Url for createOrderHandlingFee
 //
 
 /**
-Resource Url for updateOrderHandlingFee
+Resource Url Components for updateOrderHandlingFee
 */
-+(MOZUURL*)URLForUpdateOrderHandlingFeeOperation;
++(MOZUURLComponents*)URLComponentsForUpdateOrderHandlingFeeOperation;
 
 
 //

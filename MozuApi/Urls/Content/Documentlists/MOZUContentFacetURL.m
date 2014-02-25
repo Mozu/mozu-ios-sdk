@@ -9,7 +9,7 @@
 
 #import "MOZUContentFacetURL.h"
 
-@implementation MOZUContentFacetURL
+@implementation MOZUContentFacetURLComponents
 
 //
 #pragma mark -
@@ -17,14 +17,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetFacetsOperationWithDocumentListName:(NSString*)documentListName propertyName:(NSString*)propertyName {
++(MOZUURLComponents*)URLComponentsForGetFacetsOperationWithDocumentListName:(NSString*)documentListName propertyName:(NSString*)propertyName {
 	NSString* template = @"/api/content/documentlists/{documentListName}/facets/{propertyName}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 		@"propertyName" : propertyName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

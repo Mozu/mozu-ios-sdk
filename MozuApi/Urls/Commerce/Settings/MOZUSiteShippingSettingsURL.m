@@ -9,7 +9,7 @@
 
 #import "MOZUSiteShippingSettingsURL.h"
 
-@implementation MOZUSiteShippingSettingsURL
+@implementation MOZUSiteShippingSettingsURLComponents
 
 //
 #pragma mark -
@@ -17,11 +17,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetSiteShippingSettingsOperation {
++(MOZUURLComponents*)URLComponentsForGetSiteShippingSettingsOperation {
 	NSString* template = @"/api/commerce/settings/shipping/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

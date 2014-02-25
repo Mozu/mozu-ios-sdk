@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCartItemClient.h"
-#import "MOZUCartItemUrl.h"
+#import "MOZUCartItemUrlComponents.h"
 #import "MozuCartItemCollection.h"
 #import "MozuCartItem.h"
 #import "MozuCart.h"
@@ -24,7 +24,7 @@
 //
 
 +(MOZUClient*)clientForGetCartItemsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCartItemURL URLForGetCartItemsOperation];
+	id url = [MOZUCartItemURLComponents URLComponentsForGetCartItemsOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -38,7 +38,7 @@
 }
 
 +(MOZUClient*)clientForGetCartItemOperationWithCartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCartItemURL URLForGetCartItemOperationWithCartItemId:cartItemId];
+	id url = [MOZUCartItemURLComponents URLComponentsForGetCartItemOperationWithCartItemId:cartItemId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -59,7 +59,7 @@
 //
 
 +(MOZUClient*)clientForAddItemToCartOperationWithBody:(MOZUCartItem*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCartItemURL URLForAddItemToCartOperation];
+	id url = [MOZUCartItemURLComponents URLComponentsForAddItemToCartOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -81,7 +81,7 @@
 //
 
 +(MOZUClient*)clientForUpdateCartItemOperationWithBody:(MOZUCartItem*)body cartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCartItemURL URLForUpdateCartItemOperationWithCartItemId:cartItemId];
+	id url = [MOZUCartItemURLComponents URLComponentsForUpdateCartItemOperationWithCartItemId:cartItemId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -96,7 +96,7 @@
 }
 
 +(MOZUClient*)clientForUpdateCartItemQuantityOperationWithCartItemId:(NSString*)cartItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCartItemURL URLForUpdateCartItemQuantityOperationWithCartItemId:cartItemId quantity:quantity];
+	id url = [MOZUCartItemURLComponents URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:cartItemId quantity:quantity];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -117,7 +117,7 @@
 //
 
 +(MOZUClient*)clientForRemoveAllCartItemsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCartItemURL URLForRemoveAllCartItemsOperation];
+	id url = [MOZUCartItemURLComponents URLComponentsForRemoveAllCartItemsOperation];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -131,7 +131,7 @@
 }
 
 +(MOZUClient*)clientForDeleteCartItemOperationWithCartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCartItemURL URLForDeleteCartItemOperationWithCartItemId:cartItemId];
+	id url = [MOZUCartItemURLComponents URLComponentsForDeleteCartItemOperationWithCartItemId:cartItemId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

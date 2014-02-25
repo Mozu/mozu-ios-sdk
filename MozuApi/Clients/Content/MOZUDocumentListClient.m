@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDocumentListClient.h"
-#import "MOZUDocumentListUrl.h"
+#import "MOZUDocumentListUrlComponents.h"
 #import "MozuDocumentList.h"
 #import "MozuDocumentListCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetDocumentListsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentListURL URLForGetDocumentListsOperationWithPageSize:pageSize startIndex:startIndex];
+	id url = [MOZUDocumentListURLComponents URLComponentsForGetDocumentListsOperationWithPageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -40,7 +40,7 @@
 }
 
 +(MOZUClient*)clientForGetDocumentListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentListURL URLForGetDocumentListOperationWithDocumentListName:documentListName];
+	id url = [MOZUDocumentListURLComponents URLComponentsForGetDocumentListOperationWithDocumentListName:documentListName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

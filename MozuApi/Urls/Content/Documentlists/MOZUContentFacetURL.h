@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUContentFacetURL : NSObject
+@interface MOZUContentFacetURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,11 +18,11 @@
 //
 
 /**
-Resource Url for getFacets
+Resource Url Components for getFacets
 @param documentListName The document list associated with the facets to retrieve.
 @param propertyName The property name associated with the facets to retrieve.
 */
-+(MOZUURL*)URLForGetFacetsOperationWithDocumentListName:(NSString*)documentListName propertyName:(NSString*)propertyName;
++(MOZUURLComponents*)URLComponentsForGetFacetsOperationWithDocumentListName:(NSString*)documentListName propertyName:(NSString*)propertyName;
 
 
 //

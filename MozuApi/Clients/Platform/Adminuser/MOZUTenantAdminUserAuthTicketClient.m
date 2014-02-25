@@ -9,7 +9,7 @@
 */
 
 #import "MOZUTenantAdminUserAuthTicketClient.h"
-#import "MOZUTenantAdminUserAuthTicketUrl.h"
+#import "MOZUTenantAdminUserAuthTicketUrlComponents.h"
 #import "MozuTenantAdminUserAuthTicket.h"
 
 
@@ -29,7 +29,7 @@
 //
 
 +(MOZUClient*)clientForCreateUserAuthTicketOperationWithBody:(MOZUUserAuthInfo*)body tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTenantAdminUserAuthTicketURL URLForCreateUserAuthTicketOperationWithTenantId:tenantId];
+	id url = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForCreateUserAuthTicketOperationWithTenantId:tenantId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -51,7 +51,7 @@
 //
 
 +(MOZUClient*)clientForRefreshAuthTicketOperationWithBody:(MOZUTenantAdminUserAuthTicket*)body tenantId:(NSNumber*)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTenantAdminUserAuthTicketURL URLForRefreshAuthTicketOperationWithTenantId:tenantId];
+	id url = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForRefreshAuthTicketOperationWithTenantId:tenantId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -73,7 +73,7 @@
 //
 
 +(MOZUClient*)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTenantAdminUserAuthTicketURL URLForDeleteUserAuthTicketOperationWithRefreshToken:refreshToken];
+	id url = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:refreshToken];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

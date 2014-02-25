@@ -9,7 +9,7 @@
 */
 
 #import "MOZUProductVariationClient.h"
-#import "MOZUProductVariationUrl.h"
+#import "MOZUProductVariationUrlComponents.h"
 #import "MozuProductVariation.h"
 #import "MozuProductVariationPagedCollection.h"
 #import "MozuProductVariationCollection.h"
@@ -24,7 +24,7 @@
 //
 
 +(MOZUClient*)clientForGetProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductVariationURL URLForGetProductVariationOperationWithProductCode:productCode variationKey:variationKey];
+	id url = [MOZUProductVariationURLComponents URLComponentsForGetProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -41,7 +41,7 @@
 }
 
 +(MOZUClient*)clientForGetProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductVariationURL URLForGetProductVariationsOperationWithProductCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUProductVariationURLComponents URLComponentsForGetProductVariationsOperationWithProductCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -72,7 +72,7 @@
 //
 
 +(MOZUClient*)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductVariationURL URLForUpdateProductVariationsOperationWithProductCode:productCode];
+	id url = [MOZUProductVariationURLComponents URLComponentsForUpdateProductVariationsOperationWithProductCode:productCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -90,7 +90,7 @@
 }
 
 +(MOZUClient*)clientForUpdateProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation*)body productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductVariationURL URLForUpdateProductVariationOperationWithProductCode:productCode variationKey:variationKey];
+	id url = [MOZUProductVariationURLComponents URLComponentsForUpdateProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -115,7 +115,7 @@
 //
 
 +(MOZUClient*)clientForDeleteProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductVariationURL URLForDeleteProductVariationOperationWithProductCode:productCode variationKey:variationKey];
+	id url = [MOZUProductVariationURLComponents URLComponentsForDeleteProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAuthTicketURL : NSObject
+@interface MOZUAuthTicketURLComponents : NSObject
 
 //
 #pragma mark -
@@ -25,9 +25,9 @@
 //
 
 /**
-Resource Url for authenticateApp
+Resource Url Components for authenticateApp
 */
-+(MOZUURL*)URLForAuthenticateAppOperation;
++(MOZUURLComponents*)URLComponentsForAuthenticateAppOperation;
 
 
 //
@@ -37,9 +37,9 @@ Resource Url for authenticateApp
 //
 
 /**
-Resource Url for refreshAppAuthTicket
+Resource Url Components for refreshAppAuthTicket
 */
-+(MOZUURL*)URLForRefreshAppAuthTicketOperation;
++(MOZUURLComponents*)URLComponentsForRefreshAppAuthTicketOperation;
 
 
 //
@@ -49,10 +49,10 @@ Resource Url for refreshAppAuthTicket
 //
 
 /**
-Resource Url for deleteAppAuthTicket
+Resource Url Components for deleteAppAuthTicket
 @param refreshToken The refresh token string from the application's authentication ticket.
 */
-+(MOZUURL*)URLForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
++(MOZUURLComponents*)URLComponentsForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
 
 
 

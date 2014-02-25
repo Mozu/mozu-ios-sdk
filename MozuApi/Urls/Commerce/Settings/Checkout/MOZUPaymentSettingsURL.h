@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUPaymentSettingsURL : NSObject
+@interface MOZUPaymentSettingsURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,9 +18,9 @@
 //
 
 /**
-Resource Url for getThirdPartyPaymentWorkflows
+Resource Url Components for getThirdPartyPaymentWorkflows
 */
-+(MOZUURL*)URLForGetThirdPartyPaymentWorkflowsOperation;
++(MOZUURLComponents*)URLComponentsForGetThirdPartyPaymentWorkflowsOperation;
 
 
 //

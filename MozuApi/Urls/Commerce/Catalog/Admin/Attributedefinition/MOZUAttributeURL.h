@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAttributeURL : NSObject
+@interface MOZUAttributeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,19 +18,19 @@
 //
 
 /**
-Resource Url for getAttributes
+Resource Url Components for getAttributes
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetAttributesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 /**
-Resource Url for getAttribute
+Resource Url Components for getAttribute
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForGetAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -40,9 +40,9 @@ Resource Url for getAttribute
 //
 
 /**
-Resource Url for addAttribute
+Resource Url Components for addAttribute
 */
-+(MOZUURL*)URLForAddAttributeOperation;
++(MOZUURLComponents*)URLComponentsForAddAttributeOperation;
 
 
 //
@@ -52,10 +52,10 @@ Resource Url for addAttribute
 //
 
 /**
-Resource Url for updateAttribute
+Resource Url Components for updateAttribute
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForUpdateAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdateAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -65,10 +65,10 @@ Resource Url for updateAttribute
 //
 
 /**
-Resource Url for deleteAttribute
+Resource Url Components for deleteAttribute
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForDeleteAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForDeleteAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
 
 
 

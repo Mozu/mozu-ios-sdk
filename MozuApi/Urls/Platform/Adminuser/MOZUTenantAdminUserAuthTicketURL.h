@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUTenantAdminUserAuthTicketURL : NSObject
+@interface MOZUTenantAdminUserAuthTicketURLComponents : NSObject
 
 //
 #pragma mark -
@@ -25,10 +25,10 @@
 //
 
 /**
-Resource Url for createUserAuthTicket
+Resource Url Components for createUserAuthTicket
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 */
-+(MOZUURL*)URLForCreateUserAuthTicketOperationWithTenantId:(NSNumber*)tenantId;
++(MOZUURLComponents*)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber*)tenantId;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for createUserAuthTicket
 //
 
 /**
-Resource Url for refreshAuthTicket
+Resource Url Components for refreshAuthTicket
 @param tenantId 
 */
-+(MOZUURL*)URLForRefreshAuthTicketOperationWithTenantId:(NSNumber*)tenantId;
++(MOZUURLComponents*)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber*)tenantId;
 
 
 //
@@ -51,10 +51,10 @@ Resource Url for refreshAuthTicket
 //
 
 /**
-Resource Url for deleteUserAuthTicket
+Resource Url Components for deleteUserAuthTicket
 @param refreshToken Refresh token string associated with the user authentication ticket.
 */
-+(MOZUURL*)URLForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
++(MOZUURLComponents*)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
 
 
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUEventDeliverySummaryClient.h"
-#import "MOZUEventDeliverySummaryUrl.h"
+#import "MOZUEventDeliverySummaryUrlComponents.h"
 #import "MozuEventDeliverySummaryCollection.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString*)subscriptionId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUEventDeliverySummaryURL URLForGetDeliveryAttemptSummariesOperationWithSubscriptionId:subscriptionId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUEventDeliverySummaryURLComponents URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:subscriptionId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

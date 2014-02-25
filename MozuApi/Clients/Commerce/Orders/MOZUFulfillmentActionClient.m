@@ -9,7 +9,7 @@
 */
 
 #import "MOZUFulfillmentActionClient.h"
-#import "MOZUFulfillmentActionUrl.h"
+#import "MOZUFulfillmentActionUrlComponents.h"
 #import "MozuFulfillmentInfo.h"
 #import "MozuOrder.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetFulfillmentInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUFulfillmentActionURL URLForGetFulfillmentInfoOperationWithOrderId:orderId draft:draft];
+	id url = [MOZUFulfillmentActionURLComponents URLComponentsForGetFulfillmentInfoOperationWithOrderId:orderId draft:draft];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -44,7 +44,7 @@
 //
 
 +(MOZUClient*)clientForPerformFulfillmentActionOperationWithBody:(MOZUFulfillmentAction*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUFulfillmentActionURL URLForPerformFulfillmentActionOperationWithOrderId:orderId];
+	id url = [MOZUFulfillmentActionURLComponents URLComponentsForPerformFulfillmentActionOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -66,7 +66,7 @@
 //
 
 +(MOZUClient*)clientForSetFulFillmentInfoOperationWithBody:(MOZUFulfillmentInfo*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUFulfillmentActionURL URLForSetFulFillmentInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
+	id url = [MOZUFulfillmentActionURLComponents URLComponentsForSetFulFillmentInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

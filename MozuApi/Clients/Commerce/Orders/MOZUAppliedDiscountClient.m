@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAppliedDiscountClient.h"
-#import "MOZUAppliedDiscountUrl.h"
+#import "MOZUAppliedDiscountUrlComponents.h"
 #import "MozuOrder.h"
 
 
@@ -36,7 +36,7 @@
 //
 
 +(MOZUClient*)clientForApplyCouponOperationWithOrderId:(NSString*)orderId couponCode:(NSString*)couponCode updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAppliedDiscountURL URLForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
+	id url = [MOZUAppliedDiscountURLComponents URLComponentsForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -57,7 +57,7 @@
 //
 
 +(MOZUClient*)clientForRemoveCouponOperationWithOrderId:(NSString*)orderId couponCode:(NSString*)couponCode updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAppliedDiscountURL URLForRemoveCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
+	id url = [MOZUAppliedDiscountURLComponents URLComponentsForRemoveCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -71,7 +71,7 @@
 }
 
 +(MOZUClient*)clientForRemoveCouponsOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAppliedDiscountURL URLForRemoveCouponsOperationWithOrderId:orderId updateMode:updateMode version:version];
+	id url = [MOZUAppliedDiscountURLComponents URLComponentsForRemoveCouponsOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

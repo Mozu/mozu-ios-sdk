@@ -9,7 +9,7 @@
 
 #import "MOZUCommerceReturnsPackageURL.h"
 
-@implementation MOZUCommerceReturnsPackageURL
+@implementation MOZUCommerceReturnsPackageURLComponents
 
 //
 #pragma mark -
@@ -17,24 +17,24 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetPackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
++(MOZUURLComponents*)URLComponentsForGetPackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
 		@"packageId" : packageId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetPackageLabelOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
++(MOZUURLComponents*)URLComponentsForGetPackageLabelOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}/label";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
 		@"packageId" : packageId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -44,13 +44,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreatePackageOperationWithReturnId:(NSString*)returnId {
++(MOZUURLComponents*)URLComponentsForCreatePackageOperationWithReturnId:(NSString*)returnId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -60,14 +60,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdatePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
++(MOZUURLComponents*)URLComponentsForUpdatePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
 		@"packageId" : packageId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -77,14 +77,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeletePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
++(MOZUURLComponents*)URLComponentsForDeletePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
 		@"packageId" : packageId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

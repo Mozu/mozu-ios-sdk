@@ -9,7 +9,7 @@
 */
 
 #import "MOZULocationUsageClient.h"
-#import "MOZULocationUsageUrl.h"
+#import "MOZULocationUsageUrlComponents.h"
 #import "MozuLocationUsageCollection.h"
 #import "MozuLocationUsage.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetLocationUsagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZULocationUsageURL URLForGetLocationUsagesOperation];
+	id url = [MOZULocationUsageURLComponents URLComponentsForGetLocationUsagesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetLocationUsageOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZULocationUsageURL URLForGetLocationUsageOperationWithCode:code];
+	id url = [MOZULocationUsageURLComponents URLComponentsForGetLocationUsageOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -65,7 +65,7 @@
 //
 
 +(MOZUClient*)clientForUpdateLocationUsageOperationWithBody:(MOZULocationUsage*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZULocationUsageURL URLForUpdateLocationUsageOperationWithCode:code];
+	id url = [MOZULocationUsageURLComponents URLComponentsForUpdateLocationUsageOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUTransactionURL : NSObject
+@interface MOZUTransactionURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,10 +18,10 @@
 //
 
 /**
-Resource Url for getTransactions
+Resource Url Components for getTransactions
 @param accountId Unique identifier of the customer account for which to retrieve transactions.
 */
-+(MOZUURL*)URLForGetTransactionsOperationWithAccountId:(NSInteger)accountId;
++(MOZUURLComponents*)URLComponentsForGetTransactionsOperationWithAccountId:(NSInteger)accountId;
 
 
 //
@@ -31,10 +31,10 @@ Resource Url for getTransactions
 //
 
 /**
-Resource Url for addTransaction
+Resource Url Components for addTransaction
 @param accountId Unique identifier of the customer account.
 */
-+(MOZUURL*)URLForAddTransactionOperationWithAccountId:(NSInteger)accountId;
++(MOZUURLComponents*)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId;
 
 
 //
@@ -51,11 +51,11 @@ Resource Url for addTransaction
 //
 
 /**
-Resource Url for removeTransaction
+Resource Url Components for removeTransaction
 @param accountId Unique identifier of the customer account from which to delete the transaction.
 @param transactionId Unique identifier of the transaction to delete.
 */
-+(MOZUURL*)URLForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId;
++(MOZUURLComponents*)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId;
 
 
 

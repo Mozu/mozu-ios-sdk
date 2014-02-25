@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCheckoutSettingsClient.h"
-#import "MOZUCheckoutSettingsUrl.h"
+#import "MOZUCheckoutSettingsUrlComponents.h"
 #import "MozuCheckoutSettings.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetCheckoutSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCheckoutSettingsURL URLForGetCheckoutSettingsOperation];
+	id url = [MOZUCheckoutSettingsURLComponents URLComponentsForGetCheckoutSettingsOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

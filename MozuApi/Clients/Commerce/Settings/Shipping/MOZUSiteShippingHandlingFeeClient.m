@@ -9,7 +9,7 @@
 */
 
 #import "MOZUSiteShippingHandlingFeeClient.h"
-#import "MOZUSiteShippingHandlingFeeUrl.h"
+#import "MOZUSiteShippingHandlingFeeUrlComponents.h"
 #import "MozuSiteShippingHandlingFee.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetOrderHandlingFeeOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUSiteShippingHandlingFeeURL URLForGetOrderHandlingFeeOperation];
+	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForGetOrderHandlingFeeOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -43,7 +43,7 @@
 //
 
 +(MOZUClient*)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUSiteShippingHandlingFeeURL URLForCreateOrderHandlingFeeOperation];
+	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForCreateOrderHandlingFeeOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -65,7 +65,7 @@
 //
 
 +(MOZUClient*)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUSiteShippingHandlingFeeURL URLForUpdateOrderHandlingFeeOperation];
+	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForUpdateOrderHandlingFeeOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

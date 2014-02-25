@@ -9,7 +9,7 @@
 
 #import "MOZUAdminFacetURL.h"
 
-@implementation MOZUAdminFacetURL
+@implementation MOZUAdminFacetURLComponents
 
 //
 #pragma mark -
@@ -17,17 +17,17 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber*)validate {
++(MOZUURLComponents*)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber*)validate {
 	NSString* template = @"/api/commerce/catalog/admin/facets/{facetId}?validate={validate}";
 	NSDictionary* params = @{
 		@"facetId" : @(facetId),
 		@"validate" : validate,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate {
++(MOZUURLComponents*)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate {
 	NSString* template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includAvaliable={includeAvailable}&validate={validate}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
@@ -35,7 +35,7 @@
 		@"validate" : validate,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -45,11 +45,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddFacetOperation {
++(MOZUURLComponents*)URLComponentsForAddFacetOperation {
 	NSString* template = @"/api/commerce/catalog/admin/facets/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -59,13 +59,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateFacetOperationWithFacetId:(NSInteger)facetId {
++(MOZUURLComponents*)URLComponentsForUpdateFacetOperationWithFacetId:(NSInteger)facetId {
 	NSString* template = @"/api/commerce/catalog/admin/facets/{facetId}";
 	NSDictionary* params = @{
 		@"facetId" : @(facetId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -75,13 +75,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteFacetByIdOperationWithFacetId:(NSInteger)facetId {
++(MOZUURLComponents*)URLComponentsForDeleteFacetByIdOperationWithFacetId:(NSInteger)facetId {
 	NSString* template = @"/api/commerce/catalog/admin/facets/{facetId}";
 	NSDictionary* params = @{
 		@"facetId" : @(facetId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

@@ -9,7 +9,7 @@
 
 #import "MOZUChangeMessageURL.h"
 
-@implementation MOZUChangeMessageURL
+@implementation MOZUChangeMessageURLComponents
 
 //
 #pragma mark -
@@ -17,11 +17,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetMessagesOperation {
++(MOZUURLComponents*)URLComponentsForGetMessagesOperation {
 	NSString* template = @"/api/commerce/carts/current/messages";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -45,20 +45,20 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForRemoveAllMessagesOperation {
++(MOZUURLComponents*)URLComponentsForRemoveAllMessagesOperation {
 	NSString* template = @"/api/commerce/carts/current/messages";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForRemoveMessageOperationWithMessageId:(NSString*)messageId {
++(MOZUURLComponents*)URLComponentsForRemoveMessageOperationWithMessageId:(NSString*)messageId {
 	NSString* template = @"/api/commerce/carts/current/messages/{messageId}";
 	NSDictionary* params = @{
 		@"messageId" : messageId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

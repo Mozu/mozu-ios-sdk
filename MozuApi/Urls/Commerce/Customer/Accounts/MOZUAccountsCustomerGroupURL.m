@@ -9,7 +9,7 @@
 
 #import "MOZUAccountsCustomerGroupURL.h"
 
-@implementation MOZUAccountsCustomerGroupURL
+@implementation MOZUAccountsCustomerGroupURLComponents
 
 //
 #pragma mark -
@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetAccountGroupsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetAccountGroupsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/groups/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
@@ -27,17 +27,17 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId {
++(MOZUURLComponents*)URLComponentsForGetAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/groups/{groupId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 		@"groupId" : @(groupId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -47,14 +47,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId {
++(MOZUURLComponents*)URLComponentsForAddAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/groups/{groupId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 		@"groupId" : @(groupId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -71,14 +71,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId {
++(MOZUURLComponents*)URLComponentsForDeleteAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/groups/{groupId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 		@"groupId" : @(groupId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

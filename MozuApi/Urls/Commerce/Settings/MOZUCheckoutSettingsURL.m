@@ -9,7 +9,7 @@
 
 #import "MOZUCheckoutSettingsURL.h"
 
-@implementation MOZUCheckoutSettingsURL
+@implementation MOZUCheckoutSettingsURLComponents
 
 //
 #pragma mark -
@@ -17,11 +17,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetCheckoutSettingsOperation {
++(MOZUURLComponents*)URLComponentsForGetCheckoutSettingsOperation {
 	NSString* template = @"/api/commerce/settings/checkout/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

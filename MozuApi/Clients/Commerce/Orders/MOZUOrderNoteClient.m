@@ -9,7 +9,7 @@
 */
 
 #import "MOZUOrderNoteClient.h"
-#import "MOZUOrderNoteUrl.h"
+#import "MOZUOrderNoteUrlComponents.h"
 #import "MozuOrderNote.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetOrderNotesOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUOrderNoteURL URLForGetOrderNotesOperationWithOrderId:orderId];
+	id url = [MOZUOrderNoteURLComponents URLComponentsForGetOrderNotesOperationWithOrderId:orderId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUOrderNoteURL URLForGetOrderNoteOperationWithOrderId:orderId noteId:noteId];
+	id url = [MOZUOrderNoteURLComponents URLComponentsForGetOrderNoteOperationWithOrderId:orderId noteId:noteId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 //
 
 +(MOZUClient*)clientForCreateOrderNoteOperationWithBody:(MOZUOrderNote*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUOrderNoteURL URLForCreateOrderNoteOperationWithOrderId:orderId];
+	id url = [MOZUOrderNoteURLComponents URLComponentsForCreateOrderNoteOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -80,7 +80,7 @@
 //
 
 +(MOZUClient*)clientForUpdateOrderNoteOperationWithBody:(MOZUOrderNote*)body orderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUOrderNoteURL URLForUpdateOrderNoteOperationWithOrderId:orderId noteId:noteId];
+	id url = [MOZUOrderNoteURLComponents URLComponentsForUpdateOrderNoteOperationWithOrderId:orderId noteId:noteId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -102,7 +102,7 @@
 //
 
 +(MOZUClient*)clientForDeleteOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUOrderNoteURL URLForDeleteOrderNoteOperationWithOrderId:orderId noteId:noteId];
+	id url = [MOZUOrderNoteURLComponents URLComponentsForDeleteOrderNoteOperationWithOrderId:orderId noteId:noteId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

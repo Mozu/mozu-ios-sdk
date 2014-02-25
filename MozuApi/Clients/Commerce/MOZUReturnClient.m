@@ -9,7 +9,7 @@
 */
 
 #import "MOZUReturnClient.h"
-#import "MOZUReturnUrl.h"
+#import "MOZUReturnUrlComponents.h"
 #import "MozuReturnCollection.h"
 #import "MozuReturn.h"
 #import "MozuPaymentCollection.h"
@@ -25,7 +25,7 @@
 //
 
 +(MOZUClient*)clientForGetReturnsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForGetReturnsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUReturnURLComponents URLComponentsForGetReturnsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -39,7 +39,7 @@
 }
 
 +(MOZUClient*)clientForGetReturnOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForGetReturnOperationWithReturnId:returnId];
+	id url = [MOZUReturnURLComponents URLComponentsForGetReturnOperationWithReturnId:returnId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -53,7 +53,7 @@
 }
 
 +(MOZUClient*)clientForGetAvailableReturnActionsOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForGetAvailableReturnActionsOperationWithReturnId:returnId];
+	id url = [MOZUReturnURLComponents URLComponentsForGetAvailableReturnActionsOperationWithReturnId:returnId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -62,7 +62,7 @@
 }
 
 +(MOZUClient*)clientForGetPaymentsOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForGetPaymentsOperationWithReturnId:returnId];
+	id url = [MOZUReturnURLComponents URLComponentsForGetPaymentsOperationWithReturnId:returnId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -76,7 +76,7 @@
 }
 
 +(MOZUClient*)clientForGetPaymentOperationWithReturnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForGetPaymentOperationWithReturnId:returnId paymentId:paymentId];
+	id url = [MOZUReturnURLComponents URLComponentsForGetPaymentOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -90,7 +90,7 @@
 }
 
 +(MOZUClient*)clientForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForGetAvailablePaymentActionsForReturnOperationWithReturnId:returnId paymentId:paymentId];
+	id url = [MOZUReturnURLComponents URLComponentsForGetAvailablePaymentActionsForReturnOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -106,7 +106,7 @@
 //
 
 +(MOZUClient*)clientForCreateReturnOperationWithBody:(MOZUReturn*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForCreateReturnOperation];
+	id url = [MOZUReturnURLComponents URLComponentsForCreateReturnOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -121,7 +121,7 @@
 }
 
 +(MOZUClient*)clientForPerformPaymentActionForReturnOperationWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForPerformPaymentActionForReturnOperationWithReturnId:returnId paymentId:paymentId];
+	id url = [MOZUReturnURLComponents URLComponentsForPerformPaymentActionForReturnOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -136,7 +136,7 @@
 }
 
 +(MOZUClient*)clientForCreatePaymentActionForReturnOperationWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForCreatePaymentActionForReturnOperationWithReturnId:returnId];
+	id url = [MOZUReturnURLComponents URLComponentsForCreatePaymentActionForReturnOperationWithReturnId:returnId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -151,7 +151,7 @@
 }
 
 +(MOZUClient*)clientForPerformReturnActionsOperationWithBody:(MOZUReturnAction*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForPerformReturnActionsOperation];
+	id url = [MOZUReturnURLComponents URLComponentsForPerformReturnActionsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -173,7 +173,7 @@
 //
 
 +(MOZUClient*)clientForUpdateReturnOperationWithBody:(MOZUReturn*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForUpdateReturnOperationWithReturnId:returnId];
+	id url = [MOZUReturnURLComponents URLComponentsForUpdateReturnOperationWithReturnId:returnId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -195,7 +195,7 @@
 //
 
 +(MOZUClient*)clientForDeleteReturnOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUReturnURL URLForDeleteReturnOperationWithReturnId:returnId];
+	id url = [MOZUReturnURLComponents URLComponentsForDeleteReturnOperationWithReturnId:returnId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

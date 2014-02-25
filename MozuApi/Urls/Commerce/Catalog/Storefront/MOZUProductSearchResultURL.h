@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUProductSearchResultURL : NSObject
+@interface MOZUProductSearchResultURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,7 +18,7 @@
 //
 
 /**
-Resource Url for search
+Resource Url Components for search
 @param query The terms to search on.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product search results by any of its properties, including product code, type, category, and name. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=categoryId+eq+12"
 @param facetTemplate The facet template to use on the storefront. A template displays all facets associated with the template on the storefront product search. Currently, only category-level facet templates are available.
@@ -36,14 +36,14 @@ Resource Url for search
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex 
 */
-+(MOZUURL*)URLForSearchOperationWithQuery:(NSString*)query filter:(NSString*)filter facetTemplate:(NSString*)facetTemplate facetTemplateSubset:(NSString*)facetTemplateSubset facet:(NSString*)facet facetFieldRangeQuery:(NSString*)facetFieldRangeQuery facetHierPrefix:(NSString*)facetHierPrefix facetHierValue:(NSString*)facetHierValue facetHierDepth:(NSString*)facetHierDepth facetStartIndex:(NSString*)facetStartIndex facetPageSize:(NSString*)facetPageSize facetSettings:(NSString*)facetSettings facetValueFilter:(NSString*)facetValueFilter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
++(MOZUURLComponents*)URLComponentsForSearchOperationWithQuery:(NSString*)query filter:(NSString*)filter facetTemplate:(NSString*)facetTemplate facetTemplateSubset:(NSString*)facetTemplateSubset facet:(NSString*)facet facetFieldRangeQuery:(NSString*)facetFieldRangeQuery facetHierPrefix:(NSString*)facetHierPrefix facetHierValue:(NSString*)facetHierValue facetHierDepth:(NSString*)facetHierDepth facetStartIndex:(NSString*)facetStartIndex facetPageSize:(NSString*)facetPageSize facetSettings:(NSString*)facetSettings facetValueFilter:(NSString*)facetValueFilter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
 
 /**
-Resource Url for suggest
+Resource Url Components for suggest
 @param q Text that the shopper is currently entering.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 */
-+(MOZUURL*)URLForSuggestOperationWithQ:(NSString*)q pageSize:(NSNumber*)pageSize;
++(MOZUURLComponents*)URLComponentsForSuggestOperationWithQ:(NSString*)q pageSize:(NSNumber*)pageSize;
 
 
 //

@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUCommerceOrdersPackageURL : NSObject
+@interface MOZUCommerceOrdersPackageURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,25 +18,25 @@
 //
 
 /**
-Resource Url for getPackage
+Resource Url Components for getPackage
 @param orderId Unique identifier of the order associated with the package to retrieve.
 @param packageId Unique identifier of the package to retrieve.
 */
-+(MOZUURL*)URLForGetPackageOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForGetPackageOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
 
 /**
-Resource Url for getAvailablePackageFulfillmentActions
+Resource Url Components for getAvailablePackageFulfillmentActions
 @param orderId Unique identifier of the order associated with the package fulfillment.
 @param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 */
-+(MOZUURL*)URLForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
 
 /**
-Resource Url for getPackageLabel
+Resource Url Components for getPackageLabel
 @param orderId Unique identifier of the order associated with the package label to retrieve.
 @param packageId Unique identifier of the package for which to retrieve the label.
 */
-+(MOZUURL*)URLForGetPackageLabelOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForGetPackageLabelOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
 
 
 //
@@ -46,10 +46,10 @@ Resource Url for getPackageLabel
 //
 
 /**
-Resource Url for createPackage
+Resource Url Components for createPackage
 @param orderId Unique identifier of the order associated with this package.
 */
-+(MOZUURL*)URLForCreatePackageOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForCreatePackageOperationWithOrderId:(NSString*)orderId;
 
 
 //
@@ -59,11 +59,11 @@ Resource Url for createPackage
 //
 
 /**
-Resource Url for updatePackage
+Resource Url Components for updatePackage
 @param orderId Unique identifier of the order associated with the package to update.
 @param packageId Unique identifier of the package of order items to update.
 */
-+(MOZUURL*)URLForUpdatePackageOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForUpdatePackageOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
 
 
 //
@@ -73,11 +73,11 @@ Resource Url for updatePackage
 //
 
 /**
-Resource Url for deletePackage
+Resource Url Components for deletePackage
 @param orderId Unique identifier of the order associated with the package to delete.
 @param packageId Unique identifier of the package to delete.
 */
-+(MOZUURL*)URLForDeletePackageOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForDeletePackageOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId;
 
 
 

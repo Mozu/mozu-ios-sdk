@@ -9,7 +9,7 @@
 
 #import "MOZUInStockNotificationSubscriptionURL.h"
 
-@implementation MOZUInStockNotificationSubscriptionURL
+@implementation MOZUInStockNotificationSubscriptionURLComponents
 
 //
 #pragma mark -
@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/instocknotifications/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex,
@@ -26,16 +26,16 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
++(MOZUURLComponents*)URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
 	NSString* template = @"/api/commerce/instocknotifications/{identifier}";
 	NSDictionary* params = @{
 		@"identifier" : @(identifier),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -45,11 +45,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddInStockNotificationSubscriptionOperation {
++(MOZUURLComponents*)URLComponentsForAddInStockNotificationSubscriptionOperation {
 	NSString* template = @"/api/commerce/instocknotifications/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -66,13 +66,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
++(MOZUURLComponents*)URLComponentsForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
 	NSString* template = @"/api/commerce/instocknotifications/{identifier}";
 	NSDictionary* params = @{
 		@"identifier" : @(identifier),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

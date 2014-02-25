@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUPickupURL : NSObject
+@interface MOZUPickupURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,18 +18,18 @@
 //
 
 /**
-Resource Url for getPickup
+Resource Url Components for getPickup
 @param orderId Unique identifier of the order associated with the pickup.
 @param pickupId Unique identifier of the pickup to retrieve.
 */
-+(MOZUURL*)URLForGetPickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId;
++(MOZUURLComponents*)URLComponentsForGetPickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId;
 
 /**
-Resource Url for getAvailablePickupFulfillmentActions
+Resource Url Components for getAvailablePickupFulfillmentActions
 @param orderId Unique identifier of the order associated with the pickup.
 @param pickupId Unique identifier of the pickup for which to retrieve available actions.
 */
-+(MOZUURL*)URLForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId;
++(MOZUURLComponents*)URLComponentsForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId;
 
 
 //
@@ -39,10 +39,10 @@ Resource Url for getAvailablePickupFulfillmentActions
 //
 
 /**
-Resource Url for createPickup
+Resource Url Components for createPickup
 @param orderId Unique identifier of the order.
 */
-+(MOZUURL*)URLForCreatePickupOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForCreatePickupOperationWithOrderId:(NSString*)orderId;
 
 
 //
@@ -52,11 +52,11 @@ Resource Url for createPickup
 //
 
 /**
-Resource Url for updatePickup
+Resource Url Components for updatePickup
 @param orderId Unique identifier of the order associated with the in-store pickup.
 @param pickupId Unique identifier of the pickup to update.
 */
-+(MOZUURL*)URLForUpdatePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId;
++(MOZUURLComponents*)URLComponentsForUpdatePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId;
 
 
 //
@@ -66,11 +66,11 @@ Resource Url for updatePickup
 //
 
 /**
-Resource Url for deletePickup
+Resource Url Components for deletePickup
 @param orderId Unique identifier of the order associated with the pickup.
 @param pickupId Unique identifier of the pickup to remove.
 */
-+(MOZUURL*)URLForDeletePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId;
++(MOZUURLComponents*)URLComponentsForDeletePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId;
 
 
 

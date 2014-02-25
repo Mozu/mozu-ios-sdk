@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUCommerceReturnsShipmentURL : NSObject
+@interface MOZUCommerceReturnsShipmentURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,11 +18,11 @@
 //
 
 /**
-Resource Url for getShipment
+Resource Url Components for getShipment
 @param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
 @param shipmentId Unique identifier of the return replacement shipment to retrieve.
 */
-+(MOZUURL*)URLForGetShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId;
++(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId;
 
 
 //
@@ -32,10 +32,10 @@ Resource Url for getShipment
 //
 
 /**
-Resource Url for createPackageShipments
+Resource Url Components for createPackageShipments
 @param returnId Unique identifier of the return for which to create replacement package shipments.
 */
-+(MOZUURL*)URLForCreatePackageShipmentsOperationWithReturnId:(NSString*)returnId;
++(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithReturnId:(NSString*)returnId;
 
 
 //
@@ -52,11 +52,11 @@ Resource Url for createPackageShipments
 //
 
 /**
-Resource Url for deleteShipment
+Resource Url Components for deleteShipment
 @param returnId Unique identifier of the return associated with the replacement shipment to delete.
 @param shipmentId Unique identifier of the return replacement shipment to delete.
 */
-+(MOZUURL*)URLForDeleteShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId;
++(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId;
 
 
 

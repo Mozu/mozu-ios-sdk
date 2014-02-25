@@ -9,7 +9,7 @@
 */
 
 #import "MOZUPropertyTypeClient.h"
-#import "MOZUPropertyTypeUrl.h"
+#import "MOZUPropertyTypeUrlComponents.h"
 #import "MozuPropertyTypeCollection.h"
 #import "MozuPropertyValueType.h"
 #import "MozuPropertyType.h"
@@ -24,7 +24,7 @@
 //
 
 +(MOZUClient*)clientForGetPropertyTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUPropertyTypeURL URLForGetPropertyTypesOperationWithPageSize:pageSize startIndex:startIndex];
+	id url = [MOZUPropertyTypeURLComponents URLComponentsForGetPropertyTypesOperationWithPageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -41,7 +41,7 @@
 }
 
 +(MOZUClient*)clientForGetPropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString*)propertyTypeName userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUPropertyTypeURL URLForGetPropertyTypeOperationWithPropertyTypeName:propertyTypeName];
+	id url = [MOZUPropertyTypeURLComponents URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:propertyTypeName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 }
 
 +(MOZUClient*)clientForPropertyValueTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUPropertyTypeURL URLForPropertyValueTypesOperation];
+	id url = [MOZUPropertyTypeURLComponents URLComponentsForPropertyValueTypesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCommerceOrdersShipmentClient.h"
-#import "MOZUCommerceOrdersShipmentUrl.h"
+#import "MOZUCommerceOrdersShipmentUrlComponents.h"
 #import "MozuShipment.h"
 #import "MozuCommercePackage.h"
 #import "MozuShippingRate.h"
@@ -24,7 +24,7 @@
 //
 
 +(MOZUClient*)clientForGetShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersShipmentURL URLForGetShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
+	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -38,7 +38,7 @@
 }
 
 +(MOZUClient*)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersShipmentURL URLForGetAvailableShipmentMethodsOperationWithOrderId:orderId];
+	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:orderId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -60,7 +60,7 @@
 //
 
 +(MOZUClient*)clientForCreatePackageShipmentsOperationWithBody:(NSString*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersShipmentURL URLForCreatePackageShipmentsOperationWithOrderId:orderId];
+	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForCreatePackageShipmentsOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -90,7 +90,7 @@
 //
 
 +(MOZUClient*)clientForDeleteShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersShipmentURL URLForDeleteShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
+	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForDeleteShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

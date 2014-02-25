@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAdminUserURL : NSObject
+@interface MOZUAdminUserURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,16 +18,16 @@
 //
 
 /**
-Resource Url for getUser
+Resource Url Components for getUser
 @param userId Unique identifier of the administrator account to retrieve.
 */
-+(MOZUURL*)URLForGetUserOperationWithUserId:(NSString*)userId;
++(MOZUURLComponents*)URLComponentsForGetUserOperationWithUserId:(NSString*)userId;
 
 /**
-Resource Url for getTenantScopesForUser
+Resource Url Components for getTenantScopesForUser
 @param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 */
-+(MOZUURL*)URLForGetTenantScopesForUserOperationWithUserId:(NSString*)userId;
++(MOZUURLComponents*)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString*)userId;
 
 
 //

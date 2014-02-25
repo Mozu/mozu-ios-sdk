@@ -9,7 +9,7 @@
 */
 
 #import "MOZUPaymentSettingsClient.h"
-#import "MOZUPaymentSettingsUrl.h"
+#import "MOZUPaymentSettingsUrlComponents.h"
 #import "MozuExternalPaymentWorkflowDefinition.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUPaymentSettingsURL URLForGetThirdPartyPaymentWorkflowsOperation];
+	id url = [MOZUPaymentSettingsURLComponents URLComponentsForGetThirdPartyPaymentWorkflowsOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

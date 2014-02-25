@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCreditAuditEntryClient.h"
-#import "MOZUCreditAuditEntryUrl.h"
+#import "MOZUCreditAuditEntryUrlComponents.h"
 #import "MozuCreditAuditEntryCollection.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetAuditEntriesOperationWithCode:(NSString*)code startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditAuditEntryURL URLForGetAuditEntriesOperationWithCode:code startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUCreditAuditEntryURLComponents URLComponentsForGetAuditEntriesOperationWithCode:code startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

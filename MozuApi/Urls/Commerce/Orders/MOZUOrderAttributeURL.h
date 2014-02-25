@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUOrderAttributeURL : NSObject
+@interface MOZUOrderAttributeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,10 +18,10 @@
 //
 
 /**
-Resource Url for getOrderAttributes
+Resource Url Components for getOrderAttributes
 @param orderId Unique identifier of the order for which to retrieve a list of defined attributes.
 */
-+(MOZUURL*)URLForGetOrderAttributesOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForGetOrderAttributesOperationWithOrderId:(NSString*)orderId;
 
 
 //
@@ -31,10 +31,10 @@ Resource Url for getOrderAttributes
 //
 
 /**
-Resource Url for createOrderAttributes
+Resource Url Components for createOrderAttributes
 @param orderId Unique identifier of the order for which to assign the attributes.
 */
-+(MOZUURL*)URLForCreateOrderAttributesOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForCreateOrderAttributesOperationWithOrderId:(NSString*)orderId;
 
 
 //
@@ -44,11 +44,11 @@ Resource Url for createOrderAttributes
 //
 
 /**
-Resource Url for updateOrderAttributes
+Resource Url Components for updateOrderAttributes
 @param orderId Identifier of the order for which to update attributes.
 @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 */
-+(MOZUURL*)URLForUpdateOrderAttributesOperationWithOrderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing;
++(MOZUURLComponents*)URLComponentsForUpdateOrderAttributesOperationWithOrderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing;
 
 
 //

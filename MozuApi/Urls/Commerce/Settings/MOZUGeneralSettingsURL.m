@@ -9,7 +9,7 @@
 
 #import "MOZUGeneralSettingsURL.h"
 
-@implementation MOZUGeneralSettingsURL
+@implementation MOZUGeneralSettingsURLComponents
 
 //
 #pragma mark -
@@ -17,11 +17,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetGeneralSettingsOperation {
++(MOZUURLComponents*)URLComponentsForGetGeneralSettingsOperation {
 	NSString* template = @"/api/commerce/settings/general/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -38,11 +38,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateGeneralSettingsOperation {
++(MOZUURLComponents*)URLComponentsForUpdateGeneralSettingsOperation {
 	NSString* template = @"/api/commerce/settings/general/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

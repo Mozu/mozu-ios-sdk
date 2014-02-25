@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAdminLocationURL : NSObject
+@interface MOZUAdminLocationURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,19 +18,19 @@
 //
 
 /**
-Resource Url for getLocations
+Resource Url Components for getLocations
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetLocationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetLocationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 /**
-Resource Url for getLocation
+Resource Url Components for getLocation
 @param locationCode The merchant-defined code of the location to retrieve.
 */
-+(MOZUURL*)URLForGetLocationOperationWithLocationCode:(NSString*)locationCode;
++(MOZUURLComponents*)URLComponentsForGetLocationOperationWithLocationCode:(NSString*)locationCode;
 
 
 //
@@ -40,9 +40,9 @@ Resource Url for getLocation
 //
 
 /**
-Resource Url for addLocation
+Resource Url Components for addLocation
 */
-+(MOZUURL*)URLForAddLocationOperation;
++(MOZUURLComponents*)URLComponentsForAddLocationOperation;
 
 
 //
@@ -52,10 +52,10 @@ Resource Url for addLocation
 //
 
 /**
-Resource Url for updateLocation
+Resource Url Components for updateLocation
 @param locationCode The merchant-defined code associated with the location to update.
 */
-+(MOZUURL*)URLForUpdateLocationOperationWithLocationCode:(NSString*)locationCode;
++(MOZUURLComponents*)URLComponentsForUpdateLocationOperationWithLocationCode:(NSString*)locationCode;
 
 
 //
@@ -65,10 +65,10 @@ Resource Url for updateLocation
 //
 
 /**
-Resource Url for deleteLocation
+Resource Url Components for deleteLocation
 @param locationCode The merchant-defined code of the location to delete.
 */
-+(MOZUURL*)URLForDeleteLocationOperationWithLocationCode:(NSString*)locationCode;
++(MOZUURLComponents*)URLComponentsForDeleteLocationOperationWithLocationCode:(NSString*)locationCode;
 
 
 

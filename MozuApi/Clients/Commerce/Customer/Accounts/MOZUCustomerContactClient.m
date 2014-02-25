@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCustomerContactClient.h"
-#import "MOZUCustomerContactUrl.h"
+#import "MOZUCustomerContactUrlComponents.h"
 #import "MozuCustomerContact.h"
 #import "MozuCustomerContactCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCustomerContactURL URLForGetAccountContactOperationWithAccountId:accountId contactId:contactId];
+	id url = [MOZUCustomerContactURLComponents URLComponentsForGetAccountContactOperationWithAccountId:accountId contactId:contactId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetAccountContactsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCustomerContactURL URLForGetAccountContactsOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUCustomerContactURLComponents URLComponentsForGetAccountContactsOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 //
 
 +(MOZUClient*)clientForAddAccountContactOperationWithBody:(MOZUCustomerContact*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCustomerContactURL URLForAddAccountContactOperationWithAccountId:accountId];
+	id url = [MOZUCustomerContactURLComponents URLComponentsForAddAccountContactOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -80,7 +80,7 @@
 //
 
 +(MOZUClient*)clientForUpdateAccountContactOperationWithBody:(MOZUCustomerContact*)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCustomerContactURL URLForUpdateAccountContactOperationWithAccountId:accountId contactId:contactId];
+	id url = [MOZUCustomerContactURLComponents URLComponentsForUpdateAccountContactOperationWithAccountId:accountId contactId:contactId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -102,7 +102,7 @@
 //
 
 +(MOZUClient*)clientForDeleteAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCustomerContactURL URLForDeleteAccountContactOperationWithAccountId:accountId contactId:contactId];
+	id url = [MOZUCustomerContactURLComponents URLComponentsForDeleteAccountContactOperationWithAccountId:accountId contactId:contactId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

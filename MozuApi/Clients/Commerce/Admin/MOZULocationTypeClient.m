@@ -9,7 +9,7 @@
 */
 
 #import "MOZULocationTypeClient.h"
-#import "MOZULocationTypeUrl.h"
+#import "MOZULocationTypeUrlComponents.h"
 #import "MozuLocationType.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetLocationTypesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZULocationTypeURL URLForGetLocationTypesOperation];
+	id url = [MOZULocationTypeURLComponents URLComponentsForGetLocationTypesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZULocationTypeURL URLForGetLocationTypeOperationWithLocationTypeCode:locationTypeCode];
+	id url = [MOZULocationTypeURLComponents URLComponentsForGetLocationTypeOperationWithLocationTypeCode:locationTypeCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 //
 
 +(MOZUClient*)clientForAddLocationTypeOperationWithBody:(MOZULocationType*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZULocationTypeURL URLForAddLocationTypeOperation];
+	id url = [MOZULocationTypeURLComponents URLComponentsForAddLocationTypeOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -80,7 +80,7 @@
 //
 
 +(MOZUClient*)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType*)body locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZULocationTypeURL URLForUpdateLocationTypeOperationWithLocationTypeCode:locationTypeCode];
+	id url = [MOZULocationTypeURLComponents URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:locationTypeCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -102,7 +102,7 @@
 //
 
 +(MOZUClient*)clientForDeleteLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZULocationTypeURL URLForDeleteLocationTypeOperationWithLocationTypeCode:locationTypeCode];
+	id url = [MOZULocationTypeURLComponents URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:locationTypeCode];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

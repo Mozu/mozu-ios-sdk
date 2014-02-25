@@ -9,7 +9,7 @@
 
 #import "MOZUPropertyTypeURL.h"
 
-@implementation MOZUPropertyTypeURL
+@implementation MOZUPropertyTypeURLComponents
 
 //
 #pragma mark -
@@ -17,30 +17,30 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetPropertyTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
++(MOZUURLComponents*)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
 	NSString* template = @"/api/content/propertytypes/?pageSize={pageSize}&startIndex={startIndex}";
 	NSDictionary* params = @{
 		@"pageSize" : pageSize,
 		@"startIndex" : startIndex,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetPropertyTypeOperationWithPropertyTypeName:(NSString*)propertyTypeName {
++(MOZUURLComponents*)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString*)propertyTypeName {
 	NSString* template = @"/api/content/propertytypes/{propertyTypeName}";
 	NSDictionary* params = @{
 		@"propertyTypeName" : propertyTypeName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForPropertyValueTypesOperation {
++(MOZUURLComponents*)URLComponentsForPropertyValueTypesOperation {
 	NSString* template = @"/api/content/propertytypes/propertyvaluetypes";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

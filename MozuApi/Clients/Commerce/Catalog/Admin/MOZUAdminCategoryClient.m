@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminCategoryClient.h"
-#import "MOZUAdminCategoryUrl.h"
+#import "MOZUAdminCategoryUrlComponents.h"
 #import "MozuAdminCategory.h"
 #import "MozuAdminCategoryPagedCollection.h"
 #import "MozuAdminCategoryCollection.h"
@@ -24,7 +24,7 @@
 //
 
 +(MOZUClient*)clientForGetCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminCategoryURL URLForGetCategoriesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetCategoriesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -41,7 +41,7 @@
 }
 
 +(MOZUClient*)clientForGetCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminCategoryURL URLForGetCategoryOperationWithCategoryId:categoryId];
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetCategoryOperationWithCategoryId:categoryId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 }
 
 +(MOZUClient*)clientForGetChildCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminCategoryURL URLForGetChildCategoriesOperationWithCategoryId:categoryId];
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetChildCategoriesOperationWithCategoryId:categoryId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -82,7 +82,7 @@
 //
 
 +(MOZUClient*)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminCategoryURL URLForAddCategoryOperation];
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForAddCategoryOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -107,7 +107,7 @@
 //
 
 +(MOZUClient*)clientForUpdateCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminCategoryURL URLForUpdateCategoryOperationWithCategoryId:categoryId cascadeVisibility:cascadeVisibility];
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForUpdateCategoryOperationWithCategoryId:categoryId cascadeVisibility:cascadeVisibility];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -132,7 +132,7 @@
 //
 
 +(MOZUClient*)clientForDeleteCategoryByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber*)cascadeDelete userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminCategoryURL URLForDeleteCategoryByIdOperationWithCategoryId:categoryId cascadeDelete:cascadeDelete];
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForDeleteCategoryByIdOperationWithCategoryId:categoryId cascadeDelete:cascadeDelete];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -9,7 +9,7 @@
 
 #import "MOZUAuthTicketURL.h"
 
-@implementation MOZUAuthTicketURL
+@implementation MOZUAuthTicketURLComponents
 
 //
 #pragma mark -
@@ -24,11 +24,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAuthenticateAppOperation {
++(MOZUURLComponents*)URLComponentsForAuthenticateAppOperation {
 	NSString* template = @"/api/platform/applications/authtickets/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -38,11 +38,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForRefreshAppAuthTicketOperation {
++(MOZUURLComponents*)URLComponentsForRefreshAppAuthTicketOperation {
 	NSString* template = @"/api/platform/applications/authtickets/refresh-ticket";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -52,13 +52,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
++(MOZUURLComponents*)URLComponentsForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
 	NSString* template = @"/api/platform/applications/authtickets/{refreshToken}";
 	NSDictionary* params = @{
 		@"refreshToken" : refreshToken,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

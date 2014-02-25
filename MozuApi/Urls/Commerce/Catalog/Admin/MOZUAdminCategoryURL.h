@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAdminCategoryURL : NSObject
+@interface MOZUAdminCategoryURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,25 +18,25 @@
 //
 
 /**
-Resource Url for getCategories
+Resource Url Components for getCategories
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetCategoriesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 /**
-Resource Url for getCategory
+Resource Url Components for getCategory
 @param categoryId Unique identifier of the category to retrieve.
 */
-+(MOZUURL*)URLForGetCategoryOperationWithCategoryId:(NSInteger)categoryId;
++(MOZUURLComponents*)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId;
 
 /**
-Resource Url for getChildCategories
+Resource Url Components for getChildCategories
 @param categoryId Unique identifier of the category for which to retrieve subcategories.
 */
-+(MOZUURL*)URLForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId;
++(MOZUURLComponents*)URLComponentsForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId;
 
 
 //
@@ -46,9 +46,9 @@ Resource Url for getChildCategories
 //
 
 /**
-Resource Url for addCategory
+Resource Url Components for addCategory
 */
-+(MOZUURL*)URLForAddCategoryOperation;
++(MOZUURLComponents*)URLComponentsForAddCategoryOperation;
 
 
 //
@@ -58,11 +58,11 @@ Resource Url for addCategory
 //
 
 /**
-Resource Url for updateCategory
+Resource Url Components for updateCategory
 @param categoryId Unique identifier of the category to modify.
 @param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. Default: False.
 */
-+(MOZUURL*)URLForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility;
++(MOZUURLComponents*)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility;
 
 
 //
@@ -72,11 +72,11 @@ Resource Url for updateCategory
 //
 
 /**
-Resource Url for deleteCategoryById
+Resource Url Components for deleteCategoryById
 @param categoryId Unique identifier of the category to delete.
 @param cascadeDelete If true, also delete all subcategories associated with the specified category.
 */
-+(MOZUURL*)URLForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber*)cascadeDelete;
++(MOZUURLComponents*)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber*)cascadeDelete;
 
 
 

@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUTenantURL : NSObject
+@interface MOZUTenantURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,10 +18,10 @@
 //
 
 /**
-Resource Url for getTenant
+Resource Url Components for getTenant
 @param tenantId Unique identifier of the Mozu tenant.
 */
-+(MOZUURL*)URLForGetTenantOperationWithTenantId:(NSInteger)tenantId;
++(MOZUURLComponents*)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId;
 
 
 //

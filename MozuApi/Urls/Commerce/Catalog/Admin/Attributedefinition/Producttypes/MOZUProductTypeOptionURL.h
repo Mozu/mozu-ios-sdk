@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUProductTypeOptionURL : NSObject
+@interface MOZUProductTypeOptionURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,17 +18,17 @@
 //
 
 /**
-Resource Url for getOptions
+Resource Url Components for getOptions
 @param productTypeId Identifier of the product type to retrieve.
 */
-+(MOZUURL*)URLForGetOptionsOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForGetOptionsOperationWithProductTypeId:(NSInteger)productTypeId;
 
 /**
-Resource Url for getOption
+Resource Url Components for getOption
 @param productTypeId The identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForGetOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for getOption
 //
 
 /**
-Resource Url for addOption
+Resource Url Components for addOption
 @param productTypeId Identifier of the product type.
 */
-+(MOZUURL*)URLForAddOptionOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForAddOptionOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -51,11 +51,11 @@ Resource Url for addOption
 //
 
 /**
-Resource Url for updateOption
+Resource Url Components for updateOption
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForUpdateOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdateOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -65,11 +65,11 @@ Resource Url for updateOption
 //
 
 /**
-Resource Url for deleteOption
+Resource Url Components for deleteOption
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForDeleteOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForDeleteOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 

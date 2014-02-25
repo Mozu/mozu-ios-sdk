@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUCommerceOrdersShipmentURL : NSObject
+@interface MOZUCommerceOrdersShipmentURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,17 +18,17 @@
 //
 
 /**
-Resource Url for getShipment
+Resource Url Components for getShipment
 @param orderId Unique identifier of the order associated with the shipment to retrieve.
 @param shipmentId Unique identifier of the shipment to retrieve.
 */
-+(MOZUURL*)URLForGetShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId;
++(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId;
 
 /**
-Resource Url for getAvailableShipmentMethods
+Resource Url Components for getAvailableShipmentMethods
 @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 */
-+(MOZUURL*)URLForGetAvailableShipmentMethodsOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString*)orderId;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for getAvailableShipmentMethods
 //
 
 /**
-Resource Url for createPackageShipments
+Resource Url Components for createPackageShipments
 @param orderId Unique identifier of the order for this shipment.
 */
-+(MOZUURL*)URLForCreatePackageShipmentsOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithOrderId:(NSString*)orderId;
 
 
 //
@@ -58,11 +58,11 @@ Resource Url for createPackageShipments
 //
 
 /**
-Resource Url for deleteShipment
+Resource Url Components for deleteShipment
 @param orderId Unique identifier of the order to cancel shipment.
 @param shipmentId Unique identifier of the shipment to cancel.
 */
-+(MOZUURL*)URLForDeleteShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId;
++(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId;
 
 
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUReferenceDataClient.h"
-#import "MOZUReferenceDataUrl.h"
+#import "MOZUReferenceDataUrlComponents.h"
 #import "MozuTopLevelDomainCollection.h"
 #import "MozuContentLocaleCollection.h"
 #import "MozuBehaviorCollection.h"
@@ -33,7 +33,7 @@
 //
 
 +(MOZUClient*)clientForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode {
-	id url = [MOZUReferenceDataURL URLForGetAddressSchemaOperationWithCountryCode:countryCode];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemaOperationWithCountryCode:countryCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -46,7 +46,7 @@
 }
 
 +(MOZUClient*)clientForGetAddressSchemasOperation {
-	id url = [MOZUReferenceDataURL URLForGetAddressSchemasOperation];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemasOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -59,7 +59,7 @@
 }
 
 +(MOZUClient*)clientForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId {
-	id url = [MOZUReferenceDataURL URLForGetBehaviorOperationWithBehaviorId:behaviorId];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorOperationWithBehaviorId:behaviorId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -72,7 +72,7 @@
 }
 
 +(MOZUClient*)clientForGetBehaviorCategoriesOperation {
-	id url = [MOZUReferenceDataURL URLForGetBehaviorCategoriesOperation];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorCategoriesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -85,7 +85,7 @@
 }
 
 +(MOZUClient*)clientForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId {
-	id url = [MOZUReferenceDataURL URLForGetBehaviorCategoryOperationWithCategoryId:categoryId];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorCategoryOperationWithCategoryId:categoryId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -98,7 +98,7 @@
 }
 
 +(MOZUClient*)clientForGetBehaviorsOperationWithUserType:(NSString*)userType {
-	id url = [MOZUReferenceDataURL URLForGetBehaviorsOperationWithUserType:userType];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorsOperationWithUserType:userType];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -111,7 +111,7 @@
 }
 
 +(MOZUClient*)clientForGetContentLocalesOperation {
-	id url = [MOZUReferenceDataURL URLForGetContentLocalesOperation];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetContentLocalesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -124,7 +124,7 @@
 }
 
 +(MOZUClient*)clientForGetCountriesOperation {
-	id url = [MOZUReferenceDataURL URLForGetCountriesOperation];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCountriesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -137,7 +137,7 @@
 }
 
 +(MOZUClient*)clientForGetCurrenciesOperation {
-	id url = [MOZUReferenceDataURL URLForGetCurrenciesOperation];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCurrenciesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -150,7 +150,7 @@
 }
 
 +(MOZUClient*)clientForGetTimeZonesOperation {
-	id url = [MOZUReferenceDataURL URLForGetTimeZonesOperation];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetTimeZonesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -163,7 +163,7 @@
 }
 
 +(MOZUClient*)clientForGetTopLevelDomainsOperation {
-	id url = [MOZUReferenceDataURL URLForGetTopLevelDomainsOperation];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetTopLevelDomainsOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -176,7 +176,7 @@
 }
 
 +(MOZUClient*)clientForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter {
-	id url = [MOZUReferenceDataURL URLForGetUnitsOfMeasureOperationWithFilter:filter];
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetUnitsOfMeasureOperationWithFilter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

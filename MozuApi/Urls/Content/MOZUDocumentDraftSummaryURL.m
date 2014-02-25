@@ -9,7 +9,7 @@
 
 #import "MOZUDocumentDraftSummaryURL.h"
 
-@implementation MOZUDocumentDraftSummaryURL
+@implementation MOZUDocumentDraftSummaryURLComponents
 
 //
 #pragma mark -
@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForListDocumentDraftSummariesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists {
++(MOZUURLComponents*)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists {
 	NSString* template = @"/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}";
 	NSDictionary* params = @{
 		@"pageSize" : pageSize,
@@ -25,7 +25,7 @@
 		@"documentLists" : documentLists,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -35,13 +35,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteDocumentDraftsOperationWithDocumentLists:(NSString*)documentLists {
++(MOZUURLComponents*)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString*)documentLists {
 	NSString* template = @"/api/content/documentpublishing/draft?documentLists={documentLists}";
 	NSDictionary* params = @{
 		@"documentLists" : documentLists,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -51,13 +51,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForPublishDocumentsOperationWithDocumentLists:(NSString*)documentLists {
++(MOZUURLComponents*)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString*)documentLists {
 	NSString* template = @"/api/content/documentpublishing/active?documentLists={documentLists}";
 	NSDictionary* params = @{
 		@"documentLists" : documentLists,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

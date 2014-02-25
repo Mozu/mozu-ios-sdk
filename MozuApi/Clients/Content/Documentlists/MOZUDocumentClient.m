@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDocumentClient.h"
-#import "MOZUDocumentUrl.h"
+#import "MOZUDocumentUrlComponents.h"
 #import "MozuDocument.h"
 #import "MozuDocumentCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentURL URLForGetDocumentOperationWithDocumentListName:documentListName documentId:documentId];
+	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -40,7 +40,7 @@
 }
 
 +(MOZUClient*)clientForGetDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentURL URLForGetDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
+	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -52,7 +52,7 @@
 }
 
 +(MOZUClient*)clientForGetDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName filter:(NSString*)filter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentURL URLForGetDocumentsOperationWithDocumentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex];
+	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentsOperationWithDocumentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -76,7 +76,7 @@
 //
 
 +(MOZUClient*)clientForCreateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument*)body documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentURL URLForCreateDocumentOperationWithDocumentListName:documentListName];
+	id url = [MOZUDocumentURLComponents URLComponentsForCreateDocumentOperationWithDocumentListName:documentListName];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -101,7 +101,7 @@
 //
 
 +(MOZUClient*)clientForUpdateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument*)body documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentURL URLForUpdateDocumentOperationWithDocumentListName:documentListName documentId:documentId];
+	id url = [MOZUDocumentURLComponents URLComponentsForUpdateDocumentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -119,7 +119,7 @@
 }
 
 +(MOZUClient*)clientForUpdateDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream*)body documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentURL URLForUpdateDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
+	id url = [MOZUDocumentURLComponents URLComponentsForUpdateDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -139,7 +139,7 @@
 //
 
 +(MOZUClient*)clientForDeleteDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentURL URLForDeleteDocumentOperationWithDocumentListName:documentListName documentId:documentId];
+	id url = [MOZUDocumentURLComponents URLComponentsForDeleteDocumentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -151,7 +151,7 @@
 }
 
 +(MOZUClient*)clientForDeleteDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName documentId:(NSString*)documentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentURL URLForDeleteDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
+	id url = [MOZUDocumentURLComponents URLComponentsForDeleteDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

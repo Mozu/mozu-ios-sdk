@@ -9,7 +9,7 @@
 */
 
 #import "MOZUTenantClient.h"
-#import "MOZUTenantUrl.h"
+#import "MOZUTenantUrlComponents.h"
 #import "MozuTenant.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetTenantOperationWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUTenantURL URLForGetTenantOperationWithTenantId:tenantId];
+	id url = [MOZUTenantURLComponents URLComponentsForGetTenantOperationWithTenantId:tenantId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

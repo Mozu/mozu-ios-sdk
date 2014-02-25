@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUDocumentListURL : NSObject
+@interface MOZUDocumentListURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,17 +18,17 @@
 //
 
 /**
-Resource Url for getDocumentLists
+Resource Url Components for getDocumentLists
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex 
 */
-+(MOZUURL*)URLForGetDocumentListsOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
++(MOZUURLComponents*)URLComponentsForGetDocumentListsOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
 
 /**
-Resource Url for getDocumentList
+Resource Url Components for getDocumentList
 @param documentListName The name of the document list.
 */
-+(MOZUURL*)URLForGetDocumentListOperationWithDocumentListName:(NSString*)documentListName;
++(MOZUURLComponents*)URLComponentsForGetDocumentListOperationWithDocumentListName:(NSString*)documentListName;
 
 
 //

@@ -9,7 +9,7 @@
 
 #import "MOZUTenantURL.h"
 
-@implementation MOZUTenantURL
+@implementation MOZUTenantURLComponents
 
 //
 #pragma mark -
@@ -17,13 +17,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetTenantOperationWithTenantId:(NSInteger)tenantId {
++(MOZUURLComponents*)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId {
 	NSString* template = @"/api/platform/tenants/{tenantId}";
 	NSDictionary* params = @{
 		@"tenantId" : @(tenantId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

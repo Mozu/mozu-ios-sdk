@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUCustomerAuthTicketURL : NSObject
+@interface MOZUCustomerAuthTicketURLComponents : NSObject
 
 //
 #pragma mark -
@@ -25,9 +25,9 @@
 //
 
 /**
-Resource Url for createUserAuthTicket
+Resource Url Components for createUserAuthTicket
 */
-+(MOZUURL*)URLForCreateUserAuthTicketOperation;
++(MOZUURLComponents*)URLComponentsForCreateUserAuthTicketOperation;
 
 
 //
@@ -37,10 +37,10 @@ Resource Url for createUserAuthTicket
 //
 
 /**
-Resource Url for refreshUserAuthTicket
+Resource Url Components for refreshUserAuthTicket
 @param refreshToken The refresh token string required to refresh a user's authentication ticket.
 */
-+(MOZUURL*)URLForRefreshUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
++(MOZUURLComponents*)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
 
 
 //

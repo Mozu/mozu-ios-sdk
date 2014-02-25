@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUDiscountTargetURL : NSObject
+@interface MOZUDiscountTargetURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,10 +18,10 @@
 //
 
 /**
-Resource Url for getDiscountTarget
+Resource Url Components for getDiscountTarget
 @param discountId Unique identifier of the discount. System-supplied and read only.
 */
-+(MOZUURL*)URLForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId;
++(MOZUURLComponents*)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for getDiscountTarget
 //
 
 /**
-Resource Url for updateDiscountTarget
+Resource Url Components for updateDiscountTarget
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
-+(MOZUURL*)URLForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId;
++(MOZUURLComponents*)URLComponentsForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId;
 
 
 //

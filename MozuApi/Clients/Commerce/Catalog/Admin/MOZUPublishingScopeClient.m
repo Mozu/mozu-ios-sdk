@@ -9,7 +9,7 @@
 */
 
 #import "MOZUPublishingScopeClient.h"
-#import "MOZUPublishingScopeUrl.h"
+#import "MOZUPublishingScopeUrlComponents.h"
 
 
 @implementation MOZUPublishingScopeClient
@@ -28,7 +28,7 @@
 //
 
 +(MOZUClient*)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUPublishingScopeURL URLForDiscardDraftsOperation];
+	id url = [MOZUPublishingScopeURLComponents URLComponentsForDiscardDraftsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -41,7 +41,7 @@
 }
 
 +(MOZUClient*)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUPublishingScopeURL URLForPublishDraftsOperation];
+	id url = [MOZUPublishingScopeURLComponents URLComponentsForPublishDraftsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

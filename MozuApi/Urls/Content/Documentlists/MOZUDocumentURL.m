@@ -9,7 +9,7 @@
 
 #import "MOZUDocumentURL.h"
 
-@implementation MOZUDocumentURL
+@implementation MOZUDocumentURLComponents
 
 //
 #pragma mark -
@@ -17,27 +17,27 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
++(MOZUURLComponents*)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents/{documentId}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 		@"documentId" : documentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
++(MOZUURLComponents*)URLComponentsForGetDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents/{documentId}/content";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 		@"documentId" : documentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetDocumentsOperationWithDocumentListName:(NSString*)documentListName filter:(NSString*)filter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
++(MOZUURLComponents*)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString*)documentListName filter:(NSString*)filter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
@@ -47,7 +47,7 @@
 		@"startIndex" : startIndex,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -57,13 +57,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreateDocumentOperationWithDocumentListName:(NSString*)documentListName {
++(MOZUURLComponents*)URLComponentsForCreateDocumentOperationWithDocumentListName:(NSString*)documentListName {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -73,24 +73,24 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
++(MOZUURLComponents*)URLComponentsForUpdateDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents/{documentId}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 		@"documentId" : documentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForUpdateDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
++(MOZUURLComponents*)URLComponentsForUpdateDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents/{documentId}/content";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 		@"documentId" : documentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -100,24 +100,24 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
++(MOZUURLComponents*)URLComponentsForDeleteDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents/{documentId}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 		@"documentId" : documentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForDeleteDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
++(MOZUURLComponents*)URLComponentsForDeleteDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents/{documentId}/content";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 		@"documentId" : documentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

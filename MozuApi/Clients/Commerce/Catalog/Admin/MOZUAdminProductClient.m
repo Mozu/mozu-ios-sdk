@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminProductClient.h"
-#import "MOZUAdminProductUrl.h"
+#import "MOZUAdminProductUrlComponents.h"
 #import "MozuProductInCatalogInfo.h"
 #import "MozuAdminProduct.h"
 #import "MozuAdminProductCollection.h"
@@ -24,7 +24,7 @@
 //
 
 +(MOZUClient*)clientForGetProductsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit noCount:(NSNumber*)noCount userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForGetProductsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit noCount:noCount];
+	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit noCount:noCount];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -41,7 +41,7 @@
 }
 
 +(MOZUClient*)clientForGetProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForGetProductOperationWithProductCode:productCode];
+	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductOperationWithProductCode:productCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 }
 
 +(MOZUClient*)clientForGetProductInCatalogsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForGetProductInCatalogsOperationWithProductCode:productCode];
+	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductInCatalogsOperationWithProductCode:productCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -76,7 +76,7 @@
 }
 
 +(MOZUClient*)clientForGetProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForGetProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
+	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -100,7 +100,7 @@
 //
 
 +(MOZUClient*)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForAddProductOperation];
+	id url = [MOZUAdminProductURLComponents URLComponentsForAddProductOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -118,7 +118,7 @@
 }
 
 +(MOZUClient*)clientForAddProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForAddProductInCatalogOperationWithProductCode:productCode];
+	id url = [MOZUAdminProductURLComponents URLComponentsForAddProductInCatalogOperationWithProductCode:productCode];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -143,7 +143,7 @@
 //
 
 +(MOZUClient*)clientForUpdateProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForUpdateProductOperationWithProductCode:productCode];
+	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductOperationWithProductCode:productCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -161,7 +161,7 @@
 }
 
 +(MOZUClient*)clientForUpdateProductInCatalogsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductInCatalogInfo>*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForUpdateProductInCatalogsOperationWithProductCode:productCode];
+	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductInCatalogsOperationWithProductCode:productCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -180,7 +180,7 @@
 }
 
 +(MOZUClient*)clientForUpdateProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo*)body productCode:(NSString*)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForUpdateProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
+	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -205,7 +205,7 @@
 //
 
 +(MOZUClient*)clientForDeleteProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForDeleteProductOperationWithProductCode:productCode];
+	id url = [MOZUAdminProductURLComponents URLComponentsForDeleteProductOperationWithProductCode:productCode];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -217,7 +217,7 @@
 }
 
 +(MOZUClient*)clientForDeleteProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminProductURL URLForDeleteProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
+	id url = [MOZUAdminProductURLComponents URLComponentsForDeleteProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

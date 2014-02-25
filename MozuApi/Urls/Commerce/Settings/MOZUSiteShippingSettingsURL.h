@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUSiteShippingSettingsURL : NSObject
+@interface MOZUSiteShippingSettingsURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,9 +18,9 @@
 //
 
 /**
-Resource Url for getSiteShippingSettings
+Resource Url Components for getSiteShippingSettings
 */
-+(MOZUURL*)URLForGetSiteShippingSettingsOperation;
++(MOZUURLComponents*)URLComponentsForGetSiteShippingSettingsOperation;
 
 
 //

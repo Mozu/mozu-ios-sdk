@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUEventNotificationURL : NSObject
+@interface MOZUEventNotificationURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,19 +18,19 @@
 //
 
 /**
-Resource Url for getEvents
+Resource Url Components for getEvents
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetEventsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetEventsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 /**
-Resource Url for getEvent
+Resource Url Components for getEvent
 @param eventId The unique identifier of the event being retrieved. An event is a notification about a create, read, update, or delete on an order, product, discount or category.
 */
-+(MOZUURL*)URLForGetEventOperationWithEventId:(NSString*)eventId;
++(MOZUURLComponents*)URLComponentsForGetEventOperationWithEventId:(NSString*)eventId;
 
 
 //

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCommerceOrdersPackageClient.h"
-#import "MOZUCommerceOrdersPackageUrl.h"
+#import "MOZUCommerceOrdersPackageUrlComponents.h"
 #import "MozuCommercePackage.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetPackageOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersPackageURL URLForGetPackageOperationWithOrderId:orderId packageId:packageId];
+	id url = [MOZUCommerceOrdersPackageURLComponents URLComponentsForGetPackageOperationWithOrderId:orderId packageId:packageId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -36,7 +36,7 @@
 }
 
 +(MOZUClient*)clientForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersPackageURL URLForGetAvailablePackageFulfillmentActionsOperationWithOrderId:orderId packageId:packageId];
+	id url = [MOZUCommerceOrdersPackageURLComponents URLComponentsForGetAvailablePackageFulfillmentActionsOperationWithOrderId:orderId packageId:packageId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -45,7 +45,7 @@
 }
 
 +(MOZUClient*)clientForGetPackageLabelOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersPackageURL URLForGetPackageLabelOperationWithOrderId:orderId packageId:packageId];
+	id url = [MOZUCommerceOrdersPackageURLComponents URLComponentsForGetPackageLabelOperationWithOrderId:orderId packageId:packageId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -61,7 +61,7 @@
 //
 
 +(MOZUClient*)clientForCreatePackageOperationWithBody:(MOZUCommercePackage*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersPackageURL URLForCreatePackageOperationWithOrderId:orderId];
+	id url = [MOZUCommerceOrdersPackageURLComponents URLComponentsForCreatePackageOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -83,7 +83,7 @@
 //
 
 +(MOZUClient*)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage*)body orderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersPackageURL URLForUpdatePackageOperationWithOrderId:orderId packageId:packageId];
+	id url = [MOZUCommerceOrdersPackageURLComponents URLComponentsForUpdatePackageOperationWithOrderId:orderId packageId:packageId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -105,7 +105,7 @@
 //
 
 +(MOZUClient*)clientForDeletePackageOperationWithOrderId:(NSString*)orderId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceOrdersPackageURL URLForDeletePackageOperationWithOrderId:orderId packageId:packageId];
+	id url = [MOZUCommerceOrdersPackageURLComponents URLComponentsForDeletePackageOperationWithOrderId:orderId packageId:packageId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -9,7 +9,7 @@
 
 #import "MOZUPublishingScopeURL.h"
 
-@implementation MOZUPublishingScopeURL
+@implementation MOZUPublishingScopeURLComponents
 
 //
 #pragma mark -
@@ -24,18 +24,18 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDiscardDraftsOperation {
++(MOZUURLComponents*)URLComponentsForDiscardDraftsOperation {
 	NSString* template = @"/api/commerce/catalog/admin/publishing/discarddrafts";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForPublishDraftsOperation {
++(MOZUURLComponents*)URLComponentsForPublishDraftsOperation {
 	NSString* template = @"/api/commerce/catalog/admin/publishing/publishdrafts";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

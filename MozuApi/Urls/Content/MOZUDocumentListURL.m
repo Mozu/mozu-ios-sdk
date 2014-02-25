@@ -9,7 +9,7 @@
 
 #import "MOZUDocumentListURL.h"
 
-@implementation MOZUDocumentListURL
+@implementation MOZUDocumentListURLComponents
 
 //
 #pragma mark -
@@ -17,23 +17,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetDocumentListsOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
++(MOZUURLComponents*)URLComponentsForGetDocumentListsOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
 	NSString* template = @"/api/content/documentlists/?pageSize={pageSize}&startIndex={startIndex}";
 	NSDictionary* params = @{
 		@"pageSize" : pageSize,
 		@"startIndex" : startIndex,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetDocumentListOperationWithDocumentListName:(NSString*)documentListName {
++(MOZUURLComponents*)URLComponentsForGetDocumentListOperationWithDocumentListName:(NSString*)documentListName {
 	NSString* template = @"/api/content/documentlists/{documentListName}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

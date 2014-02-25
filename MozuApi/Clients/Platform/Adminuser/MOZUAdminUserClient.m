@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminUserClient.h"
-#import "MOZUAdminUserUrl.h"
+#import "MOZUAdminUserUrlComponents.h"
 #import "MozuTenantCollection.h"
 #import "MozuUser.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetUserOperationWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminUserURL URLForGetUserOperationWithUserId:userId];
+	id url = [MOZUAdminUserURLComponents URLComponentsForGetUserOperationWithUserId:userId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetTenantScopesForUserOperationWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAdminUserURL URLForGetTenantScopesForUserOperationWithUserId:userId];
+	id url = [MOZUAdminUserURLComponents URLComponentsForGetTenantScopesForUserOperationWithUserId:userId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

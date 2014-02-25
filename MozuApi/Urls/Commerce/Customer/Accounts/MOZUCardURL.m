@@ -9,7 +9,7 @@
 
 #import "MOZUCardURL.h"
 
-@implementation MOZUCardURL
+@implementation MOZUCardURLComponents
 
 //
 #pragma mark -
@@ -17,23 +17,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetAccountCardsOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForGetAccountCardsOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/cards";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId {
++(MOZUURLComponents*)URLComponentsForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/cards/{cardId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 		@"cardId" : cardId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -43,13 +43,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddAccountCardOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForAddAccountCardOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/cards";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -59,14 +59,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId {
++(MOZUURLComponents*)URLComponentsForUpdateAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/cards/{cardId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 		@"cardId" : cardId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -76,14 +76,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId {
++(MOZUURLComponents*)URLComponentsForDeleteAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/cards/{cardId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 		@"cardId" : cardId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

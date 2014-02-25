@@ -9,7 +9,7 @@
 
 #import "MOZUChannelURL.h"
 
-@implementation MOZUChannelURL
+@implementation MOZUChannelURLComponents
 
 //
 #pragma mark -
@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetChannelsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetChannelsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/channels/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex,
@@ -26,16 +26,16 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetChannelOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetChannelOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/channels/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -45,11 +45,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreateChannelOperation {
++(MOZUURLComponents*)URLComponentsForCreateChannelOperation {
 	NSString* template = @"/api/commerce/channels/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -59,13 +59,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateChannelOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForUpdateChannelOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/channels/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -75,13 +75,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteChannelOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForDeleteChannelOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/channels/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

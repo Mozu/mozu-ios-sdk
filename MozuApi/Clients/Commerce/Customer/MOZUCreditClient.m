@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCreditClient.h"
-#import "MOZUCreditUrl.h"
+#import "MOZUCreditUrlComponents.h"
 #import "MozuCredit.h"
 #import "MozuCreditCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetCreditsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditURL URLForGetCreditsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUCreditURLComponents URLComponentsForGetCreditsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetCreditOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditURL URLForGetCreditOperationWithCode:code];
+	id url = [MOZUCreditURLComponents URLComponentsForGetCreditOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 //
 
 +(MOZUClient*)clientForAddCreditOperationWithBody:(MOZUCredit*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditURL URLForAddCreditOperation];
+	id url = [MOZUCreditURLComponents URLComponentsForAddCreditOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -80,7 +80,7 @@
 //
 
 +(MOZUClient*)clientForUpdateCreditOperationWithBody:(MOZUCredit*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditURL URLForUpdateCreditOperationWithCode:code];
+	id url = [MOZUCreditURLComponents URLComponentsForUpdateCreditOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -95,7 +95,7 @@
 }
 
 +(MOZUClient*)clientForAssociateCreditToShopperOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditURL URLForAssociateCreditToShopperOperationWithCode:code];
+	id url = [MOZUCreditURLComponents URLComponentsForAssociateCreditToShopperOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -116,7 +116,7 @@
 //
 
 +(MOZUClient*)clientForDeleteCreditOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCreditURL URLForDeleteCreditOperationWithCode:code];
+	id url = [MOZUCreditURLComponents URLComponentsForDeleteCreditOperationWithCode:code];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

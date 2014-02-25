@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUCommerceReturnsPackageURL : NSObject
+@interface MOZUCommerceReturnsPackageURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,18 +18,18 @@
 //
 
 /**
-Resource Url for getPackage
+Resource Url Components for getPackage
 @param returnId Unique identifier of the return associated with the replacement package to retrieve.
 @param packageId Unique identifier of the return replacement package to retrieve.
 */
-+(MOZUURL*)URLForGetPackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForGetPackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId;
 
 /**
-Resource Url for getPackageLabel
+Resource Url Components for getPackageLabel
 @param returnId Unique identifier of the return associated with the replacement package label to retrieve.
 @param packageId Unique identifier of the return replacement package for which to retrieve the label.
 */
-+(MOZUURL*)URLForGetPackageLabelOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForGetPackageLabelOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId;
 
 
 //
@@ -39,10 +39,10 @@ Resource Url for getPackageLabel
 //
 
 /**
-Resource Url for createPackage
+Resource Url Components for createPackage
 @param returnId Unique identifier of the return for which to create a replacement package.
 */
-+(MOZUURL*)URLForCreatePackageOperationWithReturnId:(NSString*)returnId;
++(MOZUURLComponents*)URLComponentsForCreatePackageOperationWithReturnId:(NSString*)returnId;
 
 
 //
@@ -52,11 +52,11 @@ Resource Url for createPackage
 //
 
 /**
-Resource Url for updatePackage
+Resource Url Components for updatePackage
 @param returnId Unique identifier of the return associated with the replacement package to update.
 @param packageId Unique identifier of the return replacement package to update.
 */
-+(MOZUURL*)URLForUpdatePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForUpdatePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId;
 
 
 //
@@ -66,11 +66,11 @@ Resource Url for updatePackage
 //
 
 /**
-Resource Url for deletePackage
+Resource Url Components for deletePackage
 @param returnId Unique identifier of the return associated with the replacement package to delete.
 @param packageId Unique identifier of the return replacement package to delete.
 */
-+(MOZUURL*)URLForDeletePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId;
++(MOZUURLComponents*)URLComponentsForDeletePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId;
 
 
 

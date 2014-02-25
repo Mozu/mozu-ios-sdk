@@ -9,7 +9,7 @@
 
 #import "MOZUApplicationVersionURL.h"
 
-@implementation MOZUApplicationVersionURL
+@implementation MOZUApplicationVersionURLComponents
 
 //
 #pragma mark -
@@ -17,61 +17,61 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetAllApplicationsOperation {
++(MOZUURLComponents*)URLComponentsForGetAllApplicationsOperation {
 	NSString* template = @"/api/platform/developer/applications/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetApplicationOperationWithApplicationId:(NSNumber*)applicationId {
++(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithApplicationId:(NSNumber*)applicationId {
 	NSString* template = @"/api/platform/developer/applications/{applicationId}";
 	NSDictionary* params = @{
 		@"applicationId" : applicationId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetApplicationVersionOperationWithApplicationVersionId:(NSInteger)applicationVersionId {
++(MOZUURLComponents*)URLComponentsForGetApplicationVersionOperationWithApplicationVersionId:(NSInteger)applicationVersionId {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetPackagesOperationWithApplicationVersionId:(NSInteger)applicationVersionId {
++(MOZUURLComponents*)URLComponentsForGetPackagesOperationWithApplicationVersionId:(NSInteger)applicationVersionId {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetPackageOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
++(MOZUURLComponents*)URLComponentsForGetPackageOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
 		@"packageId" : @(packageId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetPackageItemsMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
++(MOZUURLComponents*)URLComponentsForGetPackageItemsMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
 		@"packageId" : @(packageId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath {
++(MOZUURLComponents*)URLComponentsForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files/?itemPath={itempath}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
@@ -79,17 +79,17 @@
 		@"itempath" : itempath,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetPackageFilesZipOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
++(MOZUURLComponents*)URLComponentsForGetPackageFilesZipOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/zip";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
 		@"packageId" : @(packageId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -99,26 +99,26 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddPackageOperationWithApplicationVersionId:(NSInteger)applicationVersionId {
++(MOZUURLComponents*)URLComponentsForAddPackageOperationWithApplicationVersionId:(NSInteger)applicationVersionId {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForChangePackageFileNameOrPathOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
++(MOZUURLComponents*)URLComponentsForChangePackageFileNameOrPathOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files/change-name-or-path";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
 		@"packageId" : @(packageId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURL*)URLForAddPackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
++(MOZUURLComponents*)URLComponentsForAddPackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
@@ -126,7 +126,7 @@
 		@"filepath" : filepath,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -136,7 +136,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdatePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
++(MOZUURLComponents*)URLComponentsForUpdatePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
@@ -144,7 +144,7 @@
 		@"filepath" : filepath,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -154,7 +154,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
++(MOZUURLComponents*)URLComponentsForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
@@ -162,7 +162,7 @@
 		@"filepath" : filepath,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

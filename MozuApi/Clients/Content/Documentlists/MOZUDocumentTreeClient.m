@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDocumentTreeClient.h"
-#import "MOZUDocumentTreeUrl.h"
+#import "MOZUDocumentTreeUrlComponents.h"
 #import "MozuDocument.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentTreeURL URLForGetTreeDocumentOperationWithDocumentListName:documentListName documentName:documentName];
+	id url = [MOZUDocumentTreeURLComponents URLComponentsForGetTreeDocumentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -39,7 +39,7 @@
 }
 
 +(MOZUClient*)clientForGetTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentTreeURL URLForGetTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
+	id url = [MOZUDocumentTreeURLComponents URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -65,7 +65,7 @@
 //
 
 +(MOZUClient*)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream*)body documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentTreeURL URLForUpdateTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
+	id url = [MOZUDocumentTreeURLComponents URLComponentsForUpdateTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -85,7 +85,7 @@
 //
 
 +(MOZUClient*)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream*)body documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDocumentTreeURL URLForDeleteTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
+	id url = [MOZUDocumentTreeURLComponents URLComponentsForDeleteTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

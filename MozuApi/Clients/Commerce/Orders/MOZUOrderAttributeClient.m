@@ -9,7 +9,7 @@
 */
 
 #import "MOZUOrderAttributeClient.h"
-#import "MOZUOrderAttributeUrl.h"
+#import "MOZUOrderAttributeUrlComponents.h"
 #import "MozuOrderAttribute.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetOrderAttributesOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUOrderAttributeURL URLForGetOrderAttributesOperationWithOrderId:orderId];
+	id url = [MOZUOrderAttributeURLComponents URLComponentsForGetOrderAttributesOperationWithOrderId:orderId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -44,7 +44,7 @@
 //
 
 +(MOZUClient*)clientForCreateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUOrderAttributeURL URLForCreateOrderAttributesOperationWithOrderId:orderId];
+	id url = [MOZUOrderAttributeURLComponents URLComponentsForCreateOrderAttributesOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -67,7 +67,7 @@
 //
 
 +(MOZUClient*)clientForUpdateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUOrderAttributeURL URLForUpdateOrderAttributesOperationWithOrderId:orderId removeMissing:removeMissing];
+	id url = [MOZUOrderAttributeURLComponents URLComponentsForUpdateOrderAttributesOperationWithOrderId:orderId removeMissing:removeMissing];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

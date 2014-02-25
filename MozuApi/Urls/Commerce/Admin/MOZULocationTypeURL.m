@@ -9,7 +9,7 @@
 
 #import "MOZULocationTypeURL.h"
 
-@implementation MOZULocationTypeURL
+@implementation MOZULocationTypeURLComponents
 
 //
 #pragma mark -
@@ -17,20 +17,20 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetLocationTypesOperation {
++(MOZUURLComponents*)URLComponentsForGetLocationTypesOperation {
 	NSString* template = @"/api/commerce/admin/locationtypes/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode {
++(MOZUURLComponents*)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode {
 	NSString* template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
 	NSDictionary* params = @{
 		@"locationTypeCode" : locationTypeCode,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -40,11 +40,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddLocationTypeOperation {
++(MOZUURLComponents*)URLComponentsForAddLocationTypeOperation {
 	NSString* template = @"/api/commerce/admin/locationtypes/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -54,13 +54,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode {
++(MOZUURLComponents*)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode {
 	NSString* template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
 	NSDictionary* params = @{
 		@"locationTypeCode" : locationTypeCode,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -70,13 +70,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode {
++(MOZUURLComponents*)URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode {
 	NSString* template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
 	NSDictionary* params = @{
 		@"locationTypeCode" : locationTypeCode,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

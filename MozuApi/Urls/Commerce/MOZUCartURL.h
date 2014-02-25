@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUCartURL : NSObject
+@interface MOZUCartURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,32 +18,32 @@
 //
 
 /**
-Resource Url for getCart
+Resource Url Components for getCart
 @param cartId Identifier of the cart to retrieve.
 */
-+(MOZUURL*)URLForGetCartOperationWithCartId:(NSString*)cartId;
++(MOZUURLComponents*)URLComponentsForGetCartOperationWithCartId:(NSString*)cartId;
 
 /**
-Resource Url for getOrCreateCart
+Resource Url Components for getOrCreateCart
 */
-+(MOZUURL*)URLForGetOrCreateCartOperation;
++(MOZUURLComponents*)URLComponentsForGetOrCreateCartOperation;
 
 /**
-Resource Url for getCartSummary
+Resource Url Components for getCartSummary
 */
-+(MOZUURL*)URLForGetCartSummaryOperation;
++(MOZUURLComponents*)URLComponentsForGetCartSummaryOperation;
 
 /**
-Resource Url for getUserCart
+Resource Url Components for getUserCart
 @param userId Unique identifier of the user whose cart you want to retrieve.
 */
-+(MOZUURL*)URLForGetUserCartOperationWithUserId:(NSString*)userId;
++(MOZUURLComponents*)URLComponentsForGetUserCartOperationWithUserId:(NSString*)userId;
 
 /**
-Resource Url for getUserCartSummary
+Resource Url Components for getUserCartSummary
 @param userId Unique identifier of the user whose cart details you want to retrieve.
 */
-+(MOZUURL*)URLForGetUserCartSummaryOperationWithUserId:(NSString*)userId;
++(MOZUURLComponents*)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString*)userId;
 
 
 //
@@ -60,9 +60,9 @@ Resource Url for getUserCartSummary
 //
 
 /**
-Resource Url for updateCart
+Resource Url Components for updateCart
 */
-+(MOZUURL*)URLForUpdateCartOperation;
++(MOZUURLComponents*)URLComponentsForUpdateCartOperation;
 
 
 //
@@ -72,15 +72,15 @@ Resource Url for updateCart
 //
 
 /**
-Resource Url for deleteCart
+Resource Url Components for deleteCart
 @param cartId Identifier of the cart to delete.
 */
-+(MOZUURL*)URLForDeleteCartOperationWithCartId:(NSString*)cartId;
++(MOZUURLComponents*)URLComponentsForDeleteCartOperationWithCartId:(NSString*)cartId;
 
 /**
-Resource Url for deleteCurrentCart
+Resource Url Components for deleteCurrentCart
 */
-+(MOZUURL*)URLForDeleteCurrentCartOperation;
++(MOZUURLComponents*)URLComponentsForDeleteCurrentCartOperation;
 
 
 

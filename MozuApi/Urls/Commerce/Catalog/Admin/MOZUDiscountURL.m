@@ -9,7 +9,7 @@
 
 #import "MOZUDiscountURL.h"
 
-@implementation MOZUDiscountURL
+@implementation MOZUDiscountURLComponents
 
 //
 #pragma mark -
@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetDiscountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetDiscountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex,
@@ -26,32 +26,32 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetDiscountOperationWithDiscountId:(NSInteger)discountId {
++(MOZUURLComponents*)URLComponentsForGetDiscountOperationWithDiscountId:(NSInteger)discountId {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}";
 	NSDictionary* params = @{
 		@"discountId" : @(discountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetDiscountContentOperationWithDiscountId:(NSInteger)discountId {
++(MOZUURLComponents*)URLComponentsForGetDiscountContentOperationWithDiscountId:(NSInteger)discountId {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/content";
 	NSDictionary* params = @{
 		@"discountId" : @(discountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGenerateRandomCouponOperation {
++(MOZUURLComponents*)URLComponentsForGenerateRandomCouponOperation {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/generate-random-coupon";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -61,18 +61,18 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreateDiscountOperation {
++(MOZUURLComponents*)URLComponentsForCreateDiscountOperation {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForRedeemDiscountOperation {
++(MOZUURLComponents*)URLComponentsForRedeemDiscountOperation {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/Redeem";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -82,22 +82,22 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateDiscountOperationWithDiscountId:(NSInteger)discountId {
++(MOZUURLComponents*)URLComponentsForUpdateDiscountOperationWithDiscountId:(NSInteger)discountId {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}";
 	NSDictionary* params = @{
 		@"discountId" : @(discountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForUpdateDiscountContentOperationWithDiscountId:(NSInteger)discountId {
++(MOZUURLComponents*)URLComponentsForUpdateDiscountContentOperationWithDiscountId:(NSInteger)discountId {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/content";
 	NSDictionary* params = @{
 		@"discountId" : @(discountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -107,23 +107,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteDiscountOperationWithDiscountId:(NSInteger)discountId {
++(MOZUURLComponents*)URLComponentsForDeleteDiscountOperationWithDiscountId:(NSInteger)discountId {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}";
 	NSDictionary* params = @{
 		@"discountId" : @(discountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForUnRedeemDiscountOperationWithDiscountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber {
++(MOZUURLComponents*)URLComponentsForUnRedeemDiscountOperationWithDiscountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/Unredeem/{orderNumber}";
 	NSDictionary* params = @{
 		@"discountId" : discountId,
 		@"orderNumber" : orderNumber,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

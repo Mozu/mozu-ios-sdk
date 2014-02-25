@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCommerceReturnsShipmentClient.h"
-#import "MOZUCommerceReturnsShipmentUrl.h"
+#import "MOZUCommerceReturnsShipmentUrlComponents.h"
 #import "MozuCommercePackage.h"
 #import "MozuShipment.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceReturnsShipmentURL URLForGetShipmentOperationWithReturnId:returnId shipmentId:shipmentId];
+	id url = [MOZUCommerceReturnsShipmentURLComponents URLComponentsForGetShipmentOperationWithReturnId:returnId shipmentId:shipmentId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -44,7 +44,7 @@
 //
 
 +(MOZUClient*)clientForCreatePackageShipmentsOperationWithBody:(NSString*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceReturnsShipmentURL URLForCreatePackageShipmentsOperationWithReturnId:returnId];
+	id url = [MOZUCommerceReturnsShipmentURLComponents URLComponentsForCreatePackageShipmentsOperationWithReturnId:returnId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -74,7 +74,7 @@
 //
 
 +(MOZUClient*)clientForDeleteShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUCommerceReturnsShipmentURL URLForDeleteShipmentOperationWithReturnId:returnId shipmentId:shipmentId];
+	id url = [MOZUCommerceReturnsShipmentURLComponents URLComponentsForDeleteShipmentOperationWithReturnId:returnId shipmentId:shipmentId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

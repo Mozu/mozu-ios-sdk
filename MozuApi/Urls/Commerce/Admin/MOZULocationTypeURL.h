@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZULocationTypeURL : NSObject
+@interface MOZULocationTypeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,15 +18,15 @@
 //
 
 /**
-Resource Url for getLocationTypes
+Resource Url Components for getLocationTypes
 */
-+(MOZUURL*)URLForGetLocationTypesOperation;
++(MOZUURLComponents*)URLComponentsForGetLocationTypesOperation;
 
 /**
-Resource Url for getLocationType
+Resource Url Components for getLocationType
 @param locationTypeCode The user-defined code that identifies the location type.
 */
-+(MOZUURL*)URLForGetLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
++(MOZUURLComponents*)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
 
 
 //
@@ -36,9 +36,9 @@ Resource Url for getLocationType
 //
 
 /**
-Resource Url for addLocationType
+Resource Url Components for addLocationType
 */
-+(MOZUURL*)URLForAddLocationTypeOperation;
++(MOZUURLComponents*)URLComponentsForAddLocationTypeOperation;
 
 
 //
@@ -48,10 +48,10 @@ Resource Url for addLocationType
 //
 
 /**
-Resource Url for updateLocationType
+Resource Url Components for updateLocationType
 @param locationTypeCode The user-defined code that identifies the location type.
 */
-+(MOZUURL*)URLForUpdateLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
++(MOZUURLComponents*)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
 
 
 //
@@ -61,10 +61,10 @@ Resource Url for updateLocationType
 //
 
 /**
-Resource Url for deleteLocationType
+Resource Url Components for deleteLocationType
 @param locationTypeCode User-defined code used to identify the location type.
 */
-+(MOZUURL*)URLForDeleteLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
++(MOZUURLComponents*)URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
 
 
 

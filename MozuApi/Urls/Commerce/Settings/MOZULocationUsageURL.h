@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZULocationUsageURL : NSObject
+@interface MOZULocationUsageURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,15 +18,15 @@
 //
 
 /**
-Resource Url for getLocationUsages
+Resource Url Components for getLocationUsages
 */
-+(MOZUURL*)URLForGetLocationUsagesOperation;
++(MOZUURLComponents*)URLComponentsForGetLocationUsagesOperation;
 
 /**
-Resource Url for getLocationUsage
+Resource Url Components for getLocationUsage
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
-+(MOZUURL*)URLForGetLocationUsageOperationWithCode:(NSString*)code;
++(MOZUURLComponents*)URLComponentsForGetLocationUsageOperationWithCode:(NSString*)code;
 
 
 //
@@ -43,10 +43,10 @@ Resource Url for getLocationUsage
 //
 
 /**
-Resource Url for updateLocationUsage
+Resource Url Components for updateLocationUsage
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
-+(MOZUURL*)URLForUpdateLocationUsageOperationWithCode:(NSString*)code;
++(MOZUURLComponents*)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString*)code;
 
 
 //

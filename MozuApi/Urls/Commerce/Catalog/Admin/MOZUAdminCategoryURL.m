@@ -9,7 +9,7 @@
 
 #import "MOZUAdminCategoryURL.h"
 
-@implementation MOZUAdminCategoryURL
+@implementation MOZUAdminCategoryURLComponents
 
 //
 #pragma mark -
@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetCategoriesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex,
@@ -26,25 +26,25 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetCategoryOperationWithCategoryId:(NSInteger)categoryId {
++(MOZUURLComponents*)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId {
 	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId {
++(MOZUURLComponents*)URLComponentsForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId {
 	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}/children";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -54,11 +54,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddCategoryOperation {
++(MOZUURLComponents*)URLComponentsForAddCategoryOperation {
 	NSString* template = @"/api/commerce/catalog/admin/categories/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -68,14 +68,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility {
++(MOZUURLComponents*)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility {
 	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
 		@"cascadeVisibility" : cascadeVisibility,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -85,14 +85,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber*)cascadeDelete {
++(MOZUURLComponents*)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber*)cascadeDelete {
 	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
 		@"cascadeDelete" : cascadeDelete,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

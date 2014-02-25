@@ -9,7 +9,7 @@
 
 #import "MOZUProductTypeVariationURL.h"
 
-@implementation MOZUProductTypeVariationURL
+@implementation MOZUProductTypeVariationURLComponents
 
 //
 #pragma mark -
@@ -24,7 +24,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGenerateProductVariationsOperationWithProductTypeId:(NSInteger)productTypeId productCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGenerateProductVariationsOperationWithProductTypeId:(NSInteger)productTypeId productCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/variations?productCode={productCode}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
@@ -35,7 +35,7 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

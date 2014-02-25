@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUTaxableTerritoryURL : NSObject
+@interface MOZUTaxableTerritoryURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,9 +18,9 @@
 //
 
 /**
-Resource Url for getTaxableTerritories
+Resource Url Components for getTaxableTerritories
 */
-+(MOZUURL*)URLForGetTaxableTerritoriesOperation;
++(MOZUURLComponents*)URLComponentsForGetTaxableTerritoriesOperation;
 
 
 //
@@ -30,9 +30,9 @@ Resource Url for getTaxableTerritories
 //
 
 /**
-Resource Url for addTaxableTerritory
+Resource Url Components for addTaxableTerritory
 */
-+(MOZUURL*)URLForAddTaxableTerritoryOperation;
++(MOZUURLComponents*)URLComponentsForAddTaxableTerritoryOperation;
 
 
 //
@@ -42,9 +42,9 @@ Resource Url for addTaxableTerritory
 //
 
 /**
-Resource Url for updateTaxableTerritories
+Resource Url Components for updateTaxableTerritories
 */
-+(MOZUURL*)URLForUpdateTaxableTerritoriesOperation;
++(MOZUURLComponents*)URLComponentsForUpdateTaxableTerritoriesOperation;
 
 
 //

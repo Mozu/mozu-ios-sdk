@@ -9,7 +9,7 @@
 
 #import "MOZUTransactionURL.h"
 
-@implementation MOZUTransactionURL
+@implementation MOZUTransactionURLComponents
 
 //
 #pragma mark -
@@ -17,13 +17,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetTransactionsOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForGetTransactionsOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/transactions";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -33,13 +33,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddTransactionOperationWithAccountId:(NSInteger)accountId {
++(MOZUURLComponents*)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/transactions";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -56,14 +56,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId {
++(MOZUURLComponents*)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/transactions/{transactionId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),
 		@"transactionId" : transactionId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

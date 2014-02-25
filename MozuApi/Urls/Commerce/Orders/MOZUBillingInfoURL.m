@@ -9,7 +9,7 @@
 
 #import "MOZUBillingInfoURL.h"
 
-@implementation MOZUBillingInfoURL
+@implementation MOZUBillingInfoURLComponents
 
 //
 #pragma mark -
@@ -17,14 +17,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetBillingInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft {
++(MOZUURLComponents*)URLComponentsForGetBillingInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft {
 	NSString* template = @"/api/commerce/orders/{orderId}/billinginfo?draft={draft}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"draft" : draft,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -41,7 +41,7 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForSetBillingInfoOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForSetBillingInfoOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/billinginfo?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -49,7 +49,7 @@
 		@"version" : version,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

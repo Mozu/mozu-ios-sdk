@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAttributeTypeRuleClient.h"
-#import "MOZUAttributeTypeRuleUrl.h"
+#import "MOZUAttributeTypeRuleUrlComponents.h"
 #import "MozuAttributeTypeRuleCollection.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetAttributeTypeRulesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAttributeTypeRuleURL URLForGetAttributeTypeRulesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUAttributeTypeRuleURLComponents URLComponentsForGetAttributeTypeRulesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

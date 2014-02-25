@@ -9,7 +9,7 @@
 
 #import "MOZULocationUsageURL.h"
 
-@implementation MOZULocationUsageURL
+@implementation MOZULocationUsageURLComponents
 
 //
 #pragma mark -
@@ -17,20 +17,20 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetLocationUsagesOperation {
++(MOZUURLComponents*)URLComponentsForGetLocationUsagesOperation {
 	NSString* template = @"/api/commerce/settings/locationUsages/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetLocationUsageOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetLocationUsageOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/settings/locationUsages/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -47,13 +47,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateLocationUsageOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString*)code {
 	NSString* template = @"/api/commerce/settings/locationUsages/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

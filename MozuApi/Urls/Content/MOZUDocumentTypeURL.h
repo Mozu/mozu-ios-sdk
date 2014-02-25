@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUDocumentTypeURL : NSObject
+@interface MOZUDocumentTypeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,17 +18,17 @@
 //
 
 /**
-Resource Url for getDocumentTypes
+Resource Url Components for getDocumentTypes
 @param pageSize 
 @param startIndex 
 */
-+(MOZUURL*)URLForGetDocumentTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
++(MOZUURLComponents*)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
 
 /**
-Resource Url for getDocumentType
+Resource Url Components for getDocumentType
 @param documentTypeName 
 */
-+(MOZUURL*)URLForGetDocumentTypeOperationWithDocumentTypeName:(NSString*)documentTypeName;
++(MOZUURLComponents*)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString*)documentTypeName;
 
 
 //

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUContentFacetClient.h"
-#import "MOZUContentFacetUrl.h"
+#import "MOZUContentFacetUrlComponents.h"
 #import "MozuContentFacet.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetFacetsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName propertyName:(NSString*)propertyName userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUContentFacetURL URLForGetFacetsOperationWithDocumentListName:documentListName propertyName:propertyName];
+	id url = [MOZUContentFacetURLComponents URLComponentsForGetFacetsOperationWithDocumentListName:documentListName propertyName:propertyName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

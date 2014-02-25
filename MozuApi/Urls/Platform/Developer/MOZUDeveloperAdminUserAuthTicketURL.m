@@ -9,7 +9,7 @@
 
 #import "MOZUDeveloperAdminUserAuthTicketURL.h"
 
-@implementation MOZUDeveloperAdminUserAuthTicketURL
+@implementation MOZUDeveloperAdminUserAuthTicketURLComponents
 
 //
 #pragma mark -
@@ -24,13 +24,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId {
++(MOZUURLComponents*)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId {
 	NSString* template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
 	NSDictionary* params = @{
 		@"developerAccountId" : developerAccountId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -40,13 +40,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId {
++(MOZUURLComponents*)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber*)developerAccountId {
 	NSString* template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
 	NSDictionary* params = @{
 		@"developerAccountId" : developerAccountId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -56,13 +56,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
++(MOZUURLComponents*)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
 	NSString* template = @"/api/platform/developer/authtickets/?refreshToken={refreshToken}";
 	NSDictionary* params = @{
 		@"refreshToken" : refreshToken,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 

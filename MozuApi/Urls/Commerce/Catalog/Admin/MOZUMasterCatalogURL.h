@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUMasterCatalogURL : NSObject
+@interface MOZUMasterCatalogURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,15 +18,15 @@
 //
 
 /**
-Resource Url for getMasterCatalogs
+Resource Url Components for getMasterCatalogs
 */
-+(MOZUURL*)URLForGetMasterCatalogsOperation;
++(MOZUURLComponents*)URLComponentsForGetMasterCatalogsOperation;
 
 /**
-Resource Url for getMasterCatalog
+Resource Url Components for getMasterCatalog
 @param masterCatalogId The unique identifier of the master catalog associated with the entity.
 */
-+(MOZUURL*)URLForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId;
++(MOZUURLComponents*)URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId;
 
 
 //
@@ -43,10 +43,10 @@ Resource Url for getMasterCatalog
 //
 
 /**
-Resource Url for updateMasterCatalog
+Resource Url Components for updateMasterCatalog
 @param masterCatalogId 
 */
-+(MOZUURL*)URLForUpdateMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId;
++(MOZUURLComponents*)URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId;
 
 
 //

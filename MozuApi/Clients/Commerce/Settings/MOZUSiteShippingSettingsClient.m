@@ -9,7 +9,7 @@
 */
 
 #import "MOZUSiteShippingSettingsClient.h"
-#import "MOZUSiteShippingSettingsUrl.h"
+#import "MOZUSiteShippingSettingsUrlComponents.h"
 #import "MozuSiteShippingSettings.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetSiteShippingSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUSiteShippingSettingsURL URLForGetSiteShippingSettingsOperation];
+	id url = [MOZUSiteShippingSettingsURLComponents URLComponentsForGetSiteShippingSettingsOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

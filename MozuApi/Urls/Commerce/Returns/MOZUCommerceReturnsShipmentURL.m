@@ -9,7 +9,7 @@
 
 #import "MOZUCommerceReturnsShipmentURL.h"
 
-@implementation MOZUCommerceReturnsShipmentURL
+@implementation MOZUCommerceReturnsShipmentURLComponents
 
 //
 #pragma mark -
@@ -17,14 +17,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId {
++(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId {
 	NSString* template = @"/api/commerce/returns/{returnId}/shipments/{shipmentId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
 		@"shipmentId" : shipmentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -34,13 +34,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreatePackageShipmentsOperationWithReturnId:(NSString*)returnId {
++(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithReturnId:(NSString*)returnId {
 	NSString* template = @"/api/commerce/returns/{returnId}/shipments";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -57,14 +57,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId {
++(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId {
 	NSString* template = @"/api/commerce/returns/{returnId}/shipments/{shipmentId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
 		@"shipmentId" : shipmentId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAttributeVocabularyValueURL : NSObject
+@interface MOZUAttributeVocabularyValueURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,17 +18,17 @@
 //
 
 /**
-Resource Url for getAttributeVocabularyValues
+Resource Url Components for getAttributeVocabularyValues
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForGetAttributeVocabularyValuesOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetAttributeVocabularyValuesOperationWithAttributeFQN:(NSString*)attributeFQN;
 
 /**
-Resource Url for getAttributeVocabularyValue
+Resource Url Components for getAttributeVocabularyValue
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
-+(MOZUURL*)URLForGetAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value;
++(MOZUURLComponents*)URLComponentsForGetAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for getAttributeVocabularyValue
 //
 
 /**
-Resource Url for addAttributeVocabularyValue
+Resource Url Components for addAttributeVocabularyValue
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForAddAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForAddAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -51,17 +51,17 @@ Resource Url for addAttributeVocabularyValue
 //
 
 /**
-Resource Url for updateAttributeVocabularyValues
+Resource Url Components for updateAttributeVocabularyValues
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:(NSString*)attributeFQN;
 
 /**
-Resource Url for updateAttributeVocabularyValue
+Resource Url Components for updateAttributeVocabularyValue
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
-+(MOZUURL*)URLForUpdateAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value;
++(MOZUURLComponents*)URLComponentsForUpdateAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value;
 
 
 //
@@ -71,11 +71,11 @@ Resource Url for updateAttributeVocabularyValue
 //
 
 /**
-Resource Url for deleteAttributeVocabularyValue
+Resource Url Components for deleteAttributeVocabularyValue
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param value The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
-+(MOZUURL*)URLForDeleteAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value;
++(MOZUURLComponents*)URLComponentsForDeleteAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value;
 
 
 

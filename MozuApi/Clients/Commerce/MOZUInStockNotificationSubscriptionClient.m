@@ -9,7 +9,7 @@
 */
 
 #import "MOZUInStockNotificationSubscriptionClient.h"
-#import "MOZUInStockNotificationSubscriptionUrl.h"
+#import "MOZUInStockNotificationSubscriptionUrlComponents.h"
 #import "MozuInStockNotificationSubscription.h"
 #import "MozuInStockNotificationSubscriptionCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUInStockNotificationSubscriptionURL URLForGetInStockNotificationSubscriptionsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForGetInStockNotificationSubscriptionsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -37,7 +37,7 @@
 }
 
 +(MOZUClient*)clientForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUInStockNotificationSubscriptionURL URLForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier];
+	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -58,7 +58,7 @@
 //
 
 +(MOZUClient*)clientForAddInStockNotificationSubscriptionOperationWithBody:(MOZUInStockNotificationSubscription*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUInStockNotificationSubscriptionURL URLForAddInStockNotificationSubscriptionOperation];
+	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForAddInStockNotificationSubscriptionOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -87,7 +87,7 @@
 //
 
 +(MOZUClient*)clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUInStockNotificationSubscriptionURL URLForDeleteInStockNotificationSubscriptionOperationWithIdentifier:identifier];
+	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForDeleteInStockNotificationSubscriptionOperationWithIdentifier:identifier];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUDiscountURL : NSObject
+@interface MOZUDiscountURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,30 +18,30 @@
 //
 
 /**
-Resource Url for getDiscounts
+Resource Url Components for getDiscounts
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetDiscountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetDiscountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 /**
-Resource Url for getDiscount
+Resource Url Components for getDiscount
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
-+(MOZUURL*)URLForGetDiscountOperationWithDiscountId:(NSInteger)discountId;
++(MOZUURLComponents*)URLComponentsForGetDiscountOperationWithDiscountId:(NSInteger)discountId;
 
 /**
-Resource Url for getDiscountContent
+Resource Url Components for getDiscountContent
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
-+(MOZUURL*)URLForGetDiscountContentOperationWithDiscountId:(NSInteger)discountId;
++(MOZUURLComponents*)URLComponentsForGetDiscountContentOperationWithDiscountId:(NSInteger)discountId;
 
 /**
-Resource Url for generateRandomCoupon
+Resource Url Components for generateRandomCoupon
 */
-+(MOZUURL*)URLForGenerateRandomCouponOperation;
++(MOZUURLComponents*)URLComponentsForGenerateRandomCouponOperation;
 
 
 //
@@ -51,14 +51,14 @@ Resource Url for generateRandomCoupon
 //
 
 /**
-Resource Url for createDiscount
+Resource Url Components for createDiscount
 */
-+(MOZUURL*)URLForCreateDiscountOperation;
++(MOZUURLComponents*)URLComponentsForCreateDiscountOperation;
 
 /**
-Resource Url for redeemDiscount
+Resource Url Components for redeemDiscount
 */
-+(MOZUURL*)URLForRedeemDiscountOperation;
++(MOZUURLComponents*)URLComponentsForRedeemDiscountOperation;
 
 
 //
@@ -68,16 +68,16 @@ Resource Url for redeemDiscount
 //
 
 /**
-Resource Url for updateDiscount
+Resource Url Components for updateDiscount
 @param discountId Unique identifier of the discount to update.
 */
-+(MOZUURL*)URLForUpdateDiscountOperationWithDiscountId:(NSInteger)discountId;
++(MOZUURLComponents*)URLComponentsForUpdateDiscountOperationWithDiscountId:(NSInteger)discountId;
 
 /**
-Resource Url for updateDiscountContent
+Resource Url Components for updateDiscountContent
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
-+(MOZUURL*)URLForUpdateDiscountContentOperationWithDiscountId:(NSInteger)discountId;
++(MOZUURLComponents*)URLComponentsForUpdateDiscountContentOperationWithDiscountId:(NSInteger)discountId;
 
 
 //
@@ -87,17 +87,17 @@ Resource Url for updateDiscountContent
 //
 
 /**
-Resource Url for deleteDiscount
+Resource Url Components for deleteDiscount
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
-+(MOZUURL*)URLForDeleteDiscountOperationWithDiscountId:(NSInteger)discountId;
++(MOZUURLComponents*)URLComponentsForDeleteDiscountOperationWithDiscountId:(NSInteger)discountId;
 
 /**
-Resource Url for unRedeemDiscount
+Resource Url Components for unRedeemDiscount
 @param discountId Unique identifier of the previously redeemed discount. System-supplied and read only.
 @param orderNumber The number of the order associated with the redeemed product discount.
 */
-+(MOZUURL*)URLForUnRedeemDiscountOperationWithDiscountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber;
++(MOZUURLComponents*)URLComponentsForUnRedeemDiscountOperationWithDiscountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber;
 
 
 

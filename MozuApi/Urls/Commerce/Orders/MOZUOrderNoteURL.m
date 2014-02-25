@@ -9,7 +9,7 @@
 
 #import "MOZUOrderNoteURL.h"
 
-@implementation MOZUOrderNoteURL
+@implementation MOZUOrderNoteURLComponents
 
 //
 #pragma mark -
@@ -17,23 +17,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetOrderNotesOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForGetOrderNotesOperationWithOrderId:(NSString*)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/notes";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId {
++(MOZUURLComponents*)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId {
 	NSString* template = @"/api/commerce/orders/{orderId}/notes/{noteId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"noteId" : noteId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -43,13 +43,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForCreateOrderNoteOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString*)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/notes";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -59,14 +59,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId {
++(MOZUURLComponents*)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId {
 	NSString* template = @"/api/commerce/orders/{orderId}/notes/{noteId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"noteId" : noteId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -76,14 +76,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId {
++(MOZUURLComponents*)URLComponentsForDeleteOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId {
 	NSString* template = @"/api/commerce/orders/{orderId}/notes/{noteId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"noteId" : noteId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

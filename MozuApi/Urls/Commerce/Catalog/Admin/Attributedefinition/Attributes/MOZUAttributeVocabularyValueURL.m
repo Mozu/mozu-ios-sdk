@@ -9,7 +9,7 @@
 
 #import "MOZUAttributeVocabularyValueURL.h"
 
-@implementation MOZUAttributeVocabularyValueURL
+@implementation MOZUAttributeVocabularyValueURLComponents
 
 //
 #pragma mark -
@@ -17,23 +17,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetAttributeVocabularyValuesOperationWithAttributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForGetAttributeVocabularyValuesOperationWithAttributeFQN:(NSString*)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value {
++(MOZUURLComponents*)URLComponentsForGetAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,
 		@"value" : value,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -43,13 +43,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForAddAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -59,23 +59,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:(NSString*)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForUpdateAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value {
++(MOZUURLComponents*)URLComponentsForUpdateAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,
 		@"value" : value,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -85,14 +85,14 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForDeleteAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value {
++(MOZUURLComponents*)URLComponentsForDeleteAttributeVocabularyValueOperationWithAttributeFQN:(NSString*)attributeFQN value:(NSString*)value {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,
 		@"value" : value,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

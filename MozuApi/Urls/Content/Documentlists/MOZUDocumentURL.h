@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUDocumentURL : NSObject
+@interface MOZUDocumentURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,28 +18,28 @@
 //
 
 /**
-Resource Url for getDocument
+Resource Url Components for getDocument
 @param documentListName The name of the document list associated with the document to retrieve.
 @param documentId Identifier of the document being retrieved.
 */
-+(MOZUURL*)URLForGetDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
++(MOZUURLComponents*)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
 
 /**
-Resource Url for getDocumentContent
+Resource Url Components for getDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentId Unique identifier of the document.
 */
-+(MOZUURL*)URLForGetDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
++(MOZUURLComponents*)URLComponentsForGetDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
 
 /**
-Resource Url for getDocuments
+Resource Url Components for getDocuments
 @param documentListName The name of the document list.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
-+(MOZUURL*)URLForGetDocumentsOperationWithDocumentListName:(NSString*)documentListName filter:(NSString*)filter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
++(MOZUURLComponents*)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString*)documentListName filter:(NSString*)filter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex;
 
 
 //
@@ -49,10 +49,10 @@ Resource Url for getDocuments
 //
 
 /**
-Resource Url for createDocument
+Resource Url Components for createDocument
 @param documentListName The descriptive alphanumeric document list name being created.
 */
-+(MOZUURL*)URLForCreateDocumentOperationWithDocumentListName:(NSString*)documentListName;
++(MOZUURLComponents*)URLComponentsForCreateDocumentOperationWithDocumentListName:(NSString*)documentListName;
 
 
 //
@@ -62,18 +62,18 @@ Resource Url for createDocument
 //
 
 /**
-Resource Url for updateDocument
+Resource Url Components for updateDocument
 @param documentListName Name of the document list associated with the document.
 @param documentId Unique identifier of the document to update.
 */
-+(MOZUURL*)URLForUpdateDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
++(MOZUURLComponents*)URLComponentsForUpdateDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
 
 /**
-Resource Url for updateDocumentContent
+Resource Url Components for updateDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentId Unique identifier of the document.
 */
-+(MOZUURL*)URLForUpdateDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
++(MOZUURLComponents*)URLComponentsForUpdateDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
 
 
 //
@@ -83,18 +83,18 @@ Resource Url for updateDocumentContent
 //
 
 /**
-Resource Url for deleteDocument
+Resource Url Components for deleteDocument
 @param documentListName The name of the document list associated with the document list being deleted.
 @param documentId Identifier of the document being deleted.
 */
-+(MOZUURL*)URLForDeleteDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
++(MOZUURLComponents*)URLComponentsForDeleteDocumentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
 
 /**
-Resource Url for deleteDocumentContent
+Resource Url Components for deleteDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentId Unique identifier of the document.
 */
-+(MOZUURL*)URLForDeleteDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
++(MOZUURLComponents*)URLComponentsForDeleteDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentId:(NSString*)documentId;
 
 
 

@@ -9,7 +9,7 @@
 
 #import "MOZUWishlistItemURL.h"
 
-@implementation MOZUWishlistItemURL
+@implementation MOZUWishlistItemURLComponents
 
 //
 #pragma mark -
@@ -17,17 +17,17 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId {
++(MOZUURLComponents*)URLComponentsForGetWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId {
 	NSString* template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}";
 	NSDictionary* params = @{
 		@"wishlistId" : wishlistId,
 		@"wishlistItemId" : wishlistItemId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetWishlistItemsOperationWithWishlistId:(NSString*)wishlistId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetWishlistItemsOperationWithWishlistId:(NSString*)wishlistId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/wishlists/{wishlistId}/items?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"wishlistId" : wishlistId,
@@ -37,10 +37,10 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString*)wishlistName startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString*)wishlistName startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}/items?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"customerAccountId" : @(customerAccountId),
@@ -51,7 +51,7 @@
 		@"filter" : filter,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -61,13 +61,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForAddItemToWishlistOperationWithWishlistId:(NSString*)wishlistId {
++(MOZUURLComponents*)URLComponentsForAddItemToWishlistOperationWithWishlistId:(NSString*)wishlistId {
 	NSString* template = @"/api/commerce/wishlists/{wishlistId}/items";
 	NSDictionary* params = @{
 		@"wishlistId" : wishlistId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -77,17 +77,17 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId {
++(MOZUURLComponents*)URLComponentsForUpdateWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId {
 	NSString* template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}";
 	NSDictionary* params = @{
 		@"wishlistId" : wishlistId,
 		@"wishlistItemId" : wishlistItemId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId quantity:(NSInteger)quantity {
++(MOZUURLComponents*)URLComponentsForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId quantity:(NSInteger)quantity {
 	NSString* template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}/{quantity}";
 	NSDictionary* params = @{
 		@"wishlistId" : wishlistId,
@@ -95,7 +95,7 @@
 		@"quantity" : @(quantity),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -105,23 +105,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForRemoveAllWishlistItemsOperationWithWishlistId:(NSString*)wishlistId {
++(MOZUURLComponents*)URLComponentsForRemoveAllWishlistItemsOperationWithWishlistId:(NSString*)wishlistId {
 	NSString* template = @"/api/commerce/wishlists/{wishlistId}/items";
 	NSDictionary* params = @{
 		@"wishlistId" : wishlistId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForDeleteWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId {
++(MOZUURLComponents*)URLComponentsForDeleteWishlistItemOperationWithWishlistId:(NSString*)wishlistId wishlistItemId:(NSString*)wishlistItemId {
 	NSString* template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}";
 	NSDictionary* params = @{
 		@"wishlistId" : wishlistId,
 		@"wishlistItemId" : wishlistItemId,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

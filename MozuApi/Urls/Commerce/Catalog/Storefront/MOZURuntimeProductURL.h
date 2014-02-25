@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZURuntimeProductURL : NSObject
+@interface MOZURuntimeProductURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,29 +18,29 @@
 //
 
 /**
-Resource Url for getProducts
+Resource Url Components for getProducts
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 */
-+(MOZUURL*)URLForGetProductsOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy;
++(MOZUURLComponents*)URLComponentsForGetProductsOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy;
 
 /**
-Resource Url for getProductInventory
+Resource Url Components for getProductInventory
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param locationCodes Array of location codes for which to retrieve product inventory information.
 */
-+(MOZUURL*)URLForGetProductInventoryOperationWithProductCode:(NSString*)productCode locationCodes:(NSString*)locationCodes;
++(MOZUURLComponents*)URLComponentsForGetProductInventoryOperationWithProductCode:(NSString*)productCode locationCodes:(NSString*)locationCodes;
 
 /**
-Resource Url for getProduct
+Resource Url Components for getProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 @param allowInactive If true, returns an inactive product as part of the query.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
-+(MOZUURL*)URLForGetProductOperationWithProductCode:(NSString*)productCode variationProductCode:(NSString*)variationProductCode allowInactive:(NSNumber*)allowInactive skipInventoryCheck:(NSNumber*)skipInventoryCheck;
++(MOZUURLComponents*)URLComponentsForGetProductOperationWithProductCode:(NSString*)productCode variationProductCode:(NSString*)variationProductCode allowInactive:(NSNumber*)allowInactive skipInventoryCheck:(NSNumber*)skipInventoryCheck;
 
 
 //
@@ -50,19 +50,19 @@ Resource Url for getProduct
 //
 
 /**
-Resource Url for configuredProduct
+Resource Url Components for configuredProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param includeOptionDetails If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
-+(MOZUURL*)URLForConfiguredProductOperationWithProductCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck;
++(MOZUURLComponents*)URLComponentsForConfiguredProductOperationWithProductCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck;
 
 /**
-Resource Url for validateProduct
+Resource Url Components for validateProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
-+(MOZUURL*)URLForValidateProductOperationWithProductCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck;
++(MOZUURLComponents*)URLComponentsForValidateProductOperationWithProductCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck;
 
 
 //

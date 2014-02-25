@@ -9,7 +9,7 @@
 */
 
 #import "MOZUBillingInfoClient.h"
-#import "MOZUBillingInfoUrl.h"
+#import "MOZUBillingInfoUrlComponents.h"
 #import "MozuBillingInfo.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetBillingInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUBillingInfoURL URLForGetBillingInfoOperationWithOrderId:orderId draft:draft];
+	id url = [MOZUBillingInfoURLComponents URLComponentsForGetBillingInfoOperationWithOrderId:orderId draft:draft];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -50,7 +50,7 @@
 //
 
 +(MOZUClient*)clientForSetBillingInfoOperationWithBody:(MOZUBillingInfo*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUBillingInfoURL URLForSetBillingInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
+	id url = [MOZUBillingInfoURLComponents URLComponentsForSetBillingInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUTenantDataClient.h"
-#import "MOZUTenantDataUrl.h"
+#import "MOZUTenantDataUrlComponents.h"
 
 
 @implementation MOZUTenantDataClient
@@ -21,7 +21,7 @@
 //
 
 +(MOZUClient*)clientForGetDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
-	id url = [MOZUTenantDataURL URLForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
+	id url = [MOZUTenantDataURLComponents URLComponentsForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -36,7 +36,7 @@
 //
 
 +(MOZUClient*)clientForCreateDBValueOperationWithBody:(NSString*)body dbEntryQuery:(NSString*)dbEntryQuery {
-	id url = [MOZUTenantDataURL URLForCreateDBValueOperationWithDbEntryQuery:dbEntryQuery];
+	id url = [MOZUTenantDataURLComponents URLComponentsForCreateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -52,7 +52,7 @@
 //
 
 +(MOZUClient*)clientForUpdateDBValueOperationWithBody:(NSString*)body dbEntryQuery:(NSString*)dbEntryQuery {
-	id url = [MOZUTenantDataURL URLForUpdateDBValueOperationWithDbEntryQuery:dbEntryQuery];
+	id url = [MOZUTenantDataURLComponents URLComponentsForUpdateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -68,7 +68,7 @@
 //
 
 +(MOZUClient*)clientForDeleteDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
-	id url = [MOZUTenantDataURL URLForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery];
+	id url = [MOZUTenantDataURLComponents URLComponentsForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

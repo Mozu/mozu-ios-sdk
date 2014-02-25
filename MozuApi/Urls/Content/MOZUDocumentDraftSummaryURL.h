@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUDocumentDraftSummaryURL : NSObject
+@interface MOZUDocumentDraftSummaryURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,12 +18,12 @@
 //
 
 /**
-Resource Url for listDocumentDraftSummaries
+Resource Url Components for listDocumentDraftSummaries
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param documentLists Lists that contain the document drafts.
 */
-+(MOZUURL*)URLForListDocumentDraftSummariesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists;
++(MOZUURLComponents*)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists;
 
 
 //
@@ -33,10 +33,10 @@ Resource Url for listDocumentDraftSummaries
 //
 
 /**
-Resource Url for deleteDocumentDrafts
+Resource Url Components for deleteDocumentDrafts
 @param documentLists List of document lists that contain documents to delete.
 */
-+(MOZUURL*)URLForDeleteDocumentDraftsOperationWithDocumentLists:(NSString*)documentLists;
++(MOZUURLComponents*)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString*)documentLists;
 
 
 //
@@ -46,10 +46,10 @@ Resource Url for deleteDocumentDrafts
 //
 
 /**
-Resource Url for publishDocuments
+Resource Url Components for publishDocuments
 @param documentLists List of document lists that contain documents to publish.
 */
-+(MOZUURL*)URLForPublishDocumentsOperationWithDocumentLists:(NSString*)documentLists;
++(MOZUURLComponents*)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString*)documentLists;
 
 
 //

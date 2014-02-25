@@ -9,7 +9,7 @@
 */
 
 #import "MOZUProductTypePropertyClient.h"
-#import "MOZUProductTypePropertyUrl.h"
+#import "MOZUProductTypePropertyUrlComponents.h"
 #import "MozuAttributeInProductType.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetPropertiesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductTypePropertyURL URLForGetPropertiesOperationWithProductTypeId:productTypeId];
+	id url = [MOZUProductTypePropertyURLComponents URLComponentsForGetPropertiesOperationWithProductTypeId:productTypeId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -40,7 +40,7 @@
 }
 
 +(MOZUClient*)clientForGetPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductTypePropertyURL URLForGetPropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
+	id url = [MOZUProductTypePropertyURLComponents URLComponentsForGetPropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -64,7 +64,7 @@
 //
 
 +(MOZUClient*)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType*)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductTypePropertyURL URLForAddPropertyOperationWithProductTypeId:productTypeId];
+	id url = [MOZUProductTypePropertyURLComponents URLComponentsForAddPropertyOperationWithProductTypeId:productTypeId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -89,7 +89,7 @@
 //
 
 +(MOZUClient*)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType*)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductTypePropertyURL URLForUpdatePropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
+	id url = [MOZUProductTypePropertyURLComponents URLComponentsForUpdatePropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -114,7 +114,7 @@
 //
 
 +(MOZUClient*)clientForDeletePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductTypePropertyURL URLForDeletePropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
+	id url = [MOZUProductTypePropertyURLComponents URLComponentsForDeletePropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

@@ -9,7 +9,7 @@
 
 #import "MOZUApplicationURL.h"
 
-@implementation MOZUApplicationURL
+@implementation MOZUApplicationURLComponents
 
 //
 #pragma mark -
@@ -17,11 +17,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForThirdPartyGetApplicationOperation {
++(MOZUURLComponents*)URLComponentsForThirdPartyGetApplicationOperation {
 	NSString* template = @"/api/commerce/settings/applications/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -38,11 +38,11 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForThirdPartyUpdateApplicationOperation {
++(MOZUURLComponents*)URLComponentsForThirdPartyUpdateApplicationOperation {
 	NSString* template = @"/api/commerce/settings/applications/";
 	NSDictionary* params = nil;
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

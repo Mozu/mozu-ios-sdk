@@ -9,7 +9,7 @@
 */
 
 #import "MOZUGeneralSettingsClient.h"
-#import "MOZUGeneralSettingsUrl.h"
+#import "MOZUGeneralSettingsUrlComponents.h"
 #import "MozuGeneralSettings.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetGeneralSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUGeneralSettingsURL URLForGetGeneralSettingsOperation];
+	id url = [MOZUGeneralSettingsURLComponents URLComponentsForGetGeneralSettingsOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -50,7 +50,7 @@
 //
 
 +(MOZUClient*)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUGeneralSettingsURL URLForUpdateGeneralSettingsOperation];
+	id url = [MOZUGeneralSettingsURLComponents URLComponentsForUpdateGeneralSettingsOperation];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

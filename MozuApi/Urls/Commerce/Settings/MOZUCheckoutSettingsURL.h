@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUCheckoutSettingsURL : NSObject
+@interface MOZUCheckoutSettingsURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,9 +18,9 @@
 //
 
 /**
-Resource Url for getCheckoutSettings
+Resource Url Components for getCheckoutSettings
 */
-+(MOZUURL*)URLForGetCheckoutSettingsOperation;
++(MOZUURLComponents*)URLComponentsForGetCheckoutSettingsOperation;
 
 
 //

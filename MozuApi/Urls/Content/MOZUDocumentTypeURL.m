@@ -9,7 +9,7 @@
 
 #import "MOZUDocumentTypeURL.h"
 
-@implementation MOZUDocumentTypeURL
+@implementation MOZUDocumentTypeURLComponents
 
 //
 #pragma mark -
@@ -17,23 +17,23 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetDocumentTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
++(MOZUURLComponents*)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
 	NSString* template = @"/api/content/documenttypes/?pageSize={pageSize}&startIndex={startIndex}";
 	NSDictionary* params = @{
 		@"pageSize" : pageSize,
 		@"startIndex" : startIndex,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURL*)URLForGetDocumentTypeOperationWithDocumentTypeName:(NSString*)documentTypeName {
++(MOZUURLComponents*)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString*)documentTypeName {
 	NSString* template = @"/api/content/documenttypes/{documentTypeName}";
 	NSDictionary* params = @{
 		@"documentTypeName" : documentTypeName,
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

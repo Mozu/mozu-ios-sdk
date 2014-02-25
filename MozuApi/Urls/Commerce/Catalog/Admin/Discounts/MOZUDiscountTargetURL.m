@@ -9,7 +9,7 @@
 
 #import "MOZUDiscountTargetURL.h"
 
-@implementation MOZUDiscountTargetURL
+@implementation MOZUDiscountTargetURLComponents
 
 //
 #pragma mark -
@@ -17,13 +17,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
++(MOZUURLComponents*)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/target";
 	NSDictionary* params = @{
 		@"discountId" : @(discountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 
@@ -40,13 +40,13 @@
 #pragma mark -
 //
 
-+(MOZUURL*)URLForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
++(MOZUURLComponents*)URLComponentsForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/target";
 	NSDictionary* params = @{
 		@"discountId" : @(discountId),
 	};
 
-	return [[MOZUURL alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
 

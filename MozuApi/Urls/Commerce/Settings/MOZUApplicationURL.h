@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUApplicationURL : NSObject
+@interface MOZUApplicationURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,9 +18,9 @@
 //
 
 /**
-Resource Url for thirdPartyGetApplication
+Resource Url Components for thirdPartyGetApplication
 */
-+(MOZUURL*)URLForThirdPartyGetApplicationOperation;
++(MOZUURLComponents*)URLComponentsForThirdPartyGetApplicationOperation;
 
 
 //
@@ -37,9 +37,9 @@ Resource Url for thirdPartyGetApplication
 //
 
 /**
-Resource Url for thirdPartyUpdateApplication
+Resource Url Components for thirdPartyUpdateApplication
 */
-+(MOZUURL*)URLForThirdPartyUpdateApplicationOperation;
++(MOZUURLComponents*)URLComponentsForThirdPartyUpdateApplicationOperation;
 
 
 //

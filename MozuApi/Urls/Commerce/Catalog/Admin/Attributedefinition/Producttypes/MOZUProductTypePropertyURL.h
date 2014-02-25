@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUProductTypePropertyURL : NSObject
+@interface MOZUProductTypePropertyURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,17 +18,17 @@
 //
 
 /**
-Resource Url for getProperties
+Resource Url Components for getProperties
 @param productTypeId Identifier of the product type.
 */
-+(MOZUURL*)URLForGetPropertiesOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForGetPropertiesOperationWithProductTypeId:(NSInteger)productTypeId;
 
 /**
-Resource Url for getProperty
+Resource Url Components for getProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForGetPropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetPropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -38,10 +38,10 @@ Resource Url for getProperty
 //
 
 /**
-Resource Url for addProperty
+Resource Url Components for addProperty
 @param productTypeId Identifier of the product type.
 */
-+(MOZUURL*)URLForAddPropertyOperationWithProductTypeId:(NSInteger)productTypeId;
++(MOZUURLComponents*)URLComponentsForAddPropertyOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -51,11 +51,11 @@ Resource Url for addProperty
 //
 
 /**
-Resource Url for updateProperty
+Resource Url Components for updateProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForUpdatePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdatePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 //
@@ -65,11 +65,11 @@ Resource Url for updateProperty
 //
 
 /**
-Resource Url for deleteProperty
+Resource Url Components for deleteProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURL*)URLForDeletePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForDeletePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
 
 
 

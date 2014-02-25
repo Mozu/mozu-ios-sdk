@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAddressValidationRequestClient.h"
-#import "MOZUAddressValidationRequestUrl.h"
+#import "MOZUAddressValidationRequestUrlComponents.h"
 #import "MozuAddressValidationResponse.h"
 
 
@@ -29,7 +29,7 @@
 //
 
 +(MOZUClient*)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAddressValidationRequestURL URLForValidateAddressOperation];
+	id url = [MOZUAddressValidationRequestURLComponents URLComponentsForValidateAddressOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

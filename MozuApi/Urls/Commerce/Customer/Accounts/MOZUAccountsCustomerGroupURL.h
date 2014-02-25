@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUAccountsCustomerGroupURL : NSObject
+@interface MOZUAccountsCustomerGroupURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,21 +18,21 @@
 //
 
 /**
-Resource Url for getAccountGroups
+Resource Url Components for getAccountGroups
 @param accountId Unique identifier of the customer account.
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURL*)URLForGetAccountGroupsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetAccountGroupsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
 
 /**
-Resource Url for getAccountGroup
+Resource Url Components for getAccountGroup
 @param accountId Unique identifier of the customer account.
 @param groupId Unique identifier of the customer group.
 */
-+(MOZUURL*)URLForGetAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId;
++(MOZUURLComponents*)URLComponentsForGetAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId;
 
 
 //
@@ -42,11 +42,11 @@ Resource Url for getAccountGroup
 //
 
 /**
-Resource Url for addAccountGroup
+Resource Url Components for addAccountGroup
 @param accountId Unique identifier of the customer account to add to a group.
 @param groupId Unique identifier of the customer group to add the customer to.
 */
-+(MOZUURL*)URLForAddAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId;
++(MOZUURLComponents*)URLComponentsForAddAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId;
 
 
 //
@@ -63,11 +63,11 @@ Resource Url for addAccountGroup
 //
 
 /**
-Resource Url for deleteAccountGroup
+Resource Url Components for deleteAccountGroup
 @param accountId Unique identifier of the customer account to remove from the group.
 @param groupId Unique identifier of the customer group.
 */
-+(MOZUURL*)URLForDeleteAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId;
++(MOZUURLComponents*)URLComponentsForDeleteAccountGroupOperationWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId;
 
 
 

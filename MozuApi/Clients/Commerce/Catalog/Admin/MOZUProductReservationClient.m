@@ -9,7 +9,7 @@
 */
 
 #import "MOZUProductReservationClient.h"
-#import "MOZUProductReservationUrl.h"
+#import "MOZUProductReservationUrlComponents.h"
 #import "MozuProductReservation.h"
 #import "MozuProductReservationCollection.h"
 
@@ -23,7 +23,7 @@
 //
 
 +(MOZUClient*)clientForGetProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductReservationURL URLForGetProductReservationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUProductReservationURLComponents URLComponentsForGetProductReservationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -40,7 +40,7 @@
 }
 
 +(MOZUClient*)clientForGetProductReservationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductReservationURL URLForGetProductReservationOperationWithProductReservationId:productReservationId];
+	id url = [MOZUProductReservationURLComponents URLComponentsForGetProductReservationOperationWithProductReservationId:productReservationId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -64,7 +64,7 @@
 //
 
 +(MOZUClient*)clientForAddProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductReservationURL URLForAddProductReservationsOperationWithSkipInventoryCheck:skipInventoryCheck];
+	id url = [MOZUProductReservationURLComponents URLComponentsForAddProductReservationsOperationWithSkipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -83,7 +83,7 @@
 }
 
 +(MOZUClient*)clientForCommitReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductReservationURL URLForCommitReservationsOperation];
+	id url = [MOZUProductReservationURLComponents URLComponentsForCommitReservationsOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -103,7 +103,7 @@
 //
 
 +(MOZUClient*)clientForUpdateProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation>*)body skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductReservationURL URLForUpdateProductReservationsOperationWithSkipInventoryCheck:skipInventoryCheck];
+	id url = [MOZUProductReservationURLComponents URLComponentsForUpdateProductReservationsOperationWithSkipInventoryCheck:skipInventoryCheck];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -129,7 +129,7 @@
 //
 
 +(MOZUClient*)clientForDeleteProductReservationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUProductReservationURL URLForDeleteProductReservationOperationWithProductReservationId:productReservationId];
+	id url = [MOZUProductReservationURLComponents URLComponentsForDeleteProductReservationOperationWithProductReservationId:productReservationId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

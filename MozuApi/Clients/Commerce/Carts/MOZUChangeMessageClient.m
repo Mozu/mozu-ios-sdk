@@ -9,7 +9,7 @@
 */
 
 #import "MOZUChangeMessageClient.h"
-#import "MOZUChangeMessageUrl.h"
+#import "MOZUChangeMessageUrlComponents.h"
 #import "MozuCartChangeMessageCollection.h"
 
 
@@ -22,7 +22,7 @@
 //
 
 +(MOZUClient*)clientForGetMessagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUChangeMessageURL URLForGetMessagesOperation];
+	id url = [MOZUChangeMessageURLComponents URLComponentsForGetMessagesOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -57,7 +57,7 @@
 //
 
 +(MOZUClient*)clientForRemoveAllMessagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUChangeMessageURL URLForRemoveAllMessagesOperation];
+	id url = [MOZUChangeMessageURLComponents URLComponentsForRemoveAllMessagesOperation];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -66,7 +66,7 @@
 }
 
 +(MOZUClient*)clientForRemoveMessageOperationWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUChangeMessageURL URLForRemoveMessageOperationWithMessageId:messageId];
+	id url = [MOZUChangeMessageURLComponents URLComponentsForRemoveMessageOperationWithMessageId:messageId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 

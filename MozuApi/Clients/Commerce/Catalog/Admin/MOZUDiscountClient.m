@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDiscountClient.h"
-#import "MOZUDiscountUrl.h"
+#import "MOZUDiscountUrlComponents.h"
 #import "MozuAdminDiscount.h"
 #import "MozuDiscountLocalizedContent.h"
 #import "MozuDiscountCollection.h"
@@ -25,7 +25,7 @@
 //
 
 +(MOZUClient*)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForGetDiscountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUDiscountURLComponents URLComponentsForGetDiscountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -42,7 +42,7 @@
 }
 
 +(MOZUClient*)clientForGetDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForGetDiscountOperationWithDiscountId:discountId];
+	id url = [MOZUDiscountURLComponents URLComponentsForGetDiscountOperationWithDiscountId:discountId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -59,7 +59,7 @@
 }
 
 +(MOZUClient*)clientForGetDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForGetDiscountContentOperationWithDiscountId:discountId];
+	id url = [MOZUDiscountURLComponents URLComponentsForGetDiscountContentOperationWithDiscountId:discountId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -76,7 +76,7 @@
 }
 
 +(MOZUClient*)clientForGenerateRandomCouponOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForGenerateRandomCouponOperation];
+	id url = [MOZUDiscountURLComponents URLComponentsForGenerateRandomCouponOperation];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -95,7 +95,7 @@
 //
 
 +(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForCreateDiscountOperation];
+	id url = [MOZUDiscountURLComponents URLComponentsForCreateDiscountOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -113,7 +113,7 @@
 }
 
 +(MOZUClient*)clientForRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForRedeemDiscountOperation];
+	id url = [MOZUDiscountURLComponents URLComponentsForRedeemDiscountOperation];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -138,7 +138,7 @@
 //
 
 +(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForUpdateDiscountOperationWithDiscountId:discountId];
+	id url = [MOZUDiscountURLComponents URLComponentsForUpdateDiscountOperationWithDiscountId:discountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -156,7 +156,7 @@
 }
 
 +(MOZUClient*)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForUpdateDiscountContentOperationWithDiscountId:discountId];
+	id url = [MOZUDiscountURLComponents URLComponentsForUpdateDiscountContentOperationWithDiscountId:discountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -181,7 +181,7 @@
 //
 
 +(MOZUClient*)clientForDeleteDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForDeleteDiscountOperationWithDiscountId:discountId];
+	id url = [MOZUDiscountURLComponents URLComponentsForDeleteDiscountOperationWithDiscountId:discountId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
@@ -193,7 +193,7 @@
 }
 
 +(MOZUClient*)clientForUnRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURL URLForUnRedeemDiscountOperationWithDiscountId:discountId orderNumber:orderNumber];
+	id url = [MOZUDiscountURLComponents URLComponentsForUnRedeemDiscountOperationWithDiscountId:discountId orderNumber:orderNumber];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
 
