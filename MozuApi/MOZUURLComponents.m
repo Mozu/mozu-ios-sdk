@@ -6,18 +6,16 @@
 //  Copyright (c) 2013 Volusion. All rights reserved.
 //
 
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 
-@interface MOZUURL()
+@interface MOZUURLComponents()
 
-@property (nonatomic, strong) NSURL *URL;
 @property (nonatomic, assign) MOZUURLLocation location;
 @property (nonatomic, assign) BOOL useSSL;
-@property (nonatomic, strong) NSURLComponents *components;
 
 @end
 
-@implementation MOZUURL
+@implementation MOZUURLComponents
 
 /*
  NSString* template = @"/api/commerce/customer/accounts/{accountId}/groups/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
@@ -36,17 +34,16 @@
                          useSSL:(BOOL)useSSL {
     
     if (self = [super init]) {
-        _components = [[NSURLComponents alloc] init];
-        _components.scheme = @"http";
-//        self.URL = [MOZUURL buildUrlWithTemplate:template parameters:params];
-        self.location = location;
-        self.useSSL = useSSL;
+        _useSSL = useSSL;
+        _location = location;
+        self.scheme = useSSL ? @"https" : @"http";
+        self.path = [MOZUURLComponents buildPathlWithTemplate:template parameters:params];
         return self;
     }
     return self;
 }
 
-+ (NSURLComponents *)buildComponentslWithTemplate:(NSString *)template parameters:(NSDictionary *)params {
++ (NSString *)buildPathlWithTemplate:(NSString *)template parameters:(NSDictionary *)params {
     // TODO : implement this
     // loop thru each param and call for formatUrl on template, paramName, and paramValue
     // create new NSURL* from filled in template and baseURL from MOZUAppAuthenticator
