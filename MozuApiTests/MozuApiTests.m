@@ -12,7 +12,7 @@
 #import "MOZUAuthTicket.h"
 #import "MOZUClient.h"
 #import "MOZUTenantResource.h"
-#import "MOZUTenantUrl.h"
+#import "MOZUTenantURLComponents.h"
 
 @interface MozuApiTests : XCTestCase
 
@@ -39,7 +39,7 @@
     //NSString *ss = @"db969fc376e4497c90cba230012af527";
     //NSString *baseUrl = @"http://mozu-ci.com";
     
-    MOZUURL *url = [[MOZUURL alloc] initWithTemplate:@"/api/platform/tenants/{tenantId}"
+    MOZUURLComponents *components = [[MOZUURLComponents alloc] initWithTemplate:@"/api/platform/tenants/{tenantId}"
                                           parameters:@{@"tenantId": @"1"}
                                             location:MOZUHomePod useSSL:YES];
     
@@ -53,7 +53,7 @@
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = ss;
     
-    MOZUClient *client = [[MOZUClient alloc] initWithResourceURL:url verb:@"POST"];
+    MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"POST"];
     client.body = authInfo;
     client.JSONParser = ^(NSString *JSONResult) {
         JSONModelError *JSONError = nil;
@@ -114,8 +114,8 @@
 
 - (void)testTenantUrl
 {
-    MOZUURL* url = [MOZUTenantURL URLForGetTenantOperationWithTenantId:257];
-    DDLogDebug(@"url = %@", url);
+    MOZUURLComponents* components = [MOZUTenantURLComponents URLComponentsForGetTenantOperationWithTenantId:257];
+    DDLogDebug(@"url = %@", components.URL);
 
 }
 
