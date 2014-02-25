@@ -9,7 +9,7 @@
 */
 
 #import "MOZUSiteDataClient.h"
-#import "MOZUSiteDataUrlComponents.h"
+#import "MOZUSiteDataURLComponents.h"
 
 
 @implementation MOZUSiteDataClient

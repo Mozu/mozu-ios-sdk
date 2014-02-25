@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDeveloperAdminUserAuthTicketClient.h"
-#import "MOZUDeveloperAdminUserAuthTicketUrlComponents.h"
+#import "MOZUDeveloperAdminUserAuthTicketURLComponents.h"
 #import "MozuDeveloperAdminUserAuthTicket.h"
 
 

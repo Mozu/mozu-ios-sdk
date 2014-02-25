@@ -9,7 +9,7 @@
 */
 
 #import "MOZURuntimeProductClient.h"
-#import "MOZURuntimeProductUrlComponents.h"
+#import "MOZURuntimeProductURLComponents.h"
 #import "MozuRuntimeProduct.h"
 #import "MozuRuntimeLocationInventoryCollection.h"
 #import "MozuConfiguredProduct.h"

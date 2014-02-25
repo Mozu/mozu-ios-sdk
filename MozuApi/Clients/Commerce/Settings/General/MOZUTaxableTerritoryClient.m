@@ -9,7 +9,7 @@
 */
 
 #import "MOZUTaxableTerritoryClient.h"
-#import "MOZUTaxableTerritoryUrlComponents.h"
+#import "MOZUTaxableTerritoryURLComponents.h"
 #import "MozuTaxableTerritory.h"
 
 

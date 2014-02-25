@@ -9,7 +9,7 @@
 */
 
 #import "MOZUTenantDataClient.h"
-#import "MOZUTenantDataUrlComponents.h"
+#import "MOZUTenantDataURLComponents.h"
 
 
 @implementation MOZUTenantDataClient

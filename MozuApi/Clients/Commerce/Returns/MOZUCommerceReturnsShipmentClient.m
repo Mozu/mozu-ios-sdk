@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCommerceReturnsShipmentClient.h"
-#import "MOZUCommerceReturnsShipmentUrlComponents.h"
+#import "MOZUCommerceReturnsShipmentURLComponents.h"
 #import "MozuCommercePackage.h"
 #import "MozuShipment.h"
 

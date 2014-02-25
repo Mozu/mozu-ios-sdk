@@ -9,7 +9,7 @@
 */
 
 #import "MOZUReferenceDataClient.h"
-#import "MOZUReferenceDataUrlComponents.h"
+#import "MOZUReferenceDataURLComponents.h"
 #import "MozuTopLevelDomainCollection.h"
 #import "MozuContentLocaleCollection.h"
 #import "MozuBehaviorCollection.h"

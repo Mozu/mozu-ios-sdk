@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDocumentClient.h"
-#import "MOZUDocumentUrlComponents.h"
+#import "MOZUDocumentURLComponents.h"
 #import "MozuDocument.h"
 #import "MozuDocumentCollection.h"
 

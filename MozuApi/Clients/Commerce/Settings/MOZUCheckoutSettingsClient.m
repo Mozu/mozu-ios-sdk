@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCheckoutSettingsClient.h"
-#import "MOZUCheckoutSettingsUrlComponents.h"
+#import "MOZUCheckoutSettingsURLComponents.h"
 #import "MozuCheckoutSettings.h"
 
 

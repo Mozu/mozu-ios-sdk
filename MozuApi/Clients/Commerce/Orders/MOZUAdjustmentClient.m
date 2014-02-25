@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdjustmentClient.h"
-#import "MOZUAdjustmentUrlComponents.h"
+#import "MOZUAdjustmentURLComponents.h"
 #import "MozuOrder.h"
 
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUOrderNoteClient.h"
-#import "MOZUOrderNoteUrlComponents.h"
+#import "MOZUOrderNoteURLComponents.h"
 #import "MozuOrderNote.h"
 
 

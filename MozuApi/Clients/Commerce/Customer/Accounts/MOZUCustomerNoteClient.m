@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCustomerNoteClient.h"
-#import "MOZUCustomerNoteUrlComponents.h"
+#import "MOZUCustomerNoteURLComponents.h"
 #import "MozuCustomerNote.h"
 #import "MozuCustomerNoteCollection.h"
 

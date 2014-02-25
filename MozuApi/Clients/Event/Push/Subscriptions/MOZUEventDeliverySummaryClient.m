@@ -9,7 +9,7 @@
 */
 
 #import "MOZUEventDeliverySummaryClient.h"
-#import "MOZUEventDeliverySummaryUrlComponents.h"
+#import "MOZUEventDeliverySummaryURLComponents.h"
 #import "MozuEventDeliverySummaryCollection.h"
 
 

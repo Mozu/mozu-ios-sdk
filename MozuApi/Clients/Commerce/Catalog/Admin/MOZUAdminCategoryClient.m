@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminCategoryClient.h"
-#import "MOZUAdminCategoryUrlComponents.h"
+#import "MOZUAdminCategoryURLComponents.h"
 #import "MozuAdminCategory.h"
 #import "MozuAdminCategoryPagedCollection.h"
 #import "MozuAdminCategoryCollection.h"

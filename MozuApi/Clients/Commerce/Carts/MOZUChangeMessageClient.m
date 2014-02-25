@@ -9,7 +9,7 @@
 */
 
 #import "MOZUChangeMessageClient.h"
-#import "MOZUChangeMessageUrlComponents.h"
+#import "MOZUChangeMessageURLComponents.h"
 #import "MozuCartChangeMessageCollection.h"
 
 

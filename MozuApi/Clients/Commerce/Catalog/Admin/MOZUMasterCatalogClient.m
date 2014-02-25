@@ -9,7 +9,7 @@
 */
 
 #import "MOZUMasterCatalogClient.h"
-#import "MOZUMasterCatalogUrlComponents.h"
+#import "MOZUMasterCatalogURLComponents.h"
 #import "MozuAdminMasterCatalog.h"
 #import "MozuMasterCatalogCollection.h"
 

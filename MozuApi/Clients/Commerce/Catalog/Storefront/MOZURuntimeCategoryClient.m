@@ -9,7 +9,7 @@
 */
 
 #import "MOZURuntimeCategoryClient.h"
-#import "MOZURuntimeCategoryUrlComponents.h"
+#import "MOZURuntimeCategoryURLComponents.h"
 #import "MozuRuntimeCategory.h"
 #import "MozuRuntimeCategoryCollection.h"
 #import "MozuRuntimeCategoryPagedCollection.h"

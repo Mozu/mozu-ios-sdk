@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminProductsLocationInventoryClient.h"
-#import "MOZUAdminProductsLocationInventoryUrlComponents.h"
+#import "MOZUAdminProductsLocationInventoryURLComponents.h"
 #import "MozuAdminLocationInventory.h"
 #import "MozuAdminLocationInventoryCollection.h"
 

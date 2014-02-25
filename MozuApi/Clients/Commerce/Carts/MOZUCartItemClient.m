@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCartItemClient.h"
-#import "MOZUCartItemUrlComponents.h"
+#import "MOZUCartItemURLComponents.h"
 #import "MozuCartItemCollection.h"
 #import "MozuCartItem.h"
 #import "MozuCart.h"

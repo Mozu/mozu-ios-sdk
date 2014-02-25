@@ -9,7 +9,7 @@
 */
 
 #import "MOZUApplicationVersionClient.h"
-#import "MOZUApplicationVersionUrlComponents.h"
+#import "MOZUApplicationVersionURLComponents.h"
 #import "MozuFileMetadata.h"
 #import "MozuAppDevApplication.h"
 #import "MozuPackageCollection.h"

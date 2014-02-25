@@ -9,7 +9,7 @@
 */
 
 #import "MOZUEventNotificationClient.h"
-#import "MOZUEventNotificationUrlComponents.h"
+#import "MOZUEventNotificationURLComponents.h"
 #import "MozuEvent.h"
 #import "MozuEventCollection.h"
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUFulfillmentActionClient.h"
-#import "MOZUFulfillmentActionUrlComponents.h"
+#import "MOZUFulfillmentActionURLComponents.h"
 #import "MozuFulfillmentInfo.h"
 #import "MozuOrder.h"
 

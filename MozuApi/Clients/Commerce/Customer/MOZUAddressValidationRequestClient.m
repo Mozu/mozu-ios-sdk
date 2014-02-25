@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAddressValidationRequestClient.h"
-#import "MOZUAddressValidationRequestUrlComponents.h"
+#import "MOZUAddressValidationRequestURLComponents.h"
 #import "MozuAddressValidationResponse.h"
 
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUPublishingScopeClient.h"
-#import "MOZUPublishingScopeUrlComponents.h"
+#import "MOZUPublishingScopeURLComponents.h"
 
 
 @implementation MOZUPublishingScopeClient

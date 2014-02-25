@@ -9,7 +9,7 @@
 */
 
 #import "MOZUProductPropertyClient.h"
-#import "MOZUProductPropertyUrlComponents.h"
+#import "MOZUProductPropertyURLComponents.h"
 #import "MozuAdminProductProperty.h"
 
 

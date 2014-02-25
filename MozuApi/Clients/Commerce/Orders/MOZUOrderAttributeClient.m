@@ -9,7 +9,7 @@
 */
 
 #import "MOZUOrderAttributeClient.h"
-#import "MOZUOrderAttributeUrlComponents.h"
+#import "MOZUOrderAttributeURLComponents.h"
 #import "MozuOrderAttribute.h"
 
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAttributeVocabularyValueClient.h"
-#import "MOZUAttributeVocabularyValueUrlComponents.h"
+#import "MOZUAttributeVocabularyValueURLComponents.h"
 #import "MozuAttributeVocabularyValue.h"
 
 

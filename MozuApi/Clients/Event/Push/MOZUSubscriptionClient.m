@@ -9,7 +9,7 @@
 */
 
 #import "MOZUSubscriptionClient.h"
-#import "MOZUSubscriptionUrlComponents.h"
+#import "MOZUSubscriptionURLComponents.h"
 #import "MozuSubscriptionCollection.h"
 
 

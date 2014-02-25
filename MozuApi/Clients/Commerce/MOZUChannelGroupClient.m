@@ -9,7 +9,7 @@
 */
 
 #import "MOZUChannelGroupClient.h"
-#import "MOZUChannelGroupUrlComponents.h"
+#import "MOZUChannelGroupURLComponents.h"
 #import "MozuChannelGroup.h"
 #import "MozuChannelGroupCollection.h"
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAttributeTypeRuleClient.h"
-#import "MOZUAttributeTypeRuleUrlComponents.h"
+#import "MOZUAttributeTypeRuleURLComponents.h"
 #import "MozuAttributeTypeRuleCollection.h"
 
 

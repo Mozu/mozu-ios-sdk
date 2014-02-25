@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminLocationClient.h"
-#import "MOZUAdminLocationUrlComponents.h"
+#import "MOZUAdminLocationURLComponents.h"
 #import "MozuLocation.h"
 #import "MozuLocationCollection.h"
 

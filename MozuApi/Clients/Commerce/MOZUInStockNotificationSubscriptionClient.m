@@ -9,7 +9,7 @@
 */
 
 #import "MOZUInStockNotificationSubscriptionClient.h"
-#import "MOZUInStockNotificationSubscriptionUrlComponents.h"
+#import "MOZUInStockNotificationSubscriptionURLComponents.h"
 #import "MozuInStockNotificationSubscription.h"
 #import "MozuInStockNotificationSubscriptionCollection.h"
 

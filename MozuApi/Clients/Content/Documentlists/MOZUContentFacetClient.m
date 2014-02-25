@@ -9,7 +9,7 @@
 */
 
 #import "MOZUContentFacetClient.h"
-#import "MOZUContentFacetUrlComponents.h"
+#import "MOZUContentFacetURLComponents.h"
 #import "MozuContentFacet.h"
 
 

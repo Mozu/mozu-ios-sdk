@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAdminFacetClient.h"
-#import "MOZUAdminFacetUrlComponents.h"
+#import "MOZUAdminFacetURLComponents.h"
 #import "MozuAdminFacet.h"
 #import "MozuFacetSet.h"
 

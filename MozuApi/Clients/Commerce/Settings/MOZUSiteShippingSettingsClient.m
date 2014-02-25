@@ -9,7 +9,7 @@
 */
 
 #import "MOZUSiteShippingSettingsClient.h"
-#import "MOZUSiteShippingSettingsUrlComponents.h"
+#import "MOZUSiteShippingSettingsURLComponents.h"
 #import "MozuSiteShippingSettings.h"
 
 

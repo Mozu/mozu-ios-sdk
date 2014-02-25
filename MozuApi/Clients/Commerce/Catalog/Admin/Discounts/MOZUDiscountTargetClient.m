@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDiscountTargetClient.h"
-#import "MOZUDiscountTargetUrlComponents.h"
+#import "MOZUDiscountTargetURLComponents.h"
 #import "MozuDiscountTarget.h"
 
 

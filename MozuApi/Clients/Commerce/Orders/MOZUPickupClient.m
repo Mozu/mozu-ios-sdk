@@ -9,7 +9,7 @@
 */
 
 #import "MOZUPickupClient.h"
-#import "MOZUPickupUrlComponents.h"
+#import "MOZUPickupURLComponents.h"
 #import "MozuPickup.h"
 
 

@@ -9,7 +9,7 @@
 */
 
 #import "MOZUAppliedDiscountClient.h"
-#import "MOZUAppliedDiscountUrlComponents.h"
+#import "MOZUAppliedDiscountURLComponents.h"
 #import "MozuOrder.h"
 
 

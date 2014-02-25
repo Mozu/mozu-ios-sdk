@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDocumentDraftSummaryClient.h"
-#import "MOZUDocumentDraftSummaryUrlComponents.h"
+#import "MOZUDocumentDraftSummaryURLComponents.h"
 #import "MozuDocumentDraftSummaryPagedCollection.h"
 
 

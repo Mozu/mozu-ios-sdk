@@ -23,6 +23,11 @@
 @interface MOZUCategoryImage : JSONModel<MOZUCategoryImage>
 
 /**
+The link or URL of the product category video. The file path name is set in the language specified by the LocaleCode.
+*/
+@property(nonatomic) NSString* videoUrl;
+
+/**
 Descriptive text associated with the image or video that appears on the web storefront.
 */
 @property(nonatomic) NSString* altText;
@@ -51,11 +56,6 @@ Type of media specification required to successfully render the image, video, or
 Integer that represents the sequential order of the category image in the collection.
 */
 @property(nonatomic) NSNumber* sequence;
-
-/**
-The link or URL of the product category video. The file path name is set in the language specified by the LocaleCode.
-*/
-@property(nonatomic) NSString* videoUrl;
 
 @end
 

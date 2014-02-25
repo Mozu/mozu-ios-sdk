@@ -9,7 +9,7 @@
 */
 
 #import "MOZUProductSearchResultClient.h"
-#import "MOZUProductSearchResultUrlComponents.h"
+#import "MOZUProductSearchResultURLComponents.h"
 #import "MozuProductSearchResult.h"
 #import "MozuSearchSuggestion.h"
 

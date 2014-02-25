@@ -9,7 +9,7 @@
 */
 
 #import "MOZUWishlistItemClient.h"
-#import "MOZUWishlistItemUrlComponents.h"
+#import "MOZUWishlistItemURLComponents.h"
 #import "MozuWishlistItem.h"
 #import "MozuWishlistItemCollection.h"
 #import "MozuWishlist.h"

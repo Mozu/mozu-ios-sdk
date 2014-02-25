@@ -9,7 +9,7 @@
 */
 
 #import "MOZUProductReservationClient.h"
-#import "MOZUProductReservationUrlComponents.h"
+#import "MOZUProductReservationURLComponents.h"
 #import "MozuProductReservation.h"
 #import "MozuProductReservationCollection.h"
 

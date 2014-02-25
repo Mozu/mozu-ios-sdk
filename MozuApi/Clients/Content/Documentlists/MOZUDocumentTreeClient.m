@@ -9,7 +9,7 @@
 */
 
 #import "MOZUDocumentTreeClient.h"
-#import "MOZUDocumentTreeUrlComponents.h"
+#import "MOZUDocumentTreeURLComponents.h"
 #import "MozuDocument.h"
 
 

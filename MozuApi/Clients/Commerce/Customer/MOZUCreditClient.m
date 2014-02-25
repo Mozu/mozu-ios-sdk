@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCreditClient.h"
-#import "MOZUCreditUrlComponents.h"
+#import "MOZUCreditURLComponents.h"
 #import "MozuCredit.h"
 #import "MozuCreditCollection.h"
 

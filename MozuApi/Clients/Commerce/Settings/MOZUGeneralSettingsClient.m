@@ -9,7 +9,7 @@
 */
 
 #import "MOZUGeneralSettingsClient.h"
-#import "MOZUGeneralSettingsUrlComponents.h"
+#import "MOZUGeneralSettingsURLComponents.h"
 #import "MozuGeneralSettings.h"
 
 

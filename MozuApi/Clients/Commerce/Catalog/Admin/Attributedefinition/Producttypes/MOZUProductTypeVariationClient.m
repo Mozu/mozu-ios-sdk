@@ -9,7 +9,7 @@
 */
 
 #import "MOZUProductTypeVariationClient.h"
-#import "MOZUProductTypeVariationUrlComponents.h"
+#import "MOZUProductTypeVariationURLComponents.h"
 #import "MozuProductVariationPagedCollection.h"
 
 

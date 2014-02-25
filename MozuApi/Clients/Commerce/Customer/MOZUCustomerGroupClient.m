@@ -9,7 +9,7 @@
 */
 
 #import "MOZUCustomerGroupClient.h"
-#import "MOZUCustomerGroupUrlComponents.h"
+#import "MOZUCustomerGroupURLComponents.h"
 #import "MozuCustomerGroup.h"
 #import "MozuCustomerGroupCollection.h"
 

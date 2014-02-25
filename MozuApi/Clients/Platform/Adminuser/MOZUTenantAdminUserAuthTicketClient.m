@@ -9,7 +9,7 @@
 */
 
 #import "MOZUTenantAdminUserAuthTicketClient.h"
-#import "MOZUTenantAdminUserAuthTicketUrlComponents.h"
+#import "MOZUTenantAdminUserAuthTicketURLComponents.h"
 #import "MozuTenantAdminUserAuthTicket.h"
 
 
