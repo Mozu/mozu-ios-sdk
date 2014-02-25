@@ -11,7 +11,7 @@
 #import "MOZUApiError.h"
 #import "MOZUAPIContext.h"
 #import "MOZUUserAuthenticator.h"
-#import "MOZUURL.h"
+#import "MOZUURLComponents.h"
 #import "MOZUHeaders.h"
 
 typedef NS_ENUM(NSUInteger, MOZUDataViewMode) {
@@ -38,7 +38,7 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 @property (nonatomic, strong) MOZUAPIContext  *context;
 
 
-- (instancetype)initWithResourceURL:(MOZUURL *)resourceURL
+- (instancetype)initWithResourceURLComponents:(MOZUURLComponents *)resourceURLComponents
                                verb:(NSString *)verb;
 - (void)setHeader:(NSString *)header value:(NSString *)value;
 - (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler;

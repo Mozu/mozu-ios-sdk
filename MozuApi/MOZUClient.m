@@ -11,7 +11,6 @@
 #import "MOZUHeaders.h"
 #import "MOZUResponseHelper.h"
 #import "MOZUUserAuthenticator.h"
-#import "MOZUUrl.h"
 #import "MOZUTenantResource.h"
 #import "MOZUAPIVersion.h"
 #import "MOZUAPILogger.h"
@@ -27,7 +26,7 @@
 @property (nonatomic, strong) NSMutableDictionary *mutableHeaders;
 @property (nonatomic, strong) MOZUAPIContext * APIContext;
 @property (nonatomic, strong) NSString *host;
-@property (nonatomic, strong) MOZUURL *resourceURLComponents;
+@property (nonatomic, strong) MOZUURLComponents *resourceURLComponents;
 @property (nonatomic, strong) NSString * verb;
 @property (nonatomic, strong) NSString *bodyString;
 
@@ -45,13 +44,13 @@
     return self;
 }
 
-- (instancetype)initWithResourceURL:(MOZUURL *)resourceURL
-                               verb:(NSString *)verb;
+- (instancetype)initWithResourceURLComponents:(MOZUURLComponents *)resourceURLComponents
+                                         verb:(NSString *)verb;
 {
     if (self = [self init]) {
         NSAssert(verb, @"MOZUClient verb is missing!");
-        NSAssert(resourceURL, @"MOZUClient resourceURL is missing!");
-        _resourceURLComponents = resourceURL;
+        NSAssert(resourceURLComponents, @"MOZUClient resourceURLComponents is missing!");
+        _resourceURLComponents = resourceURLComponents;
         _verb = [verb lowercaseString];
     }
     
