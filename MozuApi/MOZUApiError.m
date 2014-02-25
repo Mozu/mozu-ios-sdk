@@ -1,4 +1,4 @@
-//
+ //
 //  MOZUApiError.m
 //  MozuApi
 //
@@ -7,6 +7,7 @@
 //
 
 #import "MOZUApiError.h"
+#import "MOZUAPILogger.h"
 
 @implementation MOZUApiExceptionDetail
 +(BOOL)propertyIsOptional:(NSString*)propertyName
@@ -40,74 +41,29 @@
 
 @end
 
-@implementation MOZUApiError
+// Private json model.
+@interface MOZUApiErrorPrivate : JSONModel
+@property (nonatomic) NSString *message;
+@property (nonatomic) NSString *applicationName;
+@property (nonatomic) NSString *errorCode;
+@property (nonatomic) MOZUAPIContext *apiContext;
+@property (nonatomic) NSString *correlationId;
+@property (nonatomic) MOZUApiExceptionDetail *exceptionDetail;
+@property (nonatomic) NSArray<MOZUApiErrorItem> *items;
+@property (nonatomic) NSArray<MOZUApiAdditionalErrorData> *additionalErrorData;
+@property (nonatomic) NSInteger httpStatusCode;
 
-static NSString * const MOZUApiErrorDomain = @"MOZUAPIErrorDomain";
+@end
 
-- (instancetype)initWithString:(NSString*)JSONData statusCode:(NSInteger)statusCode
+@implementation MOZUApiErrorPrivate
+
+-(id)initWithString:(NSString*)string error:(JSONModelError**)err
 {
-//    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:2];
-//    userInfo[@"httpStatusCode"] = @(statusCode);
-    
-//    JSONModelError *err = nil;
-//    MOZUApiErrorItem *apiError = [[MOZUApiErrorItem alloc] initWithString:JSONData error:&err];
-    
-//    if (!err) {
-//        userInfo[@"apiError"] = apiError;
-//    }
-    
-    // TODO: Add these NSError keys to user info. See NSError documentation.
-//    NSString * const NSLocalizedDescriptionKey;
-//    NSString * const NSErrorFailingURLStringKey;
-//    NSString * const NSFilePathErrorKey;
-//    NSString * const NSStringEncodingErrorKey;
-//    NSString * const NSUnderlyingErrorKey;
-//    NSString * const NSURLErrorKey;
-//    NSString * const NSLocalizedFailureReasonErrorKey;
-//    NSString * const NSLocalizedRecoverySuggestionErrorKey;
-//    NSString * const NSLocalizedRecoveryOptionsErrorKey;
-//    NSString * const NSRecoveryAttempterErrorKey;
-//    NSString * const NSHelpAnchorErrorKey;
-//    NSString * const NSURLErrorFailingURLErrorKey;
-//    NSString * const NSURLErrorFailingURLStringErrorKey;
-//    NSString * const NSURLErrorFailingURLPeerTrustErrorKey;
-    
-//    self = [NSError errorWithDomain:MOZUAPIErrorDomain code:statusCode userInfo:[userInfo copy]];
-//    if (self) {
-//        _httpStatusCode = statusCode;
-//        _apiError = apiError;
-//    }
-//    return self;
-    
-    
-//    NSData* jsonData = [JSONData dataUsingEncoding:NSUTF8StringEncoding];
-//    NSError *error = nil;
-//    id dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-//    
-//    id exceptionDetail = [dict objectForKey:@"exceptionDetail"];
-//    if (exceptionDetail == nil) {
-//        exceptionDetail = [dict objectForKey:@"ExceptionDetail"];
-//    }
-    
-    // convert exceptionDetail to JSONMOdel
-    // if (exceptionDetail != nill {
-    //    message = exceptionDetail.message;
-    // }
-    // else {
-    //    look for message in dict
-    // }
-    
-//    id items = [dict objectForKey:@"items"];
-//    if (items == nil) {
-//        exceptionDetail = [dict objectForKey:@"Items"];
-//    }
-    
-    // convert items to JSONMOdel
-
-    NSError *error = nil;
-    MOZUApiError* apiError = [[MOZUApiError alloc] initWithString:JSONData error:&error];
-    apiError.httpStatusCode = statusCode;
-    return apiError;
+    self = [super initWithString:string error:err];
+    if (self) {
+        
+    }
+    return self;
 }
 
 +(JSONKeyMapper*)keyMapper {
@@ -125,6 +81,99 @@ static NSString * const MOZUApiErrorDomain = @"MOZUAPIErrorDomain";
 	return YES;
 }
 
+@end
+
+@implementation MOZUApiError
+
+static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
+
+- (instancetype)initWithString:(NSString*)JSONData statusCode:(NSInteger)statusCode
+{
+    JSONModelError *jsonModelError = nil;
+    MOZUApiErrorPrivate* apiErrorPrivate = [[MOZUApiErrorPrivate alloc] initWithString:JSONData error:&jsonModelError];
+        NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:9];
+    
+    if (apiErrorPrivate) {
+        userInfo[@"httpStatusCode"] = @(statusCode);
+        
+        if (apiErrorPrivate.message) {
+            userInfo[@"message"] = apiErrorPrivate.message;
+            userInfo[NSLocalizedDescriptionKey] = apiErrorPrivate.message;
+        }
+        if (apiErrorPrivate.applicationName) {
+            userInfo[@"applicationName"] = apiErrorPrivate.applicationName;
+        }
+        if (apiErrorPrivate.errorCode) {
+            userInfo[@"errorCode"] = apiErrorPrivate.errorCode;
+        }
+        if (apiErrorPrivate.apiContext) {
+            userInfo[@"apiContext"] = apiErrorPrivate.apiContext;
+        }
+        if (apiErrorPrivate.correlationId) {
+            userInfo[@"correlationId"] = apiErrorPrivate.correlationId;
+        }
+        if (apiErrorPrivate.exceptionDetail) {
+            userInfo[@"exceptionDetail"] = apiErrorPrivate.exceptionDetail;
+        }
+        if (apiErrorPrivate.items) {
+            userInfo[@"items"] = apiErrorPrivate.items;
+        }
+        if (apiErrorPrivate.additionalErrorData) {
+            userInfo[@"additionalErrorData"] = apiErrorPrivate.additionalErrorData;
+        }
+        
+        
+        // TODO: Add these NSError keys to user info. See NSError documentation.
+        //    NSString * const NSLocalizedDescriptionKey;
+        //    NSString * const NSErrorFailingURLStringKey;
+        //    NSString * const NSFilePathErrorKey;
+        //    NSString * const NSStringEncodingErrorKey;
+        //    NSString * const NSUnderlyingErrorKey;
+        //    NSString * const NSURLErrorKey;
+        //    NSString * const NSLocalizedFailureReasonErrorKey;
+        //    NSString * const NSLocalizedRecoverySuggestionErrorKey;
+        //    NSString * const NSLocalizedRecoveryOptionsErrorKey;
+        //    NSString * const NSRecoveryAttempterErrorKey;
+        //    NSString * const NSHelpAnchorErrorKey;
+        //    NSString * const NSURLErrorFailingURLErrorKey;
+        //    NSString * const NSURLErrorFailingURLStringErrorKey;
+        //    NSString * const NSURLErrorFailingURLPeerTrustErrorKey;
+        
+        self = [super initWithDomain:MOZUAPIErrorDomain code:statusCode userInfo:[userInfo copy]];
+        if (self) {
+            [self.userInfo enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(NSString *key, id obj, BOOL *stop) {
+                if ([key isEqualToString:@"httpStatusCode"]) {
+                    _httpStatusCode = [obj integerValue];;
+                } else if ([key isEqualToString:@"message"]) {
+                    _message = obj;
+                } else if ([key isEqualToString:@"applicationName"]) {
+                    _applicationName = obj;
+                } else if ([key isEqualToString:@"errorCode"]) {
+                    _errorCode = obj;
+                } else if ([key isEqualToString:@"apiContext"]) {
+                    _apiContext = obj;
+                } else if ([key isEqualToString:@"correlationId"]) {
+                    _correlationId = obj;
+                } else if ([key isEqualToString:@"exceptionDetail"]) {
+                    _exceptionDetail = obj;
+                } else if ([key isEqualToString:@"items"]) {
+                    _items = obj;
+                } else if ([key isEqualToString:@"additionalErrorData"]) {
+                    _additionalErrorData = obj;
+                }
+            }];
+        }
+        return self;
+
+    } else {
+        DDLogError(@"%@", jsonModelError.localizedDescription);
+        return nil;
+    }
+}
+
+
+
 
 @end
+
 
