@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetMasterCatalogsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUMasterCatalogURLComponents URLComponentsForGetMasterCatalogsOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -39,7 +39,7 @@
 +(MOZUClient*)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUMasterCatalogURLComponents URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -70,7 +70,7 @@
 +(MOZUClient*)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog*)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUMasterCatalogURLComponents URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];

@@ -24,7 +24,7 @@
 +(MOZUClient*)clientForGetBillingInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUBillingInfoURLComponents URLComponentsForGetBillingInfoOperationWithOrderId:orderId draft:draft];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -52,7 +52,7 @@
 +(MOZUClient*)clientForSetBillingInfoOperationWithBody:(MOZUBillingInfo*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUBillingInfoURLComponents URLComponentsForSetBillingInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

@@ -26,7 +26,7 @@
 +(MOZUClient*)clientForGetPaymentsOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPaymentURLComponents URLComponentsForGetPaymentsOperationWithOrderId:orderId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -40,7 +40,7 @@
 +(MOZUClient*)clientForGetPaymentOperationWithOrderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPaymentURLComponents URLComponentsForGetPaymentOperationWithOrderId:orderId paymentId:paymentId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -54,7 +54,7 @@
 +(MOZUClient*)clientForGetAvailablePaymentActionsOperationWithOrderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPaymentURLComponents URLComponentsForGetAvailablePaymentActionsOperationWithOrderId:orderId paymentId:paymentId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;
@@ -70,7 +70,7 @@
 +(MOZUClient*)clientForPerformPaymentActionOperationWithBody:(MOZUPaymentAction*)body orderId:(NSString*)orderId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPaymentURLComponents URLComponentsForPerformPaymentActionOperationWithOrderId:orderId paymentId:paymentId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -85,7 +85,7 @@
 +(MOZUClient*)clientForCreatePaymentActionOperationWithBody:(MOZUPaymentAction*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPaymentURLComponents URLComponentsForCreatePaymentActionOperationWithOrderId:orderId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

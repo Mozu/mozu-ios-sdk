@@ -26,7 +26,7 @@
 +(MOZUClient*)clientForGetShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -40,7 +40,7 @@
 +(MOZUClient*)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:orderId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -62,7 +62,7 @@
 +(MOZUClient*)clientForCreatePackageShipmentsOperationWithBody:(NSString*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForCreatePackageShipmentsOperationWithOrderId:orderId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -92,7 +92,7 @@
 +(MOZUClient*)clientForDeleteShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForDeleteShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

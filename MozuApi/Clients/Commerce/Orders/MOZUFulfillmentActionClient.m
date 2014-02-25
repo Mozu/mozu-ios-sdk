@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetFulfillmentInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUFulfillmentActionURLComponents URLComponentsForGetFulfillmentInfoOperationWithOrderId:orderId draft:draft];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -46,7 +46,7 @@
 +(MOZUClient*)clientForPerformFulfillmentActionOperationWithBody:(MOZUFulfillmentAction*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUFulfillmentActionURLComponents URLComponentsForPerformFulfillmentActionOperationWithOrderId:orderId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -68,7 +68,7 @@
 +(MOZUClient*)clientForSetFulFillmentInfoOperationWithBody:(MOZUFulfillmentInfo*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUFulfillmentActionURLComponents URLComponentsForSetFulFillmentInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

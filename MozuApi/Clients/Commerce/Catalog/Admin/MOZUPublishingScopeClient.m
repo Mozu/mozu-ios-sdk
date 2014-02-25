@@ -30,7 +30,7 @@
 +(MOZUClient*)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPublishingScopeURLComponents URLComponentsForDiscardDraftsOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -43,7 +43,7 @@
 +(MOZUClient*)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPublishingScopeURLComponents URLComponentsForPublishDraftsOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];

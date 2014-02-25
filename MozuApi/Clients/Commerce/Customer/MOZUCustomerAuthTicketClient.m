@@ -31,7 +31,7 @@
 +(MOZUClient*)clientForCreateUserAuthTicketOperationWithBody:(MOZUCustomerUserAuthInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAuthTicketURLComponents URLComponentsForCreateUserAuthTicketOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -53,7 +53,7 @@
 +(MOZUClient*)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAuthTicketURLComponents URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 

@@ -26,7 +26,7 @@
 +(MOZUClient*)clientForGetCategoriesOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -40,7 +40,7 @@
 +(MOZUClient*)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber*)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -54,7 +54,7 @@
 +(MOZUClient*)clientForGetCategoryTreeOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryTreeOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 

@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAttributeURLComponents URLComponentsForGetAccountAttributeOperationWithAccountId:accountId attributeFQN:attributeFQN];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -39,7 +39,7 @@
 +(MOZUClient*)clientForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAttributeURLComponents URLComponentsForGetAccountAttributesOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -60,7 +60,7 @@
 +(MOZUClient*)clientForAddAccountAttributeOperationWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAttributeURLComponents URLComponentsForAddAccountAttributeOperationWithAccountId:accountId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -82,7 +82,7 @@
 +(MOZUClient*)clientForUpdateAccountAttributeOperationWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAttributeURLComponents URLComponentsForUpdateAccountAttributeOperationWithAccountId:accountId removeMissing:removeMissing];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

@@ -24,7 +24,7 @@
 +(MOZUClient*)clientForGetTaxableTerritoriesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForGetTaxableTerritoriesOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -46,7 +46,7 @@
 +(MOZUClient*)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForAddTaxableTerritoryOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -68,7 +68,7 @@
 +(MOZUClient*)clientForUpdateTaxableTerritoriesOperationWithBody:(NSArray<MOZUTaxableTerritory>*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForUpdateTaxableTerritoriesOperation];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

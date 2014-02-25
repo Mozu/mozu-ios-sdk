@@ -31,7 +31,7 @@
 +(MOZUClient*)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAddressValidationRequestURLComponents URLComponentsForValidateAddressOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

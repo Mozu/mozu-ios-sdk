@@ -24,7 +24,7 @@
 +(MOZUClient*)clientForGetFacetsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName propertyName:(NSString*)propertyName userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUContentFacetURLComponents URLComponentsForGetFacetsOperationWithDocumentListName:documentListName propertyName:propertyName];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];

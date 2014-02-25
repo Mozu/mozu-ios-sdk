@@ -26,7 +26,7 @@
 +(MOZUClient*)clientForGetProductsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit noCount:(NSNumber*)noCount userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit noCount:noCount];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -43,7 +43,7 @@
 +(MOZUClient*)clientForGetProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductOperationWithProductCode:productCode];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -60,7 +60,7 @@
 +(MOZUClient*)clientForGetProductInCatalogsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductInCatalogsOperationWithProductCode:productCode];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -78,7 +78,7 @@
 +(MOZUClient*)clientForGetProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -102,7 +102,7 @@
 +(MOZUClient*)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForAddProductOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -120,7 +120,7 @@
 +(MOZUClient*)clientForAddProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForAddProductInCatalogOperationWithProductCode:productCode];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -145,7 +145,7 @@
 +(MOZUClient*)clientForUpdateProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductOperationWithProductCode:productCode];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -163,7 +163,7 @@
 +(MOZUClient*)clientForUpdateProductInCatalogsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductInCatalogInfo>*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductInCatalogsOperationWithProductCode:productCode];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -182,7 +182,7 @@
 +(MOZUClient*)clientForUpdateProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo*)body productCode:(NSString*)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -207,7 +207,7 @@
 +(MOZUClient*)clientForDeleteProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForDeleteProductOperationWithProductCode:productCode];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -219,7 +219,7 @@
 +(MOZUClient*)clientForDeleteProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminProductURLComponents URLComponentsForDeleteProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];

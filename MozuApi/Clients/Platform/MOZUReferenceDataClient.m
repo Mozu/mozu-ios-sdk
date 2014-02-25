@@ -35,7 +35,7 @@
 +(MOZUClient*)clientForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemaOperationWithCountryCode:countryCode];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -48,7 +48,7 @@
 +(MOZUClient*)clientForGetAddressSchemasOperation {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemasOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -61,7 +61,7 @@
 +(MOZUClient*)clientForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorOperationWithBehaviorId:behaviorId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -74,7 +74,7 @@
 +(MOZUClient*)clientForGetBehaviorCategoriesOperation {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorCategoriesOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -87,7 +87,7 @@
 +(MOZUClient*)clientForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorCategoryOperationWithCategoryId:categoryId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -100,7 +100,7 @@
 +(MOZUClient*)clientForGetBehaviorsOperationWithUserType:(NSString*)userType {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorsOperationWithUserType:userType];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -113,7 +113,7 @@
 +(MOZUClient*)clientForGetContentLocalesOperation {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetContentLocalesOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -126,7 +126,7 @@
 +(MOZUClient*)clientForGetCountriesOperation {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCountriesOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -139,7 +139,7 @@
 +(MOZUClient*)clientForGetCurrenciesOperation {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCurrenciesOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -152,7 +152,7 @@
 +(MOZUClient*)clientForGetTimeZonesOperation {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetTimeZonesOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -165,7 +165,7 @@
 +(MOZUClient*)clientForGetTopLevelDomainsOperation {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetTopLevelDomainsOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -178,7 +178,7 @@
 +(MOZUClient*)clientForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetUnitsOfMeasureOperationWithFilter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {

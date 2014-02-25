@@ -27,7 +27,7 @@
 +(MOZUClient*)clientForGetReturnsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForGetReturnsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -41,7 +41,7 @@
 +(MOZUClient*)clientForGetReturnOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForGetReturnOperationWithReturnId:returnId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -55,7 +55,7 @@
 +(MOZUClient*)clientForGetAvailableReturnActionsOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForGetAvailableReturnActionsOperationWithReturnId:returnId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;
@@ -64,7 +64,7 @@
 +(MOZUClient*)clientForGetPaymentsOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForGetPaymentsOperationWithReturnId:returnId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -78,7 +78,7 @@
 +(MOZUClient*)clientForGetPaymentOperationWithReturnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForGetPaymentOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -92,7 +92,7 @@
 +(MOZUClient*)clientForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForGetAvailablePaymentActionsForReturnOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;
@@ -108,7 +108,7 @@
 +(MOZUClient*)clientForCreateReturnOperationWithBody:(MOZUReturn*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForCreateReturnOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -123,7 +123,7 @@
 +(MOZUClient*)clientForPerformPaymentActionForReturnOperationWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForPerformPaymentActionForReturnOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -138,7 +138,7 @@
 +(MOZUClient*)clientForCreatePaymentActionForReturnOperationWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForCreatePaymentActionForReturnOperationWithReturnId:returnId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -153,7 +153,7 @@
 +(MOZUClient*)clientForPerformReturnActionsOperationWithBody:(MOZUReturnAction*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForPerformReturnActionsOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -175,7 +175,7 @@
 +(MOZUClient*)clientForUpdateReturnOperationWithBody:(MOZUReturn*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForUpdateReturnOperationWithReturnId:returnId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -197,7 +197,7 @@
 +(MOZUClient*)clientForDeleteReturnOperationWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUReturnURLComponents URLComponentsForDeleteReturnOperationWithReturnId:returnId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

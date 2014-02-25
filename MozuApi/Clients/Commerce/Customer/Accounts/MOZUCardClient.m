@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetAccountCardsOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCardURLComponents URLComponentsForGetAccountCardsOperationWithAccountId:accountId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -39,7 +39,7 @@
 +(MOZUClient*)clientForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCardURLComponents URLComponentsForGetAccountCardOperationWithAccountId:accountId cardId:cardId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -60,7 +60,7 @@
 +(MOZUClient*)clientForAddAccountCardOperationWithBody:(MOZUCard*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCardURLComponents URLComponentsForAddAccountCardOperationWithAccountId:accountId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -82,7 +82,7 @@
 +(MOZUClient*)clientForUpdateAccountCardOperationWithBody:(MOZUCard*)body accountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCardURLComponents URLComponentsForUpdateAccountCardOperationWithAccountId:accountId cardId:cardId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -104,7 +104,7 @@
 +(MOZUClient*)clientForDeleteAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString*)cardId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCardURLComponents URLComponentsForDeleteAccountCardOperationWithAccountId:accountId cardId:cardId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

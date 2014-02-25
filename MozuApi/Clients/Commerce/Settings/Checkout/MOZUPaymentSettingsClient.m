@@ -24,7 +24,7 @@
 +(MOZUClient*)clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPaymentSettingsURLComponents URLComponentsForGetThirdPartyPaymentWorkflowsOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 

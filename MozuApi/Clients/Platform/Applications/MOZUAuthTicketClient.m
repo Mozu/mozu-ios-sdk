@@ -31,7 +31,7 @@
 +(MOZUClient*)clientForAuthenticateAppOperationWithBody:(MOZUAppAuthInfo*)body {
 	id url = [MOZUAuthTicketURLComponents URLComponentsForAuthenticateAppOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 
@@ -52,7 +52,7 @@
 +(MOZUClient*)clientForRefreshAppAuthTicketOperationWithBody:(MOZUAuthTicketRequest*)body {
 	id url = [MOZUAuthTicketURLComponents URLComponentsForRefreshAppAuthTicketOperation];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 
@@ -73,7 +73,7 @@
 +(MOZUClient*)clientForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
 	id url = [MOZUAuthTicketURLComponents URLComponentsForDeleteAppAuthTicketOperationWithRefreshToken:refreshToken];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	return client;
 }

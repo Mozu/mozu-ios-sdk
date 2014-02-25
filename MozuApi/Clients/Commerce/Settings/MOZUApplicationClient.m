@@ -24,7 +24,7 @@
 +(MOZUClient*)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationURLComponents URLComponentsForThirdPartyGetApplicationOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -52,7 +52,7 @@
 +(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationURLComponents URLComponentsForThirdPartyUpdateApplicationOperation];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

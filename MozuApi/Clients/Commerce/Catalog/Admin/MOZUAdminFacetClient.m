@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetOperationWithFacetId:facetId validate:validate];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -42,7 +42,7 @@
 +(MOZUClient*)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetCategoryListOperationWithCategoryId:categoryId includeAvailable:includeAvailable validate:validate];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -66,7 +66,7 @@
 +(MOZUClient*)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminFacetURLComponents URLComponentsForAddFacetOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -91,7 +91,7 @@
 +(MOZUClient*)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminFacetURLComponents URLComponentsForUpdateFacetOperationWithFacetId:facetId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -116,7 +116,7 @@
 +(MOZUClient*)clientForDeleteFacetByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminFacetURLComponents URLComponentsForDeleteFacetByIdOperationWithFacetId:facetId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];

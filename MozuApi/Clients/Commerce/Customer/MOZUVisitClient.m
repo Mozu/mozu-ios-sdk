@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetVisitsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUVisitURLComponents URLComponentsForGetVisitsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -39,7 +39,7 @@
 +(MOZUClient*)clientForGetVisitOperationWithVisitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUVisitURLComponents URLComponentsForGetVisitOperationWithVisitId:visitId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -60,7 +60,7 @@
 +(MOZUClient*)clientForAddVisitOperationWithBody:(MOZUVisit*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUVisitURLComponents URLComponentsForAddVisitOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -82,7 +82,7 @@
 +(MOZUClient*)clientForUpdateVisitOperationWithBody:(MOZUVisit*)body visitId:(NSString*)visitId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUVisitURLComponents URLComponentsForUpdateVisitOperationWithVisitId:visitId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

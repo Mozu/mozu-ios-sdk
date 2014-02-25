@@ -24,7 +24,7 @@
 +(MOZUClient*)clientForGetGeneralSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUGeneralSettingsURLComponents URLComponentsForGetGeneralSettingsOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -52,7 +52,7 @@
 +(MOZUClient*)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUGeneralSettingsURLComponents URLComponentsForUpdateGeneralSettingsOperation];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

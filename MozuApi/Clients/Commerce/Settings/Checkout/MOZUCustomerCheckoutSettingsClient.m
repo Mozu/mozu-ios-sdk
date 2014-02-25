@@ -24,7 +24,7 @@
 +(MOZUClient*)clientForGetCustomerCheckoutSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerCheckoutSettingsURLComponents URLComponentsForGetCustomerCheckoutSettingsOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -52,7 +52,7 @@
 +(MOZUClient*)clientForUpdateCustomerCheckoutSettingsOperationWithBody:(MOZUCustomerCheckoutSettings*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerCheckoutSettingsURLComponents URLComponentsForUpdateCustomerCheckoutSettingsOperation];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

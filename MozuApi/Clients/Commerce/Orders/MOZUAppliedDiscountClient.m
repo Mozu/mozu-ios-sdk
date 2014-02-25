@@ -38,7 +38,7 @@
 +(MOZUClient*)clientForApplyCouponOperationWithOrderId:(NSString*)orderId couponCode:(NSString*)couponCode updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAppliedDiscountURLComponents URLComponentsForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -59,7 +59,7 @@
 +(MOZUClient*)clientForRemoveCouponOperationWithOrderId:(NSString*)orderId couponCode:(NSString*)couponCode updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAppliedDiscountURLComponents URLComponentsForRemoveCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -73,7 +73,7 @@
 +(MOZUClient*)clientForRemoveCouponsOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAppliedDiscountURLComponents URLComponentsForRemoveCouponsOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 

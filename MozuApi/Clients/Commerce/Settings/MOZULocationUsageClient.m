@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetLocationUsagesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationUsageURLComponents URLComponentsForGetLocationUsagesOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -39,7 +39,7 @@
 +(MOZUClient*)clientForGetLocationUsageOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationUsageURLComponents URLComponentsForGetLocationUsageOperationWithCode:code];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -67,7 +67,7 @@
 +(MOZUClient*)clientForUpdateLocationUsageOperationWithBody:(MOZULocationUsage*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationUsageURLComponents URLComponentsForUpdateLocationUsageOperationWithCode:code];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

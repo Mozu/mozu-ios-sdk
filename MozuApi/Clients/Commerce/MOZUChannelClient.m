@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetChannelsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChannelURLComponents URLComponentsForGetChannelsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -39,7 +39,7 @@
 +(MOZUClient*)clientForGetChannelOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChannelURLComponents URLComponentsForGetChannelOperationWithCode:code];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -60,7 +60,7 @@
 +(MOZUClient*)clientForCreateChannelOperationWithBody:(MOZUChannel*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChannelURLComponents URLComponentsForCreateChannelOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -82,7 +82,7 @@
 +(MOZUClient*)clientForUpdateChannelOperationWithBody:(MOZUChannel*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChannelURLComponents URLComponentsForUpdateChannelOperationWithCode:code];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -104,7 +104,7 @@
 +(MOZUClient*)clientForDeleteChannelOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUChannelURLComponents URLComponentsForDeleteChannelOperationWithCode:code];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

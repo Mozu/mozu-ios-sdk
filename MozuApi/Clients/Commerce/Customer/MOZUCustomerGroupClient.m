@@ -25,7 +25,7 @@
 +(MOZUClient*)clientForGetGroupsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerGroupURLComponents URLComponentsForGetGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -39,7 +39,7 @@
 +(MOZUClient*)clientForGetGroupOperationWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerGroupURLComponents URLComponentsForGetGroupOperationWithGroupId:groupId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -60,7 +60,7 @@
 +(MOZUClient*)clientForAddGroupOperationWithBody:(MOZUCustomerGroup*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerGroupURLComponents URLComponentsForAddGroupOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -82,7 +82,7 @@
 +(MOZUClient*)clientForUpdateGroupOperationWithBody:(MOZUCustomerGroup*)body groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerGroupURLComponents URLComponentsForUpdateGroupOperationWithGroupId:groupId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -104,7 +104,7 @@
 +(MOZUClient*)clientForDeleteGroupOperationWithGroupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerGroupURLComponents URLComponentsForDeleteGroupOperationWithGroupId:groupId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

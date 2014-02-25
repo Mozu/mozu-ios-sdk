@@ -27,7 +27,7 @@
 +(MOZUClient*)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForGetDiscountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -44,7 +44,7 @@
 +(MOZUClient*)clientForGetDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForGetDiscountOperationWithDiscountId:discountId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -61,7 +61,7 @@
 +(MOZUClient*)clientForGetDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForGetDiscountContentOperationWithDiscountId:discountId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -78,7 +78,7 @@
 +(MOZUClient*)clientForGenerateRandomCouponOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForGenerateRandomCouponOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -97,7 +97,7 @@
 +(MOZUClient*)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForCreateDiscountOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -115,7 +115,7 @@
 +(MOZUClient*)clientForRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForRedeemDiscountOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -140,7 +140,7 @@
 +(MOZUClient*)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForUpdateDiscountOperationWithDiscountId:discountId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -158,7 +158,7 @@
 +(MOZUClient*)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForUpdateDiscountContentOperationWithDiscountId:discountId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -183,7 +183,7 @@
 +(MOZUClient*)clientForDeleteDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForDeleteDiscountOperationWithDiscountId:discountId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -195,7 +195,7 @@
 +(MOZUClient*)clientForUnRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForUnRedeemDiscountOperationWithDiscountId:discountId orderNumber:orderNumber];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURL:url verb:verb];
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
