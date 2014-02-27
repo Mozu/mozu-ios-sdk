@@ -12,95 +12,83 @@
 
 @implementation MOZUAPIContext
 
--(id)init {
-    if (self = [super init]) {
-        return self;
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
     }
-    else {
-        return nil;
-    }
+    return self;
 }
 
 - (id)initWithTenantId:(NSInteger)tenantId
-                siteId:(NSNumber*)siteId
-       masterCatalogId:(NSNumber*)masterCatalogId
-             catalogId:(NSNumber*)catalogId
+                siteId:(NSNumber *)siteId
+       masterCatalogId:(NSNumber *)masterCatalogId
+             catalogId:(NSNumber *)catalogId
 {
-    if (self = [super init]) {
-        self.tenantId = tenantId;
-        self.siteId = siteId;
-        self.masterCatalogId = masterCatalogId;
-        self.catalogId = catalogId;
-        
-        return self;
+    self = [super init];
+    if (self) {
+        _tenantId = tenantId;
+        _siteId = siteId;
+        _masterCatalogId = masterCatalogId;
+        _catalogId = catalogId;;
     }
-    else {
-        return nil;
-    }
+    return self;
 }
 
-- (id)initWithTenant:(MOZUTenant*)tenant
-                site:(MOZUSite*)site
-     masterCatalogId:(NSNumber*)masterCatalogId
-           catalogId:(NSNumber*)catalogId {
-    
-    if (self = [super init]) {
-        self.tenant= tenant;
-        self.tenantId = tenant.id;
-        self.tenantHost = tenant.domain;
+- (id)initWithTenant:(MOZUTenant *)tenant
+                site:(MOZUSite *)site
+     masterCatalogId:(NSNumber *)masterCatalogId
+           catalogId:(NSNumber *)catalogId
+{
+    self = [super init];
+    if (self) {
+        _tenant= tenant;
+        _tenantId = tenant.id;
+        _tenantHost = tenant.domain;
         [self updateBySite:site];
-        self.masterCatalogId = masterCatalogId;
-        self.catalogId = catalogId;
+        _masterCatalogId = masterCatalogId;
+        _catalogId = catalogId;
         
         if (masterCatalogId == nil && [tenant.masterCatalogs count] == 1) {
             MOZUTenantMasterCatalog* masterCatalog = [tenant.masterCatalogs firstObject];
-            self.masterCatalogId = @(masterCatalog.id);
+            _masterCatalogId = @(masterCatalog.id);
             
             MOZUCatalog* catalog = [masterCatalog.catalogs firstObject];
-            self.catalogId = @(catalog.id);
+            _catalogId = @(catalog.id);
         }
-        
-        return self;
     }
-    else {
-        return nil;
-    }
+    return self;
 }
 
-- (id)initWithSite:(MOZUSite*)site
-   masterCatalogId:(NSNumber*)masterCatalogId
-         catalogId:(NSNumber*)catalogId {
-
-    if (self = [super init]) {
-        self.tenantId = site.tenantId;
+- (id)initWithSite:(MOZUSite *)site
+   masterCatalogId:(NSNumber *)masterCatalogId
+         catalogId:(NSNumber *)catalogId
+{
+    self = [super init];
+    if (self) {
+        _tenantId = site.tenantId;
         [self updateBySite:site];
-        self.masterCatalogId = masterCatalogId;
-        self.catalogId = catalogId;
-        
-        return self;
+        _masterCatalogId = masterCatalogId;
+        _catalogId = catalogId;
     }
-    else {
-        return nil;
-    }
-
+    return self;
 }
 
--(id)initWithHeaders:(NSDictionary*)headers {
-    if (self = [super init]) {
-        self.tenantId = [headers[MOZU_X_VOL_TENANT] intValue];
-        self.siteId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_SITE] intValue]];
-        self.tenantHost = headers[MOZU_X_VOL_TENANT_DOMAIN];
-        self.siteHost = headers[MOZU_X_VOL_SITE_DOMAIN];
-        self.correlationId = headers[MOZU_X_VOL_CORRELATION];
-        self.hmacSHA256 = headers[MOZU_X_VOL_HMAC_SHA256];
-        self.masterCatalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_MASTER_CATALOG] intValue]];
-        self.catalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_CATALOG] intValue]];
-        
-        return self;
+-(id)initWithHeaders:(NSDictionary *)headers
+{
+    self = [super init];
+    if (self) {
+        _tenantId = [headers[MOZU_X_VOL_TENANT] intValue];
+        _siteId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_SITE] intValue]];
+        _tenantHost = headers[MOZU_X_VOL_TENANT_DOMAIN];
+        _siteHost = headers[MOZU_X_VOL_SITE_DOMAIN];
+        _correlationId = headers[MOZU_X_VOL_CORRELATION];
+        _hmacSHA256 = headers[MOZU_X_VOL_HMAC_SHA256];
+        _masterCatalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_MASTER_CATALOG] intValue]];
+        _catalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_CATALOG] intValue]];
     }
-    else {
-        return nil;
-    }
+    return self;
 }
 
 -(void)updateBySite:(MOZUSite*)site {

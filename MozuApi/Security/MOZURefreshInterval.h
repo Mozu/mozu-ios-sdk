@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface MOZURefreshInterval : NSObject
-@property (readonly) long accessTokenExpirationInterval;
-@property (readonly) long refreshTokenExpirationInterval;
-@property (readonly) NSDate* accessTokenExpiration;
-@property (readonly) NSDate* refreshTokenExpiration;
+@property (nonatomic, readonly) NSTimeInterval accessTokenExpirationInterval;
+@property (nonatomic, readonly) NSTimeInterval refreshTokenExpirationInterval;
+@property (nonatomic, readonly) NSDate* accessTokenExpirationDate;
+@property (nonatomic, readonly) NSDate* refreshTokenExpirationDate;
 
--(id)initWithAccessTokenExpirationInterval : (long)accessTokenExpirationInterval andRefreshTokenTokenExpirationInterval: (long)refreshTokenExpiratonInterval;
--(void)updateIncludeRefreshTokenExpiration : (bool)isIncluded;
+- (instancetype)initWithAccessTokenExpirationInterval:(NSTimeInterval)accessTokenExpirationInterval refreshTokenTokenExpirationInterval:(NSTimeInterval)refreshTokenExpiratonInterval;
+- (void)updateTokenExpirationDatesIncludingRefreshToken:(BOOL)includeRefresh;
 
 @end

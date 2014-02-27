@@ -31,7 +31,7 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-
+/*
 - (void)testMozuClient
 {
     // ci env
@@ -40,8 +40,8 @@
     //NSString *baseUrl = @"http://mozu-ci.com";
     
     MOZUURLComponents *components = [[MOZUURLComponents alloc] initWithTemplate:@"/api/platform/tenants/{tenantId}"
-                                          parameters:@{@"tenantId": @"1"}
-                                            location:MOZUHomePod useSSL:YES];
+                                                                     parameters:@{@"tenantId": @"1"}
+                                                                       location:MOZUTenantPod useSSL:YES];
     
     // dev env
     NSString *appId = @"c00c1693055f4a519d34a2490188d350";
@@ -66,6 +66,7 @@
     
     // TODO: Create api context.
     // client.apicontext = lkjdflj;
+    client.context = [MOZUAPIContext alloc];
     
     
     [client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -79,7 +80,7 @@
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:30]];
     
 }
-
+*/
 - (void)testTenantResource
 {
     // ci env
@@ -90,22 +91,29 @@
     // dev env
     NSString *appId = @"c00c1693055f4a519d34a2490188d350";
     NSString *ss = @"d0863f54a3b04cb5a66da2490188d350";
-    NSString *baseUrl = @"http://aus02nqrprx001.dev.volusion.com";
+    NSString *host = @"aus02nqrprx001.dev.volusion.com";
     NSInteger tenantId = 257;
     
     MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = ss;;
-    
-    [MOZUAppAuthenticator initializeWithAuthInfo:authInfo baseAppAuthURL:baseUrl refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
-        if (!response) {
-            DDLogError(@"%@", error.localizedDescription);
-        }
-    }];
+
     MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
-    [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUApiError *error, NSHTTPURLResponse *response) {
-        DDLogError(@"%@", error.localizedDescription);
-        
+    
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:host useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+        if (error) {
+            DDLogError(@"%@", error.localizedDescription);
+            XCTAssertNil(response, @"Resource not nill but had error.");
+        } else {
+            [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUApiError *error, NSHTTPURLResponse *response) {
+                if (error) {
+                    DDLogError(@"%@", error.localizedDescription);
+                    XCTAssertNil(result, @"Tenant not nill but had error.");
+                } else {
+                    XCTAssertNotNil(result, @"Tenant nil with no error.");
+                }
+            }];
+        }
     }];
     
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:30]];

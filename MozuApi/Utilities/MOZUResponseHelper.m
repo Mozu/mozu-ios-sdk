@@ -13,8 +13,7 @@
 +(MOZUApiError*)ensureSuccessOfResponse:(NSHTTPURLResponse*)response JSONResult:(NSString*)json {
     if (response.statusCode < 200 || response.statusCode > 299) {
         return [[MOZUApiError alloc] initWithString:json statusCode:response.statusCode];
-    }
-    else {
+    } else {
         return nil;
     }
 }

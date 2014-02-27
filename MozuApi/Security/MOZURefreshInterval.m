@@ -9,31 +9,32 @@
 #import "MOZURefreshInterval.h"
 
 @interface MOZURefreshInterval()
-@property (readwrite) long accessTokenExpirationInterval;
-@property (readwrite) long refreshTokenExpirationInterval;
-@property (readwrite) NSDate* accessTokenExpiration;
-@property (readwrite) NSDate* refreshTokenExpiration;
+
+@property (nonatomic, readwrite) NSTimeInterval accessTokenExpirationInterval;
+@property (nonatomic, readwrite) NSTimeInterval refreshTokenExpirationInterval;
+@property (nonatomic, readwrite) NSDate* accessTokenExpirationDate;
+@property (nonatomic, readwrite) NSDate* refreshTokenExpirationDate;
+
 @end
 
 @implementation MOZURefreshInterval
 
--(id)initWithAccessTokenExpirationInterval : (long)accessTokenExpirationInterval andRefreshTokenTokenExpirationInterval: (long)refreshTokenExpiratonInterval {
-    if (self = [super init]) {
+- (instancetype)initWithAccessTokenExpirationInterval:(NSTimeInterval)accessTokenExpirationInterval refreshTokenTokenExpirationInterval:(NSTimeInterval)refreshTokenExpiratonInterval
+{
+    self = [super init];
+    if (self) {
         self.accessTokenExpirationInterval = accessTokenExpirationInterval;
         self.refreshTokenExpirationInterval = refreshTokenExpiratonInterval;
-        [self updateIncludeRefreshTokenExpiration:true];
-        return self;
+        [self updateTokenExpirationDatesIncludingRefreshToken:YES];
     }
-    else {
-        return nil;
-    }
+    return self;
 }
 
--(void)updateIncludeRefreshTokenExpiration : (bool)isIncluded {
-    self.accessTokenExpiration = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval)self.accessTokenExpirationInterval];
-    if (isIncluded) {
-        self.refreshTokenExpiration = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval)self.refreshTokenExpirationInterval];
-        
+- (void)updateTokenExpirationDatesIncludingRefreshToken:(BOOL)includeRefresh
+{
+    self.accessTokenExpirationDate = [[NSDate alloc] initWithTimeIntervalSinceNow:self.accessTokenExpirationInterval];
+    if (includeRefresh) {
+        self.refreshTokenExpirationDate = [[NSDate alloc] initWithTimeIntervalSinceNow:self.refreshTokenExpirationInterval];
     }
 }
 

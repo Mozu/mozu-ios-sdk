@@ -31,7 +31,7 @@
 + (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket id:(NSNumber*)identifier completionHandler:(MOZUUserAuthenticationCompletionBlock)completion {
     __block MOZUAuthenticationProfile* authProfile = nil;
     NSString* resourceUrl = [[self class] getResourceRefreshUrlWithAuthTicket:userAuthTicket andId:identifier];
-    NSString* url = [[MOZUAppAuthenticator baseUrl] stringByAppendingString:resourceUrl];
+    NSString* url =  [NSString stringWithFormat:@"%@://%@%@", [MOZUAppAuthenticator sharedAppAuthenticator].scheme, [MOZUAppAuthenticator sharedAppAuthenticator].host, resourceUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"PUT"];

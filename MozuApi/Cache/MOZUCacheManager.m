@@ -17,10 +17,10 @@ static NSCache *cache = nil;
     cache = [NSCache new];
 }
 
-+(void)setCache:(id)obj forKey:(NSString *)key {
-    
-    [cache setObject:obj forKey:key];
-    
++ (void)setCache:(id)obj forKey:(NSString *)key {
+    if (obj) {
+        [cache setObject:obj forKey:key];
+    }
 }
 
 +(id)getCacheForKey:(NSString *)key {
