@@ -21,7 +21,6 @@
 @property(nonatomic, strong) id result; // Is this needed?
 @property(nonatomic, assign) NSInteger statusCode;
 @property(nonatomic, strong) MOZUApiError* error;
-@property(nonatomic, strong) NSDictionary* headers;
 
 @property (nonatomic, strong) NSMutableDictionary *mutableHeaders;
 @property (nonatomic, strong) MOZUAPIContext * APIContext;
@@ -31,6 +30,8 @@
 @property (nonatomic, strong) NSString *bodyString;
 
 @end
+
+static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
 
 @implementation MOZUClient
 
@@ -79,25 +80,24 @@
     }
 }
 
-- (void)validateUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void (^)())completion
+- (void)validateUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void (^)(NSError *error))completion
 {
     NSAssert(userClaims, @"User Claims is nil");
-    __block MOZUAuthenticationProfile* userInfo = nil;
     
     if (userClaims.scope == MOZUShopperAuthenticationScope) {
         // Logic missing from C#
     }
     
     [MOZUUserAuthenticator ensureUserAuthTicket:userClaims completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUApiError *error) {
-        if (userInfo) {
-            userClaims.accessToken = userInfo.authTicket.accessToken;
-            userClaims.accessTokenExpiration = userInfo.authTicket.accessTokenExpiration;
+        if (profile) {
+            userClaims.accessToken = profile.authTicket.accessToken;
+            userClaims.accessTokenExpiration = profile.authTicket.accessTokenExpiration;
+            [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
+            completion(nil);
         } else {
             DDLogError(@"%@", error);
+            completion(error);
         }
-        
-        [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
-        completion();
     }];
     
 }
@@ -108,6 +108,11 @@
     NSAssert(value, @"Header value cannot be nil.");
     
     self.mutableHeaders[header] = value;
+}
+
+- (NSDictionary *)headers
+{
+    return [self.mutableHeaders copy];
 }
 
 - (void)setBody:(JSONModel *)body
@@ -121,7 +126,7 @@
     self.bodyStream = bodyStream;
 }
 
-- (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)(NSString *host))completion
+- (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)(NSString *host, NSError *error))completion
 {
     if (self.resourceURLComponents.location == MOZUTenantPod) {
         NSAssert(APIContext, @"MOZUClient APIContext is missing.");
@@ -131,39 +136,29 @@
             id tenantRes = [[MOZUTenantResource alloc] init];
             [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response) {
                 if (result) {
-                    completion(result.domain);
+                    completion(result.domain, nil);
                 } else {
                     DDLogError(@"%@", error.localizedDescription);
-                    completion(nil);
+                    completion(nil, error);
                 }
             }];
         } else {
-            completion(APIContext.tenantHost);
+            completion(APIContext.tenantHost, nil);
         }
     } else {
         NSString *host = [MOZUAppAuthenticator sharedAppAuthenticator].host;
         if (!host || [host isEqualToString:@""]) {
-            DDLogError(@"MOZUAppAuthenticator baseUrl is missing!");
-            completion(nil);
+            NSError *error = [NSError errorWithDomain:MOZUAPIClientErrorDomain code:MOZUClientErrorMissingHost userInfo:@{NSLocalizedDescriptionKey: @"MOZUAppAuthenticator host is missing"}];
+            DDLogError(@"%@", error.localizedDescription);
+            completion(nil, error);
         } else {
-            completion(host);
+            completion(host, nil);
         }
     }
 }
 
-- (void)validateHeaders:(NSMutableDictionary *)headers request:(NSMutableURLRequest *)request completionHandler:(void (^)())completion
+- (void)validateHeaders:(NSMutableDictionary *)headers request:(NSMutableURLRequest *)request completionHandler:(void (^)(NSError *error))completion
 {
-    if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
-        // Add MOZU_X_VOL_APP_CLAIMS to headers
-        if (!self.APIContext || !self.APIContext.appAuthClaim || [self.APIContext.appAuthClaim isEqualToString:@""]) {
-            [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
-                completion();
-            }];
-        } else {
-            [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.APIContext.appAuthClaim];
-        }
-    }
-    
     // Add MOZU_X_VOL_VERSION
     [self setHeader:MOZU_X_VOL_VERSION value:[MOZUAPIVersion version]];
 
@@ -174,7 +169,24 @@
         DDLogInfo(@"CorrelationId not set on API Context.");
     }
     
-    completion();
+    if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
+        // Add MOZU_X_VOL_APP_CLAIMS to headers
+        if (!self.APIContext || !self.APIContext.appAuthClaim || [self.APIContext.appAuthClaim isEqualToString:@""]) {
+            [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+                if (error) {
+                    DDLogError(@"%@", error.localizedDescription);
+                    completion(error);
+                } else {
+                    completion(nil);
+                }
+            }];
+        } else {
+            [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.APIContext.appAuthClaim];
+            completion(nil);
+        }
+    } else {
+        completion(nil);
+    }
 }
 
 -(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
@@ -184,12 +196,20 @@
     // Create dispatch group that waits for three validations before submitting client request.
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
-    [self validateContext:self.APIContext completionHandler:^(NSString *host) {
-        self.resourceURLComponents.host = host;
-        request = [NSMutableURLRequest requestWithURL:self.resourceURLComponents.URL];
-        [self validateHeaders:self.mutableHeaders request:request completionHandler:^{
+    [self validateContext:self.APIContext completionHandler:^(NSString *host, NSError *error) {
+        if (error) {
+            DDLogError(@"%@", error.localizedDescription);
             dispatch_group_leave(group);
-        }];
+        } else {
+            self.resourceURLComponents.host = host;
+            request = [NSMutableURLRequest requestWithURL:self.resourceURLComponents.URL];
+            [self validateHeaders:self.mutableHeaders request:request completionHandler:^(NSError *error) {
+                if (error) {
+                    DDLogError(@"%@", error.localizedDescription);
+                }
+                dispatch_group_leave(group);
+            }];
+        }
     }];
     
 #warning Enable user claims when logic is implemented.
@@ -202,8 +222,8 @@
     // Wait until all dispatch groups leave.
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     
-    
-    [request setAllHTTPHeaderFields:self.headers];
+    [self.mutableHeaders addEntriesFromDictionary:request.allHTTPHeaderFields];
+    [request setAllHTTPHeaderFields:[self.mutableHeaders copy]];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:self.verb];
     

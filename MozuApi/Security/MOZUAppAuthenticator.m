@@ -174,6 +174,8 @@
         [self refreshAppAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
             completion(response, error);
         }];
+    } else {
+        completion(nil, nil);
     }
 }
 

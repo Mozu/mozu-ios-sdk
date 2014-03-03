@@ -19,6 +19,11 @@ typedef NS_ENUM(NSUInteger, MOZUDataViewMode) {
     MOZUPending
 };
 
+typedef NS_ENUM(NSUInteger, MOZUClientError)
+{
+    MOZUClientErrorMissingHost,
+};
+
 
 typedef void(^MOZUClientCompletionBlock)(id result, MOZUApiError* error, NSHTTPURLResponse* response);
 typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
