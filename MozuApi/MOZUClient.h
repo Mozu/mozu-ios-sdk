@@ -30,11 +30,11 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 
 @interface MOZUClient : NSObject
 
-@property(nonatomic,readonly) NSString* JSONResult;
-@property(nonatomic,readonly) id result; // Is this needed?
-@property(nonatomic,readonly) NSInteger statusCode;
-@property(nonatomic,readonly) MOZUApiError* error;
-@property(nonatomic,readonly) NSDictionary* headers;
+@property (nonatomic, readonly) NSString* JSONResult;
+@property (nonatomic, readonly) id result; // Is this needed?
+@property (nonatomic, readonly) NSInteger statusCode;
+@property (nonatomic, readonly) MOZUApiError* error;
+@property (nonatomic, readonly) NSDictionary* headers;
 
 @property (nonatomic, strong) MOZUUserAuthTicket * userClaims;
 @property (nonatomic, strong) id body;

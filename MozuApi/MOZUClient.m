@@ -23,7 +23,6 @@
 @property(nonatomic, strong) MOZUApiError* error;
 
 @property (nonatomic, strong) NSMutableDictionary *mutableHeaders;
-@property (nonatomic, strong) MOZUAPIContext * APIContext;
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, strong) MOZUURLComponents *resourceURLComponents;
 @property (nonatomic, strong) NSString * verb;
@@ -58,25 +57,25 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
     return self;
 }
 
-- (void)setAPIContext:(MOZUAPIContext *)APIContext
+- (void)setContext:(MOZUAPIContext *)context
 {    
-    _APIContext = APIContext;
+    _context = context;
     
-    if (APIContext.tenantId > 0) {
-        [self setHeader:MOZU_X_VOL_TENANT value:[@(APIContext.tenantId) description]];
+    if (context.tenantId > 0) {
+        [self setHeader:MOZU_X_VOL_TENANT value:[@(context.tenantId) description]];
     }
     
-    if (APIContext.siteId != nil && [APIContext.siteId intValue] > 0) {
-        [self setHeader:MOZU_X_VOL_SITE value:[APIContext.siteId stringValue]];
+    if (context.siteId != nil && [context.siteId intValue] > 0) {
+        [self setHeader:MOZU_X_VOL_SITE value:[context.siteId stringValue]];
     }
     
-    if (APIContext.masterCatalogId != nil && [APIContext.masterCatalogId intValue] > 0) {
-        [self setHeader:MOZU_X_VOL_MASTER_CATALOG value:[APIContext.masterCatalogId stringValue]];
+    if (context.masterCatalogId != nil && [context.masterCatalogId intValue] > 0) {
+        [self setHeader:MOZU_X_VOL_MASTER_CATALOG value:[context.masterCatalogId stringValue]];
     }
     
-    if (APIContext.catalogId != nil && [APIContext.catalogId intValue] > 0)
+    if (context.catalogId != nil && [context.catalogId intValue] > 0)
     {
-        [self setHeader:MOZU_X_VOL_CATALOG value:[APIContext.catalogId stringValue]];
+        [self setHeader:MOZU_X_VOL_CATALOG value:[context.catalogId stringValue]];
     }
 }
 
@@ -128,7 +127,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
 
 - (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)(NSString *host, NSError *error))completion
 {
-    if (self.resourceURLComponents.location == MOZUTenantPod) {
+    if (self.resourceURLComponents.location == MOZUTenantPod) {        
         NSAssert(APIContext, @"MOZUClient APIContext is missing.");
         NSAssert(APIContext.tenantId >=0, @"APIContext.tenantId less than 0.");
         
@@ -163,15 +162,15 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
     [self setHeader:MOZU_X_VOL_VERSION value:[MOZUAPIVersion version]];
 
     // MOZU_X_VOL_CORRELATION
-    if (self.APIContext.correlationId && ![self.APIContext.correlationId isEqualToString:@""]) {
-        [self setHeader:MOZU_X_VOL_CORRELATION value:self.APIContext.correlationId];
+    if (self.context.correlationId && ![self.context.correlationId isEqualToString:@""]) {
+        [self setHeader:MOZU_X_VOL_CORRELATION value:self.context.correlationId];
     } else {
         DDLogInfo(@"CorrelationId not set on API Context.");
     }
     
     if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
         // Add MOZU_X_VOL_APP_CLAIMS to headers
-        if (!self.APIContext || !self.APIContext.appAuthClaim || [self.APIContext.appAuthClaim isEqualToString:@""]) {
+        if (!self.context || !self.context.appAuthClaim || [self.context.appAuthClaim isEqualToString:@""]) {
             [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
                 if (error) {
                     DDLogError(@"%@", error.localizedDescription);
@@ -181,7 +180,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
                 }
             }];
         } else {
-            [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.APIContext.appAuthClaim];
+            [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.context.appAuthClaim];
             completion(nil);
         }
     } else {
@@ -196,7 +195,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
     // Create dispatch group that waits for three validations before submitting client request.
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
-    [self validateContext:self.APIContext completionHandler:^(NSString *host, NSError *error) {
+    [self validateContext:self.context completionHandler:^(NSString *host, NSError *error) {
         if (error) {
             DDLogError(@"%@", error.localizedDescription);
             dispatch_group_leave(group);

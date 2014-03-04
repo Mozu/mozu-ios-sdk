@@ -43,29 +43,23 @@
     }
 }
 
-/*
+
 - (void)testMozuClient
 {
-    // ci env
-    //NSString *appId = @"df2edc9e2ac849d9ad26a230012af527";
-    //NSString *ss = @"db969fc376e4497c90cba230012af527";
-    //NSString *baseUrl = @"http://mozu-ci.com";
+    NSInteger tenantId = 7290;
     
     MOZUURLComponents *components = [[MOZUURLComponents alloc] initWithTemplate:@"/api/platform/tenants/{tenantId}"
-                                                                     parameters:@{@"tenantId": @"1"}
+                                                                     parameters:@{@"tenantId": @(tenantId)}
                                                                        location:MOZUTenantPod useSSL:YES];
     
-    // dev env
-    NSString *appId = @"c00c1693055f4a519d34a2490188d350";
-    NSString *ss = @"d0863f54a3b04cb5a66da2490188d350";
-//    NSString *baseUrl = @"http://aus02nqrprx001.dev.volusion.com";
-    
+    NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
+    NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
     
     MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
-    authInfo.SharedSecret = ss;
+    authInfo.SharedSecret = sharedSecred;
     
-    MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"POST"];
+    MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"GET"];
     client.body = authInfo;
     client.JSONParser = ^(NSString *JSONResult) {
         JSONModelError *JSONError = nil;
@@ -75,24 +69,29 @@
         }
         return model;
     };
-    
-    // TODO: Create api context.
-    // client.apicontext = lkjdflj;
-    client.context = [MOZUAPIContext alloc];
+
+    NSNumber *siteId = @(10827);
+    NSNumber *masterCatalogID = @(2);
+    NSNumber *catalogID = @(3);
+    client.context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:masterCatalogID catalogId:catalogID];
     
     
     [client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
         if (result) {
             DDLogDebug(@"result = %@", result);
+            XCTAssertNotNil(result, @"Tenant nil with no error.");
         } else {
             DDLogError(@"%@", error.localizedDescription);
+            XCTAssertNil(result, @"Tenant not nill but had error.");
+            XCTFail(@"%@", error);
         }
+        self.waitingForBlock = NO;
     }];
     
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:30]];
+    [self waitForBlock];
     
 }
-*/
+
 - (void)testTenantResource
 {
     // ci env
