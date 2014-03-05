@@ -27,7 +27,7 @@
 +(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithApplicationId:(NSNumber*)applicationId {
 	NSString* template = @"/api/platform/developer/applications/{applicationId}";
 	NSDictionary* params = @{
-		@"applicationId" : applicationId,
+		@"applicationId" : applicationId ? applicationId : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];

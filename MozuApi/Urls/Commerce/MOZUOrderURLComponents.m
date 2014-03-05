@@ -20,12 +20,12 @@
 +(MOZUURLComponents*)URLComponentsForGetOrdersOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit {
 	NSString* template = @"/api/commerce/orders/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}";
 	NSDictionary* params = @{
-		@"startIndex" : startIndex,
-		@"pageSize" : pageSize,
-		@"sortBy" : sortBy,
-		@"filter" : filter,
-		@"q" : q,
-		@"qLimit" : qLimit,
+		@"startIndex" : startIndex ? startIndex : @"",
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"sortBy" : sortBy ? sortBy : @"",
+		@"filter" : filter ? filter : @"",
+		@"q" : q ? q : @"",
+		@"qLimit" : qLimit ? qLimit : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -53,7 +53,7 @@
 	NSString* template = @"/api/commerce/orders/{orderId}?draft={draft}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"draft" : draft,
+		@"draft" : draft ? draft : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -103,8 +103,8 @@
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"discountId" : @(discountId),
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -114,7 +114,7 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/draft?version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"version" : version,
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -133,8 +133,8 @@
 	NSString* template = @"/api/commerce/orders/{orderId}?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -22,7 +22,7 @@
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
-		@"draft" : draft,
+		@"draft" : draft ? draft : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -32,7 +32,7 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/items?draft={draft}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"draft" : draft,
+		@"draft" : draft ? draft : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -49,9 +49,9 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/items?updatemode={updateMode}&version={version}&skipInventoryCheck={skipInventoryCheck}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode,
-		@"version" : version,
-		@"skipInventoryCheck" : skipInventoryCheck,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
+		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -70,8 +70,8 @@
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"discountId" : @(discountId),
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -82,8 +82,8 @@
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -95,8 +95,8 @@
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"price" : price,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -108,8 +108,8 @@
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"quantity" : @(quantity),
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -127,8 +127,8 @@
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

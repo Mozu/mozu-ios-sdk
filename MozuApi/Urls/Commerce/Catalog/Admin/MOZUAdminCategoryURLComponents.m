@@ -20,10 +20,10 @@
 +(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
-		@"startIndex" : startIndex,
-		@"pageSize" : pageSize,
-		@"sortBy" : sortBy,
-		@"filter" : filter,
+		@"startIndex" : startIndex ? startIndex : @"",
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"sortBy" : sortBy ? sortBy : @"",
+		@"filter" : filter ? filter : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -72,7 +72,7 @@
 	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
-		@"cascadeVisibility" : cascadeVisibility,
+		@"cascadeVisibility" : cascadeVisibility ? cascadeVisibility : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -89,7 +89,7 @@
 	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
-		@"cascadeDelete" : cascadeDelete,
+		@"cascadeDelete" : cascadeDelete ? cascadeDelete : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

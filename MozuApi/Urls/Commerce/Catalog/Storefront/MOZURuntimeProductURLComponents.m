@@ -20,10 +20,10 @@
 +(MOZUURLComponents*)URLComponentsForGetProductsOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy {
 	NSString* template = @"/api/commerce/catalog/storefront/products/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}";
 	NSDictionary* params = @{
-		@"filter" : filter,
-		@"startIndex" : startIndex,
-		@"pageSize" : pageSize,
-		@"sortBy" : sortBy,
+		@"filter" : filter ? filter : @"",
+		@"startIndex" : startIndex ? startIndex : @"",
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"sortBy" : sortBy ? sortBy : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -33,7 +33,7 @@
 	NSString* template = @"/api/commerce/catalog/storefront/products/{productCode}/locationinventory?locationCodes={locationCodes}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
-		@"locationCodes" : locationCodes,
+		@"locationCodes" : locationCodes ? locationCodes : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -43,9 +43,9 @@
 	NSString* template = @"/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
-		@"variationProductCode" : variationProductCode,
-		@"allowInactive" : allowInactive,
-		@"skipInventoryCheck" : skipInventoryCheck,
+		@"variationProductCode" : variationProductCode ? variationProductCode : @"",
+		@"allowInactive" : allowInactive ? allowInactive : @"",
+		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -62,8 +62,8 @@
 	NSString* template = @"/api/commerce/catalog/storefront/products/{productCode}/configure?includeOptionDetails={includeOptionDetails}&skipInventoryCheck={skipInventoryCheck}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
-		@"includeOptionDetails" : includeOptionDetails,
-		@"skipInventoryCheck" : skipInventoryCheck,
+		@"includeOptionDetails" : includeOptionDetails ? includeOptionDetails : @"",
+		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -73,7 +73,7 @@
 	NSString* template = @"/api/commerce/catalog/storefront/products/{productCode}/validate?skipInventoryCheck={skipInventoryCheck}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
-		@"skipInventoryCheck" : skipInventoryCheck,
+		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

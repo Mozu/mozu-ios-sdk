@@ -20,8 +20,8 @@
 +(MOZUURLComponents*)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
 	NSString* template = @"/api/content/propertytypes/?pageSize={pageSize}&startIndex={startIndex}";
 	NSDictionary* params = @{
-		@"pageSize" : pageSize,
-		@"startIndex" : startIndex,
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"startIndex" : startIndex ? startIndex : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -20,13 +20,13 @@
 +(MOZUURLComponents*)URLComponentsForGetProductsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit noCount:(NSNumber*)noCount {
 	NSString* template = @"/api/commerce/catalog/admin/products/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}&noCount={noCount}";
 	NSDictionary* params = @{
-		@"startIndex" : startIndex,
-		@"pageSize" : pageSize,
-		@"sortBy" : sortBy,
-		@"filter" : filter,
-		@"q" : q,
-		@"qLimit" : qLimit,
-		@"noCount" : noCount,
+		@"startIndex" : startIndex ? startIndex : @"",
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"sortBy" : sortBy ? sortBy : @"",
+		@"filter" : filter ? filter : @"",
+		@"q" : q ? q : @"",
+		@"qLimit" : qLimit ? qLimit : @"",
+		@"noCount" : noCount ? noCount : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -20,9 +20,9 @@
 +(MOZUURLComponents*)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists {
 	NSString* template = @"/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}";
 	NSDictionary* params = @{
-		@"pageSize" : pageSize,
-		@"startIndex" : startIndex,
-		@"documentLists" : documentLists,
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"startIndex" : startIndex ? startIndex : @"",
+		@"documentLists" : documentLists ? documentLists : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -38,7 +38,7 @@
 +(MOZUURLComponents*)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString*)documentLists {
 	NSString* template = @"/api/content/documentpublishing/draft?documentLists={documentLists}";
 	NSDictionary* params = @{
-		@"documentLists" : documentLists,
+		@"documentLists" : documentLists ? documentLists : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -54,7 +54,7 @@
 +(MOZUURLComponents*)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString*)documentLists {
 	NSString* template = @"/api/content/documentpublishing/active?documentLists={documentLists}";
 	NSDictionary* params = @{
-		@"documentLists" : documentLists,
+		@"documentLists" : documentLists ? documentLists : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

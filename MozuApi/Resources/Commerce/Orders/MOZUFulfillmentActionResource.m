@@ -87,7 +87,7 @@ Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare i
 //
 
 /**
-Updates one or more propertes of fulfillment information for the specified order.
+Updates one or more propertes of fulfillment information for the specified order. After submitting an order, you can update the shipping address information until the order is fulfilled. When you change the shipping address information for a submitted order, the system sends an email notification of the change to the email address specified in the order billing information.
 @param body Array of shipping fulfillment information associated with an order.
 @param orderId Unique identifier of the order associated with the fulfillment information to update.
 @param updateMode Specifies whether to set the fulfillment information by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."

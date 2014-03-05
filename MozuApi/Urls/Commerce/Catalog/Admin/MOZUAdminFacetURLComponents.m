@@ -21,7 +21,7 @@
 	NSString* template = @"/api/commerce/catalog/admin/facets/{facetId}?validate={validate}";
 	NSDictionary* params = @{
 		@"facetId" : @(facetId),
-		@"validate" : validate,
+		@"validate" : validate ? validate : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -31,8 +31,8 @@
 	NSString* template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includAvaliable={includeAvailable}&validate={validate}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
-		@"includeAvailable" : includeAvailable,
-		@"validate" : validate,
+		@"includeAvailable" : includeAvailable ? includeAvailable : @"",
+		@"validate" : validate ? validate : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

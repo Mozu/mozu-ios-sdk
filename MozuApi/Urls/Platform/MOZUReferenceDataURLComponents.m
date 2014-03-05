@@ -20,7 +20,7 @@
 +(MOZUURLComponents*)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode {
 	NSString* template = @"/api/platform/reference/addressschema/{countryCode}";
 	NSDictionary* params = @{
-		@"countryCode" : countryCode,
+		@"countryCode" : countryCode ? countryCode : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
@@ -61,7 +61,7 @@
 +(MOZUURLComponents*)URLComponentsForGetBehaviorsOperationWithUserType:(NSString*)userType {
 	NSString* template = @"/api/platform/reference/behaviors?userType={userType}";
 	NSDictionary* params = @{
-		@"userType" : userType,
+		@"userType" : userType ? userType : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
@@ -105,7 +105,7 @@
 +(MOZUURLComponents*)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter {
 	NSString* template = @"/api/platform/reference/unitsofmeasure?filter={filter}";
 	NSDictionary* params = @{
-		@"filter" : filter,
+		@"filter" : filter ? filter : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
