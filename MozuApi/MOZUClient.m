@@ -51,7 +51,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
         NSAssert(verb, @"MOZUClient verb is missing!");
         NSAssert(resourceURLComponents, @"MOZUClient resourceURLComponents is missing!");
         _resourceURLComponents = resourceURLComponents;
-        _verb = [verb lowercaseString];
+        _verb = verb;
     }
     
     return self;
@@ -190,7 +190,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
 
 -(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
 {
-    __block NSMutableURLRequest *request = nil;
+    __block NSMutableURLRequest *request = [NSMutableURLRequest new];
     
     // Create dispatch group that waits for three validations before submitting client request.
     dispatch_group_t group = dispatch_group_create();
@@ -201,7 +201,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
             dispatch_group_leave(group);
         } else {
             self.resourceURLComponents.host = host;
-            request = [NSMutableURLRequest requestWithURL:self.resourceURLComponents.URL];
+            request.URL = self.resourceURLComponents.URL;
             [self validateHeaders:self.mutableHeaders request:request completionHandler:^(NSError *error) {
                 if (error) {
                     DDLogError(@"%@", error.localizedDescription);
@@ -231,26 +231,22 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
         [request setHTTPBody:body];
     }
     
-    //NSLog(@"%@",url);
+    DDLogDebug(@"%@", request);
+    DDLogDebug(@"%@", request.allHTTPHeaderFields);
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    if (error) {
-                                                        DDLogError(@"%@", error.localizedDescription);
-                                                        completionHandler(nil, (MOZUApiError *)error, nil);
-                                                    } else {
-                                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-                                                        self.statusCode = [httpResponse statusCode];
-                                                        self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                        self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult];
-                                                        
-                                                        if (self.JSONResult) {
-                                                            self.result = self.JSONParser(self.JSONResult);
-                                                        }
-                                                        
-                                                        completionHandler(self.result, self.error, httpResponse);
-                                                    }
+                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+                                                    self.statusCode = [httpResponse statusCode];
+                                                    self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult error:error];
+                                                    
+                                                    self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
+                                                    
+                                                    
+                                                    completionHandler(self.result, self.error, httpResponse);
+                                                    
                                                 }];
     [dataTask resume];
     

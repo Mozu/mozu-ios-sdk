@@ -45,10 +45,7 @@
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json];
-                                                    if (apiError != nil) {
-                                                        [NSException raise:@"refreshAppAuthTicket failed!" format:@"MOZUApiError = %@", apiError];
-                                                    }
+                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                     
                                                     authProfile = [[self class] setUserAuthWithJsonData:json andUserScope:userAuthTicket.scope];
                                                     completion(authProfile, httpResponse, apiError);

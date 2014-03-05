@@ -13,6 +13,7 @@
 #import "MOZUClient.h"
 #import "MOZUTenantResource.h"
 #import "MOZUTenantURLComponents.h"
+#import "MOZUAdminProductResource.h"
 
 @interface MozuApiTests : XCTestCase
 
@@ -46,11 +47,11 @@
 
 - (void)testMozuClient
 {
-    NSInteger tenantId = 7290;
-    
-    MOZUURLComponents *components = [[MOZUURLComponents alloc] initWithTemplate:@"/api/platform/tenants/{tenantId}"
-                                                                     parameters:@{@"tenantId": @(tenantId)}
-                                                                       location:MOZUTenantPod useSSL:YES];
+
+    NSInteger productCode = 1001;
+    MOZUURLComponents *components = [[MOZUURLComponents alloc] initWithTemplate:@"/api/commerce/catalog/admin/products/{productCode}"
+                                                                     parameters:@{@"productCode": @(productCode)}
+                                                                       location:MOZUTenantPod useSSL:NO];
     
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
@@ -60,7 +61,6 @@
     authInfo.SharedSecret = sharedSecred;
     
     MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"GET"];
-    client.body = authInfo;
     client.JSONParser = ^(NSString *JSONResult) {
         JSONModelError *JSONError = nil;
         JSONModel *model = [[MOZUAuthTicket alloc] initWithString:JSONResult error:&JSONError];
@@ -70,26 +70,82 @@
         return model;
     };
 
-    NSNumber *siteId = @(10827);
-    NSNumber *masterCatalogID = @(2);
-    NSNumber *catalogID = @(3);
+    NSInteger tenantId = 7290;
+    NSString *authenticationHost = @"home.mozu-si.volusion.com";
+    NSString *tenantHost = @"t7290-s10825.mozu-si.volusion.com";
+    NSNumber *siteId = @(10825);
+    NSNumber *masterCatalogID = @(1);
+    NSNumber *catalogID = @(1);
     client.context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:masterCatalogID catalogId:catalogID];
+    client.context.tenantHost = tenantHost;
+    NSString *dataViewModeString = [@(MOZULive) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
     
-    
-    [client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
-        if (result) {
-            DDLogDebug(@"result = %@", result);
-            XCTAssertNotNil(result, @"Tenant nil with no error.");
-        } else {
-            DDLogError(@"%@", error.localizedDescription);
-            XCTAssertNil(result, @"Tenant not nill but had error.");
-            XCTFail(@"%@", error);
-        }
-        self.waitingForBlock = NO;
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+        [client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+            if (result) {
+                DDLogDebug(@"result = %@", result);
+                XCTAssertNotNil(result, @"Tenant nil with no error.");
+            } else {
+                DDLogError(@"%@", error.localizedDescription);
+                XCTAssertNil(result, @"Tenant not nill but had error.");
+                XCTFail(@"%@", error);
+            }
+            self.waitingForBlock = NO;
+        }];
     }];
+    
     
     [self waitForBlock];
     
+}
+
+- (void)testAdminProductResource
+{
+    NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
+    NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
+    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    authInfo.ApplicationId = appId;
+    authInfo.SharedSecret = sharedSecred;
+    NSString *authenticationHost = @"home.mozu-si.volusion.com";
+    
+    NSInteger tenantId = 7290;
+    NSNumber *siteId = @(10825);
+    NSNumber *masterCatalogID = @(1);
+    NSNumber *catalogID = @(1);
+    NSString *tenantHost = @"t7290-s10825.mozu-si.volusion.com";
+    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:masterCatalogID catalogId:catalogID];
+    context.tenantHost = tenantHost;
+    
+    MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
+
+//    [adminProductResource productsWithDataViewMode:MOZULive
+//                                        startIndex:@(0)
+//                                          pageSize:nil
+//                                            sortBy:nil
+//                                            filter:nil
+//                                                 q:nil
+//                                            qLimit:nil
+//                                           noCount:nil
+//                                        userClaims:nil
+//                                 completionHandler:^(MOZUAdminProductCollection *result, MOZUApiError *error, NSHTTPURLResponse *response) {
+//                                     
+//                                 }];
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+        [adminProductResource productWithDataViewMode:MOZULive productCode:@"1001" userClaims:nil completionHandler:^(MOZUAdminProduct *result, MOZUApiError *error, NSHTTPURLResponse *response) {
+            if (result) {
+                DDLogDebug(@"result = %@", result);
+                XCTAssertNotNil(result, @"Tenant nil with no error.");
+            } else {
+                DDLogError(@"%@", error.localizedDescription);
+                XCTAssertNil(result, @"Tenant not nill but had error.");
+                XCTFail(@"%@", error);
+            }
+            self.waitingForBlock = NO;
+        }];
+    }];
+    
+    [self waitForBlock];
 }
 
 - (void)testTenantResource

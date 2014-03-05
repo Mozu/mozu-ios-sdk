@@ -7,13 +7,27 @@
 //
 
 #import "MOZUResponseHelper.h"
+#import "MOZUAPILogger.h"
 
 @implementation MOZUResponseHelper
 
-+(MOZUApiError*)ensureSuccessOfResponse:(NSHTTPURLResponse*)response JSONResult:(NSString*)json {
-    if (response.statusCode < 200 || response.statusCode > 299) {
-        return [[MOZUApiError alloc] initWithString:json statusCode:response.statusCode];
+static NSString * const MOZUInvalidResponseException = @"MOZUInvalidResponseException";
+
++ (MOZUApiError *)ensureSuccessOfResponse:(NSHTTPURLResponse *)response JSONResult:(NSString *)JSON error:(NSError *)error; {
+    if (response) {
+        if (response.statusCode < 200 || response.statusCode > 299) {
+            MOZUApiError *apiError = [[MOZUApiError alloc] initWithString:JSON statusCode:response.statusCode];
+            DDLogError(@"%@", error);
+            return apiError;
+        } else {
+            return nil;
+        }
+    } else if (error) {
+        DDLogError(@"%@", error.localizedDescription);
+        return (MOZUApiError *)error;
     } else {
+        DDLogError(@"%@", MOZUInvalidResponseException);
+        [NSException raise:MOZUInvalidResponseException format:@"Response and error are nil."];
         return nil;
     }
 }

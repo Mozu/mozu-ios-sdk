@@ -120,10 +120,7 @@
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json];
-                                                    if (apiError) {
-                                                        DDLogError(@"%@", apiError);
-                                                    }
+                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                     
                                                     self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
                                                     [self refreshIntervalsIncludingRefreshTokenExpiration:YES];
@@ -153,10 +150,7 @@
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json];
-                                                    if (apiError != nil) {
-                                                        [NSException raise:@"refreshAppAuthTicket failed!" format:@"MOZUApiError = %@", apiError];
-                                                    }
+                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                     
                                                     self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
                                                     [self refreshIntervalsIncludingRefreshTokenExpiration:NO];
