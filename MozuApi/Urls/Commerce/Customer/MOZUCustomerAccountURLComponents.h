@@ -26,7 +26,7 @@ Resource Url Components for getAccounts
 @param fields The fields to include in the response.
 @param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
-@param isAnonymous 
+@param isAnonymous If true, retrieve anonymous shopper accounts in the response.
 */
 +(MOZUURLComponents*)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous;
 

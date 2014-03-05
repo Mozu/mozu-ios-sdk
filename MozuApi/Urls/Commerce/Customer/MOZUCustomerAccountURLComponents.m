@@ -20,14 +20,14 @@
 +(MOZUURLComponents*)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous {
 	NSString* template = @"/api/commerce/customer/accounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&fields={fields}&q={q}&qLimit={qLimit}&isAnonymous={isAnonymous}";
 	NSDictionary* params = @{
-		@"startIndex" : startIndex,
-		@"pageSize" : pageSize,
-		@"sortBy" : sortBy,
-		@"filter" : filter,
-		@"fields" : fields,
-		@"q" : q,
-		@"qLimit" : qLimit,
-		@"isAnonymous" : isAnonymous,
+		@"startIndex" : startIndex ? startIndex : @"",
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"sortBy" : sortBy ? sortBy : @"",
+		@"filter" : filter ? filter : @"",
+		@"fields" : fields ? fields : @"",
+		@"q" : q ? q : @"",
+		@"qLimit" : qLimit ? qLimit : @"",
+		@"isAnonymous" : isAnonymous ? isAnonymous : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

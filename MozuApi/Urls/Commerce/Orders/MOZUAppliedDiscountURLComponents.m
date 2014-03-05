@@ -36,8 +36,8 @@
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"couponCode" : couponCode,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -55,8 +55,8 @@
 	NSDictionary* params = @{
 		@"orderId" : orderId,
 		@"couponCode" : couponCode,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -66,8 +66,8 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/coupons?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

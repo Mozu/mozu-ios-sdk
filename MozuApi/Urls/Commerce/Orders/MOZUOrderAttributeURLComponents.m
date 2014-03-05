@@ -53,7 +53,7 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/attributes?removeMissing={removeMissing}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"removeMissing" : removeMissing,
+		@"removeMissing" : removeMissing ? removeMissing : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

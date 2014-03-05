@@ -35,8 +35,8 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -46,8 +46,8 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -64,8 +64,8 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -75,8 +75,8 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

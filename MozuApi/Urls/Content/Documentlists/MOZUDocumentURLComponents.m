@@ -41,10 +41,10 @@
 	NSString* template = @"/api/content/documentlists/{documentListName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
-		@"filter" : filter,
-		@"sortBy" : sortBy,
-		@"pageSize" : pageSize,
-		@"startIndex" : startIndex,
+		@"filter" : filter ? filter : @"",
+		@"sortBy" : sortBy ? sortBy : @"",
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"startIndex" : startIndex ? startIndex : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

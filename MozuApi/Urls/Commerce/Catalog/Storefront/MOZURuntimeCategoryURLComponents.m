@@ -20,10 +20,10 @@
 +(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy {
 	NSString* template = @"/api/commerce/catalog/storefront/categories/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}";
 	NSDictionary* params = @{
-		@"filter" : filter,
-		@"startIndex" : startIndex,
-		@"pageSize" : pageSize,
-		@"sortBy" : sortBy,
+		@"filter" : filter ? filter : @"",
+		@"startIndex" : startIndex ? startIndex : @"",
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"sortBy" : sortBy ? sortBy : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -33,7 +33,7 @@
 	NSString* template = @"/api/commerce/catalog/storefront/categories/{categoryId}?allowInactive={allowInactive}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
-		@"allowInactive" : allowInactive,
+		@"allowInactive" : allowInactive ? allowInactive : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

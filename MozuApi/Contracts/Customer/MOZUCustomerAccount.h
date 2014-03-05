@@ -58,6 +58,9 @@ Identifier of the entity.
 */
 @property(nonatomic) NSInteger id;
 
+/**
+If true, this customer account represents an anonymous shopper.
+*/
 @property(nonatomic) BOOL isAnonymous;
 
 /**

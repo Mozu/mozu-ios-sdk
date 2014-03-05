@@ -20,10 +20,10 @@
 +(MOZUURLComponents*)URLComponentsForGetDiscountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
-		@"startIndex" : startIndex,
-		@"pageSize" : pageSize,
-		@"sortBy" : sortBy,
-		@"filter" : filter,
+		@"startIndex" : startIndex ? startIndex : @"",
+		@"pageSize" : pageSize ? pageSize : @"",
+		@"sortBy" : sortBy ? sortBy : @"",
+		@"filter" : filter ? filter : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -119,8 +119,8 @@
 +(MOZUURLComponents*)URLComponentsForUnRedeemDiscountOperationWithDiscountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber {
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/Unredeem/{orderNumber}";
 	NSDictionary* params = @{
-		@"discountId" : discountId,
-		@"orderNumber" : orderNumber,
+		@"discountId" : discountId ? discountId : @"",
+		@"orderNumber" : orderNumber ? orderNumber : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

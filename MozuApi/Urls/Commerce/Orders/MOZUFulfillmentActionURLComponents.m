@@ -21,7 +21,7 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/fulfillmentinfo?draft={draft}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"draft" : draft,
+		@"draft" : draft ? draft : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -54,8 +54,8 @@
 	NSString* template = @"/api/commerce/orders/{orderId}/fulfillmentinfo?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode,
-		@"version" : version,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

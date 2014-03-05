@@ -40,7 +40,7 @@
 Retrieves a list of customer accounts.
 @param fields The fields to include in the response.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param isAnonymous 
+@param isAnonymous If true, retrieve anonymous shopper accounts in the response.
 @param pageSize 
 @param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
