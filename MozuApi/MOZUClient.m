@@ -27,6 +27,7 @@
 @property (nonatomic, strong) MOZUURLComponents *resourceURLComponents;
 @property (nonatomic, strong) NSString * verb;
 @property (nonatomic, strong) NSString *bodyString;
+@property (nonatomic, strong) NSDictionary *dataViewModeMap;
 
 @end
 
@@ -39,6 +40,8 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
     if (self = [super init])
     {
         _mutableHeaders = [NSMutableDictionary new];
+        _dataViewModeMap = @{ [@(MOZULive) stringValue]: @"Live",
+                             [@(MOZUPending) stringValue]: @"Pending"};
     }
     
     return self;
@@ -105,7 +108,9 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
 {
     NSAssert(header, @"Header cannot be nil.");
     NSAssert(value, @"Header value cannot be nil.");
-    
+    if ([header isEqualToString:MOZU_X_VOL_DATAVIEW_MODE]) {
+        value = self.dataViewModeMap[value];
+    }
     self.mutableHeaders[header] = value;
 }
 

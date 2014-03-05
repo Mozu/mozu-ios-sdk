@@ -63,7 +63,7 @@
     MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"GET"];
     client.JSONParser = ^(NSString *JSONResult) {
         JSONModelError *JSONError = nil;
-        JSONModel *model = [[MOZUAuthTicket alloc] initWithString:JSONResult error:&JSONError];
+        JSONModel *model = [[MOZUAdminProductCollection alloc] initWithString:JSONResult error:&JSONError];
         if (!model) {
             DDLogError(@"%@", JSONError.localizedDescription);
         }
