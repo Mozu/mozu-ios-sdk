@@ -32,7 +32,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode {
++(MOZUClient*)clientForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemaOperationWithCountryCode:countryCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -97,7 +97,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetBehaviorsOperationWithUserType:(NSString*)userType {
++(MOZUClient*)clientForGetBehaviorsOperationWithUserType:(NSString *)userType {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorsOperationWithUserType:userType];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -175,7 +175,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter {
++(MOZUClient*)clientForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter {
 	id url = [MOZUReferenceDataURLComponents URLComponentsForGetUnitsOfMeasureOperationWithFilter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

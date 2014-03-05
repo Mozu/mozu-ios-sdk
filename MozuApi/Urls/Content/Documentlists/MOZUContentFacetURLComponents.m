@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetFacetsOperationWithDocumentListName:(NSString*)documentListName propertyName:(NSString*)propertyName {
++(MOZUURLComponents*)URLComponentsForGetFacetsOperationWithDocumentListName:(NSString *)documentListName propertyName:(NSString *)propertyName {
 	NSString* template = @"/api/content/documentlists/{documentListName}/facets/{propertyName}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,

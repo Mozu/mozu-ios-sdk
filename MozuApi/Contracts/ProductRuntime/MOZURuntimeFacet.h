@@ -26,17 +26,17 @@
 /**
 The type of facet. Valid values are "range," which enables creation of a range of values, or "value," which populates the facet values based on the associated attribute or category.
 */
-@property(nonatomic) NSString* facetType;
+@property(nonatomic) NSString * facetType;
 
 /**
 The field name associated with the facet.
 */
-@property(nonatomic) NSString* field;
+@property(nonatomic) NSString * field;
 
 /**
 The descriptive label for the facet.
 */
-@property(nonatomic) NSString* label;
+@property(nonatomic) NSString * label;
 
 /**
 The values associated with the facet.

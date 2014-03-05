@@ -24,7 +24,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetCartItemOperationWithCartItemId:(NSString*)cartItemId {
++(MOZUURLComponents*)URLComponentsForGetCartItemOperationWithCartItemId:(NSString *)cartItemId {
 	NSString* template = @"/api/commerce/carts/current/items/{cartItemId}";
 	NSDictionary* params = @{
 		@"cartItemId" : cartItemId,
@@ -54,7 +54,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateCartItemOperationWithCartItemId:(NSString*)cartItemId {
++(MOZUURLComponents*)URLComponentsForUpdateCartItemOperationWithCartItemId:(NSString *)cartItemId {
 	NSString* template = @"/api/commerce/carts/current/items/{cartItemId}";
 	NSDictionary* params = @{
 		@"cartItemId" : cartItemId,
@@ -63,7 +63,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:(NSString*)cartItemId quantity:(NSInteger)quantity {
++(MOZUURLComponents*)URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity {
 	NSString* template = @"/api/commerce/carts/current/items/{cartItemId}/{quantity}";
 	NSDictionary* params = @{
 		@"cartItemId" : cartItemId,
@@ -87,7 +87,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForDeleteCartItemOperationWithCartItemId:(NSString*)cartItemId {
++(MOZUURLComponents*)URLComponentsForDeleteCartItemOperationWithCartItemId:(NSString *)cartItemId {
 	NSString* template = @"/api/commerce/carts/current/items/{cartItemId}";
 	NSDictionary* params = @{
 		@"cartItemId" : cartItemId,

@@ -26,12 +26,12 @@
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate* createdDate;
+@property(nonatomic) NSDate * createdDate;
 
 /**
 The status returned from the order validation capability for the order specified in the request, which is Pass, Fail, Error, or Review.
 */
-@property(nonatomic) NSString* status;
+@property(nonatomic) NSString * status;
 
 /**
 Collection of messages returned by the order validation capability.

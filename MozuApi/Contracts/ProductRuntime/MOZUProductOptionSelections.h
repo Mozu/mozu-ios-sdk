@@ -26,7 +26,7 @@
 /**
 Product code that represents the product variation selected based on the option values the shopper entered.
 */
-@property(nonatomic) NSString* variationProductCode;
+@property(nonatomic) NSString * variationProductCode;
 
 /**
 List of option attributes associated with the product and the associated values currently defined for this product configuration.

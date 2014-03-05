@@ -25,12 +25,12 @@
 /**
 Unique identifier of the application. System-supplied and read-only.
 */
-@property(nonatomic) NSString* applicationId;
+@property(nonatomic) NSString * applicationId;
 
 /**
 System-supplied alphanumeric code used to authenticate applications. This string is only available for viewing in Mozu Dev Center.
 */
-@property(nonatomic) NSString* sharedSecret;
+@property(nonatomic) NSString * sharedSecret;
 
 @end
 

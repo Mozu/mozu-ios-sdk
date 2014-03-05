@@ -31,7 +31,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForApplyCouponOperationWithOrderId:(NSString*)orderId couponCode:(NSString*)couponCode updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/coupons/{couponCode}?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -50,7 +50,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRemoveCouponOperationWithOrderId:(NSString*)orderId couponCode:(NSString*)couponCode updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForRemoveCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/coupons/{couponcode}?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -62,7 +62,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForRemoveCouponsOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForRemoveCouponsOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/coupons?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,

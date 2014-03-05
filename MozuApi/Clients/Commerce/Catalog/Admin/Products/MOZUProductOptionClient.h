@@ -27,7 +27,7 @@ Retrieves a list of all option attributes configured for the product specified i
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForGetOptionsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOptionsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of an option attribute configuration for the specified product.
@@ -35,7 +35,7 @@ Retrieves the details of an option attribute configuration for the specified pro
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForGetOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -50,7 +50,7 @@ Configures an option attribute for the product specified in the request.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForAddOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -66,7 +66,7 @@ Updates one or more properties of an option attribute configured for a product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption*)body productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption*)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -81,7 +81,7 @@ Deletes the configuration of an option attribute for the product specified in th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForDeleteOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

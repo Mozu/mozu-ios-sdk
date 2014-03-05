@@ -52,7 +52,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
++(MOZUURLComponents*)URLComponentsForDeleteAppAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
 	NSString* template = @"/api/platform/applications/authtickets/{refreshToken}";
 	NSDictionary* params = @{
 		@"refreshToken" : refreshToken,

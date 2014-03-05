@@ -24,7 +24,7 @@ Resource Url Components for getSubscriptions
 @param sortBy 
 @param filter 
 */
-+(MOZUURLComponents*)URLComponentsForGetSubscriptionsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 
 //

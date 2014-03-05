@@ -23,7 +23,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetPropertyTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetPropertyTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPropertyTypeURLComponents URLComponentsForGetPropertyTypesOperationWithPageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -40,7 +40,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetPropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString*)propertyTypeName userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetPropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUPropertyTypeURLComponents URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:propertyTypeName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

@@ -25,12 +25,12 @@
 /**
 The password of the user associated with the customer account.
 */
-@property(nonatomic) NSString* password;
+@property(nonatomic) NSString * password;
 
 /**
 The user name of the user associated with the customer account.
 */
-@property(nonatomic) NSString* username;
+@property(nonatomic) NSString * username;
 
 @end
 

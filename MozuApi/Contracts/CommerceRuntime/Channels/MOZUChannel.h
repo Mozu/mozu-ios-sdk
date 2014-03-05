@@ -26,24 +26,24 @@
 /**
 User-defined code that uniquely identifies the channel.
 */
-@property(nonatomic) NSString* code;
+@property(nonatomic) NSString * code;
 
-@property(nonatomic) NSString* countryCode;
+@property(nonatomic) NSString * countryCode;
 
 /**
 User-defined code that identifies the channel group.
 */
-@property(nonatomic) NSString* groupCode;
+@property(nonatomic) NSString * groupCode;
 
 /**
 User-defined name of the channel.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 The geographical region associated with this channel. This region could represent any geographical entity from a state to a continent.
 */
-@property(nonatomic) NSString* region;
+@property(nonatomic) NSString * region;
 
 /**
 Array list of site identifiers associated with this channel. Each tenant site must have a channel association.

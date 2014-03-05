@@ -35,7 +35,7 @@ Retrieves the details of an option attribute defined for the specified product t
 @param productTypeId The identifier of the product type.
 */
 
-+(MOZUClient*)clientForGetOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -66,7 +66,7 @@ Updates an option attribute definition for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
-+(MOZUClient*)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType*)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType*)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -81,7 +81,7 @@ Removes an option attribute definition for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
-+(MOZUClient*)clientForDeleteOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

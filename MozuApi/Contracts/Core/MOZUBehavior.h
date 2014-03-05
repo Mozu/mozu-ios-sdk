@@ -40,7 +40,7 @@ If true, this application behavior is not part of the public Mozu API.
 /**
 The name of the behavior.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 For validation purposes, the integer value must be a list of behavior IDs.

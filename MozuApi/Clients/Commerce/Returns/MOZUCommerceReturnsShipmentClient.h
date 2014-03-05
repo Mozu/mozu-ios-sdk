@@ -29,7 +29,7 @@ Retrieves the details of the specified return replacement shipment.
 @param shipmentId Unique identifier of the return replacement shipment to retrieve.
 */
 
-+(MOZUClient*)clientForGetShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -44,7 +44,7 @@ Creates a shipment from one or more packages associated with a return replacemen
 @param returnId Unique identifier of the return for which to create replacement package shipments.
 */
 
-+(MOZUClient*)clientForCreatePackageShipmentsOperationWithBody:(NSString*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreatePackageShipmentsOperationWithBody:(NSString *)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -66,7 +66,7 @@ Deletes a shipment for a return replacement.
 @param shipmentId Unique identifier of the return replacement shipment to delete.
 */
 
-+(MOZUClient*)clientForDeleteShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

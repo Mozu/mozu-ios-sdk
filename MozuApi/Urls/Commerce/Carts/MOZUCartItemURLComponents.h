@@ -26,7 +26,7 @@ Resource Url Components for getCartItems
 Resource Url Components for getCartItem
 @param cartItemId Identifier of the cart item to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetCartItemOperationWithCartItemId:(NSString*)cartItemId;
++(MOZUURLComponents*)URLComponentsForGetCartItemOperationWithCartItemId:(NSString *)cartItemId;
 
 
 //
@@ -51,14 +51,14 @@ Resource Url Components for addItemToCart
 Resource Url Components for updateCartItem
 @param cartItemId Identifier of the cart item to update.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateCartItemOperationWithCartItemId:(NSString*)cartItemId;
++(MOZUURLComponents*)URLComponentsForUpdateCartItemOperationWithCartItemId:(NSString *)cartItemId;
 
 /**
 Resource Url Components for updateCartItemQuantity
 @param cartItemId Identifier of the cart item to update quantity.
 @param quantity The number of cart items in the shopper's active cart.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:(NSString*)cartItemId quantity:(NSInteger)quantity;
++(MOZUURLComponents*)URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity;
 
 
 //
@@ -76,7 +76,7 @@ Resource Url Components for removeAllCartItems
 Resource Url Components for deleteCartItem
 @param cartItemId Identifier of the cart item to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteCartItemOperationWithCartItemId:(NSString*)cartItemId;
++(MOZUURLComponents*)URLComponentsForDeleteCartItemOperationWithCartItemId:(NSString *)cartItemId;
 
 
 

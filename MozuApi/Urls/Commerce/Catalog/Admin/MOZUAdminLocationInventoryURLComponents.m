@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetLocationInventoryOperationWithLocationCode:(NSString*)locationCode productCode:(NSString*)productCode {
++(MOZUURLComponents*)URLComponentsForGetLocationInventoryOperationWithLocationCode:(NSString *)locationCode productCode:(NSString *)productCode {
 	NSString* template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}/{productCode}";
 	NSDictionary* params = @{
 		@"locationCode" : locationCode,
@@ -27,7 +27,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLocationInventoriesOperationWithLocationCode:(NSString*)locationCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetLocationInventoriesOperationWithLocationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"locationCode" : locationCode,
@@ -47,7 +47,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddLocationInventoryOperationWithLocationCode:(NSString*)locationCode {
++(MOZUURLComponents*)URLComponentsForAddLocationInventoryOperationWithLocationCode:(NSString *)locationCode {
 	NSString* template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}";
 	NSDictionary* params = @{
 		@"locationCode" : locationCode,
@@ -63,7 +63,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateLocationInventoryOperationWithLocationCode:(NSString*)locationCode {
++(MOZUURLComponents*)URLComponentsForUpdateLocationInventoryOperationWithLocationCode:(NSString *)locationCode {
 	NSString* template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}";
 	NSDictionary* params = @{
 		@"locationCode" : locationCode,
@@ -79,7 +79,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteLocationInventoryOperationWithLocationCode:(NSString*)locationCode productCode:(NSString*)productCode {
++(MOZUURLComponents*)URLComponentsForDeleteLocationInventoryOperationWithLocationCode:(NSString *)locationCode productCode:(NSString *)productCode {
 	NSString* template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}/{productCode}";
 	NSDictionary* params = @{
 		@"locationCode" : locationCode,

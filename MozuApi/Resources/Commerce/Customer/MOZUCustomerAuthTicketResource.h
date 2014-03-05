@@ -57,7 +57,7 @@ Refreshes an existing authentication ticket for a customer account by providing 
 @param refreshToken The refresh token string required to refresh a user's authentication ticket.
 */
 
--(void)refreshUserAuthTicketWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //

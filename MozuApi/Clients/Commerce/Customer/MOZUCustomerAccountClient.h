@@ -40,7 +40,7 @@ Retrieves a list of customer accounts.
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetAccountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieve details of a customer account.
@@ -120,14 +120,14 @@ Retrieves the current login state of a customer account by providing the custome
 @param emailAddress The email address associated with the customer account.
 */
 
-+(MOZUClient*)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString*)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 @param userName The user name associated with the customer account.
 */
 
-+(MOZUClient*)clientForGetLoginStateByUserNameOperationWithUserName:(NSString*)userName userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Resets the password for a customer account.

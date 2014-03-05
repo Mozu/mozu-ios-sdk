@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetPackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForGetPackageOperationWithReturnId:returnId packageId:packageId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -35,7 +35,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetPackageLabelOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForGetPackageLabelOperationWithReturnId:returnId packageId:packageId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreatePackageOperationWithBody:(MOZUCommercePackage*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreatePackageOperationWithBody:(MOZUCommercePackage*)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForCreatePackageOperationWithReturnId:returnId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -73,7 +73,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage*)body returnId:(NSString*)returnId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage*)body returnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForUpdatePackageOperationWithReturnId:returnId packageId:packageId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -95,7 +95,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeletePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeletePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForDeletePackageOperationWithReturnId:returnId packageId:packageId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

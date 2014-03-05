@@ -43,7 +43,7 @@ Retrieves the cart specified in the request.
 @param cartId Identifier of the cart to retrieve.
 */
 
--(void)cartWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)cartWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCartClient clientForGetCartOperationWithCartId:cartId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -89,7 +89,7 @@ Retrieves the cart of the user specified in the request.
 @param userId Unique identifier of the user whose cart you want to retrieve.
 */
 
--(void)userCartWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)userCartWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCartClient clientForGetUserCartOperationWithUserId:userId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -105,7 +105,7 @@ Retrieves summary information associated with the cart of user specified in the 
 @param userId Unique identifier of the user whose cart details you want to retrieve.
 */
 
--(void)userCartSummaryWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)userCartSummaryWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartSummary* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCartClient clientForGetUserCartSummaryOperationWithUserId:userId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -158,7 +158,7 @@ Deletes the cart specified in the request.
 @param cartId Identifier of the cart to delete.
 */
 
--(void)deleteCartWithCartId:(NSString*)cartId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteCartWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCartClient clientForDeleteCartOperationWithCartId:cartId userClaims:userClaims];
 	client.context = self.apiContext;

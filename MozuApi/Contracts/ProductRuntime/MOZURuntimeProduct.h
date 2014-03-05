@@ -36,17 +36,17 @@
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate* createDate;
+@property(nonatomic) NSDate * createDate;
 
 /**
 If true, the product is marked as available for sale. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
 */
-@property(nonatomic) NSNumber* isActive;
+@property(nonatomic) NSNumber * isActive;
 
 /**
 If true, this product cannot ship in a package with other products and must ship in a package by itself.
 */
-@property(nonatomic) NSNumber* isPackagedStandAlone;
+@property(nonatomic) NSNumber * isPackagedStandAlone;
 
 /**
 If true, the product can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription.
@@ -61,37 +61,37 @@ If true, the entity is subject to tax based on the relevant tax rate.
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString* productCode;
+@property(nonatomic) NSString * productCode;
 
 /**
 Integer that represents the sequential order of the product.
 */
-@property(nonatomic) NSNumber* productSequence;
+@property(nonatomic) NSNumber * productSequence;
 
 /**
 A product type is like a product template that can be reused.
 */
-@property(nonatomic) NSString* productType;
+@property(nonatomic) NSString * productType;
 
 /**
 The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
 */
-@property(nonatomic) NSString* productUsage;
+@property(nonatomic) NSString * productUsage;
 
 /**
 The publishing state of the product definition in the master catalog, which is "New", "Draft", or "Live".
 */
-@property(nonatomic) NSString* publishState;
+@property(nonatomic) NSString * publishState;
 
 /**
 The universal product code (UPC code) of the product.
 */
-@property(nonatomic) NSString* upc;
+@property(nonatomic) NSString * upc;
 
 /**
 Product code that represents the product variation selected based on the option values the shopper entered.
 */
-@property(nonatomic) NSString* variationProductCode;
+@property(nonatomic) NSString * variationProductCode;
 
 /**
 List of shipping discounts that can be applied to the product.

@@ -32,12 +32,12 @@
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString* productCode;
+@property(nonatomic) NSString * productCode;
 
 /**
 Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
-@property(nonatomic) NSString* variationProductCode;
+@property(nonatomic) NSString * variationProductCode;
 
 /**
 List of shipping discounts that can be applied to the configured product.

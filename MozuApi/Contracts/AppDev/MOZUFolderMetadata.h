@@ -27,12 +27,12 @@
 /**
 The directory of the file location of the folder in the package.
 */
-@property(nonatomic) NSString* fullPath;
+@property(nonatomic) NSString * fullPath;
 
 /**
 The name of the folder.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 Array list of files in the folder.

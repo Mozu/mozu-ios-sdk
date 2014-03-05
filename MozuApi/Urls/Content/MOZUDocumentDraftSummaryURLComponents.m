@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists {
++(MOZUURLComponents*)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists {
 	NSString* template = @"/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}";
 	NSDictionary* params = @{
 		@"pageSize" : pageSize ? pageSize : @"",
@@ -35,7 +35,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString*)documentLists {
++(MOZUURLComponents*)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString *)documentLists {
 	NSString* template = @"/api/content/documentpublishing/draft?documentLists={documentLists}";
 	NSDictionary* params = @{
 		@"documentLists" : documentLists ? documentLists : @"",
@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString*)documentLists {
++(MOZUURLComponents*)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString *)documentLists {
 	NSString* template = @"/api/content/documentpublishing/active?documentLists={documentLists}";
 	NSDictionary* params = @{
 		@"documentLists" : documentLists ? documentLists : @"",

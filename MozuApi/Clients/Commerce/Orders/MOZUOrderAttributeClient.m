@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetOrderAttributesOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetOrderAttributesOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUOrderAttributeURLComponents URLComponentsForGetOrderAttributesOperationWithOrderId:orderId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -43,7 +43,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUOrderAttributeURLComponents URLComponentsForCreateOrderAttributesOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -66,7 +66,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString *)orderId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUOrderAttributeURLComponents URLComponentsForUpdateOrderAttributesOperationWithOrderId:orderId removeMissing:removeMissing];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

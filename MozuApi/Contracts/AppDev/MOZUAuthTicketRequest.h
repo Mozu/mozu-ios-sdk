@@ -25,7 +25,7 @@
 /**
 The refresh token string from the application authentication ticket.
 */
-@property(nonatomic) NSString* refreshToken;
+@property(nonatomic) NSString * refreshToken;
 
 @end
 

@@ -25,7 +25,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetProductsOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductsOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -39,7 +39,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetProductInventoryOperationWithProductCode:(NSString*)productCode locationCodes:(NSString*)locationCodes userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductInventoryOperationWithProductCode:productCode locationCodes:locationCodes];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -53,7 +53,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetProductOperationWithProductCode:(NSString*)productCode variationProductCode:(NSString*)variationProductCode allowInactive:(NSNumber*)allowInactive skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductOperationWithProductCode:productCode variationProductCode:variationProductCode allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -74,7 +74,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForConfiguredProductOperationWithBody:(MOZUProductOptionSelections*)body productCode:(NSString*)productCode includeOptionDetails:(NSNumber*)includeOptionDetails skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForConfiguredProductOperationWithBody:(MOZUProductOptionSelections*)body productCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeProductURLComponents URLComponentsForConfiguredProductOperationWithProductCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -89,7 +89,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForValidateProductOperationWithBody:(MOZUProductOptionSelections*)body productCode:(NSString*)productCode skipInventoryCheck:(NSNumber*)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForValidateProductOperationWithBody:(MOZUProductOptionSelections*)body productCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZURuntimeProductURLComponents URLComponentsForValidateProductOperationWithProductCode:productCode skipInventoryCheck:skipInventoryCheck];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

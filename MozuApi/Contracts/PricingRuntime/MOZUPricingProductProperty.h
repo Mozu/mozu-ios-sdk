@@ -27,17 +27,17 @@
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString* attributeFQN;
+@property(nonatomic) NSString * attributeFQN;
 
 /**
 If true, this product property does not appear on the storefront.
 */
-@property(nonatomic) NSNumber* isHidden;
+@property(nonatomic) NSNumber * isHidden;
 
 /**
 If true, the product property has multiple values.
 */
-@property(nonatomic) NSNumber* isMultiValue;
+@property(nonatomic) NSNumber * isMultiValue;
 
 /**
 Details of a product attribute.

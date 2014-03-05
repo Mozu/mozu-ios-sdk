@@ -33,7 +33,7 @@ Retrieves a list of discounts according to any specified filter criteria and sor
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of a single discount.
@@ -119,7 +119,7 @@ Deletes a previous discount redemption from an order.
 @param orderNumber The number of the order associated with the redeemed product discount.
 */
 
-+(MOZUClient*)clientForUnRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUnRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

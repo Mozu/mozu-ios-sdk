@@ -26,7 +26,7 @@
 /**
 Value of the product option attribute.
 */
-@property(nonatomic) id value;
+@property(nonatomic) NSObject * value;
 
 /**
 Detailed properties of the product option attribute's vocabulary value.

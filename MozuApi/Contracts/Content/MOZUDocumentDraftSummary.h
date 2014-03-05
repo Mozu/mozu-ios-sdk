@@ -22,34 +22,34 @@
 */
 @interface MOZUDocumentDraftSummary : JSONModel<MOZUDocumentDraftSummary>
 
-@property(nonatomic) NSDate* activeUpdateDate;
+@property(nonatomic) NSDate * activeUpdateDate;
 
 /**
 Name of the document list associated with the draft.
 */
-@property(nonatomic) NSString* documentListName;
+@property(nonatomic) NSString * documentListName;
 
-@property(nonatomic) NSDate* draftUpdateDate;
+@property(nonatomic) NSDate * draftUpdateDate;
 
 /**
 Identifier of document draft.
 */
-@property(nonatomic) NSString* id;
+@property(nonatomic) NSString * id;
 
 /**
 Name of the document draft.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 Whether the draft has been published.
 */
-@property(nonatomic) NSString* publishType;
+@property(nonatomic) NSString * publishType;
 
 /**
 Unique identifier of the user who last modified the item. This value is system-supplied and read-only.
 */
-@property(nonatomic) NSString* updatedBy;
+@property(nonatomic) NSString * updatedBy;
 
 @end
 

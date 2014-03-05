@@ -30,7 +30,7 @@ Unique identifier of the behavior.
 /**
 The name of the behavior.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 @end
 

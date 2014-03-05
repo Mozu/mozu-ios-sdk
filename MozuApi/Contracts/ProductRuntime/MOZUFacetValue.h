@@ -31,37 +31,37 @@ The number of facet value selections in a product search result set.
 /**
 Submits the selected facet value as a facet value filter.
 */
-@property(nonatomic) NSString* filterValue;
+@property(nonatomic) NSString * filterValue;
 
 /**
 If true, the facet value is applied as a filter in the storefront product search.
 */
-@property(nonatomic) NSNumber* isApplied;
+@property(nonatomic) NSNumber * isApplied;
 
 /**
 The descriptive label of the facet value.
 */
-@property(nonatomic) NSString* label;
+@property(nonatomic) NSString * label;
 
 /**
 If applicable, the values of any parent category facets in a hierarchy. Hierarchical facets only apply for product categories.
 */
-@property(nonatomic) NSString* parentFacetValue;
+@property(nonatomic) NSString * parentFacetValue;
 
 /**
 The maximum value selected or entered for the facet range query.
 */
-@property(nonatomic) NSString* rangeQueryValueEnd;
+@property(nonatomic) NSString * rangeQueryValueEnd;
 
 /**
 The minimum value selected or entered for the facet range query.
 */
-@property(nonatomic) NSString* rangeQueryValueStart;
+@property(nonatomic) NSString * rangeQueryValueStart;
 
 /**
 String representation of the facet value selected for the product search.
 */
-@property(nonatomic) NSString* value;
+@property(nonatomic) NSString * value;
 
 /**
 If applicable, the values of any subcategory facets in a hierarchy. Hierarchical facets only apply for product categories.

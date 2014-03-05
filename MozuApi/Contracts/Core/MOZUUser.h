@@ -27,17 +27,17 @@
 /**
 The email address of the specified user or the email address associated with the specified entity.
 */
-@property(nonatomic) NSString* emailAddress;
+@property(nonatomic) NSString * emailAddress;
 
 /**
 The first name of the contact. The maximum character length is 200.
 */
-@property(nonatomic) NSString* firstName;
+@property(nonatomic) NSString * firstName;
 
 /**
 Identifier of the user.
 */
-@property(nonatomic) NSString* id;
+@property(nonatomic) NSString * id;
 
 /**
 If true, the user is an active user.
@@ -47,17 +47,17 @@ If true, the user is an active user.
 /**
 The last name or surname of the contact. The maximum character length is 200.
 */
-@property(nonatomic) NSString* lastName;
+@property(nonatomic) NSString * lastName;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString* localeCode;
+@property(nonatomic) NSString * localeCode;
 
 /**
 The user password.
 */
-@property(nonatomic) NSString* password;
+@property(nonatomic) NSString * password;
 
 /**
 Collection of roles assigned to the user.

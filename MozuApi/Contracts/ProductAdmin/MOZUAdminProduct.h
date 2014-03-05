@@ -39,7 +39,7 @@
 /**
 Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
 */
-@property(nonatomic) NSString* baseProductCode;
+@property(nonatomic) NSString * baseProductCode;
 
 /**
 If true, the product has configurable options. This option means that a product is not purchasable until the shopper selects options that resolve into a product variation. Configurable options for a product are the choices a shopper makes when ordering a product. Size and color are configurable options. System-supplied and read-only.
@@ -54,22 +54,22 @@ If true, this product has standalone options that a shopper can select without c
 /**
 If true, the product must be packaged on its own and should not be jointly packaged with other products.
 */
-@property(nonatomic) NSNumber* isPackagedStandAlone;
+@property(nonatomic) NSNumber * isPackagedStandAlone;
 
 /**
 If true, the product can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription. This property is reserved for future functionality and is system-supplied and read only.
 */
-@property(nonatomic) NSNumber* isRecurring;
+@property(nonatomic) NSNumber * isRecurring;
 
 /**
 If true, the entity is subject to sales tax based on the relevant tax rate.
 */
-@property(nonatomic) NSNumber* isTaxable;
+@property(nonatomic) NSNumber * isTaxable;
 
 /**
 If true, this product is valid for the assigned product type.
 */
-@property(nonatomic) NSNumber* isValidForProductType;
+@property(nonatomic) NSNumber * isValidForProductType;
 
 /**
 If true, this configured product represents a product variation defined with configurable options. System-supplied and read only.
@@ -79,47 +79,47 @@ If true, this configured product represents a product variation defined with con
 /**
 The unique identifier of the master catalog associated with the entity.
 */
-@property(nonatomic) NSNumber* masterCatalogId;
+@property(nonatomic) NSNumber * masterCatalogId;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString* productCode;
+@property(nonatomic) NSString * productCode;
 
 /**
 Integer that represents the sequential order of the product.
 */
-@property(nonatomic) NSNumber* productSequence;
+@property(nonatomic) NSNumber * productSequence;
 
 /**
 Unique identifier of the product type assigned for this product. Tenant administrators can only define one product type per product.
 */
-@property(nonatomic) NSNumber* productTypeId;
+@property(nonatomic) NSNumber * productTypeId;
 
 /**
 The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
 */
-@property(nonatomic) NSString* productUsage;
+@property(nonatomic) NSString * productUsage;
 
 /**
 Identifier of the shipping class.
 */
-@property(nonatomic) NSNumber* shippingClassId;
+@property(nonatomic) NSNumber * shippingClassId;
 
 /**
 If the product must be packaged separately, the type of standalone package to use.
 */
-@property(nonatomic) NSString* standAlonePackageType;
+@property(nonatomic) NSString * standAlonePackageType;
 
 /**
 The universal product code (UPC code) of the product.
 */
-@property(nonatomic) NSString* upc;
+@property(nonatomic) NSString * upc;
 
 /**
 System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
-@property(nonatomic) NSString* variationKey;
+@property(nonatomic) NSString * variationKey;
 
 /**
 List of discounts available for a product.

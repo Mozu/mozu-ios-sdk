@@ -30,7 +30,7 @@ The quantity of the item returned for the specified reason.
 /**
 The reason for which an item is returned to the merchant.
 */
-@property(nonatomic) NSString* reason;
+@property(nonatomic) NSString * reason;
 
 @end
 

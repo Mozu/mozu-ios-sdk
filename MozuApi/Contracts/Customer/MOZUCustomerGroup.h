@@ -31,7 +31,7 @@ Identifier of the entity.
 /**
 Name of the customer group.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

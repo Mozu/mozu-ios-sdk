@@ -25,22 +25,22 @@
 /**
 The contents of the message displayed to the user when the product validation failure occurs.
 */
-@property(nonatomic) NSString* message;
+@property(nonatomic) NSString * message;
 
 /**
 The severity level of the product validation failure.
 */
-@property(nonatomic) NSString* severity;
+@property(nonatomic) NSString * severity;
 
 /**
 The entity that triggered the product validation.
 */
-@property(nonatomic) NSString* source;
+@property(nonatomic) NSString * source;
 
 /**
 Unique identifier of the entity that triggered the validation.
 */
-@property(nonatomic) NSString* sourceId;
+@property(nonatomic) NSString * sourceId;
 
 @end
 

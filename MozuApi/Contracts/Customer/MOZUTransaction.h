@@ -25,37 +25,37 @@
 /**
 If applicable, the amount of the transaction.
 */
-@property(nonatomic) NSDecimalNumber* amount;
+@property(nonatomic) NSNumber * amount;
 
 /**
 Unique identifier of the customer account.
 */
-@property(nonatomic) NSNumber* customerAccountId;
+@property(nonatomic) NSNumber * customerAccountId;
 
 /**
 The date and time the customer transaction occurred.
 */
-@property(nonatomic) NSDate* date;
+@property(nonatomic) NSDate * date;
 
 /**
 The type of interaction the customer used to perform the transaction, which is "Website," "Call," "Store," or "Unknown."
 */
-@property(nonatomic) NSString* interactionType;
+@property(nonatomic) NSString * interactionType;
 
 /**
 The unique identifier of the transaction.
 */
-@property(nonatomic) NSString* transactionId;
+@property(nonatomic) NSString * transactionId;
 
 /**
 The type of transaction the customer performed, which is "Order," "Return," "OrderPickup," or "Wishlist."
 */
-@property(nonatomic) NSString* transactionType;
+@property(nonatomic) NSString * transactionType;
 
 /**
 Unique identifier of the customer visit associated with the transaction. Customers can perform multiple transactions in the same visit.
 */
-@property(nonatomic) NSString* visitId;
+@property(nonatomic) NSString * visitId;
 
 @end
 

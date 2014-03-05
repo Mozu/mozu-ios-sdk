@@ -21,7 +21,7 @@
 
 @property(nonatomic) NSInteger code;
 
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 @end
 

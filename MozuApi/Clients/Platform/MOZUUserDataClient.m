@@ -20,7 +20,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUUserDataURLComponents URLComponentsForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -36,7 +36,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateDBValueOperationWithBody:(NSString*)body dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForCreateDBValueOperationWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUUserDataURLComponents URLComponentsForCreateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -53,7 +53,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateDBValueOperationWithBody:(NSString*)body dbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateDBValueOperationWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUUserDataURLComponents URLComponentsForUpdateDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -70,7 +70,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUUserDataURLComponents URLComponentsForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

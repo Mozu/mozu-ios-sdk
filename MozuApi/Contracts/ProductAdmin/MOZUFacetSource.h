@@ -30,22 +30,22 @@ If true, the facet allows for values that consist of one or more ranges, such as
 /**
 The data type associated with the attribute or category that generates the facet, such as bool or string.
 */
-@property(nonatomic) NSString* dataType;
+@property(nonatomic) NSString * dataType;
 
 /**
 Identifier of the facet source, which is attribute, category, or price. For attribute facets, the AttributeFQN.
 */
-@property(nonatomic) NSString* id;
+@property(nonatomic) NSString * id;
 
 /**
 System-supplied and read-only name of the associated facet source.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 The source type for the facet, either "Attribute" or "Element". Category and price facets are elements.
 */
-@property(nonatomic) NSString* type;
+@property(nonatomic) NSString * type;
 
 @end
 

@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetAuditEntriesOperationWithCode:(NSString*)code startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetAuditEntriesOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCreditAuditEntryURLComponents URLComponentsForGetAuditEntriesOperationWithCode:code startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

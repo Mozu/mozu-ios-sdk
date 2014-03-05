@@ -26,7 +26,7 @@ Resource Url Components for getAllApplications
 Resource Url Components for getApplication
 @param applicationId Unique identifier of the application.
 */
-+(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithApplicationId:(NSNumber*)applicationId;
++(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithApplicationId:(NSNumber *)applicationId;
 
 /**
 Resource Url Components for getApplicationVersion
@@ -60,7 +60,7 @@ Resource Url Components for getPackageItemMetadata
 @param packageId Unique identifier of the package.
 @param itempath Complete file directory location and name of the item in the package to retrieve metadata.
 */
-+(MOZUURLComponents*)URLComponentsForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath;
++(MOZUURLComponents*)URLComponentsForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath;
 
 /**
 Resource Url Components for getPackageFilesZip
@@ -95,7 +95,7 @@ Resource Url Components for addPackageFile
 @param packageId Unique identifier of the package.
 @param filepath The file location to which to add the package file.
 */
-+(MOZUURLComponents*)URLComponentsForAddPackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath;
++(MOZUURLComponents*)URLComponentsForAddPackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath;
 
 
 //
@@ -110,7 +110,7 @@ Resource Url Components for updatePackageFile
 @param packageId The unique identifier of the package.
 @param filepath The location path and name that identifies the package file to update.
 */
-+(MOZUURLComponents*)URLComponentsForUpdatePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath;
++(MOZUURLComponents*)URLComponentsForUpdatePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath;
 
 
 //
@@ -125,7 +125,7 @@ Resource Url Components for deletePackageFile
 @param packageId Unique identifier of the package.
 @param filepath The file path and name of the file location to delete from the package.
 */
-+(MOZUURLComponents*)URLComponentsForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath;
++(MOZUURLComponents*)URLComponentsForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath;
 
 
 

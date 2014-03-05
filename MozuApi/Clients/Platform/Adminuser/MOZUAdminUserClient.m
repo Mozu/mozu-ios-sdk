@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetUserOperationWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetUserOperationWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminUserURLComponents URLComponentsForGetUserOperationWithUserId:userId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -36,7 +36,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetTenantScopesForUserOperationWithUserId:(NSString*)userId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetTenantScopesForUserOperationWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminUserURLComponents URLComponentsForGetTenantScopesForUserOperationWithUserId:userId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

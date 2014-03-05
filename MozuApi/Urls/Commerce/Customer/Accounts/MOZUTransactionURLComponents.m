@@ -56,7 +56,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId {
++(MOZUURLComponents*)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/transactions/{transactionId}";
 	NSDictionary* params = @{
 		@"accountId" : @(accountId),

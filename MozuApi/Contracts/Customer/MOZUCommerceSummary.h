@@ -26,7 +26,7 @@
 /**
 The date and time the shopper last submitted an order for any site associated with the tenant.
 */
-@property(nonatomic) NSDate* lastOrderDate;
+@property(nonatomic) NSDate * lastOrderDate;
 
 /**
 The total number of order the shopper submitted across all sites associated with the tenant.

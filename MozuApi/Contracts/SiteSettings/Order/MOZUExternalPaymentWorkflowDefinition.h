@@ -31,7 +31,7 @@ If true, the associated external payment workflow definition is enabled for the 
 /**
 The name of the external payment workflow definition.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 The credential fields required to communicate with the external payment processor.

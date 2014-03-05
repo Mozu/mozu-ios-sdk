@@ -24,7 +24,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetAccountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetAccountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter fields:fields q:q qLimit:qLimit isAnonymous:isAnonymous];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -162,7 +162,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString*)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:emailAddress];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -176,7 +176,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLoginStateByUserNameOperationWithUserName:(NSString*)userName userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateByUserNameOperationWithUserName:userName];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

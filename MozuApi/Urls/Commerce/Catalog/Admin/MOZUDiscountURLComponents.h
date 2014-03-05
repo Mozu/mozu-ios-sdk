@@ -24,7 +24,7 @@ Resource Url Components for getDiscounts
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetDiscountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetDiscountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getDiscount
@@ -97,7 +97,7 @@ Resource Url Components for unRedeemDiscount
 @param discountId Unique identifier of the previously redeemed discount. System-supplied and read only.
 @param orderNumber The number of the order associated with the redeemed product discount.
 */
-+(MOZUURLComponents*)URLComponentsForUnRedeemDiscountOperationWithDiscountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber;
++(MOZUURLComponents*)URLComponentsForUnRedeemDiscountOperationWithDiscountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber;
 
 
 

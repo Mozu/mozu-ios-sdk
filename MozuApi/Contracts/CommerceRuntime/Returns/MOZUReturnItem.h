@@ -29,17 +29,17 @@
 /**
 Unique identifier of the item in the original completed order. All return items should be associated with a corresponding order item.
 */
-@property(nonatomic) NSString* orderItemId;
+@property(nonatomic) NSString * orderItemId;
 
 /**
 The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
 */
-@property(nonatomic) NSDecimalNumber* productLossAmount;
+@property(nonatomic) NSNumber * productLossAmount;
 
 /**
 The total tax amount levied on the product loss amount.
 */
-@property(nonatomic) NSDecimalNumber* productLossTaxAmount;
+@property(nonatomic) NSNumber * productLossTaxAmount;
 
 /**
 The actual quantity received for the return item.
@@ -59,12 +59,12 @@ The quantity of the item shipped to the shopper in the event of a return item re
 /**
 The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
 */
-@property(nonatomic) NSDecimalNumber* shippingLossAmount;
+@property(nonatomic) NSNumber * shippingLossAmount;
 
 /**
 The total tax amount levied on the shipping loss amount.
 */
-@property(nonatomic) NSDecimalNumber* shippingLossTaxAmount;
+@property(nonatomic) NSNumber * shippingLossTaxAmount;
 
 /**
 Properties of a collection of component products that make up a single returned product bundle with its own product code.

@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetProductReservationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetProductReservationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/catalog/admin/productreservations/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
@@ -45,7 +45,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddProductReservationsOperationWithSkipInventoryCheck:(NSNumber*)skipInventoryCheck {
++(MOZUURLComponents*)URLComponentsForAddProductReservationsOperationWithSkipInventoryCheck:(NSNumber *)skipInventoryCheck {
 	NSString* template = @"/api/commerce/catalog/admin/productreservations/?skipInventoryCheck={skipInventoryCheck}";
 	NSDictionary* params = @{
 		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateProductReservationsOperationWithSkipInventoryCheck:(NSNumber*)skipInventoryCheck {
++(MOZUURLComponents*)URLComponentsForUpdateProductReservationsOperationWithSkipInventoryCheck:(NSNumber *)skipInventoryCheck {
 	NSString* template = @"/api/commerce/catalog/admin/productreservations/?skipInventoryCheck={skipInventoryCheck}";
 	NSDictionary* params = @{
 		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",

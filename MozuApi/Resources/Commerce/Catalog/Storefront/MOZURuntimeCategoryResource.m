@@ -46,7 +46,7 @@ Retrieves a list of categories according to any specified filter criteria and so
 @param startIndex 
 */
 
--(void)categoriesWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryPagedCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)categoriesWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryPagedCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZURuntimeCategoryClient clientForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy userClaims:userClaims];
 	client.context = self.apiContext;
@@ -63,7 +63,7 @@ Retrieves the details of a single category.
 @param categoryId Unique identifier for the storefront container used to organize products.
 */
 
--(void)categoryWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber*)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)categoryWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZURuntimeCategoryClient clientForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive userClaims:userClaims];
 	client.context = self.apiContext;

@@ -29,7 +29,7 @@ Retrieves the contents of an attribute associated with the specified customer ac
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+(MOZUClient*)clientForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the list of customer account attributes.
@@ -40,7 +40,7 @@ Retrieves the list of customer account attributes.
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -71,7 +71,7 @@ Updates one or more details of a customer account attribute.
 @param removeMissing If true, remove the items missing from the collection.
 */
 
-+(MOZUClient*)clientForUpdateAccountAttributeOperationWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateAccountAttributeOperationWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

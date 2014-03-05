@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetOrderAttributesOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForGetOrderAttributesOperationWithOrderId:(NSString *)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/attributes";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -33,7 +33,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateOrderAttributesOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForCreateOrderAttributesOperationWithOrderId:(NSString *)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/attributes";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -49,7 +49,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateOrderAttributesOperationWithOrderId:(NSString*)orderId removeMissing:(NSNumber*)removeMissing {
++(MOZUURLComponents*)URLComponentsForUpdateOrderAttributesOperationWithOrderId:(NSString *)orderId removeMissing:(NSNumber *)removeMissing {
 	NSString* template = @"/api/commerce/orders/{orderId}/attributes?removeMissing={removeMissing}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,

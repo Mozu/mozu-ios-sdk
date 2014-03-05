@@ -70,7 +70,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
++(MOZUClient*)clientForDeleteAppAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
 	id url = [MOZUAuthTicketURLComponents URLComponentsForDeleteAppAuthTicketOperationWithRefreshToken:refreshToken];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

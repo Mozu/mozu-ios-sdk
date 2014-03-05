@@ -35,9 +35,9 @@
 
 @property(nonatomic) BOOL isReleasePackage;
 
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
-@property(nonatomic) NSString* userId;
+@property(nonatomic) NSString * userId;
 
 @property(nonatomic) MOZUAuditInfo* auditInfo;
 

@@ -24,13 +24,13 @@ Resource Url Components for getAttributes
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getAttribute
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for addAttribute
 Resource Url Components for updateAttribute
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdateAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -68,7 +68,7 @@ Resource Url Components for updateAttribute
 Resource Url Components for deleteAttribute
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteAttributeOperationWithAttributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForDeleteAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 
 

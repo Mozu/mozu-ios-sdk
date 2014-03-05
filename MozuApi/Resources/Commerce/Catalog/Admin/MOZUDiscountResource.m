@@ -46,7 +46,7 @@ Retrieves a list of discounts according to any specified filter criteria and sor
 @param startIndex 
 */
 
--(void)discountsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)discountsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDiscountClient clientForGetDiscountsOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
@@ -93,7 +93,7 @@ Retrieves the localized content specified for the specified discount.
 Generates a random code for a coupon.
 */
 
--(void)generateRandomCouponWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)generateRandomCouponWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDiscountClient clientForGenerateRandomCouponOperationWithDataViewMode:dataViewMode userClaims:userClaims];
 	client.context = self.apiContext;
@@ -213,7 +213,7 @@ Deletes a previous discount redemption from an order.
 @param orderNumber The number of the order associated with the redeemed product discount.
 */
 
--(void)unRedeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)unRedeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDiscountClient clientForUnRedeemDiscountOperationWithDataViewMode:dataViewMode discountId:discountId orderNumber:orderNumber userClaims:userClaims];
 	client.context = self.apiContext;

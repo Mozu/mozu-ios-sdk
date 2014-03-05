@@ -32,12 +32,12 @@ Unique identifier of the user role.
 /**
 The name of the user role, such as "developer" or "administrator".
 */
-@property(nonatomic) NSString* roleName;
+@property(nonatomic) NSString * roleName;
 
 /**
 Unique identifier of the user the role is assigned to.
 */
-@property(nonatomic) NSString* userId;
+@property(nonatomic) NSString * userId;
 
 /**
 Properties of the developer account or Mozu tenant associated with the user role.

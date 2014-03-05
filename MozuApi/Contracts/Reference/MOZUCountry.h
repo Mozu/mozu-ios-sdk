@@ -25,12 +25,12 @@
 /**
 The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
-@property(nonatomic) NSString* code;
+@property(nonatomic) NSString * code;
 
 /**
 The name of the country.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 @end
 

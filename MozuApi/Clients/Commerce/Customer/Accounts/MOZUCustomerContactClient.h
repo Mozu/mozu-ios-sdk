@@ -40,7 +40,7 @@ Retrieves a list of contacts for a customer according to any specified filter cr
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetAccountContactsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountContactsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

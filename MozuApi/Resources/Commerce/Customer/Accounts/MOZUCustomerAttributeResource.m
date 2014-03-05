@@ -44,7 +44,7 @@ Retrieves the contents of an attribute associated with the specified customer ac
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)accountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)accountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCustomerAttributeClient clientForGetAccountAttributeOperationWithAccountId:accountId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
@@ -64,7 +64,7 @@ Retrieves the list of customer account attributes.
 @param startIndex 
 */
 
--(void)accountAttributesWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttributeCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)accountAttributesWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttributeCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCustomerAttributeClient clientForGetAccountAttributesOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
@@ -113,7 +113,7 @@ Updates one or more details of a customer account attribute.
 @param removeMissing If true, remove the items missing from the collection.
 */
 
--(void)updateAccountAttributeWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId removeMissing:(NSNumber*)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateAccountAttributeWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCustomerAttributeClient clientForUpdateAccountAttributeOperationWithBody:body accountId:accountId removeMissing:removeMissing userClaims:userClaims];
 	client.context = self.apiContext;

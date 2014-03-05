@@ -25,22 +25,22 @@
 /**
 If true, Mozu manages inventoried stock levels for this product.
 */
-@property(nonatomic) NSNumber* manageStock;
+@property(nonatomic) NSNumber * manageStock;
 
 /**
 The location code for the direct ship location associated with the available online stock.
 */
-@property(nonatomic) NSString* onlineLocationCode;
+@property(nonatomic) NSString * onlineLocationCode;
 
 /**
 The current number of products that are available for purchase.
 */
-@property(nonatomic) NSNumber* onlineStockAvailable;
+@property(nonatomic) NSNumber * onlineStockAvailable;
 
 /**
 Determines the method this product uses when active stock is depeleted. Options are "DisplayMessage" to display an out of stock message to the shopper, "HideProduct" to disable the product on the storefront, or "AllowBackOrder" to allow the shopper to back order the product. This property is required only if Mozu manages inventory for this product.
 */
-@property(nonatomic) NSString* outOfStockBehavior;
+@property(nonatomic) NSString * outOfStockBehavior;
 
 @end
 

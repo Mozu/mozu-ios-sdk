@@ -31,7 +31,7 @@ Identifier of the field.
 /**
 Label for the field.
 */
-@property(nonatomic) NSString* label;
+@property(nonatomic) NSString * label;
 
 /**
 Sequence of the field.
@@ -41,7 +41,7 @@ Sequence of the field.
 /**
 Type of field.
 */
-@property(nonatomic) NSString* type;
+@property(nonatomic) NSString * type;
 
 /**
 Data for the field property.

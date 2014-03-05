@@ -26,37 +26,37 @@
 /**
 The localized description of the category to display on a storefront.
 */
-@property(nonatomic) NSString* description;
+@property(nonatomic) NSString * description;
 
 /**
 Defined description of the metadata used to manage product information internally, such as search engine optimization.
 */
-@property(nonatomic) NSString* metaTagDescription;
+@property(nonatomic) NSString * metaTagDescription;
 
 /**
 Defined keywords of the metadata used to manage product information internally, such as search engine optimization.
 */
-@property(nonatomic) NSString* metaTagKeywords;
+@property(nonatomic) NSString * metaTagKeywords;
 
 /**
 Defined title of the metadata used to manage product information internally, such as search engine optimization.
 */
-@property(nonatomic) NSString* metaTagTitle;
+@property(nonatomic) NSString * metaTagTitle;
 
 /**
 Name of the product category.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 Title that appears on the top of new pages associated with the product category on the storefront.
 */
-@property(nonatomic) NSString* pageTitle;
+@property(nonatomic) NSString * pageTitle;
 
 /**
 Human-readable identifier to associated with a product category to create friendly URLs.
 */
-@property(nonatomic) NSString* slug;
+@property(nonatomic) NSString * slug;
 
 /**
 Array list of image media associated with the product category.

@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId {
++(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId {
 	NSString* template = @"/api/commerce/returns/{returnId}/shipments/{shipmentId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
@@ -34,7 +34,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithReturnId:(NSString*)returnId {
++(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithReturnId:(NSString *)returnId {
 	NSString* template = @"/api/commerce/returns/{returnId}/shipments";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
@@ -57,7 +57,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithReturnId:(NSString*)returnId shipmentId:(NSString*)shipmentId {
++(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId {
 	NSString* template = @"/api/commerce/returns/{returnId}/shipments/{shipmentId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,

@@ -52,7 +52,7 @@ Resource Url Components for removeAllMessages
 Resource Url Components for removeMessage
 @param messageId Identifier of the message to remove from the cart.
 */
-+(MOZUURLComponents*)URLComponentsForRemoveMessageOperationWithMessageId:(NSString*)messageId;
++(MOZUURLComponents*)URLComponentsForRemoveMessageOperationWithMessageId:(NSString *)messageId;
 
 
 

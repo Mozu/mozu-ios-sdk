@@ -44,7 +44,7 @@ Retrieves the billing information associated with an order.
 @param orderId Unique identifier of the order.
 */
 
--(void)billingInfoWithOrderId:(NSString*)orderId draft:(NSNumber*)draft userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUBillingInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)billingInfoWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUBillingInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUBillingInfoClient clientForGetBillingInfoOperationWithOrderId:orderId draft:draft userClaims:userClaims];
 	client.context = self.apiContext;
@@ -77,7 +77,7 @@ Updates the billing information supplied for an order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
--(void)setBillingInfoWithBody:(MOZUBillingInfo*)body orderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUBillingInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)setBillingInfoWithBody:(MOZUBillingInfo*)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUBillingInfo* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUBillingInfoClient clientForSetBillingInfoOperationWithBody:body orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;

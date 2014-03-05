@@ -43,7 +43,7 @@ Searches the categories displayed on the storefront for products or product opti
 @param startIndex 
 */
 
-+(MOZUClient*)clientForSearchOperationWithQuery:(NSString*)query filter:(NSString*)filter facetTemplate:(NSString*)facetTemplate facetTemplateSubset:(NSString*)facetTemplateSubset facet:(NSString*)facet facetFieldRangeQuery:(NSString*)facetFieldRangeQuery facetHierPrefix:(NSString*)facetHierPrefix facetHierValue:(NSString*)facetHierValue facetHierDepth:(NSString*)facetHierDepth facetStartIndex:(NSString*)facetStartIndex facetPageSize:(NSString*)facetPageSize facetSettings:(NSString*)facetSettings facetValueFilter:(NSString*)facetValueFilter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForSearchOperationWithQuery:(NSString *)query filter:(NSString *)filter facetTemplate:(NSString *)facetTemplate facetTemplateSubset:(NSString *)facetTemplateSubset facet:(NSString *)facet facetFieldRangeQuery:(NSString *)facetFieldRangeQuery facetHierPrefix:(NSString *)facetHierPrefix facetHierValue:(NSString *)facetHierValue facetHierDepth:(NSString *)facetHierDepth facetStartIndex:(NSString *)facetStartIndex facetPageSize:(NSString *)facetPageSize facetSettings:(NSString *)facetSettings facetValueFilter:(NSString *)facetValueFilter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Suggests possible search terms as the shopper enters search text.
@@ -51,7 +51,7 @@ Suggests possible search terms as the shopper enters search text.
 @param q Text that the shopper is currently entering.
 */
 
-+(MOZUClient*)clientForSuggestOperationWithQ:(NSString*)q pageSize:(NSNumber*)pageSize userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForSuggestOperationWithQ:(NSString *)q pageSize:(NSNumber *)pageSize userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

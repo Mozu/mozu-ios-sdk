@@ -41,7 +41,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetApplicationOperationWithApplicationId:(NSNumber*)applicationId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetApplicationOperationWithApplicationId:(NSNumber *)applicationId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURLComponents URLComponentsForGetApplicationOperationWithApplicationId:applicationId];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -111,7 +111,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURLComponents URLComponentsForGetPackageItemMetadataOperationWithApplicationVersionId:applicationVersionId packageId:packageId itempath:itempath];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -171,7 +171,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForAddPackageFileOperationWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddPackageFileOperationWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURLComponents URLComponentsForAddPackageFileOperationWithApplicationVersionId:applicationVersionId packageId:packageId filepath:filepath];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -193,7 +193,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdatePackageFileOperationWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdatePackageFileOperationWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURLComponents URLComponentsForUpdatePackageFileOperationWithApplicationVersionId:applicationVersionId packageId:packageId filepath:filepath];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -215,7 +215,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUApplicationVersionURLComponents URLComponentsForDeletePackageFileOperationWithApplicationVersionId:applicationVersionId packageId:packageId filepath:filepath];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

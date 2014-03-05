@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForSearchOperationWithQuery:(NSString*)query filter:(NSString*)filter facetTemplate:(NSString*)facetTemplate facetTemplateSubset:(NSString*)facetTemplateSubset facet:(NSString*)facet facetFieldRangeQuery:(NSString*)facetFieldRangeQuery facetHierPrefix:(NSString*)facetHierPrefix facetHierValue:(NSString*)facetHierValue facetHierDepth:(NSString*)facetHierDepth facetStartIndex:(NSString*)facetStartIndex facetPageSize:(NSString*)facetPageSize facetSettings:(NSString*)facetSettings facetValueFilter:(NSString*)facetValueFilter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForSearchOperationWithQuery:(NSString *)query filter:(NSString *)filter facetTemplate:(NSString *)facetTemplate facetTemplateSubset:(NSString *)facetTemplateSubset facet:(NSString *)facet facetFieldRangeQuery:(NSString *)facetFieldRangeQuery facetHierPrefix:(NSString *)facetHierPrefix facetHierValue:(NSString *)facetHierValue facetHierDepth:(NSString *)facetHierDepth facetStartIndex:(NSString *)facetStartIndex facetPageSize:(NSString *)facetPageSize facetSettings:(NSString *)facetSettings facetValueFilter:(NSString *)facetValueFilter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductSearchResultURLComponents URLComponentsForSearchOperationWithQuery:query filter:filter facetTemplate:facetTemplate facetTemplateSubset:facetTemplateSubset facet:facet facetFieldRangeQuery:facetFieldRangeQuery facetHierPrefix:facetHierPrefix facetHierValue:facetHierValue facetHierDepth:facetHierDepth facetStartIndex:facetStartIndex facetPageSize:facetPageSize facetSettings:facetSettings facetValueFilter:facetValueFilter sortBy:sortBy pageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -36,7 +36,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForSuggestOperationWithQ:(NSString*)q pageSize:(NSNumber*)pageSize userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForSuggestOperationWithQ:(NSString *)q pageSize:(NSNumber *)pageSize userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductSearchResultURLComponents URLComponentsForSuggestOperationWithQ:q pageSize:pageSize];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

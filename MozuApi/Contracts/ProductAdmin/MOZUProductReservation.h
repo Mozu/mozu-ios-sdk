@@ -26,27 +26,27 @@
 /**
 Identifier of the entity.
 */
-@property(nonatomic) NSNumber* id;
+@property(nonatomic) NSNumber * id;
 
 /**
 Code that identifies the location associated with this product reservation.
 */
-@property(nonatomic) NSString* locationCode;
+@property(nonatomic) NSString * locationCode;
 
 /**
 Unique identifier of the order.
 */
-@property(nonatomic) NSString* orderId;
+@property(nonatomic) NSString * orderId;
 
 /**
 The unique identifier of the item in the order.
 */
-@property(nonatomic) NSString* orderItemId;
+@property(nonatomic) NSString * orderItemId;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString* productCode;
+@property(nonatomic) NSString * productCode;
 
 /**
 The quantity of items associated with the product reservation.

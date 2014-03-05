@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetExtrasOperationWithProductCode:(NSString*)productCode {
++(MOZUURLComponents*)URLComponentsForGetExtrasOperationWithProductCode:(NSString *)productCode {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/Extras";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
@@ -26,7 +26,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetExtraOperationWithProductCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForGetExtraOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
@@ -43,7 +43,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddExtraOperationWithProductCode:(NSString*)productCode {
++(MOZUURLComponents*)URLComponentsForAddExtraOperationWithProductCode:(NSString *)productCode {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/Extras";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
@@ -59,7 +59,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateExtraOperationWithProductCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForUpdateExtraOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,
@@ -76,7 +76,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteExtraOperationWithProductCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForDeleteExtraOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productCode" : productCode,

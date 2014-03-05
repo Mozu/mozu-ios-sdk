@@ -24,13 +24,13 @@ Resource Url Components for getEvents
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetEventsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetEventsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getEvent
 @param eventId The unique identifier of the event being retrieved. An event is a notification about a create, read, update, or delete on an order, product, discount or category.
 */
-+(MOZUURLComponents*)URLComponentsForGetEventOperationWithEventId:(NSString*)eventId;
++(MOZUURLComponents*)URLComponentsForGetEventOperationWithEventId:(NSString *)eventId;
 
 
 //

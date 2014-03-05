@@ -26,7 +26,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForGetOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
@@ -59,7 +59,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForUpdateOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),
@@ -76,7 +76,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForDeleteOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options/{attributeFQN}";
 	NSDictionary* params = @{
 		@"productTypeId" : @(productTypeId),

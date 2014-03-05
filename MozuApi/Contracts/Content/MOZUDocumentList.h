@@ -30,17 +30,17 @@ List of document types associated with this document list.
 /**
 If true, publishing of draft documents in this document list is enabled for the site. If false, all document changes are immediately published in live mode.
 */
-@property(nonatomic) NSNumber* enablePublishing;
+@property(nonatomic) NSNumber * enablePublishing;
 
 /**
 The name of the document list.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 If true, changes documents in this list can be saved as drafts until they are published to the site. If false, all document changes are immediately published in live mode. System-supplied and read only.
 */
-@property(nonatomic) NSNumber* supportsPublishing;
+@property(nonatomic) NSNumber * supportsPublishing;
 
 @end
 

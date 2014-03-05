@@ -31,7 +31,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForApplyShippingAdjustmentOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForApplyShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -42,7 +42,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForApplyAdjustmentOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForApplyAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -60,7 +60,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRemoveShippingAdjustmentOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForRemoveShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -71,7 +71,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForRemoveAdjustmentOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForRemoveAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,

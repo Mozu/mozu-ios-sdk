@@ -28,7 +28,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateDeveloperUserAuthTicketOperationWithBody:(MOZUUserAuthInfo*)body developerAccountId:(NSNumber*)developerAccountId {
++(MOZUClient*)clientForCreateDeveloperUserAuthTicketOperationWithBody:(MOZUUserAuthInfo*)body developerAccountId:(NSNumber *)developerAccountId {
 	id url = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:developerAccountId];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -49,7 +49,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRefreshDeveloperAuthTicketOperationWithBody:(MOZUDeveloperAdminUserAuthTicket*)body developerAccountId:(NSNumber*)developerAccountId {
++(MOZUClient*)clientForRefreshDeveloperAuthTicketOperationWithBody:(MOZUDeveloperAdminUserAuthTicket*)body developerAccountId:(NSNumber *)developerAccountId {
 	id url = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:developerAccountId];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -70,7 +70,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
++(MOZUClient*)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
 	id url = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:refreshToken];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

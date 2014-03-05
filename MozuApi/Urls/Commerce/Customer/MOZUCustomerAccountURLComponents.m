@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous {
++(MOZUURLComponents*)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous {
 	NSString* template = @"/api/commerce/customer/accounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&fields={fields}&q={q}&qLimit={qLimit}&isAnonymous={isAnonymous}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
@@ -115,7 +115,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString*)emailAddress {
++(MOZUURLComponents*)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress {
 	NSString* template = @"/api/commerce/customer/accounts/loginstatebyemailaddress?emailAddress={emailAddress}";
 	NSDictionary* params = @{
 		@"emailAddress" : emailAddress,
@@ -124,7 +124,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString*)userName {
++(MOZUURLComponents*)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName {
 	NSString* template = @"/api/commerce/customer/accounts/loginstatebyusername?userName={userName}";
 	NSDictionary* params = @{
 		@"userName" : userName,

@@ -25,17 +25,17 @@
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString* isoCurrencyCode;
+@property(nonatomic) NSString * isoCurrencyCode;
 
 /**
 Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
 */
-@property(nonatomic) NSDecimalNumber* price;
+@property(nonatomic) NSNumber * price;
 
 /**
 Price of the product with a discount already applied which the merchant intends to sell the product.
 */
-@property(nonatomic) NSDecimalNumber* salePrice;
+@property(nonatomic) NSNumber * salePrice;
 
 @end
 

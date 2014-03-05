@@ -35,22 +35,22 @@ The unique identifier of the catalog of products used by a site.
 /**
 If true, the product is actively available (for sale) in the associated catalog.
 */
-@property(nonatomic) NSNumber* isActive;
+@property(nonatomic) NSNumber * isActive;
 
 /**
 If true, the content defined for this product in the master catalog in overridden in the catalog with the content specified in the request body. If false, this catalog uses the content defined in the master catalog for the product.
 */
-@property(nonatomic) NSNumber* isContentOverridden;
+@property(nonatomic) NSNumber * isContentOverridden;
 
 /**
 If true, the price defined for this product in the master catalog in overridden in the catalog with the price specified in the request body. If false, this catalog uses the price defined in the master catalog for the product.
 */
-@property(nonatomic) NSNumber* isPriceOverridden;
+@property(nonatomic) NSNumber * isPriceOverridden;
 
 /**
 If true, the SEO content defined for this product in the master catalog in overridden in the catalog with the SEO content specified in the request body. If false, this catalog uses the SEO content defined in the master catalog for the product.
 */
-@property(nonatomic) NSNumber* isseoContentOverridden;
+@property(nonatomic) NSNumber * isseoContentOverridden;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

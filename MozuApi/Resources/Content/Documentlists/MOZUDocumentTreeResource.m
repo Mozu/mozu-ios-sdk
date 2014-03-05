@@ -44,7 +44,7 @@ Retrieves a document based on its document list and folder path in the document 
 @param documentName The name of the document, which is unique within its folder.
 */
 
--(void)treeDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)treeDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTreeClient clientForGetTreeDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
@@ -61,7 +61,7 @@ Retrieve the content associated with the document, such as a product image or PD
 @param documentName The name of the document, which is unique within its folder.
 */
 
--(void)treeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)treeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream * result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTreeClient clientForGetTreeDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
@@ -93,7 +93,7 @@ Updates the content associated with a document, such as a product image or PDF s
 @param documentName The name of the document, which is unique within its folder.
 */
 
--(void)updateTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream*)body documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTreeClient clientForUpdateTreeDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
@@ -118,7 +118,7 @@ Deletes the content associated with a document, such as a product image or PDF s
 @param documentName The name of the document, which is unique within its folder.
 */
 
--(void)deleteTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream*)body documentListName:(NSString*)documentListName documentName:(NSString*)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTreeClient clientForDeleteTreeDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;

@@ -24,7 +24,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLocationUsageOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetLocationUsageOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/settings/locationUsages/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
@@ -47,7 +47,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/settings/locationUsages/{code}";
 	NSDictionary* params = @{
 		@"code" : code,

@@ -26,12 +26,12 @@
 /**
 User-defined code that identifies the channel group.
 */
-@property(nonatomic) NSString* code;
+@property(nonatomic) NSString * code;
 
 /**
 User-defined name of the channel group.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 Unique identifier of the Mozu tenant.

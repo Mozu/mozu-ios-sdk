@@ -26,7 +26,7 @@ Resource Url Components for getLocationTypes
 Resource Url Components for getLocationType
 @param locationTypeCode The user-defined code that identifies the location type.
 */
-+(MOZUURLComponents*)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
++(MOZUURLComponents*)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;
 
 
 //
@@ -51,7 +51,7 @@ Resource Url Components for addLocationType
 Resource Url Components for updateLocationType
 @param locationTypeCode The user-defined code that identifies the location type.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
++(MOZUURLComponents*)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;
 
 
 //
@@ -64,7 +64,7 @@ Resource Url Components for updateLocationType
 Resource Url Components for deleteLocationType
 @param locationTypeCode User-defined code used to identify the location type.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode;
++(MOZUURLComponents*)URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;
 
 
 

@@ -52,7 +52,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForRemoveMessageOperationWithMessageId:(NSString*)messageId {
++(MOZUURLComponents*)URLComponentsForRemoveMessageOperationWithMessageId:(NSString *)messageId {
 	NSString* template = @"/api/commerce/carts/current/messages/{messageId}";
 	NSDictionary* params = @{
 		@"messageId" : messageId,

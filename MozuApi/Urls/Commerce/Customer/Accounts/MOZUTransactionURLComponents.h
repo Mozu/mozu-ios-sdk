@@ -55,7 +55,7 @@ Resource Url Components for removeTransaction
 @param accountId Unique identifier of the customer account from which to delete the transaction.
 @param transactionId Unique identifier of the transaction to delete.
 */
-+(MOZUURLComponents*)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId;
++(MOZUURLComponents*)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId;
 
 
 

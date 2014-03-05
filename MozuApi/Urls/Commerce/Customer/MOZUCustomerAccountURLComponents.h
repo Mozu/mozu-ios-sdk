@@ -28,7 +28,7 @@ Resource Url Components for getAccounts
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param isAnonymous If true, retrieve anonymous shopper accounts in the response.
 */
-+(MOZUURLComponents*)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous;
++(MOZUURLComponents*)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous;
 
 /**
 Resource Url Components for getAccount
@@ -92,13 +92,13 @@ Resource Url Components for addAccounts
 Resource Url Components for getLoginStateByEmailAddress
 @param emailAddress The email address associated with the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString*)emailAddress;
++(MOZUURLComponents*)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress;
 
 /**
 Resource Url Components for getLoginStateByUserName
 @param userName The user name associated with the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString*)userName;
++(MOZUURLComponents*)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName;
 
 /**
 Resource Url Components for resetPassword

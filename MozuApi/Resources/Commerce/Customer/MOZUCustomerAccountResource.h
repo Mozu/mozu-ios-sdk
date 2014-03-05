@@ -48,7 +48,7 @@ Retrieves a list of customer accounts.
 @param startIndex 
 */
 
--(void)accountsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)accountsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieve details of a customer account.
@@ -128,14 +128,14 @@ Retrieves the current login state of a customer account by providing the custome
 @param emailAddress The email address associated with the customer account.
 */
 
--(void)loginStateByEmailAddressWithEmailAddress:(NSString*)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)loginStateByEmailAddressWithEmailAddress:(NSString *)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 @param userName The user name associated with the customer account.
 */
 
--(void)loginStateByUserNameWithUserName:(NSString*)userName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)loginStateByUserNameWithUserName:(NSString *)userName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Resets the password for a customer account.

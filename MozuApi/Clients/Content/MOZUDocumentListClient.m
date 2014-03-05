@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetDocumentListsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetDocumentListsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentListURLComponents URLComponentsForGetDocumentListsOperationWithPageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -39,7 +39,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetDocumentListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetDocumentListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentListURLComponents URLComponentsForGetDocumentListOperationWithDocumentListName:documentListName];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

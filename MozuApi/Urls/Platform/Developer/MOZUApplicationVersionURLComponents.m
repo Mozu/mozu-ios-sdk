@@ -24,7 +24,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithApplicationId:(NSNumber*)applicationId {
++(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithApplicationId:(NSNumber *)applicationId {
 	NSString* template = @"/api/platform/developer/applications/{applicationId}";
 	NSDictionary* params = @{
 		@"applicationId" : applicationId ? applicationId : @"",
@@ -71,7 +71,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath {
++(MOZUURLComponents*)URLComponentsForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files/?itemPath={itempath}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
@@ -118,7 +118,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForAddPackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
++(MOZUURLComponents*)URLComponentsForAddPackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
@@ -136,7 +136,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdatePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
++(MOZUURLComponents*)URLComponentsForUpdatePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),
@@ -154,7 +154,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath {
++(MOZUURLComponents*)URLComponentsForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath {
 	NSString* template = @"/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}";
 	NSDictionary* params = @{
 		@"applicationVersionId" : @(applicationVersionId),

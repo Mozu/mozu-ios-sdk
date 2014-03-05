@@ -66,7 +66,7 @@ Deletes an authentication for an application based on the specified refresh toke
 @param refreshToken The refresh token string from the application's authentication ticket.
 */
 
--(void)deleteAppAuthTicketWithRefreshToken:(NSString*)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteAppAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 

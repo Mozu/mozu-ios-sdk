@@ -24,13 +24,13 @@ Resource Url Components for getCredits
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetCreditsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetCreditsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getCredit
 @param code User-defined code that identifies the store credit to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetCreditOperationWithCode:(NSString*)code;
++(MOZUURLComponents*)URLComponentsForGetCreditOperationWithCode:(NSString *)code;
 
 
 //
@@ -55,13 +55,13 @@ Resource Url Components for addCredit
 Resource Url Components for updateCredit
 @param code User-defined code of the store credit to update.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateCreditOperationWithCode:(NSString*)code;
++(MOZUURLComponents*)URLComponentsForUpdateCreditOperationWithCode:(NSString *)code;
 
 /**
 Resource Url Components for associateCreditToShopper
 @param code The code that represents the credit to claim for the shopper.
 */
-+(MOZUURLComponents*)URLComponentsForAssociateCreditToShopperOperationWithCode:(NSString*)code;
++(MOZUURLComponents*)URLComponentsForAssociateCreditToShopperOperationWithCode:(NSString *)code;
 
 
 //
@@ -74,7 +74,7 @@ Resource Url Components for associateCreditToShopper
 Resource Url Components for deleteCredit
 @param code User-defined code of the store credit to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteCreditOperationWithCode:(NSString*)code;
++(MOZUURLComponents*)URLComponentsForDeleteCreditOperationWithCode:(NSString *)code;
 
 
 

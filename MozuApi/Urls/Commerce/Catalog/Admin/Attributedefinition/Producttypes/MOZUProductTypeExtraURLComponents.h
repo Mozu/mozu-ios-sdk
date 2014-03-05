@@ -28,7 +28,7 @@ Resource Url Components for getExtra
 @param productTypeId Identifier of the product type whose extra is being retrieved.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for updateExtra
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -69,7 +69,7 @@ Resource Url Components for deleteExtra
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForDeleteExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 

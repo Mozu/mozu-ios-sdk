@@ -72,7 +72,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUTransactionURLComponents URLComponentsForRemoveTransactionOperationWithAccountId:accountId transactionId:transactionId];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForListDocumentDraftSummariesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForListDocumentDraftSummariesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForListDocumentDraftSummariesOperationWithPageSize:pageSize startIndex:startIndex documentLists:documentLists];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -45,7 +45,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString*)body documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString *)body documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:documentLists];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -65,7 +65,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString*)body documentLists:(NSString*)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString *)body documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForPublishDocumentsOperationWithDocumentLists:documentLists];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

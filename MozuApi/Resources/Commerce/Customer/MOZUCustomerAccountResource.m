@@ -50,7 +50,7 @@ Retrieves a list of customer accounts.
 @param startIndex 
 */
 
--(void)accountsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter fields:(NSString*)fields q:(NSString*)q qLimit:(NSNumber*)qLimit isAnonymous:(NSNumber*)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)accountsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForGetAccountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter fields:fields q:q qLimit:qLimit isAnonymous:isAnonymous userClaims:userClaims];
 	client.context = self.apiContext;
@@ -220,7 +220,7 @@ Retrieves the current login state of a customer account by providing the custome
 @param emailAddress The email address associated with the customer account.
 */
 
--(void)loginStateByEmailAddressWithEmailAddress:(NSString*)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)loginStateByEmailAddressWithEmailAddress:(NSString *)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForGetLoginStateByEmailAddressOperationWithEmailAddress:emailAddress userClaims:userClaims];
 	client.context = self.apiContext;
@@ -236,7 +236,7 @@ Retrieves the current login state of a customer account by providing the user na
 @param userName The user name associated with the customer account.
 */
 
--(void)loginStateByUserNameWithUserName:(NSString*)userName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)loginStateByUserNameWithUserName:(NSString *)userName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULoginState* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUCustomerAccountClient clientForGetLoginStateByUserNameOperationWithUserName:userName userClaims:userClaims];
 	client.context = self.apiContext;

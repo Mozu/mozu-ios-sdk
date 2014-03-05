@@ -25,7 +25,7 @@ Resource Url Components for getDeliveryAttemptSummaries
 @param sortBy 
 @param filter 
 */
-+(MOZUURLComponents*)URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString*)subscriptionId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 
 //

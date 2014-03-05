@@ -63,7 +63,7 @@ Deletes an authentication for an application based on the specified refresh toke
 @param refreshToken The refresh token string from the application's authentication ticket.
 */
 
-+(MOZUClient*)clientForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
++(MOZUClient*)clientForDeleteAppAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 
 
 

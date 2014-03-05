@@ -40,7 +40,7 @@ Retrieves the details of the application specified in the request. The applicati
 @param applicationId Unique identifier of the application.
 */
 
-+(MOZUClient*)clientForGetApplicationOperationWithApplicationId:(NSNumber*)applicationId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetApplicationOperationWithApplicationId:(NSNumber *)applicationId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of a specific version of an application associated with the developer account scoped to the user claim specified in the request.
@@ -79,7 +79,7 @@ Retrieves the metadata of a file in a package for an application version. The ap
 @param packageId Unique identifier of the package.
 */
 
-+(MOZUClient*)clientForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the package of files and sends them to a compressed (zipped) archive.
@@ -121,7 +121,7 @@ Uploads a file to a defined package for an application version in the file locat
 @param packageId Unique identifier of the package.
 */
 
-+(MOZUClient*)clientForAddPackageFileOperationWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddPackageFileOperationWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -138,7 +138,7 @@ Updates one or more properties of a file in a package associated with an applica
 @param packageId The unique identifier of the package.
 */
 
-+(MOZUClient*)clientForUpdatePackageFileOperationWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdatePackageFileOperationWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -154,7 +154,7 @@ Deletes the specified file from a package associated with an application version
 @param packageId Unique identifier of the package.
 */
 
-+(MOZUClient*)clientForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

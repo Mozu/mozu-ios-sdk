@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetOperationWithFacetId:facetId validate:validate];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -39,7 +39,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetCategoryListOperationWithCategoryId:categoryId includeAvailable:includeAvailable validate:validate];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

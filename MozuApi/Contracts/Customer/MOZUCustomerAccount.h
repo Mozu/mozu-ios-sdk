@@ -36,22 +36,22 @@ If true, the customer prefers to receive marketing material such as newsletters 
 /**
 The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 */
-@property(nonatomic) NSString* companyOrOrganization;
+@property(nonatomic) NSString * companyOrOrganization;
 
 /**
 The email address associated with the customer account.
 */
-@property(nonatomic) NSString* emailAddress;
+@property(nonatomic) NSString * emailAddress;
 
 /**
 Unique identifier an external system uses to identify this customer account.
 */
-@property(nonatomic) NSString* externalId;
+@property(nonatomic) NSString * externalId;
 
 /**
 The first name associated with the customer account.
 */
-@property(nonatomic) NSString* firstName;
+@property(nonatomic) NSString * firstName;
 
 /**
 Identifier of the entity.
@@ -66,12 +66,12 @@ If true, this customer account represents an anonymous shopper.
 /**
 The last name associated with the customer account.
 */
-@property(nonatomic) NSString* lastName;
+@property(nonatomic) NSString * lastName;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString* localeCode;
+@property(nonatomic) NSString * localeCode;
 
 /**
 If true, this customer account has tax exempt status.
@@ -81,17 +81,17 @@ If true, this customer account has tax exempt status.
 /**
 The tax identification number associated with the customer account.
 */
-@property(nonatomic) NSString* taxId;
+@property(nonatomic) NSString * taxId;
 
 /**
 Unique identifier of the user associated with the customer account.
 */
-@property(nonatomic) NSString* userId;
+@property(nonatomic) NSString * userId;
 
 /**
 The user name of the user associated with the customer account.
 */
-@property(nonatomic) NSString* userName;
+@property(nonatomic) NSString * userName;
 
 /**
 Collection of customer account attributes.

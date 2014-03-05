@@ -41,7 +41,7 @@ Retrieves the details of the application specified in the request. The applicati
 @param applicationId Unique identifier of the application.
 */
 
--(void)applicationWithApplicationId:(NSNumber*)applicationId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)applicationWithApplicationId:(NSNumber *)applicationId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAppDevApplication* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUApplicationVersionClient clientForGetApplicationOperationWithApplicationId:applicationId userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -120,7 +120,7 @@ Retrieves the metadata of a file in a package for an application version. The ap
 @param packageId Unique identifier of the package.
 */
 
--(void)packageItemMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString*)itempath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)packageItemMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUApplicationVersionClient clientForGetPackageItemMetadataOperationWithApplicationVersionId:applicationVersionId packageId:packageId itempath:itempath userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -136,7 +136,7 @@ Retrieves the package of files and sends them to a compressed (zipped) archive.
 @param packageId The unique identifier of the package to zip.
 */
 
--(void)packageFilesZipWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)packageFilesZipWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream * result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUApplicationVersionClient clientForGetPackageFilesZipOperationWithApplicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -194,7 +194,7 @@ Uploads a file to a defined package for an application version in the file locat
 @param packageId Unique identifier of the package.
 */
 
--(void)addPackageFileWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addPackageFileWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUApplicationVersionClient clientForAddPackageFileOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -219,7 +219,7 @@ Updates one or more properties of a file in a package associated with an applica
 @param packageId The unique identifier of the package.
 */
 
--(void)updatePackageFileWithBody:(NSInputStream*)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updatePackageFileWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFileMetadata* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUApplicationVersionClient clientForUpdatePackageFileOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
@@ -243,7 +243,7 @@ Deletes the specified file from a package associated with an application version
 @param packageId Unique identifier of the package.
 */
 
--(void)deletePackageFileWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString*)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deletePackageFileWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUApplicationVersionClient clientForDeletePackageFileOperationWithApplicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {

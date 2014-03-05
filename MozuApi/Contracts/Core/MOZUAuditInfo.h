@@ -25,22 +25,22 @@
 /**
 Unique identifier of the user created the resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) NSString* createBy;
+@property(nonatomic) NSString * createBy;
 
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate* createDate;
+@property(nonatomic) NSDate * createDate;
 
 /**
 Unique identifier of the user who last modified the item. This value is system-supplied and read-only.
 */
-@property(nonatomic) NSString* updateBy;
+@property(nonatomic) NSString * updateBy;
 
 /**
 Date and time when the entity was last updated, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate* updateDate;
+@property(nonatomic) NSDate * updateDate;
 
 @end
 

@@ -26,7 +26,7 @@
 /**
 Determines whether payment authorization occurs when the order is placed or when the order is shipped.
 */
-@property(nonatomic) NSString* paymentProcessingFlowType;
+@property(nonatomic) NSString * paymentProcessingFlowType;
 
 /**
 If true, use the override price defined for products in the order to calculate discounts for the order.

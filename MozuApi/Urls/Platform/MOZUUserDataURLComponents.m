@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUURLComponents*)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
 	NSString* template = @"/api/platform/userdata/{*dbEntryQuery}";
 	NSDictionary* params = @{
 		@"dbEntryQuery" : dbEntryQuery,
@@ -33,7 +33,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUURLComponents*)URLComponentsForCreateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
 	NSString* template = @"/api/platform/userdata/{*dbEntryQuery}";
 	NSDictionary* params = @{
 		@"dbEntryQuery" : dbEntryQuery,
@@ -49,7 +49,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUURLComponents*)URLComponentsForUpdateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
 	NSString* template = @"/api/platform/userdata/{*dbEntryQuery}";
 	NSDictionary* params = @{
 		@"dbEntryQuery" : dbEntryQuery,
@@ -65,7 +65,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteDBValueOperationWithDbEntryQuery:(NSString*)dbEntryQuery {
++(MOZUURLComponents*)URLComponentsForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
 	NSString* template = @"/api/platform/userdata/{*dbEntryQuery}";
 	NSDictionary* params = @{
 		@"dbEntryQuery" : dbEntryQuery,

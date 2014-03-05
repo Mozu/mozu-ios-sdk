@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
@@ -29,7 +29,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,
@@ -59,7 +59,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateAttributeOperationWithAttributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForUpdateAttributeOperationWithAttributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,
@@ -75,7 +75,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteAttributeOperationWithAttributeFQN:(NSString*)attributeFQN {
++(MOZUURLComponents*)URLComponentsForDeleteAttributeOperationWithAttributeFQN:(NSString *)attributeFQN {
 	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}";
 	NSDictionary* params = @{
 		@"attributeFQN" : attributeFQN,

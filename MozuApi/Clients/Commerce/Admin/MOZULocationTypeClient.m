@@ -36,7 +36,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationTypeURLComponents URLComponentsForGetLocationTypeOperationWithLocationTypeCode:locationTypeCode];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -79,7 +79,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType*)body locationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType*)body locationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationTypeURLComponents URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:locationTypeCode];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -101,7 +101,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteLocationTypeOperationWithLocationTypeCode:(NSString*)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationTypeURLComponents URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:locationTypeCode];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

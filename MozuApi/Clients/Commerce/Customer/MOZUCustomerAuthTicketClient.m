@@ -50,7 +50,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAuthTicketURLComponents URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

@@ -68,7 +68,7 @@ Removes a single message associated with the cart of the current shopper.
 @param messageId Identifier of the message to remove from the cart.
 */
 
--(void)removeMessageWithMessageId:(NSString*)messageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)removeMessageWithMessageId:(NSString *)messageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 

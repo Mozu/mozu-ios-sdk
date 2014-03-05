@@ -37,7 +37,7 @@ Retrieves a facet specified by its unique identifier and displays its properties
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
--(void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieves a list of the facets defined for the specified category.
@@ -46,7 +46,7 @@ Retrieves a list of the facets defined for the specified category.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
--(void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFacetSet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFacetSet* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //

@@ -35,7 +35,7 @@ Generate an authentication ticket for a developer account.
 @param developerAccountId Unique identifier of the developer account.
 */
 
-+(MOZUClient*)clientForCreateDeveloperUserAuthTicketOperationWithBody:(MOZUUserAuthInfo*)body developerAccountId:(NSNumber*)developerAccountId;
++(MOZUClient*)clientForCreateDeveloperUserAuthTicketOperationWithBody:(MOZUUserAuthInfo*)body developerAccountId:(NSNumber *)developerAccountId;
 
 
 //
@@ -50,7 +50,7 @@ Generates a new developer account authentication ticket for the specified tenant
 @param developerAccountId Unique identifier of the developer account.
 */
 
-+(MOZUClient*)clientForRefreshDeveloperAuthTicketOperationWithBody:(MOZUDeveloperAdminUserAuthTicket*)body developerAccountId:(NSNumber*)developerAccountId;
++(MOZUClient*)clientForRefreshDeveloperAuthTicketOperationWithBody:(MOZUDeveloperAdminUserAuthTicket*)body developerAccountId:(NSNumber *)developerAccountId;
 
 
 //
@@ -64,7 +64,7 @@ Deletes the authentication ticket for the developer account by supplying the ref
 @param refreshToken Refresh token string associated with the developer account authentication ticket.
 */
 
-+(MOZUClient*)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
++(MOZUClient*)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 
 
 

@@ -21,14 +21,14 @@
 Resource Url Components for getProperties
 @param productCode 
 */
-+(MOZUURLComponents*)URLComponentsForGetPropertiesOperationWithProductCode:(NSString*)productCode;
++(MOZUURLComponents*)URLComponentsForGetPropertiesOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for getProperty
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForGetPropertyOperationWithProductCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetPropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -41,7 +41,7 @@ Resource Url Components for getProperty
 Resource Url Components for addProperty
 @param productCode 
 */
-+(MOZUURLComponents*)URLComponentsForAddPropertyOperationWithProductCode:(NSString*)productCode;
++(MOZUURLComponents*)URLComponentsForAddPropertyOperationWithProductCode:(NSString *)productCode;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for updateProperty
 @param productCode 
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForUpdatePropertyOperationWithProductCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdatePropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -69,7 +69,7 @@ Resource Url Components for deleteProperty
 @param productCode 
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForDeletePropertyOperationWithProductCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForDeletePropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
 
 
 

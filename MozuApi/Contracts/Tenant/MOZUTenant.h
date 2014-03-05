@@ -27,7 +27,7 @@
 /**
 The domain information associated with the tenant.
 */
-@property(nonatomic) NSString* domain;
+@property(nonatomic) NSString * domain;
 
 /**
 Unique identifier of the Mozu tenant.
@@ -42,7 +42,7 @@ If true, the tenant represents a collection of master catalogs and catalogs for 
 /**
 The name of the tenant.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 Collection of master catalogs associated with the tenant.

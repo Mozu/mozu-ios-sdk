@@ -25,12 +25,12 @@
 /**
 The monetary amount in the specified currency locale code.
 */
-@property(nonatomic) NSDecimalNumber* amount;
+@property(nonatomic) NSNumber * amount;
 
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString* currencyCode;
+@property(nonatomic) NSString * currencyCode;
 
 @end
 

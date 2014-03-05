@@ -25,12 +25,12 @@
 /**
 If true, Mozu manages inventory levels for this product.
 */
-@property(nonatomic) NSNumber* manageStock;
+@property(nonatomic) NSNumber * manageStock;
 
 /**
 Determines the method this product uses when active stock is depeleted. Options are "DisplayMessage" to display an out of stock message to the shopper, "HideProduct" to disable the product on the storefront, or "AllowBackOrder" to allow the shopper to back order the product. This property is required only if Mozu manages inventory for this product.
 */
-@property(nonatomic) NSString* outOfStockBehavior;
+@property(nonatomic) NSString * outOfStockBehavior;
 
 @end
 

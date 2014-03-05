@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetChannelsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetChannelsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/channels/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
@@ -29,7 +29,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetChannelOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetChannelOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/channels/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
@@ -59,7 +59,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateChannelOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForUpdateChannelOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/channels/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
@@ -75,7 +75,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteChannelOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForDeleteChannelOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/channels/{code}";
 	NSDictionary* params = @{
 		@"code" : code,

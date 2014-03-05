@@ -26,12 +26,12 @@
 /**
 Unique identifier of the attribute definition.
 */
-@property(nonatomic) NSNumber* attributeDefinitionId;
+@property(nonatomic) NSNumber * attributeDefinitionId;
 
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString* fullyQualifiedName;
+@property(nonatomic) NSString * fullyQualifiedName;
 
 /**
 List of values for the attribute.

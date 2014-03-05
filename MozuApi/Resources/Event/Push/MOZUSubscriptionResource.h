@@ -38,7 +38,7 @@
 @param startIndex 
 */
 
--(void)subscriptionsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSubscriptionCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)subscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSubscriptionCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
 ;
 
 //

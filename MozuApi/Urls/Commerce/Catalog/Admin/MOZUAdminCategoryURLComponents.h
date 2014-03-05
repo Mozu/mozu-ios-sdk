@@ -24,7 +24,7 @@ Resource Url Components for getCategories
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getCategory
@@ -62,7 +62,7 @@ Resource Url Components for updateCategory
 @param categoryId Unique identifier of the category to modify.
 @param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. Default: False.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility;
++(MOZUURLComponents*)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility;
 
 
 //
@@ -76,7 +76,7 @@ Resource Url Components for deleteCategoryById
 @param categoryId Unique identifier of the category to delete.
 @param cascadeDelete If true, also delete all subcategories associated with the specified category.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber*)cascadeDelete;
++(MOZUURLComponents*)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete;
 
 
 

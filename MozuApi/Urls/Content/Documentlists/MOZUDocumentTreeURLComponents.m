@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName {
++(MOZUURLComponents*)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
@@ -27,7 +27,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName {
++(MOZUURLComponents*)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
@@ -51,7 +51,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName {
++(MOZUURLComponents*)URLComponentsForUpdateTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteTreeDocumentContentOperationWithDocumentListName:(NSString*)documentListName documentName:(NSString*)documentName {
++(MOZUURLComponents*)URLComponentsForDeleteTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
 	NSString* template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}";
 	NSDictionary* params = @{
 		@"documentListName" : documentListName,

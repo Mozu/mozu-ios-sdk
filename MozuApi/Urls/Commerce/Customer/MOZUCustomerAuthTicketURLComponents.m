@@ -38,7 +38,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken {
++(MOZUURLComponents*)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
 	NSString* template = @"/api/commerce/customer/authtickets/refresh?refreshToken={refreshToken}";
 	NSDictionary* params = @{
 		@"refreshToken" : refreshToken,

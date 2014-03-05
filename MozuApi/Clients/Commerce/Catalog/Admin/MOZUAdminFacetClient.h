@@ -29,7 +29,7 @@ Retrieves a facet specified by its unique identifier and displays its properties
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
-+(MOZUClient*)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves a list of the facets defined for the specified category.
@@ -38,7 +38,7 @@ Retrieves a list of the facets defined for the specified category.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
-+(MOZUClient*)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

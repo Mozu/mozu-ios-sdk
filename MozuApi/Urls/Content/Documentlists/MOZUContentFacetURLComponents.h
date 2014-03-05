@@ -22,7 +22,7 @@ Resource Url Components for getFacets
 @param documentListName The document list associated with the facets to retrieve.
 @param propertyName The property name associated with the facets to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetFacetsOperationWithDocumentListName:(NSString*)documentListName propertyName:(NSString*)propertyName;
++(MOZUURLComponents*)URLComponentsForGetFacetsOperationWithDocumentListName:(NSString *)documentListName propertyName:(NSString *)propertyName;
 
 
 //

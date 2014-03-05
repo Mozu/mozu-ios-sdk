@@ -21,14 +21,14 @@
 Resource Url Components for getOrderNotes
 @param orderId Unique identifier of the order.
 */
-+(MOZUURLComponents*)URLComponentsForGetOrderNotesOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForGetOrderNotesOperationWithOrderId:(NSString *)orderId;
 
 /**
 Resource Url Components for getOrderNote
 @param orderId Unique identifier of the order associated with the note.
 @param noteId Unique identifier of the order note to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
++(MOZUURLComponents*)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
 
 
 //
@@ -41,7 +41,7 @@ Resource Url Components for getOrderNote
 Resource Url Components for createOrderNote
 @param orderId Unique identifier of the order for which to add a note.
 */
-+(MOZUURLComponents*)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString *)orderId;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for updateOrderNote
 @param orderId Unique identifier of the order.
 @param noteId Unique identifier of the order note.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
++(MOZUURLComponents*)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
 
 
 //
@@ -69,7 +69,7 @@ Resource Url Components for deleteOrderNote
 @param orderId Unique identifier of the order associated with the note.
 @param noteId Unique identifier of the order note to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId;
++(MOZUURLComponents*)URLComponentsForDeleteOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
 
 
 

@@ -30,7 +30,7 @@ Retrieves the details of a product's active inventory at the location specified 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForGetLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString*)locationCode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves a list of all product inventory definitions for the location code specified in the request.
@@ -41,7 +41,7 @@ Retrieves a list of all product inventory definitions for the location code spec
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetLocationInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString*)locationCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetLocationInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -56,7 +56,7 @@ Creates an array of product inventory definitions for the location specified in 
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
-+(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -71,7 +71,7 @@ Updates the active stock on hand inventory of products for the location code spe
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
-+(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body locationCode:(NSString*)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -86,7 +86,7 @@ Deletes the product code inventory definition for the location specified in the 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForDeleteLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString*)locationCode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

@@ -23,7 +23,7 @@ Resource Url Components for listDocumentDraftSummaries
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param documentLists Lists that contain the document drafts.
 */
-+(MOZUURLComponents*)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex documentLists:(NSString*)documentLists;
++(MOZUURLComponents*)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists;
 
 
 //
@@ -36,7 +36,7 @@ Resource Url Components for listDocumentDraftSummaries
 Resource Url Components for deleteDocumentDrafts
 @param documentLists List of document lists that contain documents to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString*)documentLists;
++(MOZUURLComponents*)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString *)documentLists;
 
 
 //
@@ -49,7 +49,7 @@ Resource Url Components for deleteDocumentDrafts
 Resource Url Components for publishDocuments
 @param documentLists List of document lists that contain documents to publish.
 */
-+(MOZUURLComponents*)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString*)documentLists;
++(MOZUURLComponents*)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString *)documentLists;
 
 
 //

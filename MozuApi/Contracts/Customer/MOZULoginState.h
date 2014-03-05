@@ -25,7 +25,7 @@
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate* createdOn;
+@property(nonatomic) NSDate * createdOn;
 
 /**
 The total number of times the customer account has unsuccessfully attempted to log in.
@@ -35,7 +35,7 @@ The total number of times the customer account has unsuccessfully attempted to l
 /**
 The date and time the customer's first unsuccessful attempt to log in was recorded.
 */
-@property(nonatomic) NSDate* firstFailedLoginAttemptOn;
+@property(nonatomic) NSDate * firstFailedLoginAttemptOn;
 
 /**
 If true, the customer account is locked and the customer cannot log in.
@@ -50,17 +50,17 @@ If true, the customer account user must change the password for the account.
 /**
 The date and time the customer account was most recently locked.
 */
-@property(nonatomic) NSDate* lastLockedOn;
+@property(nonatomic) NSDate * lastLockedOn;
 
 /**
 The date and time the customer account last logged in.
 */
-@property(nonatomic) NSDate* lastLoginOn;
+@property(nonatomic) NSDate * lastLoginOn;
 
 /**
 The date and the time the user associated with the customer account last changed the account password.
 */
-@property(nonatomic) NSDate* lastPasswordChangeOn;
+@property(nonatomic) NSDate * lastPasswordChangeOn;
 
 /**
 The remaining number of login attempts the customer can perform before the system locks the customer account.
@@ -70,7 +70,7 @@ The remaining number of login attempts the customer can perform before the syste
 /**
 Date and time when the entity was last updated, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate* updatedOn;
+@property(nonatomic) NSDate * updatedOn;
 
 @end
 

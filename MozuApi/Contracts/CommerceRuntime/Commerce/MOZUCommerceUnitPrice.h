@@ -25,37 +25,37 @@
 /**
 The original price of the item in the cart or order.
 */
-@property(nonatomic) NSDecimalNumber* baseAmount;
+@property(nonatomic) NSNumber * baseAmount;
 
 /**
 The calculated amount of the discount to apply.
 */
-@property(nonatomic) NSDecimalNumber* discountAmount;
+@property(nonatomic) NSNumber * discountAmount;
 
 /**
 The price of the item after all discounts are applied.
 */
-@property(nonatomic) NSDecimalNumber* discountedAmount;
+@property(nonatomic) NSNumber * discountedAmount;
 
 /**
 Represents the total price of the line item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
 */
-@property(nonatomic) NSDecimalNumber* extendedAmount;
+@property(nonatomic) NSNumber * extendedAmount;
 
 /**
 The price the item is listed for in the storefront.
 */
-@property(nonatomic) NSDecimalNumber* listAmount;
+@property(nonatomic) NSNumber * listAmount;
 
 /**
 The override price of the item set by the merchant for a given order.
 */
-@property(nonatomic) NSDecimalNumber* overrideAmount;
+@property(nonatomic) NSNumber * overrideAmount;
 
 /**
 The sale price set for the item.
 */
-@property(nonatomic) NSDecimalNumber* saleAmount;
+@property(nonatomic) NSNumber * saleAmount;
 
 @end
 

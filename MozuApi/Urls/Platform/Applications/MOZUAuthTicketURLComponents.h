@@ -52,7 +52,7 @@ Resource Url Components for refreshAppAuthTicket
 Resource Url Components for deleteAppAuthTicket
 @param refreshToken The refresh token string from the application's authentication ticket.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteAppAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
++(MOZUURLComponents*)URLComponentsForDeleteAppAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 
 
 

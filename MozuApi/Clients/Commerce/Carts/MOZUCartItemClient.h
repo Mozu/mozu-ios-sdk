@@ -35,7 +35,7 @@ Retrieves a particular cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to retrieve.
 */
 
-+(MOZUClient*)clientForGetCartItemOperationWithCartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCartItemOperationWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -64,7 +64,7 @@ Update the product or product quantity of an item in the current shopper's cart.
 @param cartItemId Identifier of the cart item to update.
 */
 
-+(MOZUClient*)clientForUpdateCartItemOperationWithBody:(MOZUCartItem*)body cartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateCartItemOperationWithBody:(MOZUCartItem*)body cartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Update the quantity of an individual cart item in the cart of the current shopper.
@@ -72,7 +72,7 @@ Update the quantity of an individual cart item in the cart of the current shoppe
 @param quantity The number of cart items in the shopper's active cart.
 */
 
-+(MOZUClient*)clientForUpdateCartItemQuantityOperationWithCartItemId:(NSString*)cartItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -92,7 +92,7 @@ Deletes a specific cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to delete.
 */
 
-+(MOZUClient*)clientForDeleteCartItemOperationWithCartItemId:(NSString*)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteCartItemOperationWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

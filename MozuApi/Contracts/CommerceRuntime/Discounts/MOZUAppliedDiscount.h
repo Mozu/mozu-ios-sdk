@@ -26,17 +26,17 @@
 /**
 Alphanumeric code associated with the coupon or promotion that results in a discounted price.
 */
-@property(nonatomic) NSString* couponCode;
+@property(nonatomic) NSString * couponCode;
 
 /**
 If true, the system ignores this discount when pricing the order.
 */
-@property(nonatomic) NSNumber* excluded;
+@property(nonatomic) NSNumber * excluded;
 
 /**
 The value of the discount applied to the cart or order, represented as a negative currency amount to apply to the original price.
 */
-@property(nonatomic) NSDecimalNumber* impact;
+@property(nonatomic) NSNumber * impact;
 
 /**
 Discount currently applied to the cart or order.

@@ -26,7 +26,7 @@
 /**
 The contents of a customer account note.
 */
-@property(nonatomic) NSString* content;
+@property(nonatomic) NSString * content;
 
 /**
 Identifier of the customer account note.

@@ -58,7 +58,7 @@ Searches the categories displayed on the storefront for products or product opti
 @param startIndex 
 */
 
--(void)searchWithQuery:(NSString*)query filter:(NSString*)filter facetTemplate:(NSString*)facetTemplate facetTemplateSubset:(NSString*)facetTemplateSubset facet:(NSString*)facet facetFieldRangeQuery:(NSString*)facetFieldRangeQuery facetHierPrefix:(NSString*)facetHierPrefix facetHierValue:(NSString*)facetHierValue facetHierDepth:(NSString*)facetHierDepth facetStartIndex:(NSString*)facetStartIndex facetPageSize:(NSString*)facetPageSize facetSettings:(NSString*)facetSettings facetValueFilter:(NSString*)facetValueFilter sortBy:(NSString*)sortBy pageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductSearchResult* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)searchWithQuery:(NSString *)query filter:(NSString *)filter facetTemplate:(NSString *)facetTemplate facetTemplateSubset:(NSString *)facetTemplateSubset facet:(NSString *)facet facetFieldRangeQuery:(NSString *)facetFieldRangeQuery facetHierPrefix:(NSString *)facetHierPrefix facetHierValue:(NSString *)facetHierValue facetHierDepth:(NSString *)facetHierDepth facetStartIndex:(NSString *)facetStartIndex facetPageSize:(NSString *)facetPageSize facetSettings:(NSString *)facetSettings facetValueFilter:(NSString *)facetValueFilter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductSearchResult* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductSearchResultClient clientForSearchOperationWithQuery:query filter:filter facetTemplate:facetTemplate facetTemplateSubset:facetTemplateSubset facet:facet facetFieldRangeQuery:facetFieldRangeQuery facetHierPrefix:facetHierPrefix facetHierValue:facetHierValue facetHierDepth:facetHierDepth facetStartIndex:facetStartIndex facetPageSize:facetPageSize facetSettings:facetSettings facetValueFilter:facetValueFilter sortBy:sortBy pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
@@ -75,7 +75,7 @@ Suggests possible search terms as the shopper enters search text.
 @param q Text that the shopper is currently entering.
 */
 
--(void)suggestWithQ:(NSString*)q pageSize:(NSNumber*)pageSize userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSearchSuggestion* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)suggestWithQ:(NSString *)q pageSize:(NSNumber *)pageSize userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSearchSuggestion* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductSearchResultClient clientForSuggestOperationWithQ:q pageSize:pageSize userClaims:userClaims];
 	client.context = self.apiContext;

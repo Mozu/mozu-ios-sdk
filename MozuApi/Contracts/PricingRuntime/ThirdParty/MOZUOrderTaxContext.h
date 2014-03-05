@@ -26,17 +26,17 @@
 /**
 Tax amount applied to the handling fee defined for orders on this site.
 */
-@property(nonatomic) NSDecimalNumber* handlingFeeTax;
+@property(nonatomic) NSNumber * handlingFeeTax;
 
 /**
 Tax amount applied to the order.
 */
-@property(nonatomic) NSDecimalNumber* orderTax;
+@property(nonatomic) NSNumber * orderTax;
 
 /**
 Tax amount applied to the shipping costs on the order.
 */
-@property(nonatomic) NSDecimalNumber* shippingTax;
+@property(nonatomic) NSNumber * shippingTax;
 
 /**
 Properties of the tax context applicable for line items in an order.

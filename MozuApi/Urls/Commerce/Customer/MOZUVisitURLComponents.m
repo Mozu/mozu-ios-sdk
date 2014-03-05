@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetVisitsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/customer/visits/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
@@ -29,7 +29,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetVisitOperationWithVisitId:(NSString*)visitId {
++(MOZUURLComponents*)URLComponentsForGetVisitOperationWithVisitId:(NSString *)visitId {
 	NSString* template = @"/api/commerce/customer/visits/{visitId}";
 	NSDictionary* params = @{
 		@"visitId" : visitId,
@@ -59,7 +59,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateVisitOperationWithVisitId:(NSString*)visitId {
++(MOZUURLComponents*)URLComponentsForUpdateVisitOperationWithVisitId:(NSString *)visitId {
 	NSString* template = @"/api/commerce/customer/visits/{visitId}";
 	NSDictionary* params = @{
 		@"visitId" : visitId,

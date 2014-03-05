@@ -28,7 +28,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGenerateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminProductOption>*)body productTypeId:(NSInteger)productTypeId productCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGenerateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminProductOption>*)body productTypeId:(NSInteger)productTypeId productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUProductTypeVariationURLComponents URLComponentsForGenerateProductVariationsOperationWithProductTypeId:productTypeId productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

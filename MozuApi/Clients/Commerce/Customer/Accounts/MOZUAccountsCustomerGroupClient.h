@@ -32,7 +32,7 @@ Retrieve a list of customer groups associated with the customer account.
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetAccountGroupsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetAccountGroupsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves details of a customer account in a group.

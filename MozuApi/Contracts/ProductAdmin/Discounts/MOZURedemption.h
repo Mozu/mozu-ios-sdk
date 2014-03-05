@@ -35,12 +35,12 @@ Number of the order associated with the discount redemption.
 /**
 The date and time on which the discount was redeemed.
 */
-@property(nonatomic) NSDate* redeemedOn;
+@property(nonatomic) NSDate * redeemedOn;
 
 /**
 Unique identifier of the user who redeemed the discount.
 */
-@property(nonatomic) NSString* userId;
+@property(nonatomic) NSString * userId;
 
 @end
 

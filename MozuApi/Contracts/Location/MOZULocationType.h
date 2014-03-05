@@ -26,12 +26,12 @@
 /**
 User-defined identifying code for the location type.
 */
-@property(nonatomic) NSString* code;
+@property(nonatomic) NSString * code;
 
 /**
 The name of the location type.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 @property(nonatomic) MOZUAuditInfo* auditInfo;
 

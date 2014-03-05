@@ -25,12 +25,12 @@
 /**
 The email address of the specified user or the email address associated with the specified entity.
 */
-@property(nonatomic) NSString* emailAddress;
+@property(nonatomic) NSString * emailAddress;
 
 /**
 Password of the user.
 */
-@property(nonatomic) NSString* password;
+@property(nonatomic) NSString * password;
 
 @end
 

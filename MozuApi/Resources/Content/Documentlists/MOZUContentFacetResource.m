@@ -44,7 +44,7 @@ Retrieves the properties of facets that aid in indexing and searching.
 @param propertyName The property name associated with the facets to retrieve.
 */
 
--(void)facetsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString*)documentListName propertyName:(NSString*)propertyName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUContentFacet>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)facetsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName propertyName:(NSString *)propertyName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUContentFacet>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUContentFacetClient clientForGetFacetsOperationWithDataViewMode:dataViewMode documentListName:documentListName propertyName:propertyName userClaims:userClaims];
 	client.context = self.apiContext;

@@ -25,32 +25,32 @@
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString* localeCode;
+@property(nonatomic) NSString * localeCode;
 
 /**
 The description of the metatag used for the product SEO content set to the locale code language. The metadata description is used to manage information internally.
 */
-@property(nonatomic) NSString* metaTagDescription;
+@property(nonatomic) NSString * metaTagDescription;
 
 /**
 The metatag keywords for the product SEO content set in the locale code language. The metatag keywords are used to manage information internally.
 */
-@property(nonatomic) NSString* metaTagKeywords;
+@property(nonatomic) NSString * metaTagKeywords;
 
 /**
 The metatag title for the product SEO content set in the locale code language. The metatag title is used to manage information internally.
 */
-@property(nonatomic) NSString* metaTagTitle;
+@property(nonatomic) NSString * metaTagTitle;
 
 /**
 The search engine optimized human-readable portion of the URL in the language of the product's locale code.
 */
-@property(nonatomic) NSString* seoFriendlyUrl;
+@property(nonatomic) NSString * seoFriendlyUrl;
 
 /**
 Customizes the HTML title tag within the header section of the product details page for the specified product.
 */
-@property(nonatomic) NSString* titleTagTitle;
+@property(nonatomic) NSString * titleTagTitle;
 
 @end
 

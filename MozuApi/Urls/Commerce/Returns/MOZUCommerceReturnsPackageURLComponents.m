@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetPackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
++(MOZUURLComponents*)URLComponentsForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
@@ -27,7 +27,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetPackageLabelOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
++(MOZUURLComponents*)URLComponentsForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}/label";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
@@ -44,7 +44,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreatePackageOperationWithReturnId:(NSString*)returnId {
++(MOZUURLComponents*)URLComponentsForCreatePackageOperationWithReturnId:(NSString *)returnId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
@@ -60,7 +60,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdatePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
++(MOZUURLComponents*)URLComponentsForUpdatePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,
@@ -77,7 +77,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeletePackageOperationWithReturnId:(NSString*)returnId packageId:(NSString*)packageId {
++(MOZUURLComponents*)URLComponentsForDeletePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
 	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
 	NSDictionary* params = @{
 		@"returnId" : returnId,

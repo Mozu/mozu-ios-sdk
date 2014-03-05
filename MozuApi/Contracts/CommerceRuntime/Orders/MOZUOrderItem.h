@@ -30,62 +30,62 @@
 /**
 The subtotal of the order item including any applied discount calculations.
 */
-@property(nonatomic) NSDecimalNumber* discountedTotal;
+@property(nonatomic) NSNumber * discountedTotal;
 
 /**
 Estimated amount of discounts applied to the item in the order, which is system-supplied and read-only.
 */
-@property(nonatomic) NSDecimalNumber* discountTotal;
+@property(nonatomic) NSNumber * discountTotal;
 
 /**
 Represents the total price of the order item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
 */
-@property(nonatomic) NSDecimalNumber* extendedTotal;
+@property(nonatomic) NSNumber * extendedTotal;
 
 /**
 The total sum of all fees incurred for an item in an order.
 */
-@property(nonatomic) NSDecimalNumber* feeTotal;
+@property(nonatomic) NSNumber * feeTotal;
 
 /**
 Code that identifies the location used to fulfill this order item, whether via in-store pickup or direct shipment.
 */
-@property(nonatomic) NSString* fulfillmentLocationCode;
+@property(nonatomic) NSString * fulfillmentLocationCode;
 
 /**
 The method used to fulfill the item in the order, which is "PickUp" or "Ship".
 */
-@property(nonatomic) NSString* fulfillmentMethod;
+@property(nonatomic) NSString * fulfillmentMethod;
 
 /**
 Unique identifier of a specific item in an order.
 */
-@property(nonatomic) NSString* id;
+@property(nonatomic) NSString * id;
 
 /**
 If true, the item in the order can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription. This property is reserved for future functionality and is system-supplied and read only.
 */
-@property(nonatomic) NSNumber* isRecurring;
+@property(nonatomic) NSNumber * isRecurring;
 
 /**
 If true, the entity is subject to tax based on the relevant tax rate.
 */
-@property(nonatomic) NSNumber* isTaxable;
+@property(nonatomic) NSNumber * isTaxable;
 
 /**
 The total amount of tax that applied to an item in an order.
 */
-@property(nonatomic) NSDecimalNumber* itemTaxTotal;
+@property(nonatomic) NSNumber * itemTaxTotal;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString* localeCode;
+@property(nonatomic) NSString * localeCode;
 
 /**
 The unique identifier of the item when it was applied to a cart, prior to checkout, when the cart became an order.
 */
-@property(nonatomic) NSString* originalCartItemId;
+@property(nonatomic) NSString * originalCartItemId;
 
 /**
 The quantity of a specific item in an order.
@@ -95,27 +95,27 @@ The quantity of a specific item in an order.
 /**
 The total amount of sales tax incurred for shipping charges associated with this item in a cart.
 */
-@property(nonatomic) NSDecimalNumber* shippingTaxTotal;
+@property(nonatomic) NSNumber * shippingTaxTotal;
 
 /**
 Total amount of shipping fees associated with the specified item in the order.
 */
-@property(nonatomic) NSDecimalNumber* shippingTotal;
+@property(nonatomic) NSNumber * shippingTotal;
 
 /**
 Amount of the item in the order without sales tax, shipping costs, and other fees.
 */
-@property(nonatomic) NSDecimalNumber* subtotal;
+@property(nonatomic) NSNumber * subtotal;
 
 /**
 The amount of the item in the order that is subject to tax. This amount typically represents the order item subtotal before applied discounts.
 */
-@property(nonatomic) NSDecimalNumber* taxableTotal;
+@property(nonatomic) NSNumber * taxableTotal;
 
 /**
 The total monetary sum of a specific item in an order.
 */
-@property(nonatomic) NSDecimalNumber* total;
+@property(nonatomic) NSNumber * total;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

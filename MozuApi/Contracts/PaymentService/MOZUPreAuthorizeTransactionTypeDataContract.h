@@ -25,7 +25,7 @@
 /**
 Description of the preauthorization transaction type.
 */
-@property(nonatomic) NSString* description;
+@property(nonatomic) NSString * description;
 
 /**
 Identifier of the entity.
@@ -35,7 +35,7 @@ Identifier of the entity.
 /**
 The type of preauthorization transaction.
 */
-@property(nonatomic) NSString* type;
+@property(nonatomic) NSString * type;
 
 @end
 

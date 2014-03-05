@@ -27,7 +27,7 @@
 /**
 Unique identifier of the product type.
 */
-@property(nonatomic) NSNumber* id;
+@property(nonatomic) NSNumber * id;
 
 /**
 If true, this product is associated with the overall product type. There is only one BaseProductType per site group. System-supplied and read-only.
@@ -37,17 +37,17 @@ If true, this product is associated with the overall product type. There is only
 /**
 The unique identifier of the master catalog associated with the entity.
 */
-@property(nonatomic) NSNumber* masterCatalogId;
+@property(nonatomic) NSNumber * masterCatalogId;
 
 /**
 Name of the product type, such as "Shoes" or "TVs."
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 The number of products associated with this product type.
 */
-@property(nonatomic) NSNumber* productCount;
+@property(nonatomic) NSNumber * productCount;
 
 /**
 List of product usages that describe how products of this type are used. Products of this type can be Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle). Product type usages cannot be both Bundle and Configurable.

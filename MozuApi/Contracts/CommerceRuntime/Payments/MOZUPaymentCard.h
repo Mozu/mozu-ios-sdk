@@ -25,7 +25,7 @@
 /**
 The masked credit card number part returned from the payment gateway.
 */
-@property(nonatomic) NSString* cardNumberPartOrMask;
+@property(nonatomic) NSString * cardNumberPartOrMask;
 
 /**
 The two-digit month the credit card expires.
@@ -45,22 +45,22 @@ If true, the credit card information is saved to the customer account for future
 /**
 If true, the credit card is used for a recurring order payment.
 */
-@property(nonatomic) NSNumber* isUsedRecurring;
+@property(nonatomic) NSNumber * isUsedRecurring;
 
 /**
 The name printed on the credit card.
 */
-@property(nonatomic) NSString* nameOnCard;
+@property(nonatomic) NSString * nameOnCard;
 
 /**
 The type of credit card, such as Visa or Amex.
 */
-@property(nonatomic) NSString* paymentOrCardType;
+@property(nonatomic) NSString * paymentOrCardType;
 
 /**
 Unique identifier of the credit card from the payment service.
 */
-@property(nonatomic) NSString* paymentServiceCardId;
+@property(nonatomic) NSString * paymentServiceCardId;
 
 @end
 

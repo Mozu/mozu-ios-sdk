@@ -27,17 +27,17 @@
 /**
 Alphanumeric string used to authenticate the user in API request headers.
 */
-@property(nonatomic) NSString* accessToken;
+@property(nonatomic) NSString * accessToken;
 
 /**
 The date and time the user access token expires.
 */
-@property(nonatomic) NSDate* accessTokenExpiration;
+@property(nonatomic) NSDate * accessTokenExpiration;
 
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate* createdOn;
+@property(nonatomic) NSDate * createdOn;
 
 /**
 Collection of behaviors encrypted in the user authentication ticket. Behaviors are granted to users as part of the role assigned for the given tenant or developer account.
@@ -47,12 +47,12 @@ Collection of behaviors encrypted in the user authentication ticket. Behaviors a
 /**
 Alphanumeric string used to generate a new user authentication ticket after the access token expires.
 */
-@property(nonatomic) NSString* refreshToken;
+@property(nonatomic) NSString * refreshToken;
 
 /**
 The date and time the user refresh token expires.
 */
-@property(nonatomic) NSDate* refreshTokenExpiration;
+@property(nonatomic) NSDate * refreshTokenExpiration;
 
 /**
 Collection of tenants for which the user authentication ticket grants access.

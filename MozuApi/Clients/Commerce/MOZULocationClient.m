@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetLocationOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationURLComponents URLComponentsForGetLocationOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -36,7 +36,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString*)locationUsageType code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationURLComponents URLComponentsForGetLocationInUsageTypeOperationWithLocationUsageType:locationUsageType code:code];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -50,7 +50,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString*)locationUsageType startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationURLComponents URLComponentsForGetLocationsInUsageTypeOperationWithLocationUsageType:locationUsageType startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -78,7 +78,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetInStorePickupLocationOperationWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetInStorePickupLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationURLComponents URLComponentsForGetInStorePickupLocationOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -92,7 +92,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZULocationURLComponents URLComponentsForGetInStorePickupLocationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber*)pageSize startIndex:(NSNumber*)startIndex {
++(MOZUURLComponents*)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
 	NSString* template = @"/api/content/propertytypes/?pageSize={pageSize}&startIndex={startIndex}";
 	NSDictionary* params = @{
 		@"pageSize" : pageSize ? pageSize : @"",
@@ -27,7 +27,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString*)propertyTypeName {
++(MOZUURLComponents*)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName {
 	NSString* template = @"/api/content/propertytypes/{propertyTypeName}";
 	NSDictionary* params = @{
 		@"propertyTypeName" : propertyTypeName,

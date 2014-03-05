@@ -27,7 +27,7 @@ Retrieves a list of all notes for an order.
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForGetOrderNotesOperationWithOrderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOrderNotesOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of a specific order note.
@@ -35,7 +35,7 @@ Retrieves the details of a specific order note.
 @param orderId Unique identifier of the order associated with the note.
 */
 
-+(MOZUClient*)clientForGetOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -50,7 +50,7 @@ Creates a new merchant note for the specified order.
 @param orderId Unique identifier of the order for which to add a note.
 */
 
-+(MOZUClient*)clientForCreateOrderNoteOperationWithBody:(MOZUOrderNote*)body orderId:(NSString*)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForCreateOrderNoteOperationWithBody:(MOZUOrderNote*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -66,7 +66,7 @@ Updates a specific note for an order.
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForUpdateOrderNoteOperationWithBody:(MOZUOrderNote*)body orderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateOrderNoteOperationWithBody:(MOZUOrderNote*)body orderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -81,7 +81,7 @@ Deletes the specified order note.
 @param orderId Unique identifier of the order associated with the note.
 */
 
-+(MOZUClient*)clientForDeleteOrderNoteOperationWithOrderId:(NSString*)orderId noteId:(NSString*)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

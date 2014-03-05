@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber*)validate {
++(MOZUURLComponents*)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate {
 	NSString* template = @"/api/commerce/catalog/admin/facets/{facetId}?validate={validate}";
 	NSDictionary* params = @{
 		@"facetId" : @(facetId),
@@ -27,7 +27,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber*)includeAvailable validate:(NSNumber*)validate {
++(MOZUURLComponents*)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate {
 	NSString* template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includAvaliable={includeAvailable}&validate={validate}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),

@@ -46,7 +46,7 @@ Retrieves a list of all returns according to any filter and sort criteria.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)returnsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturnCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)returnsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturnCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForGetReturnsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
@@ -62,7 +62,7 @@ Retrieves a list of properties for the specified return.
 @param returnId Returns the properties of the return specified in the request as well as system-supplied information.
 */
 
--(void)returnWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)returnWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForGetReturnOperationWithReturnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -78,7 +78,7 @@ Retrieves a list of the actions available to perform for the specified return ba
 @param returnId Unique identifier of the return for which to retrieve available actions.
 */
 
--(void)availableReturnActionsWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)availableReturnActionsWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForGetAvailableReturnActionsOperationWithReturnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -94,7 +94,7 @@ Retrieves a list of all payments submitted as part of a refund associated with a
 @param returnId Returns the details of the refund payment associated with the return specified in the request.
 */
 
--(void)paymentsWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPaymentCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)paymentsWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPaymentCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForGetPaymentsOperationWithReturnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -111,7 +111,7 @@ Retrieves the details of a payment submitted as part of a refund associated with
 @param returnId Unique identifier of the return associated with the payment.
 */
 
--(void)paymentWithReturnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPayment* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)paymentWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPayment* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForGetPaymentOperationWithReturnId:returnId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -128,7 +128,7 @@ Retrieves a list of the payment actions available to perform for the specified r
 @param returnId Unique identifier of the return associated with the payment.
 */
 
--(void)availablePaymentActionsForReturnWithReturnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)availablePaymentActionsForReturnWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForGetAvailablePaymentActionsForReturnOperationWithReturnId:returnId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -169,7 +169,7 @@ Updates a refund payment associated with a customer return by performing the spe
 @param returnId Unique identifier of the return associated with the refund payment.
 */
 
--(void)performPaymentActionForReturnWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId paymentId:(NSString*)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)performPaymentActionForReturnWithBody:(MOZUPaymentAction*)body returnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForPerformPaymentActionForReturnOperationWithBody:body returnId:returnId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -186,7 +186,7 @@ Creates a new payment for a return that results in a refund to the customer.
 @param returnId Unique identifier of the return associated with the payment action.
 */
 
--(void)createPaymentActionForReturnWithBody:(MOZUPaymentAction*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createPaymentActionForReturnWithBody:(MOZUPaymentAction*)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForCreatePaymentActionForReturnOperationWithBody:body returnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -226,7 +226,7 @@ Updates one or more properties of a return for items previously shipped in a com
 @param returnId Unique identifier of the return.
 */
 
--(void)updateReturnWithBody:(MOZUReturn*)body returnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateReturnWithBody:(MOZUReturn*)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturn* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForUpdateReturnOperationWithBody:body returnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;
@@ -249,7 +249,7 @@ Deletes the return specified in the request.
 @param returnId Unique identifier of the return to delete.
 */
 
--(void)deleteReturnWithReturnId:(NSString*)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteReturnWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReturnClient clientForDeleteReturnOperationWithReturnId:returnId userClaims:userClaims];
 	client.context = self.apiContext;

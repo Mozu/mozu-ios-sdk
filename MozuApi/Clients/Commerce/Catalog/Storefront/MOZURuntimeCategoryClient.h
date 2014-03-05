@@ -32,7 +32,7 @@ Retrieves a list of categories according to any specified filter criteria and so
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetCategoriesOperationWithFilter:(NSString*)filter startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the details of a single category.
@@ -40,7 +40,7 @@ Retrieves the details of a single category.
 @param categoryId Unique identifier for the storefront container used to organize products.
 */
 
-+(MOZUClient*)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber*)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.

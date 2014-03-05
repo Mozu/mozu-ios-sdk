@@ -40,7 +40,7 @@ Resource Url Components for createUserAuthTicket
 Resource Url Components for refreshUserAuthTicket
 @param refreshToken The refresh token string required to refresh a user's authentication ticket.
 */
-+(MOZUURLComponents*)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString*)refreshToken;
++(MOZUURLComponents*)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 
 
 //

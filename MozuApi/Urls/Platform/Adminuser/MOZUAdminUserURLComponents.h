@@ -21,13 +21,13 @@
 Resource Url Components for getUser
 @param userId Unique identifier of the administrator account to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetUserOperationWithUserId:(NSString*)userId;
++(MOZUURLComponents*)URLComponentsForGetUserOperationWithUserId:(NSString *)userId;
 
 /**
 Resource Url Components for getTenantScopesForUser
 @param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString*)userId;
++(MOZUURLComponents*)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString *)userId;
 
 
 //

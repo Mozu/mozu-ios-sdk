@@ -64,7 +64,7 @@ Deletes a transaction from the customer account specified in the request.
 @param transactionId Unique identifier of the transaction to delete.
 */
 
-+(MOZUClient*)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

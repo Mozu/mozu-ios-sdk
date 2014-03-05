@@ -30,12 +30,12 @@ The unique identifier of the master catalog associated with the entity.
 /**
 The name of the master catalog.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 The mode this master catalog uses for product updates. Possible values are "Pending" which saves product updates as a draft until they are published, and "Live" which publishes all product updates immediately.
 */
-@property(nonatomic) NSString* productPublishingMode;
+@property(nonatomic) NSString * productPublishingMode;
 
 @end
 

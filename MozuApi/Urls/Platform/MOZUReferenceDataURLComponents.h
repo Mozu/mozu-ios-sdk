@@ -21,7 +21,7 @@
 Resource Url Components for getAddressSchema
 @param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
-+(MOZUURLComponents*)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString*)countryCode;
++(MOZUURLComponents*)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode;
 
 /**
 Resource Url Components for getAddressSchemas
@@ -49,7 +49,7 @@ Resource Url Components for getBehaviorCategory
 Resource Url Components for getBehaviors
 @param userType The user type associated with the behaviors to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetBehaviorsOperationWithUserType:(NSString*)userType;
++(MOZUURLComponents*)URLComponentsForGetBehaviorsOperationWithUserType:(NSString *)userType;
 
 /**
 Resource Url Components for getContentLocales
@@ -80,7 +80,7 @@ Resource Url Components for getTopLevelDomains
 Resource Url Components for getUnitsOfMeasure
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter;
 
 
 //

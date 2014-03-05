@@ -26,32 +26,32 @@
 /**
 The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
-@property(nonatomic) NSString* countryCode;
+@property(nonatomic) NSString * countryCode;
 
 /**
 Unique identifier of the payment gateway definition.
 */
-@property(nonatomic) NSString* id;
+@property(nonatomic) NSString * id;
 
 /**
 The implementing type name of the integration with the payment gateway.
 */
-@property(nonatomic) NSString* integrationImplTypeName;
+@property(nonatomic) NSString * integrationImplTypeName;
 
 /**
 Name of the payment gateway.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 URL of the production payment service.
 */
-@property(nonatomic) NSString* prodServiceURL;
+@property(nonatomic) NSString * prodServiceURL;
 
 /**
 URL of the test payment service environment.
 */
-@property(nonatomic) NSString* testServiceURL;
+@property(nonatomic) NSString * testServiceURL;
 
 /**
 Definition of the preauthorization gateway.

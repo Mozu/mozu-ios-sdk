@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
@@ -68,7 +68,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber*)cascadeVisibility {
++(MOZUURLComponents*)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility {
 	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),
@@ -85,7 +85,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber*)cascadeDelete {
++(MOZUURLComponents*)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete {
 	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}";
 	NSDictionary* params = @{
 		@"categoryId" : @(categoryId),

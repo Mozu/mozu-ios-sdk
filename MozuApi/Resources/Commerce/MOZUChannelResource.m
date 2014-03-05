@@ -46,7 +46,7 @@ Retrieves a list of channels defined for a tenant according to any filter or sor
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)channelsWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)channelsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannelCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUChannelClient clientForGetChannelsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
@@ -62,7 +62,7 @@ Retrieves the details of the channel specified in the request.
 @param code User-defined code that identifies the channel to retrieve.
 */
 
--(void)channelWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)channelWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUChannelClient clientForGetChannelOperationWithCode:code userClaims:userClaims];
 	client.context = self.apiContext;
@@ -109,7 +109,7 @@ Updates one or more details of a defined channel, including the associated sites
 @param code User-defined code that identifies the channel to update.
 */
 
--(void)updateChannelWithBody:(MOZUChannel*)body code:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateChannelWithBody:(MOZUChannel*)body code:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUChannel* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUChannelClient clientForUpdateChannelOperationWithBody:body code:code userClaims:userClaims];
 	client.context = self.apiContext;
@@ -132,7 +132,7 @@ Deletes a defined channel for the tenant and removes the defined site associatio
 @param code User-defined code that identifies the channel to delete.
 */
 
--(void)deleteChannelWithCode:(NSString*)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteChannelWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUChannelClient clientForDeleteChannelOperationWithCode:code userClaims:userClaims];
 	client.context = self.apiContext;

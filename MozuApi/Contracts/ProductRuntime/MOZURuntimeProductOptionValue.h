@@ -30,42 +30,42 @@ Unique identifier of the product attribute value.
 /**
 The difference between the highest price and the lowest price.
 */
-@property(nonatomic) NSDecimalNumber* deltaPrice;
+@property(nonatomic) NSNumber * deltaPrice;
 
 /**
 The difference between the highest weight and the lowest weight.
 */
-@property(nonatomic) NSDecimalNumber* deltaWeight;
+@property(nonatomic) NSNumber * deltaWeight;
 
 /**
 If true, the product option value is the default value that the merchant supplied.
 */
-@property(nonatomic) NSNumber* isDefault;
+@property(nonatomic) NSNumber * isDefault;
 
 /**
 If true, the product option value is available for a shopper to choose. During configuration, this property will be false if the option value is invalid with other selected options.
 */
-@property(nonatomic) NSNumber* isEnabled;
+@property(nonatomic) NSNumber * isEnabled;
 
 /**
 If true, the entity is selected. If false, the entity is not selected.
 */
-@property(nonatomic) NSNumber* isSelected;
+@property(nonatomic) NSNumber * isSelected;
 
 /**
 The product attribute value entered by the shopper, if applicable.
 */
-@property(nonatomic) id shopperEnteredValue;
+@property(nonatomic) NSObject * shopperEnteredValue;
 
 /**
 The string value entered for a product option attribute.
 */
-@property(nonatomic) NSString* stringValue;
+@property(nonatomic) NSString * stringValue;
 
 /**
 The value of a product option attribute.
 */
-@property(nonatomic) id value;
+@property(nonatomic) NSObject * value;
 
 @end
 

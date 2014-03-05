@@ -43,7 +43,7 @@ Retrieves a list of the property attributes configured for the product specified
 @param productCode 
 */
 
--(void)propertiesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminProductProperty>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)propertiesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminProductProperty>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductPropertyClient clientForGetPropertiesOperationWithDataViewMode:dataViewMode productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
@@ -60,7 +60,7 @@ Retrieves the details of a property attribute configuration for the product spec
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)propertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)propertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductPropertyClient clientForGetPropertyOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
@@ -84,7 +84,7 @@ Configures a property attribute for the product specified in the request.
 @param productCode 
 */
 
--(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductPropertyClient clientForAddPropertyOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
@@ -109,7 +109,7 @@ Update one or more details of a property attribute configuration for the product
 @param productCode 
 */
 
--(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty*)body productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty*)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductProperty* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductPropertyClient clientForUpdatePropertyOperationWithDataViewMode:dataViewMode body:body productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
@@ -133,7 +133,7 @@ Deletes the configuration of a property attribute for the product specified in t
 @param productCode 
 */
 
--(void)deletePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deletePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductPropertyClient clientForDeletePropertyOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;

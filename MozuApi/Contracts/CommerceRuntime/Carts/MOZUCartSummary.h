@@ -25,24 +25,24 @@
 /**
 If true, this shopping cart is active.
 */
-@property(nonatomic) NSNumber* hasActiveCart;
+@property(nonatomic) NSNumber * hasActiveCart;
 
 /**
 If true, the cart's period of inactivity is past its calculated expiration date and the cart is considered abandoned.
 */
-@property(nonatomic) NSNumber* isExpired;
+@property(nonatomic) NSNumber * isExpired;
 
 /**
 The total number of line items in the cart. Each line item can have multiple quantities.
 */
-@property(nonatomic) NSNumber* itemCount;
+@property(nonatomic) NSNumber * itemCount;
 
 /**
 Estimated total amount of the cart, including items, sales tax, shipping costs, and other fees.
 */
-@property(nonatomic) NSDecimalNumber* total;
+@property(nonatomic) NSNumber * total;
 
-@property(nonatomic) NSNumber* totalQuantity;
+@property(nonatomic) NSNumber * totalQuantity;
 
 @end
 

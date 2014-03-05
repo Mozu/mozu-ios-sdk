@@ -26,7 +26,7 @@
 /**
 Carrier-supplied code that represents the shipping method service type associated with the shipping discount.
 */
-@property(nonatomic) NSString* methodCode;
+@property(nonatomic) NSString * methodCode;
 
 /**
 Properties of the shipping discount.

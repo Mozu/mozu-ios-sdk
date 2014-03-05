@@ -21,7 +21,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForGetAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -39,7 +39,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForGetAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -63,7 +63,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForAddAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN];
 	id verb = @"POST";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -88,7 +88,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue>*)body attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue>*)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -107,7 +107,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForUpdateAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -132,7 +132,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForDeleteAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

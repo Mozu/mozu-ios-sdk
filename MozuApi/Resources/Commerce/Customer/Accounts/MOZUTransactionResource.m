@@ -98,7 +98,7 @@ Deletes a transaction from the customer account specified in the request.
 @param transactionId Unique identifier of the transaction to delete.
 */
 
--(void)removeTransactionWithAccountId:(NSInteger)accountId transactionId:(NSString*)transactionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)removeTransactionWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUTransactionClient clientForRemoveTransactionOperationWithAccountId:accountId transactionId:transactionId userClaims:userClaims];
 	client.context = self.apiContext;

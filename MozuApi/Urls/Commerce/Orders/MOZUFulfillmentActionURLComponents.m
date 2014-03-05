@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetFulfillmentInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft {
++(MOZUURLComponents*)URLComponentsForGetFulfillmentInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
 	NSString* template = @"/api/commerce/orders/{orderId}/fulfillmentinfo?draft={draft}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -34,7 +34,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString *)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/fulfillment/actions/";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -50,7 +50,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForSetFulFillmentInfoOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForSetFulFillmentInfoOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/fulfillmentinfo?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,

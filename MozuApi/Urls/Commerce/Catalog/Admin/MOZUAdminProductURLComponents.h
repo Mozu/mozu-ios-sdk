@@ -27,26 +27,26 @@ Resource Url Components for getProducts
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param noCount If true, the operation does not return the TotalCount number of results.
 */
-+(MOZUURLComponents*)URLComponentsForGetProductsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter q:(NSString*)q qLimit:(NSNumber*)qLimit noCount:(NSNumber*)noCount;
++(MOZUURLComponents*)URLComponentsForGetProductsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount;
 
 /**
 Resource Url Components for getProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-+(MOZUURLComponents*)URLComponentsForGetProductOperationWithProductCode:(NSString*)productCode;
++(MOZUURLComponents*)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for getProductInCatalogs
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-+(MOZUURLComponents*)URLComponentsForGetProductInCatalogsOperationWithProductCode:(NSString*)productCode;
++(MOZUURLComponents*)URLComponentsForGetProductInCatalogsOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for getProductInCatalog
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param catalogId The unique identifier of the catalog of products used by a site.
 */
-+(MOZUURLComponents*)URLComponentsForGetProductInCatalogOperationWithProductCode:(NSString*)productCode catalogId:(NSInteger)catalogId;
++(MOZUURLComponents*)URLComponentsForGetProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
 
 
 //
@@ -64,7 +64,7 @@ Resource Url Components for addProduct
 Resource Url Components for addProductInCatalog
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-+(MOZUURLComponents*)URLComponentsForAddProductInCatalogOperationWithProductCode:(NSString*)productCode;
++(MOZUURLComponents*)URLComponentsForAddProductInCatalogOperationWithProductCode:(NSString *)productCode;
 
 
 //
@@ -77,20 +77,20 @@ Resource Url Components for addProductInCatalog
 Resource Url Components for updateProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateProductOperationWithProductCode:(NSString*)productCode;
++(MOZUURLComponents*)URLComponentsForUpdateProductOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for updateProductInCatalogs
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateProductInCatalogsOperationWithProductCode:(NSString*)productCode;
++(MOZUURLComponents*)URLComponentsForUpdateProductInCatalogsOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for updateProductInCatalog
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param catalogId The unique identifier of the catalog of products used by a site.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateProductInCatalogOperationWithProductCode:(NSString*)productCode catalogId:(NSInteger)catalogId;
++(MOZUURLComponents*)URLComponentsForUpdateProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
 
 
 //
@@ -103,14 +103,14 @@ Resource Url Components for updateProductInCatalog
 Resource Url Components for deleteProduct
 @param productCode 
 */
-+(MOZUURLComponents*)URLComponentsForDeleteProductOperationWithProductCode:(NSString*)productCode;
++(MOZUURLComponents*)URLComponentsForDeleteProductOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for deleteProductInCatalog
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param catalogId The unique identifier of the catalog of products used by a site.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteProductInCatalogOperationWithProductCode:(NSString*)productCode catalogId:(NSInteger)catalogId;
++(MOZUURLComponents*)URLComponentsForDeleteProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
 
 
 

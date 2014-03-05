@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetPickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
++(MOZUURLComponents*)URLComponentsForGetPickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups/{pickupId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -27,7 +27,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
++(MOZUURLComponents*)URLComponentsForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups/{pickupId}/actions";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -44,7 +44,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreatePickupOperationWithOrderId:(NSString*)orderId {
++(MOZUURLComponents*)URLComponentsForCreatePickupOperationWithOrderId:(NSString *)orderId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -60,7 +60,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdatePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
++(MOZUURLComponents*)URLComponentsForUpdatePickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups/{pickupId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -77,7 +77,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeletePickupOperationWithOrderId:(NSString*)orderId pickupId:(NSString*)pickupId {
++(MOZUURLComponents*)URLComponentsForDeletePickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId {
 	NSString* template = @"/api/commerce/orders/{orderId}/pickups/{pickupId}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,

@@ -24,7 +24,7 @@ Resource Url Components for getProductReservations
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetProductReservationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter;
++(MOZUURLComponents*)URLComponentsForGetProductReservationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getProductReservation
@@ -43,7 +43,7 @@ Resource Url Components for getProductReservation
 Resource Url Components for addProductReservations
 @param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
-+(MOZUURLComponents*)URLComponentsForAddProductReservationsOperationWithSkipInventoryCheck:(NSNumber*)skipInventoryCheck;
++(MOZUURLComponents*)URLComponentsForAddProductReservationsOperationWithSkipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 /**
 Resource Url Components for commitReservations
@@ -61,7 +61,7 @@ Resource Url Components for commitReservations
 Resource Url Components for updateProductReservations
 @param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateProductReservationsOperationWithSkipInventoryCheck:(NSNumber*)skipInventoryCheck;
++(MOZUURLComponents*)URLComponentsForUpdateProductReservationsOperationWithSkipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 
 //

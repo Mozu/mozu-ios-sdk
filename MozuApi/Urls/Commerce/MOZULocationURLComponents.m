@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetLocationOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetLocationOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/storefront/locations/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
@@ -26,7 +26,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString*)locationUsageType code:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/{locationUsageType}/locations/{code}";
 	NSDictionary* params = @{
 		@"locationUsageType" : locationUsageType,
@@ -36,7 +36,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString*)locationUsageType startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/{locationUsageType}/locations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"locationUsageType" : locationUsageType,
@@ -56,7 +56,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetInStorePickupLocationOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetInStorePickupLocationOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/SP/locations/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
@@ -65,7 +65,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/storefront/locationUsageTypes/SP/locations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex ? startIndex : @"",

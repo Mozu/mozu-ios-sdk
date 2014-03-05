@@ -43,7 +43,7 @@ Retrieves a list of vocabulary values defined for the attribute specified in the
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)attributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)attributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValuesOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
@@ -60,7 +60,7 @@ Retrieves the details of a vocabulary value defined for an attribute by providin
 @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
--(void)attributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)attributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValueOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN value:value userClaims:userClaims];
 	client.context = self.apiContext;
@@ -84,7 +84,7 @@ Creates a vocabulary value for a defined product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForAddAttributeVocabularyValueOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
@@ -108,7 +108,7 @@ Update existing vocabulary values for an attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue>*)body attributeFQN:(NSString*)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue>*)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
@@ -126,7 +126,7 @@ Updates existing attribute vocabulary values.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
--(void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeVocabularyValue* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN value:value userClaims:userClaims];
 	client.context = self.apiContext;
@@ -150,7 +150,7 @@ Deletes an attribute's vocabulary value.
 @param value The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
--(void)deleteAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString*)attributeFQN value:(NSString*)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAttributeVocabularyValueClient clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN value:value userClaims:userClaims];
 	client.context = self.apiContext;

@@ -30,7 +30,7 @@ Retrieves the details of a product variation based on the supplied product code 
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
-+(MOZUClient*)clientForGetProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Retrieves a list of the product variations configured for the specified product code.
@@ -41,7 +41,7 @@ Retrieves a list of the product variations configured for the specified product 
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -63,7 +63,7 @@ Modifies the collection of variations for the specified product code. Because th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection*)body productCode:(NSString*)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Modifies the details of a variation, based on the supplied variation key, for the specified product code.
@@ -72,7 +72,7 @@ Modifies the details of a variation, based on the supplied variation key, for th
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
-+(MOZUClient*)clientForUpdateProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation*)body productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation*)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -87,7 +87,7 @@ Deletes a variation, based on the supplied variation key, for the specified prod
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
-+(MOZUClient*)clientForDeleteProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString*)productCode variationKey:(NSString*)variationKey userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForDeleteProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 

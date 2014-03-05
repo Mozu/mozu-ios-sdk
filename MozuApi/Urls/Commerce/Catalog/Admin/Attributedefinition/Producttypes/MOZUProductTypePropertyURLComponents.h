@@ -28,7 +28,7 @@ Resource Url Components for getProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForGetPropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForGetPropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for updateProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForUpdatePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForUpdatePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -69,7 +69,7 @@ Resource Url Components for deleteProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForDeletePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString*)attributeFQN;
++(MOZUURLComponents*)URLComponentsForDeletePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 

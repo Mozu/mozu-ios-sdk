@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetCreditsOperationWithStartIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter {
++(MOZUURLComponents*)URLComponentsForGetCreditsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/commerce/customer/credits/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
@@ -29,7 +29,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetCreditOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForGetCreditOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/customer/credits/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
@@ -59,7 +59,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateCreditOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForUpdateCreditOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/customer/credits/{code}";
 	NSDictionary* params = @{
 		@"code" : code,
@@ -68,7 +68,7 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForAssociateCreditToShopperOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForAssociateCreditToShopperOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/customer/credits/{code}/associate-to-shopper";
 	NSDictionary* params = @{
 		@"code" : code,
@@ -84,7 +84,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteCreditOperationWithCode:(NSString*)code {
++(MOZUURLComponents*)URLComponentsForDeleteCreditOperationWithCode:(NSString *)code {
 	NSString* template = @"/api/commerce/customer/credits/{code}";
 	NSDictionary* params = @{
 		@"code" : code,

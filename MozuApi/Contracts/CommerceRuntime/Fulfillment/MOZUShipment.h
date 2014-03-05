@@ -27,17 +27,17 @@
 /**
 Total cost of shipping the shipment to the shopper.
 */
-@property(nonatomic) NSDecimalNumber* cost;
+@property(nonatomic) NSNumber * cost;
 
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString* currencyCode;
+@property(nonatomic) NSString * currencyCode;
 
 /**
 Unique identifier of the shipment.
 */
-@property(nonatomic) NSString* id;
+@property(nonatomic) NSString * id;
 
 /**
 Array list of identifiers that represent the packages in this shipment.
@@ -47,17 +47,17 @@ Array list of identifiers that represent the packages in this shipment.
 /**
 Code that identifies the service type method used to perform the shipment, such as UPS_GROUND.
 */
-@property(nonatomic) NSString* shippingMethodCode;
+@property(nonatomic) NSString * shippingMethodCode;
 
 /**
 If true, a shopper signature is required to deliver this shipment.
 */
-@property(nonatomic) NSNumber* signatureRequired;
+@property(nonatomic) NSNumber * signatureRequired;
 
 /**
 The shipping tracking number supplied by the shipping provider to track the shipment.
 */
-@property(nonatomic) NSString* trackingNumber;
+@property(nonatomic) NSString * trackingNumber;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

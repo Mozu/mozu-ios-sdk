@@ -27,7 +27,7 @@
 /**
 The type of application, which is "Capability" or "Extension."
 */
-@property(nonatomic) NSString* applicationType;
+@property(nonatomic) NSString * applicationType;
 
 /**
 Unique identifier of the application. The application ID is required to generate an authentication ticket.
@@ -37,7 +37,7 @@ Unique identifier of the application. The application ID is required to generate
 /**
 The name of the application.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

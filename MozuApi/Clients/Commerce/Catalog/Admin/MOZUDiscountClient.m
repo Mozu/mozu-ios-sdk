@@ -24,7 +24,7 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber*)startIndex pageSize:(NSNumber*)pageSize sortBy:(NSString*)sortBy filter:(NSString*)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForGetDiscountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -192,7 +192,7 @@
 	return client;
 }
 
-+(MOZUClient*)clientForUnRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber*)discountId orderNumber:(NSNumber*)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims {
++(MOZUClient*)clientForUnRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForUnRedeemDiscountOperationWithDiscountId:discountId orderNumber:orderNumber];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

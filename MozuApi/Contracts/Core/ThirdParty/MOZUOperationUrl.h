@@ -25,12 +25,12 @@
 /**
 The name of the URL endpoint.
 */
-@property(nonatomic) NSString* name;
+@property(nonatomic) NSString * name;
 
 /**
 The URL endpoint address.
 */
-@property(nonatomic) NSString* url;
+@property(nonatomic) NSString * url;
 
 @end
 

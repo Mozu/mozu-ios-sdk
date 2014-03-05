@@ -28,12 +28,12 @@
 /**
 If true, the target discount applies to all products sold on the site, regardless of product category.
 */
-@property(nonatomic) NSNumber* includeAllProducts;
+@property(nonatomic) NSNumber * includeAllProducts;
 
 /**
 Properties of the object to which this discount is targeted, which can be Product or Shipping. If the discount type is Product, the target properties describe the product or product categories to which the discount applies. If the discount type is Shipping, the target properties describe the shipping methods eligible for the discount.
 */
-@property(nonatomic) NSString* type;
+@property(nonatomic) NSString * type;
 
 /**
 The product categories to which the discount can apply. When a discount applies to a category, all products in the category are eligible for the discount.

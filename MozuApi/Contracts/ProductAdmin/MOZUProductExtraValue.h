@@ -27,17 +27,17 @@
 /**
 The difference between the weight associated with this product extra and the base product. For example, if a product with a monogram weighs an extra 1/4 lb, the DeltaWeight value is "0.25".
 */
-@property(nonatomic) NSDecimalNumber* deltaWeight;
+@property(nonatomic) NSNumber * deltaWeight;
 
 /**
 If true, the value for the product extra is selected by default. Shopper entered extras cannot be defaulted.
 */
-@property(nonatomic) NSNumber* isDefaulted;
+@property(nonatomic) NSNumber * isDefaulted;
 
 /**
 Properties of a defined value for a product extra attribute.
 */
-@property(nonatomic) id value;
+@property(nonatomic) NSObject * value;
 
 /**
 Detail of the product extra attribute vocabulary value.

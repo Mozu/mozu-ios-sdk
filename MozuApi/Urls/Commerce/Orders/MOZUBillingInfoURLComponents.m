@@ -17,7 +17,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetBillingInfoOperationWithOrderId:(NSString*)orderId draft:(NSNumber*)draft {
++(MOZUURLComponents*)URLComponentsForGetBillingInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
 	NSString* template = @"/api/commerce/orders/{orderId}/billinginfo?draft={draft}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,
@@ -41,7 +41,7 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForSetBillingInfoOperationWithOrderId:(NSString*)orderId updateMode:(NSString*)updateMode version:(NSString*)version {
++(MOZUURLComponents*)URLComponentsForSetBillingInfoOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
 	NSString* template = @"/api/commerce/orders/{orderId}/billinginfo?updatemode={updateMode}&version={version}";
 	NSDictionary* params = @{
 		@"orderId" : orderId,

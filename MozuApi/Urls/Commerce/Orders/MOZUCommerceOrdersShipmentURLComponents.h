@@ -22,13 +22,13 @@ Resource Url Components for getShipment
 @param orderId Unique identifier of the order associated with the shipment to retrieve.
 @param shipmentId Unique identifier of the shipment to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId;
++(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;
 
 /**
 Resource Url Components for getAvailableShipmentMethods
 @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 */
-+(MOZUURLComponents*)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId;
 
 
 //
@@ -41,7 +41,7 @@ Resource Url Components for getAvailableShipmentMethods
 Resource Url Components for createPackageShipments
 @param orderId Unique identifier of the order for this shipment.
 */
-+(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithOrderId:(NSString*)orderId;
++(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithOrderId:(NSString *)orderId;
 
 
 //
@@ -62,7 +62,7 @@ Resource Url Components for deleteShipment
 @param orderId Unique identifier of the order to cancel shipment.
 @param shipmentId Unique identifier of the shipment to cancel.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithOrderId:(NSString*)orderId shipmentId:(NSString*)shipmentId;
++(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;
 
 
 
