@@ -1,0 +1,18 @@
+{
+   "value":[
+            {
+               "categoryId":24
+            },
+            {
+               "categoryId":25
+            }
+         ],
+   "attributeVocabularyValueDetail":{
+      "valueSequence":1,
+      "value":"24hrs",
+      "content":{
+         "localeCode":"en-US",
+         "stringValue":"Usually Ships in 24 Hours"
+      }
+   }
+}

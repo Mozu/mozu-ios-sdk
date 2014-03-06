@@ -18,6 +18,7 @@
 		0411D7BD18B5267D00CFFA81 /* MozuiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0411D7BC18B5267D00CFFA81 /* MozuiOSTests.m */; };
 		0411D7D218B5514800CFFA81 /* MOZUApiErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0411D7D018B5514800CFFA81 /* MOZUApiErrorTests.m */; };
 		0411D7D318B5514800CFFA81 /* MozuApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0411D7D118B5514800CFFA81 /* MozuApiTests.m */; };
+		04C3DE8818C9116400EAA6AC /* MOZUAdminProductPropertyValue.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04C3DE8718C9116400EAA6AC /* MOZUAdminProductPropertyValue.txt */; };
 		42CED4694B474137BB0B8236 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22868D7ADB114DA3B8E071AC /* libPods.a */; };
 		6418EED618B7FA2400E28328 /* ApiError1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6418EED518B7FA2400E28328 /* ApiError1.txt */; };
 		6418EED818B816BB00E28328 /* ApiError2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6418EED718B816BB00E28328 /* ApiError2.txt */; };
@@ -60,6 +61,7 @@
 		0411D7BC18B5267D00CFFA81 /* MozuiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MozuiOSTests.m; sourceTree = "<group>"; };
 		0411D7D018B5514800CFFA81 /* MOZUApiErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOZUApiErrorTests.m; path = ../../MozuApiTests/MOZUApiErrorTests.m; sourceTree = "<group>"; };
 		0411D7D118B5514800CFFA81 /* MozuApiTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MozuApiTests.m; path = ../../MozuApiTests/MozuApiTests.m; sourceTree = "<group>"; };
+		04C3DE8718C9116400EAA6AC /* MOZUAdminProductPropertyValue.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MOZUAdminProductPropertyValue.txt; sourceTree = "<group>"; };
 		22868D7ADB114DA3B8E071AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6418EED518B7FA2400E28328 /* ApiError1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ApiError1.txt; sourceTree = "<group>"; };
 		6418EED718B816BB00E28328 /* ApiError2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ApiError2.txt; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				0411D7D018B5514800CFFA81 /* MOZUApiErrorTests.m */,
 				0411D7B718B5267D00CFFA81 /* Supporting Files */,
 				6418EED518B7FA2400E28328 /* ApiError1.txt */,
+				04C3DE8718C9116400EAA6AC /* MOZUAdminProductPropertyValue.txt */,
 				6418EED718B816BB00E28328 /* ApiError2.txt */,
 			);
 			path = MozuiOSTests;
@@ -235,6 +238,7 @@
 			files = (
 				6418EED618B7FA2400E28328 /* ApiError1.txt in Resources */,
 				6418EED818B816BB00E28328 /* ApiError2.txt in Resources */,
+				04C3DE8818C9116400EAA6AC /* MOZUAdminProductPropertyValue.txt in Resources */,
 				0411D7BB18B5267D00CFFA81 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
