@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <Foundation/Foundation.h>
 #import "DDLog.h"
-#import "MOZUApiError.h"
+#import "MOZUAPIError.h"
 
 @interface MOZUApiErrorTests : XCTestCase
 
@@ -123,7 +123,7 @@ NSString* jsonStr = @"{ \
 
     NSString *jsonStr = [self loadFile:@"ApiError1.txt"];
     //NSError *error = nil;
-    MOZUApiError* apiError = [[MOZUApiError alloc] initWithString:jsonStr statusCode:200];
+    MOZUAPIError* apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200];
     DDLogError(@"%@", apiError.localizedDescription);
     XCTAssertNotNil(apiError, @"failed to parse MOZUApiError");
     //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
@@ -133,7 +133,7 @@ NSString* jsonStr = @"{ \
 {
     NSString *jsonStr = [self loadFile:@"ApiError2.txt"];
     //NSError *error = nil;
-    MOZUApiError* apiError = [[MOZUApiError alloc] initWithString:jsonStr statusCode:200];
+    MOZUAPIError* apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200];
     DDLogError(@"%@", apiError.localizedDescription);
     XCTAssertNotNil(apiError, @"failed to parse MOZUApiError");
 }

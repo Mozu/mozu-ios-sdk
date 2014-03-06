@@ -43,11 +43,11 @@ Retrieves a list of transactions associated with the customer account specified 
 @param accountId Unique identifier of the customer account for which to retrieve transactions.
 */
 
--(void)transactionsWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTransaction>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)transactionsWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTransaction>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUTransactionClient clientForGetTransactionsOperationWithAccountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -67,11 +67,11 @@ Creates a new transaction for the customer account specified in the request.
 @param accountId Unique identifier of the customer account.
 */
 
--(void)addTransactionWithBody:(MOZUTransaction*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTransaction* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addTransactionWithBody:(MOZUTransaction*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTransaction* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUTransactionClient clientForAddTransactionOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -98,11 +98,11 @@ Deletes a transaction from the customer account specified in the request.
 @param transactionId Unique identifier of the transaction to delete.
 */
 
--(void)removeTransactionWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)removeTransactionWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUTransactionClient clientForRemoveTransactionOperationWithAccountId:accountId transactionId:transactionId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
 		}

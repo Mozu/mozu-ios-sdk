@@ -47,11 +47,11 @@ Retrieve a list of customer groups associated with the customer account.
 @param startIndex 
 */
 
--(void)accountGroupsWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroupCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)accountGroupsWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroupCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAccountsCustomerGroupClient clientForGetAccountGroupsOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -64,11 +64,11 @@ Retrieves details of a customer account in a group.
 @param groupId Unique identifier of the customer group.
 */
 
--(void)accountGroupWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)accountGroupWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAccountsCustomerGroupClient clientForGetAccountGroupOperationWithAccountId:accountId groupId:groupId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -88,11 +88,11 @@ Adds a customer account to a group.
 @param groupId Unique identifier of the customer group to add the customer to.
 */
 
--(void)addAccountGroupWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addAccountGroupWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerGroup* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAccountsCustomerGroupClient clientForAddAccountGroupOperationWithAccountId:accountId groupId:groupId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -119,11 +119,11 @@ Removes a customer account from a group.
 @param groupId Unique identifier of the customer group.
 */
 
--(void)deleteAccountGroupWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteAccountGroupWithAccountId:(NSInteger)accountId groupId:(NSInteger)groupId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAccountsCustomerGroupClient clientForDeleteAccountGroupOperationWithAccountId:accountId groupId:groupId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
 		}

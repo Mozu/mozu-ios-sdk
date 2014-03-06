@@ -34,10 +34,10 @@ Generate an authentication ticket for an application.
 @param body Authentication information required to generate an authentication ticket includes the application id and the shared secret.
 */
 
--(void)authenticateAppWithBody:(MOZUAppAuthInfo*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)authenticateAppWithBody:(MOZUAppAuthInfo*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAuthTicketClient clientForAuthenticateAppOperationWithBody:body];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -56,10 +56,10 @@ Refreshes the application's authentication ticket and generates a new access tok
 @param body The refresh token string required to update the application authentication ticket.
 */
 
--(void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest*)body completionHandler:(void(^)(MOZUAuthTicket* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAuthTicketClient clientForRefreshAppAuthTicketOperationWithBody:body];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -78,10 +78,10 @@ Deletes an authentication for an application based on the specified refresh toke
 @param refreshToken The refresh token string from the application's authentication ticket.
 */
 
--(void)deleteAppAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteAppAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAuthTicketClient clientForDeleteAppAuthTicketOperationWithRefreshToken:refreshToken];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
 		}

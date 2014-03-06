@@ -1,5 +1,5 @@
 //
-//  MOZUApiError.h
+//  MOZUAPIError.h
 //  MozuApi
 //
 //  Created by Kevin Wright on 10/29/13.
@@ -56,10 +56,10 @@
 
 @end
 
-@protocol MOZUApiError
+@protocol MOZUAPIError
 @end
 
-@interface MOZUApiError : NSError <MOZUApiError>
+@interface MOZUAPIError : NSError <MOZUAPIError>
 @property (nonatomic, readonly) NSString *message;
 @property (nonatomic, readonly) NSString *applicationName;
 @property (nonatomic, readonly) NSString *errorCode;

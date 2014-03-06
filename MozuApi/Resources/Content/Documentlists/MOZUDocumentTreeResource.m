@@ -44,11 +44,11 @@ Retrieves a document based on its document list and folder path in the document 
 @param documentName The name of the document, which is unique within its folder.
 */
 
--(void)treeDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)treeDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTreeClient clientForGetTreeDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -61,11 +61,11 @@ Retrieve the content associated with the document, such as a product image or PD
 @param documentName The name of the document, which is unique within its folder.
 */
 
--(void)treeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream * result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)treeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream * result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTreeClient clientForGetTreeDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -93,11 +93,11 @@ Updates the content associated with a document, such as a product image or PDF s
 @param documentName The name of the document, which is unique within its folder.
 */
 
--(void)updateTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTreeClient clientForUpdateTreeDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -118,11 +118,11 @@ Deletes the content associated with a document, such as a product image or PDF s
 @param documentName The name of the document, which is unique within its folder.
 */
 
--(void)deleteTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTreeClient clientForDeleteTreeDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentName:documentName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
 		}

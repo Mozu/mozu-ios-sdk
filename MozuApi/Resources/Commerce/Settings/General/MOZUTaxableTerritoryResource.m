@@ -42,11 +42,11 @@
 Retrieves a list of the taxable territories configured for the site.
 */
 
--(void)taxableTerritoriesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)taxableTerritoriesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUTaxableTerritoryClient clientForGetTaxableTerritoriesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -65,11 +65,11 @@ Creates a new territory for which to calculate sales tax.
 @param body Properties of the taxable territory to create.
 */
 
--(void)addTaxableTerritoryWithBody:(MOZUTaxableTerritory*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTaxableTerritory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addTaxableTerritoryWithBody:(MOZUTaxableTerritory*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTaxableTerritory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUTaxableTerritoryClient clientForAddTaxableTerritoryOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -88,11 +88,11 @@ Updates one or more taxable territories configured for a site.
 @param body Properties of the taxable territories to update.
 */
 
--(void)updateTaxableTerritoriesWithBody:(NSArray<MOZUTaxableTerritory>*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateTaxableTerritoriesWithBody:(NSArray<MOZUTaxableTerritory>*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUTaxableTerritoryClient clientForUpdateTaxableTerritoriesOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

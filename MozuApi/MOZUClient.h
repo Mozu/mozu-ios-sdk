@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUApiError.h"
+#import "MOZUAPIError.h"
 #import "MOZUAPIContext.h"
 #import "MOZUUserAuthenticator.h"
 #import "MOZUURLComponents.h"
@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, MOZUClientError)
 };
 
 
-typedef void(^MOZUClientCompletionBlock)(id result, MOZUApiError* error, NSHTTPURLResponse* response);
+typedef void(^MOZUClientCompletionBlock)(id result, MOZUAPIError* error, NSHTTPURLResponse* response);
 typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 
 @interface MOZUClient : NSObject
@@ -33,7 +33,7 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 @property (nonatomic, readonly) NSString* JSONResult;
 @property (nonatomic, readonly) id result; // Is this needed?
 @property (nonatomic, readonly) NSInteger statusCode;
-@property (nonatomic, readonly) MOZUApiError* error;
+@property (nonatomic, readonly) MOZUAPIError* error;
 @property (nonatomic, readonly) NSDictionary* headers;
 
 @property (nonatomic, strong) MOZUUserAuthTicket * userClaims;

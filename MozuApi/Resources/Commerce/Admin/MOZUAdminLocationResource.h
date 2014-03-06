@@ -39,14 +39,14 @@ Retrieves a list of all locations associated with a tenant, according to any fil
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)locationsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)locationsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocationCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieves the details of the location specified in the request by location code.
 @param locationCode The merchant-defined code of the location to retrieve.
 */
 
--(void)locationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)locationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -60,7 +60,7 @@ Creates a new physical location for the tenant specified in the request header.
 @param body Properties of the location to create.
 */
 
--(void)addLocationWithBody:(MOZULocation*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addLocationWithBody:(MOZULocation*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -75,7 +75,7 @@ Updates one or more details of a the location specified in the request by locati
 @param locationCode The merchant-defined code associated with the location to update.
 */
 
--(void)updateLocationWithBody:(MOZULocation*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateLocationWithBody:(MOZULocation*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZULocation* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -89,7 +89,7 @@ Deletes the location specified in the request.
 @param locationCode The merchant-defined code of the location to delete.
 */
 
--(void)deleteLocationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteLocationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUAuthTicket.h"
-#import "MOZUApiError.h"
+#import "MOZUAPIError.h"
 
 @class MozuUserAuthInfo;
 @class MOZUUserProfile;
@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
 
 @end
 
-typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse* response, MOZUApiError* error);
+typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse* response, MOZUAPIError* error);
 
 @interface MOZUUserAuthTicket : MOZUAuthTicket
 

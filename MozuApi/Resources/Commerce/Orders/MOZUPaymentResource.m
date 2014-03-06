@@ -43,11 +43,11 @@ Retrieves information about all payment transactions submitted for the specified
 @param orderId Unique identifier of the order.
 */
 
--(void)paymentsWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPaymentCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)paymentsWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPaymentCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUPaymentClient clientForGetPaymentsOperationWithOrderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -60,11 +60,11 @@ Retrieves information about a specific payment transaction submitted for the spe
 @param paymentId Unique identifier of the payment transaction submitted for the order.
 */
 
--(void)paymentWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPayment* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)paymentWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPayment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUPaymentClient clientForGetPaymentOperationWithOrderId:orderId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -77,11 +77,11 @@ Retrieves the list of all available payment actions dependent on the order payme
 @param paymentId Unique identifer of the payment for which to retrieve available actions.
 */
 
--(void)availablePaymentActionsWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)availablePaymentActionsWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUPaymentClient clientForGetAvailablePaymentActionsOperationWithOrderId:orderId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -102,11 +102,11 @@ Performs the specified action for an individual order payment transaction.
 @param paymentId Unique identifer of the payment for which to perform the action.
 */
 
--(void)performPaymentActionWithBody:(MOZUPaymentAction*)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)performPaymentActionWithBody:(MOZUPaymentAction*)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUPaymentClient clientForPerformPaymentActionOperationWithBody:body orderId:orderId paymentId:paymentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -119,11 +119,11 @@ Creates a new payment transaction for the specified order and performs the speci
 @param orderId Unique identifier of the order for which to apply the payment.
 */
 
--(void)createPaymentActionWithBody:(MOZUPaymentAction*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createPaymentActionWithBody:(MOZUPaymentAction*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUPaymentClient clientForCreatePaymentActionOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

@@ -42,11 +42,11 @@
 Retrieves a list of the shipping settings configured for a site.
 */
 
--(void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

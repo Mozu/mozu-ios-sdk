@@ -46,11 +46,11 @@ Retrieves a list of categories according to any specified filter criteria and so
 @param startIndex 
 */
 
--(void)categoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategoryPagedCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)categoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategoryPagedCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminCategoryClient clientForGetCategoriesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -62,11 +62,11 @@ Retrieves the details of a single category.
 @param categoryId Unique identifier of the category to retrieve.
 */
 
--(void)categoryWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)categoryWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminCategoryClient clientForGetCategoryOperationWithDataViewMode:dataViewMode categoryId:categoryId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -78,11 +78,11 @@ Retrieves the list of subcategories within a category.
 @param categoryId Unique identifier of the category for which to retrieve subcategories.
 */
 
--(void)childCategoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)childCategoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategoryCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminCategoryClient clientForGetChildCategoriesOperationWithDataViewMode:dataViewMode categoryId:categoryId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -101,11 +101,11 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 @param body Properties of the new category to create. You must specify a name and parent category if you want to create it as a subcategory.
 */
 
--(void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminCategoryClient clientForAddCategoryOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -126,11 +126,11 @@ Update the properties of a defined category or move it to another location in th
 @param categoryId Unique identifier of the category to modify.
 */
 
--(void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminCategoryClient clientForUpdateCategoryOperationWithDataViewMode:dataViewMode body:body categoryId:categoryId cascadeVisibility:cascadeVisibility userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -150,11 +150,11 @@ Deletes the category specified by its category ID.
 @param categoryId Unique identifier of the category to delete.
 */
 
--(void)deleteCategoryByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteCategoryByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUAdminCategoryClient clientForDeleteCategoryByIdOperationWithDataViewMode:dataViewMode categoryId:categoryId cascadeDelete:cascadeDelete userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
 		}

@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class MOZUApiError;
+@class MOZUAPIError;
 @class MOZUAppAuthInfo;
 @class MOZUAuthTicket;
 @class MOZURefreshInterval;
 
-typedef void(^MOZUAppAuthenticationCompletionBlock)(NSHTTPURLResponse* response, MOZUApiError* error);
+typedef void(^MOZUAppAuthenticationCompletionBlock)(NSHTTPURLResponse* response, MOZUAPIError* error);
 
 @interface MOZUAppAuthenticator : NSObject
 

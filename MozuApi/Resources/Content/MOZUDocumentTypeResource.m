@@ -44,11 +44,11 @@
 @param startIndex 
 */
 
--(void)documentTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentTypeCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)documentTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentTypeCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTypeClient clientForGetDocumentTypesOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -60,11 +60,11 @@
 @param documentTypeName 
 */
 
--(void)documentTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)documentTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDocumentTypeClient clientForGetDocumentTypeOperationWithDataViewMode:dataViewMode documentTypeName:documentTypeName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

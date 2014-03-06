@@ -81,8 +81,8 @@
     NSString *dataViewModeString = [@(MOZULive) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
-        [client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        [client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
                 XCTAssertNotNil(result, @"Tenant nil with no error.");
@@ -131,8 +131,8 @@
 //                                 completionHandler:^(MOZUAdminProductCollection *result, MOZUApiError *error, NSHTTPURLResponse *response) {
 //                                     
 //                                 }];
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
-        [adminProductResource productWithDataViewMode:MOZULive productCode:@"1001" userClaims:nil completionHandler:^(MOZUAdminProduct *result, MOZUApiError *error, NSHTTPURLResponse *response) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        [adminProductResource productWithDataViewMode:MOZULive productCode:@"1001" userClaims:nil completionHandler:^(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
                 XCTAssertNotNil(result, @"Tenant nil with no error.");
@@ -162,13 +162,13 @@
 
     MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:host useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:host useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (error) {
             DDLogError(@"%@", error.localizedDescription);
             XCTAssertNil(response, @"Resource not nill but had error.");
             self.waitingForBlock = NO;
         } else {
-            [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUApiError *error, NSHTTPURLResponse *response) {
+            [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (error) {
                     DDLogError(@"%@", error.localizedDescription);
                     XCTAssertNil(result, @"Tenant not nill but had error.");
@@ -184,13 +184,6 @@
     }];
 
     [self waitForBlock];
-}
-
-- (void)testTenantUrl
-{
-    MOZUURLComponents* components = [MOZUTenantURLComponents URLComponentsForGetTenantOperationWithTenantId:257];
-    DDLogDebug(@"url = %@", components.URL);
-
 }
 
 @end

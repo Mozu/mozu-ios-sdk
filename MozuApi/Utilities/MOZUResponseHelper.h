@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MOZUApiError.h"
+#import "MOZUAPIError.h"
 
 @interface MOZUResponseHelper : NSObject
-+ (MOZUApiError *)ensureSuccessOfResponse:(NSHTTPURLResponse *)response JSONResult:(NSString *)JSON error:(NSError *)error;
++ (MOZUAPIError *)ensureSuccessOfResponse:(NSHTTPURLResponse *)response JSONResult:(NSString *)JSON error:(NSError *)error;
 @end

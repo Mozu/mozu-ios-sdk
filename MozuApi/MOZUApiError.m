@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Volusion. All rights reserved.
 //
 
-#import "MOZUApiError.h"
+#import "MOZUAPIError.h"
 #import "MOZUAPILogger.h"
 
 @implementation MOZUApiExceptionDetail
@@ -83,7 +83,7 @@
 
 @end
 
-@implementation MOZUApiError
+@implementation MOZUAPIError
 
 static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
 

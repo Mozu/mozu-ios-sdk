@@ -8,13 +8,13 @@
 
 #import "MOZUUserAuthenticator.h"
 #import "MOZUAppAuthenticator.h"
-#import "MOZUApiError.h"
+#import "MOZUAPIError.h"
 #import "MOZUResponseHelper.h"
 
 @implementation MOZUUserAuthenticator
 
 + (void)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope completionHandler:(MOZUUserAuthenticationCompletionBlock)completion {
-    return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:@(scope.id) completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUApiError *error) {
+    return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:@(scope.id) completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         completion(profile, response, error);
     }];
 }
@@ -22,7 +22,7 @@
 + (void)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket completionHandler:(MOZUUserAuthenticationCompletionBlock)completion {
     NSDate* refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:userAuthTicket.accessTokenExpiration];
     if ([[NSDate date] compare:refreshTime] == NSOrderedDescending) {
-        return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:nil completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUApiError *error) {
+        return [MOZUUserAuthenticator refreshWithUserAuthTicket:userAuthTicket id:nil completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
             completion(profile, response, error);
         }];
     }
@@ -45,7 +45,7 @@
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
+                                                    MOZUAPIError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                     
                                                     authProfile = [[self class] setUserAuthWithJsonData:json andUserScope:userAuthTicket.scope];
                                                     completion(authProfile, httpResponse, apiError);

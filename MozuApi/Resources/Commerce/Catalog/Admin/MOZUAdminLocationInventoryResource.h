@@ -38,7 +38,7 @@ Retrieves the details of a product's active inventory at the location specified 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)locationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminLocationInventory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)locationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminLocationInventory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieves a list of all product inventory definitions for the location code specified in the request.
@@ -49,7 +49,7 @@ Retrieves a list of all product inventory definitions for the location code spec
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)locationInventoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminLocationInventoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)locationInventoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminLocationInventoryCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -64,7 +64,7 @@ Creates an array of product inventory definitions for the location specified in 
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
--(void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -79,7 +79,7 @@ Updates the active stock on hand inventory of products for the location code spe
 @param locationCode User-defined code that uniquely identifies the location.
 */
 
--(void)updateLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -94,7 +94,7 @@ Deletes the product code inventory definition for the location specified in the 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)deleteLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 

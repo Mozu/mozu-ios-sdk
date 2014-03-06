@@ -43,11 +43,11 @@ Retrieves a list of all notes for an order.
 @param orderId Unique identifier of the order.
 */
 
--(void)orderNotesWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderNote>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)orderNotesWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUOrderNote>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderNoteClient clientForGetOrderNotesOperationWithOrderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -60,11 +60,11 @@ Retrieves the details of a specific order note.
 @param orderId Unique identifier of the order associated with the note.
 */
 
--(void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderNoteClient clientForGetOrderNoteOperationWithOrderId:orderId noteId:noteId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -84,11 +84,11 @@ Creates a new merchant note for the specified order.
 @param orderId Unique identifier of the order for which to add a note.
 */
 
--(void)createOrderNoteWithBody:(MOZUOrderNote*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createOrderNoteWithBody:(MOZUOrderNote*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderNoteClient clientForCreateOrderNoteOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -109,11 +109,11 @@ Updates a specific note for an order.
 @param orderId Unique identifier of the order.
 */
 
--(void)updateOrderNoteWithBody:(MOZUOrderNote*)body orderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateOrderNoteWithBody:(MOZUOrderNote*)body orderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrderNote* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderNoteClient clientForUpdateOrderNoteOperationWithBody:body orderId:orderId noteId:noteId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -133,11 +133,11 @@ Deletes the specified order note.
 @param orderId Unique identifier of the order associated with the note.
 */
 
--(void)deleteOrderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteOrderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUOrderNoteClient clientForDeleteOrderNoteOperationWithOrderId:orderId noteId:noteId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
 		}

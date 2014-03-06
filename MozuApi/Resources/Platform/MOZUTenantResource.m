@@ -28,7 +28,7 @@ Retrieve details about a specific tenant by providing the tenant ID.
 @param tenantId Unique identifier of the Mozu tenant.
 */
 
--(void)tenantWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)tenantWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenant* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	NSString* cacheKey = [@(tenantId) stringValue];
 	id tenant = [MOZUCacheManager getCacheForKey:cacheKey];
@@ -38,7 +38,7 @@ Retrieve details about a specific tenant by providing the tenant ID.
 	}
 
 	MOZUClient * client = [MOZUTenantClient clientForGetTenantOperationWithTenantId:tenantId userClaims:userClaims];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		NSString* key = [@(tenantId) stringValue];
 		[MOZUCacheManager setCache:result forKey:key];
 

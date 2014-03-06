@@ -27,10 +27,10 @@ Retrieves a specific address schema based on the country code provided. This ope
 @param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 
--(void)addressSchemaWithCountryCode:(NSString *)countryCode completionHandler:(void(^)(MOZUAddressSchema* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addressSchemaWithCountryCode:(NSString *)countryCode completionHandler:(void(^)(MOZUAddressSchema* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetAddressSchemaOperationWithCountryCode:countryCode];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -41,10 +41,10 @@ Retrieves a specific address schema based on the country code provided. This ope
 Retrieves the entire list of address schemas that the system supports.
 */
 
--(void)addressSchemasWithCompletionHandler:(void(^)(MOZUAddressSchemaCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addressSchemasWithCompletionHandler:(void(^)(MOZUAddressSchemaCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetAddressSchemasOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -56,10 +56,10 @@ Retrieves the details of a behavior based on the behavior ID specified in the re
 @param behaviorId Unique identifier of the behavior.
 */
 
--(void)behaviorWithBehaviorId:(NSInteger)behaviorId completionHandler:(void(^)(MOZUBehavior* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)behaviorWithBehaviorId:(NSInteger)behaviorId completionHandler:(void(^)(MOZUBehavior* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorOperationWithBehaviorId:behaviorId];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -70,10 +70,10 @@ Retrieves the details of a behavior based on the behavior ID specified in the re
 Retrieves the list of behavior categories.
 */
 
--(void)behaviorCategoriesWithCompletionHandler:(void(^)(MOZUBehaviorCategoryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)behaviorCategoriesWithCompletionHandler:(void(^)(MOZUBehaviorCategoryCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorCategoriesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -85,10 +85,10 @@ Retrieves the details of the behavior category specified in the request.
 @param categoryId Unique identifier of the behavior category.
 */
 
--(void)behaviorCategoryWithCategoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUBehaviorCategory* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)behaviorCategoryWithCategoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUBehaviorCategory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorCategoryOperationWithCategoryId:categoryId];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -100,10 +100,10 @@ Retrieves a list of application behaviors.
 @param userType The user type associated with the behaviors to retrieve.
 */
 
--(void)behaviorsWithUserType:(NSString *)userType completionHandler:(void(^)(MOZUBehaviorCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)behaviorsWithUserType:(NSString *)userType completionHandler:(void(^)(MOZUBehaviorCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetBehaviorsOperationWithUserType:userType];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -114,10 +114,10 @@ Retrieves a list of application behaviors.
 Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
 */
 
--(void)contentLocalesWithCompletionHandler:(void(^)(MOZUContentLocaleCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)contentLocalesWithCompletionHandler:(void(^)(MOZUContentLocaleCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetContentLocalesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -128,10 +128,10 @@ Retrieves the list of content locales the system supports. Content locales indic
 Retrieves the entire list of countries that the system supports.
 */
 
--(void)countriesWithCompletionHandler:(void(^)(MOZUCountryCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)countriesWithCompletionHandler:(void(^)(MOZUCountryCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetCountriesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -142,10 +142,10 @@ Retrieves the entire list of countries that the system supports.
 Retrieves the entire list of currencies that the system supports.
 */
 
--(void)currenciesWithCompletionHandler:(void(^)(MOZUCurrencyCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)currenciesWithCompletionHandler:(void(^)(MOZUCurrencyCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetCurrenciesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -156,10 +156,10 @@ Retrieves the entire list of currencies that the system supports.
 Retrieves the entire list of time zones that the system supports.
 */
 
--(void)timeZonesWithCompletionHandler:(void(^)(MOZUTimeZoneCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)timeZonesWithCompletionHandler:(void(^)(MOZUTimeZoneCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetTimeZonesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -170,10 +170,10 @@ Retrieves the entire list of time zones that the system supports.
 Retrieves the entire list of top-level internet domains that the system supports.
 */
 
--(void)topLevelDomainsWithCompletionHandler:(void(^)(MOZUTopLevelDomainCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)topLevelDomainsWithCompletionHandler:(void(^)(MOZUTopLevelDomainCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetTopLevelDomainsOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -185,10 +185,10 @@ Retrieves an array list of all units of measure the system supports.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
 
--(void)unitsOfMeasureWithFilter:(NSString *)filter completionHandler:(void(^)(MOZUUnitOfMeasureCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)unitsOfMeasureWithFilter:(NSString *)filter completionHandler:(void(^)(MOZUUnitOfMeasureCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUReferenceDataClient clientForGetUnitsOfMeasureOperationWithFilter:filter];
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

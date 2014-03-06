@@ -8,7 +8,7 @@
 
 #import "JSONModel.h"
 
-#import "MOZUApiError.h"
+#import "MOZUAPIError.h"
 #import "MOZUResponseHelper.h"
 #import "MOZUAppAuthenticator.h"
 #import "MOZUAppAuthInfo.h"
@@ -50,7 +50,7 @@
     _URLComponents.host = host;
     _URLComponents.scheme = useSSL ? @"https" : @"http";
     _refreshInterval = refreshInterval;
-    [self authenticateAppWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+    [self authenticateAppWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         completion(response, error);
     }];
 }
@@ -94,7 +94,7 @@
 
 - (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
                     completionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
-    [self ensureAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+    [self ensureAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [request setValue:self.authTicket.accessToken forHTTPHeaderField:MOZU_X_VOL_APP_CLAIMS];
         completion(response, error);
     }];
@@ -120,7 +120,7 @@
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
+                                                    MOZUAPIError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                     
                                                     self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
                                                     [self refreshIntervalsIncludingRefreshTokenExpiration:YES];
@@ -150,7 +150,7 @@
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
                                                     NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUApiError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
+                                                    MOZUAPIError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                     
                                                     self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
                                                     [self refreshIntervalsIncludingRefreshTokenExpiration:NO];
@@ -161,11 +161,11 @@
 
 - (void)ensureAuthTicketWithCompletionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
     if (!self.authTicket || [[NSDate date] compare:self.refreshInterval.refreshTokenExpirationDate] == NSOrderedDescending) {
-        [self authenticateAppWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+        [self authenticateAppWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
             completion(response, error);
         }];
     } else if ([[NSDate date] compare:self.refreshInterval.accessTokenExpirationDate] == NSOrderedDescending) {
-        [self refreshAppAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+        [self refreshAppAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
             completion(response, error);
         }];
     } else {

@@ -41,27 +41,27 @@ Retrieves a list of discounts according to any specified filter criteria and sor
 @param startIndex 
 */
 
--(void)discountsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)discountsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieves the details of a single discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
--(void)discountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)discountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieves the localized content specified for the specified discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
--(void)discountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)discountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Generates a random code for a coupon.
 */
 
--(void)generateRandomCouponWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)generateRandomCouponWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -75,14 +75,14 @@ Creates a new discount or coupon to apply to a product, category, order, or ship
 @param body Properties of the discount to create. You must specify the discount name, amount type, start date, and target.
 */
 
--(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Redeems a discount configured in the product admin.
 @param body Properties of the product discount redemption.
 */
 
--(void)redeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURedemption* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)redeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURedemption* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -97,7 +97,7 @@ Updates one or more properties of a defined discount.
 @param discountId Unique identifier of the discount to update.
 */
 
--(void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
@@ -105,7 +105,7 @@ Updates the localizable content for the specified discount or rename the discoun
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
--(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountLocalizedContent* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -119,7 +119,7 @@ Deletes a discount specified by its discount ID.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
--(void)deleteDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Deletes a previous discount redemption from an order.
@@ -127,7 +127,7 @@ Deletes a previous discount redemption from an order.
 @param orderNumber The number of the order associated with the redeemed product discount.
 */
 
--(void)unRedeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)unRedeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 

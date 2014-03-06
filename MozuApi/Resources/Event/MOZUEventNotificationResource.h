@@ -34,14 +34,14 @@ Retrieves a list of events.
 @param startIndex 
 */
 
--(void)eventsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEventCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)eventsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEventCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieves an event by providing the event ID.
 @param eventId The unique identifier of the event being retrieved. An event is a notification about a create, read, update, or delete on an order, product, discount or category.
 */
 
--(void)eventWithEventId:(NSString *)eventId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEvent* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)eventWithEventId:(NSString *)eventId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEvent* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //

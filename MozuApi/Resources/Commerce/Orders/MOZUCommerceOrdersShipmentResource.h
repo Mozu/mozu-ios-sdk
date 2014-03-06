@@ -38,14 +38,14 @@ Retrieves the details of the order shipment specified in the request.
 @param shipmentId Unique identifier of the shipment to retrieve.
 */
 
--(void)shipmentWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUShipment* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)shipmentWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUShipment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 /**
 Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 */
 
--(void)availableShipmentMethodsWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUShippingRate>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)availableShipmentMethodsWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUShippingRate>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -60,7 +60,7 @@ Creates a shipment from one or more package associated with an order and assign 
 @param orderId Unique identifier of the order for this shipment.
 */
 
--(void)createPackageShipmentsWithBody:(NSString *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)createPackageShipmentsWithBody:(NSString *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -82,7 +82,7 @@ Deletes the shipment specified in the request.
 @param shipmentId Unique identifier of the shipment to cancel.
 */
 
--(void)deleteShipmentWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteShipmentWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 

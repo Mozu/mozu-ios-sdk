@@ -46,11 +46,11 @@ Retrieves a list of product types according to any specified filter criteria and
 @param startIndex 
 */
 
--(void)productTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductTypeCollection* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)productTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductTypeCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductTypeClient clientForGetProductTypesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -62,11 +62,11 @@ Retrieves the details of the product type specified in the request.
 @param productTypeId Identifier of the product type to retrieve.
 */
 
--(void)productTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)productTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductTypeClient clientForGetProductTypeOperationWithDataViewMode:dataViewMode productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -85,11 +85,11 @@ Creates a new product type based on the information supplied in the request.
 @param body Properties of the product type to create.
 */
 
--(void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductTypeClient clientForAddProductTypeOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -109,11 +109,11 @@ Updates one or more properties of a product type.
 @param productTypeId Identifier of the product type to update.
 */
 
--(void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType*)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType*)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductTypeClient clientForUpdateProductTypeOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -132,11 +132,11 @@ Deletes the product type by providing the product type ID.
 @param productTypeId Identifier of the product type to delete.
 */
 
--(void)deleteProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)deleteProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUProductTypeClient clientForDeleteProductTypeOperationWithDataViewMode:dataViewMode productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUApiError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(error, response);
 		}

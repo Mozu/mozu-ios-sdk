@@ -35,7 +35,7 @@ Retrieves the discount target, that is which products, categories, or shipping m
 @param discountId Unique identifier of the discount. System-supplied and read only.
 */
 
--(void)discountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountTarget* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)discountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountTarget* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //
@@ -57,7 +57,7 @@ Modifies properties of the discount target, for example, the dollar amount, or p
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
--(void)updateDiscountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountTarget* result, MOZUApiError* error, NSHTTPURLResponse* response))handler
+-(void)updateDiscountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountTarget* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 //

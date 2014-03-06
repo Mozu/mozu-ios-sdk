@@ -20,7 +20,7 @@
 @property(nonatomic, strong) NSString* JSONResult;
 @property(nonatomic, strong) id result; // Is this needed?
 @property(nonatomic, assign) NSInteger statusCode;
-@property(nonatomic, strong) MOZUApiError* error;
+@property(nonatomic, strong) MOZUAPIError* error;
 
 @property (nonatomic, strong) NSMutableDictionary *mutableHeaders;
 @property (nonatomic, strong) NSString *host;
@@ -90,7 +90,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
         // Logic missing from C#
     }
     
-    [MOZUUserAuthenticator ensureUserAuthTicket:userClaims completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUApiError *error) {
+    [MOZUUserAuthenticator ensureUserAuthTicket:userClaims completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile) {
             userClaims.accessToken = profile.authTicket.accessToken;
             userClaims.accessTokenExpiration = profile.authTicket.accessTokenExpiration;
@@ -138,7 +138,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
         
         if (APIContext.tenantHost.length == 0) {
             id tenantRes = [[MOZUTenantResource alloc] init];
-            [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant* result, MOZUApiError* error, NSHTTPURLResponse* response) {
+            [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant* result, MOZUAPIError* error, NSHTTPURLResponse* response) {
                 if (result) {
                     completion(result.domain, nil);
                 } else {
@@ -176,7 +176,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
     if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
         // Add MOZU_X_VOL_APP_CLAIMS to headers
         if (!self.context || !self.context.appAuthClaim || [self.context.appAuthClaim isEqualToString:@""]) {
-            [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUApiError *error) {
+            [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
                 if (error) {
                     DDLogError(@"%@", error.localizedDescription);
                     completion(error);
