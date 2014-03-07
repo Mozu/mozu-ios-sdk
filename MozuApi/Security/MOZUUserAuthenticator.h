@@ -12,6 +12,23 @@
 
 @class MozuUserAuthInfo;
 @class MOZUUserProfile;
+@class MOZUAuthenticationProfile;
+
+typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse* response, MOZUAPIError* error);
+
+typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
+    MOZUTenantAuthenticationScope,
+    MOZUShopperAuthenticationScope,
+    MOZUDeveloperAuthenticationScope
+};
+
+typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
+{
+    MOZUUserAuthenticatorBackgroundSessionConfiguration,
+    MOZUUserAuthenticatorDefaultSessionConfiguration,
+    MOZUUserAuthenticatorEphemeralSessionConfiguration
+};
+
 
 @interface MOZUScope : NSObject
 
@@ -19,12 +36,6 @@
 @property (nonatomic, strong) NSString* name;
 
 @end
-
-typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
-    MOZUTenantAuthenticationScope,
-    MOZUShopperAuthenticationScope,
-    MOZUDeveloperAuthenticationScope
-};
 
 @interface MOZUAuthenticationProfile : NSObject
 
@@ -35,16 +46,17 @@ typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
 
 @end
 
-typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse* response, MOZUAPIError* error);
-
 @interface MOZUUserAuthTicket : MOZUAuthTicket
 
 @property (nonatomic, assign) MOZUAuthenticationScope scope;
 
 @end
 
-
 @interface MOZUUserAuthenticator : NSObject
+
+@property (nonatomic, assign) MOZUUserAuthenticatorSessionConfiguration sessionConfiguration; // Default is MOZUUserAuthenticatorDefaultSessionConfiguration
+@property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUUserAuthenticatorBackgroundSessionIdentifier
+
 + (void)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
 + (void)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
 + (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket

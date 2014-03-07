@@ -32,6 +32,7 @@
 @end
 
 static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
+static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBackgroundSessionIdentifier";
 
 @implementation MOZUClient
 
@@ -42,6 +43,8 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
         _mutableHeaders = [NSMutableDictionary new];
         _dataViewModeMap = @{ [@(MOZULive) stringValue]: @"Live",
                              [@(MOZUPending) stringValue]: @"Pending"};
+        _backgroundSessionIdentifier = MOZUClientBackgroundSessionIdentifier;
+        _sessionConfiguration = MOZUClientDefaultSessionConfiguration;
     }
     
     return self;
@@ -68,15 +71,15 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
         [self setHeader:MOZU_X_VOL_TENANT value:[@(context.tenantId) description]];
     }
     
-    if (context.siteId != nil && [context.siteId intValue] > 0) {
+    if (context.siteId != nil && [context.siteId integerValue] > 0) {
         [self setHeader:MOZU_X_VOL_SITE value:[context.siteId stringValue]];
     }
     
-    if (context.masterCatalogId != nil && [context.masterCatalogId intValue] > 0) {
+    if (context.masterCatalogId != nil && [context.masterCatalogId integerValue] > 0) {
         [self setHeader:MOZU_X_VOL_MASTER_CATALOG value:[context.masterCatalogId stringValue]];
     }
     
-    if (context.catalogId != nil && [context.catalogId intValue] > 0)
+    if (context.catalogId != nil && [context.catalogId integerValue] > 0)
     {
         [self setHeader:MOZU_X_VOL_CATALOG value:[context.catalogId stringValue]];
     }
@@ -238,7 +241,7 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
     
     DDLogDebug(@"%@", request);
     DDLogDebug(@"%@", request.allHTTPHeaderFields);
-    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -255,6 +258,25 @@ static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
                                                 }];
     [dataTask resume];
     
+}
+
+- (NSURLSessionConfiguration *)sessionConfigurationFromEnum:(MOZUClientSessionConfiguration)configuration
+{
+    NSURLSessionConfiguration *sessionConfiguration = nil;
+    switch (configuration) {
+        case MOZUClientBackgroundSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration backgroundSessionConfiguration:self.backgroundSessionIdentifier];
+            break;
+        case MOZUClientDefaultSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+            break;
+        case MOZUClientEphemeralSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+            break;
+        default:
+            break;
+    }
+    return sessionConfiguration;
 }
 
 

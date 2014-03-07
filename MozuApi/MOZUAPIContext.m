@@ -50,7 +50,7 @@
         _masterCatalogId = masterCatalogId;
         _catalogId = catalogId;
         
-        if (masterCatalogId == nil && [tenant.masterCatalogs count] == 1) {
+        if (!masterCatalogId && tenant.masterCatalogs.count == 1) {
             MOZUTenantMasterCatalog* masterCatalog = [tenant.masterCatalogs firstObject];
             _masterCatalogId = @(masterCatalog.id);
             
@@ -79,20 +79,26 @@
 {
     self = [super init];
     if (self) {
-        _tenantId = [headers[MOZU_X_VOL_TENANT] intValue];
-        _siteId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_SITE] intValue]];
+        _tenantId = [headers[MOZU_X_VOL_TENANT] integerValue];
+        _siteId = @([headers[MOZU_X_VOL_SITE] integerValue]); // Converts string value to int value.
         _tenantHost = headers[MOZU_X_VOL_TENANT_DOMAIN];
         _siteHost = headers[MOZU_X_VOL_SITE_DOMAIN];
         _correlationId = headers[MOZU_X_VOL_CORRELATION];
         _hmacSHA256 = headers[MOZU_X_VOL_HMAC_SHA256];
-        _masterCatalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_MASTER_CATALOG] intValue]];
-        _catalogId = [NSNumber numberWithInt:[headers[MOZU_X_VOL_CATALOG] intValue]];
+        
+        if ([[headers allKeys] containsObject:MOZU_X_VOL_MASTER_CATALOG] && headers[MOZU_X_VOL_MASTER_CATALOG]) {
+            _masterCatalogId = @([headers[MOZU_X_VOL_MASTER_CATALOG] integerValue]);
+        }
+
+        if ([[headers allKeys] containsObject:MOZU_X_VOL_CATALOG] && headers[MOZU_X_VOL_CATALOG]) {
+            _catalogId = @([headers[MOZU_X_VOL_CATALOG] integerValue]);
+        }
     }
     return self;
 }
 
 -(void)updateBySite:(MOZUSite*)site {
-    if (site != nil && site.id >= 0) {
+    if (site && site.id >= 0) {
         self.siteId = @(site.id);
         self.siteHost = site.domain;
     }

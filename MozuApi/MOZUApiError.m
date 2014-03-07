@@ -1,5 +1,5 @@
  //
-//  MOZUApiError.m
+//  MOZUAPIError.m
 //  MozuApi
 //
 //  Created by Kevin Wright on 10/29/13.
@@ -9,7 +9,7 @@
 #import "MOZUAPIError.h"
 #import "MOZUAPILogger.h"
 
-@implementation MOZUApiExceptionDetail
+@implementation MOZUAPIExceptionDetail
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
 	return YES;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation MOZUApiApplicationErrorData
+@implementation MOZUAPIApplicationErrorData
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
 	return YES;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation MOZUApiErrorItem
+@implementation MOZUAPIErrorItem
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
 	return YES;
@@ -33,7 +33,7 @@
 
 @end
 
-@implementation MOZUApiAdditionalErrorData
+@implementation MOZUAPIAdditionalErrorData
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
 	return YES;
@@ -42,20 +42,20 @@
 @end
 
 // Private json model.
-@interface MOZUApiErrorPrivate : JSONModel
+@interface MOZUAPIErrorPrivate : JSONModel
 @property (nonatomic) NSString *message;
 @property (nonatomic) NSString *applicationName;
 @property (nonatomic) NSString *errorCode;
 @property (nonatomic) MOZUAPIContext *apiContext;
 @property (nonatomic) NSString *correlationId;
-@property (nonatomic) MOZUApiExceptionDetail *exceptionDetail;
-@property (nonatomic) NSArray<MOZUApiErrorItem> *items;
-@property (nonatomic) NSArray<MOZUApiAdditionalErrorData> *additionalErrorData;
+@property (nonatomic) MOZUAPIExceptionDetail *exceptionDetail;
+@property (nonatomic) NSArray<MOZUAPIErrorItem> *items;
+@property (nonatomic) NSArray<MOZUAPIAdditionalErrorData> *additionalErrorData;
 @property (nonatomic) NSInteger httpStatusCode;
 
 @end
 
-@implementation MOZUApiErrorPrivate
+@implementation MOZUAPIErrorPrivate
 
 -(id)initWithString:(NSString*)string error:(JSONModelError**)err
 {
@@ -90,7 +90,7 @@ static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
 - (instancetype)initWithString:(NSString*)JSONData statusCode:(NSInteger)statusCode
 {
     JSONModelError *jsonModelError = nil;
-    MOZUApiErrorPrivate* apiErrorPrivate = [[MOZUApiErrorPrivate alloc] initWithString:JSONData error:&jsonModelError];
+    MOZUAPIErrorPrivate* apiErrorPrivate = [[MOZUAPIErrorPrivate alloc] initWithString:JSONData error:&jsonModelError];
         NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:9];
     
     if (apiErrorPrivate) {

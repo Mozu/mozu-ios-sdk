@@ -6,11 +6,13 @@
 //  Copyright (c) 2014 Volusion. All rights reserved.
 //
 
-#ifndef MozuiOS_MOZUAPILogger_h
-#define MozuiOS_MOZUAPILogger_h
+#import <Foundation/Foundation.h>
+
+#ifndef MOZUiOS_MOZUAPILogger_h
+#define MOZUiOS_MOZUAPILogger_h
 
 #import "DDLog.h"
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+FOUNDATION_EXPORT const int ddLogLevel;
 
 #endif

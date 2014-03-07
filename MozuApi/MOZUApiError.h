@@ -10,10 +10,10 @@
 #import "JSONModel.h"
 #import "MOZUAPIContext.h"
 
-@protocol MOZUApiExceptionDetail
+@protocol MOZUAPIExceptionDetail
 @end
 
-@interface MOZUApiExceptionDetail : JSONModel <MOZUApiExceptionDetail>
+@interface MOZUAPIExceptionDetail : JSONModel <MOZUAPIExceptionDetail>
 
 @property (nonatomic) NSString *message;
 @property (nonatomic) NSString *source;
@@ -23,32 +23,32 @@
 
 @end
 
-@protocol MOZUApiApplicationErrorData
+@protocol MOZUAPIApplicationErrorData
 @end
 
-@interface MOZUApiApplicationErrorData : JSONModel <MOZUApiApplicationErrorData>
+@interface MOZUAPIApplicationErrorData : JSONModel <MOZUAPIApplicationErrorData>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *value;
 
 @end
 
-@protocol MOZUApiAdditionalErrorData
+@protocol MOZUAPIAdditionalErrorData
 @end
 
-@interface MOZUApiAdditionalErrorData : JSONModel <MOZUApiAdditionalErrorData>
+@interface MOZUAPIAdditionalErrorData : JSONModel <MOZUAPIAdditionalErrorData>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *value;
 
 @end
 
-@protocol MOZUApiErrorItem
+@protocol MOZUAPIErrorItem
 @end
 
-@interface MOZUApiErrorItem : JSONModel <MOZUApiErrorItem>
+@interface MOZUAPIErrorItem : JSONModel <MOZUAPIErrorItem>
 
-@property (nonatomic) NSArray<MOZUApiApplicationErrorData>* applicationErrorData;
+@property (nonatomic) NSArray<MOZUAPIApplicationErrorData>* applicationErrorData;
 @property (nonatomic) NSString *applicationName;
 @property (nonatomic) NSString *errorCode;
 @property (nonatomic) NSString *message;
@@ -65,9 +65,9 @@
 @property (nonatomic, readonly) NSString *errorCode;
 @property (nonatomic, readonly) MOZUAPIContext *apiContext;
 @property (nonatomic, readonly) NSString *correlationId;
-@property (nonatomic, readonly) MOZUApiExceptionDetail *exceptionDetail;
-@property (nonatomic, readonly) NSArray<MOZUApiErrorItem> *items;
-@property (nonatomic, readonly) NSArray<MOZUApiAdditionalErrorData> *additionalErrorData;
+@property (nonatomic, readonly) MOZUAPIExceptionDetail *exceptionDetail;
+@property (nonatomic, readonly) NSArray<MOZUAPIErrorItem> *items;
+@property (nonatomic, readonly) NSArray<MOZUAPIAdditionalErrorData> *additionalErrorData;
 @property (nonatomic, readonly) NSInteger httpStatusCode;
 
 - (id)initWithString:(NSString*)JSONData statusCode:(NSInteger)statusCode;

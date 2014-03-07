@@ -11,6 +11,8 @@
 #import "MOZUAPIError.h"
 #import "MOZUResponseHelper.h"
 
+static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBackgroundSessionIdentifier";
+
 @implementation MOZUUserAuthenticator
 
 + (void)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope completionHandler:(MOZUUserAuthenticationCompletionBlock)completion {

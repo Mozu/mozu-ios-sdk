@@ -24,6 +24,8 @@
 
 @end
 
+static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBackgroundSessionIdentifier";
+
 @implementation MOZUAppAuthenticator
 
 @dynamic host, useSSL;
@@ -37,6 +39,16 @@
     });
     
     return _sharedAppAuthenticator;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _backgroundSessionIdentifier = MOZUClientBackgroundSessionIdentifier;
+        _sessionConfiguration = MOZUAppAuthenticatorDefaultSessionConfiguration;
+    }
+    return self;
 }
 
 - (void)authenticateWithAuthInfo:(MOZUAppAuthInfo *)appAuthInfo
@@ -114,7 +126,7 @@
     [request setHTTPBody:body];
     
     //NSLog(@"%@",url);
-    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -144,7 +156,7 @@
     [request setHTTPBody:body];
     
     //NSLog(@"%@",url);
-    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -184,6 +196,25 @@
         self.refreshInterval = [[MOZURefreshInterval alloc] initWithAccessTokenExpirationInterval:accessTokenInterval refreshTokenTokenExpirationInterval:refreshTokenInterval];
     }
     [self.refreshInterval updateTokenExpirationDatesIncludingRefreshToken:isIncluded];
+}
+
+- (NSURLSessionConfiguration *)sessionConfigurationFromEnum:(MOZUAppAuthenticatorSessionConfiguration)configuration
+{
+    NSURLSessionConfiguration *sessionConfiguration = nil;
+    switch (configuration) {
+        case MOZUAppAuthenticatorBackgroundSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration backgroundSessionConfiguration:self.backgroundSessionIdentifier];
+            break;
+        case MOZUAppAuthenticatorDefaultSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+            break;
+        case MOZUAppAuthenticatorEphemeralSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+            break;
+        default:
+            break;
+    }
+    return sessionConfiguration;
 }
 
 @end

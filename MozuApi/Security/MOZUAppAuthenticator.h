@@ -15,6 +15,13 @@
 
 typedef void(^MOZUAppAuthenticationCompletionBlock)(NSHTTPURLResponse* response, MOZUAPIError* error);
 
+typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
+{
+    MOZUAppAuthenticatorBackgroundSessionConfiguration,
+    MOZUAppAuthenticatorDefaultSessionConfiguration,
+    MOZUAppAuthenticatorEphemeralSessionConfiguration
+};
+
 @interface MOZUAppAuthenticator : NSObject
 
 @property (nonatomic) MOZUAppAuthInfo *appAuthInfo;
@@ -23,6 +30,9 @@ typedef void(^MOZUAppAuthenticationCompletionBlock)(NSHTTPURLResponse* response,
 @property (nonatomic) BOOL useSSL;
 @property (nonatomic, readonly) NSString *scheme;
 @property (nonatomic) MOZURefreshInterval *refreshInterval;
+
+@property (nonatomic, assign) MOZUAppAuthenticatorSessionConfiguration sessionConfiguration; // Default is MOZUAppAuthenticatorDefaultSessionConfiguration
+@property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUAppAuthenticatorBackgroundSessionIdentifier
 
 
 + (MOZUAppAuthenticator *)sharedAppAuthenticator;

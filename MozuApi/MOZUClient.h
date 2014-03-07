@@ -24,9 +24,17 @@ typedef NS_ENUM(NSUInteger, MOZUClientError)
     MOZUClientErrorMissingHost,
 };
 
-
 typedef void(^MOZUClientCompletionBlock)(id result, MOZUAPIError* error, NSHTTPURLResponse* response);
 typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
+
+typedef NS_ENUM(NSUInteger, MOZUClientSessionConfiguration)
+{
+    MOZUClientBackgroundSessionConfiguration,
+    MOZUClientDefaultSessionConfiguration,
+    MOZUClientEphemeralSessionConfiguration
+};
+
+static
 
 @interface MOZUClient : NSObject
 
@@ -41,6 +49,8 @@ typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
 @property (nonatomic, strong) NSInputStream * bodyStream;
 @property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser;
 @property (nonatomic, strong) MOZUAPIContext  *context;
+@property (nonatomic, assign) MOZUClientSessionConfiguration sessionConfiguration; // Default is MOZUClientDefaultSessionConfiguration
+@property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUClientBackgroundSessionIdentifier
 
 
 - (instancetype)initWithResourceURLComponents:(MOZUURLComponents *)resourceURLComponents
