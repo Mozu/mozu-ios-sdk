@@ -43,7 +43,6 @@ typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
                   refeshInterval:(MOZURefreshInterval*)refreshInterval
                completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 
-- (void)deleteAuth;
 - (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
              completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 

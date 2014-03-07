@@ -57,6 +57,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                   refeshInterval:(MOZURefreshInterval*)refreshInterval
                completionHandler:(MOZUAppAuthenticationCompletionBlock)completion
 {
+    NSAssert(appAuthInfo, @"Auth info is nil.");
+    NSAssert(appAuthInfo.applicationId && appAuthInfo.sharedSecret, @"Application Id or Shared Secret is nil.");
     _appAuthInfo = appAuthInfo;
     _URLComponents = [NSURLComponents new];
     _URLComponents.host = host;
@@ -98,12 +100,6 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return self.URLComponents.scheme;
 }
 
-- (void)deleteAuth {
-    if (self.appAuthInfo) {
-        // todo : logout here
-    }
-}
-
 - (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
                     completionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
     [self ensureAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
@@ -125,7 +121,6 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSData* body = [[self.appAuthInfo toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:body];
     
-    //NSLog(@"%@",url);
     NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
