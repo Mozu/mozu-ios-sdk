@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (SHA256)
--(NSString*)SHA256AsBase64;
+- (NSString *)SHA256AsBase64;
 @end
