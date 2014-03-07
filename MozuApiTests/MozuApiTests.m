@@ -155,19 +155,6 @@
     context.tenantHost = tenantHost;
     
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
-    
-    //    [adminProductResource productsWithDataViewMode:MOZULive
-    //                                        startIndex:@(0)
-    //                                          pageSize:nil
-    //                                            sortBy:nil
-    //                                            filter:nil
-    //                                                 q:nil
-    //                                            qLimit:nil
-    //                                           noCount:nil
-    //                                        userClaims:nil
-    //                                 completionHandler:^(MOZUAdminProductCollection *result, MOZUApiError *error, NSHTTPURLResponse *response) {
-    //
-    //                                 }];
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [adminProductResource productWithDataViewMode:MOZULive productCode:@"1001" userClaims:nil completionHandler:^(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
@@ -207,12 +194,12 @@
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [adminProductResource productsWithDataViewMode:MOZULive
                                             startIndex:@(0)
-                                              pageSize:nil
-                                                sortBy:nil
-                                                filter:nil
+                                              pageSize:@(200)
+                                                sortBy:@"productCode+asc"
+                                                filter:@"isRecurring+eq+false"
                                                      q:nil
-                                                qLimit:nil
-                                               noCount:nil
+                                                qLimit:@(100)
+                                               noCount:@(NO)
                                             userClaims:nil
                                      completionHandler:^(MOZUAdminProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                                          if (result) {
