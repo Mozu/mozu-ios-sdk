@@ -67,10 +67,10 @@
             [tenantResource tenantWithTenantId:tenantId userClaims:nil completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (error) {
                     DDLogError(@"%@", error.localizedDescription);
-                    XCTAssertNil(result, @"Tenant not nill but had error.");
+                    XCTAssertNil(result, @"Result not nill but had error.");
                     XCTFail(@"%@", error);
                 } else {
-                    XCTAssertNotNil(result, @"Tenant nil with no error.");
+                    XCTAssertNotNil(result, @"Result nil with no error.");
                     NSLog(@"%@", result);
                     DDLogDebug(@"%@", result);
                 }
@@ -122,10 +122,10 @@
         [client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
-                XCTAssertNotNil(result, @"Tenant nil with no error.");
+                XCTAssertNotNil(result, @"Result nil with no error.");
             } else {
                 DDLogError(@"%@", error.localizedDescription);
-                XCTAssertNil(result, @"Tenant not nill but had error.");
+                XCTAssertNil(result, @"Result not nill but had error.");
                 XCTFail(@"%@", error);
             }
             self.waitingForBlock = NO;
@@ -159,10 +159,10 @@
         [adminProductResource productWithDataViewMode:MOZULive productCode:@"1001" userClaims:nil completionHandler:^(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
-                XCTAssertNotNil(result, @"Tenant nil with no error.");
+                XCTAssertNotNil(result, @"Result nil with no error.");
             } else {
                 DDLogError(@"%@", error.localizedDescription);
-                XCTAssertNil(result, @"Tenant not nill but had error.");
+                XCTAssertNil(result, @"Result not nill but had error.");
                 XCTFail(@"%@", error);
             }
             self.waitingForBlock = NO;
@@ -204,15 +204,55 @@
                                      completionHandler:^(MOZUAdminProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                                          if (result) {
                                              DDLogDebug(@"result = %@", result);
-                                             XCTAssertNotNil(result, @"Tenant nil with no error.");
+                                             XCTAssertNotNil(result, @"Result nil with no error.");
                                          } else {
                                              DDLogError(@"%@", error.localizedDescription);
-                                             XCTAssertNil(result, @"Tenant not nill but had error.");
+                                             XCTAssertNil(result, @"Result not nill but had error.");
                                              XCTFail(@"%@", error);
                                          }
                                          self.waitingForBlock = NO;
                                      }];
         
+    }];
+    
+    [self waitForBlock];
+}
+
+- (void)testProductInCatalogInfosArray
+{
+    // Authentication
+    NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
+    NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
+    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    authInfo.ApplicationId = appId;
+    authInfo.SharedSecret = sharedSecred;
+    NSString *authenticationHost = @"home.mozu-si.volusion.com";
+    
+    // Context
+    NSInteger tenantId = 7290;
+    NSNumber *siteId = @(10825);
+    NSNumber *masterCatalogID = @(1);
+    NSNumber *catalogID = @(1);
+    NSString *tenantHost = @"t7290-s10825.mozu-si.volusion.com";
+    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:masterCatalogID catalogId:catalogID];
+    context.tenantHost = tenantHost;
+
+    // Resource
+    MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
+    
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        NSString *productCode = @"1001";
+        [adminProductResource productInCatalogsWithDataViewMode:MOZULive productCode:productCode userClaims:nil completionHandler:^(NSArray<MOZUProductInCatalogInfo> *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            if (result) {
+                DDLogDebug(@"result = %@", result);
+                XCTAssertNotNil(result, @"Result nil with no error.");
+            } else {
+                DDLogError(@"%@", error.localizedDescription);
+                XCTAssertNil(result, @"Result not nill but had error.");
+                XCTFail(@"%@", error);
+            }
+            self.waitingForBlock = NO;
+        }];
     }];
     
     [self waitForBlock];
