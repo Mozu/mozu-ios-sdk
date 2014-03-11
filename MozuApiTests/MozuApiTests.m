@@ -14,6 +14,8 @@
 #import "MOZUTenantResource.h"
 #import "MOZUTenantURLComponents.h"
 #import "MOZUAdminProductResource.h"
+#import "MOZURefreshInterval.h"
+#import "DDTTYLogger.h"
 
 @interface MozuApiTests : XCTestCase
 
@@ -28,6 +30,7 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     self.waitingForBlock = YES;
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
 }
 
 - (void)tearDown
@@ -100,7 +103,7 @@
     MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"GET"];
     client.JSONParser = ^(NSString *JSONResult) {
         JSONModelError *JSONError = nil;
-        JSONModel *model = [[MOZUAdminProductCollection alloc] initWithString:JSONResult error:&JSONError];
+        JSONModel *model = [[MOZUAdminProduct alloc] initWithString:JSONResult error:&JSONError];
         if (!model) {
             DDLogError(@"%@", JSONError.localizedDescription);
         }
@@ -121,8 +124,8 @@
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
-                DDLogDebug(@"result = %@", result);
-                XCTAssertNotNil(result, @"Result nil with no error.");
+                DDLogDebug(@"result = %@", [result productCode]);
+                XCTAssertEqualObjects([result productCode] , [@(productCode) stringValue] , @"Product codes don't match.");
             } else {
                 DDLogError(@"%@", error.localizedDescription);
                 XCTAssertNil(result, @"Result not nill but had error.");
@@ -256,6 +259,83 @@
     }];
     
     [self waitForBlock];
+}
+
+- (void)testAccessTokenRefresh
+{
+    NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
+    NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
+    
+    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    authInfo.ApplicationId = appId;
+    authInfo.SharedSecret = sharedSecred;
+    NSString *authenticationHost = @"home.mozu-si.volusion.com";
+    
+    NSTimeInterval accessTokenInterval = 0.5 * 60.0;
+    NSTimeInterval refreshTokenInterval = 2.0 * 60.0;
+    NSTimeInterval loopInterval = 20.0;
+    MOZURefreshInterval *refreshInterval = [[MOZURefreshInterval alloc] initWithAccessTokenExpirationInterval:accessTokenInterval refreshTokenTokenExpirationInterval:refreshTokenInterval];
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:refreshInterval completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        DDLogDebug(@"Initial refresh interval: %@", [MOZUAppAuthenticator sharedAppAuthenticator].refreshInterval);
+        NSUInteger loops = 10;
+        [self executeClientWithInterval:loopInterval loops:loops];
+    }];
+    
+    
+    [self waitForBlock];
+    
+}
+
+- (void)executeClientWithInterval:(NSTimeInterval)interval loops:(NSUInteger)loops
+{
+    DDLogDebug(@"loops: %lu", (unsigned long)loops);
+    if (loops > 0) {
+        __block NSUInteger loopsCopy = loops;
+        
+        NSInteger productCode = 1001;
+        MOZUURLComponents *components = [[MOZUURLComponents alloc] initWithTemplate:@"/api/commerce/catalog/admin/products/{productCode}"
+                                                                         parameters:@{@"productCode": @(productCode)}
+                                                                           location:MOZUTenantPod useSSL:NO];
+        MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"GET"];
+        client.JSONParser = ^(NSString *JSONResult) {
+            JSONModelError *JSONError = nil;
+            JSONModel *model = [[MOZUAdminProduct alloc] initWithString:JSONResult error:&JSONError];
+            if (!model) {
+                DDLogError(@"%@", JSONError.localizedDescription);
+            }
+            return model;
+        };
+        
+        NSInteger tenantId = 7290;
+        NSString *tenantHost = @"t7290-s10825.mozu-si.volusion.com";
+        NSNumber *siteId = @(10825);
+        NSNumber *masterCatalogID = @(1);
+        NSNumber *catalogID = @(1);
+        client.context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:masterCatalogID catalogId:catalogID];
+        client.context.tenantHost = tenantHost;
+        NSString *dataViewModeString = [@(MOZULive) stringValue];
+        [client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+        DDLogDebug(@"BEFORE: Refresh interval: %@", [MOZUAppAuthenticator sharedAppAuthenticator].refreshInterval);
+        [client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            DDLogDebug(@"AFTER: Refresh interval: %@", [MOZUAppAuthenticator sharedAppAuthenticator].refreshInterval);
+            if (result) {
+                DDLogDebug(@"result = %@", [result productCode]);
+                XCTAssertEqualObjects([result productCode] , @"1001" , @"Product codes don't match.");
+                loopsCopy--;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(interval * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    [self executeClientWithInterval:interval loops:loopsCopy];
+                });
+            } else {
+                DDLogError(@"%@", error.localizedDescription);
+                XCTAssertNil(result, @"Result not nill but had error.");
+                XCTFail(@"%@", error);
+                self.waitingForBlock = NO;
+            }
+        }];
+    } else {
+        self.waitingForBlock = NO;
+    }
 }
 
 @end

@@ -54,7 +54,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 - (void)authenticateWithAuthInfo:(MOZUAppAuthInfo *)appAuthInfo
                          appHost:(NSString *)host
                           useSSL:(BOOL)useSSL
-                  refeshInterval:(MOZURefreshInterval*)refreshInterval
+                  refeshInterval:(MOZURefreshInterval *)refreshInterval
                completionHandler:(MOZUAppAuthenticationCompletionBlock)completion
 {
     NSAssert(appAuthInfo, @"Auth info is nil.");
@@ -167,11 +167,13 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 }
 
 - (void)ensureAuthTicketWithCompletionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
-    if (!self.authTicket || [[NSDate date] compare:self.refreshInterval.refreshTokenExpirationDate] == NSOrderedDescending) {
+    if (!self.authTicket || [self.refreshInterval.refreshTokenExpirationDate timeIntervalSinceNow] < 0) {
+        // No authTicket or refresh token expiration date is in the past.
         [self authenticateAppWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
             completion(response, error);
         }];
-    } else if ([[NSDate date] compare:self.refreshInterval.accessTokenExpirationDate] == NSOrderedDescending) {
+    } else if ([self.refreshInterval.accessTokenExpirationDate timeIntervalSinceNow] < 0) {
+        // Access token expiration date is in the past.
         [self refreshAppAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
             completion(response, error);
         }];

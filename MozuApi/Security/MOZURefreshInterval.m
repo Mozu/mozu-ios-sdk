@@ -38,4 +38,10 @@
     }
 }
 
+- (NSString *)description
+{
+    NSString *string = [NSString stringWithFormat:@"\nAccess token expiration date:  %@\nRefresh token expiration date: %@", self.accessTokenExpirationDate, self.refreshTokenExpirationDate];
+    return string;
+}
+
 @end
