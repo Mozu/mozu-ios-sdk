@@ -16,6 +16,7 @@
 #import "MOZUAdminProductResource.h"
 #import "MOZURefreshInterval.h"
 #import "DDTTYLogger.h"
+#import "MOZUAddressValidationRequestResource.h"
 
 @interface MozuApiTests : XCTestCase
 
@@ -336,6 +337,53 @@
     } else {
         self.waitingForBlock = NO;
     }
+}
+
+- (void)testBodyString
+{
+    // Authentication
+    NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
+    NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
+    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    authInfo.ApplicationId = appId;
+    authInfo.SharedSecret = sharedSecred;
+    NSString *authenticationHost = @"home.mozu-si.volusion.com";
+    
+    // Context
+    NSInteger tenantId = 7290;
+    NSNumber *siteId = @(10825);
+    NSNumber *masterCatalogID = @(1);
+    NSNumber *catalogID = @(1);
+    NSString *tenantHost = @"t7290-s10825.mozu-si.volusion.com";
+    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:masterCatalogID catalogId:catalogID];
+    context.tenantHost = tenantHost;
+    
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:authenticationHost useSSL:NO refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        // Resource
+        MOZUAddressValidationRequestResource *addressValidationResource = [[MOZUAddressValidationRequestResource alloc] initWithAPIContext:context];
+        MOZUAddressValidationRequest *validationRequest = [MOZUAddressValidationRequest new];
+        MOZUAddress *address = [MOZUAddress new];
+        address.address1 = @"1004 Minda";
+        address.cityOrTown = @"Austin";
+        address.stateOrProvince = @"TX";
+        address.countryCode = @"US";
+        address.addressType = @"Residential";
+        validationRequest.address = address;
+
+        [addressValidationResource validateAddressWithBody:validationRequest userClaims:nil completionHandler:^(MOZUAddressValidationResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            if (result) {
+                DDLogDebug(@"result = %@", result);
+                XCTAssertNotNil(result, @"Result nil with no error.");
+            } else {
+                DDLogError(@"%@", error.localizedDescription);
+                XCTAssertNil(result, @"Result not nill but had error.");
+                XCTFail(@"%@", error);
+            }
+            self.waitingForBlock = NO;
+        }];
+    }];
+    
+    [self waitForBlock];
 }
 
 @end
