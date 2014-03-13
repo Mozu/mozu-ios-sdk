@@ -41,7 +41,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return _sharedAppAuthenticator;
 }
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
@@ -101,7 +101,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 }
 
 - (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
-                    completionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
+             completionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
     [self ensureAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [request setValue:self.authTicket.accessToken forHTTPHeaderField:MOZU_X_VOL_APP_CLAIMS];
         completion(response, error);

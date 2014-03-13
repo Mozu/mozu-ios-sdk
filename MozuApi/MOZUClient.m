@@ -89,22 +89,26 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 {
     NSAssert(userClaims, @"User Claims is nil");
     
-    if (userClaims.scope == MOZUShopperAuthenticationScope) {
+    if (userClaims.scope == MOZUCustomerAuthenticationScope) {
         // Logic missing from C#
+    } else {
+        [[MOZUUserAuthenticator sharedUserAuthenticator] ensureUserAuthTicket:userClaims completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+            if (error) {
+                DDLogError(@"%@", error);
+                completion(error);
+            } else if (profile) {
+                userClaims.accessToken = profile.authTicket.accessToken;
+                userClaims.accessTokenExpiration = profile.authTicket.accessTokenExpiration;
+                [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
+                completion(nil);
+            } else if (userClaims.accessToken) {
+                [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
+                completion(nil);
+            } else {
+                DDLogWarn(@"Unexpected else. Header not set.");
+            }
+        }];
     }
-    
-    [MOZUUserAuthenticator ensureUserAuthTicket:userClaims completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-        if (profile) {
-            userClaims.accessToken = profile.authTicket.accessToken;
-            userClaims.accessTokenExpiration = profile.authTicket.accessTokenExpiration;
-            [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
-            completion(nil);
-        } else {
-            DDLogError(@"%@", error);
-            completion(error);
-        }
-    }];
-    
 }
 
 - (void)setHeader:(NSString *)header value:(NSString *)value

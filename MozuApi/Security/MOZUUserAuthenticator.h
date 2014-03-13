@@ -10,15 +10,16 @@
 #import "MOZUAuthTicket.h"
 #import "MOZUAPIError.h"
 
-@class MozuUserAuthInfo;
+@class MOZUUserAuthInfo;
 @class MOZUUserProfile;
 @class MOZUAuthenticationProfile;
+@class MOZUCustomerAccount;
 
 typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse* response, MOZUAPIError* error);
 
 typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
     MOZUTenantAuthenticationScope,
-    MOZUShopperAuthenticationScope,
+    MOZUCustomerAuthenticationScope,
     MOZUDeveloperAuthenticationScope
 };
 
@@ -33,22 +34,25 @@ typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
 @interface MOZUScope : NSObject
 
 @property (nonatomic, assign) NSInteger id;
-@property (nonatomic, strong) NSString* name;
-
-@end
-
-@interface MOZUAuthenticationProfile : NSObject
-
-@property (nonatomic, strong) MOZUAuthTicket* authTicket;
-@property (nonatomic, strong) NSArray* authorizedScopes;
-@property (nonatomic, strong) MOZUScope* activeScope;
-@property (nonatomic, strong) MOZUUserProfile* userProfile;
+@property (nonatomic, strong) NSString * name;
 
 @end
 
 @interface MOZUUserAuthTicket : MOZUAuthTicket
 
 @property (nonatomic, assign) MOZUAuthenticationScope scope;
+@property (nonatomic, strong) NSNumber * siteId;
+@property (nonatomic, strong) NSNumber * tenentId;
+
+@end
+
+@interface MOZUAuthenticationProfile : NSObject
+
+@property (nonatomic, strong) MOZUUserAuthTicket * authTicket;
+@property (nonatomic, strong) NSArray * authorizedScopes; // MOZUScope objects
+@property (nonatomic, strong) MOZUScope * activeScope;
+@property (nonatomic, strong) MOZUUserProfile * userProfile;
+@property (nonatomic, strong) MOZUCustomerAccount * shopperAccount;
 
 @end
 
@@ -57,15 +61,22 @@ typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
 @property (nonatomic, assign) MOZUUserAuthenticatorSessionConfiguration sessionConfiguration; // Default is MOZUUserAuthenticatorDefaultSessionConfiguration
 @property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUUserAuthenticatorBackgroundSessionIdentifier
 
-+ (void)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket scope:(MOZUScope*)scope completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
-+ (void)ensureUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
-+ (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket
-                                                     id:(NSNumber*)identifier
-                                             completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
-+(MOZUAuthenticationProfile*)authenticateWithUserAuthInfo:(MozuUserAuthInfo*)userAuthInfo
-                                                    scope:(MOZUAuthenticationScope)scope
-                                                       id:(NSNumber*)id;
-+(void)logoutWithUserAuthTicket:(MOZUUserAuthTicket*)userAuthTicket;
++ (MOZUUserAuthenticator *)sharedUserAuthenticator;
+
+- (void)setActiveScopeWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
+                                   scope:(MOZUScope *)scope
+                       completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
+- (void)ensureUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
+           completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
+- (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
+                               id:(NSNumber *)identifier
+                completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
+- (void)authenticateWithUserAuthInfo:(MOZUUserAuthInfo *)userAuthInfo
+                               scope:(MOZUAuthenticationScope)scope
+                                  id:(NSNumber *)identifier
+                   completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
+- (void)logoutWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
+               completionHandler:(void (^)(NSHTTPURLResponse *response, MOZUAPIError *error))completion;
 
 
 @end
