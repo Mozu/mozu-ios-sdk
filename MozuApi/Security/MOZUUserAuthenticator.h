@@ -69,11 +69,11 @@ typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
 - (void)ensureUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
            completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
 - (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
-                               id:(NSNumber *)identifier
+                       identifier:(NSNumber *)identifier
                 completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
 - (void)authenticateWithUserAuthInfo:(MOZUUserAuthInfo *)userAuthInfo
                                scope:(MOZUAuthenticationScope)scope
-                                  id:(NSNumber *)identifier
+                          identifier:(NSNumber *)identifier
                    completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
 - (void)logoutWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
                completionHandler:(void (^)(NSHTTPURLResponse *response, MOZUAPIError *error))completion;

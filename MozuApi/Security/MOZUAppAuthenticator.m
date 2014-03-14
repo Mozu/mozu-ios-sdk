@@ -57,8 +57,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                   refeshInterval:(MOZURefreshInterval *)refreshInterval
                completionHandler:(MOZUAppAuthenticationCompletionBlock)completion
 {
-    NSAssert(appAuthInfo, @"Auth info is nil.");
-    NSAssert(appAuthInfo.applicationId && appAuthInfo.sharedSecret, @"Application Id or Shared Secret is nil.");
+    NSParameterAssert(appAuthInfo);
+    NSParameterAssert(appAuthInfo.applicationId && appAuthInfo.sharedSecret);
     _appAuthInfo = appAuthInfo;
     _URLComponents = [NSURLComponents new];
     _URLComponents.host = host;

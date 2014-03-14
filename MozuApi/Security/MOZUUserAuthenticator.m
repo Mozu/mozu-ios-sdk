@@ -20,6 +20,15 @@
 
 static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBackgroundSessionIdentifier";
 
+@implementation MOZUScope
+@end
+
+@implementation MOZUUserAuthTicket
+@end
+
+@implementation MOZUAuthenticationProfile
+@end
+
 @implementation MOZUUserAuthenticator
 
 + (MOZUUserAuthenticator *)sharedUserAuthenticator {
@@ -47,7 +56,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                        completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
 {
     [self refreshWithUserAuthTicket:userAuthTicket
-                                 id:@(scope.id)
+                         identifier:@(scope.id)
                   completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
                       completion(profile, response, error);
                   }];
@@ -59,7 +68,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSDate *refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:userAuthTicket.accessTokenExpiration];
     if ([refreshTime timeIntervalSinceNow] < 0) {
         [self refreshWithUserAuthTicket:userAuthTicket
-                                     id:nil
+                             identifier:nil
                       completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
                           completion(profile, response, error);
                       }];
@@ -69,10 +78,10 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 }
 
 - (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
-                               id:(NSNumber *)identifier
+                       identifier:(NSNumber *)identifier
                 completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
 {
-    NSURL *url = [self resourceRefreshURLWithAuthTicket:userAuthTicket id:identifier];
+    NSURL *url = [self resourceRefreshURLWithAuthTicket:userAuthTicket identifier:identifier];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"PUT"];
@@ -105,10 +114,10 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 
 - (void)authenticateWithUserAuthInfo:(MOZUUserAuthInfo *)userAuthInfo
                                scope:(MOZUAuthenticationScope)scope
-                                  id:(NSNumber *)identifier
+                          identifier:(NSNumber *)identifier
                    completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
 {
-    NSURL *url = [self resourceURLWithUserScope:scope id:identifier];
+    NSURL *url = [self resourceURLWithUserScope:scope identifier:identifier];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"POST"];
@@ -234,7 +243,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return authProfile;
 }
 
-- (NSURL *)resourceRefreshURLWithAuthTicket:(MOZUUserAuthTicket *)authTicket id:(NSNumber*)identifier
+- (NSURL *)resourceRefreshURLWithAuthTicket:(MOZUUserAuthTicket *)authTicket identifier:(NSNumber*)identifier
 {
     MOZUURLComponents *components = nil;
     
@@ -254,7 +263,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return components.URL;
 }
 
-- (NSURL *)resourceURLWithUserScope:(MOZUAuthenticationScope)scope id:(NSNumber*)identifier
+- (NSURL *)resourceURLWithUserScope:(MOZUAuthenticationScope)scope identifier:(NSNumber*)identifier
 {
     MOZUURLComponents *components = nil;
     

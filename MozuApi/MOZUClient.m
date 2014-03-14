@@ -54,8 +54,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                          verb:(NSString *)verb;
 {
     if (self = [self init]) {
-        NSAssert(verb, @"MOZUClient verb is missing!");
-        NSAssert(resourceURLComponents, @"MOZUClient resourceURLComponents is missing!");
+        NSParameterAssert(verb);
+        NSParameterAssert(resourceURLComponents);
         _resourceURLComponents = resourceURLComponents;
         _verb = verb;
     }
@@ -87,21 +87,23 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 
 - (void)validateUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void (^)(NSError *error))completion
 {
-    NSAssert(userClaims, @"User Claims is nil");
+    NSParameterAssert(userClaims);
     
     if (userClaims.scope == MOZUCustomerAuthenticationScope) {
-        // Logic missing from C#
+        // TODO: newAuthTicket = CustomerAuthenticator.EnsureAuthTicket(authTicket);
     } else {
         [[MOZUUserAuthenticator sharedUserAuthenticator] ensureUserAuthTicket:userClaims completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
             if (error) {
                 DDLogError(@"%@", error);
                 completion(error);
             } else if (profile) {
+                DDLogDebug(@"Refreshed token.\nOld: %@\nNew:%@", userClaims.accessTokenExpiration, profile.authTicket.accessTokenExpiration);
                 userClaims.accessToken = profile.authTicket.accessToken;
                 userClaims.accessTokenExpiration = profile.authTicket.accessTokenExpiration;
                 [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
                 completion(nil);
             } else if (userClaims.accessToken) {
+                DDLogDebug(@"Using old token. %@", userClaims.accessTokenExpiration);
                 [self setHeader:MOZU_X_VOL_USER_CLAIMS value:userClaims.accessToken];
                 completion(nil);
             } else {
@@ -113,8 +115,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 
 - (void)setHeader:(NSString *)header value:(NSString *)value
 {
-    NSAssert(header, @"Header cannot be nil.");
-    NSAssert(value, @"Header value cannot be nil.");
+    NSParameterAssert(header);
+    NSParameterAssert(value);
     if ([header isEqualToString:MOZU_X_VOL_DATAVIEW_MODE]) {
         value = self.dataViewModeMap[value];
     }
@@ -139,9 +141,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 
 - (void)validateContext:(MOZUAPIContext *)APIContext completionHandler:(void (^)(NSString *host, NSError *error))completion
 {
-    if (self.resourceURLComponents.location == MOZUTenantPod) {        
-        NSAssert(APIContext, @"MOZUClient APIContext is missing.");
-        NSAssert(APIContext.tenantId >=0, @"APIContext.tenantId less than 0.");
+    if (self.resourceURLComponents.location == MOZUTenantPod) {
+        NSParameterAssert(APIContext);
+        NSParameterAssert(APIContext.tenantId >=0);
         
         if (APIContext.tenantHost.length == 0) {
             id tenantRes = [[MOZUTenantResource alloc] init];
@@ -223,12 +225,15 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         }
     }];
     
-#warning Enable user claims when logic is implemented.
-//    dispatch_group_enter(group);
-//    [self validateUserClaims:self.userClaims completionHandler:^{
-//        dispatch_group_leave(group);
-//    }];
-    
+    if (self.userClaims) {
+        dispatch_group_enter(group);
+        [self validateUserClaims:self.userClaims completionHandler:^(NSError *error) {
+            if (error) {
+                DDLogError(@"%@", error.localizedDescription);
+            }
+            dispatch_group_leave(group);
+        }];
+    }
     
     // Wait until all dispatch groups leave.
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
