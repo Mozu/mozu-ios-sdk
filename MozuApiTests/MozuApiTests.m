@@ -262,7 +262,7 @@
     
     [self waitForBlock];
 }
-
+/*
 - (void)testAccessTokenRefresh
 {
     // Authentication
@@ -289,7 +289,7 @@
     [self waitForBlock];
     
 }
-
+*/
 - (void)executeClientWithUserAuthTicket:(MOZUUserAuthTicket *)userClaims interval:(NSTimeInterval)interval loops:(NSUInteger)loops
 {
     DDLogDebug(@"loops: %lu", (unsigned long)loops);
@@ -389,7 +389,7 @@
     
     [self waitForBlock];
 }
-
+/*
 - (void)testUserAuthentication
 {
     // Authentication
@@ -435,7 +435,7 @@
     
     [self waitForBlock];
 }
-
+*/
 - (void)executeGetTenentWithUserAuthTicket:(MOZUUserAuthTicket *)userClaims interval:(NSTimeInterval)interval loops:(NSUInteger)loops
 {
     DDLogDebug(@"loops: %lu", (unsigned long)loops);
