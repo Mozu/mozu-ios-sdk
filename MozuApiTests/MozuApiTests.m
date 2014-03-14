@@ -345,7 +345,6 @@
 
 - (void)testBodyString
 {
-    XCTFail(@"FAIL");
     // Authentication
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
