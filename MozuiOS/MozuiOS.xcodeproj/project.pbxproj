@@ -188,6 +188,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0411D7C318B5267D00CFFA81 /* Build configuration list for PBXNativeTarget "MozuiOSTests" */;
 			buildPhases = (
+				04E53A8B18D36D5000CCAF5A /* ShellScript */,
 				9EDC8950A52448D3918E4084 /* Check Pods Manifest.lock */,
 				0411D7A918B5267D00CFFA81 /* Sources */,
 				0411D7AA18B5267D00CFFA81 /* Frameworks */,
@@ -246,6 +247,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04E53A8B18D36D5000CCAF5A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd $SRCROOT\n\nif [ -e \"Pods\" ]\nthen\npod update\nelse\npod install\nfi\n\nexit 0";
+		};
 		31819E0A14C249AABEB8B232 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
