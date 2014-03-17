@@ -412,8 +412,8 @@
             self.waitingForBlock = NO;
         } else {
             MOZUUserAuthInfo *userAuthInfo = [MOZUUserAuthInfo new];
-            userAuthInfo.emailAddress = @"noel_artiles@volusion.com";
-            userAuthInfo.password = @"vBdZEVW6EvFwPdR9CPBN";
+            userAuthInfo.emailAddress = @"";
+            userAuthInfo.password = @"";
             [[MOZUUserAuthenticator sharedUserAuthenticator] authenticateWithUserAuthInfo:userAuthInfo scope:MOZUDeveloperAuthenticationScope identifier:@(1334) completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
                 if (profile) {
                     profile.authTicket.accessTokenExpiration = [NSDate dateWithTimeIntervalSinceNow:5*60];
