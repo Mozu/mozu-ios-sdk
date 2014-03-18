@@ -37,11 +37,21 @@ typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
 
 + (MOZUAppAuthenticator *)sharedAppAuthenticator;
     
+/**
+	Asynchronously authenticates app with Mozu API service.
+	@param appAuthInfo App authentication info.
+	@param host Domain host.
+	@param useSSL Determines whether to use http or https.
+	@param refreshInterval (Optional) This overrides the MOZURefreshInterval provided by the API service.
+	@param completion Called when authentication succeeds or fails. Check MOZUAPIError object passed in. 
+	@returns
+ */
 - (void)authenticateWithAuthInfo:(MOZUAppAuthInfo *)appAuthInfo
                          appHost:(NSString *)host
                           useSSL:(BOOL)useSSL
                   refeshInterval:(MOZURefreshInterval*)refreshInterval
                completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
+
 
 - (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
              completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
