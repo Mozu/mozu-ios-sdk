@@ -46,8 +46,4 @@ typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
 - (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
              completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 
-- (void)authenticateAppWithCompletionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
-- (void)refreshAppAuthTicketWithCompletionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
-- (void)ensureAuthTicketWithCompletionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
-
 @end

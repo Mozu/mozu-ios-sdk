@@ -25,9 +25,18 @@ typedef NS_ENUM(NSUInteger, MOZUURLLocation) {
 @property (nonatomic, strong, readonly) NSString *query;
 @property (nonatomic, strong, readonly) NSString *fragment;
 
+/**
+	Initializes a MOZUURLComponents object.
+	@param stringTemplate Template with paramater keys. E.g. @"/api/commerce/customer/accounts/{accountId}/{startIndex}?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}"
+	@param params Dictionary with key/value pairs for substitution in template. Empty strings (e.g. "") values will have their token removed from template.
+	@param location A valid MOZUURLLocation value.
+	@param useSSL Determines whether to use http or https.
+	@returns An instance of a MOZUURLComponents object.
+ */
 - (instancetype)initWithTemplate:(NSString *)stringTemplate
                      parameters:(NSDictionary*)params
                        location:(MOZUURLLocation)location
                          useSSL:(BOOL)useSSL;
+
 
 @end

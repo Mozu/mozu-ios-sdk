@@ -13,6 +13,7 @@
 
 #import "DDLog.h"
 
+// Sets global loggin level. See DDlog.h for values.
 FOUNDATION_EXPORT const int ddLogLevel;
 
 #endif

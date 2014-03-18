@@ -98,7 +98,7 @@
 + (NSString *)queryWithTemplate:(NSString *)template parameters:(NSDictionary *)parameters
 {
     NSString *query = nil;
-    NSRange queryRange = [template rangeOfString:@"/?"];
+    NSRange queryRange = [template rangeOfString:@"?"];
     if (queryRange.location != NSNotFound) {
         NSUInteger queryStart = queryRange.location + queryRange.length;
         query = [template substringWithRange:NSMakeRange(queryStart, template.length - queryStart)];

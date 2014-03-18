@@ -47,15 +47,35 @@ static
 @property (nonatomic, strong) MOZUUserAuthTicket * userClaims;
 @property (nonatomic, strong) id body;
 @property (nonatomic, strong) NSInputStream * bodyStream;
-@property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser;
+@property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser; // Used to convert network response into "result" in completion handler.
 @property (nonatomic, strong) MOZUAPIContext  *context;
 @property (nonatomic, assign) MOZUClientSessionConfiguration sessionConfiguration; // Default is MOZUClientDefaultSessionConfiguration
 @property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUClientBackgroundSessionIdentifier
 
 
+/**
+	Creates a MOZUClient object.
+	@param resourceURLComponents A MOZUURLComponents encapsulating the REST URL endpoint.
+	@param verb HTTP verb. E.g. "GET", "POST", etc.
+	@returns An instance of a MOZUClient object.
+ */
 - (instancetype)initWithResourceURLComponents:(MOZUURLComponents *)resourceURLComponents
-                               verb:(NSString *)verb;
+                                         verb:(NSString *)verb;
+
+/**
+	Sets values for the HTTP headear of the URL request.
+	@param header Header key. See MOZUHeaders.h for values.
+	@param value Value for header key.
+	@returns none
+ */
 - (void)setHeader:(NSString *)header value:(NSString *)value;
+
+/**
+	Makes a client asynchronous network request.
+	@param completionHandler Completion handler called when network request completes.
+	@returns none
+ */
 - (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler;
+
 
 @end
