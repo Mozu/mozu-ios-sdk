@@ -10,22 +10,19 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUCustomerGroup.h"
+#import "MOZUCustomerSegment.h"
 
 
 
-@protocol MOZUCustomerGroupCollection
+@protocol MOZUCustomerSegmentCollection
 @end
 
 
 /**
-	Paged list of customer sets.
+	Paged list of customer segments.
 */
-@interface MOZUCustomerGroupCollection : JSONModel<MOZUCustomerGroupCollection>
+@interface MOZUCustomerSegmentCollection : JSONModel<MOZUCustomerSegmentCollection>
 
-/**
-The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
-*/
 @property(nonatomic) long pageCount;
 
 /**
@@ -33,6 +30,9 @@ The number of results to display on each page when creating paged results from a
 */
 @property(nonatomic) NSInteger pageSize;
 
+/**
+When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+*/
 @property(nonatomic) NSInteger startIndex;
 
 /**
@@ -40,10 +40,7 @@ The number of results listed in the query collection, represented by a signed 64
 */
 @property(nonatomic) long totalCount;
 
-/**
-An array list of objects in the returned collection.
-*/
-@property(nonatomic) NSArray<MOZUCustomerGroup>* items;
+@property(nonatomic) NSArray<MOZUCustomerSegment>* items;
 
 @end
 

@@ -19,10 +19,12 @@
 #import "MOZUAdminProductOption.h"
 #import "MOZUMeasurement.h"
 #import "MOZUAdminProductPrice.h"
+#import "MOZUProductPricingBehaviorInfo.h"
 #import "MOZUProductInCatalogInfo.h"
 #import "MOZUAdminProductProperty.h"
 #import "MOZUProductPublishingInfo.h"
 #import "MOZUProductLocalizedSEOContent.h"
+#import "MOZUProductSupplierInfo.h"
 #import "MOZUProductVariationOption.h"
 
 
@@ -40,6 +42,11 @@
 Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
 */
 @property(nonatomic) NSString * baseProductCode;
+
+/**
+Describes the types of fulfillment that are supported for this product. A product can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
+*/
+@property(nonatomic) NSArray* fulfillmentTypesSupported;
 
 /**
 If true, the product has configurable options. This option means that a product is not purchasable until the shopper selects options that resolve into a product variation. Configurable options for a product are the choices a shopper makes when ordering a product. Size and color are configurable options. System-supplied and read-only.
@@ -82,6 +89,11 @@ The unique identifier of the master catalog associated with the entity.
 @property(nonatomic) NSNumber * masterCatalogId;
 
 /**
+The price lookup unit code associated with this product.
+*/
+@property(nonatomic) NSString * plu;
+
+/**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 @property(nonatomic) NSString * productCode;
@@ -112,7 +124,7 @@ If the product must be packaged separately, the type of standalone package to us
 @property(nonatomic) NSString * standAlonePackageType;
 
 /**
-The universal product code (UPC code) of the product.
+The universal product code associated with the product. The UPC of a product is unique across all sales channels.
 */
 @property(nonatomic) NSString * upc;
 
@@ -179,6 +191,11 @@ Unit price that the client intends to sell the product if no sale price is set.
 @property(nonatomic) MOZUAdminProductPrice* price;
 
 /**
+Describes the behavior the system uses when determining the price of the product.
+*/
+@property(nonatomic) MOZUProductPricingBehaviorInfo* pricingBehavior;
+
+/**
 Properties defined for a product as they appear in its associated catalogs.
 */
 @property(nonatomic) NSArray<MOZUProductInCatalogInfo>* productInCatalogs;
@@ -197,6 +214,11 @@ Properties of the product publishing settings for the associated product.
 The search engine optimized content defined for this product.
 */
 @property(nonatomic) MOZUProductLocalizedSEOContent* seoContent;
+
+/**
+Supplier-defined properties assigned for the product.
+*/
+@property(nonatomic) MOZUProductSupplierInfo* supplierInfo;
 
 /**
 The list of product variation configurations defined for this product based on its available product option attributes.

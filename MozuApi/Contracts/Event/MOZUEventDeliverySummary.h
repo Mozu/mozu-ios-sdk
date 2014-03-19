@@ -25,6 +25,8 @@
 
 @property(nonatomic) NSString * deliveryStatus;
 
+@property(nonatomic) NSNumber * id;
+
 @property(nonatomic) BOOL isRunning;
 
 @property(nonatomic) NSDate * lastExecutionDate;

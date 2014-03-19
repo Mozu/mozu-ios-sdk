@@ -18,6 +18,13 @@
 //
 
 /**
+Resource Url Components for getDeliveryAttemptSummary
+@param subscriptionId 
+@param identifier 
+*/
++(MOZUURLComponents*)URLComponentsForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier;
+
+/**
 Resource Url Components for getDeliveryAttemptSummaries
 @param subscriptionId 
 @param startIndex 

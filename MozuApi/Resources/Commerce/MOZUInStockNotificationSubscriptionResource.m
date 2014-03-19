@@ -58,7 +58,7 @@ Retrieves a list of in-stock notification subscriptions.
 }
 
 /**
-Retrieves the details of a subscription that sends a push notification when a product returns to active stock.
+Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
 @param identifier Unique identifier of the in-stock notification subscription to retrieve.
 */
 
@@ -82,7 +82,7 @@ Retrieves the details of a subscription that sends a push notification when a pr
 
 /**
 Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
-@param body Properties of a subscription that sends the customer a notification when a product returns to active stock.
+@param body Properties of a subscription that sends the customer a notification when a product is available in a site's active stock.
 */
 
 -(void)addInStockNotificationSubscriptionWithBody:(MOZUInStockNotificationSubscription*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler

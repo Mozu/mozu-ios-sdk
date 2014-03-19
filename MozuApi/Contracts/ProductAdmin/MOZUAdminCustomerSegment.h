@@ -13,17 +13,17 @@
 
 
 
-@protocol MOZUAdminCustomerGroup
+@protocol MOZUAdminCustomerSegment
 @end
 
 
 /**
-	Properties of the conditions that must be met for a discount to apply to members of a customer group.
+	Properties of a customer segment used to group sets of customers for targeted reporting and discounts.
 */
-@interface MOZUAdminCustomerGroup : JSONModel<MOZUAdminCustomerGroup>
+@interface MOZUAdminCustomerSegment : JSONModel<MOZUAdminCustomerSegment>
 
 /**
-The unique identifier of the customer group associated with a discount.
+Unique identifier of the customer segment.
 */
 @property(nonatomic) NSInteger id;
 

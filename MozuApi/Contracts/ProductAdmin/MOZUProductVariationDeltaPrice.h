@@ -28,6 +28,11 @@
 @property(nonatomic) NSString * currencyCode;
 
 /**
+The manufacturer's suggested retail price, as defined by the supplier.
+*/
+@property(nonatomic) NSNumber * msrp;
+
+/**
 Positive or negative decimal value that represents the difference between this variation and the base product.
 */
 @property(nonatomic) NSNumber * value;

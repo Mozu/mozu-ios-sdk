@@ -17,6 +17,16 @@
 #pragma mark -
 //
 
++(MOZUURLComponents*)URLComponentsForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier {
+	NSString* template = @"/api/event/push/subscriptions/{subscriptionId}/deliveryattempts/{identifier}";
+	NSDictionary* params = @{
+		@"subscriptionId" : subscriptionId,
+		@"identifier" : identifier ? identifier : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 +(MOZUURLComponents*)URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	NSString* template = @"/api/event/push/subscriptions/{subscriptionId}/deliveryattempts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
 	NSDictionary* params = @{

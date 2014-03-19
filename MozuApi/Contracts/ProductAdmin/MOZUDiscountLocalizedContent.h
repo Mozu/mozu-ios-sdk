@@ -23,6 +23,8 @@
 */
 @interface MOZUDiscountLocalizedContent : JSONModel<MOZUDiscountLocalizedContent>
 
+@property(nonatomic) NSString * friendlyDescription;
+
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */

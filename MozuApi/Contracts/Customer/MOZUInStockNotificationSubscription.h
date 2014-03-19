@@ -19,7 +19,7 @@
 
 
 /**
-	Properties of a push notification to which the shopper subscribes. This notification sends the shopper an alert when a product previously out of stock becomes available in the specified location's active product inventory.
+	Properties of a push notification to which the shopper subscribes. This notification sends the shopper an alert when a new product or a product previously out of stock becomes available in the specified location's active product inventory.
 */
 @interface MOZUInStockNotificationSubscription : JSONModel<MOZUInStockNotificationSubscription>
 

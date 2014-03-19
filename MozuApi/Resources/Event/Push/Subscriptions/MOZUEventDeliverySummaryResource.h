@@ -14,6 +14,7 @@
 
 #import "MOZUAuthTicket.h"
 #import "MOZUEventDeliverySummaryCollection.h"
+#import "MOZUEventDeliverySummary.h"
 
 
 @interface MOZUEventDeliverySummaryResource : NSObject
@@ -30,6 +31,14 @@
 #pragma mark -
 //
 
+/**
+
+@param identifier 
+@param subscriptionId 
+*/
+
+-(void)deliveryAttemptSummaryWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEventDeliverySummary* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+;
 /**
 
 @param filter 

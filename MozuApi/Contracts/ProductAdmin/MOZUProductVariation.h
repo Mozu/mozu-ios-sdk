@@ -12,6 +12,7 @@
 #import "JSONModel.h"
 #import "MOZUProductVariationDeltaPrice.h"
 #import "MOZUProductVariationOption.h"
+#import "MOZUProductSupplierInfo.h"
 
 
 
@@ -28,6 +29,11 @@
 The difference between the base weight for a product and this variation of the product, which can be a positive or negative decimal value.
 */
 @property(nonatomic) NSNumber * deltaWeight;
+
+/**
+Describes the types of fulfillment that are supported for this product variation. A variation can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
+*/
+@property(nonatomic) NSArray* fulfillmentTypesSupported;
 
 /**
 If true, this variation of this product is marked available for sale.
@@ -63,6 +69,11 @@ The difference between the base price for the product and this variation of the 
 Wrapper for the list of option attributes configured for the product variation.
 */
 @property(nonatomic) NSArray<MOZUProductVariationOption>* options;
+
+/**
+Supplier-defined properties assigned for the product variation.
+*/
+@property(nonatomic) MOZUProductSupplierInfo* supplierInfo;
 
 @end
 

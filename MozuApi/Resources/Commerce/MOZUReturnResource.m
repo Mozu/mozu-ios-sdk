@@ -198,8 +198,8 @@ Creates a new payment for a return that results in a refund to the customer.
 }
 
 /**
-Updates the return by performing the specified action.
-@param body The name of the return action to perform, such as "Refund" or "Replace".
+Updates the return by performing the action specified in the request.
+@param body The name of the return action to perform, such as "Reject" or "Authorize".
 */
 
 -(void)performReturnActionsWithBody:(MOZUReturnAction*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUReturnCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler

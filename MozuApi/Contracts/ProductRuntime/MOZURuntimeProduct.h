@@ -84,7 +84,7 @@ The publishing state of the product definition in the master catalog, which is "
 @property(nonatomic) NSString * publishState;
 
 /**
-The universal product code (UPC code) of the product.
+The universal product code associated with the product. The UPC of a product is unique across all sales channels.
 */
 @property(nonatomic) NSString * upc;
 

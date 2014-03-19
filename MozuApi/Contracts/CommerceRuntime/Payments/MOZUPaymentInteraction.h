@@ -24,6 +24,26 @@
 @interface MOZUPaymentInteraction : JSONModel<MOZUPaymentInteraction>
 
 /**
+The type of payment interaction, such as Capture or CheckReceived.
+*/
+@property(nonatomic) NSString * interactionType;
+
+/**
+If true, the payment interaction was manually defined s part of offline order processing.
+*/
+@property(nonatomic) BOOL isManual;
+
+/**
+If true, this payment interaction repeats on a scheduled interval.
+*/
+@property(nonatomic) NSNumber * isRecurring;
+
+/**
+Note content entered for a payment interaction.
+*/
+@property(nonatomic) NSString * note;
+
+/**
 Unique identifier of the order associated with this payment interaction.
 */
 @property(nonatomic) NSString * orderId;
@@ -102,26 +122,6 @@ Unique identifier of the payment interaction.
 Date and time the payment interaction occured.
 */
 @property(nonatomic) NSDate * interactionDate;
-
-/**
-The type of payment interaction, such as Capture or CheckReceived.
-*/
-@property(nonatomic) NSString * interactionType;
-
-/**
-If true, the payment interaction was manually defined s part of offline order processing.
-*/
-@property(nonatomic) BOOL isManual;
-
-/**
-If true, this payment interaction repeats on a scheduled interval.
-*/
-@property(nonatomic) NSNumber * isRecurring;
-
-/**
-Note content entered for a payment interaction.
-*/
-@property(nonatomic) NSString * note;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

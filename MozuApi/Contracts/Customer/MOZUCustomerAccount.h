@@ -14,8 +14,8 @@
 #import "MOZUAuditInfo.h"
 #import "MOZUCommerceSummary.h"
 #import "MOZUCustomerContact.h"
-#import "MOZUCustomerGroup.h"
 #import "MOZUCustomerNote.h"
+#import "MOZUCustomerSegment.h"
 
 
 
@@ -84,7 +84,7 @@ The tax identification number associated with the customer account.
 @property(nonatomic) NSString * taxId;
 
 /**
-Unique identifier of the user associated with the customer account.
+Unique identifier of the user associated with the customer account. All customer accounts must have a defined user ID. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 */
 @property(nonatomic) NSString * userId;
 
@@ -114,14 +114,14 @@ Contact information, including the contact's name, address, phone numbers, email
 @property(nonatomic) NSArray<MOZUCustomerContact>* contacts;
 
 /**
-List of groups associated with this customer account.
-*/
-@property(nonatomic) NSArray<MOZUCustomerGroup>* groups;
-
-/**
 List of customer account notes.
 */
 @property(nonatomic) NSArray<MOZUCustomerNote>* notes;
+
+/**
+List of customer segments associated with the customer account. Customer accounts can be members of any number of segments.
+*/
+@property(nonatomic) NSArray<MOZUCustomerSegment>* segments;
 
 @end
 

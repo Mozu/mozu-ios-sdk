@@ -64,6 +64,11 @@ The name of the product that appears on the storefront.
 @property(nonatomic) NSString * name;
 
 /**
+Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+*/
+@property(nonatomic) NSString * productCode;
+
+/**
 The unique identifier of the product reservation created for this item in the cart or order.
 */
 @property(nonatomic) NSNumber * productReservationId;
@@ -82,11 +87,6 @@ The usage type that applies to this product, which is Standard (a single product
 Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
 @property(nonatomic) NSString * variationProductCode;
-
-/**
-Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-*/
-@property(nonatomic) NSString * productCode;
 
 /**
 Collection of component products that make up a single product bundle with its own product code, added to a cart or order.

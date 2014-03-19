@@ -40,6 +40,23 @@
 
 /**
 
+@param identifier 
+@param subscriptionId 
+*/
+
+-(void)deliveryAttemptSummaryWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEventDeliverySummary* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+ {
+	MOZUClient * client = [MOZUEventDeliverySummaryClient clientForGetDeliveryAttemptSummaryOperationWithSubscriptionId:subscriptionId identifier:identifier userClaims:userClaims];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
 @param filter 
 @param pageSize 
 @param sortBy 

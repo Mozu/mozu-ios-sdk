@@ -11,6 +11,7 @@
 #import "MOZUEventDeliverySummaryClient.h"
 #import "MOZUEventDeliverySummaryURLComponents.h"
 #import "MozuEventDeliverySummaryCollection.h"
+#import "MozuEventDeliverySummary.h"
 
 
 @implementation MOZUEventDeliverySummaryClient
@@ -20,6 +21,20 @@
 #pragma mark Get Operations
 #pragma mark -
 //
+
++(MOZUClient*)clientForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier userClaims:(MOZUUserAuthTicket*)userClaims {
+	id url = [MOZUEventDeliverySummaryURLComponents URLComponentsForGetDeliveryAttemptSummaryOperationWithSubscriptionId:subscriptionId identifier:identifier];
+	id verb = @"GET";
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.userClaims = userClaims;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUEventDeliverySummary alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
 
 +(MOZUClient*)clientForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUEventDeliverySummaryURLComponents URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:subscriptionId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];

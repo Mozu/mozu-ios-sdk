@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUAdminCustomerGroup.h"
+#import "MOZUAdminCustomerSegment.h"
 #import "MOZUCategoryDiscountCondition.h"
 #import "MOZUProductDiscountCondition.h"
 
@@ -24,16 +24,6 @@
 	Properties of the conditions that must be met for a discount to apply to an order.
 */
 @interface MOZUDiscountCondition : JSONModel<MOZUDiscountCondition>
-
-/**
-If the discount is a coupon, the code required to redeem the coupon.
-*/
-@property(nonatomic) NSString * couponCode;
-
-/**
-The date and time on which the discount expires and cannot be redeemed.
-*/
-@property(nonatomic) NSDate * expirationDate;
 
 /**
 The maximum number of times the discount can be redeemed.
@@ -61,9 +51,19 @@ The earliest date and time this discount can be redeemed.
 @property(nonatomic) NSDate * startDate;
 
 /**
-List of the customer groups associated with a discount.
+If the discount is a coupon, the code required to redeem the coupon.
 */
-@property(nonatomic) NSArray<MOZUAdminCustomerGroup>* customerGroups;
+@property(nonatomic) NSString * couponCode;
+
+/**
+The date and time on which the discount expires and cannot be redeemed.
+*/
+@property(nonatomic) NSDate * expirationDate;
+
+/**
+List of customer segments associated with the discount. Shoppers who are members of an associated customer segment can redeem this discount.
+*/
+@property(nonatomic) NSArray<MOZUAdminCustomerSegment>* customerSegments;
 
 /**
 List of the product categories that are not eligible for the discount.

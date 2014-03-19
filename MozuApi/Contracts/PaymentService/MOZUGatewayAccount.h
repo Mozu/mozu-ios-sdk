@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUGatewayCredentialFieldValue.h"
 
 
 
@@ -41,6 +42,11 @@ Identifier of the entity.
 If true, the product is marked as available for sale. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
 */
 @property(nonatomic) BOOL isActive;
+
+/**
+List of credential fields for the payment gateway account.
+*/
+@property(nonatomic) NSArray<MOZUGatewayCredentialFieldValue>* credentialFields;
 
 @end
 

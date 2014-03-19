@@ -259,7 +259,7 @@ The device from which the order originated in the case of offline orders.
 @property(nonatomic) NSString * sourceDevice;
 
 /**
-The current status of this order. Possible values are "New", "Open", "Processing", "Closed", or "Cancelled". System-supplied and read-only.
+The current status of this order. Possible values are "Pending", "Submitted", "Processing", "Pending Review", "Closed", or "Cancelled". System-supplied and read-only.
 */
 @property(nonatomic) NSString * status;
 

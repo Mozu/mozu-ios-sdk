@@ -28,6 +28,26 @@
 @property(nonatomic) NSString * isoCurrencyCode;
 
 /**
+The minimum advertised price a client can charge for the associated product, as determined by the supplier. Client administrators can override the minimum advertised price at the catalog level.
+*/
+@property(nonatomic) NSNumber * map;
+
+/**
+If the product has a supplier-defined minimum advertised price, the date and time after which the client can sell the product for less than the minimum advertised price.
+*/
+@property(nonatomic) NSDate * mapEndDate;
+
+/**
+If the product has a supplier-defined minimum advertised price, the date and time after which the client cannot sell the product for less than the minimum advertised price.
+*/
+@property(nonatomic) NSDate * mapStartDate;
+
+/**
+The manufacturer's suggested retail price, as defined by the supplier.
+*/
+@property(nonatomic) NSNumber * msrp;
+
+/**
 Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
 */
 @property(nonatomic) NSNumber * price;

@@ -10,7 +10,9 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUGatewayCredentialFieldDefinition.h"
 #import "MOZUPreAuthorizeDefinition.h"
+#import "MOZUSupportedCard.h"
 
 
 
@@ -54,9 +56,19 @@ URL of the test payment service environment.
 @property(nonatomic) NSString * testServiceURL;
 
 /**
+Credential fields for the payment gateway. For security purposes, Mozu does not return these credential fields.
+*/
+@property(nonatomic) NSArray<MOZUGatewayCredentialFieldDefinition>* credentialDefinitions;
+
+/**
 Definition of the preauthorization gateway.
 */
 @property(nonatomic) MOZUPreAuthorizeDefinition* preAuthorizeDefinition;
+
+/**
+The types of credit cards supported by this payment gateway.
+*/
+@property(nonatomic) NSArray<MOZUSupportedCard>* supportedCards;
 
 @end
 

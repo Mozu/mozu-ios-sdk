@@ -12,6 +12,7 @@
 #import "MOZUClient.h"
 #import "MOZUAuthTicket.h"
 #import "MOZUEventDeliverySummaryCollection.h"
+#import "MOZUEventDeliverySummary.h"
 
 
 @interface MOZUEventDeliverySummaryClient : NSObject
@@ -21,6 +22,14 @@
 #pragma mark Get Operations
 #pragma mark -
 //
+
+/**
+
+@param identifier 
+@param subscriptionId 
+*/
+
++(MOZUClient*)clientForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 

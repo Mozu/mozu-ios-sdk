@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUAdminCustomerGroup.h"
+#import "MOZUCustomerSegmentCollection.h"
 
-@implementation MOZUAdminCustomerGroup
+@implementation MOZUCustomerSegmentCollection
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
 	return YES;

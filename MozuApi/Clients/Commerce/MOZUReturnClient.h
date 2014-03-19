@@ -106,8 +106,8 @@ Creates a new payment for a return that results in a refund to the customer.
 +(MOZUClient*)clientForCreatePaymentActionForReturnOperationWithBody:(MOZUPaymentAction*)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
-Updates the return by performing the specified action.
-@param body The name of the return action to perform, such as "Refund" or "Replace".
+Updates the return by performing the action specified in the request.
+@param body The name of the return action to perform, such as "Reject" or "Authorize".
 */
 
 +(MOZUClient*)clientForPerformReturnActionsOperationWithBody:(MOZUReturnAction*)body userClaims:(MOZUUserAuthTicket*)userClaims;
