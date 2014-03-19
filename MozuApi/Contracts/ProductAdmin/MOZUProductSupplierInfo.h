@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUProductCost.h"
 
 
 
@@ -23,16 +24,6 @@
 @interface MOZUProductSupplierInfo : JSONModel<MOZUProductSupplierInfo>
 
 /**
-The amount the client pays the supplier to stock this product in its catalogs.
-*/
-@property(nonatomic) NSNumber * cost;
-
-/**
-3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-*/
-@property(nonatomic) NSString * costCurrencyCode;
-
-/**
 The distributor part number associated with this product, defined by the product distributor.
 */
 @property(nonatomic) NSString * distPartNumber;
@@ -41,6 +32,11 @@ The distributor part number associated with this product, defined by the product
 The manufacturer part number associated with this product, defined by the product manufacturer.
 */
 @property(nonatomic) NSString * mfgPartNumber;
+
+/**
+The amount the client pays the supplier to stock this product in its catalogs.
+*/
+@property(nonatomic) MOZUProductCost* cost;
 
 @end
 

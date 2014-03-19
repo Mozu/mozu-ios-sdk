@@ -9,7 +9,7 @@
 
 #import "MOZUURLComponents.h"
 
-@interface MOZUApplicationURLComponents : NSObject
+@interface MOZUPlatformApplicationURLComponents : NSObject
 
 //
 #pragma mark -
@@ -18,9 +18,10 @@
 //
 
 /**
-Resource Url Components for thirdPartyGetApplication
+Resource Url Components for getApplication
+@param appId 
 */
-+(MOZUURLComponents*)URLComponentsForThirdPartyGetApplicationOperation;
++(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId;
 
 
 //
@@ -37,9 +38,10 @@ Resource Url Components for thirdPartyGetApplication
 //
 
 /**
-Resource Url Components for thirdPartyUpdateApplication
+Resource Url Components for updateApplication
+@param appId 
 */
-+(MOZUURLComponents*)URLComponentsForThirdPartyUpdateApplicationOperation;
++(MOZUURLComponents*)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId;
 
 
 //

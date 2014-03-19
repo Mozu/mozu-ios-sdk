@@ -21,6 +21,7 @@
 		@"newValue" : @"theNewValue",
 		@"newBillingInfo" : @"theNewBillingInfo",
 		@"newFullPath" : @"theNewFullPath",
+		@"newPassword" : @"theNewPassword",
 	};
 
 	return [[JSONKeyMapper alloc] initWithDictionary:dict];

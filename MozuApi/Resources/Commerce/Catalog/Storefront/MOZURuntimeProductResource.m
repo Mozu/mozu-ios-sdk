@@ -137,6 +137,27 @@ Validate the final state of shopper-selected options.
 	}];
 }
 
+/**
+
+@param body 
+@param allowInactive 
+@param customerAccountId 
+@param productCode 
+@param skipInventoryCheck 
+@param variationProductCode 
+*/
+
+-(void)validateDiscountsWithBody:(MOZUDiscountSelections*)body productCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountValidationSummary* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+ {
+	MOZUClient * client = [MOZURuntimeProductClient clientForValidateDiscountsOperationWithBody:body productCode:productCode variationProductCode:variationProductCode customerAccountId:customerAccountId allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -

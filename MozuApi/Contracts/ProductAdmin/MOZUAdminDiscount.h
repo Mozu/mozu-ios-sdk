@@ -51,6 +51,8 @@ Unique identifier of the discount.
 */
 @property(nonatomic) NSNumber * id;
 
+@property(nonatomic) NSNumber * maximumUsesPerUser;
+
 /**
 The scope to which the discount applies, which is "Order" for order discounts or "LineItem" for individual product discounts.
 */

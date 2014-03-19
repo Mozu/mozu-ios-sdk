@@ -17,6 +17,8 @@
 #import "MOZUConfiguredProduct.h"
 #import "MOZUProductValidationSummary.h"
 #import "MOZURuntimeProductCollection.h"
+#import "MOZUDiscountSelections.h"
+#import "MOZUDiscountValidationSummary.h"
 
 
 @interface MOZURuntimeProductClient : NSObject
@@ -80,6 +82,18 @@ Validate the final state of shopper-selected options.
 */
 
 +(MOZUClient*)clientForValidateProductOperationWithBody:(MOZUProductOptionSelections*)body productCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
+
+/**
+
+@param body 
+@param allowInactive 
+@param customerAccountId 
+@param productCode 
+@param skipInventoryCheck 
+@param variationProductCode 
+*/
+
++(MOZUClient*)clientForValidateDiscountsOperationWithBody:(MOZUDiscountSelections*)body productCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

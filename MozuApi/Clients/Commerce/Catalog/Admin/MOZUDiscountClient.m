@@ -13,7 +13,6 @@
 #import "MozuAdminDiscount.h"
 #import "MozuDiscountLocalizedContent.h"
 #import "MozuDiscountCollection.h"
-#import "MozuRedemption.h"
 
 
 @implementation MOZUDiscountClient
@@ -112,24 +111,6 @@
 	return client;
 }
 
-+(MOZUClient*)clientForRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURLComponents URLComponentsForRedeemDiscountOperation];
-	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
-	client.body = body;
-	client.userClaims = userClaims;
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZURedemption alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
 
 //
 #pragma mark -
@@ -182,18 +163,6 @@
 
 +(MOZUClient*)clientForDeleteDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUDiscountURLComponents URLComponentsForDeleteDiscountOperationWithDiscountId:discountId];
-	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
-	client.userClaims = userClaims;
-	return client;
-}
-
-+(MOZUClient*)clientForUnRedeemDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUDiscountURLComponents URLComponentsForUnRedeemDiscountOperationWithDiscountId:discountId orderNumber:orderNumber];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

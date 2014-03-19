@@ -22,6 +22,11 @@
 */
 @interface MOZUDocumentDraftSummary : JSONModel<MOZUDocumentDraftSummary>
 
+/**
+Unique identifier of the user who last modified the item. This value is system-supplied and read-only.
+*/
+@property(nonatomic) NSString * updatedBy;
+
 @property(nonatomic) NSDate * activeUpdateDate;
 
 /**
@@ -45,11 +50,6 @@ Name of the document draft.
 Whether the draft has been published.
 */
 @property(nonatomic) NSString * publishType;
-
-/**
-Unique identifier of the user who last modified the item. This value is system-supplied and read-only.
-*/
-@property(nonatomic) NSString * updatedBy;
 
 @end
 

@@ -64,6 +64,16 @@ Resource Url Components for validateProduct
 */
 +(MOZUURLComponents*)URLComponentsForValidateProductOperationWithProductCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
+/**
+Resource Url Components for validateDiscounts
+@param productCode 
+@param variationProductCode 
+@param customerAccountId 
+@param allowInactive 
+@param skipInventoryCheck 
+*/
++(MOZUURLComponents*)URLComponentsForValidateDiscountsOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
+
 
 //
 #pragma mark -

@@ -127,22 +127,6 @@ Creates a new discount or coupon to apply to a product, category, order, or ship
 	}];
 }
 
-/**
-Redeems a discount configured in the product admin.
-@param body Properties of the product discount redemption.
-*/
-
--(void)redeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURedemption* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
- {
-	MOZUClient * client = [MOZUDiscountClient clientForRedeemDiscountOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
 
 //
 #pragma mark -
@@ -199,23 +183,6 @@ Deletes a discount specified by its discount ID.
 -(void)deleteDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
  {
 	MOZUClient * client = [MOZUDiscountClient clientForDeleteDiscountOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-		if (handler != nil) {
-			handler(error, response);
-		}
-	}];
-}
-
-/**
-Deletes a previous discount redemption from an order.
-@param discountId Unique identifier of the previously redeemed discount. System-supplied and read only.
-@param orderNumber The number of the order associated with the redeemed product discount.
-*/
-
--(void)unRedeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
- {
-	MOZUClient * client = [MOZUDiscountClient clientForUnRedeemDiscountOperationWithDataViewMode:dataViewMode discountId:discountId orderNumber:orderNumber userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

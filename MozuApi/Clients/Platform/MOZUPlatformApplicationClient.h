@@ -11,10 +11,10 @@
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
 #import "MOZUAuthTicket.h"
-#import "MOZUSiteSettingsApplication.h"
+#import "MOZUInstalledApplications.h"
 
 
-@interface MOZUApplicationClient : NSObject
+@interface MOZUPlatformApplicationClient : NSObject
 
 //
 #pragma mark -
@@ -23,10 +23,11 @@
 //
 
 /**
-Retrieve the settings of a third-party application.
+
+@param appId 
 */
 
-+(MOZUClient*)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForGetApplicationOperationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //
@@ -43,11 +44,12 @@ Retrieve the settings of a third-party application.
 //
 
 /**
-Initializes an application with the necessary configured settings.
-@param body Properties of the application to update.
+
+@param body 
+@param appId 
 */
 
-+(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++(MOZUClient*)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications*)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 
 //

@@ -26,6 +26,16 @@
 @interface MOZUDiscountCondition : JSONModel<MOZUDiscountCondition>
 
 /**
+If the discount is a coupon, the code required to redeem the coupon.
+*/
+@property(nonatomic) NSString * couponCode;
+
+/**
+The date and time on which the discount expires and cannot be redeemed.
+*/
+@property(nonatomic) NSDate * expirationDate;
+
+/**
 The maximum number of times the discount can be redeemed.
 */
 @property(nonatomic) NSNumber * maxRedemptionCount;
@@ -40,6 +50,8 @@ The minimum order amount required to redeem this discount.
 */
 @property(nonatomic) NSNumber * minimumOrderAmount;
 
+@property(nonatomic) NSNumber * requiresAuthenticatedUser;
+
 /**
 If true, redemption of this discount requires entry of a coupon code.
 */
@@ -49,16 +61,6 @@ If true, redemption of this discount requires entry of a coupon code.
 The earliest date and time this discount can be redeemed.
 */
 @property(nonatomic) NSDate * startDate;
-
-/**
-If the discount is a coupon, the code required to redeem the coupon.
-*/
-@property(nonatomic) NSString * couponCode;
-
-/**
-The date and time on which the discount expires and cannot be redeemed.
-*/
-@property(nonatomic) NSDate * expirationDate;
 
 /**
 List of customer segments associated with the discount. Shoppers who are members of an associated customer segment can redeem this discount.

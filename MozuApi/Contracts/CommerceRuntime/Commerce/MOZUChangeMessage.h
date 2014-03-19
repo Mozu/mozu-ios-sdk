@@ -22,6 +22,8 @@
 */
 @interface MOZUChangeMessage : JSONModel<MOZUChangeMessage>
 
+@property(nonatomic) NSNumber * amount;
+
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
@@ -61,6 +63,10 @@ The text that appears on the subject line of the message, such as "The product p
 Represents the type of object affected by the change, such as Cart Item or Product. System-supplied and read-only.
 */
 @property(nonatomic) NSString * subjectType;
+
+@property(nonatomic) NSNumber * success;
+
+@property(nonatomic) NSString * userId;
 
 /**
 The action associated with this message. For example, if the price of a product changes, the verb could be "Increased" or "Decreased". If the product is no longer available, the verb could be "Invalidated". System-supplied and read-only.

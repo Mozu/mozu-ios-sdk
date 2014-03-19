@@ -8,12 +8,12 @@
 * </auto-generated>
 */
 
-#import "MOZUApplicationClient.h"
-#import "MOZUApplicationURLComponents.h"
-#import "MozuSiteSettingsApplication.h"
+#import "MOZUFulfillmentInfoClient.h"
+#import "MOZUFulfillmentInfoURLComponents.h"
+#import "MozuFulfillmentInfo.h"
 
 
-@implementation MOZUApplicationClient
+@implementation MOZUFulfillmentInfoClient
 
 //
 #pragma mark -
@@ -21,15 +21,15 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUApplicationURLComponents URLComponentsForThirdPartyGetApplicationOperation];
++(MOZUClient*)clientForGetFulfillmentInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket*)userClaims {
+	id url = [MOZUFulfillmentInfoURLComponents URLComponentsForGetFulfillmentInfoOperationWithOrderId:orderId draft:draft];
 	id verb = @"GET";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUSiteSettingsApplication alloc] initWithString:jsonResult error:nil];
+		return [[MOZUFulfillmentInfo alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -49,8 +49,8 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication*)body userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUApplicationURLComponents URLComponentsForThirdPartyUpdateApplicationOperation];
++(MOZUClient*)clientForSetFulFillmentInfoOperationWithBody:(MOZUFulfillmentInfo*)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims {
+	id url = [MOZUFulfillmentInfoURLComponents URLComponentsForSetFulFillmentInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -58,7 +58,7 @@
 	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUSiteSettingsApplication alloc] initWithString:jsonResult error:nil];
+		return [[MOZUFulfillmentInfo alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

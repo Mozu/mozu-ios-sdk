@@ -12,6 +12,7 @@
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUBillingInfo.h"
+#import "MOZUChangeMessage.h"
 #import "MOZUPaymentInteraction.h"
 
 
@@ -84,6 +85,8 @@ Identifier and datetime stamp information recorded when a user or application cr
 Properties of the customer billing information associated with this payment.
 */
 @property(nonatomic) MOZUBillingInfo* billingInfo;
+
+@property(nonatomic) NSArray<MOZUChangeMessage>* changeMessages;
 
 /**
 Container for the interactions associated with the payment, which includes details for each action performed for the payment.

@@ -45,6 +45,8 @@ If true, the production variation is no longer available for sale. For example, 
 */
 @property(nonatomic) NSNumber * isOrphan;
 
+@property(nonatomic) NSString * upc;
+
 /**
 If true, one or more product variations are configured for the specified product code.
 */

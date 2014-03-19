@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUAppliedDiscountURLComponents.h"
+#import "MOZUOrdersAppliedDiscountURLComponents.h"
 
-@implementation MOZUAppliedDiscountURLComponents
+@implementation MOZUOrdersAppliedDiscountURLComponents
 
 //
 #pragma mark -

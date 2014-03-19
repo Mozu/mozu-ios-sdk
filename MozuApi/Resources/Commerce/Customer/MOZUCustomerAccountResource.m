@@ -117,6 +117,23 @@ Creates a new customer account based on the information specified in the request
 }
 
 /**
+
+@param body 
+@param accountId 
+*/
+
+-(void)changePasswordWithBody:(MOZUPasswordInfo*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+ {
+	MOZUClient * client = [MOZUCustomerAccountClient clientForChangePasswordOperationWithBody:body accountId:accountId userClaims:userClaims];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+		if (handler != nil) {
+			handler(error, response);
+		}
+	}];
+}
+
+/**
 Adds a new user login to a defined customer account.
 @param body The authentication information for the customer account.
 @param accountId Unique identifier of the customer account.

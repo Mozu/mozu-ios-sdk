@@ -55,6 +55,12 @@ Resource Url Components for addAccount
 +(MOZUURLComponents*)URLComponentsForAddAccountOperation;
 
 /**
+Resource Url Components for changePassword
+@param accountId 
+*/
++(MOZUURLComponents*)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId;
+
+/**
 Resource Url Components for addLoginToExistingCustomer
 @param accountId Unique identifier of the customer account.
 */

@@ -32,6 +32,8 @@ Code that identifies the channel associated with the site where the shopping car
 */
 @property(nonatomic) NSString * channelCode;
 
+@property(nonatomic) NSArray* couponCodes;
+
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */

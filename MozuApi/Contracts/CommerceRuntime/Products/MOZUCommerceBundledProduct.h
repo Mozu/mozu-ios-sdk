@@ -24,6 +24,11 @@
 @interface MOZUCommerceBundledProduct : JSONModel<MOZUCommerceBundledProduct>
 
 /**
+The quantity of a component product in its product bundle. System-supplied and read only.
+*/
+@property(nonatomic) NSInteger quantity;
+
+/**
 The description defined for a component product in a product bundle. System-supplied and read only.
 */
 @property(nonatomic) NSString * description;
@@ -47,11 +52,6 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 Unique identifier of the product reservation associated with the component product in a product bundle. System-supplied and read only.
 */
 @property(nonatomic) NSNumber * productReservationId;
-
-/**
-The quantity of a component product in its product bundle. System-supplied and read only.
-*/
-@property(nonatomic) NSInteger quantity;
 
 /**
 Dimensions of the packaged product.

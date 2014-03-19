@@ -79,6 +79,19 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
++(MOZUURLComponents*)URLComponentsForValidateDiscountsOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck {
+	NSString* template = @"/api/commerce/catalog/storefront/products/{productCode}/validateDiscounts?variationProductCode={variationProductCode}&customerAccountId={customerAccountId}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}";
+	NSDictionary* params = @{
+		@"productCode" : productCode,
+		@"variationProductCode" : variationProductCode ? variationProductCode : @"",
+		@"customerAccountId" : customerAccountId ? customerAccountId : @"",
+		@"allowInactive" : allowInactive ? allowInactive : @"",
+		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -

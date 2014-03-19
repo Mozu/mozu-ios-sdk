@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZURedemption.h"
+#import "MOZUProductCost.h"
 
-@implementation MOZURedemption
+@implementation MOZUProductCost
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
 	return YES;

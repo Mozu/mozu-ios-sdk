@@ -28,11 +28,6 @@ If applicable, the amount of the transaction.
 @property(nonatomic) NSNumber * amount;
 
 /**
-Unique identifier of the customer account.
-*/
-@property(nonatomic) NSNumber * customerAccountId;
-
-/**
 The date and time the customer transaction occurred.
 */
 @property(nonatomic) NSDate * date;

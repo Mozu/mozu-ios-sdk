@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
+#import "MOZUChangeMessage.h"
 #import "MOZUReturnItem.h"
 #import "MOZUOrderNote.h"
 #import "MOZUCommercePackage.h"
@@ -151,6 +152,8 @@ Unique identifier of the web session in which the return was created or last mod
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo* auditInfo;
+
+@property(nonatomic) NSArray<MOZUChangeMessage>* changeMessages;
 
 /**
 An array list of objects in the returned collection.

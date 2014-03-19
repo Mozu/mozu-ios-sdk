@@ -16,7 +16,6 @@
 #import "MOZUAdminDiscount.h"
 #import "MOZUDiscountLocalizedContent.h"
 #import "MOZUDiscountCollection.h"
-#import "MOZURedemption.h"
 
 
 @interface MOZUDiscountResource : NSObject
@@ -77,13 +76,6 @@ Creates a new discount or coupon to apply to a product, category, order, or ship
 
 -(void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminDiscount* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
-/**
-Redeems a discount configured in the product admin.
-@param body Properties of the product discount redemption.
-*/
-
--(void)redeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZURedemption*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURedemption* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
-;
 
 //
 #pragma mark -
@@ -120,14 +112,6 @@ Deletes a discount specified by its discount ID.
 */
 
 -(void)deleteDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
-;
-/**
-Deletes a previous discount redemption from an order.
-@param discountId Unique identifier of the previously redeemed discount. System-supplied and read only.
-@param orderNumber The number of the order associated with the redeemed product discount.
-*/
-
--(void)unRedeemDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
 ;
 
 

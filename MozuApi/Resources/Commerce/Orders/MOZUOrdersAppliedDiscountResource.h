@@ -8,28 +8,20 @@
 * </auto-generated>
 */
 
-#import "MOZUAppliedDiscountClient.h"
-#import "MOZUAppliedDiscountResource.h"
+#import <Foundation/Foundation.h>
+#import "MOZUClient.h"
+#import "MOZUAPIContext.h"
+
+#import "MOZUAuthTicket.h"
+#import "MOZUOrder.h"
 
 
-
-@interface MOZUAppliedDiscountResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
-@end
+@interface MOZUOrdersAppliedDiscountResource : NSObject
 
 
-@implementation MOZUAppliedDiscountResource
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
-	if (self = [super init]) {
-		self.apiContext = apiContext;
-		return self;
-	}
-	else {
-		return nil;
-	}
-}
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -61,16 +53,7 @@ Apply a coupon to the order.
 */
 
 -(void)applyCouponWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
- {
-	MOZUClient * client = [MOZUAppliedDiscountClient clientForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version userClaims:userClaims];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
+;
 
 //
 #pragma mark -
@@ -87,16 +70,7 @@ Removes a coupon previously applied to the order.
 */
 
 -(void)removeCouponWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
- {
-	MOZUClient * client = [MOZUAppliedDiscountClient clientForRemoveCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version userClaims:userClaims];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
+;
 /**
 Removes all coupons previously applied to the order.
 @param orderId Unique identifier of the order with the coupons to remove.
@@ -105,16 +79,7 @@ Removes all coupons previously applied to the order.
 */
 
 -(void)removeCouponsWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
- {
-	MOZUClient * client = [MOZUAppliedDiscountClient clientForRemoveCouponsOperationWithOrderId:orderId updateMode:updateMode version:version userClaims:userClaims];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
+;
 
 
 @end

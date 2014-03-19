@@ -15,6 +15,7 @@
 #import "MozuConfiguredProduct.h"
 #import "MozuProductValidationSummary.h"
 #import "MozuRuntimeProductCollection.h"
+#import "MozuDiscountValidationSummary.h"
 
 
 @implementation MOZURuntimeProductClient
@@ -99,6 +100,21 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUProductValidationSummary alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++(MOZUClient*)clientForValidateDiscountsOperationWithBody:(MOZUDiscountSelections*)body productCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket*)userClaims {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForValidateDiscountsOperationWithProductCode:productCode variationProductCode:variationProductCode customerAccountId:customerAccountId allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck];
+	id verb = @"POST";
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+	client.userClaims = userClaims;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUDiscountValidationSummary alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

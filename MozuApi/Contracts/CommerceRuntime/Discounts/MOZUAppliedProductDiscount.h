@@ -23,6 +23,8 @@
 */
 @interface MOZUAppliedProductDiscount : JSONModel<MOZUAppliedProductDiscount>
 
+@property(nonatomic) NSNumber * appliesToSalePrice;
+
 /**
 Alphanumeric code associated with the coupon or promotion that results in a discounted price.
 */

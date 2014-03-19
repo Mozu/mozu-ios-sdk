@@ -32,6 +32,8 @@ The date and time the discount can no longer be redeemed. Date in UTC Date/Time.
 */
 @property(nonatomic) NSDate * expirationDate;
 
+@property(nonatomic) NSString * friendlyDescription;
+
 /**
 The localizable name assigned for the product discount.
 */

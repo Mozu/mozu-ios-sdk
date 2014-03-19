@@ -65,6 +65,15 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
++(MOZUURLComponents*)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId {
+	NSString* template = @"/api/commerce/customer/accounts/{accountId}/Change-Password";
+	NSDictionary* params = @{
+		@"accountId" : @(accountId),
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 +(MOZUURLComponents*)URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:(NSInteger)accountId {
 	NSString* template = @"/api/commerce/customer/accounts/{accountId}/Create-Login";
 	NSDictionary* params = @{

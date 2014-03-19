@@ -8,12 +8,12 @@
 * </auto-generated>
 */
 
-#import "MOZUAppliedDiscountClient.h"
-#import "MOZUAppliedDiscountURLComponents.h"
+#import "MOZUOrdersAppliedDiscountClient.h"
+#import "MOZUOrdersAppliedDiscountURLComponents.h"
 #import "MozuOrder.h"
 
 
-@implementation MOZUAppliedDiscountClient
+@implementation MOZUOrdersAppliedDiscountClient
 
 //
 #pragma mark -
@@ -36,7 +36,7 @@
 //
 
 +(MOZUClient*)clientForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAppliedDiscountURLComponents URLComponentsForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
+	id url = [MOZUOrdersAppliedDiscountURLComponents URLComponentsForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -57,7 +57,7 @@
 //
 
 +(MOZUClient*)clientForRemoveCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAppliedDiscountURLComponents URLComponentsForRemoveCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
+	id url = [MOZUOrdersAppliedDiscountURLComponents URLComponentsForRemoveCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -71,7 +71,7 @@
 }
 
 +(MOZUClient*)clientForRemoveCouponsOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims {
-	id url = [MOZUAppliedDiscountURLComponents URLComponentsForRemoveCouponsOperationWithOrderId:orderId updateMode:updateMode version:version];
+	id url = [MOZUOrdersAppliedDiscountURLComponents URLComponentsForRemoveCouponsOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"DELETE";
 	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

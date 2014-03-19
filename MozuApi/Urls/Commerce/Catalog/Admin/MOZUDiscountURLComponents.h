@@ -55,11 +55,6 @@ Resource Url Components for createDiscount
 */
 +(MOZUURLComponents*)URLComponentsForCreateDiscountOperation;
 
-/**
-Resource Url Components for redeemDiscount
-*/
-+(MOZUURLComponents*)URLComponentsForRedeemDiscountOperation;
-
 
 //
 #pragma mark -
@@ -91,13 +86,6 @@ Resource Url Components for deleteDiscount
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 +(MOZUURLComponents*)URLComponentsForDeleteDiscountOperationWithDiscountId:(NSInteger)discountId;
-
-/**
-Resource Url Components for unRedeemDiscount
-@param discountId Unique identifier of the previously redeemed discount. System-supplied and read only.
-@param orderNumber The number of the order associated with the redeemed product discount.
-*/
-+(MOZUURLComponents*)URLComponentsForUnRedeemDiscountOperationWithDiscountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber;
 
 
 

@@ -43,6 +43,8 @@ The date and time the order was accepted by the tenant.
 */
 @property(nonatomic) NSDate * acceptedDate;
 
+@property(nonatomic) NSNumber * acceptsMarketing;
+
 /**
 The amount of the order the shopper can receive in the event of a return. This amount represents the amount captured at the time the order was submitted, not when the order was returned.
 */

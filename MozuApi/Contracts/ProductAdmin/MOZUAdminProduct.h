@@ -89,11 +89,6 @@ The unique identifier of the master catalog associated with the entity.
 @property(nonatomic) NSNumber * masterCatalogId;
 
 /**
-The price lookup unit code associated with this product.
-*/
-@property(nonatomic) NSString * plu;
-
-/**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 @property(nonatomic) NSString * productCode;

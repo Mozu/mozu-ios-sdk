@@ -24,14 +24,14 @@
 @interface MOZUDocument : JSONModel<MOZUDocument>
 
 /**
-The mime type associated with the document content, if applicable.
-*/
-@property(nonatomic) NSString * contentMimeType;
-
-/**
 The character length associated with the document content.
 */
 @property(nonatomic) NSNumber * contentLength;
+
+/**
+The mime type associated with the document content, if applicable.
+*/
+@property(nonatomic) NSString * contentMimeType;
 
 /**
 The date and time the most recent content update was made. UTC date/time. System-supplied and read-only.

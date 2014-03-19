@@ -88,6 +88,16 @@
 	return client;
 }
 
++(MOZUClient*)clientForChangePasswordOperationWithBody:(MOZUPasswordInfo*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForChangePasswordOperationWithAccountId:accountId];
+	id verb = @"POST";
+	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+	client.userClaims = userClaims;
+	return client;
+}
+
 +(MOZUClient*)clientForAddLoginToExistingCustomerOperationWithBody:(MOZUCustomerLoginInfo*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:accountId];
 	id verb = @"POST";

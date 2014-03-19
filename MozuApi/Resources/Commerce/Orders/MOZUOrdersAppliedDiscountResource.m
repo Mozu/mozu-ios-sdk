@@ -8,13 +8,29 @@
 * </auto-generated>
 */
 
-#import <Foundation/Foundation.h>
-#import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
-#import "MOZUOrder.h"
+#import "MOZUOrdersAppliedDiscountClient.h"
+#import "MOZUOrdersAppliedDiscountResource.h"
 
 
-@interface MOZUAppliedDiscountClient : NSObject
+
+@interface MOZUOrdersAppliedDiscountResource()
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@end
+
+
+@implementation MOZUOrdersAppliedDiscountResource
+
+
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
 
 //
 #pragma mark -
@@ -44,7 +60,16 @@ Apply a coupon to the order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims;
+-(void)applyCouponWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+ {
+	MOZUClient * client = [MOZUOrdersAppliedDiscountClient clientForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version userClaims:userClaims];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
 
 
 //
@@ -61,7 +86,16 @@ Removes a coupon previously applied to the order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForRemoveCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims;
+-(void)removeCouponWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+ {
+	MOZUClient * client = [MOZUOrdersAppliedDiscountClient clientForRemoveCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version userClaims:userClaims];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
 
 /**
 Removes all coupons previously applied to the order.
@@ -70,7 +104,16 @@ Removes all coupons previously applied to the order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForRemoveCouponsOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims;
+-(void)removeCouponsWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+ {
+	MOZUClient * client = [MOZUOrdersAppliedDiscountClient clientForRemoveCouponsOperationWithOrderId:orderId updateMode:updateMode version:version userClaims:userClaims];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
 
 
 

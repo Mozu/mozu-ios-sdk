@@ -68,13 +68,6 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForRedeemDiscountOperation {
-	NSString* template = @"/api/commerce/catalog/admin/discounts/Redeem";
-	NSDictionary* params = nil;
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
-}
-
 
 //
 #pragma mark -
@@ -111,16 +104,6 @@
 	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}";
 	NSDictionary* params = @{
 		@"discountId" : @(discountId),
-	};
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
-}
-
-+(MOZUURLComponents*)URLComponentsForUnRedeemDiscountOperationWithDiscountId:(NSNumber *)discountId orderNumber:(NSNumber *)orderNumber {
-	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/Unredeem/{orderNumber}";
-	NSDictionary* params = @{
-		@"discountId" : discountId ? discountId : @"",
-		@"orderNumber" : orderNumber ? orderNumber : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

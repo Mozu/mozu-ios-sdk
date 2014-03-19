@@ -15,6 +15,7 @@
 #import "MOZUCustomerAccountCollection.h"
 #import "MOZUCustomerAccount.h"
 #import "MOZULoginState.h"
+#import "MOZUPasswordInfo.h"
 #import "MOZUCustomerLoginInfo.h"
 #import "MOZUCustomerAuthTicket.h"
 #import "MOZUResetPasswordInfo.h"
@@ -69,6 +70,14 @@ Creates a new customer account based on the information specified in the request
 */
 
 +(MOZUClient*)clientForAddAccountOperationWithBody:(MOZUCustomerAccount*)body userClaims:(MOZUUserAuthTicket*)userClaims;
+
+/**
+
+@param body 
+@param accountId 
+*/
+
++(MOZUClient*)clientForChangePasswordOperationWithBody:(MOZUPasswordInfo*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims;
 
 /**
 Adds a new user login to a defined customer account.

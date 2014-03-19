@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
+#import "MOZUChangeMessage.h"
 #import "MOZUPickupItem.h"
 
 
@@ -53,6 +54,8 @@ The fulfillment status of the in-store pickup, which is "Fulfilled," "NotFulfill
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo* auditInfo;
+
+@property(nonatomic) NSArray<MOZUChangeMessage>* changeMessages;
 
 /**
 An array list of objects in the returned collection.
