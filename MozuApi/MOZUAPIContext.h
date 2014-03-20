@@ -13,16 +13,16 @@
 @interface MOZUAPIContext : JSONModel
 
 @property(nonatomic) NSInteger tenantId;
-@property(nonatomic) NSNumber * siteId;
-@property(nonatomic) NSString * tenantHost;
-@property(nonatomic) NSString * siteHost;
-@property(nonatomic) NSString * correlationId;
-@property(nonatomic) NSString * hmacSHA256;
-@property(nonatomic) NSString * appAuthClaim;
-@property(nonatomic) NSNumber * masterCatalogId;
-@property(nonatomic) NSNumber * catalogId;
-@property(nonatomic) MOZUTenant * tenant;
-@property(nonatomic) NSString * date;
+@property(nonatomic) NSNumber *siteId;
+@property(nonatomic) NSString *tenantHost;
+@property(nonatomic) NSString *siteHost;
+@property(nonatomic) NSString *correlationId;
+@property(nonatomic) NSString *hmacSHA256;
+@property(nonatomic) NSString *appAuthClaim;
+@property(nonatomic) NSNumber *masterCatalogId;
+@property(nonatomic) NSNumber *catalogId;
+@property(nonatomic) MOZUTenant *tenant;
+@property(nonatomic) NSString *date;
 
 /**
  Creates an instance of a MOZUAPIContext object.
