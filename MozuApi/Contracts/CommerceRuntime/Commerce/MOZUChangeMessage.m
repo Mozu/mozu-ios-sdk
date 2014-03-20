@@ -11,13 +11,13 @@
 #import "MOZUChangeMessage.h"
 
 @implementation MOZUChangeMessage
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }
 
-+(JSONKeyMapper*)keyMapper {
-	NSDictionary* dict = @{
++ (JSONKeyMapper *)keyMapper {
+	NSDictionary *dict = @{
 		@"newValue" : @"theNewValue",
 		@"newBillingInfo" : @"theNewBillingInfo",
 		@"newFullPath" : @"theNewFullPath",

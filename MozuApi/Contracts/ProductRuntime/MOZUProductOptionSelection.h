@@ -25,22 +25,22 @@
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString * attributeFQN;
+@property(nonatomic) NSString *attributeFQN;
 
 /**
 Identifier of the value of this attribute.
 */
-@property(nonatomic) NSNumber * attributeValueId;
+@property(nonatomic) NSNumber *attributeValueId;
 
 /**
 The custom value the shopper entered for an option set up in product admin.
 */
-@property(nonatomic) NSObject * shopperEnteredValue;
+@property(nonatomic) NSObject *shopperEnteredValue;
 
 /**
 The attribute value.
 */
-@property(nonatomic) NSObject * value;
+@property(nonatomic) NSObject *value;
 
 @end
 

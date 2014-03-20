@@ -11,7 +11,7 @@
 #import "MOZUPhone.h"
 
 @implementation MOZUPhone
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

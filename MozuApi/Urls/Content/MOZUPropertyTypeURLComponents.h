@@ -22,18 +22,18 @@ Resource Url Components for getPropertyTypes
 @param pageSize 
 @param startIndex 
 */
-+(MOZUURLComponents*)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUURLComponents *)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
 
 /**
 Resource Url Components for getPropertyType
 @param propertyTypeName 
 */
-+(MOZUURLComponents*)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName;
++ (MOZUURLComponents *)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName;
 
 /**
 Resource Url Components for propertyValueTypes
 */
-+(MOZUURLComponents*)URLComponentsForPropertyValueTypesOperation;
++ (MOZUURLComponents *)URLComponentsForPropertyValueTypesOperation;
 
 
 //

@@ -11,7 +11,7 @@
 #import "MOZUPricingProductProperty.h"
 
 @implementation MOZUPricingProductProperty
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

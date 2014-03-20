@@ -36,7 +36,7 @@ Resource Url Components for applyCoupon
 @param cartId 
 @param couponCode 
 */
-+(MOZUURLComponents*)URLComponentsForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode;
++ (MOZUURLComponents *)URLComponentsForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode;
 
 
 //
@@ -49,14 +49,14 @@ Resource Url Components for applyCoupon
 Resource Url Components for removeCoupons
 @param cartId 
 */
-+(MOZUURLComponents*)URLComponentsForRemoveCouponsOperationWithCartId:(NSString *)cartId;
++ (MOZUURLComponents *)URLComponentsForRemoveCouponsOperationWithCartId:(NSString *)cartId;
 
 /**
 Resource Url Components for removeCoupon
 @param cartId 
 @param couponCode 
 */
-+(MOZUURLComponents*)URLComponentsForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode;
++ (MOZUURLComponents *)URLComponentsForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode;
 
 
 

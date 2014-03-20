@@ -20,7 +20,7 @@
 
 @interface MOZUDiscountValidationSummary : JSONModel<MOZUDiscountValidationSummary>
 
-@property(nonatomic) NSArray<MOZURuntimeDiscount>* applicableDiscounts;
+@property(nonatomic) NSArray<MOZURuntimeDiscount> *applicableDiscounts;
 
 @end
 

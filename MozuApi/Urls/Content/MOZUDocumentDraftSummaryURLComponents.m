@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists {
-	NSString* template = @"/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists {
+	NSString *template = @"/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}";
+	NSDictionary *params = @{
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"documentLists" : documentLists ? documentLists : @"",
@@ -35,9 +35,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString *)documentLists {
-	NSString* template = @"/api/content/documentpublishing/draft?documentLists={documentLists}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:(NSString *)documentLists {
+	NSString *template = @"/api/content/documentpublishing/draft?documentLists={documentLists}";
+	NSDictionary *params = @{
 		@"documentLists" : documentLists ? documentLists : @"",
 	};
 
@@ -51,9 +51,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString *)documentLists {
-	NSString* template = @"/api/content/documentpublishing/active?documentLists={documentLists}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForPublishDocumentsOperationWithDocumentLists:(NSString *)documentLists {
+	NSString *template = @"/api/content/documentpublishing/active?documentLists={documentLists}";
+	NSDictionary *params = @{
 		@"documentLists" : documentLists ? documentLists : @"",
 	};
 

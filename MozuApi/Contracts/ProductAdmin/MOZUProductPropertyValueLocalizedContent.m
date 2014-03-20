@@ -11,7 +11,7 @@
 #import "MOZUProductPropertyValueLocalizedContent.h"
 
 @implementation MOZUProductPropertyValueLocalizedContent
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

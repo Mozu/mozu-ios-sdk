@@ -19,9 +19,9 @@
 @interface MOZUCartsAppliedDiscountResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -50,7 +50,7 @@
 @param couponCode 
 */
 
--(void)applyCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)applyCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -64,7 +64,7 @@
 @param cartId 
 */
 
--(void)removeCouponsWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)removeCouponsWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 
@@ -72,7 +72,7 @@
 @param couponCode 
 */
 
--(void)removeCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)removeCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

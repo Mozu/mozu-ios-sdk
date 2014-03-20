@@ -17,18 +17,18 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetExtrasOperationWithProductTypeId:(NSInteger)productTypeId {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetExtrasOperationWithProductTypeId:(NSInteger)productTypeId {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras";
+	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
+	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 		@"attributeFQN" : attributeFQN,
 	};
@@ -43,9 +43,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddExtraOperationWithProductTypeId:(NSInteger)productTypeId {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForAddExtraOperationWithProductTypeId:(NSInteger)productTypeId {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras";
+	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 	};
 
@@ -59,9 +59,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
+	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 		@"attributeFQN" : attributeFQN,
 	};
@@ -76,9 +76,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
+	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 		@"attributeFQN" : attributeFQN,
 	};

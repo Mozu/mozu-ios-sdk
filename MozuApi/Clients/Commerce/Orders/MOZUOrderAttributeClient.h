@@ -27,7 +27,7 @@ Retrieves a list of the attributes defined for the order specified in the reques
 @param orderId Unique identifier of the order for which to retrieve a list of defined attributes.
 */
 
-+(MOZUClient*)clientForGetOrderAttributesOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetOrderAttributesOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -42,7 +42,7 @@ Applies a list of attributes to the order specified in the request and defines a
 @param orderId Unique identifier of the order for which to assign the attributes.
 */
 
-+(MOZUClient*)clientForCreateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForCreateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute> *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -58,7 +58,7 @@ Updates one or more properties of an attribute defined for the order specified i
 @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 */
 
-+(MOZUClient*)clientForUpdateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute>*)body orderId:(NSString *)orderId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute> *)body orderId:(NSString *)orderId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

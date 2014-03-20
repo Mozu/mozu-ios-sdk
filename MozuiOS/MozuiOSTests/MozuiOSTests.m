@@ -22,11 +22,11 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
--(NSString *)loadFile:(NSString*)name
+- (NSString *)loadFile:(NSString *)name
 {
     NSBundle *unitTestBundle = [NSBundle bundleForClass:[self class]];
     NSString *pathForFile = [unitTestBundle pathForResource:name ofType:nil];
-    NSString* retVal = [[NSString alloc] initWithContentsOfFile:pathForFile encoding:NSUTF8StringEncoding error:nil];
+    NSString *retVal = [[NSString alloc] initWithContentsOfFile:pathForFile encoding:NSUTF8StringEncoding error:nil];
     return retVal;
 }
 

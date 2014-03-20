@@ -20,13 +20,13 @@
 /**
 Resource Url Components for getLocationUsages
 */
-+(MOZUURLComponents*)URLComponentsForGetLocationUsagesOperation;
++ (MOZUURLComponents *)URLComponentsForGetLocationUsagesOperation;
 
 /**
 Resource Url Components for getLocationUsage
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
-+(MOZUURLComponents*)URLComponentsForGetLocationUsageOperationWithCode:(NSString *)code;
++ (MOZUURLComponents *)URLComponentsForGetLocationUsageOperationWithCode:(NSString *)code;
 
 
 //
@@ -46,7 +46,7 @@ Resource Url Components for getLocationUsage
 Resource Url Components for updateLocationUsage
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString *)code;
++ (MOZUURLComponents *)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString *)code;
 
 
 //

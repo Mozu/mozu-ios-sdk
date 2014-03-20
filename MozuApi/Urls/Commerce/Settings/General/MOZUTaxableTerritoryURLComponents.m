@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetTaxableTerritoriesOperation {
-	NSString* template = @"/api/commerce/settings/general/taxableterritories";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetTaxableTerritoriesOperation {
+	NSString *template = @"/api/commerce/settings/general/taxableterritories";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -31,9 +31,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddTaxableTerritoryOperation {
-	NSString* template = @"/api/commerce/settings/general/taxableterritories";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForAddTaxableTerritoryOperation {
+	NSString *template = @"/api/commerce/settings/general/taxableterritories";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -45,9 +45,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateTaxableTerritoriesOperation {
-	NSString* template = @"/api/commerce/settings/general/taxableterritories";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForUpdateTaxableTerritoriesOperation {
+	NSString *template = @"/api/commerce/settings/general/taxableterritories";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

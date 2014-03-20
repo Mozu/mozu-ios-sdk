@@ -11,7 +11,7 @@
 #import "MOZUPackageMeasurements.h"
 
 @implementation MOZUPackageMeasurements
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

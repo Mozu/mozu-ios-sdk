@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate {
-	NSString* template = @"/api/commerce/catalog/admin/facets/{facetId}?validate={validate}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate {
+	NSString *template = @"/api/commerce/catalog/admin/facets/{facetId}?validate={validate}";
+	NSDictionary *params = @{
 		@"facetId" : @(facetId),
 		@"validate" : validate ? validate : @"",
 	};
@@ -27,9 +27,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate {
-	NSString* template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includAvaliable={includeAvailable}&validate={validate}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate {
+	NSString *template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includAvaliable={includeAvailable}&validate={validate}";
+	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"includeAvailable" : includeAvailable ? includeAvailable : @"",
 		@"validate" : validate ? validate : @"",
@@ -45,9 +45,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddFacetOperation {
-	NSString* template = @"/api/commerce/catalog/admin/facets/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForAddFacetOperation {
+	NSString *template = @"/api/commerce/catalog/admin/facets/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,9 +59,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateFacetOperationWithFacetId:(NSInteger)facetId {
-	NSString* template = @"/api/commerce/catalog/admin/facets/{facetId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateFacetOperationWithFacetId:(NSInteger)facetId {
+	NSString *template = @"/api/commerce/catalog/admin/facets/{facetId}";
+	NSDictionary *params = @{
 		@"facetId" : @(facetId),
 	};
 
@@ -75,9 +75,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteFacetByIdOperationWithFacetId:(NSInteger)facetId {
-	NSString* template = @"/api/commerce/catalog/admin/facets/{facetId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteFacetByIdOperationWithFacetId:(NSInteger)facetId {
+	NSString *template = @"/api/commerce/catalog/admin/facets/{facetId}";
+	NSDictionary *params = @{
 		@"facetId" : @(facetId),
 	};
 

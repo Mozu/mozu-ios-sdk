@@ -28,10 +28,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetRatesOperationWithBody:(MOZURateRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetRatesOperationWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUObjectURLComponents URLComponentsForGetRatesOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

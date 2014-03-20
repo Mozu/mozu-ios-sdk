@@ -12,7 +12,7 @@
 
 @implementation MOZUAPIContext
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
@@ -21,7 +21,7 @@
     return self;
 }
 
-- (id)initWithTenantId:(NSInteger)tenantId
+- (instancetype)initWithTenantId:(NSInteger)tenantId
                 siteId:(NSNumber *)siteId
        masterCatalogId:(NSNumber *)masterCatalogId
              catalogId:(NSNumber *)catalogId
@@ -36,7 +36,7 @@
     return self;
 }
 
-- (id)initWithTenant:(MOZUTenant *)tenant
+- (instancetype)initWithTenant:(MOZUTenant *)tenant
                 site:(MOZUSite *)site
      masterCatalogId:(NSNumber *)masterCatalogId
            catalogId:(NSNumber *)catalogId
@@ -51,17 +51,17 @@
         _catalogId = catalogId;
         
         if (!masterCatalogId && tenant.masterCatalogs.count == 1) {
-            MOZUTenantMasterCatalog* masterCatalog = [tenant.masterCatalogs firstObject];
+            MOZUTenantMasterCatalog *masterCatalog = [tenant.masterCatalogs firstObject];
             _masterCatalogId = @(masterCatalog.id);
             
-            MOZUCatalog* catalog = [masterCatalog.catalogs firstObject];
+            MOZUCatalog *catalog = [masterCatalog.catalogs firstObject];
             _catalogId = @(catalog.id);
         }
     }
     return self;
 }
 
-- (id)initWithSite:(MOZUSite *)site
+- (instancetype)initWithSite:(MOZUSite *)site
    masterCatalogId:(NSNumber *)masterCatalogId
          catalogId:(NSNumber *)catalogId
 {
@@ -75,7 +75,7 @@
     return self;
 }
 
--(id)initWithHeaders:(NSDictionary *)headers
+- (instancetype)initWithHeaders:(NSDictionary *)headers
 {
     self = [super init];
     if (self) {
@@ -97,15 +97,15 @@
     return self;
 }
 
--(void)updateBySite:(MOZUSite*)site {
+- (void)updateBySite:(MOZUSite *)site {
     if (site && site.id >= 0) {
         self.siteId = @(site.id);
         self.siteHost = site.domain;
     }
 }
 
-+(JSONKeyMapper*)keyMapper {
-    NSDictionary* dict = @{
++ (JSONKeyMapper *)keyMapper {
+    NSDictionary *dict = @{
         @"tenantUrl" : @"tenantHost",
         @"siteUrl" : @"siteHost",
         };

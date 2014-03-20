@@ -26,17 +26,17 @@
 /**
 Alphanumeric code associated with the coupon or promotion that results in a discounted price.
 */
-@property(nonatomic) NSString * couponCode;
+@property(nonatomic) NSString *couponCode;
 
 /**
 The value of the discount applied to the product, represented as a negative currency amount to apply to the original price.
 */
-@property(nonatomic) NSNumber * impact;
+@property(nonatomic) NSNumber *impact;
 
 /**
 Properties of the discount currently applied to the product.
 */
-@property(nonatomic) MOZURuntimeDiscount* discount;
+@property(nonatomic) MOZURuntimeDiscount *discount;
 
 @end
 

@@ -20,7 +20,7 @@
 /**
 Resource Url Components for getOrderHandlingFee
 */
-+(MOZUURLComponents*)URLComponentsForGetOrderHandlingFeeOperation;
++ (MOZUURLComponents *)URLComponentsForGetOrderHandlingFeeOperation;
 
 
 //
@@ -32,7 +32,7 @@ Resource Url Components for getOrderHandlingFee
 /**
 Resource Url Components for createOrderHandlingFee
 */
-+(MOZUURLComponents*)URLComponentsForCreateOrderHandlingFeeOperation;
++ (MOZUURLComponents *)URLComponentsForCreateOrderHandlingFeeOperation;
 
 
 //
@@ -44,7 +44,7 @@ Resource Url Components for createOrderHandlingFee
 /**
 Resource Url Components for updateOrderHandlingFee
 */
-+(MOZUURLComponents*)URLComponentsForUpdateOrderHandlingFeeOperation;
++ (MOZUURLComponents *)URLComponentsForUpdateOrderHandlingFeeOperation;
 
 
 //

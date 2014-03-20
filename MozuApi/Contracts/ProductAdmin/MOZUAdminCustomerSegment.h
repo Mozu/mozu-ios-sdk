@@ -25,7 +25,7 @@
 /**
 Unique identifier of the customer segment.
 */
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
 @end
 

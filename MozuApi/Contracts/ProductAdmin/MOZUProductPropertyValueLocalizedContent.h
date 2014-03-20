@@ -25,12 +25,12 @@
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString * localeCode;
+@property(nonatomic) NSString *localeCode;
 
 /**
 The string value of the product property set in the language specified the locale code.
 */
-@property(nonatomic) NSString * stringValue;
+@property(nonatomic) NSString *stringValue;
 
 @end
 

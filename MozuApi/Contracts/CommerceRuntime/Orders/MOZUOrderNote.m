@@ -11,7 +11,7 @@
 #import "MOZUOrderNote.h"
 
 @implementation MOZUOrderNote
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

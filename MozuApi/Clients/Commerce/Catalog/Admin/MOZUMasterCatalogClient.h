@@ -27,14 +27,14 @@
 Retrieve the details of all master catalog associated with a tenant.
 */
 
-+(MOZUClient*)clientForGetMasterCatalogsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetMasterCatalogsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieve the details of the master catalog specified in the request.
 @param masterCatalogId The unique identifier of the master catalog associated with the entity.
 */
 
-+(MOZUClient*)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -56,7 +56,7 @@ Updates the product publishing mode for the master catalog specified in the requ
 @param masterCatalogId 
 */
 
-+(MOZUClient*)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog*)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

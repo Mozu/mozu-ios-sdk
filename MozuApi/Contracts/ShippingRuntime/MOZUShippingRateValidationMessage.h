@@ -25,17 +25,17 @@
 /**
 URL displayed with the shipping validation message that links to help information.
 */
-@property(nonatomic) NSString * helpLink;
+@property(nonatomic) NSString *helpLink;
 
 /**
 Content of the shipping rate validation message.
 */
-@property(nonatomic) NSString * message;
+@property(nonatomic) NSString *message;
 
 /**
 Severity level of the shipping rate validation failure.
 */
-@property(nonatomic) NSString * severity;
+@property(nonatomic) NSString *severity;
 
 @end
 

@@ -11,7 +11,7 @@
 #import "MOZUFacetSource.h"
 
 @implementation MOZUFacetSource
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

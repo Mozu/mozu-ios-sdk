@@ -11,7 +11,7 @@
 #import "MOZUSiteShippingSettings.h"
 
 @implementation MOZUSiteShippingSettings
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

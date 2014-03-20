@@ -19,9 +19,9 @@
 @interface MOZUFulfillmentInfoResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -36,7 +36,7 @@ Retrieves a list of the fulfillment information for the specified order.
 @param orderId Unique identifier of the order.
 */
 
--(void)fulfillmentInfoWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFulfillmentInfo* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)fulfillmentInfoWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUFulfillmentInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -60,7 +60,7 @@ Updates one or more properties of fulfillment information for the specified orde
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
--(void)setFulFillmentInfoWithBody:(MOZUFulfillmentInfo*)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFulfillmentInfo* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)setFulFillmentInfoWithBody:(MOZUFulfillmentInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUFulfillmentInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

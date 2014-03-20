@@ -11,7 +11,7 @@
 #import "MOZURegularHours.h"
 
 @implementation MOZURegularHours
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

@@ -20,9 +20,9 @@
 @interface MOZUDocumentListResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -37,14 +37,14 @@ Retrieves a collection of document lists.
 @param startIndex 
 */
 
--(void)documentListsWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentListCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentListsWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentListCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieve the details of a document list by providing the list name.
 @param documentListName The name of the document list.
 */
 
--(void)documentListWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentList* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentListWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentList *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

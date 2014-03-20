@@ -24,9 +24,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForValidateAddressOperation {
-	NSString* template = @"/api/commerce/customer/addressvalidation/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForValidateAddressOperation {
+	NSString *template = @"/api/commerce/customer/addressvalidation/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

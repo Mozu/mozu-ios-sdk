@@ -28,22 +28,22 @@
 /**
 Settings that provide for the ability to pay for an order by mail.
 */
-@property(nonatomic) BOOL payByMail;
+@property(nonatomic) BOOLpayByMail;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 The external payment workflwo definitions configured for the site's payment settings. At this time, only PayPal Express is supported.
 */
-@property(nonatomic) NSArray<MOZUExternalPaymentWorkflowDefinition>* externalPaymentWorkflowDefinitions;
+@property(nonatomic) NSArray<MOZUExternalPaymentWorkflowDefinition> *externalPaymentWorkflowDefinitions;
 
 /**
 List of name and account information for a payment gateway. Additional payment gateway providers will be supported in future releases.
 */
-@property(nonatomic) NSArray<MOZUGateway>* gateways;
+@property(nonatomic) NSArray<MOZUGateway> *gateways;
 
 @end
 

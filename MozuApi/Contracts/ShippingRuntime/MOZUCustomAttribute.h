@@ -26,17 +26,17 @@
 /**
 Key required for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
 */
-@property(nonatomic) NSString * key;
+@property(nonatomic) NSString *key;
 
 /**
 Value for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
 */
-@property(nonatomic) NSString * value;
+@property(nonatomic) NSString *value;
 
 /**
 Collection of child attributes associated with a shipping provider integration.
 */
-@property(nonatomic) NSArray<MOZUCustomAttribute>* childAttributes;
+@property(nonatomic) NSArray<MOZUCustomAttribute> *childAttributes;
 
 @end
 

@@ -26,32 +26,32 @@
 /**
 The unique identifier of the application in Mozu Dev Center.
 */
-@property(nonatomic) NSString * appId;
+@property(nonatomic) NSString *appId;
 
 /**
 If true, the application is enabled for the tenant. System-supplied and read-only.
 */
-@property(nonatomic) NSNumber * enabled;
+@property(nonatomic) NSNumber *enabled;
 
 /**
 If true, the third party application settings have been configured and the application is initialized.
 */
-@property(nonatomic) NSNumber * initialized;
+@property(nonatomic) NSNumber *initialized;
 
 /**
 If true, the application type is Extension.
 */
-@property(nonatomic) NSNumber * isExtension;
+@property(nonatomic) NSNumber *isExtension;
 
 /**
 URL of the application's setting configuration user interface, supplied by the capability developer in Dev Center.
 */
-@property(nonatomic) NSString * uiConfigurationUrl;
+@property(nonatomic) NSString *uiConfigurationUrl;
 
 /**
 List of capabilities installed in a tenant.
 */
-@property(nonatomic) NSArray<MOZUCapability>* capabilities;
+@property(nonatomic) NSArray<MOZUCapability> *capabilities;
 
 @end
 

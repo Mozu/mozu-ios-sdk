@@ -21,9 +21,9 @@
 @interface MOZUCartItemResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -36,14 +36,14 @@
 Retrieves a list of cart items including the total number of items in the cart.
 */
 
--(void)cartItemsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItemCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)cartItemsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a particular cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to retrieve.
 */
 
--(void)cartItemWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)cartItemWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -57,7 +57,7 @@ Adds a product to the current shopper's cart.
 @param body All properties of the new cart item. The product code is required.
 */
 
--(void)addItemToCartWithBody:(MOZUCartItem*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addItemToCartWithBody:(MOZUCartItem *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -72,7 +72,7 @@ Update the product or product quantity of an item in the current shopper's cart.
 @param cartItemId Identifier of the cart item to update.
 */
 
--(void)updateCartItemWithBody:(MOZUCartItem*)body cartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateCartItemWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Update the quantity of an individual cart item in the cart of the current shopper.
@@ -80,7 +80,7 @@ Update the quantity of an individual cart item in the cart of the current shoppe
 @param quantity The number of cart items in the shopper's active cart.
 */
 
--(void)updateCartItemQuantityWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCartItem* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateCartItemQuantityWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -93,14 +93,14 @@ Update the quantity of an individual cart item in the cart of the current shoppe
 Removes all items in the current shopper's active cart.
 */
 
--(void)removeAllCartItemsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCart* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)removeAllCartItemsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Deletes a specific cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to delete.
 */
 
--(void)deleteCartItemWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteCartItemWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

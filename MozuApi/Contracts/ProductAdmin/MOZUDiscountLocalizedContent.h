@@ -23,22 +23,22 @@
 */
 @interface MOZUDiscountLocalizedContent : JSONModel<MOZUDiscountLocalizedContent>
 
-@property(nonatomic) NSString * friendlyDescription;
+@property(nonatomic) NSString *friendlyDescription;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString * localeCode;
+@property(nonatomic) NSString *localeCode;
 
 /**
 The localizable name of the discount.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

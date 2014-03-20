@@ -19,9 +19,9 @@
 @interface MOZUSubscriptionResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -38,7 +38,7 @@
 @param startIndex 
 */
 
--(void)subscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSubscriptionCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)subscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSubscriptionCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -25,52 +25,52 @@
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate * createdOn;
+@property(nonatomic) NSDate *createdOn;
 
 /**
 The number of failed authentication attempts associated with the user.
 */
-@property(nonatomic) unsigned char failedLoginAttemptCount;
+@property(nonatomic) unsigned charfailedLoginAttemptCount;
 
 /**
 The date and time the initial login was unsuccessful, which is system-supplied and read only. Each time user authentication fails, an update occurs on this field.
 */
-@property(nonatomic) NSDate * firstFailedLoginAttemptOn;
+@property(nonatomic) NSDate *firstFailedLoginAttemptOn;
 
 /**
 If true, the user account is locked due to multiple failed authentication attempts.
 */
-@property(nonatomic) BOOL isLocked;
+@property(nonatomic) BOOLisLocked;
 
 /**
 If true, the login requires a password change for increased security. If false, the login does not require a password change.
 */
-@property(nonatomic) BOOL isPasswordChangeRequired;
+@property(nonatomic) BOOLisPasswordChangeRequired;
 
 /**
 When the user's account was last locked. System-supplied and read-only.
 */
-@property(nonatomic) NSDate * lastLockedOn;
+@property(nonatomic) NSDate *lastLockedOn;
 
 /**
 When the user last logged into the store. System-supplied and read-only.
 */
-@property(nonatomic) NSDate * lastLoginOn;
+@property(nonatomic) NSDate *lastLoginOn;
 
 /**
 When the password was last modified. System-supplied and read-only.
 */
-@property(nonatomic) NSDate * lastPasswordChangeOn;
+@property(nonatomic) NSDate *lastPasswordChangeOn;
 
 /**
 The number of login attempts left for the user. The user must login successfully before this value reaches zero otherwise the account will be locked.
 */
-@property(nonatomic) NSInteger remainingLoginAttempts;
+@property(nonatomic) NSIntegerremainingLoginAttempts;
 
 /**
 Date and time when the entity was last updated, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate * updatedOn;
+@property(nonatomic) NSDate *updatedOn;
 
 @end
 

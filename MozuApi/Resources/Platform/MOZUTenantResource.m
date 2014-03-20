@@ -28,18 +28,18 @@ Retrieve details about a specific tenant by providing the tenant ID.
 @param tenantId Unique identifier of the Mozu tenant.
 */
 
--(void)tenantWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTenant* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)tenantWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	NSString* cacheKey = [@(tenantId) stringValue];
+	NSString *cacheKey = [@(tenantId) stringValue];
 	id tenant = [MOZUCacheManager getCacheForKey:cacheKey];
 	if (tenant != nil && handler != nil) {
 		handler(tenant, nil, nil);
 		return;
 	}
 
-	MOZUClient * client = [MOZUTenantClient clientForGetTenantOperationWithTenantId:tenantId userClaims:userClaims];
+	MOZUClient *client = [MOZUTenantClient clientForGetTenantOperationWithTenantId:tenantId userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-		NSString* key = [@(tenantId) stringValue];
+		NSString *key = [@(tenantId) stringValue];
 		[MOZUCacheManager setCache:result forKey:key];
 
 		if (handler != nil) {

@@ -25,12 +25,12 @@
 /**
 The maximum value to use for the facet range query.
 */
-@property(nonatomic) NSObject * rangeValueEnd;
+@property(nonatomic) NSObject *rangeValueEnd;
 
 /**
 The minimum value to use for the facet range query.
 */
-@property(nonatomic) NSObject * rangeValueStart;
+@property(nonatomic) NSObject *rangeValueStart;
 
 @end
 

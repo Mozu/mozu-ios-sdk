@@ -20,7 +20,7 @@
 /**
 Resource Url Components for getSiteShippingSettings
 */
-+(MOZUURLComponents*)URLComponentsForGetSiteShippingSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForGetSiteShippingSettingsOperation;
 
 
 //

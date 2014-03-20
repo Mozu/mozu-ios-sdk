@@ -11,7 +11,7 @@
 #import "MOZUCommerceBundledProduct.h"
 
 @implementation MOZUCommerceBundledProduct
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

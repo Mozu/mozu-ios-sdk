@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/orders/{orderId}/packages/{packageId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/orders/{orderId}/packages/{packageId}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"packageId" : packageId,
 	};
@@ -27,9 +27,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/orders/{orderId}/packages/{packageId}/actions";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/orders/{orderId}/packages/{packageId}/actions";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"packageId" : packageId,
 	};
@@ -37,9 +37,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetPackageLabelOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/orders/{orderId}/packages/{packageId}/label";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetPackageLabelOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/orders/{orderId}/packages/{packageId}/label";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"packageId" : packageId,
 	};
@@ -54,9 +54,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreatePackageOperationWithOrderId:(NSString *)orderId {
-	NSString* template = @"/api/commerce/orders/{orderId}/packages";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForCreatePackageOperationWithOrderId:(NSString *)orderId {
+	NSString *template = @"/api/commerce/orders/{orderId}/packages";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 	};
 
@@ -70,9 +70,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdatePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/orders/{orderId}/packages/{packageId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdatePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/orders/{orderId}/packages/{packageId}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"packageId" : packageId,
 	};
@@ -87,9 +87,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeletePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/orders/{orderId}/packages/{packageId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeletePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/orders/{orderId}/packages/{packageId}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"packageId" : packageId,
 	};

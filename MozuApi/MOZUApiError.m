@@ -10,7 +10,7 @@
 #import "MOZUAPILogger.h"
 
 @implementation MOZUAPIExceptionDetail
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }
@@ -18,7 +18,7 @@
 @end
 
 @implementation MOZUAPIApplicationErrorData
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }
@@ -26,7 +26,7 @@
 @end
 
 @implementation MOZUAPIErrorItem
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }
@@ -34,7 +34,7 @@
 @end
 
 @implementation MOZUAPIAdditionalErrorData
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }
@@ -57,7 +57,7 @@
 
 @implementation MOZUAPIErrorPrivate
 
--(id)initWithString:(NSString*)string error:(JSONModelError**)err
+- (instancetype)initWithString:(NSString *)string error:(JSONModelError **)err
 {
     self = [super initWithString:string error:err];
     if (self) {
@@ -66,7 +66,7 @@
     return self;
 }
 
-+(JSONKeyMapper*)keyMapper {
++ (JSONKeyMapper *)keyMapper {
     NSDictionary *dict = @{
                            @"exceptionDetail" : @"exceptionDetail",
                            @"ExceptionDetail" : @"exceptionDetail",
@@ -76,7 +76,7 @@
     return [[JSONKeyMapper alloc] initWithDictionary:dict];
 }
 
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }
@@ -87,10 +87,10 @@
 
 static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
 
-- (instancetype)initWithString:(NSString*)JSONData statusCode:(NSInteger)statusCode
+- (instancetype)initWithString:(NSString *)JSONData statusCode:(NSInteger)statusCode
 {
     JSONModelError *jsonModelError = nil;
-    MOZUAPIErrorPrivate* apiErrorPrivate = [[MOZUAPIErrorPrivate alloc] initWithString:JSONData error:&jsonModelError];
+    MOZUAPIErrorPrivate *apiErrorPrivate = [[MOZUAPIErrorPrivate alloc] initWithString:JSONData error:&jsonModelError];
         NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:9];
     
     if (apiErrorPrivate) {

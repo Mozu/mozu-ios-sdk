@@ -29,69 +29,69 @@
 /**
 The total monetary amount collected in this payment transaction for the order.
 */
-@property(nonatomic) NSNumber * amountCollected;
+@property(nonatomic) NSNumber *amountCollected;
 
 /**
 If the payment transaction is a shopper store credit, the total monetary amount credited in this payment transaction for the order.
 */
-@property(nonatomic) NSNumber * amountCredited;
+@property(nonatomic) NSNumber *amountCredited;
 
 /**
 The total amount originally requested for this payment.
 */
-@property(nonatomic) NSNumber * amountRequested;
+@property(nonatomic) NSNumber *amountRequested;
 
 /**
 The actions a user can perform for a payment at this time.
 */
-@property(nonatomic) NSArray* availableActions;
+@property(nonatomic) NSArray *availableActions;
 
 /**
 Unique identifier of the payment transaction.
 */
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
 /**
 If true, the payment transaction occurs at regular intervals such as a monthly billing cycle or a digital or physical subscription.
 */
-@property(nonatomic) BOOL isRecurring;
+@property(nonatomic) BOOLisRecurring;
 
 /**
 Unique identifier of the order associated with the payment.
 */
-@property(nonatomic) NSString * orderId;
+@property(nonatomic) NSString *orderId;
 
 /**
 The transaction ID supplied by the payment service to associate with this order payment.
 */
-@property(nonatomic) NSString * paymentServiceTransactionId;
+@property(nonatomic) NSString *paymentServiceTransactionId;
 
 /**
 The type of payment transaction performed, such as check, credit card, or PayPal Express. Additional payment types will be supported in future releases.
 */
-@property(nonatomic) NSString * paymentType;
+@property(nonatomic) NSString *paymentType;
 
 /**
 Current status of the payment transaction for the order.
 */
-@property(nonatomic) NSString * status;
+@property(nonatomic) NSString *status;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 Properties of the customer billing information associated with this payment.
 */
-@property(nonatomic) MOZUBillingInfo* billingInfo;
+@property(nonatomic) MOZUBillingInfo *billingInfo;
 
-@property(nonatomic) NSArray<MOZUChangeMessage>* changeMessages;
+@property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**
 Container for the interactions associated with the payment, which includes details for each action performed for the payment.
 */
-@property(nonatomic) NSArray<MOZUPaymentInteraction>* interactions;
+@property(nonatomic) NSArray<MOZUPaymentInteraction> *interactions;
 
 @end
 

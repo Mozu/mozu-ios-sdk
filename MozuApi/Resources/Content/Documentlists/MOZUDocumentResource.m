@@ -14,14 +14,14 @@
 
 
 @interface MOZUDocumentResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUDocumentResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -44,9 +44,9 @@ Retrieves a document within the specified document list.
 @param documentListName The name of the document list associated with the document to retrieve.
 */
 
--(void)documentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForGetDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -61,9 +61,9 @@ Retrieve the content associated with a document, such as a product image or PDF 
 @param documentListName The name of the document list associated with the document.
 */
 
--(void)documentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream * result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForGetDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -81,9 +81,9 @@ Retrieves a collection of documents according to any filter and sort criteria.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)documentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForGetDocumentsOperationWithDataViewMode:dataViewMode documentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentsOperationWithDataViewMode:dataViewMode documentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -105,9 +105,9 @@ Creates a new document in an defined document list.
 @param documentListName The descriptive alphanumeric document list name being created.
 */
 
--(void)createDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument*)body documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)createDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForCreateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentClient clientForCreateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -130,9 +130,9 @@ Updates a document in a document list.
 @param documentListName Name of the document list associated with the document.
 */
 
--(void)updateDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument*)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocument* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForUpdateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentClient clientForUpdateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -148,9 +148,9 @@ Updates the content associated with a document, such as a product image or PDF s
 @param documentListName The name of the document list associated with the document.
 */
 
--(void)updateDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForUpdateDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentClient clientForUpdateDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -172,9 +172,9 @@ Deletes a specific document based on the specified document ID.
 @param documentListName The name of the document list associated with the document list being deleted.
 */
 
--(void)deleteDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForDeleteDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentClient clientForDeleteDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -189,9 +189,9 @@ Deletes the content associated with a document, such as a product image or PDF s
 @param documentListName The name of the document list associated with the document.
 */
 
--(void)deleteDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentClient clientForDeleteDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentClient clientForDeleteDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

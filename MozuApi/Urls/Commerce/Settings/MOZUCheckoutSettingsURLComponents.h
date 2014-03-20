@@ -20,7 +20,7 @@
 /**
 Resource Url Components for getCheckoutSettings
 */
-+(MOZUURLComponents*)URLComponentsForGetCheckoutSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForGetCheckoutSettingsOperation;
 
 
 //

@@ -26,14 +26,14 @@
 Retrieve a list of all location types defined for the tenant.
 */
 
-+(MOZUClient*)clientForGetLocationTypesOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetLocationTypesOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of the location type specified in the request.
 @param locationTypeCode The user-defined code that identifies the location type.
 */
 
-+(MOZUClient*)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -47,7 +47,7 @@ Creates a new location type based on the information specified in the request.
 @param body Properties of the location type to create.
 */
 
-+(MOZUClient*)clientForAddLocationTypeOperationWithBody:(MOZULocationType*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForAddLocationTypeOperationWithBody:(MOZULocationType *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -62,7 +62,7 @@ Updates the name of a defined location type.
 @param locationTypeCode The user-defined code that identifies the location type.
 */
 
-+(MOZUClient*)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType*)body locationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType *)body locationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -76,7 +76,7 @@ Deletes the location type specified in the request.
 @param locationTypeCode User-defined code used to identify the location type.
 */
 
-+(MOZUClient*)clientForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

@@ -32,47 +32,47 @@
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString * productCode;
+@property(nonatomic) NSString *productCode;
 
 /**
 Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
-@property(nonatomic) NSString * variationProductCode;
+@property(nonatomic) NSString *variationProductCode;
 
 /**
 List of shipping discounts that can be applied to the configured product.
 */
-@property(nonatomic) NSArray<MOZURuntimeDiscount>* availableShippingDiscounts;
+@property(nonatomic) NSArray<MOZURuntimeDiscount> *availableShippingDiscounts;
 
 /**
 Properties of the inventory of the configured product, including the number of items in stock, whether the item appears on the storefront, and whether the item is out of stock or can be back ordered.
 */
-@property(nonatomic) MOZURuntimeProductInventoryInfo* inventoryInfo;
+@property(nonatomic) MOZURuntimeProductInventoryInfo *inventoryInfo;
 
 /**
 Dimensions of the packaged product.
 */
-@property(nonatomic) MOZURuntimePackageMeasurements* measurements;
+@property(nonatomic) MOZURuntimePackageMeasurements *measurements;
 
 /**
 The list of options set up in product admin.
 */
-@property(nonatomic) NSArray<MOZURuntimeProductOption>* options;
+@property(nonatomic) NSArray<MOZURuntimeProductOption> *options;
 
 /**
 Unit price that the tenant intends to sell the product if no sale price is set.
 */
-@property(nonatomic) MOZURuntimeProductPrice* price;
+@property(nonatomic) MOZURuntimeProductPrice *price;
 
 /**
 For products with options that vary the cost of the product, the range between lowest and highest possible price of the product based on the current selection of options.
 */
-@property(nonatomic) MOZUProductPriceRange* priceRange;
+@property(nonatomic) MOZUProductPriceRange *priceRange;
 
 /**
 The current state of the configured product determines whether or not the product is eligible for purchase. Products with options are only purchasable if the shopper has selected all required options. If the product is not ready for purchase, a message lists missing options that are required.
 */
-@property(nonatomic) MOZUProductPurchasableState* purchasableState;
+@property(nonatomic) MOZUProductPurchasableState *purchasableState;
 
 @end
 

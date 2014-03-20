@@ -24,13 +24,13 @@ Resource Url Components for getSegments
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getSegment
 @param identifier Unique identifier of the customer segment to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetSegmentOperationWithIdentifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForGetSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 
 //
@@ -42,14 +42,14 @@ Resource Url Components for getSegment
 /**
 Resource Url Components for addSegment
 */
-+(MOZUURLComponents*)URLComponentsForAddSegmentOperation;
++ (MOZUURLComponents *)URLComponentsForAddSegmentOperation;
 
 /**
 Resource Url Components for addSegmentAccounts
 @param accountIds List of customer account IDs to add to the customer segment specified in the request.
 @param identifier Unique identifier of the customer segment for which to add the associated customer accounts.
 */
-+(MOZUURLComponents*)URLComponentsForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
 
 
 //
@@ -62,7 +62,7 @@ Resource Url Components for addSegmentAccounts
 Resource Url Components for updateSegment
 @param identifier Unique identifier of the customer segment.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 
 //
@@ -75,14 +75,14 @@ Resource Url Components for updateSegment
 Resource Url Components for deleteSegment
 @param identifier Unique identifier of the customer segment to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 /**
 Resource Url Components for deleteSegmentAccounts
 @param accountIds List of customer account identifiers to remove from the specified customer segments.
 @param identifier Unique identifier of the segment from which to remove the customer accounts.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
 
 
 

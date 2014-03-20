@@ -26,7 +26,7 @@
 /**
 Properties of the address to validate.
 */
-@property(nonatomic) MOZUAddress* address;
+@property(nonatomic) MOZUAddress *address;
 
 @end
 

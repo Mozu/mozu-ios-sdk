@@ -20,9 +20,9 @@
 @interface MOZUFulfillmentActionResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -44,7 +44,7 @@ Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare i
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
 */
 
--(void)performFulfillmentActionWithBody:(MOZUFulfillmentAction*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)performFulfillmentActionWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

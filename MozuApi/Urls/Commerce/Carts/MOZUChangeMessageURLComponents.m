@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetMessagesOperation {
-	NSString* template = @"/api/commerce/carts/current/messages";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetMessagesOperation {
+	NSString *template = @"/api/commerce/carts/current/messages";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -45,16 +45,16 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRemoveAllMessagesOperation {
-	NSString* template = @"/api/commerce/carts/current/messages";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForRemoveAllMessagesOperation {
+	NSString *template = @"/api/commerce/carts/current/messages";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForRemoveMessageOperationWithMessageId:(NSString *)messageId {
-	NSString* template = @"/api/commerce/carts/current/messages/{messageId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRemoveMessageOperationWithMessageId:(NSString *)messageId {
+	NSString *template = @"/api/commerce/carts/current/messages/{messageId}";
+	NSDictionary *params = @{
 		@"messageId" : messageId,
 	};
 

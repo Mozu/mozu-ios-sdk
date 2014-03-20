@@ -11,7 +11,7 @@
 #import "MOZUReturnAction.h"
 
 @implementation MOZUReturnAction
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

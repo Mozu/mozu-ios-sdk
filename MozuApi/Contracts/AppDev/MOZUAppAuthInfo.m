@@ -11,7 +11,7 @@
 #import "MOZUAppAuthInfo.h"
 
 @implementation MOZUAppAuthInfo
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

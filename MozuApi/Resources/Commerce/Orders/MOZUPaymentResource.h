@@ -22,9 +22,9 @@
 @interface MOZUPaymentResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -38,7 +38,7 @@ Retrieves information about all payment transactions submitted for the specified
 @param orderId Unique identifier of the order.
 */
 
--(void)paymentsWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPaymentCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)paymentsWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPaymentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves information about a specific payment transaction submitted for the specified order.
@@ -46,7 +46,7 @@ Retrieves information about a specific payment transaction submitted for the spe
 @param paymentId Unique identifier of the payment transaction submitted for the order.
 */
 
--(void)paymentWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPayment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)paymentWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPayment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
@@ -54,7 +54,7 @@ Retrieves the list of all available payment actions dependent on the order payme
 @param paymentId Unique identifer of the payment for which to retrieve available actions.
 */
 
--(void)availablePaymentActionsWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)availablePaymentActionsWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -70,7 +70,7 @@ Performs the specified action for an individual order payment transaction.
 @param paymentId Unique identifer of the payment for which to perform the action.
 */
 
--(void)performPaymentActionWithBody:(MOZUPaymentAction*)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)performPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Creates a new payment transaction for the specified order and performs the specified action.
@@ -78,7 +78,7 @@ Creates a new payment transaction for the specified order and performs the speci
 @param orderId Unique identifier of the order for which to apply the payment.
 */
 
--(void)createPaymentActionWithBody:(MOZUPaymentAction*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)createPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

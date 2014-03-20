@@ -25,17 +25,17 @@
 /**
 The name of the fulfillment action to perform, which is "Ship" or "PickUp".
 */
-@property(nonatomic) NSString * actionName;
+@property(nonatomic) NSString *actionName;
 
 /**
 Array list of packages for which to perform the fulfillment action.
 */
-@property(nonatomic) NSArray* packageIds;
+@property(nonatomic) NSArray *packageIds;
 
 /**
 Array list of in-store pickups for which to perform the fulfillment action.
 */
-@property(nonatomic) NSArray* pickupIds;
+@property(nonatomic) NSArray *pickupIds;
 
 @end
 

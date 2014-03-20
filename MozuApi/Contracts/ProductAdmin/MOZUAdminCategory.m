@@ -11,7 +11,7 @@
 #import "MOZUAdminCategory.h"
 
 @implementation MOZUAdminCategory
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

@@ -19,9 +19,9 @@
 @interface MOZUAttributeTypeRuleResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -38,7 +38,7 @@ Retrieves a list of attribute type rules according to optional filter criteria a
 @param startIndex 
 */
 
--(void)attributeTypeRulesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeTypeRuleCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)attributeTypeRulesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeTypeRuleCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -24,9 +24,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetRatesOperation {
-	NSString* template = @"/api/commerce/catalog/storefront/shipping/request-rates";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetRatesOperation {
+	NSString *template = @"/api/commerce/catalog/storefront/shipping/request-rates";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

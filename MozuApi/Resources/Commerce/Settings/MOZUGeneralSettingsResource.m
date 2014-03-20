@@ -14,14 +14,14 @@
 
 
 @interface MOZUGeneralSettingsResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUGeneralSettingsResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -42,9 +42,9 @@
 Retrieve a site's general global settings.
 */
 
--(void)generalSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)generalSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUGeneralSettingsClient clientForGetGeneralSettingsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUGeneralSettingsClient clientForGetGeneralSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -72,9 +72,9 @@ Updates a site's general global settings.
 @param body The properties of the site's general settings to update.
 */
 
--(void)updateGeneralSettingsWithBody:(MOZUGeneralSettings*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUGeneralSettings* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateGeneralSettingsWithBody:(MOZUGeneralSettings *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUGeneralSettingsClient clientForUpdateGeneralSettingsOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUGeneralSettingsClient clientForUpdateGeneralSettingsOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

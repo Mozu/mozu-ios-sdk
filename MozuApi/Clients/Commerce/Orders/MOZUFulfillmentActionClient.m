@@ -28,10 +28,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForPerformFulfillmentActionOperationWithBody:(MOZUFulfillmentAction*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForPerformFulfillmentActionOperationWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUFulfillmentActionURLComponents URLComponentsForPerformFulfillmentActionOperationWithOrderId:orderId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

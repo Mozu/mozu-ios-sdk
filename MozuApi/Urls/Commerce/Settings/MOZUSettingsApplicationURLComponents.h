@@ -20,7 +20,7 @@
 /**
 Resource Url Components for thirdPartyGetApplication
 */
-+(MOZUURLComponents*)URLComponentsForThirdPartyGetApplicationOperation;
++ (MOZUURLComponents *)URLComponentsForThirdPartyGetApplicationOperation;
 
 
 //
@@ -39,7 +39,7 @@ Resource Url Components for thirdPartyGetApplication
 /**
 Resource Url Components for thirdPartyUpdateApplication
 */
-+(MOZUURLComponents*)URLComponentsForThirdPartyUpdateApplicationOperation;
++ (MOZUURLComponents *)URLComponentsForThirdPartyUpdateApplicationOperation;
 
 
 //

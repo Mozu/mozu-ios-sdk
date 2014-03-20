@@ -11,7 +11,7 @@
 #import "MOZUProductVariationPagedCollection.h"
 
 @implementation MOZUProductVariationPagedCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

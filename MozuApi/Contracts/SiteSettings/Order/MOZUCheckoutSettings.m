@@ -11,7 +11,7 @@
 #import "MOZUCheckoutSettings.h"
 
 @implementation MOZUCheckoutSettings
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

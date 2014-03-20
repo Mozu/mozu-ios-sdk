@@ -20,15 +20,15 @@
 
 @interface MOZUEventDeliverySummaryCollection : JSONModel<MOZUEventDeliverySummaryCollection>
 
-@property(nonatomic) long pageCount;
+@property(nonatomic) longpageCount;
 
-@property(nonatomic) NSInteger pageSize;
+@property(nonatomic) NSIntegerpageSize;
 
-@property(nonatomic) NSInteger startIndex;
+@property(nonatomic) NSIntegerstartIndex;
 
-@property(nonatomic) long totalCount;
+@property(nonatomic) longtotalCount;
 
-@property(nonatomic) NSArray<MOZUEventDeliverySummary>* items;
+@property(nonatomic) NSArray<MOZUEventDeliverySummary> *items;
 
 @end
 

@@ -27,27 +27,27 @@
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString * attributeFQN;
+@property(nonatomic) NSString *attributeFQN;
 
 /**
 If true, the product attribute or option has multiple values.
 */
-@property(nonatomic) NSNumber * isMultiValue;
+@property(nonatomic) NSNumber *isMultiValue;
 
 /**
 If true, the entity is required for the request to return a valid response.
 */
-@property(nonatomic) NSNumber * isRequired;
+@property(nonatomic) NSNumber *isRequired;
 
 /**
 Details of the product option attribute.
 */
-@property(nonatomic) MOZUAttributeDetail* attributeDetail;
+@property(nonatomic) MOZUAttributeDetail *attributeDetail;
 
 /**
 List of possible values for a product option attribute.
 */
-@property(nonatomic) NSArray<MOZURuntimeProductOptionValue>* values;
+@property(nonatomic) NSArray<MOZURuntimeProductOptionValue> *values;
 
 @end
 

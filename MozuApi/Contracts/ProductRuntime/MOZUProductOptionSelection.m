@@ -11,7 +11,7 @@
 #import "MOZUProductOptionSelection.h"
 
 @implementation MOZUProductOptionSelection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

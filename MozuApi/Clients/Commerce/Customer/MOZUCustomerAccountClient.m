@@ -24,10 +24,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetAccountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter fields:fields q:q qLimit:qLimit isAnonymous:isAnonymous];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -38,10 +38,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetAccountOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetAccountOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetAccountOperationWithAccountId:accountId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -52,10 +52,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLoginStateOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetLoginStateOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateOperationWithAccountId:accountId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -73,10 +73,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddAccountOperationWithBody:(MOZUCustomerAccount*)body userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForAddAccountOperationWithBody:(MOZUCustomerAccount *)body userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -88,20 +88,20 @@
 	return client;
 }
 
-+(MOZUClient*)clientForChangePasswordOperationWithBody:(MOZUPasswordInfo*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForChangePasswordOperationWithBody:(MOZUPasswordInfo *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForChangePasswordOperationWithAccountId:accountId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
 	return client;
 }
 
-+(MOZUClient*)clientForAddLoginToExistingCustomerOperationWithBody:(MOZUCustomerLoginInfo*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForAddLoginToExistingCustomerOperationWithBody:(MOZUCustomerLoginInfo *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:accountId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -113,39 +113,39 @@
 	return client;
 }
 
-+(MOZUClient*)clientForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForRecomputeCustomerLifetimeValueOperationWithAccountId:accountId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;
 }
 
-+(MOZUClient*)clientForSetLoginLockedOperationWithBody:(BOOL)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForSetLoginLockedOperationWithBody:(BOOL)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForSetLoginLockedOperationWithAccountId:accountId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = @(body);
 	client.userClaims = userClaims;
 	return client;
 }
 
-+(MOZUClient*)clientForSetPasswordChangeRequiredOperationWithBody:(BOOL)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForSetPasswordChangeRequiredOperationWithBody:(BOOL)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForSetPasswordChangeRequiredOperationWithAccountId:accountId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = @(body);
 	client.userClaims = userClaims;
 	return client;
 }
 
-+(MOZUClient*)clientForAddAccountAndLoginOperationWithBody:(MOZUCustomerAccountAndAuthInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForAddAccountAndLoginOperationWithBody:(MOZUCustomerAccountAndAuthInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountAndLoginOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -157,10 +157,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForAddAccountsOperationWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo>*)body userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForAddAccountsOperationWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo> *)body userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountsOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -172,10 +172,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:emailAddress];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -186,10 +186,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateByUserNameOperationWithUserName:userName];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -200,10 +200,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForResetPasswordOperationWithBody:(MOZUResetPasswordInfo*)body userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForResetPasswordOperationWithBody:(MOZUResetPasswordInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForResetPasswordOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -217,10 +217,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateAccountOperationWithBody:(MOZUCustomerAccount*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdateAccountOperationWithBody:(MOZUCustomerAccount *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForUpdateAccountOperationWithAccountId:accountId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -239,10 +239,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteAccountOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForDeleteAccountOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerAccountURLComponents URLComponentsForDeleteAccountOperationWithAccountId:accountId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

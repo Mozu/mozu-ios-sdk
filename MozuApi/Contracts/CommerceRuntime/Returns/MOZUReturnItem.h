@@ -29,62 +29,62 @@
 /**
 Unique identifier of the item in the original completed order. All return items should be associated with a corresponding order item.
 */
-@property(nonatomic) NSString * orderItemId;
+@property(nonatomic) NSString *orderItemId;
 
 /**
 The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
 */
-@property(nonatomic) NSNumber * productLossAmount;
+@property(nonatomic) NSNumber *productLossAmount;
 
 /**
 The total tax amount levied on the product loss amount.
 */
-@property(nonatomic) NSNumber * productLossTaxAmount;
+@property(nonatomic) NSNumber *productLossTaxAmount;
 
 /**
 The actual quantity received for the return item.
 */
-@property(nonatomic) NSInteger quantityReceived;
+@property(nonatomic) NSIntegerquantityReceived;
 
 /**
 The quantity of returned items that can be returned to active product stock.
 */
-@property(nonatomic) NSInteger quantityRestockable;
+@property(nonatomic) NSIntegerquantityRestockable;
 
 /**
 The quantity of the item shipped to the shopper in the event of a return item replacement.
 */
-@property(nonatomic) NSInteger quantityShipped;
+@property(nonatomic) NSIntegerquantityShipped;
 
 /**
 The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
 */
-@property(nonatomic) NSNumber * shippingLossAmount;
+@property(nonatomic) NSNumber *shippingLossAmount;
 
 /**
 The total tax amount levied on the shipping loss amount.
 */
-@property(nonatomic) NSNumber * shippingLossTaxAmount;
+@property(nonatomic) NSNumber *shippingLossTaxAmount;
 
 /**
 Properties of a collection of component products that make up a single returned product bundle with its own product code.
 */
-@property(nonatomic) NSArray<MOZUReturnBundle>* bundledProducts;
+@property(nonatomic) NSArray<MOZUReturnBundle> *bundledProducts;
 
 /**
 List of merchant-supplied notes associated with the return item.
 */
-@property(nonatomic) NSArray<MOZUOrderNote>* notes;
+@property(nonatomic) NSArray<MOZUOrderNote> *notes;
 
 /**
 Properties of the product definition associated with the item in the return.
 */
-@property(nonatomic) MOZUCommerceProduct* product;
+@property(nonatomic) MOZUCommerceProduct *product;
 
 /**
 The list of return reasons for the item and the quantity associated with each return reason.
 */
-@property(nonatomic) NSArray<MOZUReturnReason>* reasons;
+@property(nonatomic) NSArray<MOZUReturnReason> *reasons;
 
 @end
 

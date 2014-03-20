@@ -25,12 +25,12 @@
 /**
 The unit of measurement, such as length or weight.
 */
-@property(nonatomic) NSString * unit;
+@property(nonatomic) NSString *unit;
 
 /**
 The value of the measured unit.
 */
-@property(nonatomic) NSNumber * value;
+@property(nonatomic) NSNumber *value;
 
 @end
 

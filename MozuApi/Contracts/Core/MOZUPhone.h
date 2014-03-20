@@ -25,17 +25,17 @@
 /**
 Home phone number.
 */
-@property(nonatomic) NSString * home;
+@property(nonatomic) NSString *home;
 
 /**
 Mobile phone number.
 */
-@property(nonatomic) NSString * mobile;
+@property(nonatomic) NSString *mobile;
 
 /**
 Work phone number.
 */
-@property(nonatomic) NSString * work;
+@property(nonatomic) NSString *work;
 
 @end
 

@@ -25,32 +25,32 @@
 /**
 Unique identifier of the behavior category.
 */
-@property(nonatomic) NSInteger categoryId;
+@property(nonatomic) NSIntegercategoryId;
 
 /**
 Unique identifier of the behavior.
 */
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
 /**
 If true, this application behavior is not part of the public Mozu API.
 */
-@property(nonatomic) BOOL isPrivate;
+@property(nonatomic) BOOLisPrivate;
 
 /**
 The name of the behavior.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 For validation purposes, the integer value must be a list of behavior IDs.
 */
-@property(nonatomic) NSArray* requiresBehaviorIds;
+@property(nonatomic) NSArray *requiresBehaviorIds;
 
 /**
 The user types that are valid for this behavior.
 */
-@property(nonatomic) NSArray* validUserTypes;
+@property(nonatomic) NSArray *validUserTypes;
 
 @end
 

@@ -58,7 +58,7 @@
     NSString *host = @"home.mozu-si.volusion.com";
     NSInteger tenantId = 7290;
     
-    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    MOZUAppAuthInfo *authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = ss;;
     
@@ -98,7 +98,7 @@
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
     
-    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    MOZUAppAuthInfo *authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = sharedSecred;
     
@@ -146,7 +146,7 @@
 {
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
-    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    MOZUAppAuthInfo *authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = sharedSecred;
     NSString *authenticationHost = @"home.mozu-si.volusion.com";
@@ -181,7 +181,7 @@
 {
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
-    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    MOZUAppAuthInfo *authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = sharedSecred;
     NSString *authenticationHost = @"home.mozu-si.volusion.com";
@@ -228,7 +228,7 @@
     // Authentication
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
-    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    MOZUAppAuthInfo *authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = sharedSecred;
     NSString *authenticationHost = @"home.mozu-si.volusion.com";
@@ -268,7 +268,7 @@
     // Authentication
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
-    MOZUAppAuthInfo* appAuthInfo = [MOZUAppAuthInfo new];
+    MOZUAppAuthInfo *appAuthInfo = [MOZUAppAuthInfo new];
     appAuthInfo.ApplicationId = appId;
     appAuthInfo.SharedSecret = sharedSecred;
     NSString *authenticationHost = @"home.mozu-si.volusion.com";
@@ -348,7 +348,7 @@
     // Authentication
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
-    MOZUAppAuthInfo* authInfo = [MOZUAppAuthInfo new];
+    MOZUAppAuthInfo *authInfo = [MOZUAppAuthInfo new];
     authInfo.ApplicationId = appId;
     authInfo.SharedSecret = sharedSecred;
     NSString *authenticationHost = @"home.mozu-si.volusion.com";
@@ -395,7 +395,7 @@
     // Authentication
     NSString *appId = @"f4ff75a969544ca5849aa2df016be775";
     NSString *sharedSecred = @"149b0a7c0b6b48499605a2df016be775";
-    MOZUAppAuthInfo* appAuthInfo = [MOZUAppAuthInfo new];
+    MOZUAppAuthInfo *appAuthInfo = [MOZUAppAuthInfo new];
     appAuthInfo.ApplicationId = appId;
     appAuthInfo.SharedSecret = sharedSecred;
     NSString *authenticationHost = @"home.mozu-si.volusion.com";

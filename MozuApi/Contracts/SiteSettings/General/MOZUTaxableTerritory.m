@@ -11,7 +11,7 @@
 #import "MOZUTaxableTerritory.h"
 
 @implementation MOZUTaxableTerritory
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

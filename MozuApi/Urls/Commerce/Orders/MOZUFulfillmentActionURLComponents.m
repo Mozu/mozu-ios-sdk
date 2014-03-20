@@ -24,9 +24,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString *)orderId {
-	NSString* template = @"/api/commerce/orders/{orderId}/fulfillment/actions/";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString *)orderId {
+	NSString *template = @"/api/commerce/orders/{orderId}/fulfillment/actions/";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 	};
 

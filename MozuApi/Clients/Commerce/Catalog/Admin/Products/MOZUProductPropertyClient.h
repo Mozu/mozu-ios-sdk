@@ -27,7 +27,7 @@ Retrieves a list of the property attributes configured for the product specified
 @param productCode 
 */
 
-+(MOZUClient*)clientForGetPropertiesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetPropertiesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of a property attribute configuration for the product specified in the request.
@@ -35,7 +35,7 @@ Retrieves the details of a property attribute configuration for the product spec
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+(MOZUClient*)clientForGetPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -50,7 +50,7 @@ Configures a property attribute for the product specified in the request.
 @param productCode 
 */
 
-+(MOZUClient*)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -66,7 +66,7 @@ Update one or more details of a property attribute configuration for the product
 @param productCode 
 */
 
-+(MOZUClient*)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty*)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -81,7 +81,7 @@ Deletes the configuration of a property attribute for the product specified in t
 @param productCode 
 */
 
-+(MOZUClient*)clientForDeletePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeletePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

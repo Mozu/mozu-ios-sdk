@@ -28,10 +28,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateUserAuthTicketOperationWithBody:(MOZUUserAuthInfo*)body tenantId:(NSNumber *)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForCreateUserAuthTicketOperationWithTenantId:tenantId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -50,10 +50,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRefreshAuthTicketOperationWithBody:(MOZUTenantAdminUserAuthTicket*)body tenantId:(NSNumber *)tenantId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForRefreshAuthTicketOperationWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForRefreshAuthTicketOperationWithTenantId:tenantId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -72,10 +72,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:refreshToken];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

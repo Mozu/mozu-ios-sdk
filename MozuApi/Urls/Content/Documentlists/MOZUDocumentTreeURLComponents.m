@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
-	NSString* template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}";
+	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"documentName" : documentName,
 	};
@@ -27,9 +27,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
-	NSString* template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content";
+	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"documentName" : documentName,
 	};
@@ -51,9 +51,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
-	NSString* template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}";
+	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"documentName" : documentName,
 	};
@@ -68,9 +68,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
-	NSString* template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}";
+	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"documentName" : documentName,
 	};

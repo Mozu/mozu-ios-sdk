@@ -19,9 +19,9 @@
 @interface MOZUSiteShippingSettingsResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -34,7 +34,7 @@
 Retrieves a list of the shipping settings configured for a site.
 */
 
--(void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

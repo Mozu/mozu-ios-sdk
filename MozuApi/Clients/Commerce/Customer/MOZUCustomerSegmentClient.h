@@ -31,14 +31,14 @@ Retrieves a list of defined customer segments according to any filter and sort c
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of the customer segment specified in the request. This operation does not return a list of the customer accounts associated with the segment.
 @param identifier Unique identifier of the customer segment to retrieve.
 */
 
-+(MOZUClient*)clientForGetSegmentOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetSegmentOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a new customer segments. New customer segments do not have any associate
 @param body Properties of the customer segment to add.
 */
 
-+(MOZUClient*)clientForAddSegmentOperationWithBody:(MOZUCustomerSegment*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForAddSegmentOperationWithBody:(MOZUCustomerSegment *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Adds one or more customer accounts to a defined customer segment.
@@ -60,7 +60,7 @@ Adds one or more customer accounts to a defined customer segment.
 @param identifier Unique identifier of the customer segment for which to add the associated customer accounts.
 */
 
-+(MOZUClient*)clientForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -75,7 +75,7 @@ Updates the details of the customer segment specified in the request.
 @param identifier Unique identifier of the customer segment.
 */
 
-+(MOZUClient*)clientForUpdateSegmentOperationWithBody:(MOZUCustomerSegment*)body identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateSegmentOperationWithBody:(MOZUCustomerSegment *)body identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -89,7 +89,7 @@ Deletes a customer segment specified by its unique identifier. Deleting a segmen
 @param identifier Unique identifier of the customer segment to delete.
 */
 
-+(MOZUClient*)clientForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Removes the specified customer accounts from a defined customer segment. You must create the request body to perform this operation.
@@ -97,7 +97,7 @@ Removes the specified customer accounts from a defined customer segment. You mus
 @param identifier Unique identifier of the segment from which to remove the customer accounts.
 */
 
-+(MOZUClient*)clientForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

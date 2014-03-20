@@ -11,7 +11,7 @@
 #import "MOZUCustomerAuthTicket.h"
 
 @implementation MOZUCustomerAuthTicket
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

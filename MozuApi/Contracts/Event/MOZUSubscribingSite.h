@@ -19,9 +19,9 @@
 
 @interface MOZUSubscribingSite : JSONModel<MOZUSubscribingSite>
 
-@property(nonatomic) NSNumber * siteId;
+@property(nonatomic) NSNumber *siteId;
 
-@property(nonatomic) NSNumber * tenantId;
+@property(nonatomic) NSNumber *tenantId;
 
 @end
 

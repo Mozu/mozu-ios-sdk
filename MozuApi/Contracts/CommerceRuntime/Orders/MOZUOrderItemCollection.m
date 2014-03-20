@@ -11,7 +11,7 @@
 #import "MOZUOrderItemCollection.h"
 
 @implementation MOZUOrderItemCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

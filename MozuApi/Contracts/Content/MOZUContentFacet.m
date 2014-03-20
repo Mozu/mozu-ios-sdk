@@ -11,7 +11,7 @@
 #import "MOZUContentFacet.h"
 
 @implementation MOZUContentFacet
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

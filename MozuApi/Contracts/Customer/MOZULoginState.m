@@ -11,7 +11,7 @@
 #import "MOZULoginState.h"
 
 @implementation MOZULoginState
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

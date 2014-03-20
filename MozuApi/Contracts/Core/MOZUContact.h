@@ -27,42 +27,42 @@
 /**
 The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 */
-@property(nonatomic) NSString * companyOrOrganization;
+@property(nonatomic) NSString *companyOrOrganization;
 
 /**
 The email address of the specified user or the email address associated with the specified entity.
 */
-@property(nonatomic) NSString * email;
+@property(nonatomic) NSString *email;
 
 /**
 The first name of the contact. The maximum character length is 200.
 */
-@property(nonatomic) NSString * firstName;
+@property(nonatomic) NSString *firstName;
 
 /**
 Identifier of the contact.
 */
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
 /**
 The last name or surname of the contact. The maximum character length is 200.
 */
-@property(nonatomic) NSString * lastNameOrSurname;
+@property(nonatomic) NSString *lastNameOrSurname;
 
 /**
 The middle name or the first initial of the middle name of the contact. The maximum character length is 100.
 */
-@property(nonatomic) NSString * middleNameOrInitial;
+@property(nonatomic) NSString *middleNameOrInitial;
 
 /**
 Address information for the contact.
 */
-@property(nonatomic) MOZUAddress* address;
+@property(nonatomic) MOZUAddress *address;
 
 /**
 List of phone numbers associated with the customer account contact.
 */
-@property(nonatomic) MOZUPhone* phoneNumbers;
+@property(nonatomic) MOZUPhone *phoneNumbers;
 
 @end
 

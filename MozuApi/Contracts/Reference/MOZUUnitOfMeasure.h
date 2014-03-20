@@ -25,22 +25,22 @@
 /**
 The name of the unit of measure, such as "foot".
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 The plural name of the unit of measure, such as "feet".
 */
-@property(nonatomic) NSString * pluralName;
+@property(nonatomic) NSString *pluralName;
 
 /**
 The abbreviated symbol for the unit of measure, such as "ft".
 */
-@property(nonatomic) NSString * symbol;
+@property(nonatomic) NSString *symbol;
 
 /**
 The type of measurement, such as length or volume.
 */
-@property(nonatomic) NSString * unitOfMeasureType;
+@property(nonatomic) NSString *unitOfMeasureType;
 
 @end
 

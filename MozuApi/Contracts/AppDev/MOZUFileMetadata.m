@@ -11,7 +11,7 @@
 #import "MOZUFileMetadata.h"
 
 @implementation MOZUFileMetadata
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

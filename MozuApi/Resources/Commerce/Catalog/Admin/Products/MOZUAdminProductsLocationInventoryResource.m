@@ -14,14 +14,14 @@
 
 
 @interface MOZUAdminProductsLocationInventoryResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUAdminProductsLocationInventoryResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -47,9 +47,9 @@ Retrieves all locations for which a product has inventory defined and displays t
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)locationInventoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminLocationInventoryCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)locationInventoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminLocationInventoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminProductsLocationInventoryClient clientForGetLocationInventoriesOperationWithDataViewMode:dataViewMode productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminProductsLocationInventoryClient clientForGetLocationInventoriesOperationWithDataViewMode:dataViewMode productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -64,9 +64,9 @@ Retrieves the details of the inventory of the product in the location specified 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)locationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminLocationInventory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)locationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminLocationInventory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminProductsLocationInventoryClient clientForGetLocationInventoryOperationWithDataViewMode:dataViewMode productCode:productCode locationCode:locationCode userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminProductsLocationInventoryClient clientForGetLocationInventoryOperationWithDataViewMode:dataViewMode productCode:productCode locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -88,9 +88,9 @@ Creates a new location inventory definition for the product code specified in th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminProductsLocationInventoryClient clientForAddLocationInventoryOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminProductsLocationInventoryClient clientForAddLocationInventoryOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -112,9 +112,9 @@ Updates the current level of stock at each location associated with the product 
 @param productCode The product code of the product for which to update active stock on hand inventory at a specified location.
 */
 
--(void)updateLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment> *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminProductsLocationInventoryClient clientForUpdateLocationInventoryOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminProductsLocationInventoryClient clientForUpdateLocationInventoryOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -136,9 +136,9 @@ Deletes the location inventory definition for the product code specified in the 
 @param productCode The product code for which to delete a location's inventory.
 */
 
--(void)deleteLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminProductsLocationInventoryClient clientForDeleteLocationInventoryOperationWithDataViewMode:dataViewMode productCode:productCode locationCode:locationCode userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminProductsLocationInventoryClient clientForDeleteLocationInventoryOperationWithDataViewMode:dataViewMode productCode:productCode locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

@@ -100,7 +100,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return self.URLComponents.scheme;
 }
 
-- (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
+- (void)addAuthHeaderToRequest:(NSMutableURLRequest *)request
              completionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
     [self ensureAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [request setValue:self.authTicket.accessToken forHTTPHeaderField:MOZU_X_VOL_APP_CLAIMS];
@@ -118,16 +118,16 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:components.URL];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"POST"];
-    NSData* body = [[self.appAuthInfo toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *body = [[self.appAuthInfo toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:body];
     
     NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-                                                    NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUAPIError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
+                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                    NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                    MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                     
                                                     self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
                                                     [self refreshIntervalsIncludingRefreshTokenExpiration:YES];
@@ -145,9 +145,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:components.URL];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"PUT"];
-    MOZUAuthTicketRequest* authTicketRequest = [MOZUAuthTicketRequest new];
+    MOZUAuthTicketRequest *authTicketRequest = [MOZUAuthTicketRequest new];
     authTicketRequest.refreshToken = self.authTicket.refreshToken;
-    NSData* body = [[authTicketRequest toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *body = [[authTicketRequest toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:body];
     
     //NSLog(@"%@",url);
@@ -155,9 +155,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-                                                    NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    MOZUAPIError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
+                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                    NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                    MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                     
                                                     self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
                                                     [self refreshIntervalsIncludingRefreshTokenExpiration:NO];

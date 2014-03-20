@@ -11,7 +11,7 @@
 #import "MOZUPricingTaxContext.h"
 
 @implementation MOZUPricingTaxContext
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

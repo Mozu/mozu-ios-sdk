@@ -22,14 +22,14 @@ Resource Url Components for getDocument
 @param documentListName The name of the document list associated with the document to retrieve.
 @param documentId Identifier of the document being retrieved.
 */
-+(MOZUURLComponents*)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
++ (MOZUURLComponents *)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 /**
 Resource Url Components for getDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentId Unique identifier of the document.
 */
-+(MOZUURLComponents*)URLComponentsForGetDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
++ (MOZUURLComponents *)URLComponentsForGetDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 /**
 Resource Url Components for getDocuments
@@ -39,7 +39,7 @@ Resource Url Components for getDocuments
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
-+(MOZUURLComponents*)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUURLComponents *)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
 
 
 //
@@ -52,7 +52,7 @@ Resource Url Components for getDocuments
 Resource Url Components for createDocument
 @param documentListName The descriptive alphanumeric document list name being created.
 */
-+(MOZUURLComponents*)URLComponentsForCreateDocumentOperationWithDocumentListName:(NSString *)documentListName;
++ (MOZUURLComponents *)URLComponentsForCreateDocumentOperationWithDocumentListName:(NSString *)documentListName;
 
 
 //
@@ -66,14 +66,14 @@ Resource Url Components for updateDocument
 @param documentListName Name of the document list associated with the document.
 @param documentId Unique identifier of the document to update.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
++ (MOZUURLComponents *)URLComponentsForUpdateDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 /**
 Resource Url Components for updateDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentId Unique identifier of the document.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
++ (MOZUURLComponents *)URLComponentsForUpdateDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 
 //
@@ -87,14 +87,14 @@ Resource Url Components for deleteDocument
 @param documentListName The name of the document list associated with the document list being deleted.
 @param documentId Identifier of the document being deleted.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
++ (MOZUURLComponents *)URLComponentsForDeleteDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 /**
 Resource Url Components for deleteDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentId Unique identifier of the document.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
++ (MOZUURLComponents *)URLComponentsForDeleteDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 
 

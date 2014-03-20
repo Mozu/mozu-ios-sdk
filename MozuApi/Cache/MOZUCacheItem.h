@@ -10,9 +10,9 @@
 
 @interface MOZUCacheItem : NSObject
 
-@property (nonatomic, strong) NSString* id;
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) id item;
-@property (nonatomic, strong) NSString* eTag;
-@property (nonatomic, strong) NSDate* createDate;
+@property (nonatomic, strong) NSString *eTag;
+@property (nonatomic, strong) NSDate *createDate;
 
 @end

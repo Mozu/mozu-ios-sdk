@@ -11,7 +11,7 @@
 #import "MOZUCurrencyCollection.h"
 
 @implementation MOZUCurrencyCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

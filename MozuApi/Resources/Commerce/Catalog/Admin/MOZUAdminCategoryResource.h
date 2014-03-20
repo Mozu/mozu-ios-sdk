@@ -21,9 +21,9 @@
 @interface MOZUAdminCategoryResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -40,21 +40,21 @@ Retrieves a list of categories according to any specified filter criteria and so
 @param startIndex 
 */
 
--(void)categoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategoryPagedCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)categoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminCategoryPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of a single category.
 @param categoryId Unique identifier of the category to retrieve.
 */
 
--(void)categoryWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)categoryWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the list of subcategories within a category.
 @param categoryId Unique identifier of the category for which to retrieve subcategories.
 */
 
--(void)childCategoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategoryCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)childCategoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -68,7 +68,7 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 @param body Properties of the new category to create. You must specify a name and parent category if you want to create it as a subcategory.
 */
 
--(void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -84,7 +84,7 @@ Update the properties of a defined category or move it to another location in th
 @param categoryId Unique identifier of the category to modify.
 */
 
--(void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminCategory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -99,7 +99,7 @@ Deletes the category specified by its category ID.
 @param categoryId Unique identifier of the category to delete.
 */
 
--(void)deleteCategoryByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteCategoryByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

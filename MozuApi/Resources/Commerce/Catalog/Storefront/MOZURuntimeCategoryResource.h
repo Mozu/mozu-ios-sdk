@@ -21,9 +21,9 @@
 @interface MOZURuntimeCategoryResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -40,7 +40,7 @@ Retrieves a list of categories according to any specified filter criteria and so
 @param startIndex 
 */
 
--(void)categoriesWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryPagedCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)categoriesWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURuntimeCategoryPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of a single category.
@@ -48,13 +48,13 @@ Retrieves the details of a single category.
 @param categoryId Unique identifier for the storefront container used to organize products.
 */
 
--(void)categoryWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)categoryWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURuntimeCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
 */
 
--(void)categoryTreeWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)categoryTreeWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

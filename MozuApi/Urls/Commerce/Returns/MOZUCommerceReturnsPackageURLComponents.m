@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
+	NSDictionary *params = @{
 		@"returnId" : returnId,
 		@"packageId" : packageId,
 	};
@@ -27,9 +27,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}/label";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/returns/{returnId}/packages/{packageId}/label";
+	NSDictionary *params = @{
 		@"returnId" : returnId,
 		@"packageId" : packageId,
 	};
@@ -44,9 +44,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreatePackageOperationWithReturnId:(NSString *)returnId {
-	NSString* template = @"/api/commerce/returns/{returnId}/packages";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForCreatePackageOperationWithReturnId:(NSString *)returnId {
+	NSString *template = @"/api/commerce/returns/{returnId}/packages";
+	NSDictionary *params = @{
 		@"returnId" : returnId,
 	};
 
@@ -60,9 +60,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdatePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdatePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
+	NSDictionary *params = @{
 		@"returnId" : returnId,
 		@"packageId" : packageId,
 	};
@@ -77,9 +77,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeletePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
-	NSString* template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeletePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
+	NSString *template = @"/api/commerce/returns/{returnId}/packages/{packageId}";
+	NSDictionary *params = @{
 		@"returnId" : returnId,
 		@"packageId" : packageId,
 	};

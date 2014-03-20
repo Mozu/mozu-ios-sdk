@@ -23,10 +23,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -37,15 +37,15 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:orderId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUShippingRate arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
@@ -59,16 +59,16 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreatePackageShipmentsOperationWithBody:(NSString *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSString *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForCreatePackageShipmentsOperationWithOrderId:orderId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUCommercePackage arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
@@ -89,10 +89,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForDeleteShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForDeleteShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

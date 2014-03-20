@@ -11,7 +11,7 @@
 #import "MOZUSite.h"
 
 @implementation MOZUSite
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

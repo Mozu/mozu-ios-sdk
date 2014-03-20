@@ -26,12 +26,12 @@
 /**
 Value of the product option attribute.
 */
-@property(nonatomic) NSObject * value;
+@property(nonatomic) NSObject *value;
 
 /**
 Detailed properties of the product option attribute's vocabulary value.
 */
-@property(nonatomic) MOZUAttributeVocabularyValue* attributeVocabularyValueDetail;
+@property(nonatomic) MOZUAttributeVocabularyValue *attributeVocabularyValueDetail;
 
 @end
 

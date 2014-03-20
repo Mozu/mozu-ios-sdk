@@ -19,9 +19,9 @@
 @interface MOZUPlatformApplicationResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -35,7 +35,7 @@
 @param appId 
 */
 
--(void)applicationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInstalledApplications* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)applicationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -57,7 +57,7 @@
 @param appId 
 */
 
--(void)updateApplicationWithBody:(MOZUInstalledApplications*)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInstalledApplications* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -31,9 +31,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForApplyShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString* template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForApplyShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
+	NSString *template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
@@ -42,9 +42,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForApplyAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString* template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForApplyAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
+	NSString *template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
@@ -60,9 +60,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRemoveShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString* template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRemoveShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
+	NSString *template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
@@ -71,9 +71,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForRemoveAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString* template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRemoveAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
+	NSString *template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",

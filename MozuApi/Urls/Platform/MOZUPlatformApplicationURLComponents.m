@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId {
-	NSString* template = @"/api/platform/applications/{appId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId {
+	NSString *template = @"/api/platform/applications/{appId}";
+	NSDictionary *params = @{
 		@"appId" : appId,
 	};
 
@@ -40,9 +40,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId {
-	NSString* template = @"/api/platform/applications/{appId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId {
+	NSString *template = @"/api/platform/applications/{appId}";
+	NSDictionary *params = @{
 		@"appId" : appId,
 	};
 

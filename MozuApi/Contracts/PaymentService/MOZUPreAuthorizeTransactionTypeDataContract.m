@@ -11,7 +11,7 @@
 #import "MOZUPreAuthorizeTransactionTypeDataContract.h"
 
 @implementation MOZUPreAuthorizeTransactionTypeDataContract
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

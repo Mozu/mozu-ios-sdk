@@ -26,22 +26,22 @@
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString * attributeFQN;
+@property(nonatomic) NSString *attributeFQN;
 
 /**
 If true, the shopper can select more than one value from a predefined list for this extra.
 */
-@property(nonatomic) NSNumber * isMultiSelect;
+@property(nonatomic) NSNumber *isMultiSelect;
 
 /**
 If true, the shopper must select the product extra and specify a value for it during checkout.
 */
-@property(nonatomic) NSNumber * isRequired;
+@property(nonatomic) NSNumber *isRequired;
 
 /**
 The list of predefined values a shopper can select for the product when defining this extra.
 */
-@property(nonatomic) NSArray<MOZUProductExtraValue>* values;
+@property(nonatomic) NSArray<MOZUProductExtraValue> *values;
 
 @end
 

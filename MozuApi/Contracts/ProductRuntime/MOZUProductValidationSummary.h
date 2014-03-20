@@ -33,77 +33,77 @@
 /**
 If true, this product should not be packaged with other items and should ship by itself.
 */
-@property(nonatomic) NSNumber * isPackagedStandAlone;
+@property(nonatomic) NSNumber *isPackagedStandAlone;
 
 /**
 If true, the entity is subject to tax based on the relevant tax rate.
 */
-@property(nonatomic) BOOL isTaxable;
+@property(nonatomic) BOOLisTaxable;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString * productCode;
+@property(nonatomic) NSString *productCode;
 
 /**
 The descriptive brief product name.
 */
-@property(nonatomic) NSString * productName;
+@property(nonatomic) NSString *productName;
 
 /**
 Brief description of the product typically used when the product is displayed in a list or in search results.
 */
-@property(nonatomic) NSString * productShortDescription;
+@property(nonatomic) NSString *productShortDescription;
 
 /**
 The usage type of this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
 */
-@property(nonatomic) NSString * productUsage;
+@property(nonatomic) NSString *productUsage;
 
 /**
 Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
-@property(nonatomic) NSString * variationProductCode;
+@property(nonatomic) NSString *variationProductCode;
 
 /**
 Properties of a collection of component products that make up a single product bundle with its own product code.
 */
-@property(nonatomic) NSArray<MOZUBundledProductSummary>* bundledProducts;
+@property(nonatomic) NSArray<MOZUBundledProductSummary> *bundledProducts;
 
 /**
 The list of product categories for the storefront.
 */
-@property(nonatomic) NSArray<MOZURuntimeCategory>* categories;
+@property(nonatomic) NSArray<MOZURuntimeCategory> *categories;
 
 /**
 The image configured for the product on the storefront.
 */
-@property(nonatomic) MOZUProductImage* image;
+@property(nonatomic) MOZUProductImage *image;
 
 /**
 Properties of the active inventory level of the associated product.
 */
-@property(nonatomic) MOZURuntimeProductInventoryInfo* inventoryInfo;
+@property(nonatomic) MOZURuntimeProductInventoryInfo *inventoryInfo;
 
 /**
 Dimensions of the packaged product.
 */
-@property(nonatomic) MOZURuntimePackageMeasurements* measurements;
+@property(nonatomic) MOZURuntimePackageMeasurements *measurements;
 
 /**
 Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
 */
-@property(nonatomic) MOZURuntimeProductPrice* price;
+@property(nonatomic) MOZURuntimeProductPrice *price;
 
 /**
 The list of product properties configured in product admin.
 */
-@property(nonatomic) NSArray<MOZURuntimeProductProperty>* properties;
+@property(nonatomic) NSArray<MOZURuntimeProductProperty> *properties;
 
 /**
 The current state of the product and whether or not it is available for purchasing. If the product is not eligible for purchase, the validation message is included.
 */
-@property(nonatomic) MOZUProductPurchasableState* purchasableState;
+@property(nonatomic) MOZUProductPurchasableState *purchasableState;
 
 @end
 

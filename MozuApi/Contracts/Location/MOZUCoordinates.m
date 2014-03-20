@@ -11,7 +11,7 @@
 #import "MOZUCoordinates.h"
 
 @implementation MOZUCoordinates
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

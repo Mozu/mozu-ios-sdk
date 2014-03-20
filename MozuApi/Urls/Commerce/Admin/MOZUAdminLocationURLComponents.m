@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/commerce/admin/locations/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/commerce/admin/locations/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
@@ -29,9 +29,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLocationOperationWithLocationCode:(NSString *)locationCode {
-	NSString* template = @"/api/commerce/admin/locations/{locationCode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetLocationOperationWithLocationCode:(NSString *)locationCode {
+	NSString *template = @"/api/commerce/admin/locations/{locationCode}";
+	NSDictionary *params = @{
 		@"locationCode" : locationCode,
 	};
 
@@ -45,9 +45,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddLocationOperation {
-	NSString* template = @"/api/commerce/admin/locations/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForAddLocationOperation {
+	NSString *template = @"/api/commerce/admin/locations/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,9 +59,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateLocationOperationWithLocationCode:(NSString *)locationCode {
-	NSString* template = @"/api/commerce/admin/locations/{locationCode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateLocationOperationWithLocationCode:(NSString *)locationCode {
+	NSString *template = @"/api/commerce/admin/locations/{locationCode}";
+	NSDictionary *params = @{
 		@"locationCode" : locationCode,
 	};
 
@@ -75,9 +75,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteLocationOperationWithLocationCode:(NSString *)locationCode {
-	NSString* template = @"/api/commerce/admin/locations/{locationCode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteLocationOperationWithLocationCode:(NSString *)locationCode {
+	NSString *template = @"/api/commerce/admin/locations/{locationCode}";
+	NSDictionary *params = @{
 		@"locationCode" : locationCode,
 	};
 

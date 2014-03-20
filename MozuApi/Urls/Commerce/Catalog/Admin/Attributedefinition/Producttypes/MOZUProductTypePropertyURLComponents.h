@@ -21,14 +21,14 @@
 Resource Url Components for getProperties
 @param productTypeId Identifier of the product type.
 */
-+(MOZUURLComponents*)URLComponentsForGetPropertiesOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForGetPropertiesOperationWithProductTypeId:(NSInteger)productTypeId;
 
 /**
 Resource Url Components for getProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForGetPropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetPropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -41,7 +41,7 @@ Resource Url Components for getProperty
 Resource Url Components for addProperty
 @param productTypeId Identifier of the product type.
 */
-+(MOZUURLComponents*)URLComponentsForAddPropertyOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForAddPropertyOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for updateProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForUpdatePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForUpdatePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -69,7 +69,7 @@ Resource Url Components for deleteProperty
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForDeletePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForDeletePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 

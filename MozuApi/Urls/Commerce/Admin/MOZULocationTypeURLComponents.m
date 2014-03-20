@@ -17,16 +17,16 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetLocationTypesOperation {
-	NSString* template = @"/api/commerce/admin/locationtypes/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetLocationTypesOperation {
+	NSString *template = @"/api/commerce/admin/locationtypes/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
-	NSString* template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
+	NSString *template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
+	NSDictionary *params = @{
 		@"locationTypeCode" : locationTypeCode,
 	};
 
@@ -40,9 +40,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddLocationTypeOperation {
-	NSString* template = @"/api/commerce/admin/locationtypes/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForAddLocationTypeOperation {
+	NSString *template = @"/api/commerce/admin/locationtypes/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -54,9 +54,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
-	NSString* template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
+	NSString *template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
+	NSDictionary *params = @{
 		@"locationTypeCode" : locationTypeCode,
 	};
 
@@ -70,9 +70,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
-	NSString* template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
+	NSString *template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
+	NSDictionary *params = @{
 		@"locationTypeCode" : locationTypeCode,
 	};
 

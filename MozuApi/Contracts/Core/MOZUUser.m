@@ -11,7 +11,7 @@
 #import "MOZUUser.h"
 
 @implementation MOZUUser
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

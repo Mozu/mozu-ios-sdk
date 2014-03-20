@@ -11,7 +11,7 @@
 #import "MOZUGeneralSettings.h"
 
 @implementation MOZUGeneralSettings
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

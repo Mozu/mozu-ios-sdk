@@ -13,7 +13,7 @@
 @class MOZUAuthTicket;
 @class MOZURefreshInterval;
 
-typedef void(^MOZUAppAuthenticationCompletionBlock)(NSHTTPURLResponse* response, MOZUAPIError* error);
+typedef void(^MOZUAppAuthenticationCompletionBlock)(NSHTTPURLResponse *response, MOZUAPIError *error);
 
 typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
 {
@@ -49,11 +49,11 @@ typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
 - (void)authenticateWithAuthInfo:(MOZUAppAuthInfo *)appAuthInfo
                          appHost:(NSString *)host
                           useSSL:(BOOL)useSSL
-                  refeshInterval:(MOZURefreshInterval*)refreshInterval
+                  refeshInterval:(MOZURefreshInterval *)refreshInterval
                completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 
 
-- (void)addAuthHeaderToRequest:(NSMutableURLRequest*)request
+- (void)addAuthHeaderToRequest:(NSMutableURLRequest *)request
              completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 
 @end

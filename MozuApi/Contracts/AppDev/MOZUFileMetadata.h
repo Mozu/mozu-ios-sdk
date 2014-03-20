@@ -26,32 +26,32 @@
 /**
 Checksum function used to validate the local version of the file against the version on the server.
 */
-@property(nonatomic) NSString * checkSum;
+@property(nonatomic) NSString *checkSum;
 
 /**
 Unique identifier of the file.
 */
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
 /**
 The path and file name that represents the file location.
 */
-@property(nonatomic) NSString * path;
+@property(nonatomic) NSString *path;
 
 /**
 The total size of the package file, in bytes.
 */
-@property(nonatomic) long sizeInBytes;
+@property(nonatomic) longsizeInBytes;
 
 /**
 The type of file in the package.
 */
-@property(nonatomic) NSString * type;
+@property(nonatomic) NSString *type;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

@@ -11,7 +11,7 @@
 #import "MOZUInStockNotificationSubscription.h"
 
 @implementation MOZUInStockNotificationSubscription
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

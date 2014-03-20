@@ -25,7 +25,7 @@
 /**
 Identifier of the product category associated with the targeted discount.
 */
-@property(nonatomic) NSNumber * id;
+@property(nonatomic) NSNumber *id;
 
 @end
 

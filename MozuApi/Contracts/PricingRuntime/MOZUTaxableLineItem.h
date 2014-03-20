@@ -26,47 +26,47 @@
 /**
 Unique identifier of the taxable line item.
 */
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
 /**
 If true, the line item in the order is subject to tax.
 */
-@property(nonatomic) NSNumber * isTaxable;
+@property(nonatomic) NSNumber *isTaxable;
 
 /**
 The sale price of the line item in the order.
 */
-@property(nonatomic) NSNumber * lineItemPrice;
+@property(nonatomic) NSNumber *lineItemPrice;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString * productCode;
+@property(nonatomic) NSString *productCode;
 
 /**
 The name of the product that represents a line item in a taxable order.
 */
-@property(nonatomic) NSString * productName;
+@property(nonatomic) NSString *productName;
 
 /**
 The quantity of the line item in the order.
 */
-@property(nonatomic) NSInteger quantity;
+@property(nonatomic) NSIntegerquantity;
 
 /**
 The reason the item is either taxed or returned.
 */
-@property(nonatomic) NSString * reason;
+@property(nonatomic) NSString *reason;
 
 /**
 The amount of shipping calculated for a line item in an order.
 */
-@property(nonatomic) NSNumber * shippingAmount;
+@property(nonatomic) NSNumber *shippingAmount;
 
 /**
 Properties of the product that represents the line item in the order.
 */
-@property(nonatomic) NSArray<MOZUPricingProductProperty>* productProperties;
+@property(nonatomic) NSArray<MOZUPricingProductProperty> *productProperties;
 
 @end
 

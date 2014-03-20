@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/commerce/customer/segments/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/commerce/customer/segments/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
@@ -29,9 +29,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetSegmentOperationWithIdentifier:(NSInteger)identifier {
-	NSString* template = @"/api/commerce/customer/segments/{identifier}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetSegmentOperationWithIdentifier:(NSInteger)identifier {
+	NSString *template = @"/api/commerce/customer/segments/{identifier}";
+	NSDictionary *params = @{
 		@"identifier" : @(identifier),
 	};
 
@@ -45,16 +45,16 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddSegmentOperation {
-	NSString* template = @"/api/commerce/customer/segments/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForAddSegmentOperation {
+	NSString *template = @"/api/commerce/customer/segments/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier {
-	NSString* template = @"/api/commerce/customer/segments/{identifier}/accounts";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier {
+	NSString *template = @"/api/commerce/customer/segments/{identifier}/accounts";
+	NSDictionary *params = @{
 		@"accountIds" : @(accountIds),
 		@"identifier" : @(identifier),
 	};
@@ -69,9 +69,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier {
-	NSString* template = @"/api/commerce/customer/segments/{identifier}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier {
+	NSString *template = @"/api/commerce/customer/segments/{identifier}";
+	NSDictionary *params = @{
 		@"identifier" : @(identifier),
 	};
 
@@ -85,18 +85,18 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier {
-	NSString* template = @"/api/commerce/customer/segments/{identifier}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier {
+	NSString *template = @"/api/commerce/customer/segments/{identifier}";
+	NSDictionary *params = @{
 		@"identifier" : @(identifier),
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier {
-	NSString* template = @"/api/commerce/customer/segments/{identifier}/accounts";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier {
+	NSString *template = @"/api/commerce/customer/segments/{identifier}/accounts";
+	NSDictionary *params = @{
 		@"accountIds" : @(accountIds),
 		@"identifier" : @(identifier),
 	};

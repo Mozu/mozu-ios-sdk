@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetEventsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/event/pull/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetEventsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/event/pull/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
@@ -29,9 +29,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetEventOperationWithEventId:(NSString *)eventId {
-	NSString* template = @"/api/event/pull/{eventId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetEventOperationWithEventId:(NSString *)eventId {
+	NSString *template = @"/api/event/pull/{eventId}";
+	NSDictionary *params = @{
 		@"eventId" : eventId,
 	};
 

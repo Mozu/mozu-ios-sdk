@@ -21,14 +21,14 @@
 Resource Url Components for getOptions
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-+(MOZUURLComponents*)URLComponentsForGetOptionsOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForGetOptionsOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for getOption
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForGetOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -41,7 +41,7 @@ Resource Url Components for getOption
 Resource Url Components for addOption
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-+(MOZUURLComponents*)URLComponentsForAddOptionOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForAddOptionOperationWithProductCode:(NSString *)productCode;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for updateOption
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForUpdateOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -69,7 +69,7 @@ Resource Url Components for deleteOption
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForDeleteOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
 
 
 

@@ -21,10 +21,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetCheckoutSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetCheckoutSettingsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCheckoutSettingsURLComponents URLComponentsForGetCheckoutSettingsOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 

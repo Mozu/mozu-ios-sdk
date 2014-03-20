@@ -11,7 +11,7 @@
 #import "MOZUProductVariationDeltaPrice.h"
 
 @implementation MOZUProductVariationDeltaPrice
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

@@ -23,10 +23,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUWishlistItemURLComponents URLComponentsForGetWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -37,10 +37,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetWishlistItemsOperationWithWishlistId:(NSString *)wishlistId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetWishlistItemsOperationWithWishlistId:(NSString *)wishlistId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUWishlistItemURLComponents URLComponentsForGetWishlistItemsOperationWithWishlistId:wishlistId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -51,10 +51,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUWishlistItemURLComponents URLComponentsForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:customerAccountId wishlistName:wishlistName startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -72,10 +72,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddItemToWishlistOperationWithBody:(MOZUWishlistItem*)body wishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForAddItemToWishlistOperationWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUWishlistItemURLComponents URLComponentsForAddItemToWishlistOperationWithWishlistId:wishlistId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -94,10 +94,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateWishlistItemOperationWithBody:(MOZUWishlistItem*)body wishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdateWishlistItemOperationWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUWishlistItemURLComponents URLComponentsForUpdateWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -109,10 +109,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUWishlistItemURLComponents URLComponentsForUpdateWishlistItemQuantityOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId quantity:quantity];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -130,10 +130,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRemoveAllWishlistItemsOperationWithWishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForRemoveAllWishlistItemsOperationWithWishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUWishlistItemURLComponents URLComponentsForRemoveAllWishlistItemsOperationWithWishlistId:wishlistId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -144,10 +144,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForDeleteWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForDeleteWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUWishlistItemURLComponents URLComponentsForDeleteWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

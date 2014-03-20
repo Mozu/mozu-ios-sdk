@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
@@ -29,18 +29,18 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId {
-	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId {
+	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}";
+	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId {
-	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}/children";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId {
+	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}/children";
+	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 	};
 
@@ -54,9 +54,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddCategoryOperation {
-	NSString* template = @"/api/commerce/catalog/admin/categories/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForAddCategoryOperation {
+	NSString *template = @"/api/commerce/catalog/admin/categories/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -68,9 +68,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility {
-	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility {
+	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}";
+	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"cascadeVisibility" : cascadeVisibility ? cascadeVisibility : @"",
 	};
@@ -85,9 +85,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete {
-	NSString* template = @"/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete {
+	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}";
+	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"cascadeDelete" : cascadeDelete ? cascadeDelete : @"",
 	};

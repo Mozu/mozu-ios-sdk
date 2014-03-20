@@ -85,7 +85,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"PUT"];
-    NSData* body = [[userAuthTicket toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *body = [[userAuthTicket toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:body];
     
     [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
@@ -100,9 +100,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
             NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
             NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-                                                            NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                            MOZUAPIError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
+                                                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                            NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                            MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                             
                                                             MOZUAuthenticationProfile *authProfile = [self authenticationProfileWithJSON:json scope:userAuthTicket.scope];
                                                             completion(authProfile, httpResponse, apiError);
@@ -121,7 +121,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"POST"];
-    NSData* body = [[userAuthInfo toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *body = [[userAuthInfo toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:body];
     
     [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
@@ -133,9 +133,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
             NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
             NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-                                                            NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                            MOZUAPIError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
+                                                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                            NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                            MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                             
                                                             MOZUAuthenticationProfile *authProfile = [self authenticationProfileWithJSON:json scope:scope];
                                                             completion(authProfile, httpResponse, apiError);
@@ -160,9 +160,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
             NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
             NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-                                                            NSString* json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                            MOZUAPIError* apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
+                                                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                            NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                            MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
                                                             
                                                             completion(httpResponse, apiError);
                                                         }];
@@ -243,7 +243,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return authProfile;
 }
 
-- (NSURL *)resourceRefreshURLWithAuthTicket:(MOZUUserAuthTicket *)authTicket identifier:(NSNumber*)identifier
+- (NSURL *)resourceRefreshURLWithAuthTicket:(MOZUUserAuthTicket *)authTicket identifier:(NSNumber *)identifier
 {
     MOZUURLComponents *components = nil;
     
@@ -263,7 +263,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return components.URL;
 }
 
-- (NSURL *)resourceURLWithUserScope:(MOZUAuthenticationScope)scope identifier:(NSNumber*)identifier
+- (NSURL *)resourceURLWithUserScope:(MOZUAuthenticationScope)scope identifier:(NSNumber *)identifier
 {
     MOZUURLComponents *components = nil;
     
@@ -283,7 +283,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return components.URL;
 }
 
-- (NSURL *)logoutURLWithAuthTicket:(MOZUUserAuthTicket*)userAuthTicket
+- (NSURL *)logoutURLWithAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
 {
     MOZUURLComponents *components = nil;
     

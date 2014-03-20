@@ -11,7 +11,7 @@
 #import "MOZUTimeZoneCollection.h"
 
 @implementation MOZUTimeZoneCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

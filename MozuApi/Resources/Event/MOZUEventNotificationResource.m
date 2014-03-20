@@ -30,9 +30,9 @@ Retrieves a list of events.
 @param startIndex 
 */
 
--(void)eventsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEventCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)eventsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUEventCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUEventNotificationClient clientForGetEventsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUEventNotificationClient clientForGetEventsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -45,9 +45,9 @@ Retrieves an event by providing the event ID.
 @param eventId The unique identifier of the event being retrieved. An event is a notification about a create, read, update, or delete on an order, product, discount or category.
 */
 
--(void)eventWithEventId:(NSString *)eventId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUEvent* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)eventWithEventId:(NSString *)eventId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUEvent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUEventNotificationClient clientForGetEventOperationWithEventId:eventId userClaims:userClaims];
+	MOZUClient *client = [MOZUEventNotificationClient clientForGetEventOperationWithEventId:eventId userClaims:userClaims];
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
 			handler(result, error, response);

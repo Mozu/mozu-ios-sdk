@@ -27,47 +27,47 @@
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString * currencyCode;
+@property(nonatomic) NSString *currencyCode;
 
 /**
 Handling fee associated with the order.
 */
-@property(nonatomic) NSNumber * handlingFee;
+@property(nonatomic) NSNumber *handlingFee;
 
 /**
 The date and time the order was submitted.
 */
-@property(nonatomic) NSDate * orderDate;
+@property(nonatomic) NSDate *orderDate;
 
 /**
 The unique identifier of the original order, used to track order changes for tax purposes.
 */
-@property(nonatomic) NSString * originalDocumentCode;
+@property(nonatomic) NSString *originalDocumentCode;
 
 /**
 The date and time the original order was placed.
 */
-@property(nonatomic) NSDate * originalOrderDate;
+@property(nonatomic) NSDate *originalOrderDate;
 
 /**
 The total shipping amount calculated for the order.
 */
-@property(nonatomic) NSNumber * shippingAmount;
+@property(nonatomic) NSNumber *shippingAmount;
 
 /**
 The type of request for which to tax this entity, which is "Order" or "Return."
 */
-@property(nonatomic) NSString * taxRequestType;
+@property(nonatomic) NSString *taxRequestType;
 
 /**
 The line items associated with the order.
 */
-@property(nonatomic) NSArray<MOZUTaxableLineItem>* lineItems;
+@property(nonatomic) NSArray<MOZUTaxableLineItem> *lineItems;
 
 /**
 The tax properties associated with the order.
 */
-@property(nonatomic) MOZUPricingTaxContext* taxContext;
+@property(nonatomic) MOZUPricingTaxContext *taxContext;
 
 @end
 

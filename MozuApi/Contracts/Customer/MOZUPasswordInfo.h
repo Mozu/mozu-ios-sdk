@@ -19,9 +19,9 @@
 
 @interface MOZUPasswordInfo : JSONModel<MOZUPasswordInfo>
 
-@property(nonatomic) NSString * theNewPassword;
+@property(nonatomic) NSString *theNewPassword;
 
-@property(nonatomic) NSString * oldPassword;
+@property(nonatomic) NSString *oldPassword;
 
 @end
 

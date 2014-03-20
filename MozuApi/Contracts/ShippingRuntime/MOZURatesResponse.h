@@ -26,7 +26,7 @@
 /**
 Arrayed list of calculated shipping rates for each assocuated carrier.
 */
-@property(nonatomic) NSArray<MOZUCarrierRatesResponse>* rates;
+@property(nonatomic) NSArray<MOZUCarrierRatesResponse> *rates;
 
 @end
 

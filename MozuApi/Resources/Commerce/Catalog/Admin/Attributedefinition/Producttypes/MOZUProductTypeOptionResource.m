@@ -14,14 +14,14 @@
 
 
 @interface MOZUProductTypeOptionResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUProductTypeOptionResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -43,9 +43,9 @@ Retrieves a list of option product attributes defined for the specified product 
 @param productTypeId Identifier of the product type to retrieve.
 */
 
--(void)optionsWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeInProductType>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)optionsWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeInProductType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUProductTypeOptionClient clientForGetOptionsOperationWithDataViewMode:dataViewMode productTypeId:productTypeId userClaims:userClaims];
+	MOZUClient *client = [MOZUProductTypeOptionClient clientForGetOptionsOperationWithDataViewMode:dataViewMode productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -60,9 +60,9 @@ Retrieves the details of an option attribute defined for the specified product t
 @param productTypeId The identifier of the product type.
 */
 
--(void)optionWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeInProductType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)optionWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUProductTypeOptionClient clientForGetOptionOperationWithDataViewMode:dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
+	MOZUClient *client = [MOZUProductTypeOptionClient clientForGetOptionOperationWithDataViewMode:dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -84,9 +84,9 @@ Assigns an option attribute to the product type based on the information supplie
 @param productTypeId Identifier of the product type.
 */
 
--(void)addOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType*)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeInProductType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUProductTypeOptionClient clientForAddOptionOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId userClaims:userClaims];
+	MOZUClient *client = [MOZUProductTypeOptionClient clientForAddOptionOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@ Updates an option attribute definition for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
--(void)updateOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType*)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAttributeInProductType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUProductTypeOptionClient clientForUpdateOptionOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
+	MOZUClient *client = [MOZUProductTypeOptionClient clientForUpdateOptionOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -133,9 +133,9 @@ Removes an option attribute definition for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
--(void)deleteOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUProductTypeOptionClient clientForDeleteOptionOperationWithDataViewMode:dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
+	MOZUClient *client = [MOZUProductTypeOptionClient clientForDeleteOptionOperationWithDataViewMode:dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

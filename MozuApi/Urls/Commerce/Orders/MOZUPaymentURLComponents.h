@@ -21,21 +21,21 @@
 Resource Url Components for getPayments
 @param orderId Unique identifier of the order.
 */
-+(MOZUURLComponents*)URLComponentsForGetPaymentsOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForGetPaymentsOperationWithOrderId:(NSString *)orderId;
 
 /**
 Resource Url Components for getPayment
 @param orderId Unique identifier of the order associated with the payment transaction.
 @param paymentId Unique identifier of the payment transaction submitted for the order.
 */
-+(MOZUURLComponents*)URLComponentsForGetPaymentOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId;
++ (MOZUURLComponents *)URLComponentsForGetPaymentOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId;
 
 /**
 Resource Url Components for getAvailablePaymentActions
 @param orderId Unique identifier of the order associated with the payment.
 @param paymentId Unique identifer of the payment for which to retrieve available actions.
 */
-+(MOZUURLComponents*)URLComponentsForGetAvailablePaymentActionsOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId;
++ (MOZUURLComponents *)URLComponentsForGetAvailablePaymentActionsOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId;
 
 
 //
@@ -49,13 +49,13 @@ Resource Url Components for performPaymentAction
 @param orderId Unique identifier of the order associated with the payment.
 @param paymentId Unique identifer of the payment for which to perform the action.
 */
-+(MOZUURLComponents*)URLComponentsForPerformPaymentActionOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId;
++ (MOZUURLComponents *)URLComponentsForPerformPaymentActionOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId;
 
 /**
 Resource Url Components for createPaymentAction
 @param orderId Unique identifier of the order for which to apply the payment.
 */
-+(MOZUURLComponents*)URLComponentsForCreatePaymentActionOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForCreatePaymentActionOperationWithOrderId:(NSString *)orderId;
 
 
 //

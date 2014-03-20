@@ -22,10 +22,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerNoteURLComponents URLComponentsForGetAccountNoteOperationWithAccountId:accountId noteId:noteId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -36,10 +36,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerNoteURLComponents URLComponentsForGetAccountNotesOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -57,10 +57,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddAccountNoteOperationWithBody:(MOZUCustomerNote*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForAddAccountNoteOperationWithBody:(MOZUCustomerNote *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerNoteURLComponents URLComponentsForAddAccountNoteOperationWithAccountId:accountId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -79,10 +79,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateAccountNoteOperationWithBody:(MOZUCustomerNote*)body accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdateAccountNoteOperationWithBody:(MOZUCustomerNote *)body accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerNoteURLComponents URLComponentsForUpdateAccountNoteOperationWithAccountId:accountId noteId:noteId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -101,10 +101,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForDeleteAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCustomerNoteURLComponents URLComponentsForDeleteAccountNoteOperationWithAccountId:accountId noteId:noteId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

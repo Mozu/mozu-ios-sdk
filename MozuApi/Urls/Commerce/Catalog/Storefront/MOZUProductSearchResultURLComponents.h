@@ -36,14 +36,14 @@ Resource Url Components for search
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex 
 */
-+(MOZUURLComponents*)URLComponentsForSearchOperationWithQuery:(NSString *)query filter:(NSString *)filter facetTemplate:(NSString *)facetTemplate facetTemplateSubset:(NSString *)facetTemplateSubset facet:(NSString *)facet facetFieldRangeQuery:(NSString *)facetFieldRangeQuery facetHierPrefix:(NSString *)facetHierPrefix facetHierValue:(NSString *)facetHierValue facetHierDepth:(NSString *)facetHierDepth facetStartIndex:(NSString *)facetStartIndex facetPageSize:(NSString *)facetPageSize facetSettings:(NSString *)facetSettings facetValueFilter:(NSString *)facetValueFilter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUURLComponents *)URLComponentsForSearchOperationWithQuery:(NSString *)query filter:(NSString *)filter facetTemplate:(NSString *)facetTemplate facetTemplateSubset:(NSString *)facetTemplateSubset facet:(NSString *)facet facetFieldRangeQuery:(NSString *)facetFieldRangeQuery facetHierPrefix:(NSString *)facetHierPrefix facetHierValue:(NSString *)facetHierValue facetHierDepth:(NSString *)facetHierDepth facetStartIndex:(NSString *)facetStartIndex facetPageSize:(NSString *)facetPageSize facetSettings:(NSString *)facetSettings facetValueFilter:(NSString *)facetValueFilter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
 
 /**
 Resource Url Components for suggest
 @param q Text that the shopper is currently entering.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 */
-+(MOZUURLComponents*)URLComponentsForSuggestOperationWithQ:(NSString *)q pageSize:(NSNumber *)pageSize;
++ (MOZUURLComponents *)URLComponentsForSuggestOperationWithQ:(NSString *)q pageSize:(NSNumber *)pageSize;
 
 
 //

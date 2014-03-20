@@ -11,7 +11,7 @@
 #import "MOZUCartItem.h"
 
 @implementation MOZUCartItem
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

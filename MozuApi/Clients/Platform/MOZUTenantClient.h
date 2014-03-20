@@ -27,7 +27,7 @@ Retrieve details about a specific tenant by providing the tenant ID.
 @param tenantId Unique identifier of the Mozu tenant.
 */
 
-+(MOZUClient*)clientForGetTenantOperationWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetTenantOperationWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

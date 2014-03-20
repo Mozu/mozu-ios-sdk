@@ -21,9 +21,9 @@
 @interface MOZUPropertyTypeResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -38,20 +38,20 @@
 @param startIndex 
 */
 
--(void)propertyTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPropertyTypeCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)propertyTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPropertyTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 
 @param propertyTypeName 
 */
 
--(void)propertyTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUPropertyType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)propertyTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPropertyType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the value types associated with a content property.
 */
 
--(void)propertyValueTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUPropertyValueType>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)propertyValueTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUPropertyValueType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

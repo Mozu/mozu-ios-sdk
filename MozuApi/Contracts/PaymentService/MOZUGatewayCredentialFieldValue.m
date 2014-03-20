@@ -11,7 +11,7 @@
 #import "MOZUGatewayCredentialFieldValue.h"
 
 @implementation MOZUGatewayCredentialFieldValue
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

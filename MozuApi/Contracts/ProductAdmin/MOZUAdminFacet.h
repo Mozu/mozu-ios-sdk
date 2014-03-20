@@ -29,52 +29,52 @@
 /**
 Unique identifier for the storefront container used to organize products.
 */
-@property(nonatomic) NSInteger categoryId;
+@property(nonatomic) NSIntegercategoryId;
 
 /**
 Unique identifier of the facet.
 */
-@property(nonatomic) NSNumber * facetId;
+@property(nonatomic) NSNumber *facetId;
 
 /**
 The type of facet. Valid values are "range," which enables creation of a range of values, or "value," which populates the facet values based on the associated attribute or category.
 */
-@property(nonatomic) NSString * facetType;
+@property(nonatomic) NSString *facetType;
 
 /**
 If true, disables a facet inherited from a parent category.
 */
-@property(nonatomic) BOOL isHidden;
+@property(nonatomic) BOOLisHidden;
 
 /**
 The numeric sequence of the facet for its associated category.
 */
-@property(nonatomic) NSInteger order;
+@property(nonatomic) NSIntegerorder;
 
 /**
 Overrides a facet inherited from a parent category for a specified subcategory. System-supplied and read only.
 */
-@property(nonatomic) NSNumber * overrideFacetId;
+@property(nonatomic) NSNumber *overrideFacetId;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 For range type facets, an array of ranges to use for the facet values. For example, a price facet might have range queries for $0-$25, $25-$50, and $50-$100.
 */
-@property(nonatomic) NSArray<MOZUFacetRangeQuery>* rangeQueries;
+@property(nonatomic) NSArray<MOZUFacetRangeQuery> *rangeQueries;
 
 /**
 Container for the facet source information, which includes the category, price, or attribute properties.
 */
-@property(nonatomic) MOZUFacetSource* source;
+@property(nonatomic) MOZUFacetSource *source;
 
 /**
 System-supplied and read only parameter that validates a facet for its associated category.
 */
-@property(nonatomic) MOZUFacetValidity* validity;
+@property(nonatomic) MOZUFacetValidity *validity;
 
 @end
 

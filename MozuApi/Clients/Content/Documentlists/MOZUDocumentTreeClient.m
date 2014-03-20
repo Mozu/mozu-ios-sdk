@@ -21,10 +21,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUDocumentTreeURLComponents URLComponentsForGetTreeDocumentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -38,10 +38,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUDocumentTreeURLComponents URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -64,10 +64,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUDocumentTreeURLComponents URLComponentsForUpdateTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -84,10 +84,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUDocumentTreeURLComponents URLComponentsForDeleteTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];

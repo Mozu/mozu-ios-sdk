@@ -26,37 +26,37 @@
 /**
 The quantity of a component product in its product bundle. System-supplied and read only.
 */
-@property(nonatomic) NSInteger quantity;
+@property(nonatomic) NSIntegerquantity;
 
 /**
 The description defined for a component product in a product bundle. System-supplied and read only.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString *description;
 
 /**
 If true, this product cannot be shipped in a package with other items and must ship in a package by itself.
 */
-@property(nonatomic) BOOL isPackagedStandAlone;
+@property(nonatomic) BOOLisPackagedStandAlone;
 
 /**
 The name of a component product in a product bundle. System-supplied and read only.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString * productCode;
+@property(nonatomic) NSString *productCode;
 
 /**
 Unique identifier of the product reservation associated with the component product in a product bundle. System-supplied and read only.
 */
-@property(nonatomic) NSNumber * productReservationId;
+@property(nonatomic) NSNumber *productReservationId;
 
 /**
 Dimensions of the packaged product.
 */
-@property(nonatomic) MOZUPackageMeasurements* measurements;
+@property(nonatomic) MOZUPackageMeasurements *measurements;
 
 @end
 

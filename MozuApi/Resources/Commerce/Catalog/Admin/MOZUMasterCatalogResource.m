@@ -14,14 +14,14 @@
 
 
 @interface MOZUMasterCatalogResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUMasterCatalogResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -42,9 +42,9 @@
 Retrieve the details of all master catalog associated with a tenant.
 */
 
--(void)masterCatalogsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUMasterCatalogCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)masterCatalogsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUMasterCatalogCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUMasterCatalogClient clientForGetMasterCatalogsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUMasterCatalogClient clientForGetMasterCatalogsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -58,9 +58,9 @@ Retrieve the details of the master catalog specified in the request.
 @param masterCatalogId The unique identifier of the master catalog associated with the entity.
 */
 
--(void)masterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)masterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUMasterCatalogClient clientForGetMasterCatalogOperationWithDataViewMode:dataViewMode masterCatalogId:masterCatalogId userClaims:userClaims];
+	MOZUClient *client = [MOZUMasterCatalogClient clientForGetMasterCatalogOperationWithDataViewMode:dataViewMode masterCatalogId:masterCatalogId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -89,9 +89,9 @@ Updates the product publishing mode for the master catalog specified in the requ
 @param masterCatalogId 
 */
 
--(void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog*)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUMasterCatalogClient clientForUpdateMasterCatalogOperationWithDataViewMode:dataViewMode body:body masterCatalogId:masterCatalogId userClaims:userClaims];
+	MOZUClient *client = [MOZUMasterCatalogClient clientForUpdateMasterCatalogOperationWithDataViewMode:dataViewMode body:body masterCatalogId:masterCatalogId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

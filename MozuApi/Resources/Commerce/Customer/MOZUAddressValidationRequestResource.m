@@ -14,14 +14,14 @@
 
 
 @interface MOZUAddressValidationRequestResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUAddressValidationRequestResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -50,9 +50,9 @@ Validates the customer address supplied in the request.
 @param body Properties of the address to validate.
 */
 
--(void)validateAddressWithBody:(MOZUAddressValidationRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAddressValidationResponse* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)validateAddressWithBody:(MOZUAddressValidationRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAddressValidationResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAddressValidationRequestClient clientForValidateAddressOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUAddressValidationRequestClient clientForValidateAddressOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

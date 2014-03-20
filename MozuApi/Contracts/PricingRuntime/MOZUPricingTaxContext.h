@@ -26,27 +26,27 @@
 /**
 Unique identifier of the customer.
 */
-@property(nonatomic) NSString * customerId;
+@property(nonatomic) NSString *customerId;
 
 /**
 Unique identifier of the tax context.
 */
-@property(nonatomic) NSString * taxContextId;
+@property(nonatomic) NSString *taxContextId;
 
 /**
 If the order is exempt from sales tax, the unique identifier of the tax exempt entity.
 */
-@property(nonatomic) NSString * taxExemptId;
+@property(nonatomic) NSString *taxExemptId;
 
 /**
 The address to which the order ships.
 */
-@property(nonatomic) MOZUAddress* destinationAddress;
+@property(nonatomic) MOZUAddress *destinationAddress;
 
 /**
 The address from which the order ships.
 */
-@property(nonatomic) MOZUAddress* originAddress;
+@property(nonatomic) MOZUAddress *originAddress;
 
 @end
 

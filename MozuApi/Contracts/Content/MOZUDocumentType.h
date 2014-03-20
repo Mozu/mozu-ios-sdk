@@ -27,42 +27,42 @@
 /**
 User-defined description of the document type.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString *description;
 
 /**
 The name that displays for the document type.
 */
-@property(nonatomic) NSString * displayName;
+@property(nonatomic) NSString *displayName;
 
 /**
 Specifies where the document type can be used across the site. If the document type has no scope restrictions, the scope is "Global".
 */
-@property(nonatomic) NSString * documentTypeScope;
+@property(nonatomic) NSString *documentTypeScope;
 
 /**
 The name of the document type.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 If applicable, the name of the parent document type.
 */
-@property(nonatomic) NSString * parentTypeName;
+@property(nonatomic) NSString *parentTypeName;
 
 /**
 List of content entity descriptions localized to the site or site group's default language.
 */
-@property(nonatomic) NSArray<MOZULocalizedString>* localizedDescriptions;
+@property(nonatomic) NSArray<MOZULocalizedString> *localizedDescriptions;
 
 /**
 List of content entity display names localized to the site or site group's default language.
 */
-@property(nonatomic) NSArray<MOZULocalizedString>* localizedDisplayNames;
+@property(nonatomic) NSArray<MOZULocalizedString> *localizedDisplayNames;
 
 /**
 List of content property types associated with the document type.
 */
-@property(nonatomic) NSArray<MOZUPropertyType>* propertyTypes;
+@property(nonatomic) NSArray<MOZUPropertyType> *propertyTypes;
 
 @end
 

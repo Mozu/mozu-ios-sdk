@@ -11,7 +11,7 @@
 #import "MOZULocationUsage.h"
 
 @implementation MOZULocationUsage
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

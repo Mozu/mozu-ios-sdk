@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
-	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/target";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
+	NSString *template = @"/api/commerce/catalog/admin/discounts/{discountId}/target";
+	NSDictionary *params = @{
 		@"discountId" : @(discountId),
 	};
 
@@ -40,9 +40,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
-	NSString* template = @"/api/commerce/catalog/admin/discounts/{discountId}/target";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
+	NSString *template = @"/api/commerce/catalog/admin/discounts/{discountId}/target";
+	NSDictionary *params = @{
 		@"discountId" : @(discountId),
 	};
 

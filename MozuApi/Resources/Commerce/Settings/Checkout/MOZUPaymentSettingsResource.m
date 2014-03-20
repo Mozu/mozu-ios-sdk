@@ -14,14 +14,14 @@
 
 
 @interface MOZUPaymentSettingsResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUPaymentSettingsResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -42,9 +42,9 @@
 Retrieves the details of the third-party payment service workflows configured for the site.
 */
 
--(void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUPaymentSettingsClient clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUPaymentSettingsClient clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

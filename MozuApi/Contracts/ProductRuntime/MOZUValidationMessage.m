@@ -11,7 +11,7 @@
 #import "MOZUValidationMessage.h"
 
 @implementation MOZUValidationMessage
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

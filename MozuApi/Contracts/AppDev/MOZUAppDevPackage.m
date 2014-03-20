@@ -11,7 +11,7 @@
 #import "MOZUAppDevPackage.h"
 
 @implementation MOZUAppDevPackage
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

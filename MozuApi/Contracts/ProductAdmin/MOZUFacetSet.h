@@ -27,12 +27,12 @@
 /**
 The list of subcategories and attributes that have not been defined as facets for the category.
 */
-@property(nonatomic) NSArray<MOZUFacetSource>* available;
+@property(nonatomic) NSArray<MOZUFacetSource> *available;
 
 /**
 The list of category, price, and attribute facets defined for the category.
 */
-@property(nonatomic) NSArray<MOZUAdminFacet>* configured;
+@property(nonatomic) NSArray<MOZUAdminFacet> *configured;
 
 @end
 

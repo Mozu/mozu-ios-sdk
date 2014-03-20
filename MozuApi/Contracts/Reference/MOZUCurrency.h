@@ -25,12 +25,12 @@
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString * code;
+@property(nonatomic) NSString *code;
 
 /**
 The name of the currency represented by the ISO currency code.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 @end
 

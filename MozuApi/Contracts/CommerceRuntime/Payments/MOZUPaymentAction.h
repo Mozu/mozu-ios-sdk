@@ -27,52 +27,52 @@
 /**
 The name of the payment action, such as "AuthorizeAndCapture".
 */
-@property(nonatomic) NSString * actionName;
+@property(nonatomic) NSString *actionName;
 
 /**
 The total monetary amount of the payment transaction.
 */
-@property(nonatomic) NSNumber * amount;
+@property(nonatomic) NSNumber *amount;
 
 /**
 The URL provided to cancel payments submitted using PayPal Express or another non-gateway payment provider.
 */
-@property(nonatomic) NSString * cancelUrl;
+@property(nonatomic) NSString *cancelUrl;
 
 /**
 If applicable, the check number associated with the payment action.
 */
-@property(nonatomic) NSString * checkNumber;
+@property(nonatomic) NSString *checkNumber;
 
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString * currencyCode;
+@property(nonatomic) NSString *currencyCode;
 
 /**
 Date and time the payment gateway interaction was performed.
 */
-@property(nonatomic) NSDate * interactionDate;
+@property(nonatomic) NSDate *interactionDate;
 
 /**
 Unique ID that references an original transaction in the event of a credit back.
 */
-@property(nonatomic) NSString * referenceSourcePaymentId;
+@property(nonatomic) NSString *referenceSourcePaymentId;
 
 /**
 The URL provided to redirect users who submit payments using PayPal Express or another non-gateway payment provider.
 */
-@property(nonatomic) NSString * returnUrl;
+@property(nonatomic) NSString *returnUrl;
 
 /**
 Properties of a manually performed interaction with the payment gateway.
 */
-@property(nonatomic) MOZUPaymentGatewayInteraction* manualGatewayInteraction;
+@property(nonatomic) MOZUPaymentGatewayInteraction *manualGatewayInteraction;
 
 /**
 The billing information associated with this payment action.
 */
-@property(nonatomic) MOZUBillingInfo* theNewBillingInfo;
+@property(nonatomic) MOZUBillingInfo *theNewBillingInfo;
 
 @end
 

@@ -29,14 +29,14 @@ Retrieves a collection of document lists.
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetDocumentListsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDocumentListsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieve the details of a document list by providing the list name.
 @param documentListName The name of the document list.
 */
 
-+(MOZUClient*)clientForGetDocumentListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDocumentListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

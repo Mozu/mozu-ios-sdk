@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetThirdPartyPaymentWorkflowsOperation {
-	NSString* template = @"/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetThirdPartyPaymentWorkflowsOperation {
+	NSString *template = @"/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

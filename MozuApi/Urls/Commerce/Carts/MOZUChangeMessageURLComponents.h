@@ -20,7 +20,7 @@
 /**
 Resource Url Components for getMessages
 */
-+(MOZUURLComponents*)URLComponentsForGetMessagesOperation;
++ (MOZUURLComponents *)URLComponentsForGetMessagesOperation;
 
 
 //
@@ -46,13 +46,13 @@ Resource Url Components for getMessages
 /**
 Resource Url Components for removeAllMessages
 */
-+(MOZUURLComponents*)URLComponentsForRemoveAllMessagesOperation;
++ (MOZUURLComponents *)URLComponentsForRemoveAllMessagesOperation;
 
 /**
 Resource Url Components for removeMessage
 @param messageId Identifier of the message to remove from the cart.
 */
-+(MOZUURLComponents*)URLComponentsForRemoveMessageOperationWithMessageId:(NSString *)messageId;
++ (MOZUURLComponents *)URLComponentsForRemoveMessageOperationWithMessageId:(NSString *)messageId;
 
 
 

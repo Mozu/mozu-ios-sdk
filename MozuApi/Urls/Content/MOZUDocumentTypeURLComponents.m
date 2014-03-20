@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
-	NSString* template = @"/api/content/documenttypes/?pageSize={pageSize}&startIndex={startIndex}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
+	NSString *template = @"/api/content/documenttypes/?pageSize={pageSize}&startIndex={startIndex}";
+	NSDictionary *params = @{
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
 	};
@@ -27,9 +27,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName {
-	NSString* template = @"/api/content/documenttypes/{documentTypeName}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName {
+	NSString *template = @"/api/content/documenttypes/{documentTypeName}";
+	NSDictionary *params = @{
 		@"documentTypeName" : documentTypeName,
 	};
 

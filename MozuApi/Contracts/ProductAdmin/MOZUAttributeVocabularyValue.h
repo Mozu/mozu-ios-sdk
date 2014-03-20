@@ -26,17 +26,17 @@
 /**
 The actual vocabulary value.
 */
-@property(nonatomic) NSObject * value;
+@property(nonatomic) NSObject *value;
 
 /**
 The number that denotes the order of the entity value within a list of entity values.
 */
-@property(nonatomic) NSNumber * valueSequence;
+@property(nonatomic) NSNumber *valueSequence;
 
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) MOZUAttributeVocabularyValueLocalizedContent* content;
+@property(nonatomic) MOZUAttributeVocabularyValueLocalizedContent *content;
 
 @end
 

@@ -24,9 +24,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId {
-	NSString* template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId {
+	NSString *template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
+	NSDictionary *params = @{
 		@"developerAccountId" : developerAccountId ? developerAccountId : @"",
 	};
 
@@ -40,9 +40,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId {
-	NSString* template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId {
+	NSString *template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
+	NSDictionary *params = @{
 		@"developerAccountId" : developerAccountId ? developerAccountId : @"",
 	};
 
@@ -56,9 +56,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
-	NSString* template = @"/api/platform/developer/authtickets/?refreshToken={refreshToken}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
+	NSString *template = @"/api/platform/developer/authtickets/?refreshToken={refreshToken}";
+	NSDictionary *params = @{
 		@"refreshToken" : refreshToken,
 	};
 

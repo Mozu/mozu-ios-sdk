@@ -22,13 +22,13 @@ Resource Url Components for getDocumentTypes
 @param pageSize 
 @param startIndex 
 */
-+(MOZUURLComponents*)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUURLComponents *)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
 
 /**
 Resource Url Components for getDocumentType
 @param documentTypeName 
 */
-+(MOZUURLComponents*)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName;
++ (MOZUURLComponents *)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName;
 
 
 //

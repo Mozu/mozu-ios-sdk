@@ -19,9 +19,9 @@
 @interface MOZUCommerceOrdersPackageResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -36,7 +36,7 @@ Retrieves the details of a package of order items.
 @param packageId Unique identifier of the package to retrieve.
 */
 
--(void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of the actions available to perform for a package associated with order fulfillment.
@@ -44,7 +44,7 @@ Retrieves a list of the actions available to perform for a package associated wi
 @param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 */
 
--(void)availablePackageFulfillmentActionsWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSString * result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)availablePackageFulfillmentActionsWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the package label image supplied by the carrier.
@@ -52,7 +52,7 @@ Retrieves the package label image supplied by the carrier.
 @param packageId Unique identifier of the package for which to retrieve the label.
 */
 
--(void)packageLabelWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSInputStream * result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)packageLabelWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -67,7 +67,7 @@ Creates a new physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
 */
 
--(void)createPackageWithBody:(MOZUCommercePackage*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)createPackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -83,7 +83,7 @@ Updates one or more properties of a physical package of order items.
 @param packageId Unique identifier of the package of order items to update.
 */
 
--(void)updatePackageWithBody:(MOZUCommercePackage*)body orderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCommercePackage* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updatePackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -98,7 +98,7 @@ Removes a physical package of items from the specified order.
 @param packageId Unique identifier of the package to delete.
 */
 
--(void)deletePackageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deletePackageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

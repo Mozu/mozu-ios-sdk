@@ -27,27 +27,27 @@
 /**
 Unique identifier of the application version.
 */
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
 /**
 The name of the application version.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 Properties of a development package of files for an application version.
 */
-@property(nonatomic) NSArray<MOZUAppDevPackage>* devPackages;
+@property(nonatomic) NSArray<MOZUAppDevPackage> *devPackages;
 
 /**
 Properties of a releasable package of files for an application version.
 */
-@property(nonatomic) MOZUAppDevPackage* releasePackage;
+@property(nonatomic) MOZUAppDevPackage *releasePackage;
 
 @end
 

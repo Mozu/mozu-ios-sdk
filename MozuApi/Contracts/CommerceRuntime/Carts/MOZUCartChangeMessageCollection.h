@@ -26,17 +26,17 @@
 /**
 The number of commerce runtime cart change messages transactions that can exist in a collection.
 */
-@property(nonatomic) NSInteger capacity;
+@property(nonatomic) NSIntegercapacity;
 
 /**
 The number of messages in the collection.
 */
-@property(nonatomic) NSInteger count;
+@property(nonatomic) NSIntegercount;
 
 /**
 Container for an item in a collection.
 */
-@property(nonatomic) MOZUChangeMessage* item;
+@property(nonatomic) MOZUChangeMessage *item;
 
 @end
 

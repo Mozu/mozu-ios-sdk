@@ -11,7 +11,7 @@
 #import "MOZUCustomerSegment.h"
 
 @implementation MOZUCustomerSegment
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

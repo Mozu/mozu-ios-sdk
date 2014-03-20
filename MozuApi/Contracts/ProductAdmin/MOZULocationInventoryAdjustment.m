@@ -11,7 +11,7 @@
 #import "MOZULocationInventoryAdjustment.h"
 
 @implementation MOZULocationInventoryAdjustment
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

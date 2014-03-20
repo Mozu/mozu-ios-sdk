@@ -22,7 +22,7 @@ Resource Url Components for getAccountAttribute
 @param accountId Identifier of the customer account associated with the attribute to retrieve.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN;
 
 /**
 Resource Url Components for getAccountAttributes
@@ -32,7 +32,7 @@ Resource Url Components for getAccountAttributes
 @param sortBy 
 @param filter 
 */
-+(MOZUURLComponents*)URLComponentsForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 
 //
@@ -45,7 +45,7 @@ Resource Url Components for getAccountAttributes
 Resource Url Components for addAccountAttribute
 @param accountId Unique identifier of the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForAddAccountAttributeOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForAddAccountAttributeOperationWithAccountId:(NSInteger)accountId;
 
 
 //
@@ -59,7 +59,7 @@ Resource Url Components for updateAccountAttribute
 @param accountId Identifier of the customer account associated with the attribute.
 @param removeMissing If true, remove the items missing from the collection.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateAccountAttributeOperationWithAccountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing;
++ (MOZUURLComponents *)URLComponentsForUpdateAccountAttributeOperationWithAccountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing;
 
 
 //

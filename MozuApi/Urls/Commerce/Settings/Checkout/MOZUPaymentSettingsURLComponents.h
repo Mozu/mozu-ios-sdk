@@ -20,7 +20,7 @@
 /**
 Resource Url Components for getThirdPartyPaymentWorkflows
 */
-+(MOZUURLComponents*)URLComponentsForGetThirdPartyPaymentWorkflowsOperation;
++ (MOZUURLComponents *)URLComponentsForGetThirdPartyPaymentWorkflowsOperation;
 
 
 //

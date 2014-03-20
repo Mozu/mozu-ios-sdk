@@ -35,7 +35,7 @@ Generate an authentication ticket for an application.
 @param body Authentication information required to generate an authentication ticket includes the application id and the shared secret.
 */
 
-+(MOZUClient*)clientForAuthenticateAppOperationWithBody:(MOZUAppAuthInfo*)body;
++ (MOZUClient *)clientForAuthenticateAppOperationWithBody:(MOZUAppAuthInfo *)body;
 
 
 //
@@ -49,7 +49,7 @@ Refreshes the application's authentication ticket and generates a new access tok
 @param body The refresh token string required to update the application authentication ticket.
 */
 
-+(MOZUClient*)clientForRefreshAppAuthTicketOperationWithBody:(MOZUAuthTicketRequest*)body;
++ (MOZUClient *)clientForRefreshAppAuthTicketOperationWithBody:(MOZUAuthTicketRequest *)body;
 
 
 //
@@ -63,7 +63,7 @@ Deletes an authentication for an application based on the specified refresh toke
 @param refreshToken The refresh token string from the application's authentication ticket.
 */
 
-+(MOZUClient*)clientForDeleteAppAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
++ (MOZUClient *)clientForDeleteAppAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 
 
 

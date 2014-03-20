@@ -20,9 +20,9 @@
 @interface MOZUCustomerNoteResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -37,7 +37,7 @@ Retrieves the contents of a particular note attached to a specified customer acc
 @param noteId Unique identifier of a particular note to retrieve.
 */
 
--(void)accountNoteWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerNote* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)accountNoteWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
@@ -48,7 +48,7 @@ Retrieves a list of notes added to a customer account according to any specified
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)accountNotesWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerNoteCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)accountNotesWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerNoteCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -63,7 +63,7 @@ Adds a new note to the specified customer account.
 @param accountId Unique identifier of the customer account for which to create the note.
 */
 
--(void)addAccountNoteWithBody:(MOZUCustomerNote*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerNote* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addAccountNoteWithBody:(MOZUCustomerNote *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -79,7 +79,7 @@ Modifies an existing note for a customer account.
 @param noteId Unique identifier of the note to update.
 */
 
--(void)updateAccountNoteWithBody:(MOZUCustomerNote*)body accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerNote* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateAccountNoteWithBody:(MOZUCustomerNote *)body accountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -94,7 +94,7 @@ Removes a note from the specified customer account.
 @param noteId Unique identifier of the customer account note being deleted.
 */
 
--(void)deleteAccountNoteWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteAccountNoteWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

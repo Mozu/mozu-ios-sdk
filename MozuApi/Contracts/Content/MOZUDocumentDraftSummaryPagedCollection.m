@@ -11,7 +11,7 @@
 #import "MOZUDocumentDraftSummaryPagedCollection.h"
 
 @implementation MOZUDocumentDraftSummaryPagedCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

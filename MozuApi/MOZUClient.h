@@ -24,8 +24,8 @@ typedef NS_ENUM(NSUInteger, MOZUClientError)
     MOZUClientErrorMissingHost,
 };
 
-typedef void(^MOZUClientCompletionBlock)(id result, MOZUAPIError* error, NSHTTPURLResponse* response);
-typedef id(^MOZUClientJSONParserBlock)(NSString* JSONResult);
+typedef void(^MOZUClientCompletionBlock)(id result, MOZUAPIError *error, NSHTTPURLResponse *response);
+typedef id(^MOZUClientJSONParserBlock)(NSString *JSONResult);
 
 typedef NS_ENUM(NSUInteger, MOZUClientSessionConfiguration)
 {
@@ -38,17 +38,17 @@ static
 
 @interface MOZUClient : NSObject
 
-@property (nonatomic, readonly) NSString* JSONResult;
+@property (nonatomic, readonly) NSString *JSONResult;
 @property (nonatomic, readonly) id result; // Is this needed?
 @property (nonatomic, readonly) NSInteger statusCode;
-@property (nonatomic, readonly) MOZUAPIError* error;
-@property (nonatomic, readonly) NSDictionary* headers;
+@property (nonatomic, readonly) MOZUAPIError *error;
+@property (nonatomic, readonly) NSDictionary *headers;
 
 @property (nonatomic, strong) MOZUUserAuthTicket * userClaims;
 @property (nonatomic, strong) id body;
-@property (nonatomic, strong) NSInputStream * bodyStream;
+@property (nonatomic, strong) NSInputStream *bodyStream;
 @property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser; // Used to convert network response into "result" in completion handler.
-@property (nonatomic, strong) MOZUAPIContext  *context;
+@property (nonatomic, strong) MOZUAPIContext *context;
 @property (nonatomic, assign) MOZUClientSessionConfiguration sessionConfiguration; // Default is MOZUClientDefaultSessionConfiguration
 @property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUClientBackgroundSessionIdentifier
 

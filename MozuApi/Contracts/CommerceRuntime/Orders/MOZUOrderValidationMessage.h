@@ -25,17 +25,17 @@
 /**
 The body of the message returned by the order validation capability.
 */
-@property(nonatomic) NSString * message;
+@property(nonatomic) NSString *message;
 
 /**
 The type of message returned by the order validation capability, such as "Fraud Score."
 */
-@property(nonatomic) NSString * messageType;
+@property(nonatomic) NSString *messageType;
 
 /**
 Unique identifier of the order item associated with the validation message.
 */
-@property(nonatomic) NSString * orderItemId;
+@property(nonatomic) NSString *orderItemId;
 
 @end
 

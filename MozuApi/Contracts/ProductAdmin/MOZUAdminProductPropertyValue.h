@@ -27,17 +27,17 @@
 /**
 Value details for a product property attribute.
 */
-@property(nonatomic) NSObject * value;
+@property(nonatomic) NSObject *value;
 
 /**
 Details of the vocabulary value for predefined product property attributes.
 */
-@property(nonatomic) MOZUAttributeVocabularyValue* attributeVocabularyValueDetail;
+@property(nonatomic) MOZUAttributeVocabularyValue *attributeVocabularyValueDetail;
 
 /**
 Content of the product property value.
 */
-@property(nonatomic) MOZUProductPropertyValueLocalizedContent* content;
+@property(nonatomic) MOZUProductPropertyValueLocalizedContent *content;
 
 @end
 

@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, MOZUURLLocation) {
 	@returns An instance of a MOZUURLComponents object.
  */
 - (instancetype)initWithTemplate:(NSString *)stringTemplate
-                     parameters:(NSDictionary*)params
+                     parameters:(NSDictionary *)params
                        location:(MOZUURLLocation)location
                          useSSL:(BOOL)useSSL;
 

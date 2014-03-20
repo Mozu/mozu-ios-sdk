@@ -11,7 +11,7 @@
 #import "MOZUReturnCollection.h"
 
 @implementation MOZUReturnCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

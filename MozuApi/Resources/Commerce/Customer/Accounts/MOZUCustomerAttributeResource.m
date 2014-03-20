@@ -14,14 +14,14 @@
 
 
 @interface MOZUCustomerAttributeResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUCustomerAttributeResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -44,9 +44,9 @@ Retrieves the contents of an attribute associated with the specified customer ac
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
--(void)accountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)accountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerAttributeClient clientForGetAccountAttributeOperationWithAccountId:accountId attributeFQN:attributeFQN userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerAttributeClient clientForGetAccountAttributeOperationWithAccountId:accountId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -64,9 +64,9 @@ Retrieves the list of customer account attributes.
 @param startIndex 
 */
 
--(void)accountAttributesWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttributeCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)accountAttributesWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttributeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerAttributeClient clientForGetAccountAttributesOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerAttributeClient clientForGetAccountAttributesOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -88,9 +88,9 @@ Applies a defined attribute to the customer account specified in the request and
 @param accountId Unique identifier of the customer account.
 */
 
--(void)addAccountAttributeWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerAttributeClient clientForAddAccountAttributeOperationWithBody:body accountId:accountId userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerAttributeClient clientForAddAccountAttributeOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -113,9 +113,9 @@ Updates one or more details of a customer account attribute.
 @param removeMissing If true, remove the items missing from the collection.
 */
 
--(void)updateAccountAttributeWithBody:(MOZUCustomerAttribute*)body accountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerAttribute* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerAttributeClient clientForUpdateAccountAttributeOperationWithBody:body accountId:accountId removeMissing:removeMissing userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerAttributeClient clientForUpdateAccountAttributeOperationWithBody:body accountId:accountId removeMissing:removeMissing userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

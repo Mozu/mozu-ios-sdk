@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId {
-	NSString* template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}";
+	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 		@"noteId" : @(noteId),
 	};
@@ -27,9 +27,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/commerce/customer/accounts/{accountId}/notes?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
@@ -47,9 +47,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddAccountNoteOperationWithAccountId:(NSInteger)accountId {
-	NSString* template = @"/api/commerce/customer/accounts/{accountId}/notes";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForAddAccountNoteOperationWithAccountId:(NSInteger)accountId {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes";
+	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 	};
 
@@ -63,9 +63,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId {
-	NSString* template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}";
+	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 		@"noteId" : @(noteId),
 	};
@@ -80,9 +80,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId {
-	NSString* template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}";
+	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 		@"noteId" : @(noteId),
 	};

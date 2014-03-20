@@ -14,14 +14,14 @@
 
 
 @interface MOZUObjectResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUObjectResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -50,9 +50,9 @@
 @param body 
 */
 
--(void)ratesWithBody:(MOZURateRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURatesResponse* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)ratesWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURatesResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUObjectClient clientForGetRatesOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUObjectClient clientForGetRatesOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

@@ -20,9 +20,9 @@
 @interface MOZUObjectResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -43,7 +43,7 @@
 @param body 
 */
 
--(void)ratesWithBody:(MOZURateRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZURatesResponse* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)ratesWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURatesResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

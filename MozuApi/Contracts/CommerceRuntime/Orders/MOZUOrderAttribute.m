@@ -11,7 +11,7 @@
 #import "MOZUOrderAttribute.h"
 
 @implementation MOZUOrderAttribute
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

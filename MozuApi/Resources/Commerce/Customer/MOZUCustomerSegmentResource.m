@@ -14,14 +14,14 @@
 
 
 @interface MOZUCustomerSegmentResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUCustomerSegmentResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -46,9 +46,9 @@ Retrieves a list of defined customer segments according to any filter and sort c
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)segmentsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerSegmentCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)segmentsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerSegmentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerSegmentClient clientForGetSegmentsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForGetSegmentsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@ Retrieves the details of the customer segment specified in the request. This ope
 @param identifier Unique identifier of the customer segment to retrieve.
 */
 
--(void)segmentWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerSegment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)segmentWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerSegment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerSegmentClient clientForGetSegmentOperationWithIdentifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForGetSegmentOperationWithIdentifier:identifier userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@ Creates a new customer segments. New customer segments do not have any associate
 @param body Properties of the customer segment to add.
 */
 
--(void)addSegmentWithBody:(MOZUCustomerSegment*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerSegment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addSegmentWithBody:(MOZUCustomerSegment *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerSegment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerSegmentClient clientForAddSegmentOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForAddSegmentOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -102,9 +102,9 @@ Adds one or more customer accounts to a defined customer segment.
 @param identifier Unique identifier of the customer segment for which to add the associated customer accounts.
 */
 
--(void)addSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerSegmentClient clientForAddSegmentAccountsOperationWithAccountIds:accountIds identifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForAddSegmentAccountsOperationWithAccountIds:accountIds identifier:identifier userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -126,9 +126,9 @@ Updates the details of the customer segment specified in the request.
 @param identifier Unique identifier of the customer segment.
 */
 
--(void)updateSegmentWithBody:(MOZUCustomerSegment*)body identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerSegment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateSegmentWithBody:(MOZUCustomerSegment *)body identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerSegment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerSegmentClient clientForUpdateSegmentOperationWithBody:body identifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForUpdateSegmentOperationWithBody:body identifier:identifier userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -149,9 +149,9 @@ Deletes a customer segment specified by its unique identifier. Deleting a segmen
 @param identifier Unique identifier of the customer segment to delete.
 */
 
--(void)deleteSegmentWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteSegmentWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerSegmentClient clientForDeleteSegmentOperationWithIdentifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForDeleteSegmentOperationWithIdentifier:identifier userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -166,9 +166,9 @@ Removes the specified customer accounts from a defined customer segment. You mus
 @param identifier Unique identifier of the segment from which to remove the customer accounts.
 */
 
--(void)deleteSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUCustomerSegmentClient clientForDeleteSegmentAccountsOperationWithAccountIds:accountIds identifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForDeleteSegmentAccountsOperationWithAccountIds:accountIds identifier:identifier userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

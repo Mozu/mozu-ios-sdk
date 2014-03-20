@@ -35,10 +35,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCartsAppliedDiscountURLComponents URLComponentsForApplyCouponOperationWithCartId:cartId couponCode:couponCode];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -56,10 +56,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRemoveCouponsOperationWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForRemoveCouponsOperationWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCartsAppliedDiscountURLComponents URLComponentsForRemoveCouponsOperationWithCartId:cartId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -70,10 +70,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUCartsAppliedDiscountURLComponents URLComponentsForRemoveCouponOperationWithCartId:cartId couponCode:couponCode];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 

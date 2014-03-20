@@ -25,25 +25,25 @@
 */
 @interface MOZURateRequest : JSONModel<MOZURateRequest>
 
-@property(nonatomic) NSArray* carrierIds;
+@property(nonatomic) NSArray *carrierIds;
 
-@property(nonatomic) NSDate * estimatedShipmentDate;
+@property(nonatomic) NSDate *estimatedShipmentDate;
 
-@property(nonatomic) NSNumber * isDestinationAddressCommercial;
+@property(nonatomic) NSNumber *isDestinationAddressCommercial;
 
-@property(nonatomic) NSString * isoCurrencyCode;
+@property(nonatomic) NSString *isoCurrencyCode;
 
-@property(nonatomic) NSNumber * orderTotal;
+@property(nonatomic) NSNumber *orderTotal;
 
-@property(nonatomic) NSArray* shippingServiceTypes;
+@property(nonatomic) NSArray *shippingServiceTypes;
 
-@property(nonatomic) NSArray<MOZUCustomAttribute>* customAttributes;
+@property(nonatomic) NSArray<MOZUCustomAttribute> *customAttributes;
 
-@property(nonatomic) MOZUAddress* destinationAddress;
+@property(nonatomic) MOZUAddress *destinationAddress;
 
-@property(nonatomic) NSArray<MOZURateRequestItem>* items;
+@property(nonatomic) NSArray<MOZURateRequestItem> *items;
 
-@property(nonatomic) MOZUAddress* originAddress;
+@property(nonatomic) MOZUAddress *originAddress;
 
 @end
 

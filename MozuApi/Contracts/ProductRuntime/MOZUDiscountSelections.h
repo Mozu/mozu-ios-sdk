@@ -19,7 +19,7 @@
 
 @interface MOZUDiscountSelections : JSONModel<MOZUDiscountSelections>
 
-@property(nonatomic) NSArray* discountIds;
+@property(nonatomic) NSArray *discountIds;
 
 @end
 

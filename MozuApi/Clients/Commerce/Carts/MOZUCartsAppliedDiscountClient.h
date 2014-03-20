@@ -42,7 +42,7 @@
 @param couponCode 
 */
 
-+(MOZUClient*)clientForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -56,7 +56,7 @@
 @param cartId 
 */
 
-+(MOZUClient*)clientForRemoveCouponsOperationWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForRemoveCouponsOperationWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 
@@ -64,7 +64,7 @@
 @param couponCode 
 */
 
-+(MOZUClient*)clientForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 
