@@ -36,7 +36,7 @@ List of location type codes associated with the location usage. The location ser
 /**
 The system-defined code used to identify the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder".
 */
-@property(nonatomic) NSString *locationUsageTypeCode;
+@property(nonatomic) NSString * locationUsageTypeCode;
 
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

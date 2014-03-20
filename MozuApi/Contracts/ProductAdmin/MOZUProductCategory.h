@@ -25,7 +25,7 @@
 /**
 Unique identifier for the storefront container used to organize products.
 */
-@property(nonatomic) NSIntegercategoryId;
+@property(nonatomic) NSInteger categoryId;
 
 @end
 

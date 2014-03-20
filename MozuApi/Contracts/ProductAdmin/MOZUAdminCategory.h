@@ -24,37 +24,37 @@
 */
 @interface MOZUAdminCategory : JSONModel<MOZUAdminCategory>
 
-@property(nonatomic) NSNumber *catalogId;
+@property(nonatomic) NSNumber * catalogId;
 
 /**
 The number of children (subcategories, for example) that stem from a parent (top-level category).
 */
-@property(nonatomic) NSNumber *childCount;
+@property(nonatomic) NSNumber * childCount;
 
 /**
 Identifier of the entity.
 */
-@property(nonatomic) NSNumber *id;
+@property(nonatomic) NSNumber * id;
 
 /**
 If true, the admin product category is displayed in the store. If true, the category is not displayed.
 */
-@property(nonatomic) NSNumber *isDisplayed;
+@property(nonatomic) NSNumber * isDisplayed;
 
 /**
 Identifier of the parent or top-level category.
 */
-@property(nonatomic) NSNumber *parentCategoryId;
+@property(nonatomic) NSNumber * parentCategoryId;
 
 /**
 The number of products in a list.
 */
-@property(nonatomic) NSNumber *productCount;
+@property(nonatomic) NSNumber * productCount;
 
 /**
 The numeric value that denotes the place this entity occupies in the order of the entity list.
 */
-@property(nonatomic) NSNumber *sequence;
+@property(nonatomic) NSNumber * sequence;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

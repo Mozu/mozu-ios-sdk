@@ -27,7 +27,7 @@
 /**
 If true, the credential fields for the gateway are configured with valid values. For security purposes, Mozu does not return the credential fields for the gateway subresource.
 */
-@property(nonatomic) BOOLareGatewayCredentialFieldsSet;
+@property(nonatomic) BOOL areGatewayCredentialFieldsSet;
 
 /**
 The types of credit cards the merchant supports using this payment gateway.

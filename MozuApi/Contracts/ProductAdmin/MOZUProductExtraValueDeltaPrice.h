@@ -25,12 +25,12 @@
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString *currencyCode;
+@property(nonatomic) NSString * currencyCode;
 
 /**
 The difference between the price associated with this product extra and the base product. For example, if a product with a defined monogram extra costs an additional $10, the DeltaPrice value is "10".
 */
-@property(nonatomic) NSNumber *deltaPrice;
+@property(nonatomic) NSNumber * deltaPrice;
 
 @end
 

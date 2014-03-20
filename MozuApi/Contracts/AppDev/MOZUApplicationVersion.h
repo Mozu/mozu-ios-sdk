@@ -27,12 +27,12 @@
 /**
 Unique identifier of the application version.
 */
-@property(nonatomic) NSIntegerid;
+@property(nonatomic) NSInteger id;
 
 /**
 The name of the application version.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

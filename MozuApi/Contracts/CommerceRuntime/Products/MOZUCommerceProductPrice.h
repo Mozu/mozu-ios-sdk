@@ -25,17 +25,17 @@
 /**
 The price the merchant charges for a product on a storefront if no sales price is defined.
 */
-@property(nonatomic) NSNumber *price;
+@property(nonatomic) NSNumber * price;
 
 /**
 Current sale price defined for a product on a storefront.
 */
-@property(nonatomic) NSNumber *salePrice;
+@property(nonatomic) NSNumber * salePrice;
 
 /**
 The override price defined by the tenant for this cart or order item.
 */
-@property(nonatomic) NSNumber *tenantOverridePrice;
+@property(nonatomic) NSNumber * tenantOverridePrice;
 
 @end
 

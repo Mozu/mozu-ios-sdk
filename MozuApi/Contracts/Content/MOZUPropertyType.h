@@ -27,57 +27,57 @@
 /**
 Description of the content property type.
 */
-@property(nonatomic) NSString *description;
+@property(nonatomic) NSString * description;
 
 /**
 The display name of the content property type.
 */
-@property(nonatomic) NSString *displayName;
+@property(nonatomic) NSString * displayName;
 
 /**
 The template display details of the property type.
 */
-@property(nonatomic) NSString *displayTemplate;
+@property(nonatomic) NSString * displayTemplate;
 
 /**
 The template edit details of the property type.
 */
-@property(nonatomic) NSString *editTemplate;
+@property(nonatomic) NSString * editTemplate;
 
 /**
 If true, this entity can be grouped.
 */
-@property(nonatomic) NSNumber *isAggregatable;
+@property(nonatomic) NSNumber * isAggregatable;
 
 /**
 If true, the property type has several values. If false, the property type can only have one value.
 */
-@property(nonatomic) NSNumber *isMultiValued;
+@property(nonatomic) NSNumber * isMultiValued;
 
 /**
 If true, the entity can be searched. If false, the entity cannot be searched.
 */
-@property(nonatomic) NSNumber *isQueryable;
+@property(nonatomic) NSNumber * isQueryable;
 
 /**
 If true, the entity is required for the request to return a valid response.
 */
-@property(nonatomic) BOOLisRequired;
+@property(nonatomic) BOOL isRequired;
 
 /**
 If true, the property type results are sortable. If false, the property type results cannot be sorted by any options.
 */
-@property(nonatomic) NSNumber *isSortable;
+@property(nonatomic) NSNumber * isSortable;
 
 /**
 The name of the content property type.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 Regular expression used for data validation.
 */
-@property(nonatomic) NSString *regex;
+@property(nonatomic) NSString * regex;
 
 /**
 List of content entity descriptions localized to the site or site group's default language.

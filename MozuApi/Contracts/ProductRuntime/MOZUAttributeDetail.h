@@ -26,37 +26,37 @@
 /**
 The data type (such as datetime or string) associated with the attribute.
 */
-@property(nonatomic) NSString *dataType;
+@property(nonatomic) NSString * dataType;
 
 /**
 Unique sequence of the attribute for its data type.
 */
-@property(nonatomic) NSIntegerdataTypeSequence;
+@property(nonatomic) NSInteger dataTypeSequence;
 
 /**
 Description of the attribute in the language specified by the locale code.
 */
-@property(nonatomic) NSString *description;
+@property(nonatomic) NSString * description;
 
 /**
 The input type (such as date or text area) accepted for the attribute's data type.
 */
-@property(nonatomic) NSString *inputType;
+@property(nonatomic) NSString * inputType;
 
 /**
 Name of the atrribute in the language specified by the locale code.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 The usage type of the product attribute, which is property, option, or extra.
 */
-@property(nonatomic) NSString *usageType;
+@property(nonatomic) NSString * usageType;
 
 /**
 The type of value for the attribute, which is either ShopperEntered, AdminEntered, or Predefined.
 */
-@property(nonatomic) NSString *valueType;
+@property(nonatomic) NSString * valueType;
 
 /**
 Validation rules of an attribute that determine which values are valid for ShopperEntered and AdminEntered ValueTypes.

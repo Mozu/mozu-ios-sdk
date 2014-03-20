@@ -25,12 +25,12 @@
 /**
 The latitude coordinate of the location.
 */
-@property(nonatomic) doublelat;
+@property(nonatomic) double lat;
 
 /**
 The longitude coordinate of the location.
 */
-@property(nonatomic) doublelng;
+@property(nonatomic) double lng;
 
 @end
 

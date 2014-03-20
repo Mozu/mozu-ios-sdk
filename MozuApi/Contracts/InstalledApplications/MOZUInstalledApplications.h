@@ -20,15 +20,15 @@
 
 @interface MOZUInstalledApplications : JSONModel<MOZUInstalledApplications>
 
-@property(nonatomic) NSString *appId;
+@property(nonatomic) NSString * appId;
 
-@property(nonatomic) NSNumber *enabled;
+@property(nonatomic) NSNumber * enabled;
 
-@property(nonatomic) NSNumber *initialized;
+@property(nonatomic) NSNumber * initialized;
 
-@property(nonatomic) NSNumber *isExtension;
+@property(nonatomic) NSNumber * isExtension;
 
-@property(nonatomic) NSString *uiConfigurationUrl;
+@property(nonatomic) NSString * uiConfigurationUrl;
 
 @property(nonatomic) NSArray<MOZUCapability> *capabilities;
 

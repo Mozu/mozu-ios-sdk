@@ -25,17 +25,17 @@
 /**
 Identifier of the time zone.
 */
-@property(nonatomic) NSString *id;
+@property(nonatomic) NSString * id;
 
 /**
 If true, the time zone standard observes daylight savings time advancements, for example, twice a year so that evenings have more daylight and mornings have less. If false, the time zone standard does not adhere to daylight savings changes.
 */
-@property(nonatomic) BOOLisDaylightSavingsTime;
+@property(nonatomic) BOOL isDaylightSavingsTime;
 
 /**
 The offset associated with the time zone, such as "-12".
 */
-@property(nonatomic) doubleoffset;
+@property(nonatomic) double offset;
 
 @end
 

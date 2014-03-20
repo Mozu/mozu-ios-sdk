@@ -28,39 +28,39 @@
 /**
 If the discount is a coupon, the code required to redeem the coupon.
 */
-@property(nonatomic) NSString *couponCode;
+@property(nonatomic) NSString * couponCode;
 
 /**
 The date and time on which the discount expires and cannot be redeemed.
 */
-@property(nonatomic) NSDate *expirationDate;
+@property(nonatomic) NSDate * expirationDate;
 
 /**
 The maximum number of times the discount can be redeemed.
 */
-@property(nonatomic) NSNumber *maxRedemptionCount;
+@property(nonatomic) NSNumber * maxRedemptionCount;
 
 /**
 The minimum customer lifetime value amount required to redeem this discount.
 */
-@property(nonatomic) NSNumber *minimumLifetimeValueAmount;
+@property(nonatomic) NSNumber * minimumLifetimeValueAmount;
 
 /**
 The minimum order amount required to redeem this discount.
 */
-@property(nonatomic) NSNumber *minimumOrderAmount;
+@property(nonatomic) NSNumber * minimumOrderAmount;
 
-@property(nonatomic) NSNumber *requiresAuthenticatedUser;
+@property(nonatomic) NSNumber * requiresAuthenticatedUser;
 
 /**
 If true, redemption of this discount requires entry of a coupon code.
 */
-@property(nonatomic) BOOLrequiresCoupon;
+@property(nonatomic) BOOL requiresCoupon;
 
 /**
 The earliest date and time this discount can be redeemed.
 */
-@property(nonatomic) NSDate *startDate;
+@property(nonatomic) NSDate * startDate;
 
 /**
 List of customer segments associated with the discount. Shoppers who are members of an associated customer segment can redeem this discount.

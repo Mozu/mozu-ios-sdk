@@ -27,13 +27,13 @@
 
 @property(nonatomic) NSArray *carrierIds;
 
-@property(nonatomic) NSDate *estimatedShipmentDate;
+@property(nonatomic) NSDate * estimatedShipmentDate;
 
-@property(nonatomic) NSNumber *isDestinationAddressCommercial;
+@property(nonatomic) NSNumber * isDestinationAddressCommercial;
 
-@property(nonatomic) NSString *isoCurrencyCode;
+@property(nonatomic) NSString * isoCurrencyCode;
 
-@property(nonatomic) NSNumber *orderTotal;
+@property(nonatomic) NSNumber * orderTotal;
 
 @property(nonatomic) NSArray *shippingServiceTypes;
 

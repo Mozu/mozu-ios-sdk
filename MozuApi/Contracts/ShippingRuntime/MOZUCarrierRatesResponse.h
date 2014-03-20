@@ -27,7 +27,7 @@
 /**
 Unique identifier of the shipping carrier.
 */
-@property(nonatomic) NSString *carrierId;
+@property(nonatomic) NSString * carrierId;
 
 /**
 Collection of carrier-specific key-value attribute pairs required to retrieve a shipping rate request.

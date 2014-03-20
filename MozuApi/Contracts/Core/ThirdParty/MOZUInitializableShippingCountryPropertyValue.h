@@ -26,12 +26,12 @@
 /**
 If true, the property value is initialized.
 */
-@property(nonatomic) BOOLinitialized;
+@property(nonatomic) BOOL initialized;
 
 /**
 Value of the initializable third-party capability property.
 */
-@property(nonatomic) NSString *value;
+@property(nonatomic) NSString * value;
 
 /**
 Child value in a hierarchy of shipping country properties.

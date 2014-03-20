@@ -26,17 +26,17 @@
 /**
 The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
-@property(nonatomic) NSString *countryCode;
+@property(nonatomic) NSString * countryCode;
 
 /**
 The label associated with this country.
 */
-@property(nonatomic) NSString *countryLabel;
+@property(nonatomic) NSString * countryLabel;
 
 /**
 The unique identifier of this postal address schema.
 */
-@property(nonatomic) NSIntegerid;
+@property(nonatomic) NSInteger id;
 
 /**
 The fields to display for postal addresses associated with this country.

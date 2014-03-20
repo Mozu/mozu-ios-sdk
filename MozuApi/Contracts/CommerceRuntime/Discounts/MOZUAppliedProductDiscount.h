@@ -23,32 +23,32 @@
 */
 @interface MOZUAppliedProductDiscount : JSONModel<MOZUAppliedProductDiscount>
 
-@property(nonatomic) NSNumber *appliesToSalePrice;
+@property(nonatomic) NSNumber * appliesToSalePrice;
 
 /**
 Alphanumeric code associated with the coupon or promotion that results in a discounted price.
 */
-@property(nonatomic) NSString *couponCode;
+@property(nonatomic) NSString * couponCode;
 
 /**
 If true, the system ignores this discount when pricing the order.
 */
-@property(nonatomic) NSNumber *excluded;
+@property(nonatomic) NSNumber * excluded;
 
 /**
 The value of the discount.
 */
-@property(nonatomic) NSNumber *impact;
+@property(nonatomic) NSNumber * impact;
 
 /**
 The value of the discount for a single product unit.
 */
-@property(nonatomic) NSNumber *impactPerUnit;
+@property(nonatomic) NSNumber * impactPerUnit;
 
 /**
 The number of product units priced with the associated discount.
 */
-@property(nonatomic) NSNumber *productQuantity;
+@property(nonatomic) NSNumber * productQuantity;
 
 /**
 Properties of a discount applied to a product on a storefront.

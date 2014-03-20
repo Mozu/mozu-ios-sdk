@@ -26,12 +26,12 @@
 /**
 Sequence of the attribute value within the product type.
 */
-@property(nonatomic) NSNumber *order;
+@property(nonatomic) NSNumber * order;
 
 /**
 The vocabulary value of an attribute defined for a product type.
 */
-@property(nonatomic) NSObject *value;
+@property(nonatomic) NSObject * value;
 
 /**
 Navigates vocabulary value details for an attribute defined for a product type.

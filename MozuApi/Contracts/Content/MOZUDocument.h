@@ -26,57 +26,57 @@
 /**
 The character length associated with the document content.
 */
-@property(nonatomic) NSNumber *contentLength;
+@property(nonatomic) NSNumber * contentLength;
 
 /**
 The mime type associated with the document content, if applicable.
 */
-@property(nonatomic) NSString *contentMimeType;
+@property(nonatomic) NSString * contentMimeType;
 
 /**
 The date and time the most recent content update was made. UTC date/time. System-supplied and read-only.
 */
-@property(nonatomic) NSDate *contentUpdateDate;
+@property(nonatomic) NSDate * contentUpdateDate;
 
 /**
 The name of the document list associated with the document.
 */
-@property(nonatomic) NSString *documentListName;
+@property(nonatomic) NSString * documentListName;
 
 /**
 The type of document used in the CMS such as "web_page" or "template" or "image_url".
 */
-@property(nonatomic) NSString *documentType;
+@property(nonatomic) NSString * documentType;
 
 /**
 If applicable, the file extension associated with the document content.
 */
-@property(nonatomic) NSString *extension;
+@property(nonatomic) NSString * extension;
 
 /**
 Unique identifier of the document.
 */
-@property(nonatomic) NSString *id;
+@property(nonatomic) NSString * id;
 
 /**
 When the document was added to the document list. System-supplied and read-only.
 */
-@property(nonatomic) NSDate *insertDate;
+@property(nonatomic) NSDate * insertDate;
 
 /**
 The name of the document, which is unique within its folder.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 The current state of the document, which is Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft.
 */
-@property(nonatomic) NSString *publishState;
+@property(nonatomic) NSString * publishState;
 
 /**
 Date and time when the entity was last updated, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate *updateDate;
+@property(nonatomic) NSDate * updateDate;
 
 /**
 List of properties for the given property value.

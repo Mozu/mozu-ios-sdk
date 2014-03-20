@@ -29,32 +29,32 @@
 /**
 Unique identifier for the storefront container used to organize products.
 */
-@property(nonatomic) NSIntegercategoryId;
+@property(nonatomic) NSInteger categoryId;
 
 /**
 Unique identifier of the facet.
 */
-@property(nonatomic) NSNumber *facetId;
+@property(nonatomic) NSNumber * facetId;
 
 /**
 The type of facet. Valid values are "range," which enables creation of a range of values, or "value," which populates the facet values based on the associated attribute or category.
 */
-@property(nonatomic) NSString *facetType;
+@property(nonatomic) NSString * facetType;
 
 /**
 If true, disables a facet inherited from a parent category.
 */
-@property(nonatomic) BOOLisHidden;
+@property(nonatomic) BOOL isHidden;
 
 /**
 The numeric sequence of the facet for its associated category.
 */
-@property(nonatomic) NSIntegerorder;
+@property(nonatomic) NSInteger order;
 
 /**
 Overrides a facet inherited from a parent category for a specified subcategory. System-supplied and read only.
 */
-@property(nonatomic) NSNumber *overrideFacetId;
+@property(nonatomic) NSNumber * overrideFacetId;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

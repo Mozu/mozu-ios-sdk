@@ -26,22 +26,22 @@
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString *attributeFQN;
+@property(nonatomic) NSString * attributeFQN;
 
 /**
 The data type of the property attribute, which is Bool, DateTime, Number, or String.
 */
-@property(nonatomic) NSString *dataType;
+@property(nonatomic) NSString * dataType;
 
 /**
 If true, the product property can have more than one value.
 */
-@property(nonatomic) BOOLisMultiValue;
+@property(nonatomic) BOOL isMultiValue;
 
 /**
 The name of the product property.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 The list of possible values for the product property.

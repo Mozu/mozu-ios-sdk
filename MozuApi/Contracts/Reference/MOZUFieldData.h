@@ -25,12 +25,12 @@
 /**
 Code of the field.
 */
-@property(nonatomic) NSString *code;
+@property(nonatomic) NSString * code;
 
 /**
 The field value.
 */
-@property(nonatomic) NSString *value;
+@property(nonatomic) NSString * value;
 
 @end
 

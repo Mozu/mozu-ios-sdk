@@ -25,22 +25,22 @@
 /**
 The email address associated with the customer login.
 */
-@property(nonatomic) NSString *emailAddress;
+@property(nonatomic) NSString * emailAddress;
 
 /**
 If true, this customer account data was imported from an external program.
 */
-@property(nonatomic) NSNumber *isImport;
+@property(nonatomic) NSNumber * isImport;
 
 /**
 The password associated with the customer login.
 */
-@property(nonatomic) NSString *password;
+@property(nonatomic) NSString * password;
 
 /**
 The user name associated with the customer login.
 */
-@property(nonatomic) NSString *username;
+@property(nonatomic) NSString * username;
 
 @end
 

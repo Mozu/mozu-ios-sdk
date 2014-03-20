@@ -23,34 +23,34 @@
 @interface MOZUShippingOriginContact : JSONModel<MOZUShippingOriginContact>
 
 /**
-Collection of phone numbers associated with the shipping origin contact.
-*/
-@property(nonatomic) NSString *phoneNumber;
-
-/**
 The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 */
-@property(nonatomic) NSString *companyOrOrganization;
+@property(nonatomic) NSString * companyOrOrganization;
 
 /**
 The email address of the specified user or the email address associated with the specified entity.
 */
-@property(nonatomic) NSString *email;
+@property(nonatomic) NSString * email;
 
 /**
 The first name of the shipping origin contact.
 */
-@property(nonatomic) NSString *firstName;
+@property(nonatomic) NSString * firstName;
 
 /**
 The last name of the shipping origin contact.
 */
-@property(nonatomic) NSString *lastNameOrSurname;
+@property(nonatomic) NSString * lastNameOrSurname;
 
 /**
 The middle name or middle initial of the shipping origin contact.
 */
-@property(nonatomic) NSString *middleNameOrInitial;
+@property(nonatomic) NSString * middleNameOrInitial;
+
+/**
+Collection of phone numbers associated with the shipping origin contact.
+*/
+@property(nonatomic) NSString * phoneNumber;
 
 @end
 

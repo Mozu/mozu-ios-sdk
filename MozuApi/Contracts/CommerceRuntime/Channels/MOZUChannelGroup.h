@@ -26,17 +26,17 @@
 /**
 User-defined code that identifies the channel group.
 */
-@property(nonatomic) NSString *code;
+@property(nonatomic) NSString * code;
 
 /**
 User-defined name of the channel group.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 Unique identifier of the Mozu tenant.
 */
-@property(nonatomic) NSIntegertenantId;
+@property(nonatomic) NSInteger tenantId;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

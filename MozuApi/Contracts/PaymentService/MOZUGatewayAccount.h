@@ -26,22 +26,22 @@
 /**
 The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
-@property(nonatomic) NSString *countryCode;
+@property(nonatomic) NSString * countryCode;
 
 /**
 Identifier of the payment gateway.
 */
-@property(nonatomic) NSString *gatewayDefinitionId;
+@property(nonatomic) NSString * gatewayDefinitionId;
 
 /**
 Identifier of the entity.
 */
-@property(nonatomic) NSString *id;
+@property(nonatomic) NSString * id;
 
 /**
 If true, the product is marked as available for sale. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
 */
-@property(nonatomic) BOOLisActive;
+@property(nonatomic) BOOL isActive;
 
 /**
 List of credential fields for the payment gateway account.

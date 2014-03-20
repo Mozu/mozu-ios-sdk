@@ -22,56 +22,56 @@
 */
 @interface MOZUChangeMessage : JSONModel<MOZUChangeMessage>
 
-@property(nonatomic) NSNumber *amount;
+@property(nonatomic) NSNumber * amount;
 
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate *createDate;
+@property(nonatomic) NSDate * createDate;
 
 /**
 Unique identifier of the change message. System-supplied and read-only.
 */
-@property(nonatomic) NSString *id;
+@property(nonatomic) NSString * id;
 
 /**
 Identifier for the object associated with the change message, which can represent a cart, cart item, or an order.
 */
-@property(nonatomic) NSString *identifier;
+@property(nonatomic) NSString * identifier;
 
 /**
 The text of the change message, such as "This product is no longer available". System-supplied and read-only.
 */
-@property(nonatomic) NSString *message;
+@property(nonatomic) NSString * message;
 
 /**
 The new value of the object affected by the change, such as the new price of the product. System-supplied and read-only.
 */
-@property(nonatomic) NSString *theNewValue;
+@property(nonatomic) NSString * theNewValue;
 
 /**
 The prior value of the object affected by the change, such as the price of the product when it was added to the cart. System-supplied and read-only.
 */
-@property(nonatomic) NSString *oldValue;
+@property(nonatomic) NSString * oldValue;
 
 /**
 The text that appears on the subject line of the message, such as "The product price has changed."
 */
-@property(nonatomic) NSString *subject;
+@property(nonatomic) NSString * subject;
 
 /**
 Represents the type of object affected by the change, such as Cart Item or Product. System-supplied and read-only.
 */
-@property(nonatomic) NSString *subjectType;
+@property(nonatomic) NSString * subjectType;
 
-@property(nonatomic) NSNumber *success;
+@property(nonatomic) NSNumber * success;
 
-@property(nonatomic) NSString *userId;
+@property(nonatomic) NSString * userId;
 
 /**
 The action associated with this message. For example, if the price of a product changes, the verb could be "Increased" or "Decreased". If the product is no longer available, the verb could be "Invalidated". System-supplied and read-only.
 */
-@property(nonatomic) NSString *verb;
+@property(nonatomic) NSString * verb;
 
 @end
 

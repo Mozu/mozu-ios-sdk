@@ -25,17 +25,17 @@
 /**
 Localized content for the description of this attribute displayed in the storefront.
 */
-@property(nonatomic) NSString *description;
+@property(nonatomic) NSString * description;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString *localeCode;
+@property(nonatomic) NSString * localeCode;
 
 /**
 Localized content for the attribute name displayed in the storefront.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 @end
 

@@ -25,12 +25,12 @@
 /**
 The date and time at which the discount can no longer be applied to a product or order.
 */
-@property(nonatomic) NSDate *expirationDate;
+@property(nonatomic) NSDate * expirationDate;
 
 /**
 Unique identifier of the discount.
 */
-@property(nonatomic) NSIntegerid;
+@property(nonatomic) NSInteger id;
 
 /**
 List of cart or order items to which the discount applies, if applicable.
@@ -40,7 +40,7 @@ List of cart or order items to which the discount applies, if applicable.
 /**
 The name of the discount, in the language specified by the LocaleCode of the storefront.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 @end
 

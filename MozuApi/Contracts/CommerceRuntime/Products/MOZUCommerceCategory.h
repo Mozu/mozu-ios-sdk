@@ -26,7 +26,7 @@
 /**
 Identifier of the category.
 */
-@property(nonatomic) NSNumber *id;
+@property(nonatomic) NSNumber * id;
 
 /**
 If applicable, the parent category in the category tree.

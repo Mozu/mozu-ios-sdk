@@ -32,37 +32,37 @@
 /**
 User-defined code to assign to this location.
 */
-@property(nonatomic) NSString *code;
+@property(nonatomic) NSString * code;
 
 /**
 User-defined description of this location.
 */
-@property(nonatomic) NSString *description;
+@property(nonatomic) NSString * description;
 
 /**
 The fax number associated with this location.
 */
-@property(nonatomic) NSString *fax;
+@property(nonatomic) NSString * fax;
 
 /**
 The user-defined name of the location.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 Any tenant-defined notes associated with this location.
 */
-@property(nonatomic) NSString *note;
+@property(nonatomic) NSString * note;
 
 /**
 The phone number associated with this location.
 */
-@property(nonatomic) NSString *phone;
+@property(nonatomic) NSString * phone;
 
 /**
 If true, this location maintains its own product inventory. If the location uses the direct ship fulfillment type, it must also support inventory.
 */
-@property(nonatomic) BOOLsupportsInventory;
+@property(nonatomic) BOOL supportsInventory;
 
 /**
 List of tenant-defined tags associated with this location.

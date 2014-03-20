@@ -26,12 +26,12 @@
 /**
 Unique identifier of the order attribute definition.
 */
-@property(nonatomic) NSNumber *attributeDefinitionId;
+@property(nonatomic) NSNumber * attributeDefinitionId;
 
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString *fullyQualifiedName;
+@property(nonatomic) NSString * fullyQualifiedName;
 
 /**
 The values defined for the order attribute.

@@ -25,12 +25,12 @@
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString *locale;
+@property(nonatomic) NSString * locale;
 
 /**
 Value for the localized string.
 */
-@property(nonatomic) NSString *value;
+@property(nonatomic) NSString * value;
 
 @end
 

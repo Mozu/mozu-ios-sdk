@@ -29,17 +29,17 @@
 /**
 The total monetary amount collected in this payment transaction for the order.
 */
-@property(nonatomic) NSNumber *amountCollected;
+@property(nonatomic) NSNumber * amountCollected;
 
 /**
 If the payment transaction is a shopper store credit, the total monetary amount credited in this payment transaction for the order.
 */
-@property(nonatomic) NSNumber *amountCredited;
+@property(nonatomic) NSNumber * amountCredited;
 
 /**
 The total amount originally requested for this payment.
 */
-@property(nonatomic) NSNumber *amountRequested;
+@property(nonatomic) NSNumber * amountRequested;
 
 /**
 The actions a user can perform for a payment at this time.
@@ -49,32 +49,32 @@ The actions a user can perform for a payment at this time.
 /**
 Unique identifier of the payment transaction.
 */
-@property(nonatomic) NSString *id;
+@property(nonatomic) NSString * id;
 
 /**
 If true, the payment transaction occurs at regular intervals such as a monthly billing cycle or a digital or physical subscription.
 */
-@property(nonatomic) BOOLisRecurring;
+@property(nonatomic) BOOL isRecurring;
 
 /**
 Unique identifier of the order associated with the payment.
 */
-@property(nonatomic) NSString *orderId;
+@property(nonatomic) NSString * orderId;
 
 /**
 The transaction ID supplied by the payment service to associate with this order payment.
 */
-@property(nonatomic) NSString *paymentServiceTransactionId;
+@property(nonatomic) NSString * paymentServiceTransactionId;
 
 /**
 The type of payment transaction performed, such as check, credit card, or PayPal Express. Additional payment types will be supported in future releases.
 */
-@property(nonatomic) NSString *paymentType;
+@property(nonatomic) NSString * paymentType;
 
 /**
 Current status of the payment transaction for the order.
 */
-@property(nonatomic) NSString *status;
+@property(nonatomic) NSString * status;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

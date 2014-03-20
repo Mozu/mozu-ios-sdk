@@ -26,22 +26,22 @@
 /**
 Identifier of the field.
 */
-@property(nonatomic) NSIntegerid;
+@property(nonatomic) NSInteger id;
 
 /**
 Label for the field.
 */
-@property(nonatomic) NSString *label;
+@property(nonatomic) NSString * label;
 
 /**
 Sequence of the field.
 */
-@property(nonatomic) NSIntegerorder;
+@property(nonatomic) NSInteger order;
 
 /**
 Type of field.
 */
-@property(nonatomic) NSString *type;
+@property(nonatomic) NSString * type;
 
 /**
 Data for the field property.

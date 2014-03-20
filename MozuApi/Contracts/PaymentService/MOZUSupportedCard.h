@@ -25,12 +25,12 @@
 /**
 Company-defined friendly name that identifies the supported card.
 */
-@property(nonatomic) NSString *friendlyName;
+@property(nonatomic) NSString * friendlyName;
 
 /**
 The card type of the supported payment card, such as Visa or Amex.
 */
-@property(nonatomic) NSString *type;
+@property(nonatomic) NSString * type;
 
 @end
 

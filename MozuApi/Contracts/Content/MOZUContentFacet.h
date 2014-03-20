@@ -25,12 +25,12 @@
 /**
 The number of facet results.
 */
-@property(nonatomic) NSIntegercount;
+@property(nonatomic) NSInteger count;
 
 /**
 The name of the facet.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 @end
 

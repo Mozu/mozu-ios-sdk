@@ -30,67 +30,67 @@
 /**
 The administrative name of the product attribute as it appears in Mozu Admin.
 */
-@property(nonatomic) NSString *adminName;
+@property(nonatomic) NSString * adminName;
 
 /**
 Merchant-defined identifier of the product attribute used to generate the attribute's fully qualified name.
 */
-@property(nonatomic) NSString *attributeCode;
+@property(nonatomic) NSString * attributeCode;
 
 /**
 Generated sequence that increments for each attribute and data type combination created. This value is system-supplied and read-only.
 */
-@property(nonatomic) NSNumber *attributeDataTypeSequence;
+@property(nonatomic) NSNumber * attributeDataTypeSequence;
 
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString *attributeFQN;
+@property(nonatomic) NSString * attributeFQN;
 
 /**
 Generated sequence that increments for each product attribute created. This value is system-supplied and read-only.
 */
-@property(nonatomic) NSNumber *attributeSequence;
+@property(nonatomic) NSNumber * attributeSequence;
 
 /**
 The data type of the product attribute, which is a Bool, DateTime, Number, or String. The attribute's data type cannot be changed.
 */
-@property(nonatomic) NSString *dataType;
+@property(nonatomic) NSString * dataType;
 
 /**
 The storefront interface input type for the product attribute, which is a Date, DateTime, List, TextArea, TextBox, or YesNo. The attribute's input type cannot be changed.
 */
-@property(nonatomic) NSString *inputType;
+@property(nonatomic) NSString * inputType;
 
 /**
 If true, the product attribute is an add-on configuration made by the shopper that does not represent a product variation, such as a monogram.
 */
-@property(nonatomic) NSNumber *isExtra;
+@property(nonatomic) NSNumber * isExtra;
 
 /**
 If true, the product attribute is a merchant- or shopper-configurable option, such as size or color, that represents a product variation.
 */
-@property(nonatomic) NSNumber *isOption;
+@property(nonatomic) NSNumber * isOption;
 
 /**
 If true, the product attribute describes aspects of the product that do not represent an option configurable by the shopper, such as screen resolution or brand.
 */
-@property(nonatomic) NSNumber *isProperty;
+@property(nonatomic) NSNumber * isProperty;
 
 /**
 The unique identifier of the master catalog associated with the entity.
 */
-@property(nonatomic) NSNumber *masterCatalogId;
+@property(nonatomic) NSNumber * masterCatalogId;
 
 /**
 If applicable, the registered namespace associated with the product attribute, used to generate the fully qualified name. If no namespace is defined, the namespace associated with the tenant is automatically assigned.
 */
-@property(nonatomic) NSString *namespace;
+@property(nonatomic) NSString * namespace;
 
 /**
 The type of value associated with the product attribute, which is ShopperEntered (the shopper selects or enters an attribute value during checkout), Predefined (the merchant sets the attribute value from a list during product attribute definition), or AdminEntered (the merchant selects or enters a value during product definition). The attribute value type cannot be changed.
 */
-@property(nonatomic) NSString *valueType;
+@property(nonatomic) NSString * valueType;
 
 /**
 List of key-value pairs that store metadata associated with the product attribute.

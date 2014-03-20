@@ -39,37 +39,37 @@ Array list of the countries for which this capability can actively shop.
 /**
 The enablement mode of the capability.
 */
-@property(nonatomic) NSString *capabilityMode;
+@property(nonatomic) NSString * capabilityMode;
 
 /**
 The capability type installed in the tenant.
 */
-@property(nonatomic) NSString *capabilityType;
+@property(nonatomic) NSString * capabilityType;
 
 /**
 If true, the capability is enabled in the installed tenant.
 */
-@property(nonatomic) NSNumber *enabled;
+@property(nonatomic) NSNumber * enabled;
 
 /**
 Unique identifier of the capability.
 */
-@property(nonatomic) NSString *id;
+@property(nonatomic) NSString * id;
 
 /**
 If true, the application is initialized with the defined settings.
 */
-@property(nonatomic) NSNumber *initialized;
+@property(nonatomic) NSNumber * initialized;
 
 /**
 Unique identifier of the developer account or tenant associated for which the capability is entitled.
 */
-@property(nonatomic) NSNumber *scopeId;
+@property(nonatomic) NSNumber * scopeId;
 
 /**
 The type of scope for which the tenant is entitled, which is developer or tenant.
 */
-@property(nonatomic) NSString *scopeType;
+@property(nonatomic) NSString * scopeType;
 
 /**
 Array list of the countries to which this capability can actively ship.

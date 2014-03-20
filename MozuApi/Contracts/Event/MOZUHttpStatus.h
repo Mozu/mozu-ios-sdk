@@ -19,9 +19,9 @@
 
 @interface MOZUHttpStatus : JSONModel<MOZUHttpStatus>
 
-@property(nonatomic) NSIntegercode;
+@property(nonatomic) NSInteger code;
 
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 @end
 

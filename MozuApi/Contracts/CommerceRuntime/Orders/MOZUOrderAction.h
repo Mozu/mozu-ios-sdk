@@ -25,7 +25,7 @@
 /**
 The name of the action for the order.
 */
-@property(nonatomic) NSString *actionName;
+@property(nonatomic) NSString * actionName;
 
 @end
 

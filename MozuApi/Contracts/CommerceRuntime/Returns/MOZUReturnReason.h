@@ -25,12 +25,12 @@
 /**
 The quantity of the item returned for the specified reason.
 */
-@property(nonatomic) NSIntegerquantity;
+@property(nonatomic) NSInteger quantity;
 
 /**
 The reason for which an item is returned to the merchant.
 */
-@property(nonatomic) NSString *reason;
+@property(nonatomic) NSString * reason;
 
 @end
 
