@@ -25,17 +25,17 @@
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString *currencyCode;
+@property(nonatomic) NSString * currencyCode;
 
 /**
 The manufacturer's suggested retail price, as defined by the supplier.
 */
-@property(nonatomic) NSNumber *msrp;
+@property(nonatomic) NSNumber * msrp;
 
 /**
 Positive or negative decimal value that represents the difference between this variation and the base product.
 */
-@property(nonatomic) NSNumber *value;
+@property(nonatomic) NSNumber * value;
 
 @end
 

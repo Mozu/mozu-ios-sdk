@@ -26,12 +26,12 @@
 /**
 The distributor part number associated with this product, defined by the product distributor.
 */
-@property(nonatomic) NSString *distPartNumber;
+@property(nonatomic) NSString * distPartNumber;
 
 /**
 The manufacturer part number associated with this product, defined by the product manufacturer.
 */
-@property(nonatomic) NSString *mfgPartNumber;
+@property(nonatomic) NSString * mfgPartNumber;
 
 /**
 The amount the client pays the supplier to stock this product in its catalogs.

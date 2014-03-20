@@ -26,22 +26,22 @@
 /**
 Unique identifier of the customer.
 */
-@property(nonatomic) NSString *customerId;
+@property(nonatomic) NSString * customerId;
 
 /**
 Unique identifier of the tax context.
 */
-@property(nonatomic) NSString *taxContextId;
+@property(nonatomic) NSString * taxContextId;
 
 /**
 If the order is exempt from sales tax, the unique identifier of the tax exempt entity.
 */
-@property(nonatomic) NSString *taxExemptId;
+@property(nonatomic) NSString * taxExemptId;
 
 /**
 The taxable amount that can be levied against shipping charges.
 */
-@property(nonatomic) NSNumber *taxShipping;
+@property(nonatomic) NSNumber * taxShipping;
 
 /**
 The address to which item in the order will ship.

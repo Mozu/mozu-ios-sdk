@@ -19,9 +19,9 @@
 
 @interface MOZUProductCost : JSONModel<MOZUProductCost>
 
-@property(nonatomic) NSNumber *cost;
+@property(nonatomic) NSNumber * cost;
 
-@property(nonatomic) NSString *isoCurrencyCode;
+@property(nonatomic) NSString * isoCurrencyCode;
 
 @end
 

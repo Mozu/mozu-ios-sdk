@@ -27,17 +27,17 @@
 /**
 If true, the component product of the bundle should not ship in a package with the rest of the product bundle, and should ship in a package by itself. System-supplied and read only.
 */
-@property(nonatomic) NSNumber *isPackagedStandAlone;
+@property(nonatomic) NSNumber * isPackagedStandAlone;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString *productCode;
+@property(nonatomic) NSString * productCode;
 
 /**
 The quantity of the component product in the product bundle. System-supplied and read only.
 */
-@property(nonatomic) NSIntegerquantity;
+@property(nonatomic) NSInteger quantity;
 
 /**
 Localizable product content defined for the product bundle. System-supplied and read only.

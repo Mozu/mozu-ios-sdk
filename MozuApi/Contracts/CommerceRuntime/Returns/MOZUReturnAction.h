@@ -25,7 +25,7 @@
 /**
 The name of the action to perform for the return.
 */
-@property(nonatomic) NSString *actionName;
+@property(nonatomic) NSString * actionName;
 
 /**
 The list of returns for which to perform the action.

@@ -25,7 +25,7 @@
 /**
 The query term entered by the shopper.
 */
-@property(nonatomic) NSString *query;
+@property(nonatomic) NSString * query;
 
 /**
 The term suggestions to return based on the specified query value.

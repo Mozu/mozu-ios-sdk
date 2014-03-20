@@ -25,12 +25,12 @@
 /**
 Shopper-entered notes for the associated order.
 */
-@property(nonatomic) NSString *comments;
+@property(nonatomic) NSString * comments;
 
 /**
 Shopper-entered gift message for the associated order.
 */
-@property(nonatomic) NSString *giftMessage;
+@property(nonatomic) NSString * giftMessage;
 
 @end
 

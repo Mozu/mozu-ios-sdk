@@ -20,13 +20,13 @@
 
 @interface MOZUSubscriptionCollection : JSONModel<MOZUSubscriptionCollection>
 
-@property(nonatomic) longpageCount;
+@property(nonatomic) long pageCount;
 
-@property(nonatomic) NSIntegerpageSize;
+@property(nonatomic) NSInteger pageSize;
 
-@property(nonatomic) NSIntegerstartIndex;
+@property(nonatomic) NSInteger startIndex;
 
-@property(nonatomic) longtotalCount;
+@property(nonatomic) long totalCount;
 
 @property(nonatomic) NSArray<MOZUSubscription> *items;
 

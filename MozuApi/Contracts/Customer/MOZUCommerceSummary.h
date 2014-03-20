@@ -26,22 +26,22 @@
 /**
 The date and time the shopper last submitted an order for any site associated with the tenant.
 */
-@property(nonatomic) NSDate *lastOrderDate;
+@property(nonatomic) NSDate * lastOrderDate;
 
 /**
 The total number of order the shopper submitted across all sites associated with the tenant.
 */
-@property(nonatomic) NSIntegerorderCount;
+@property(nonatomic) NSInteger orderCount;
 
 /**
 The number of visits to a site associated with a customer account.
 */
-@property(nonatomic) NSIntegervisitsCount;
+@property(nonatomic) NSInteger visitsCount;
 
 /**
 The number of wish lists associated with a customer account. This number represents the total number of a shopper's wish lists across all sites associated with a tenant.
 */
-@property(nonatomic) NSIntegerwishlistCount;
+@property(nonatomic) NSInteger wishlistCount;
 
 /**
 The aggregate total amount of all orders the shopper submitted, across all sites associated with the tenant.

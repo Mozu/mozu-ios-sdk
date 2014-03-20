@@ -26,7 +26,7 @@
 /**
 Girth of the package in imperial units of feet and inches.
 */
-@property(nonatomic) NSNumber *girth;
+@property(nonatomic) NSNumber * girth;
 
 /**
 Height of the package in imperial units of feet and inches.

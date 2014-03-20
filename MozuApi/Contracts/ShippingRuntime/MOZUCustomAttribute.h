@@ -24,14 +24,14 @@
 @interface MOZUCustomAttribute : JSONModel<MOZUCustomAttribute>
 
 /**
-Key required for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
-*/
-@property(nonatomic) NSString *key;
-
-/**
 Value for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
 */
-@property(nonatomic) NSString *value;
+@property(nonatomic) NSString * value;
+
+/**
+Key required for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
+*/
+@property(nonatomic) NSString * key;
 
 /**
 Collection of child attributes associated with a shipping provider integration.

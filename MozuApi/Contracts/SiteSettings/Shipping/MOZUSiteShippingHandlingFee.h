@@ -25,7 +25,7 @@
 /**
 The amount of the order handling fee.
 */
-@property(nonatomic) NSNumber *amount;
+@property(nonatomic) NSNumber * amount;
 
 @end
 

@@ -25,46 +25,46 @@
 /**
 The unique identifier of the catalog of products used by a site.
 */
-@property(nonatomic) NSIntegercatalogId;
+@property(nonatomic) NSInteger catalogId;
 
-@property(nonatomic) NSString *countryCode;
+@property(nonatomic) NSString * countryCode;
 
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate *createDate;
+@property(nonatomic) NSDate * createDate;
 
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString *currencyCode;
+@property(nonatomic) NSString * currencyCode;
 
 /**
 The domain associated with the site.
 */
-@property(nonatomic) NSString *domain;
+@property(nonatomic) NSString * domain;
 
-@property(nonatomic) NSIntegerid;
+@property(nonatomic) NSInteger id;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString *localeCode;
+@property(nonatomic) NSString * localeCode;
 
 /**
 The name of the site.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 The primary custom domain of the site.
 */
-@property(nonatomic) NSString *primaryCustomDomain;
+@property(nonatomic) NSString * primaryCustomDomain;
 
 /**
 Unique identifier of the Mozu tenant.
 */
-@property(nonatomic) NSIntegertenantId;
+@property(nonatomic) NSInteger tenantId;
 
 @end
 

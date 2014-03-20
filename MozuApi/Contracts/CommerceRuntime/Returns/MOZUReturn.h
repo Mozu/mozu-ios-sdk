@@ -36,117 +36,117 @@ The actions a user can perform for the return at this time.
 /**
 The code that identifies the channel associated with the return, which is typically the same channel associated with the order.
 */
-@property(nonatomic) NSString *channelCode;
+@property(nonatomic) NSString * channelCode;
 
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString *currencyCode;
+@property(nonatomic) NSString * currencyCode;
 
 /**
 Unique identifier of the customer account associated with the return.
 */
-@property(nonatomic) NSNumber *customerAccountId;
+@property(nonatomic) NSNumber * customerAccountId;
 
 /**
 String that describes the customer interaction used to return an item. Possible values are Website, Store, Call, and Unknown.
 */
-@property(nonatomic) NSString *customerInteractionType;
+@property(nonatomic) NSString * customerInteractionType;
 
 /**
 Unique identifier of the return.
 */
-@property(nonatomic) NSString *id;
+@property(nonatomic) NSString * id;
 
 /**
 The code that uniquely identifies the location where items were returned.
 */
-@property(nonatomic) NSString *locationCode;
+@property(nonatomic) NSString * locationCode;
 
 /**
 The total value of the return to the merchant for accounting purposes. This total represents the combined product loss and shipping loss associated with the return.
 */
-@property(nonatomic) NSNumber *lossTotal;
+@property(nonatomic) NSNumber * lossTotal;
 
 /**
 If this return is associated with a previously completed order, the unique identifier of the original order.
 */
-@property(nonatomic) NSString *originalOrderId;
+@property(nonatomic) NSString * originalOrderId;
 
 /**
 The total tax amount levied on the product loss amount.
 */
-@property(nonatomic) NSNumber *productLossTaxTotal;
+@property(nonatomic) NSNumber * productLossTaxTotal;
 
 /**
 The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
 */
-@property(nonatomic) NSNumber *productLossTotal;
+@property(nonatomic) NSNumber * productLossTotal;
 
 /**
 If a refund action was performed for this return, the total amount refunded to the shopper. The refund amount can differ from the sum of the price of the returned items.
 */
-@property(nonatomic) NSNumber *refundAmount;
+@property(nonatomic) NSNumber * refundAmount;
 
 /**
 A merchant-specific identifier used to sequentially order returns.
 */
-@property(nonatomic) NSNumber *returnNumber;
+@property(nonatomic) NSNumber * returnNumber;
 
 /**
 Unique identifier for the order created as a result of the return. If the return results in shipping a replacement item, the order includes shipment information for the replaced items. If the return results in a refund, the order includes payment transactions to credit the shopper.
 */
-@property(nonatomic) NSString *returnOrderId;
+@property(nonatomic) NSString * returnOrderId;
 
 /**
 The type of return, which is "Refund" or "Replace".
 */
-@property(nonatomic) NSString *returnType;
+@property(nonatomic) NSString * returnType;
 
 /**
 The date by which a shopper must ship items associated with a return in an "awaiting items" state to the merchant.
 */
-@property(nonatomic) NSDate *rmaDeadline;
+@property(nonatomic) NSDate * rmaDeadline;
 
 /**
 The total tax amount levied on the shipping loss amount.
 */
-@property(nonatomic) NSNumber *shippingLossTaxTotal;
+@property(nonatomic) NSNumber * shippingLossTaxTotal;
 
 /**
 The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
 */
-@property(nonatomic) NSNumber *shippingLossTotal;
+@property(nonatomic) NSNumber * shippingLossTotal;
 
 /**
 Unique identifier of the site.
 */
-@property(nonatomic) NSNumber *siteId;
+@property(nonatomic) NSNumber * siteId;
 
 /**
 Current status of the return, such as "ReturnAuthorized".
 */
-@property(nonatomic) NSString *status;
+@property(nonatomic) NSString * status;
 
 /**
 Unique identifier of the Mozu tenant.
 */
-@property(nonatomic) NSNumber *tenantId;
+@property(nonatomic) NSNumber * tenantId;
 
 /**
 Unique identifier of the user responsible for the return. Read only and supplied by the original order.
 */
-@property(nonatomic) NSString *userId;
+@property(nonatomic) NSString * userId;
 
 /**
 The unique identifier of the customer visit associated with the return transaction.
 */
-@property(nonatomic) NSString *visitId;
+@property(nonatomic) NSString * visitId;
 
 /**
 Unique identifier of the web session in which the return was created or last modified, which is system-supplied and read only.
 */
-@property(nonatomic) NSString *webSessionId;
+@property(nonatomic) NSString * webSessionId;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

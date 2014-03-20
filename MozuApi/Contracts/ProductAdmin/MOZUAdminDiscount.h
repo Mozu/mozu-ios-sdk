@@ -29,39 +29,39 @@
 /**
 The integer amount of the discount. For example, an entry of "10" could represent a discount of $10.00 or a discount of 10%, depending on the type.
 */
-@property(nonatomic) NSNumber *amount;
+@property(nonatomic) NSNumber * amount;
 
 /**
 The type of discount amount, such as an amount or a percentage.
 */
-@property(nonatomic) NSString *amountType;
+@property(nonatomic) NSString * amountType;
 
 /**
 The number of times this discount has been redeemed.
 */
-@property(nonatomic) NSNumber *currentRedemptionCount;
+@property(nonatomic) NSNumber * currentRedemptionCount;
 
 /**
 If true, this discount does not apply to a line item product with a defined sale price. The default is false, which applies the discount to products with and without defined sale prices.
 */
-@property(nonatomic) NSNumber *doesNotApplyToSalePrice;
+@property(nonatomic) NSNumber * doesNotApplyToSalePrice;
 
 /**
 Unique identifier of the discount.
 */
-@property(nonatomic) NSNumber *id;
+@property(nonatomic) NSNumber * id;
 
-@property(nonatomic) NSNumber *maximumUsesPerUser;
+@property(nonatomic) NSNumber * maximumUsesPerUser;
 
 /**
 The scope to which the discount applies, which is "Order" for order discounts or "LineItem" for individual product discounts.
 */
-@property(nonatomic) NSString *scope;
+@property(nonatomic) NSString * scope;
 
 /**
 Current status of the product discount. Possible values are "Active", "Scheduled", or "Expired".
 */
-@property(nonatomic) NSString *status;
+@property(nonatomic) NSString * status;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

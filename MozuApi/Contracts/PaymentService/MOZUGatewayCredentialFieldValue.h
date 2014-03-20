@@ -25,12 +25,12 @@
 /**
 The name of the payment gateway field.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 The value of the payment gateway field.
 */
-@property(nonatomic) NSString *value;
+@property(nonatomic) NSString * value;
 
 @end
 

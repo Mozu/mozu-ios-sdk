@@ -27,17 +27,17 @@
 /**
 If true, the shipping destination for a shipment is a commercial address.
 */
-@property(nonatomic) NSNumber *isDestinationCommercial;
+@property(nonatomic) NSNumber * isDestinationCommercial;
 
 /**
 The code associated with the carrier's shipping method service type. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD
 */
-@property(nonatomic) NSString *shippingMethodCode;
+@property(nonatomic) NSString * shippingMethodCode;
 
 /**
 The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".
 */
-@property(nonatomic) NSString *shippingMethodName;
+@property(nonatomic) NSString * shippingMethodName;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

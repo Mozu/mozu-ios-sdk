@@ -26,37 +26,37 @@
 /**
 Description defined for the metadata used to internally manage information about the product.
 */
-@property(nonatomic) NSString *metaTagDescription;
+@property(nonatomic) NSString * metaTagDescription;
 
 /**
 Keywords defined for the metadata used to internally manage information about the product.
 */
-@property(nonatomic) NSString *metaTagKeywords;
+@property(nonatomic) NSString * metaTagKeywords;
 
 /**
 Title defined for the metadata used to internally manage information about the product.
 */
-@property(nonatomic) NSString *metaTagTitle;
+@property(nonatomic) NSString * metaTagTitle;
 
 /**
 Full description of the product, which typically appears on the product details page.
 */
-@property(nonatomic) NSString *productFullDescription;
+@property(nonatomic) NSString * productFullDescription;
 
 /**
 The descriptive brief product name.
 */
-@property(nonatomic) NSString *productName;
+@property(nonatomic) NSString * productName;
 
 /**
 Brief description of the product typically used when the product is displayed in a list or in search results.
 */
-@property(nonatomic) NSString *productShortDescription;
+@property(nonatomic) NSString * productShortDescription;
 
 /**
 Product URL defined for search engine optimization.
 */
-@property(nonatomic) NSString *seoFriendlyUrl;
+@property(nonatomic) NSString * seoFriendlyUrl;
 
 /**
 List of image files associated with the product.

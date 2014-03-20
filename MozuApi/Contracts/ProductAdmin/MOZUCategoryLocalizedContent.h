@@ -26,42 +26,42 @@
 /**
 Description of the product category in the language specified by the locale code.
 */
-@property(nonatomic) NSString *description;
+@property(nonatomic) NSString * description;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString *localeCode;
+@property(nonatomic) NSString * localeCode;
 
 /**
 Description defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
 */
-@property(nonatomic) NSString *metaTagDescription;
+@property(nonatomic) NSString * metaTagDescription;
 
 /**
 Keywords defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
 */
-@property(nonatomic) NSString *metaTagKeywords;
+@property(nonatomic) NSString * metaTagKeywords;
 
 /**
 Title defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
 */
-@property(nonatomic) NSString *metaTagTitle;
+@property(nonatomic) NSString * metaTagTitle;
 
 /**
 The name of the product category in the language specified by the locale code.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 Title that appears on new product category pages, in the language specified by the locale code.
 */
-@property(nonatomic) NSString *pageTitle;
+@property(nonatomic) NSString * pageTitle;
 
 /**
 Human-readable identifier to assign to the category to generate user-friendly URLs.
 */
-@property(nonatomic) NSString *slug;
+@property(nonatomic) NSString * slug;
 
 /**
 Array of localized product category images in the language specified by the LocaleCode.

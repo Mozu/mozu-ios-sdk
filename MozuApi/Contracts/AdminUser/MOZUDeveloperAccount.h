@@ -25,12 +25,12 @@
 /**
 Unique identifier of the developer account.
 */
-@property(nonatomic) NSIntegerid;
+@property(nonatomic) NSInteger id;
 
 /**
 The name of the developer account.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 @end
 

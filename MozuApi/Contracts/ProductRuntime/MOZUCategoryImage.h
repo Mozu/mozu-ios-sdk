@@ -25,37 +25,37 @@
 /**
 Descriptive text associated with the image or video that appears on the web storefront.
 */
-@property(nonatomic) NSString *altText;
+@property(nonatomic) NSString * altText;
 
 /**
 The identifier of the category image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
 */
-@property(nonatomic) NSString *cmsId;
+@property(nonatomic) NSString * cmsId;
 
 /**
 Image title that appears on the web storefront, set to the language specified by the site's LocaleCode.
 */
-@property(nonatomic) NSString *imageLabel;
+@property(nonatomic) NSString * imageLabel;
 
 /**
 URL of the product category image.
 */
-@property(nonatomic) NSString *imageUrl;
+@property(nonatomic) NSString * imageUrl;
 
 /**
 Type of media specification required to successfully render the image, video, or other category content.
 */
-@property(nonatomic) NSString *mediaType;
+@property(nonatomic) NSString * mediaType;
 
 /**
 Integer that represents the sequential order of the category image in the collection.
 */
-@property(nonatomic) NSNumber *sequence;
+@property(nonatomic) NSNumber * sequence;
 
 /**
 The link or URL of the product category video. The file path name is set in the language specified by the LocaleCode.
 */
-@property(nonatomic) NSString *videoUrl;
+@property(nonatomic) NSString * videoUrl;
 
 @end
 

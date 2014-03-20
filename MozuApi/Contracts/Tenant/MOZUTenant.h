@@ -25,24 +25,24 @@
 @interface MOZUTenant : JSONModel<MOZUTenant>
 
 /**
-If true, the tenant represents a collection of master catalogs and catalogs for a development tenant, used by a developer account to test applications and themes.
-*/
-@property(nonatomic) BOOLisDevTenant;
-
-/**
-The name of the tenant.
-*/
-@property(nonatomic) NSString *name;
-
-/**
 The domain information associated with the tenant.
 */
-@property(nonatomic) NSString *domain;
+@property(nonatomic) NSString * domain;
 
 /**
 Unique identifier of the Mozu tenant.
 */
-@property(nonatomic) NSIntegerid;
+@property(nonatomic) NSInteger id;
+
+/**
+If true, the tenant represents a collection of master catalogs and catalogs for a development tenant, used by a developer account to test applications and themes.
+*/
+@property(nonatomic) BOOL isDevTenant;
+
+/**
+The name of the tenant.
+*/
+@property(nonatomic) NSString * name;
 
 /**
 Collection of master catalogs associated with the tenant.

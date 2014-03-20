@@ -25,12 +25,12 @@
 /**
 User-defined key for attribute metadata.
 */
-@property(nonatomic) NSString *key;
+@property(nonatomic) NSString * key;
 
 /**
 Value for the user-defined key.
 */
-@property(nonatomic) NSString *value;
+@property(nonatomic) NSString * value;
 
 @end
 

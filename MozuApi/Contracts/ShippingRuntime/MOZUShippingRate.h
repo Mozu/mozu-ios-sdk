@@ -29,14 +29,14 @@
 /**
 The total calculated shipping amount requested for the package or shipment.
 */
-@property(nonatomic) NSNumber *amount;
+@property(nonatomic) NSNumber * amount;
 
 /**
 The carrier-defined alphanumeric code associated with this shipping rate.
 */
-@property(nonatomic) NSString *code;
+@property(nonatomic) NSString * code;
 
-@property(nonatomic) NSNumber *daysInTransit;
+@property(nonatomic) NSNumber * daysInTransit;
 
 /**
 Localized content for a shipping rate based on the defined locale code.

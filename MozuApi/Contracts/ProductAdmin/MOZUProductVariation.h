@@ -28,7 +28,7 @@
 /**
 The difference between the base weight for a product and this variation of the product, which can be a positive or negative decimal value.
 */
-@property(nonatomic) NSNumber *deltaWeight;
+@property(nonatomic) NSNumber * deltaWeight;
 
 /**
 Describes the types of fulfillment that are supported for this product variation. A variation can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
@@ -38,29 +38,29 @@ Describes the types of fulfillment that are supported for this product variation
 /**
 If true, this variation of this product is marked available for sale.
 */
-@property(nonatomic) NSNumber *isActive;
+@property(nonatomic) NSNumber * isActive;
 
 /**
 If true, the production variation is no longer available for sale. For example, if a client stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read only.
 */
-@property(nonatomic) NSNumber *isOrphan;
+@property(nonatomic) NSNumber * isOrphan;
 
-@property(nonatomic) NSString *upc;
+@property(nonatomic) NSString * upc;
 
 /**
 If true, one or more product variations are configured for the specified product code.
 */
-@property(nonatomic) NSNumber *variationExists;
+@property(nonatomic) NSNumber * variationExists;
 
 /**
 System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
-@property(nonatomic) NSString *variationkey;
+@property(nonatomic) NSString * variationkey;
 
 /**
 Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
-@property(nonatomic) NSString *variationProductCode;
+@property(nonatomic) NSString * variationProductCode;
 
 /**
 The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".

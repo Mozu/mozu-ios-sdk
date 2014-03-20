@@ -26,17 +26,17 @@
 /**
 Identifier of the entity.
 */
-@property(nonatomic) NSIntegerid;
+@property(nonatomic) NSInteger id;
 
 /**
 The product environment URL associated with the preauthorization gateway.
 */
-@property(nonatomic) NSString *preAuthorizeProdUrl;
+@property(nonatomic) NSString * preAuthorizeProdUrl;
 
 /**
 The test environment URL associated with the preauthorization gateway.
 */
-@property(nonatomic) NSString *preAuthorizeTestUrl;
+@property(nonatomic) NSString * preAuthorizeTestUrl;
 
 /**
 The type of preauthorization gateway.

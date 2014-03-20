@@ -25,27 +25,27 @@
 /**
 The data type of the attribute. There are four valid data types: "Bool", "DateTime", "Number", "String"
 */
-@property(nonatomic) NSString *dataType;
+@property(nonatomic) NSString * dataType;
 
 /**
 The description of this product attribute.
 */
-@property(nonatomic) NSString *description;
+@property(nonatomic) NSString * description;
 
 /**
 The storefront interface input type for this attribute such as a radio button or drop-down menu selection.
 */
-@property(nonatomic) NSString *inputType;
+@property(nonatomic) NSString * inputType;
 
 /**
 The name of the product attribute.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 An attribute value type is either predefined vocabulary by the admin during product attribute set up or it can be "AdminEntered" or "ShopperEntered". The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
 */
-@property(nonatomic) NSString *valueType;
+@property(nonatomic) NSString * valueType;
 
 @end
 

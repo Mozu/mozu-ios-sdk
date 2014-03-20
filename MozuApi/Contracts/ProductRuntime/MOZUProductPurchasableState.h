@@ -26,7 +26,7 @@
 /**
 If true, the entity has met all requirements and considered a purchasable entity.
 */
-@property(nonatomic) BOOLisPurchasable;
+@property(nonatomic) BOOL isPurchasable;
 
 /**
 List of messages associated with the product if the product is not ready for purchase.

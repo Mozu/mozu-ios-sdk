@@ -25,22 +25,22 @@
 /**
 The sequential display order of the gateway in Mozu Admin.
 */
-@property(nonatomic) NSIntegeradminDisplayOrder;
+@property(nonatomic) NSInteger adminDisplayOrder;
 
 /**
 The name that displays for the payment gateway.
 */
-@property(nonatomic) NSString *displayName;
+@property(nonatomic) NSString * displayName;
 
 /**
 The localizable name of the payment gateway.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 /**
 The name of the Volusion store.
 */
-@property(nonatomic) NSString *volusionStoreName;
+@property(nonatomic) NSString * volusionStoreName;
 
 @end
 

@@ -25,12 +25,12 @@
 /**
 If true, the facet source is valid for its associated category.
 */
-@property(nonatomic) BOOLisValid;
+@property(nonatomic) BOOL isValid;
 
 /**
 Code associated with a reason for facet validation to return false for its associated category.
 */
-@property(nonatomic) NSString *reasonCode;
+@property(nonatomic) NSString * reasonCode;
 
 @end
 

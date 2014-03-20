@@ -28,17 +28,17 @@
 /**
 If true, the system overrides the customer's billing address information with the supplied fulfillment information.
 */
-@property(nonatomic) BOOLisSameBillingShippingAddress;
+@property(nonatomic) BOOL isSameBillingShippingAddress;
 
 /**
 The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
 */
-@property(nonatomic) NSString *paymentType;
+@property(nonatomic) NSString * paymentType;
 
 /**
 The code that identifies the store credit to apply to the order.
 */
-@property(nonatomic) NSString *storeCreditCode;
+@property(nonatomic) NSString * storeCreditCode;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

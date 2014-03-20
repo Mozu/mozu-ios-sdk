@@ -21,21 +21,21 @@
 
 @interface MOZUEventDeliverySummary : JSONModel<MOZUEventDeliverySummary>
 
-@property(nonatomic) NSDate *createDate;
+@property(nonatomic) NSDate * createDate;
 
-@property(nonatomic) NSString *deliveryStatus;
+@property(nonatomic) NSString * deliveryStatus;
 
-@property(nonatomic) NSNumber *id;
+@property(nonatomic) NSNumber * id;
 
-@property(nonatomic) BOOLisRunning;
+@property(nonatomic) BOOL isRunning;
 
-@property(nonatomic) NSDate *lastExecutionDate;
+@property(nonatomic) NSDate * lastExecutionDate;
 
-@property(nonatomic) NSDate *nextExecutionDate;
+@property(nonatomic) NSDate * nextExecutionDate;
 
-@property(nonatomic) NSNumber *retriesRemaining;
+@property(nonatomic) NSNumber * retriesRemaining;
 
-@property(nonatomic) NSDate *updateDate;
+@property(nonatomic) NSDate * updateDate;
 
 @property(nonatomic) NSArray<MOZUEventDeliveryAttempt> *deliveryAttempts;
 

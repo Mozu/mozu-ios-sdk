@@ -27,7 +27,7 @@ Array list of the active shipping carriers for the country.
 */
 @property(nonatomic) NSArray *activeCarriers;
 
-@property(nonatomic) NSString *countryCode;
+@property(nonatomic) NSString * countryCode;
 
 @end
 

@@ -25,12 +25,12 @@
 /**
 A type of content property value.
 */
-@property(nonatomic) NSString *propertyType;
+@property(nonatomic) NSString * propertyType;
 
 /**
 The actual value for the content property.
 */
-@property(nonatomic) NSObject *value;
+@property(nonatomic) NSObject * value;
 
 @end
 

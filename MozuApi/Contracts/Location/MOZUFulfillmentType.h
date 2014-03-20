@@ -25,12 +25,12 @@
 /**
 The system-supplied code that identifies the fulfillment type, which is "DS" for direct ship or "SP" for in-store pickup.
 */
-@property(nonatomic) NSString *code;
+@property(nonatomic) NSString * code;
 
 /**
 The system-supplied name of the fulfillment type, which is "Direct Ship" or "In Store Pickup".
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 @end
 

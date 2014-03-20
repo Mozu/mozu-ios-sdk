@@ -26,12 +26,12 @@
 /**
 The price the merchant intends to charge for the product.
 */
-@property(nonatomic) NSNumber *price;
+@property(nonatomic) NSNumber * price;
 
 /**
 The sale price defined for the product.
 */
-@property(nonatomic) NSNumber *salePrice;
+@property(nonatomic) NSNumber * salePrice;
 
 /**
 The discount applied to the product price.

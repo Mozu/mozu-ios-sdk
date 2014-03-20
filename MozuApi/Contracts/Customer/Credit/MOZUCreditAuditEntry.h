@@ -26,12 +26,12 @@
 /**
 The type of activity associated with the audit entry. Possible values are: Created, Updated, Deleted, Activated, Deactivated, or Transaction.
 */
-@property(nonatomic) NSString *activityType;
+@property(nonatomic) NSString * activityType;
 
 /**
 Detail log that describes the activity performed for this credit audit entry.
 */
-@property(nonatomic) NSString *details;
+@property(nonatomic) NSString * details;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

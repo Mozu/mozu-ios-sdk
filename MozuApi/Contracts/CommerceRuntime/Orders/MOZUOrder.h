@@ -41,19 +41,19 @@
 /**
 The date and time the order was accepted by the tenant.
 */
-@property(nonatomic) NSDate *acceptedDate;
+@property(nonatomic) NSDate * acceptedDate;
 
-@property(nonatomic) NSNumber *acceptsMarketing;
+@property(nonatomic) NSNumber * acceptsMarketing;
 
 /**
 The amount of the order the shopper can receive in the event of a return. This amount represents the amount captured at the time the order was submitted, not when the order was returned.
 */
-@property(nonatomic) NSNumber *amountAvailableForRefund;
+@property(nonatomic) NSNumber * amountAvailableForRefund;
 
 /**
 The total amount of the order not currently associated with a payment. The shopper must create one or more payments to satisfy this amount before the order can be fully paid.
 */
-@property(nonatomic) NSNumber *amountRemainingForPayment;
+@property(nonatomic) NSNumber * amountRemainingForPayment;
 
 /**
 The available order, payment, and shipment actions a user can perform for the order.
@@ -63,17 +63,17 @@ The available order, payment, and shipment actions a user can perform for the or
 /**
 Date when the order was cancelled. System-supplied and read-only.
 */
-@property(nonatomic) NSDate *cancelledDate;
+@property(nonatomic) NSDate * cancelledDate;
 
 /**
 Code that identifies the channel associated with the site where the order was submitted.
 */
-@property(nonatomic) NSString *channelCode;
+@property(nonatomic) NSString * channelCode;
 
 /**
 Date when the order was closed. Closed order is an order that has been processed and the items shipped. System-supplied and read-only.
 */
-@property(nonatomic) NSDate *closedDate;
+@property(nonatomic) NSDate * closedDate;
 
 /**
 Array list of coupon codes associated with an order submitted using an external system. Mozu populates this list during the order import process.
@@ -83,232 +83,232 @@ Array list of coupon codes associated with an order submitted using an external 
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString *currencyCode;
+@property(nonatomic) NSString * currencyCode;
 
 /**
 Numeric identifer of the customer account.
 */
-@property(nonatomic) NSNumber *customerAccountId;
+@property(nonatomic) NSNumber * customerAccountId;
 
 /**
 The type of interaction the shopper used to submit the order. Possible values are Website, Call, Store, or Unknown.
 */
-@property(nonatomic) NSString *customerInteractionType;
+@property(nonatomic) NSString * customerInteractionType;
 
 /**
 The tax identification number (TIN) of the customer who submitted the order. If the customer who submitted the order has a customer account defined for the tenant, the system sets this value when the order is submitted.
 */
-@property(nonatomic) NSString *customerTaxId;
+@property(nonatomic) NSString * customerTaxId;
 
 /**
 The aggregate total for all line items in the order, including costs associated with shopper-defined options or extras and any applied discounts.
 */
-@property(nonatomic) NSNumber *discountedSubtotal;
+@property(nonatomic) NSNumber * discountedSubtotal;
 
 /**
 The subtotal of the order including any applied discount calculations.
 */
-@property(nonatomic) NSNumber *discountedTotal;
+@property(nonatomic) NSNumber * discountedTotal;
 
 /**
 Estimated amount of discounts applied to all items in the order, which is system-supplied and read-only.
 */
-@property(nonatomic) NSNumber *discountTotal;
+@property(nonatomic) NSNumber * discountTotal;
 
 /**
 The email address of the specified user or the email address associated with the specified entity.
 */
-@property(nonatomic) NSString *email;
+@property(nonatomic) NSString * email;
 
 /**
 The date when the order will no longer be active or considered abandoned. For example, if a guest or anonymous shopper has 14 days of inactivity, the order is considered abandoned after that period of inactivity. An order never expires for shoppers who are logged into their account. Date in UTC Date/Time. System-supplied and read-only.
 */
-@property(nonatomic) NSDate *expirationDate;
+@property(nonatomic) NSDate * expirationDate;
 
 /**
 Unique identifier used by an external program to identify a Mozu order.
 */
-@property(nonatomic) NSString *externalId;
+@property(nonatomic) NSString * externalId;
 
 /**
 The monetary sum of all fees incurred in the order.
 */
-@property(nonatomic) NSNumber *feeTotal;
+@property(nonatomic) NSNumber * feeTotal;
 
 /**
 The current fulfillment status of the order, which is "Fulfilled," "NotFulfilled," or "PartiallyFulfilled." The order is considered fulfilled when all packages are shipped or all pickups are picked up.
 */
-@property(nonatomic) NSString *fulfillmentStatus;
+@property(nonatomic) NSString * fulfillmentStatus;
 
 /**
 The combined price for all items in the order, including all selected options but excluding any discounts.
 */
-@property(nonatomic) NSNumber *handlingAmount;
+@property(nonatomic) NSNumber * handlingAmount;
 
 /**
 If the handling fee for the order is subject to sales tax, the total tax amount.
 */
-@property(nonatomic) NSNumber *handlingTaxTotal;
+@property(nonatomic) NSNumber * handlingTaxTotal;
 
 /**
 This total represents the handling amount value with any applied discounts.
 */
-@property(nonatomic) NSNumber *handlingTotal;
+@property(nonatomic) NSNumber * handlingTotal;
 
 /**
 If true, the order has a draft that may include one or more uncommitted changes to the order or its components.
 */
-@property(nonatomic) NSNumber *hasDraft;
+@property(nonatomic) NSNumber * hasDraft;
 
 /**
 Unique identifier of the order.
 */
-@property(nonatomic) NSString *id;
+@property(nonatomic) NSString * id;
 
 /**
 If the order was imported from an external program, the date and time the order was imported into Mozu.
 */
-@property(nonatomic) NSDate *importDate;
+@property(nonatomic) NSDate * importDate;
 
 /**
 The IP address from which the order originated.
 */
-@property(nonatomic) NSString *ipAddress;
+@property(nonatomic) NSString * ipAddress;
 
 /**
 If true, this version of the order is a draft that might contain uncommitted changes.
 */
-@property(nonatomic) NSNumber *isDraft;
+@property(nonatomic) NSNumber * isDraft;
 
 /**
 If true, the shopper can return any of the items in this order to the tenant.
 */
-@property(nonatomic) BOOLisEligibleForReturns;
+@property(nonatomic) BOOL isEligibleForReturns;
 
 /**
 If true, this order was submitted using an external system, and the order record was imported into Mozu.
 */
-@property(nonatomic) NSNumber *isImport;
+@property(nonatomic) NSNumber * isImport;
 
 /**
 If true, the order is exempt from applied sales tax.
 */
-@property(nonatomic) NSNumber *isTaxExempt;
+@property(nonatomic) NSNumber * isTaxExempt;
 
 /**
 The total amount of tax applied to items in the order.
 */
-@property(nonatomic) NSNumber *itemTaxTotal;
+@property(nonatomic) NSNumber * itemTaxTotal;
 
 /**
 The date when the order was last validated against the product catalog. Date in UTC Date/Time. System-supplied and read-only.
 */
-@property(nonatomic) NSDate *lastValidationDate;
+@property(nonatomic) NSDate * lastValidationDate;
 
 /**
 The unique code that identifies the location where the order was submitted.
 */
-@property(nonatomic) NSString *locationCode;
+@property(nonatomic) NSString * locationCode;
 
 /**
 The order number that displays on the storefront which differs from the order ID.
 */
-@property(nonatomic) NSNumber *orderNumber;
+@property(nonatomic) NSNumber * orderNumber;
 
 /**
 Identifier of the cart prior to the customer proceeding to checkout.
 */
-@property(nonatomic) NSString *originalCartId;
+@property(nonatomic) NSString * originalCartId;
 
 /**
 If this order was created to fulfill an item replacement as part of a return merchandise authorization (RMA), the unique identifier of the return.
 */
-@property(nonatomic) NSString *parentReturnId;
+@property(nonatomic) NSString * parentReturnId;
 
 /**
 Status of the payment for the specified order.
 */
-@property(nonatomic) NSString *paymentStatus;
+@property(nonatomic) NSString * paymentStatus;
 
 /**
 Status of any returns associated with this order after it was completed.
 */
-@property(nonatomic) NSString *returnStatus;
+@property(nonatomic) NSString * returnStatus;
 
 /**
 The shipping subtotal amount calculated without any applied discounts.
 */
-@property(nonatomic) NSNumber *shippingSubTotal;
+@property(nonatomic) NSNumber * shippingSubTotal;
 
 /**
 The total amount of sales tax incurred for shipping charges on the order.
 */
-@property(nonatomic) NSNumber *shippingTaxTotal;
+@property(nonatomic) NSNumber * shippingTaxTotal;
 
 /**
 Amount of the shipping fees for the order.
 */
-@property(nonatomic) NSNumber *shippingTotal;
+@property(nonatomic) NSNumber * shippingTotal;
 
 /**
 Unique identifier of the site.
 */
-@property(nonatomic) NSNumber *siteId;
+@property(nonatomic) NSNumber * siteId;
 
 /**
 The device from which the order originated in the case of offline orders.
 */
-@property(nonatomic) NSString *sourceDevice;
+@property(nonatomic) NSString * sourceDevice;
 
 /**
 The current status of this order. Possible values are "Pending", "Submitted", "Processing", "Pending Review", "Closed", or "Cancelled". System-supplied and read-only.
 */
-@property(nonatomic) NSString *status;
+@property(nonatomic) NSString * status;
 
 /**
 The date and time the order was submitted. System-supplied and read-only.
 */
-@property(nonatomic) NSDate *submittedDate;
+@property(nonatomic) NSDate * submittedDate;
 
 /**
 Amount of the order without sales tax, shipping costs, and other fees.
 */
-@property(nonatomic) NSNumber *subtotal;
+@property(nonatomic) NSNumber * subtotal;
 
 /**
 The total monetary sum of sales tax for the order.
 */
-@property(nonatomic) NSNumber *taxTotal;
+@property(nonatomic) NSNumber * taxTotal;
 
 /**
 Unique identifier of the Mozu tenant.
 */
-@property(nonatomic) NSNumber *tenantId;
+@property(nonatomic) NSNumber * tenantId;
 
 /**
 Amount of the order, including items, sales tax, shipping costs, and other fees.
 */
-@property(nonatomic) NSNumber *total;
+@property(nonatomic) NSNumber * total;
 
 /**
 The total amount collected to date for the order.
 */
-@property(nonatomic) NSNumber *totalCollected;
+@property(nonatomic) NSNumber * totalCollected;
 
 /**
 The current version number of the order.
 */
-@property(nonatomic) NSString *version;
+@property(nonatomic) NSString * version;
 
 /**
 Unique identifier of the customer visit in which the order was created or last updated.
 */
-@property(nonatomic) NSString *visitId;
+@property(nonatomic) NSString * visitId;
 
 /**
 Unique identifier of the web session in which the order was created or last updated.
 */
-@property(nonatomic) NSString *webSessionId;
+@property(nonatomic) NSString * webSessionId;
 
 /**
 Properties of an ad-hoc price adjustment for an order.

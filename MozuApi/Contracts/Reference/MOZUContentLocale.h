@@ -25,12 +25,12 @@
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString *code;
+@property(nonatomic) NSString * code;
 
 /**
 The name of the content locale.
 */
-@property(nonatomic) NSString *name;
+@property(nonatomic) NSString * name;
 
 @end
 
