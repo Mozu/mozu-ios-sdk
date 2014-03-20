@@ -11,5 +11,5 @@
 #import <Foundation/Foundation.h>
 
 @interface MOZUAPIVersion : NSObject
-+(NSString*)version;
++ (NSString *)version;
 @end

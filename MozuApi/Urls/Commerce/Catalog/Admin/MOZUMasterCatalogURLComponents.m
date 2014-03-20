@@ -17,16 +17,16 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetMasterCatalogsOperation {
-	NSString* template = @"/api/commerce/catalog/admin/mastercatalogs/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetMasterCatalogsOperation {
+	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId {
-	NSString* template = @"/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId {
+	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}";
+	NSDictionary *params = @{
 		@"masterCatalogId" : @(masterCatalogId),
 	};
 
@@ -47,9 +47,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId {
-	NSString* template = @"/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId {
+	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}";
+	NSDictionary *params = @{
 		@"masterCatalogId" : @(masterCatalogId),
 	};
 

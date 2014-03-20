@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetTransactionsOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/commerce/customer/credits/{code}/transactions?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetTransactionsOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/commerce/customer/credits/{code}/transactions?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"code" : code,
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
@@ -37,9 +37,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddTransactionOperationWithCode:(NSString *)code {
-	NSString* template = @"/api/commerce/customer/credits/{code}/transactions";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithCode:(NSString *)code {
+	NSString *template = @"/api/commerce/customer/credits/{code}/transactions";
+	NSDictionary *params = @{
 		@"code" : code,
 	};
 

@@ -24,13 +24,13 @@ Resource Url Components for getInStockNotificationSubscriptions
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getInStockNotificationSubscription
 @param identifier Unique identifier of the in-stock notification subscription to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
 
 
 //
@@ -42,7 +42,7 @@ Resource Url Components for getInStockNotificationSubscription
 /**
 Resource Url Components for addInStockNotificationSubscription
 */
-+(MOZUURLComponents*)URLComponentsForAddInStockNotificationSubscriptionOperation;
++ (MOZUURLComponents *)URLComponentsForAddInStockNotificationSubscriptionOperation;
 
 
 //
@@ -62,7 +62,7 @@ Resource Url Components for addInStockNotificationSubscription
 Resource Url Components for deleteInStockNotificationSubscription
 @param identifier Unique identifier of the customer in-stock notification subscription to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
 
 
 

@@ -11,7 +11,7 @@
 #import "MOZURuntimeAppliedDiscount.h"
 
 @implementation MOZURuntimeAppliedDiscount
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

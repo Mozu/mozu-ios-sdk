@@ -21,10 +21,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUSettingsApplicationURLComponents URLComponentsForThirdPartyGetApplicationOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -49,10 +49,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication*)body userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication *)body userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUSettingsApplicationURLComponents URLComponentsForThirdPartyUpdateApplicationOperation];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

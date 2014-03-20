@@ -11,7 +11,7 @@
 #import "MOZUCarrierRatesResponse.h"
 
 @implementation MOZUCarrierRatesResponse
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

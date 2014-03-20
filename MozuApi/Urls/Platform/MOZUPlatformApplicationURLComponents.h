@@ -21,7 +21,7 @@
 Resource Url Components for getApplication
 @param appId 
 */
-+(MOZUURLComponents*)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId;
++ (MOZUURLComponents *)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId;
 
 
 //
@@ -41,7 +41,7 @@ Resource Url Components for getApplication
 Resource Url Components for updateApplication
 @param appId 
 */
-+(MOZUURLComponents*)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId;
++ (MOZUURLComponents *)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId;
 
 
 //

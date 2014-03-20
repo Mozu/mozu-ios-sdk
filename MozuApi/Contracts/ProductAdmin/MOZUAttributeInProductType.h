@@ -27,42 +27,42 @@
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString * attributeFQN;
+@property(nonatomic) NSString *attributeFQN;
 
 /**
 If true, this property is hidden on the storefront. If false, this property is not hidden from the storefront.
 */
-@property(nonatomic) NSNumber * isHiddenProperty;
+@property(nonatomic) NSNumber *isHiddenProperty;
 
 /**
 If true, this entity is inherited from the base type. If false, this entity is not inherited from the base type.
 */
-@property(nonatomic) NSNumber * isInheritedFromBaseType;
+@property(nonatomic) NSNumber *isInheritedFromBaseType;
 
 /**
 If true, this attribute has more than one possible value.
 */
-@property(nonatomic) NSNumber * isMultiValueProperty;
+@property(nonatomic) NSNumber *isMultiValueProperty;
 
 /**
 If true, the entity is required by the admin. If false, the entity is not required by the admin.
 */
-@property(nonatomic) NSNumber * isRequiredByAdmin;
+@property(nonatomic) NSNumber *isRequiredByAdmin;
 
 /**
 The sequence of this attribute within its product type.
 */
-@property(nonatomic) NSNumber * order;
+@property(nonatomic) NSNumber *order;
 
 /**
 The wrapper for the properties of the product attribute to set up or generate from the system in the product admin. Properties include namespace, attribute code, attribute sequence, site group ID, input type, value type, data type, boolean flags, and metadata key value pairs.
 */
-@property(nonatomic) MOZUAttribute* attributeDetail;
+@property(nonatomic) MOZUAttribute *attributeDetail;
 
 /**
 The list of vocabulary values available for the attribute associated with the product type.
 */
-@property(nonatomic) NSArray<MOZUAttributeVocabularyValueInProductType>* vocabularyValues;
+@property(nonatomic) NSArray<MOZUAttributeVocabularyValueInProductType> *vocabularyValues;
 
 @end
 

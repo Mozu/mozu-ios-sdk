@@ -26,17 +26,17 @@
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString * attributeFQN;
+@property(nonatomic) NSString *attributeFQN;
 
 /**
 The value of an attribute option specified for this product variation.
 */
-@property(nonatomic) NSObject * value;
+@property(nonatomic) NSObject *value;
 
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) MOZUAttributeVocabularyValueLocalizedContent* content;
+@property(nonatomic) MOZUAttributeVocabularyValueLocalizedContent *content;
 
 @end
 

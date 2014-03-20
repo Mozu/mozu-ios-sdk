@@ -15,7 +15,7 @@
 @class MOZUAuthenticationProfile;
 @class MOZUCustomerAccount;
 
-typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse* response, MOZUAPIError* error);
+typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error);
 
 typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
     MOZUTenantAuthenticationScope,

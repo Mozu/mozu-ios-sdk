@@ -24,9 +24,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber *)tenantId {
-	NSString* template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber *)tenantId {
+	NSString *template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
+	NSDictionary *params = @{
 		@"tenantId" : tenantId ? tenantId : @"",
 	};
 
@@ -40,9 +40,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber *)tenantId {
-	NSString* template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber *)tenantId {
+	NSString *template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
+	NSDictionary *params = @{
 		@"tenantId" : tenantId ? tenantId : @"",
 	};
 
@@ -56,9 +56,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
-	NSString* template = @"/api/platform/adminuser/authtickets/?refreshToken={refreshToken}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
+	NSString *template = @"/api/platform/adminuser/authtickets/?refreshToken={refreshToken}";
+	NSDictionary *params = @{
 		@"refreshToken" : refreshToken,
 	};
 

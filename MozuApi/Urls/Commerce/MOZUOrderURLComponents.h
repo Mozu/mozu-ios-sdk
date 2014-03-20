@@ -26,26 +26,26 @@ Resource Url Components for getOrders
 @param q A list of order search terms to use in the query when searching across order number and the name or email of the billing contact. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 */
-+(MOZUURLComponents*)URLComponentsForGetOrdersOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit;
++ (MOZUURLComponents *)URLComponentsForGetOrdersOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit;
 
 /**
 Resource Url Components for getAvailableActions
 @param orderId Unique identifier of the available order actions to get.
 */
-+(MOZUURLComponents*)URLComponentsForGetAvailableActionsOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForGetAvailableActionsOperationWithOrderId:(NSString *)orderId;
 
 /**
 Resource Url Components for getTaxableOrders
 @param orderId Unique identifier of the order to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetTaxableOrdersOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForGetTaxableOrdersOperationWithOrderId:(NSString *)orderId;
 
 /**
 Resource Url Components for getOrder
 @param orderId Unique identifier of the order details to get.
 @param draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
 */
-+(MOZUURLComponents*)URLComponentsForGetOrderOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft;
++ (MOZUURLComponents *)URLComponentsForGetOrderOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft;
 
 
 //
@@ -57,19 +57,19 @@ Resource Url Components for getOrder
 /**
 Resource Url Components for createOrder
 */
-+(MOZUURLComponents*)URLComponentsForCreateOrderOperation;
++ (MOZUURLComponents *)URLComponentsForCreateOrderOperation;
 
 /**
 Resource Url Components for createOrderFromCart
 @param cartId Unique identifier of the cart. This is the original cart ID expressed as a GUID.
 */
-+(MOZUURLComponents*)URLComponentsForCreateOrderFromCartOperationWithCartId:(NSString *)cartId;
++ (MOZUURLComponents *)URLComponentsForCreateOrderFromCartOperationWithCartId:(NSString *)cartId;
 
 /**
 Resource Url Components for performOrderAction
 @param orderId Unique identifier of the order.
 */
-+(MOZUURLComponents*)URLComponentsForPerformOrderActionOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForPerformOrderActionOperationWithOrderId:(NSString *)orderId;
 
 
 //
@@ -85,20 +85,20 @@ Resource Url Components for updateOrderDiscount
 @param updateMode Specifies whether to modify the discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateOrderDiscountOperationWithOrderId:(NSString *)orderId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version;
++ (MOZUURLComponents *)URLComponentsForUpdateOrderDiscountOperationWithOrderId:(NSString *)orderId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version;
 
 /**
 Resource Url Components for deleteOrderDraft
 @param orderId Unique identifier of the order associated with the draft to delete.
 @param version If applicable, the version of the order draft to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteOrderDraftOperationWithOrderId:(NSString *)orderId version:(NSString *)version;
++ (MOZUURLComponents *)URLComponentsForDeleteOrderDraftOperationWithOrderId:(NSString *)orderId version:(NSString *)version;
 
 /**
 Resource Url Components for changeOrderUserId
 @param orderId Unique identifier of the order.
 */
-+(MOZUURLComponents*)URLComponentsForChangeOrderUserIdOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForChangeOrderUserIdOperationWithOrderId:(NSString *)orderId;
 
 /**
 Resource Url Components for updateOrder
@@ -106,7 +106,7 @@ Resource Url Components for updateOrder
 @param updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateOrderOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version;
++ (MOZUURLComponents *)URLComponentsForUpdateOrderOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version;
 
 
 //

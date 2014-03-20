@@ -11,7 +11,7 @@
 #import "MOZUCardCollection.h"
 
 @implementation MOZUCardCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

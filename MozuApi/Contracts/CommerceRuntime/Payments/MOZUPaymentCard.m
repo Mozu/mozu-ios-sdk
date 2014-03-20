@@ -11,7 +11,7 @@
 #import "MOZUPaymentCard.h"
 
 @implementation MOZUPaymentCard
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

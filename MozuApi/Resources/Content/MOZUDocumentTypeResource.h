@@ -20,9 +20,9 @@
 @interface MOZUDocumentTypeResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -37,14 +37,14 @@
 @param startIndex 
 */
 
--(void)documentTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentTypeCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 
 @param documentTypeName 
 */
 
--(void)documentTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentType* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

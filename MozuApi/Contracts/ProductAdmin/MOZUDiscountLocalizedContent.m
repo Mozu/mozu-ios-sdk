@@ -11,7 +11,7 @@
 #import "MOZUDiscountLocalizedContent.h"
 
 @implementation MOZUDiscountLocalizedContent
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

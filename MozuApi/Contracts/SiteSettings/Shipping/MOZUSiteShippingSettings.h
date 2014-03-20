@@ -28,17 +28,17 @@
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 The combined price for all items in the order, including all selected options but excluding any discounts.
 */
-@property(nonatomic) MOZUSiteShippingHandlingFee* orderHandlingFee;
+@property(nonatomic) MOZUSiteShippingHandlingFee *orderHandlingFee;
 
 /**
 Properties of the package signature requirements for the site.
 */
-@property(nonatomic) MOZUSiteShippingSignatureRequirement* signatureRequirement;
+@property(nonatomic) MOZUSiteShippingSignatureRequirement *signatureRequirement;
 
 @end
 

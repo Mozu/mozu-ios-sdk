@@ -27,27 +27,27 @@
 /**
 Unique identifier for the storefront container used to organize products.
 */
-@property(nonatomic) NSInteger categoryId;
+@property(nonatomic) NSIntegercategoryId;
 
 /**
 The numeric value that denotes the place this entity occupies in the order of the entity list.
 */
-@property(nonatomic) NSNumber * sequence;
+@property(nonatomic) NSNumber *sequence;
 
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) MOZUCategoryContent* content;
+@property(nonatomic) MOZUCategoryContent *content;
 
 /**
 List of the subcategories in the hierarchy for the specified categories.
 */
-@property(nonatomic) NSArray<MOZURuntimeCategory>* childrenCategories;
+@property(nonatomic) NSArray<MOZURuntimeCategory> *childrenCategories;
 
 /**
 If applicable, the parent category in the hierarchy for the specified category.
 */
-@property(nonatomic) MOZURuntimeCategory* parentCategory;
+@property(nonatomic) MOZURuntimeCategory *parentCategory;
 
 @end
 

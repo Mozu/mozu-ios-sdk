@@ -14,14 +14,14 @@
 
 
 @interface MOZUDocumentListResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUDocumentListResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -44,9 +44,9 @@ Retrieves a collection of document lists.
 @param startIndex 
 */
 
--(void)documentListsWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentListCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentListsWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentListCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentListClient clientForGetDocumentListsOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentListClient clientForGetDocumentListsOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -60,9 +60,9 @@ Retrieve the details of a document list by providing the list name.
 @param documentListName The name of the document list.
 */
 
--(void)documentListWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDocumentList* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)documentListWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentList *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDocumentListClient clientForGetDocumentListOperationWithDataViewMode:dataViewMode documentListName:documentListName userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentListClient clientForGetDocumentListOperationWithDataViewMode:dataViewMode documentListName:documentListName userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

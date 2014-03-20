@@ -11,7 +11,7 @@
 #import "MOZUSubscriptionCollection.h"
 
 @implementation MOZUSubscriptionCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

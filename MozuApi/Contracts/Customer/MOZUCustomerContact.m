@@ -11,7 +11,7 @@
 #import "MOZUCustomerContact.h"
 
 @implementation MOZUCustomerContact
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

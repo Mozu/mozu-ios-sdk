@@ -29,7 +29,7 @@
 @param subscriptionId 
 */
 
-+(MOZUClient*)clientForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 
@@ -40,7 +40,7 @@
 @param subscriptionId 
 */
 
-+(MOZUClient*)clientForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

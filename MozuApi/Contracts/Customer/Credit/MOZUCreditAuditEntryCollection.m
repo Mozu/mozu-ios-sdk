@@ -11,7 +11,7 @@
 #import "MOZUCreditAuditEntryCollection.h"
 
 @implementation MOZUCreditAuditEntryCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

@@ -11,7 +11,7 @@
 #import "MOZURuntimeProductInventoryInfo.h"
 
 @implementation MOZURuntimeProductInventoryInfo
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

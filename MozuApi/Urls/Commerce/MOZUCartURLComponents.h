@@ -21,29 +21,29 @@
 Resource Url Components for getCart
 @param cartId Identifier of the cart to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetCartOperationWithCartId:(NSString *)cartId;
++ (MOZUURLComponents *)URLComponentsForGetCartOperationWithCartId:(NSString *)cartId;
 
 /**
 Resource Url Components for getOrCreateCart
 */
-+(MOZUURLComponents*)URLComponentsForGetOrCreateCartOperation;
++ (MOZUURLComponents *)URLComponentsForGetOrCreateCartOperation;
 
 /**
 Resource Url Components for getCartSummary
 */
-+(MOZUURLComponents*)URLComponentsForGetCartSummaryOperation;
++ (MOZUURLComponents *)URLComponentsForGetCartSummaryOperation;
 
 /**
 Resource Url Components for getUserCart
 @param userId Unique identifier of the user whose cart you want to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetUserCartOperationWithUserId:(NSString *)userId;
++ (MOZUURLComponents *)URLComponentsForGetUserCartOperationWithUserId:(NSString *)userId;
 
 /**
 Resource Url Components for getUserCartSummary
 @param userId Unique identifier of the user whose cart details you want to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString *)userId;
++ (MOZUURLComponents *)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString *)userId;
 
 
 //
@@ -62,7 +62,7 @@ Resource Url Components for getUserCartSummary
 /**
 Resource Url Components for updateCart
 */
-+(MOZUURLComponents*)URLComponentsForUpdateCartOperation;
++ (MOZUURLComponents *)URLComponentsForUpdateCartOperation;
 
 
 //
@@ -75,12 +75,12 @@ Resource Url Components for updateCart
 Resource Url Components for deleteCart
 @param cartId Identifier of the cart to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteCartOperationWithCartId:(NSString *)cartId;
++ (MOZUURLComponents *)URLComponentsForDeleteCartOperationWithCartId:(NSString *)cartId;
 
 /**
 Resource Url Components for deleteCurrentCart
 */
-+(MOZUURLComponents*)URLComponentsForDeleteCurrentCartOperation;
++ (MOZUURLComponents *)URLComponentsForDeleteCurrentCartOperation;
 
 
 

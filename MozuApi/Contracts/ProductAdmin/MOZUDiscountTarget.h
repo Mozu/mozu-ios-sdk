@@ -28,37 +28,37 @@
 /**
 If true, the target discount applies to all products sold on the site, regardless of product category.
 */
-@property(nonatomic) NSNumber * includeAllProducts;
+@property(nonatomic) NSNumber *includeAllProducts;
 
 /**
 Properties of the object to which this discount is targeted, which can be Product or Shipping. If the discount type is Product, the target properties describe the product or product categories to which the discount applies. If the discount type is Shipping, the target properties describe the shipping methods eligible for the discount.
 */
-@property(nonatomic) NSString * type;
+@property(nonatomic) NSString *type;
 
 /**
 The product categories to which the discount can apply. When a discount applies to a category, all products in the category are eligible for the discount.
 */
-@property(nonatomic) NSArray<MOZUTargetedCategory>* categories;
+@property(nonatomic) NSArray<MOZUTargetedCategory> *categories;
 
 /**
 Array list of categories to exclude for this discount.
 */
-@property(nonatomic) NSArray<MOZUTargetedCategory>* excludedCategories;
+@property(nonatomic) NSArray<MOZUTargetedCategory> *excludedCategories;
 
 /**
 Array list of products to exclude for this discount.
 */
-@property(nonatomic) NSArray<MOZUTargetedProduct>* excludedProducts;
+@property(nonatomic) NSArray<MOZUTargetedProduct> *excludedProducts;
 
 /**
 List of  product codes that represent the products to which the discount can apply.
 */
-@property(nonatomic) NSArray<MOZUTargetedProduct>* products;
+@property(nonatomic) NSArray<MOZUTargetedProduct> *products;
 
 /**
 The list of shipping method codes that represents the shipping service types to which the discount can apply.
 */
-@property(nonatomic) NSArray<MOZUTargetedShippingMethod>* shippingMethods;
+@property(nonatomic) NSArray<MOZUTargetedShippingMethod> *shippingMethods;
 
 @end
 

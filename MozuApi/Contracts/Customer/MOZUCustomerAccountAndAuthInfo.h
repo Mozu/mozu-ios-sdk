@@ -26,17 +26,17 @@
 /**
 If true, this customer account and its associated data was imported from an external source.
 */
-@property(nonatomic) BOOL isImport;
+@property(nonatomic) BOOLisImport;
 
 /**
 The password required to authenticate this customer account.
 */
-@property(nonatomic) NSString * password;
+@property(nonatomic) NSString *password;
 
 /**
 The unique identifier of the customer account.
 */
-@property(nonatomic) MOZUCustomerAccount* account;
+@property(nonatomic) MOZUCustomerAccount *account;
 
 @end
 

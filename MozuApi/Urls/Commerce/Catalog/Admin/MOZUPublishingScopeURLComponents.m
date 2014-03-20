@@ -24,16 +24,16 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDiscardDraftsOperation {
-	NSString* template = @"/api/commerce/catalog/admin/publishing/discarddrafts";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForDiscardDraftsOperation {
+	NSString *template = @"/api/commerce/catalog/admin/publishing/discarddrafts";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForPublishDraftsOperation {
-	NSString* template = @"/api/commerce/catalog/admin/publishing/publishdrafts";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForPublishDraftsOperation {
+	NSString *template = @"/api/commerce/catalog/admin/publishing/publishdrafts";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

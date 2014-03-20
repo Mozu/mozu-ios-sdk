@@ -27,52 +27,52 @@
 /**
 Unique identifier of the product type.
 */
-@property(nonatomic) NSNumber * id;
+@property(nonatomic) NSNumber *id;
 
 /**
 If true, this product is associated with the overall product type. There is only one BaseProductType per site group. System-supplied and read-only.
 */
-@property(nonatomic) BOOL isBaseProductType;
+@property(nonatomic) BOOLisBaseProductType;
 
 /**
 The unique identifier of the master catalog associated with the entity.
 */
-@property(nonatomic) NSNumber * masterCatalogId;
+@property(nonatomic) NSNumber *masterCatalogId;
 
 /**
 Name of the product type, such as "Shoes" or "TVs."
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 The number of products associated with this product type.
 */
-@property(nonatomic) NSNumber * productCount;
+@property(nonatomic) NSNumber *productCount;
 
 /**
 List of product usages that describe how products of this type are used. Products of this type can be Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle). Product type usages cannot be both Bundle and Configurable.
 */
-@property(nonatomic) NSArray* productUsages;
+@property(nonatomic) NSArray *productUsages;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 The list of product type attributes which exist as extras. Example: monogram
 */
-@property(nonatomic) NSArray<MOZUAttributeInProductType>* extras;
+@property(nonatomic) NSArray<MOZUAttributeInProductType> *extras;
 
 /**
 The list of product type attributes which exist as options.
 */
-@property(nonatomic) NSArray<MOZUAttributeInProductType>* options;
+@property(nonatomic) NSArray<MOZUAttributeInProductType> *options;
 
 /**
 The list of product type attributes which exist as properties, such as color.
 */
-@property(nonatomic) NSArray<MOZUAttributeInProductType>* properties;
+@property(nonatomic) NSArray<MOZUAttributeInProductType> *properties;
 
 @end
 

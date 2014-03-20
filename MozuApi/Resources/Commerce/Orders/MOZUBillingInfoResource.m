@@ -14,14 +14,14 @@
 
 
 @interface MOZUBillingInfoResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUBillingInfoResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -44,9 +44,9 @@ Retrieves the billing information associated with an order.
 @param orderId Unique identifier of the order.
 */
 
--(void)billingInfoWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUBillingInfo* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)billingInfoWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUBillingInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUBillingInfoClient clientForGetBillingInfoOperationWithOrderId:orderId draft:draft userClaims:userClaims];
+	MOZUClient *client = [MOZUBillingInfoClient clientForGetBillingInfoOperationWithOrderId:orderId draft:draft userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -77,9 +77,9 @@ Updates the billing information supplied for an order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
--(void)setBillingInfoWithBody:(MOZUBillingInfo*)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUBillingInfo* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)setBillingInfoWithBody:(MOZUBillingInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUBillingInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUBillingInfoClient clientForSetBillingInfoOperationWithBody:body orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient *client = [MOZUBillingInfoClient clientForSetBillingInfoOperationWithBody:body orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

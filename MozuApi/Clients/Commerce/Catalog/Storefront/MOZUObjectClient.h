@@ -35,7 +35,7 @@
 @param body 
 */
 
-+(MOZUClient*)clientForGetRatesOperationWithBody:(MOZURateRequest*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetRatesOperationWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

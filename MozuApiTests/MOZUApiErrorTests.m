@@ -80,7 +80,7 @@
     //    //"items\": []"
     //    "}";
     
-NSString* jsonStr = @"{ \
+NSString *jsonStr = @"{ \
         \"applicationName\": \"AppDev\", \
         \"errorCode\": \"INVALID_CREDENTIALS\", \
         \"message\": \"Invalid Credentials: Invalid credentials. \", \
@@ -100,7 +100,7 @@ NSString* jsonStr = @"{ \
         } \
     }";
     
-    NSData* jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
     id data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
     //MOZUApiError *mozuError = [[MOZUApiError alloc] initWithString:jsonData statusCode:200];
@@ -110,11 +110,11 @@ NSString* jsonStr = @"{ \
     //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
 }
 
--(NSString*)loadFile:(NSString*)name
+- (NSString *)loadFile:(NSString *)name
 {
     NSBundle *unitTestBundle = [NSBundle bundleForClass:[self class]];
     NSString *pathForFile = [unitTestBundle pathForResource:name ofType:nil];
-    NSString* retVal = [[NSString alloc] initWithContentsOfFile:pathForFile encoding:NSUTF8StringEncoding error:nil];
+    NSString *retVal = [[NSString alloc] initWithContentsOfFile:pathForFile encoding:NSUTF8StringEncoding error:nil];
     return retVal;
 }
 
@@ -123,7 +123,7 @@ NSString* jsonStr = @"{ \
 
     NSString *jsonStr = [self loadFile:@"ApiError1.txt"];
     //NSError *error = nil;
-    MOZUAPIError* apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200];
+    MOZUAPIError *apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200];
     DDLogError(@"%@", apiError.localizedDescription);
     XCTAssertNotNil(apiError, @"failed to parse MOZUApiError");
     //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
@@ -133,7 +133,7 @@ NSString* jsonStr = @"{ \
 {
     NSString *jsonStr = [self loadFile:@"ApiError2.txt"];
     //NSError *error = nil;
-    MOZUAPIError* apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200];
+    MOZUAPIError *apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200];
     DDLogError(@"%@", apiError.localizedDescription);
     XCTAssertNotNil(apiError, @"failed to parse MOZUApiError");
 }

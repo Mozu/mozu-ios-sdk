@@ -26,32 +26,32 @@
 /**
 Unique identifier of the customer associated with the in-stock notification subscription.
 */
-@property(nonatomic) NSNumber * customerId;
+@property(nonatomic) NSNumber *customerId;
 
 /**
 The email address of the specified user or the email address associated with the specified entity.
 */
-@property(nonatomic) NSString * email;
+@property(nonatomic) NSString *email;
 
 /**
 Unique identifier of the customer in-stock notification subscription.
 */
-@property(nonatomic) NSNumber * id;
+@property(nonatomic) NSNumber *id;
 
 /**
 Tenant-defined code that identifies the customer in-stock notification subscription.
 */
-@property(nonatomic) NSString * locationCode;
+@property(nonatomic) NSString *locationCode;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-@property(nonatomic) NSString * productCode;
+@property(nonatomic) NSString *productCode;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

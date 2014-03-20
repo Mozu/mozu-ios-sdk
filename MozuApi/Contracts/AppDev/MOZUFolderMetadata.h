@@ -27,22 +27,22 @@
 /**
 The directory of the file location of the folder in the package.
 */
-@property(nonatomic) NSString * fullPath;
+@property(nonatomic) NSString *fullPath;
 
 /**
 The name of the folder.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 Array list of files in the folder.
 */
-@property(nonatomic) NSArray<MOZUFileMetadata>* files;
+@property(nonatomic) NSArray<MOZUFileMetadata> *files;
 
 /**
 Array list of subfolders stored in this folder.
 */
-@property(nonatomic) NSArray<MOZUFolderMetadata>* subFolders;
+@property(nonatomic) NSArray<MOZUFolderMetadata> *subFolders;
 
 @end
 

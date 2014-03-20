@@ -14,14 +14,14 @@
 
 
 @interface MOZUPlatformApplicationResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUPlatformApplicationResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -43,9 +43,9 @@
 @param appId 
 */
 
--(void)applicationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInstalledApplications* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)applicationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUPlatformApplicationClient clientForGetApplicationOperationWithAppId:appId userClaims:userClaims];
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetApplicationOperationWithAppId:appId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -74,9 +74,9 @@
 @param appId 
 */
 
--(void)updateApplicationWithBody:(MOZUInstalledApplications*)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInstalledApplications* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUPlatformApplicationClient clientForUpdateApplicationOperationWithBody:body appId:appId userClaims:userClaims];
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForUpdateApplicationOperationWithBody:body appId:appId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

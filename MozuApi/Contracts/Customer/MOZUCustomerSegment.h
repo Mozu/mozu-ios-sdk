@@ -26,24 +26,24 @@
 /**
 The user-defined code assigned for the customer segment.
 */
-@property(nonatomic) NSString * code;
+@property(nonatomic) NSString *code;
 
 /**
 Description of the customer segment.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString *description;
 
 /**
 Unique identifier of the customer segment. System-supplied and read only.
 */
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
 /**
 Name of the customer segment.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

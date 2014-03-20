@@ -11,7 +11,7 @@
 #import "MOZUProductCategory.h"
 
 @implementation MOZUProductCategory
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

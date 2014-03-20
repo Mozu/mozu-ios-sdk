@@ -57,16 +57,16 @@
  @param catalogId The catalog id.
  @returns an instance of MOZUAPIContext object.
  */
-- (id)initWithSite:(MOZUSite*)site
-   masterCatalogId:(NSNumber*)masterCatalogId
-         catalogId:(NSNumber*)catalogId;
+- (id)initWithSite:(MOZUSite *)site
+   masterCatalogId:(NSNumber *)masterCatalogId
+         catalogId:(NSNumber *)catalogId;
 
 /**
  Creates an instance of a MOZUAPIContext.
  @param headers Dictionary containing keys from MozuHeaders.h
  @returns an instance of MOZUAPIContext object.
  */
-- (id)initWithHeaders:(NSDictionary*)headers;
+- (id)initWithHeaders:(NSDictionary *)headers;
 
 
 

@@ -32,7 +32,7 @@ Retrieves a list of the transactions performed using a customer credit that upda
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetTransactionsOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetTransactionsOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -47,7 +47,7 @@ Creates a new transaction and updates the amount of a store credit or gift card.
 @param code User-defined code that identifies the customer credit to update.
 */
 
-+(MOZUClient*)clientForAddTransactionOperationWithBody:(MOZUCreditTransaction*)body code:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUCreditTransaction *)body code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

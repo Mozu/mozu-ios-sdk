@@ -14,14 +14,14 @@
 
 
 @interface MOZUInStockNotificationSubscriptionResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUInStockNotificationSubscriptionResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -46,9 +46,9 @@ Retrieves a list of in-stock notification subscriptions.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)inStockNotificationSubscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscriptionCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)inStockNotificationSubscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscriptionCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@ Retrieves the details of a subscription that sends a push notification when a pr
 @param identifier Unique identifier of the in-stock notification subscription to retrieve.
 */
 
--(void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@ Creates a new subscription that notifies the customer when the product specified
 @param body Properties of a subscription that sends the customer a notification when a product is available in a site's active stock.
 */
 
--(void)addInStockNotificationSubscriptionWithBody:(MOZUInStockNotificationSubscription*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addInStockNotificationSubscriptionWithBody:(MOZUInStockNotificationSubscription *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -115,9 +115,9 @@ Deletes a subscription for a customer in-stock notification.
 @param identifier Unique identifier of the customer in-stock notification subscription to delete.
 */
 
--(void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUInStockNotificationSubscriptionClient clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:identifier userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

@@ -14,14 +14,14 @@
 
 
 @interface MOZUSiteShippingSettingsResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUSiteShippingSettingsResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -42,9 +42,9 @@
 Retrieves a list of the shipping settings configured for a site.
 */
 
--(void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

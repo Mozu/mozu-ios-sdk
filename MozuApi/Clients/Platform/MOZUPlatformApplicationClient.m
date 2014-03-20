@@ -21,10 +21,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetApplicationOperationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetApplicationOperationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUPlatformApplicationURLComponents URLComponentsForGetApplicationOperationWithAppId:appId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -49,10 +49,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications*)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUPlatformApplicationURLComponents URLComponentsForUpdateApplicationOperationWithAppId:appId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

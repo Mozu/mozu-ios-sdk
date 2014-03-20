@@ -14,14 +14,14 @@
 
 
 @interface MOZUAdminFacetResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUAdminFacetResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -44,9 +44,9 @@ Retrieves a facet specified by its unique identifier and displays its properties
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
--(void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminFacetClient clientForGetFacetOperationWithDataViewMode:dataViewMode facetId:facetId validate:validate userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminFacetClient clientForGetFacetOperationWithDataViewMode:dataViewMode facetId:facetId validate:validate userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@ Retrieves a list of the facets defined for the specified category.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
--(void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUFacetSet* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUFacetSet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminFacetClient clientForGetFacetCategoryListOperationWithDataViewMode:dataViewMode categoryId:categoryId includeAvailable:includeAvailable validate:validate userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminFacetClient clientForGetFacetCategoryListOperationWithDataViewMode:dataViewMode categoryId:categoryId includeAvailable:includeAvailable validate:validate userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@ Creates a new category, price, or attribute facet. Define the category or attrib
 @param body Properties of the new facet to create. You must specify the source, type, and category.
 */
 
--(void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminFacetClient clientForAddFacetOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminFacetClient clientForAddFacetOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@ Modifies one or more properties of a defined facet.
 @param facetId Unique identifier of the facet to modify.
 */
 
--(void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminFacet* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminFacetClient clientForUpdateFacetOperationWithDataViewMode:dataViewMode body:body facetId:facetId userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminFacetClient clientForUpdateFacetOperationWithDataViewMode:dataViewMode body:body facetId:facetId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -132,9 +132,9 @@ Deletes the facet specified by its unique identifier.
 @param facetId Unique identifier of the facet to delete.
 */
 
--(void)deleteFacetByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteFacetByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUAdminFacetClient clientForDeleteFacetByIdOperationWithDataViewMode:dataViewMode facetId:facetId userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminFacetClient clientForDeleteFacetByIdOperationWithDataViewMode:dataViewMode facetId:facetId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

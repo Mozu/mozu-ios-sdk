@@ -26,27 +26,27 @@
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString * localeCode;
+@property(nonatomic) NSString *localeCode;
 
 /**
 More detailed or full product description typically used for a product details page.
 */
-@property(nonatomic) NSString * productFullDescription;
+@property(nonatomic) NSString *productFullDescription;
 
 /**
 The descriptive brief product name.
 */
-@property(nonatomic) NSString * productName;
+@property(nonatomic) NSString *productName;
 
 /**
 Brief description of the product typically used when the product is displayed in a list or in search results.
 */
-@property(nonatomic) NSString * productShortDescription;
+@property(nonatomic) NSString *productShortDescription;
 
 /**
 List of product images associated with a product.
 */
-@property(nonatomic) NSArray<MOZUProductLocalizedImage>* productImages;
+@property(nonatomic) NSArray<MOZUProductLocalizedImage> *productImages;
 
 @end
 

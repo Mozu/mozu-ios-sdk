@@ -11,7 +11,7 @@
 #import "MOZUSupportedCard.h"
 
 @implementation MOZUSupportedCard
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

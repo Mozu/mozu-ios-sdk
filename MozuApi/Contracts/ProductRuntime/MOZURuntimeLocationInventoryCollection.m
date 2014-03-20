@@ -11,7 +11,7 @@
 #import "MOZURuntimeLocationInventoryCollection.h"
 
 @implementation MOZURuntimeLocationInventoryCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

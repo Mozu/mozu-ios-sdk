@@ -11,7 +11,7 @@
 #import "MOZUOperationUrl.h"
 
 @implementation MOZUOperationUrl
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

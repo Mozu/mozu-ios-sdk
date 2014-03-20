@@ -14,14 +14,14 @@
 
 
 @interface MOZUVisitResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUVisitResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -46,9 +46,9 @@ Retrieves a list of customer visits according to any filter or sort criteria spe
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)visitsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisitCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)visitsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUVisitCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUVisitClient clientForGetVisitsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUVisitClient clientForGetVisitsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@ Retrieves the details of the customer visit specified in the request.
 @param visitId Unique identifier of the customer visit to retrieve.
 */
 
--(void)visitWithVisitId:(NSString *)visitId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)visitWithVisitId:(NSString *)visitId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUVisit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUVisitClient clientForGetVisitOperationWithVisitId:visitId userClaims:userClaims];
+	MOZUClient *client = [MOZUVisitClient clientForGetVisitOperationWithVisitId:visitId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@ Creates a new visit for the customer account specified in the request.
 @param body Properties of the visit to add to the customer account.
 */
 
--(void)addVisitWithBody:(MOZUVisit*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addVisitWithBody:(MOZUVisit *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUVisit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUVisitClient clientForAddVisitOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUVisitClient clientForAddVisitOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@ Updates one or more properties of a defined customer visit.
 @param visitId Unique identifier of the customer visit to update.
 */
 
--(void)updateVisitWithBody:(MOZUVisit*)body visitId:(NSString *)visitId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUVisit* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateVisitWithBody:(MOZUVisit *)body visitId:(NSString *)visitId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUVisit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUVisitClient clientForUpdateVisitOperationWithBody:body visitId:visitId userClaims:userClaims];
+	MOZUClient *client = [MOZUVisitClient clientForUpdateVisitOperationWithBody:body visitId:visitId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

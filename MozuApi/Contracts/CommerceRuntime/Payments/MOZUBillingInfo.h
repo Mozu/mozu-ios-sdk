@@ -28,32 +28,32 @@
 /**
 If true, the system overrides the customer's billing address information with the supplied fulfillment information.
 */
-@property(nonatomic) BOOL isSameBillingShippingAddress;
+@property(nonatomic) BOOLisSameBillingShippingAddress;
 
 /**
 The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
 */
-@property(nonatomic) NSString * paymentType;
+@property(nonatomic) NSString *paymentType;
 
 /**
 The code that identifies the store credit to apply to the order.
 */
-@property(nonatomic) NSString * storeCreditCode;
+@property(nonatomic) NSString *storeCreditCode;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 The cardholder's billing contact information, including addresses.
 */
-@property(nonatomic) MOZUContact* billingContact;
+@property(nonatomic) MOZUContact *billingContact;
 
 /**
 If the customer is paying by card, the credit card information.
 */
-@property(nonatomic) MOZUPaymentCard* card;
+@property(nonatomic) MOZUPaymentCard *card;
 
 @end
 

@@ -24,14 +24,14 @@ Resource Url Components for getProducts
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 */
-+(MOZUURLComponents*)URLComponentsForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy;
++ (MOZUURLComponents *)URLComponentsForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy;
 
 /**
 Resource Url Components for getProductInventory
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param locationCodes Array of location codes for which to retrieve product inventory information.
 */
-+(MOZUURLComponents*)URLComponentsForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes;
++ (MOZUURLComponents *)URLComponentsForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes;
 
 /**
 Resource Url Components for getProduct
@@ -40,7 +40,7 @@ Resource Url Components for getProduct
 @param allowInactive If true, returns an inactive product as part of the query.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
-+(MOZUURLComponents*)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
++ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 
 //
@@ -55,14 +55,14 @@ Resource Url Components for configuredProduct
 @param includeOptionDetails If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
-+(MOZUURLComponents*)URLComponentsForConfiguredProductOperationWithProductCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck;
++ (MOZUURLComponents *)URLComponentsForConfiguredProductOperationWithProductCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 /**
 Resource Url Components for validateProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param skipInventoryCheck If true, skip the inventory validation process for the specified product.
 */
-+(MOZUURLComponents*)URLComponentsForValidateProductOperationWithProductCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck;
++ (MOZUURLComponents *)URLComponentsForValidateProductOperationWithProductCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 /**
 Resource Url Components for validateDiscounts
@@ -72,7 +72,7 @@ Resource Url Components for validateDiscounts
 @param allowInactive 
 @param skipInventoryCheck 
 */
-+(MOZUURLComponents*)URLComponentsForValidateDiscountsOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
++ (MOZUURLComponents *)URLComponentsForValidateDiscountsOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 
 //

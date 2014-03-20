@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/commerce/channelgroups/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/commerce/channelgroups/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
@@ -29,9 +29,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetChannelGroupOperationWithCode:(NSString *)code {
-	NSString* template = @"/api/commerce/channelgroups/{code}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetChannelGroupOperationWithCode:(NSString *)code {
+	NSString *template = @"/api/commerce/channelgroups/{code}";
+	NSDictionary *params = @{
 		@"code" : code,
 	};
 
@@ -45,9 +45,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateChannelGroupOperation {
-	NSString* template = @"/api/commerce/channelgroups/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForCreateChannelGroupOperation {
+	NSString *template = @"/api/commerce/channelgroups/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,9 +59,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateChannelGroupOperationWithCode:(NSString *)code {
-	NSString* template = @"/api/commerce/channelgroups/{code}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateChannelGroupOperationWithCode:(NSString *)code {
+	NSString *template = @"/api/commerce/channelgroups/{code}";
+	NSDictionary *params = @{
 		@"code" : code,
 	};
 
@@ -75,9 +75,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteChannelGroupOperationWithCode:(NSString *)code {
-	NSString* template = @"/api/commerce/channelgroups/{code}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteChannelGroupOperationWithCode:(NSString *)code {
+	NSString *template = @"/api/commerce/channelgroups/{code}";
+	NSDictionary *params = @{
 		@"code" : code,
 	};
 

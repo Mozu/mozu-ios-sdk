@@ -25,12 +25,12 @@
 /**
 If true, publish or discard all pending product changes in the master catalog.
 */
-@property(nonatomic) NSNumber * allPending;
+@property(nonatomic) NSNumber *allPending;
 
 /**
 List of product codes for each pending product change you want to publish or delete.
 */
-@property(nonatomic) NSArray* productCodes;
+@property(nonatomic) NSArray *productCodes;
 
 @end
 

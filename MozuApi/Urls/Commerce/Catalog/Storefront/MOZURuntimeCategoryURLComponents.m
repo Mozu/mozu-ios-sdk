@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy {
-	NSString* template = @"/api/commerce/catalog/storefront/categories/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy {
+	NSString *template = @"/api/commerce/catalog/storefront/categories/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}";
+	NSDictionary *params = @{
 		@"filter" : filter ? filter : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
@@ -29,9 +29,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive {
-	NSString* template = @"/api/commerce/catalog/storefront/categories/{categoryId}?allowInactive={allowInactive}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive {
+	NSString *template = @"/api/commerce/catalog/storefront/categories/{categoryId}?allowInactive={allowInactive}";
+	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"allowInactive" : allowInactive ? allowInactive : @"",
 	};
@@ -39,9 +39,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetCategoryTreeOperation {
-	NSString* template = @"/api/commerce/catalog/storefront/categories/tree";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetCategoryTreeOperation {
+	NSString *template = @"/api/commerce/catalog/storefront/categories/tree";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

@@ -19,23 +19,23 @@
 
 @interface MOZUEventSummary : JSONModel<MOZUEventSummary>
 
-@property(nonatomic) NSNumber * catalogId;
+@property(nonatomic) NSNumber *catalogId;
 
-@property(nonatomic) NSString * correlationId;
+@property(nonatomic) NSString *correlationId;
 
-@property(nonatomic) NSDate * createDate;
+@property(nonatomic) NSDate *createDate;
 
-@property(nonatomic) NSString * entityId;
+@property(nonatomic) NSString *entityId;
 
-@property(nonatomic) NSString * eventId;
+@property(nonatomic) NSString *eventId;
 
-@property(nonatomic) NSNumber * masterCatalogId;
+@property(nonatomic) NSNumber *masterCatalogId;
 
-@property(nonatomic) NSNumber * siteId;
+@property(nonatomic) NSNumber *siteId;
 
-@property(nonatomic) NSNumber * tenantId;
+@property(nonatomic) NSNumber *tenantId;
 
-@property(nonatomic) NSString * topic;
+@property(nonatomic) NSString *topic;
 
 @end
 

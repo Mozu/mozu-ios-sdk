@@ -11,7 +11,7 @@
 #import "MOZUContentLocaleCollection.h"
 
 @implementation MOZUContentLocaleCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

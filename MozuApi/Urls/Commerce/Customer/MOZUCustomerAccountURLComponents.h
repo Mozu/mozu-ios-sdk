@@ -28,19 +28,19 @@ Resource Url Components for getAccounts
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param isAnonymous If true, retrieve anonymous shopper accounts in the response.
 */
-+(MOZUURLComponents*)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous;
++ (MOZUURLComponents *)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous;
 
 /**
 Resource Url Components for getAccount
 @param accountId Unique identifier of the customer account to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetAccountOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForGetAccountOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for getLoginState
 @param accountId Unique identifier of the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForGetLoginStateOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForGetLoginStateOperationWithAccountId:(NSInteger)accountId;
 
 
 //
@@ -52,64 +52,64 @@ Resource Url Components for getLoginState
 /**
 Resource Url Components for addAccount
 */
-+(MOZUURLComponents*)URLComponentsForAddAccountOperation;
++ (MOZUURLComponents *)URLComponentsForAddAccountOperation;
 
 /**
 Resource Url Components for changePassword
 @param accountId 
 */
-+(MOZUURLComponents*)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for addLoginToExistingCustomer
 @param accountId Unique identifier of the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for recomputeCustomerLifetimeValue
 @param accountId The unique identifier of the customer account for which to calculate customer lifetime value.
 */
-+(MOZUURLComponents*)URLComponentsForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for setLoginLocked
 @param accountId The unique identifier of the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForSetLoginLockedOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForSetLoginLockedOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for setPasswordChangeRequired
 @param accountId Unique identifier of the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForSetPasswordChangeRequiredOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForSetPasswordChangeRequiredOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for addAccountAndLogin
 */
-+(MOZUURLComponents*)URLComponentsForAddAccountAndLoginOperation;
++ (MOZUURLComponents *)URLComponentsForAddAccountAndLoginOperation;
 
 /**
 Resource Url Components for addAccounts
 */
-+(MOZUURLComponents*)URLComponentsForAddAccountsOperation;
++ (MOZUURLComponents *)URLComponentsForAddAccountsOperation;
 
 /**
 Resource Url Components for getLoginStateByEmailAddress
 @param emailAddress The email address associated with the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress;
++ (MOZUURLComponents *)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress;
 
 /**
 Resource Url Components for getLoginStateByUserName
 @param userName The user name associated with the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName;
++ (MOZUURLComponents *)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName;
 
 /**
 Resource Url Components for resetPassword
 */
-+(MOZUURLComponents*)URLComponentsForResetPasswordOperation;
++ (MOZUURLComponents *)URLComponentsForResetPasswordOperation;
 
 
 //
@@ -122,7 +122,7 @@ Resource Url Components for resetPassword
 Resource Url Components for updateAccount
 @param accountId Unique identifier of the customer account.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateAccountOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForUpdateAccountOperationWithAccountId:(NSInteger)accountId;
 
 
 //
@@ -135,7 +135,7 @@ Resource Url Components for updateAccount
 Resource Url Components for deleteAccount
 @param accountId Unique identifier of the customer account to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteAccountOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForDeleteAccountOperationWithAccountId:(NSInteger)accountId;
 
 
 

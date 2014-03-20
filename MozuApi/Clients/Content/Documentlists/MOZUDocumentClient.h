@@ -29,7 +29,7 @@ Retrieves a document within the specified document list.
 @param documentListName The name of the document list associated with the document to retrieve.
 */
 
-+(MOZUClient*)clientForGetDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieve the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
@@ -37,7 +37,7 @@ Retrieve the content associated with a document, such as a product image or PDF 
 @param documentListName The name of the document list associated with the document.
 */
 
-+(MOZUClient*)clientForGetDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves a collection of documents according to any filter and sort criteria.
@@ -48,7 +48,7 @@ Retrieves a collection of documents according to any filter and sort criteria.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -63,7 +63,7 @@ Creates a new document in an defined document list.
 @param documentListName The descriptive alphanumeric document list name being created.
 */
 
-+(MOZUClient*)clientForCreateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument*)body documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForCreateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -79,7 +79,7 @@ Updates a document in a document list.
 @param documentListName Name of the document list associated with the document.
 */
 
-+(MOZUClient*)clientForUpdateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument*)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
@@ -88,7 +88,7 @@ Updates the content associated with a document, such as a product image or PDF s
 @param documentListName The name of the document list associated with the document.
 */
 
-+(MOZUClient*)clientForUpdateDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -103,7 +103,7 @@ Deletes a specific document based on the specified document ID.
 @param documentListName The name of the document list associated with the document list being deleted.
 */
 
-+(MOZUClient*)clientForDeleteDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Deletes the content associated with a document, such as a product image or PDF specification, by supplying the document ID.
@@ -111,7 +111,7 @@ Deletes the content associated with a document, such as a product image or PDF s
 @param documentListName The name of the document list associated with the document.
 */
 
-+(MOZUClient*)clientForDeleteDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

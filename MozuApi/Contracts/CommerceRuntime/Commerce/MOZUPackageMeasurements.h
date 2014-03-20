@@ -26,22 +26,22 @@
 /**
 Height of the package in imperial units of feet and inches.
 */
-@property(nonatomic) MOZUMeasurement* height;
+@property(nonatomic) MOZUMeasurement *height;
 
 /**
 Length of the package in imperial units of feet and inches.
 */
-@property(nonatomic) MOZUMeasurement* length;
+@property(nonatomic) MOZUMeasurement *length;
 
 /**
 Weight of the package in imperial units of pounds and ounces.
 */
-@property(nonatomic) MOZUMeasurement* weight;
+@property(nonatomic) MOZUMeasurement *weight;
 
 /**
 Width of the package in imperial units of feet and inches.
 */
-@property(nonatomic) MOZUMeasurement* width;
+@property(nonatomic) MOZUMeasurement *width;
 
 @end
 

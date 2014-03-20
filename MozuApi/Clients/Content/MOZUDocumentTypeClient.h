@@ -29,14 +29,14 @@
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetDocumentTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDocumentTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 
 @param documentTypeName 
 */
 
-+(MOZUClient*)clientForGetDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

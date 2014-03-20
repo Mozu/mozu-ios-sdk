@@ -25,12 +25,12 @@
 /**
 Unique identifier of the behavior.
 */
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
 /**
 The name of the behavior.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 @end
 

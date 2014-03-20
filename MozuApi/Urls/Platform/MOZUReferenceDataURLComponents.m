@@ -17,94 +17,94 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode {
-	NSString* template = @"/api/platform/reference/addressschema/{countryCode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode {
+	NSString *template = @"/api/platform/reference/addressschema/{countryCode}";
+	NSDictionary *params = @{
 		@"countryCode" : countryCode ? countryCode : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetAddressSchemasOperation {
-	NSString* template = @"/api/platform/reference/addressschemas";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetAddressSchemasOperation {
+	NSString *template = @"/api/platform/reference/addressschemas";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId {
-	NSString* template = @"/api/platform/reference/behaviors/{behaviorId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId {
+	NSString *template = @"/api/platform/reference/behaviors/{behaviorId}";
+	NSDictionary *params = @{
 		@"behaviorId" : @(behaviorId),
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetBehaviorCategoriesOperation {
-	NSString* template = @"/api/platform/reference/behaviors/categories";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoriesOperation {
+	NSString *template = @"/api/platform/reference/behaviors/categories";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId {
-	NSString* template = @"/api/platform/reference/behaviors/categories/{categoryId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId {
+	NSString *template = @"/api/platform/reference/behaviors/categories/{categoryId}";
+	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetBehaviorsOperationWithUserType:(NSString *)userType {
-	NSString* template = @"/api/platform/reference/behaviors?userType={userType}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetBehaviorsOperationWithUserType:(NSString *)userType {
+	NSString *template = @"/api/platform/reference/behaviors?userType={userType}";
+	NSDictionary *params = @{
 		@"userType" : userType ? userType : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetContentLocalesOperation {
-	NSString* template = @"/api/platform/reference/contentLocales";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetContentLocalesOperation {
+	NSString *template = @"/api/platform/reference/contentLocales";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetCountriesOperation {
-	NSString* template = @"/api/platform/reference/countries";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetCountriesOperation {
+	NSString *template = @"/api/platform/reference/countries";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetCurrenciesOperation {
-	NSString* template = @"/api/platform/reference/currencies";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetCurrenciesOperation {
+	NSString *template = @"/api/platform/reference/currencies";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetTimeZonesOperation {
-	NSString* template = @"/api/platform/reference/timezones";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetTimeZonesOperation {
+	NSString *template = @"/api/platform/reference/timezones";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetTopLevelDomainsOperation {
-	NSString* template = @"/api/platform/reference/topleveldomains";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetTopLevelDomainsOperation {
+	NSString *template = @"/api/platform/reference/topleveldomains";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter {
-	NSString* template = @"/api/platform/reference/unitsofmeasure?filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter {
+	NSString *template = @"/api/platform/reference/unitsofmeasure?filter={filter}";
+	NSDictionary *params = @{
 		@"filter" : filter ? filter : @"",
 	};
 

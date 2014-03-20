@@ -11,7 +11,7 @@
 #import "MOZUCustomAttribute.h"
 
 @implementation MOZUCustomAttribute
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

@@ -26,12 +26,12 @@
 /**
 If true, the entity has met all requirements and considered a purchasable entity.
 */
-@property(nonatomic) BOOL isPurchasable;
+@property(nonatomic) BOOLisPurchasable;
 
 /**
 List of messages associated with the product if the product is not ready for purchase.
 */
-@property(nonatomic) NSArray<MOZUValidationMessage>* messages;
+@property(nonatomic) NSArray<MOZUValidationMessage> *messages;
 
 @end
 

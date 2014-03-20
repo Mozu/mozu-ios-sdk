@@ -24,9 +24,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateUserAuthTicketOperation {
-	NSString* template = @"/api/commerce/customer/authtickets/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperation {
+	NSString *template = @"/api/commerce/customer/authtickets/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -38,9 +38,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
-	NSString* template = @"/api/commerce/customer/authtickets/refresh?refreshToken={refreshToken}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken {
+	NSString *template = @"/api/commerce/customer/authtickets/refresh?refreshToken={refreshToken}";
+	NSDictionary *params = @{
 		@"refreshToken" : refreshToken,
 	};
 

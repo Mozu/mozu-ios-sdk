@@ -26,22 +26,22 @@
 /**
 Unique identifier of the order attribute definition.
 */
-@property(nonatomic) NSNumber * attributeDefinitionId;
+@property(nonatomic) NSNumber *attributeDefinitionId;
 
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString * fullyQualifiedName;
+@property(nonatomic) NSString *fullyQualifiedName;
 
 /**
 The values defined for the order attribute.
 */
-@property(nonatomic) NSArray* values;
+@property(nonatomic) NSArray *values;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

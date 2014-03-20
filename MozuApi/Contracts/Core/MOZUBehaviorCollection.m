@@ -11,7 +11,7 @@
 #import "MOZUBehaviorCollection.h"
 
 @implementation MOZUBehaviorCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

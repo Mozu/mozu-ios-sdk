@@ -11,7 +11,7 @@
 #import "MOZUCountry.h"
 
 @implementation MOZUCountry
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

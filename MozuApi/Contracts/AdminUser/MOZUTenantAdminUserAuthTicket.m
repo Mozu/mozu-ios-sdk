@@ -11,7 +11,7 @@
 #import "MOZUTenantAdminUserAuthTicket.h"
 
 @implementation MOZUTenantAdminUserAuthTicket
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

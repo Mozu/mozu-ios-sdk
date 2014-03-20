@@ -27,12 +27,12 @@
 /**
 Resource Url Components for discardDrafts
 */
-+(MOZUURLComponents*)URLComponentsForDiscardDraftsOperation;
++ (MOZUURLComponents *)URLComponentsForDiscardDraftsOperation;
 
 /**
 Resource Url Components for publishDrafts
 */
-+(MOZUURLComponents*)URLComponentsForPublishDraftsOperation;
++ (MOZUURLComponents *)URLComponentsForPublishDraftsOperation;
 
 
 //

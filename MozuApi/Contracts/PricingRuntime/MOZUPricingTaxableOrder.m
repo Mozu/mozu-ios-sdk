@@ -11,7 +11,7 @@
 #import "MOZUPricingTaxableOrder.h"
 
 @implementation MOZUPricingTaxableOrder
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

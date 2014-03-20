@@ -25,17 +25,17 @@
 /**
 Description of the preauthorization transaction type.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString *description;
 
 /**
 Identifier of the entity.
 */
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
 /**
 The type of preauthorization transaction.
 */
-@property(nonatomic) NSString * type;
+@property(nonatomic) NSString *type;
 
 @end
 

@@ -27,7 +27,7 @@ Retrieves a list of vocabulary values defined for the attribute specified in the
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+(MOZUClient*)clientForGetAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
@@ -35,7 +35,7 @@ Retrieves the details of a vocabulary value defined for an attribute by providin
 @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-+(MOZUClient*)clientForGetAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -50,7 +50,7 @@ Creates a vocabulary value for a defined product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+(MOZUClient*)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -65,7 +65,7 @@ Update existing vocabulary values for an attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+(MOZUClient*)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue>*)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Updates existing attribute vocabulary values.
@@ -74,7 +74,7 @@ Updates existing attribute vocabulary values.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-+(MOZUClient*)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue*)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -89,7 +89,7 @@ Deletes an attribute's vocabulary value.
 @param value The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-+(MOZUClient*)clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

@@ -21,10 +21,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetOrderHandlingFeeOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetOrderHandlingFeeOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForGetOrderHandlingFeeOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -42,10 +42,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee*)body userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForCreateOrderHandlingFeeOperation];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -64,10 +64,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee*)body userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForUpdateOrderHandlingFeeOperation];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;

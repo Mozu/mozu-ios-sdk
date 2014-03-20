@@ -22,7 +22,7 @@ Resource Url Components for getProductVariation
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
-+(MOZUURLComponents*)URLComponentsForGetProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
++ (MOZUURLComponents *)URLComponentsForGetProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
 
 /**
 Resource Url Components for getProductVariations
@@ -32,7 +32,7 @@ Resource Url Components for getProductVariations
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetProductVariationsOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetProductVariationsOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 
 //
@@ -52,14 +52,14 @@ Resource Url Components for getProductVariations
 Resource Url Components for updateProductVariations
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateProductVariationsOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationsOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for updateProductVariation
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
 
 
 //
@@ -73,7 +73,7 @@ Resource Url Components for deleteProductVariation
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
++ (MOZUURLComponents *)URLComponentsForDeleteProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
 
 
 

@@ -11,7 +11,7 @@
 #import "MOZURateRequest.h"
 
 @implementation MOZURateRequest
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

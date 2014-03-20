@@ -11,7 +11,7 @@
 #import "MOZUWishlistItem.h"
 
 @implementation MOZUWishlistItem
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

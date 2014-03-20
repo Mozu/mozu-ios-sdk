@@ -28,7 +28,7 @@ Retrieves the details of the location specified in the request.
 @param code User-defined code that identifies the location.
 */
 
-+(MOZUClient*)clientForGetLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of a location associated with a defined location usage type for the site specified in the request.
@@ -36,7 +36,7 @@ Retrieves the details of a location associated with a defined location usage typ
 @param locationUsageType System-defined location usage type code, which is DS for direct ship, SP for in-store pickup, or storeFinder.
 */
 
-+(MOZUClient*)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves a list of the locations configured for a specified location usage type for the specified site, according to any defined filter or sort criteria.
@@ -47,20 +47,20 @@ Retrieves a list of the locations configured for a specified location usage type
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of the location configured for the direct shipping (DS) location usage type for the site specified in the request. This location acts as an origin address from which order packages will ship, as well as the location where product reservations are created when order items are submitted with the direct ship fulfillment type (DS). If the direct ship location usage type is not configured for this site, the operation returns an error.
 */
 
-+(MOZUClient*)clientForGetDirectShipLocationOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDirectShipLocationOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of the location configured for the in-store pickup (SP) location usage type for the site specified in the request. If the location is not associated with a location type configured for the in-store pickup location usage type (SP), the operation returns an error.
 @param code The user-defined code that identifies the location to retrieve.
 */
 
-+(MOZUClient*)clientForGetInStorePickupLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetInStorePickupLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves a list of locations valid for in-store pickup of an item in an order according to any filter and sort criteria. For example, an application could use this operation to provide a store finder feature based on the shopper's GPS coordinates. If the location types for the in-store pickup location usage type are not configured for the site, this operation returns an error.
@@ -70,7 +70,7 @@ Retrieves a list of locations valid for in-store pickup of an item in an order a
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

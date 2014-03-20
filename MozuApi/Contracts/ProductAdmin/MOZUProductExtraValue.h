@@ -27,27 +27,27 @@
 /**
 The difference between the weight associated with this product extra and the base product. For example, if a product with a monogram weighs an extra 1/4 lb, the DeltaWeight value is "0.25".
 */
-@property(nonatomic) NSNumber * deltaWeight;
+@property(nonatomic) NSNumber *deltaWeight;
 
 /**
 If true, the value for the product extra is selected by default. Shopper entered extras cannot be defaulted.
 */
-@property(nonatomic) NSNumber * isDefaulted;
+@property(nonatomic) NSNumber *isDefaulted;
 
 /**
 Properties of a defined value for a product extra attribute.
 */
-@property(nonatomic) NSObject * value;
+@property(nonatomic) NSObject *value;
 
 /**
 Detail of the product extra attribute vocabulary value.
 */
-@property(nonatomic) MOZUAttributeVocabularyValue* attributeVocabularyValueDetail;
+@property(nonatomic) MOZUAttributeVocabularyValue *attributeVocabularyValueDetail;
 
 /**
 The difference between the price associated with this product extra and the base product. For example, if a product with a defined monogram extra costs an additional $10, the DeltaPrice value is "10".
 */
-@property(nonatomic) MOZUProductExtraValueDeltaPrice* deltaPrice;
+@property(nonatomic) MOZUProductExtraValueDeltaPrice *deltaPrice;
 
 @end
 

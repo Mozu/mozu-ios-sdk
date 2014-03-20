@@ -26,12 +26,12 @@
 /**
 The lowest possible price value for a product with options that vary the cost of the product.
 */
-@property(nonatomic) MOZURuntimeProductPrice* lower;
+@property(nonatomic) MOZURuntimeProductPrice *lower;
 
 /**
 Thw highest possible price value for a product with options that vary the cost of the product.
 */
-@property(nonatomic) MOZURuntimeProductPrice* upper;
+@property(nonatomic) MOZURuntimeProductPrice *upper;
 
 @end
 

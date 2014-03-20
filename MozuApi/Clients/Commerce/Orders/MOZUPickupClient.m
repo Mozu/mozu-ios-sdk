@@ -21,10 +21,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetPickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetPickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUPickupURLComponents URLComponentsForGetPickupOperationWithOrderId:orderId pickupId:pickupId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -35,10 +35,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUPickupURLComponents URLComponentsForGetAvailablePickupFulfillmentActionsOperationWithOrderId:orderId pickupId:pickupId];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;
@@ -51,10 +51,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForCreatePickupOperationWithBody:(MOZUPickup*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForCreatePickupOperationWithBody:(MOZUPickup *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUPickupURLComponents URLComponentsForCreatePickupOperationWithOrderId:orderId];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -73,10 +73,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdatePickupOperationWithBody:(MOZUPickup*)body orderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdatePickupOperationWithBody:(MOZUPickup *)body orderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUPickupURLComponents URLComponentsForUpdatePickupOperationWithOrderId:orderId pickupId:pickupId];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -95,10 +95,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeletePickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForDeletePickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUPickupURLComponents URLComponentsForDeletePickupOperationWithOrderId:orderId pickupId:pickupId];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 	return client;

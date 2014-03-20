@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetOrderHandlingFeeOperation {
-	NSString* template = @"/api/commerce/settings/shipping/orderhandlingfee";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetOrderHandlingFeeOperation {
+	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -31,9 +31,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateOrderHandlingFeeOperation {
-	NSString* template = @"/api/commerce/settings/shipping/orderhandlingfee";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForCreateOrderHandlingFeeOperation {
+	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -45,9 +45,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateOrderHandlingFeeOperation {
-	NSString* template = @"/api/commerce/settings/shipping/orderhandlingfee";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForUpdateOrderHandlingFeeOperation {
+	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

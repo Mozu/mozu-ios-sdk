@@ -25,12 +25,12 @@
 /**
 If true, this is the primary contact of this contact type.
 */
-@property(nonatomic) BOOL isPrimary;
+@property(nonatomic) BOOLisPrimary;
 
 /**
 The name of this contact type.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 @end
 

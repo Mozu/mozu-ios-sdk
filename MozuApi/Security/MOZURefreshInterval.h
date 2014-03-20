@@ -11,8 +11,8 @@
 @interface MOZURefreshInterval : NSObject
 @property (nonatomic, readonly) NSTimeInterval accessTokenExpirationInterval;
 @property (nonatomic, readonly) NSTimeInterval refreshTokenExpirationInterval;
-@property (nonatomic, readonly) NSDate* accessTokenExpirationDate;
-@property (nonatomic, readonly) NSDate* refreshTokenExpirationDate;
+@property (nonatomic, readonly) NSDate *accessTokenExpirationDate;
+@property (nonatomic, readonly) NSDate *refreshTokenExpirationDate;
 
 - (instancetype)initWithAccessTokenExpirationInterval:(NSTimeInterval)accessTokenExpirationInterval refreshTokenTokenExpirationInterval:(NSTimeInterval)refreshTokenExpiratonInterval;
 - (void)updateTokenExpirationDatesIncludingRefreshToken:(BOOL)includeRefresh;

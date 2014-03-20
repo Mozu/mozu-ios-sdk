@@ -11,7 +11,7 @@
 #import "MOZUPaymentGatewayInteraction.h"
 
 @implementation MOZUPaymentGatewayInteraction
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

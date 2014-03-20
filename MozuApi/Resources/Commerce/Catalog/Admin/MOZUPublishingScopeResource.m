@@ -14,14 +14,14 @@
 
 
 @interface MOZUPublishingScopeResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUPublishingScopeResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -50,9 +50,9 @@ Deletes the draft version of product changes for each product code specified in 
 @param body Properties of the pending product changes to include in this operation.
 */
 
--(void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUPublishingScopeClient clientForDiscardDraftsOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
+	MOZUClient *client = [MOZUPublishingScopeClient clientForDiscardDraftsOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -66,9 +66,9 @@ Publishes the draft version of product changes for each product code specified i
 @param body Properties of the pending product changes to include in this operation.
 */
 
--(void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUPublishingScopeClient clientForPublishDraftsOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
+	MOZUClient *client = [MOZUPublishingScopeClient clientForPublishDraftsOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

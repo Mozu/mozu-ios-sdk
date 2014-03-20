@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetGeneralSettingsOperation {
-	NSString* template = @"/api/commerce/settings/general/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetGeneralSettingsOperation {
+	NSString *template = @"/api/commerce/settings/general/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -38,9 +38,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateGeneralSettingsOperation {
-	NSString* template = @"/api/commerce/settings/general/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForUpdateGeneralSettingsOperation {
+	NSString *template = @"/api/commerce/settings/general/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

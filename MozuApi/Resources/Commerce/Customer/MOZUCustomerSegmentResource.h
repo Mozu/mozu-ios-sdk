@@ -20,9 +20,9 @@
 @interface MOZUCustomerSegmentResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -39,14 +39,14 @@ Retrieves a list of defined customer segments according to any filter and sort c
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
--(void)segmentsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerSegmentCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)segmentsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerSegmentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of the customer segment specified in the request. This operation does not return a list of the customer accounts associated with the segment.
 @param identifier Unique identifier of the customer segment to retrieve.
 */
 
--(void)segmentWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerSegment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)segmentWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerSegment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -60,7 +60,7 @@ Creates a new customer segments. New customer segments do not have any associate
 @param body Properties of the customer segment to add.
 */
 
--(void)addSegmentWithBody:(MOZUCustomerSegment*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerSegment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addSegmentWithBody:(MOZUCustomerSegment *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerSegment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Adds one or more customer accounts to a defined customer segment.
@@ -68,7 +68,7 @@ Adds one or more customer accounts to a defined customer segment.
 @param identifier Unique identifier of the customer segment for which to add the associated customer accounts.
 */
 
--(void)addSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -83,7 +83,7 @@ Updates the details of the customer segment specified in the request.
 @param identifier Unique identifier of the customer segment.
 */
 
--(void)updateSegmentWithBody:(MOZUCustomerSegment*)body identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUCustomerSegment* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateSegmentWithBody:(MOZUCustomerSegment *)body identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerSegment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -97,7 +97,7 @@ Deletes a customer segment specified by its unique identifier. Deleting a segmen
 @param identifier Unique identifier of the customer segment to delete.
 */
 
--(void)deleteSegmentWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteSegmentWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Removes the specified customer accounts from a defined customer segment. You must create the request body to perform this operation.
@@ -105,7 +105,7 @@ Removes the specified customer accounts from a defined customer segment. You mus
 @param identifier Unique identifier of the segment from which to remove the customer accounts.
 */
 
--(void)deleteSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

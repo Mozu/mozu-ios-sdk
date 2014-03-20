@@ -35,28 +35,28 @@ Retrieves a list of all returns according to any filter and sort criteria.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForGetReturnsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetReturnsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves a list of properties for the specified return.
 @param returnId Returns the properties of the return specified in the request as well as system-supplied information.
 */
 
-+(MOZUClient*)clientForGetReturnOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetReturnOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves a list of the actions available to perform for the specified return based on its current state.
 @param returnId Unique identifier of the return for which to retrieve available actions.
 */
 
-+(MOZUClient*)clientForGetAvailableReturnActionsOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetAvailableReturnActionsOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves a list of all payments submitted as part of a refund associated with a customer return.
 @param returnId Returns the details of the refund payment associated with the return specified in the request.
 */
 
-+(MOZUClient*)clientForGetPaymentsOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetPaymentsOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of a payment submitted as part of a refund associated with a customer return.
@@ -64,7 +64,7 @@ Retrieves the details of a payment submitted as part of a refund associated with
 @param returnId Unique identifier of the return associated with the payment.
 */
 
-+(MOZUClient*)clientForGetPaymentOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetPaymentOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves a list of the payment actions available to perform for the specified return when a return results in a refund to the customer.
@@ -72,7 +72,7 @@ Retrieves a list of the payment actions available to perform for the specified r
 @param returnId Unique identifier of the return associated with the payment.
 */
 
-+(MOZUClient*)clientForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -86,7 +86,7 @@ Creates a return for previously fulfilled items. Each return must either be asso
 @param body Wrapper for the properties of the return to create.
 */
 
-+(MOZUClient*)clientForCreateReturnOperationWithBody:(MOZUReturn*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForCreateReturnOperationWithBody:(MOZUReturn *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Updates a refund payment associated with a customer return by performing the specified action.
@@ -95,7 +95,7 @@ Updates a refund payment associated with a customer return by performing the spe
 @param returnId Unique identifier of the return associated with the refund payment.
 */
 
-+(MOZUClient*)clientForPerformPaymentActionForReturnOperationWithBody:(MOZUPaymentAction*)body returnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForPerformPaymentActionForReturnOperationWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Creates a new payment for a return that results in a refund to the customer.
@@ -103,14 +103,14 @@ Creates a new payment for a return that results in a refund to the customer.
 @param returnId Unique identifier of the return associated with the payment action.
 */
 
-+(MOZUClient*)clientForCreatePaymentActionForReturnOperationWithBody:(MOZUPaymentAction*)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForCreatePaymentActionForReturnOperationWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Updates the return by performing the action specified in the request.
 @param body The name of the return action to perform, such as "Reject" or "Authorize".
 */
 
-+(MOZUClient*)clientForPerformReturnActionsOperationWithBody:(MOZUReturnAction*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForPerformReturnActionsOperationWithBody:(MOZUReturnAction *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -125,7 +125,7 @@ Updates one or more properties of a return for items previously shipped in a com
 @param returnId Unique identifier of the return.
 */
 
-+(MOZUClient*)clientForUpdateReturnOperationWithBody:(MOZUReturn*)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateReturnOperationWithBody:(MOZUReturn *)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -139,7 +139,7 @@ Deletes the return specified in the request.
 @param returnId Unique identifier of the return to delete.
 */
 
-+(MOZUClient*)clientForDeleteReturnOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteReturnOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

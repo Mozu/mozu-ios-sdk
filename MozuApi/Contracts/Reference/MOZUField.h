@@ -26,27 +26,27 @@
 /**
 Identifier of the field.
 */
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
 /**
 Label for the field.
 */
-@property(nonatomic) NSString * label;
+@property(nonatomic) NSString *label;
 
 /**
 Sequence of the field.
 */
-@property(nonatomic) NSInteger order;
+@property(nonatomic) NSIntegerorder;
 
 /**
 Type of field.
 */
-@property(nonatomic) NSString * type;
+@property(nonatomic) NSString *type;
 
 /**
 Data for the field property.
 */
-@property(nonatomic) NSArray<MOZUFieldData>* data;
+@property(nonatomic) NSArray<MOZUFieldData> *data;
 
 @end
 

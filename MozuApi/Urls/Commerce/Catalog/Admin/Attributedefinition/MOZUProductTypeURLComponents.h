@@ -24,13 +24,13 @@ Resource Url Components for getProductTypes
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
 */
-+(MOZUURLComponents*)URLComponentsForGetProductTypesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetProductTypesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getProductType
 @param productTypeId Identifier of the product type to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -42,7 +42,7 @@ Resource Url Components for getProductType
 /**
 Resource Url Components for addProductType
 */
-+(MOZUURLComponents*)URLComponentsForAddProductTypeOperation;
++ (MOZUURLComponents *)URLComponentsForAddProductTypeOperation;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for addProductType
 Resource Url Components for updateProductType
 @param productTypeId Identifier of the product type to update.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForUpdateProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -68,7 +68,7 @@ Resource Url Components for updateProductType
 Resource Url Components for deleteProductType
 @param productTypeId Identifier of the product type to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForDeleteProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 

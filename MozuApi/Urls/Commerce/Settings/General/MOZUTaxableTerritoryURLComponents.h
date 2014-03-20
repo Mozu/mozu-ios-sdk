@@ -20,7 +20,7 @@
 /**
 Resource Url Components for getTaxableTerritories
 */
-+(MOZUURLComponents*)URLComponentsForGetTaxableTerritoriesOperation;
++ (MOZUURLComponents *)URLComponentsForGetTaxableTerritoriesOperation;
 
 
 //
@@ -32,7 +32,7 @@ Resource Url Components for getTaxableTerritories
 /**
 Resource Url Components for addTaxableTerritory
 */
-+(MOZUURLComponents*)URLComponentsForAddTaxableTerritoryOperation;
++ (MOZUURLComponents *)URLComponentsForAddTaxableTerritoryOperation;
 
 
 //
@@ -44,7 +44,7 @@ Resource Url Components for addTaxableTerritory
 /**
 Resource Url Components for updateTaxableTerritories
 */
-+(MOZUURLComponents*)URLComponentsForUpdateTaxableTerritoriesOperation;
++ (MOZUURLComponents *)URLComponentsForUpdateTaxableTerritoriesOperation;
 
 
 //

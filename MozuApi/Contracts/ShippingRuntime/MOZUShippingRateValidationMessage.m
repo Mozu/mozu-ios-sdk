@@ -11,7 +11,7 @@
 #import "MOZUShippingRateValidationMessage.h"
 
 @implementation MOZUShippingRateValidationMessage
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

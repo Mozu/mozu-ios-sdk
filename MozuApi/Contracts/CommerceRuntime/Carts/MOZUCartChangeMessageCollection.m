@@ -11,7 +11,7 @@
 #import "MOZUCartChangeMessageCollection.h"
 
 @implementation MOZUCartChangeMessageCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

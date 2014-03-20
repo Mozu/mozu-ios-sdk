@@ -26,7 +26,7 @@
 Retrieves a list of the shipping settings configured for a site.
 */
 
-+(MOZUClient*)clientForGetSiteShippingSettingsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetSiteShippingSettingsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

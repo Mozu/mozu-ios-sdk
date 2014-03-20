@@ -22,13 +22,13 @@ Resource Url Components for getDocumentLists
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex 
 */
-+(MOZUURLComponents*)URLComponentsForGetDocumentListsOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUURLComponents *)URLComponentsForGetDocumentListsOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
 
 /**
 Resource Url Components for getDocumentList
 @param documentListName The name of the document list.
 */
-+(MOZUURLComponents*)URLComponentsForGetDocumentListOperationWithDocumentListName:(NSString *)documentListName;
++ (MOZUURLComponents *)URLComponentsForGetDocumentListOperationWithDocumentListName:(NSString *)documentListName;
 
 
 //

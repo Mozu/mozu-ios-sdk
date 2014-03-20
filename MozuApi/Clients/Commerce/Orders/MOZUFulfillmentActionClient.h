@@ -36,7 +36,7 @@ Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare i
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
 */
 
-+(MOZUClient*)clientForPerformFulfillmentActionOperationWithBody:(MOZUFulfillmentAction*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForPerformFulfillmentActionOperationWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

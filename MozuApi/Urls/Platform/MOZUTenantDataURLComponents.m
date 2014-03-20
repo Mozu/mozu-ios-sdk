@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
-	NSString* template = @"/api/platform/tenantdata/{*dbEntryQuery}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
+	NSString *template = @"/api/platform/tenantdata/{*dbEntryQuery}";
+	NSDictionary *params = @{
 		@"dbEntryQuery" : dbEntryQuery,
 	};
 
@@ -33,9 +33,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
-	NSString* template = @"/api/platform/tenantdata/{*dbEntryQuery}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForCreateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
+	NSString *template = @"/api/platform/tenantdata/{*dbEntryQuery}";
+	NSDictionary *params = @{
 		@"dbEntryQuery" : dbEntryQuery,
 	};
 
@@ -49,9 +49,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
-	NSString* template = @"/api/platform/tenantdata/{*dbEntryQuery}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
+	NSString *template = @"/api/platform/tenantdata/{*dbEntryQuery}";
+	NSDictionary *params = @{
 		@"dbEntryQuery" : dbEntryQuery,
 	};
 
@@ -65,9 +65,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
-	NSString* template = @"/api/platform/tenantdata/{*dbEntryQuery}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
+	NSString *template = @"/api/platform/tenantdata/{*dbEntryQuery}";
+	NSDictionary *params = @{
 		@"dbEntryQuery" : dbEntryQuery,
 	};
 

@@ -21,7 +21,7 @@
 Resource Url Components for getTenant
 @param tenantId Unique identifier of the Mozu tenant.
 */
-+(MOZUURLComponents*)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId;
++ (MOZUURLComponents *)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId;
 
 
 //

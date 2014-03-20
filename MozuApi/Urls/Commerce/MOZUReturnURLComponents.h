@@ -24,39 +24,39 @@ Resource Url Components for getReturns
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetReturnsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetReturnsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getReturn
 @param returnId Returns the properties of the return specified in the request as well as system-supplied information.
 */
-+(MOZUURLComponents*)URLComponentsForGetReturnOperationWithReturnId:(NSString *)returnId;
++ (MOZUURLComponents *)URLComponentsForGetReturnOperationWithReturnId:(NSString *)returnId;
 
 /**
 Resource Url Components for getAvailableReturnActions
 @param returnId Unique identifier of the return for which to retrieve available actions.
 */
-+(MOZUURLComponents*)URLComponentsForGetAvailableReturnActionsOperationWithReturnId:(NSString *)returnId;
++ (MOZUURLComponents *)URLComponentsForGetAvailableReturnActionsOperationWithReturnId:(NSString *)returnId;
 
 /**
 Resource Url Components for getPayments
 @param returnId Returns the details of the refund payment associated with the return specified in the request.
 */
-+(MOZUURLComponents*)URLComponentsForGetPaymentsOperationWithReturnId:(NSString *)returnId;
++ (MOZUURLComponents *)URLComponentsForGetPaymentsOperationWithReturnId:(NSString *)returnId;
 
 /**
 Resource Url Components for getPayment
 @param returnId Unique identifier of the return associated with the payment.
 @param paymentId Unique identifier of the return payment to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetPaymentOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId;
++ (MOZUURLComponents *)URLComponentsForGetPaymentOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId;
 
 /**
 Resource Url Components for getAvailablePaymentActionsForReturn
 @param returnId Unique identifier of the return associated with the payment.
 @param paymentId Unique identifier of the payment for which to perform the action.
 */
-+(MOZUURLComponents*)URLComponentsForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId;
++ (MOZUURLComponents *)URLComponentsForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId;
 
 
 //
@@ -68,25 +68,25 @@ Resource Url Components for getAvailablePaymentActionsForReturn
 /**
 Resource Url Components for createReturn
 */
-+(MOZUURLComponents*)URLComponentsForCreateReturnOperation;
++ (MOZUURLComponents *)URLComponentsForCreateReturnOperation;
 
 /**
 Resource Url Components for performPaymentActionForReturn
 @param returnId Unique identifier of the return associated with the refund payment.
 @param paymentId Unique identifier of the return payment to update.
 */
-+(MOZUURLComponents*)URLComponentsForPerformPaymentActionForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId;
++ (MOZUURLComponents *)URLComponentsForPerformPaymentActionForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId;
 
 /**
 Resource Url Components for createPaymentActionForReturn
 @param returnId Unique identifier of the return associated with the payment action.
 */
-+(MOZUURLComponents*)URLComponentsForCreatePaymentActionForReturnOperationWithReturnId:(NSString *)returnId;
++ (MOZUURLComponents *)URLComponentsForCreatePaymentActionForReturnOperationWithReturnId:(NSString *)returnId;
 
 /**
 Resource Url Components for performReturnActions
 */
-+(MOZUURLComponents*)URLComponentsForPerformReturnActionsOperation;
++ (MOZUURLComponents *)URLComponentsForPerformReturnActionsOperation;
 
 
 //
@@ -99,7 +99,7 @@ Resource Url Components for performReturnActions
 Resource Url Components for updateReturn
 @param returnId Unique identifier of the return.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateReturnOperationWithReturnId:(NSString *)returnId;
++ (MOZUURLComponents *)URLComponentsForUpdateReturnOperationWithReturnId:(NSString *)returnId;
 
 
 //
@@ -112,7 +112,7 @@ Resource Url Components for updateReturn
 Resource Url Components for deleteReturn
 @param returnId Unique identifier of the return to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteReturnOperationWithReturnId:(NSString *)returnId;
++ (MOZUURLComponents *)URLComponentsForDeleteReturnOperationWithReturnId:(NSString *)returnId;
 
 
 

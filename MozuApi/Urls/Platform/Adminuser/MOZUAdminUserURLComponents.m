@@ -17,18 +17,18 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetUserOperationWithUserId:(NSString *)userId {
-	NSString* template = @"/api/platform/adminuser/accounts/{userId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetUserOperationWithUserId:(NSString *)userId {
+	NSString *template = @"/api/platform/adminuser/accounts/{userId}";
+	NSDictionary *params = @{
 		@"userId" : userId,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString *)userId {
-	NSString* template = @"/api/platform/adminuser/accounts/{userId}/tenants";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString *)userId {
+	NSString *template = @"/api/platform/adminuser/accounts/{userId}/tenants";
+	NSDictionary *params = @{
 		@"userId" : userId,
 	};
 

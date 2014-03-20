@@ -27,7 +27,7 @@ Retrieves the discount target, that is which products, categories, or shipping m
 @param discountId Unique identifier of the discount. System-supplied and read only.
 */
 
-+(MOZUClient*)clientForGetDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -49,7 +49,7 @@ Modifies properties of the discount target, for example, the dollar amount, or p
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+(MOZUClient*)clientForUpdateDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget *)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

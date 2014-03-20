@@ -26,17 +26,17 @@
 /**
 Determines whether payment authorization occurs when the order is placed or when the order is shipped.
 */
-@property(nonatomic) NSString * paymentProcessingFlowType;
+@property(nonatomic) NSString *paymentProcessingFlowType;
 
 /**
 If true, use the override price defined for products in the order to calculate discounts for the order.
 */
-@property(nonatomic) BOOL useOverridePriceToCalculateDiscounts;
+@property(nonatomic) BOOLuseOverridePriceToCalculateDiscounts;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

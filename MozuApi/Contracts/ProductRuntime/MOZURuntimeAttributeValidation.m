@@ -11,7 +11,7 @@
 #import "MOZURuntimeAttributeValidation.h"
 
 @implementation MOZURuntimeAttributeValidation
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

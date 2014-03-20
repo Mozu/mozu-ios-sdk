@@ -11,7 +11,7 @@
 #import "MOZUAuditInfo.h"
 
 @implementation MOZUAuditInfo
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

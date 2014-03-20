@@ -24,13 +24,13 @@ Resource Url Components for getVisits
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
-+(MOZUURLComponents*)URLComponentsForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getVisit
 @param visitId Unique identifier of the customer visit to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetVisitOperationWithVisitId:(NSString *)visitId;
++ (MOZUURLComponents *)URLComponentsForGetVisitOperationWithVisitId:(NSString *)visitId;
 
 
 //
@@ -42,7 +42,7 @@ Resource Url Components for getVisit
 /**
 Resource Url Components for addVisit
 */
-+(MOZUURLComponents*)URLComponentsForAddVisitOperation;
++ (MOZUURLComponents *)URLComponentsForAddVisitOperation;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for addVisit
 Resource Url Components for updateVisit
 @param visitId Unique identifier of the customer visit to update.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateVisitOperationWithVisitId:(NSString *)visitId;
++ (MOZUURLComponents *)URLComponentsForUpdateVisitOperationWithVisitId:(NSString *)visitId;
 
 
 //

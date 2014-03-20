@@ -29,7 +29,7 @@ Retrieves a facet specified by its unique identifier and displays its properties
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
-+(MOZUClient*)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves a list of the facets defined for the specified category.
@@ -38,7 +38,7 @@ Retrieves a list of the facets defined for the specified category.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
-+(MOZUClient*)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Creates a new category, price, or attribute facet. Define the category or attrib
 @param body Properties of the new facet to create. You must specify the source, type, and category.
 */
 
-+(MOZUClient*)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Modifies one or more properties of a defined facet.
 @param facetId Unique identifier of the facet to modify.
 */
 
-+(MOZUClient*)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet*)body facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -81,7 +81,7 @@ Deletes the facet specified by its unique identifier.
 @param facetId Unique identifier of the facet to delete.
 */
 
-+(MOZUClient*)clientForDeleteFacetByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteFacetByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

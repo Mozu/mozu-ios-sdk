@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetProductTypesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetProductTypesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
@@ -29,9 +29,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}";
+	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 	};
 
@@ -45,9 +45,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddProductTypeOperation {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForAddProductTypeOperation {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,9 +59,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateProductTypeOperationWithProductTypeId:(NSInteger)productTypeId {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateProductTypeOperationWithProductTypeId:(NSInteger)productTypeId {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}";
+	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 	};
 
@@ -75,9 +75,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteProductTypeOperationWithProductTypeId:(NSInteger)productTypeId {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteProductTypeOperationWithProductTypeId:(NSInteger)productTypeId {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}";
+	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 	};
 

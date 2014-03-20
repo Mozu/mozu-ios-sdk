@@ -11,7 +11,7 @@
 #import "MOZUChannelGroup.h"
 
 @implementation MOZUChannelGroup
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

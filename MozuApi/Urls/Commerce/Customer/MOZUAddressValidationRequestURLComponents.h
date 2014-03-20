@@ -27,7 +27,7 @@
 /**
 Resource Url Components for validateAddress
 */
-+(MOZUURLComponents*)URLComponentsForValidateAddressOperation;
++ (MOZUURLComponents *)URLComponentsForValidateAddressOperation;
 
 
 //

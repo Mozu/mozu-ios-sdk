@@ -28,39 +28,39 @@
 /**
 Array list of actions that can be performed for the in-store pickup.
 */
-@property(nonatomic) NSArray* availableActions;
+@property(nonatomic) NSArray *availableActions;
 
 /**
 The date and time the customer picked up the order items.
 */
-@property(nonatomic) NSDate * fulfillmentDate;
+@property(nonatomic) NSDate *fulfillmentDate;
 
 /**
 The location code that represents the location where the shopper will fulfill this pickup.
 */
-@property(nonatomic) NSString * fulfillmentLocationCode;
+@property(nonatomic) NSString *fulfillmentLocationCode;
 
 /**
 Unique identifier of the in-store pickup.
 */
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
 /**
 The fulfillment status of the in-store pickup, which is "Fulfilled," "NotFulfilled," or "PartiallyFulfilled."
 */
-@property(nonatomic) NSString * status;
+@property(nonatomic) NSString *status;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
-@property(nonatomic) NSArray<MOZUChangeMessage>* changeMessages;
+@property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**
 An array list of objects in the returned collection.
 */
-@property(nonatomic) NSArray<MOZUPickupItem>* items;
+@property(nonatomic) NSArray<MOZUPickupItem> *items;
 
 @end
 

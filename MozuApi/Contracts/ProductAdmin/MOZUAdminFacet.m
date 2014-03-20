@@ -11,7 +11,7 @@
 #import "MOZUAdminFacet.h"
 
 @implementation MOZUAdminFacet
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

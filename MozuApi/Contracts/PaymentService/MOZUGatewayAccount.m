@@ -11,7 +11,7 @@
 #import "MOZUGatewayAccount.h"
 
 @implementation MOZUGatewayAccount
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

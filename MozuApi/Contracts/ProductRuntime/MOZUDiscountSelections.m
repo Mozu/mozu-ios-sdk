@@ -11,7 +11,7 @@
 #import "MOZUDiscountSelections.h"
 
 @implementation MOZUDiscountSelections
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

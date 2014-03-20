@@ -30,144 +30,144 @@
 /**
 Code that identifies the channel associated with the site where the shopping cart was created.
 */
-@property(nonatomic) NSString * channelCode;
+@property(nonatomic) NSString *channelCode;
 
-@property(nonatomic) NSArray* couponCodes;
+@property(nonatomic) NSArray *couponCodes;
 
 /**
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
-@property(nonatomic) NSString * currencyCode;
+@property(nonatomic) NSString *currencyCode;
 
 /**
 The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
 */
-@property(nonatomic) NSString * customerInteractionType;
+@property(nonatomic) NSString *customerInteractionType;
 
 /**
 The aggregate total for all items in the cart, including costs associated with shopper-defined options or extras and any applied discounts.
 */
-@property(nonatomic) NSNumber * discountedSubtotal;
+@property(nonatomic) NSNumber *discountedSubtotal;
 
 /**
 The subtotal of the cart including any applied discount calculations.
 */
-@property(nonatomic) NSNumber * discountedTotal;
+@property(nonatomic) NSNumber *discountedTotal;
 
 /**
 Estimated amount of discounts applied to all items in the cart, which is system-supplied and read-only.
 */
-@property(nonatomic) NSNumber * discountTotal;
+@property(nonatomic) NSNumber *discountTotal;
 
 /**
 Date in UTC Date/Time when the cart becomes inactive based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
 */
-@property(nonatomic) NSDate * expirationDate;
+@property(nonatomic) NSDate *expirationDate;
 
 /**
 The monetary sum of all fees incurred in the cart.
 */
-@property(nonatomic) NSNumber * feeTotal;
+@property(nonatomic) NSNumber *feeTotal;
 
 /**
 If the handling fee for the cart is subject to sales tax, the total tax amount.
 */
-@property(nonatomic) NSNumber * handlingTaxTotal;
+@property(nonatomic) NSNumber *handlingTaxTotal;
 
 /**
 Unique identifier of the shopping cart.
 */
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
 /**
 The total amount of tax for items in the cart.
 */
-@property(nonatomic) NSNumber * itemTaxTotal;
+@property(nonatomic) NSNumber *itemTaxTotal;
 
 /**
 The date in UTC Date/Time when the items in the cart were last validated against the site's product catalog. System-supplied and read-only.
 */
-@property(nonatomic) NSDate * lastValidationDate;
+@property(nonatomic) NSDate *lastValidationDate;
 
 /**
 The shipping subtotal amount calculated without any applied discounts.
 */
-@property(nonatomic) NSNumber * shippingSubTotal;
+@property(nonatomic) NSNumber *shippingSubTotal;
 
 /**
 The total amount of tax incurred on the shipping charges in the cart.
 */
-@property(nonatomic) NSNumber * shippingTaxTotal;
+@property(nonatomic) NSNumber *shippingTaxTotal;
 
 /**
 The total shipping amount estimated for the cart, including tax.
 */
-@property(nonatomic) NSNumber * shippingTotal;
+@property(nonatomic) NSNumber *shippingTotal;
 
 /**
 Unique identifier of the site.
 */
-@property(nonatomic) NSNumber * siteId;
+@property(nonatomic) NSNumber *siteId;
 
 /**
 Estimated amount of the cart without sales tax, shipping costs, and other fees.
 */
-@property(nonatomic) NSNumber * subtotal;
+@property(nonatomic) NSNumber *subtotal;
 
 /**
 The total sum of sales tax estimated for a cart.
 */
-@property(nonatomic) NSNumber * taxTotal;
+@property(nonatomic) NSNumber *taxTotal;
 
 /**
 Unique identifier of the Mozu tenant.
 */
-@property(nonatomic) NSNumber * tenantId;
+@property(nonatomic) NSNumber *tenantId;
 
 /**
 Estimated total amount of the cart, including items, sales tax, shipping costs, and other fees.
 */
-@property(nonatomic) NSNumber * total;
+@property(nonatomic) NSNumber *total;
 
 /**
 Unique identifier of the user associated with the shopping cart.
 */
-@property(nonatomic) NSString * userId;
+@property(nonatomic) NSString *userId;
 
 /**
 Unique identifier of the customer visit in which the cart was created or last modified.
 */
-@property(nonatomic) NSString * visitId;
+@property(nonatomic) NSString *visitId;
 
 /**
 Unique identifier of the web session in which the cart was created or last modified.
 */
-@property(nonatomic) NSString * webSessionId;
+@property(nonatomic) NSString *webSessionId;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 Messages logged or created each time the cart was modified.
 */
-@property(nonatomic) NSArray<MOZUChangeMessage>* changeMessages;
+@property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**
 Properties of the information required to fulfill this cart.
 */
-@property(nonatomic) MOZUFulfillmentInfo* fulfillmentInfo;
+@property(nonatomic) MOZUFulfillmentInfo *fulfillmentInfo;
 
 /**
 An array list of objects in the returned collection.
 */
-@property(nonatomic) NSArray<MOZUCartItem>* items;
+@property(nonatomic) NSArray<MOZUCartItem> *items;
 
 /**
 List of order-level discounts projected to apply to the cart at checkout.
 */
-@property(nonatomic) NSArray<MOZUAppliedDiscount>* orderDiscounts;
+@property(nonatomic) NSArray<MOZUAppliedDiscount> *orderDiscounts;
 
 @end
 

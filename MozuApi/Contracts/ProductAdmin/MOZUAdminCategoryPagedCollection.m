@@ -11,7 +11,7 @@
 #import "MOZUAdminCategoryPagedCollection.h"
 
 @implementation MOZUAdminCategoryPagedCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

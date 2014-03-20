@@ -11,7 +11,7 @@
 #import "MOZUUnitOfMeasureCollection.h"
 
 @implementation MOZUUnitOfMeasureCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

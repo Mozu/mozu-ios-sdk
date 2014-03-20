@@ -11,7 +11,7 @@
 #import "MOZUCustomerNoteCollection.h"
 
 @implementation MOZUCustomerNoteCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

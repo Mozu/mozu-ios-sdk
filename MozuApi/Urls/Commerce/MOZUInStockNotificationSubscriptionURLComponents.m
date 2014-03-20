@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString* template = @"/api/commerce/instocknotifications/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
+	NSString *template = @"/api/commerce/instocknotifications/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
@@ -29,9 +29,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
-	NSString* template = @"/api/commerce/instocknotifications/{identifier}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
+	NSString *template = @"/api/commerce/instocknotifications/{identifier}";
+	NSDictionary *params = @{
 		@"identifier" : @(identifier),
 	};
 
@@ -45,9 +45,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddInStockNotificationSubscriptionOperation {
-	NSString* template = @"/api/commerce/instocknotifications/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForAddInStockNotificationSubscriptionOperation {
+	NSString *template = @"/api/commerce/instocknotifications/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -66,9 +66,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
-	NSString* template = @"/api/commerce/instocknotifications/{identifier}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
+	NSString *template = @"/api/commerce/instocknotifications/{identifier}";
+	NSDictionary *params = @{
 		@"identifier" : @(identifier),
 	};
 

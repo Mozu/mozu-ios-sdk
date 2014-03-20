@@ -26,12 +26,12 @@
 /**
 The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-@property(nonatomic) NSString * attributeFQN;
+@property(nonatomic) NSString *attributeFQN;
 
 /**
 The actual values that populate a product property to set in the Admin to appear on the Storefront.
 */
-@property(nonatomic) NSArray<MOZUAdminProductPropertyValue>* values;
+@property(nonatomic) NSArray<MOZUAdminProductPropertyValue> *values;
 
 @end
 

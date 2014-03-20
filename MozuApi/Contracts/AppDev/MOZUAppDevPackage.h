@@ -23,23 +23,23 @@
 */
 @interface MOZUAppDevPackage : JSONModel<MOZUAppDevPackage>
 
-@property(nonatomic) NSInteger applicationVersionId;
+@property(nonatomic) NSIntegerapplicationVersionId;
 
-@property(nonatomic) NSInteger assetFileCount;
+@property(nonatomic) NSIntegerassetFileCount;
 
-@property(nonatomic) NSInteger id;
+@property(nonatomic) NSIntegerid;
 
-@property(nonatomic) BOOL isDeleted;
+@property(nonatomic) BOOLisDeleted;
 
-@property(nonatomic) BOOL isLocked;
+@property(nonatomic) BOOLisLocked;
 
-@property(nonatomic) BOOL isReleasePackage;
+@property(nonatomic) BOOLisReleasePackage;
 
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
-@property(nonatomic) NSString * userId;
+@property(nonatomic) NSString *userId;
 
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

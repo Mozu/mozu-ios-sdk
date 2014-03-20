@@ -11,7 +11,7 @@
 #import "MOZURuntimeProductPropertyValue.h"
 
 @implementation MOZURuntimeProductPropertyValue
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

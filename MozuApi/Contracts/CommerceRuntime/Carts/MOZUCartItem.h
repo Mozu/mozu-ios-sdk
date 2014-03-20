@@ -30,112 +30,112 @@
 /**
 The subtotal of the cart item including any applied discount calculations.
 */
-@property(nonatomic) NSNumber * discountedTotal;
+@property(nonatomic) NSNumber *discountedTotal;
 
 /**
 Estimated amount of discounts applied to the item in the cart, which is system-supplied and read-only.
 */
-@property(nonatomic) NSNumber * discountTotal;
+@property(nonatomic) NSNumber *discountTotal;
 
 /**
 Represents the total price of the cart item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
 */
-@property(nonatomic) NSNumber * extendedTotal;
+@property(nonatomic) NSNumber *extendedTotal;
 
 /**
 The total amount of all fees incurred for the item.
 */
-@property(nonatomic) NSNumber * feeTotal;
+@property(nonatomic) NSNumber *feeTotal;
 
 /**
 The location code associated with the location where this cart item will be fulfilled.
 */
-@property(nonatomic) NSString * fulfillmentLocationCode;
+@property(nonatomic) NSString *fulfillmentLocationCode;
 
 /**
 The method used to fulfill this cart item, which is direct ship or in-store pickup.
 */
-@property(nonatomic) NSString * fulfillmentMethod;
+@property(nonatomic) NSString *fulfillmentMethod;
 
 /**
 Unique identifier of the cart item.
 */
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
 /**
 If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.
 */
-@property(nonatomic) NSNumber * isRecurring;
+@property(nonatomic) NSNumber *isRecurring;
 
 /**
 If true, the entity is subject to tax based on the relevant tax rate.
 */
-@property(nonatomic) NSNumber * isTaxable;
+@property(nonatomic) NSNumber *isTaxable;
 
 /**
 The total amount of tax for the item in the cart.
 */
-@property(nonatomic) NSNumber * itemTaxTotal;
+@property(nonatomic) NSNumber *itemTaxTotal;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.
 */
-@property(nonatomic) NSString * localeCode;
+@property(nonatomic) NSString *localeCode;
 
 /**
 The specified quantity of the cart item.
 */
-@property(nonatomic) NSInteger quantity;
+@property(nonatomic) NSIntegerquantity;
 
 /**
 The total amount of tax incurred on the shipping charges in the cart.
 */
-@property(nonatomic) NSNumber * shippingTaxTotal;
+@property(nonatomic) NSNumber *shippingTaxTotal;
 
 /**
 The estimated total amount of shipping fees for the item in the cart.
 */
-@property(nonatomic) NSNumber * shippingTotal;
+@property(nonatomic) NSNumber *shippingTotal;
 
 /**
 Estimated amount of the item in the cart without sales tax, shipping costs, and other fees.
 */
-@property(nonatomic) NSNumber * subtotal;
+@property(nonatomic) NSNumber *subtotal;
 
 /**
 The amount of the item in the cart that is subject to tax.
 */
-@property(nonatomic) NSNumber * taxableTotal;
+@property(nonatomic) NSNumber *taxableTotal;
 
 /**
 Estimated total amount of the item, including the product price, sales tax, shipping costs, and other fees.
 */
-@property(nonatomic) NSNumber * total;
+@property(nonatomic) NSNumber *total;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
 The properties of the associated product.
 */
-@property(nonatomic) MOZUCommerceProduct* product;
+@property(nonatomic) MOZUCommerceProduct *product;
 
 /**
 List of product-level discounts projected to apply to the cart item at checkout.
 */
-@property(nonatomic) NSArray<MOZUAppliedProductDiscount>* productDiscounts;
+@property(nonatomic) NSArray<MOZUAppliedProductDiscount> *productDiscounts;
 
 /**
 List of shipping discounts projected to apply to the cart item at checkout.
 */
-@property(nonatomic) NSArray<MOZUShippingDiscount>* shippingDiscounts;
+@property(nonatomic) NSArray<MOZUShippingDiscount> *shippingDiscounts;
 
 /**
 Properties of the unit price associated with the cart item.
 */
-@property(nonatomic) MOZUCommerceUnitPrice* unitPrice;
+@property(nonatomic) MOZUCommerceUnitPrice *unitPrice;
 
 @end
 

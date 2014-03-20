@@ -17,16 +17,16 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetLocationUsagesOperation {
-	NSString* template = @"/api/commerce/settings/locationUsages/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetLocationUsagesOperation {
+	NSString *template = @"/api/commerce/settings/locationUsages/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetLocationUsageOperationWithCode:(NSString *)code {
-	NSString* template = @"/api/commerce/settings/locationUsages/{code}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetLocationUsageOperationWithCode:(NSString *)code {
+	NSString *template = @"/api/commerce/settings/locationUsages/{code}";
+	NSDictionary *params = @{
 		@"code" : code,
 	};
 
@@ -47,9 +47,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString *)code {
-	NSString* template = @"/api/commerce/settings/locationUsages/{code}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString *)code {
+	NSString *template = @"/api/commerce/settings/locationUsages/{code}";
+	NSDictionary *params = @{
 		@"code" : code,
 	};
 

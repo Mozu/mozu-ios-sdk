@@ -11,7 +11,7 @@
 #import "MOZUShippingOriginContact.h"
 
 @implementation MOZUShippingOriginContact
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit {
-	NSString* template = @"/api/commerce/wishlists/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit {
+	NSString *template = @"/api/commerce/wishlists/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}";
+	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
@@ -31,18 +31,18 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetWishlistOperationWithWishlistId:(NSString *)wishlistId {
-	NSString* template = @"/api/commerce/wishlists/{wishlistId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetWishlistOperationWithWishlistId:(NSString *)wishlistId {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}";
+	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName {
-	NSString* template = @"/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName {
+	NSString *template = @"/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}";
+	NSDictionary *params = @{
 		@"customerAccountId" : @(customerAccountId),
 		@"wishlistName" : wishlistName,
 	};
@@ -57,9 +57,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForCreateWishlistOperation {
-	NSString* template = @"/api/commerce/wishlists/";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForCreateWishlistOperation {
+	NSString *template = @"/api/commerce/wishlists/";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -71,9 +71,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateWishlistOperationWithWishlistId:(NSString *)wishlistId {
-	NSString* template = @"/api/commerce/wishlists/{wishlistId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateWishlistOperationWithWishlistId:(NSString *)wishlistId {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}";
+	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
 	};
 
@@ -87,9 +87,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteWishlistOperationWithWishlistId:(NSString *)wishlistId {
-	NSString* template = @"/api/commerce/wishlists/{wishlistId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteWishlistOperationWithWishlistId:(NSString *)wishlistId {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}";
+	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
 	};
 

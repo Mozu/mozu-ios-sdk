@@ -22,7 +22,7 @@ Resource Url Components for getShipment
 @param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
 @param shipmentId Unique identifier of the return replacement shipment to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId;
++ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId;
 
 
 //
@@ -35,7 +35,7 @@ Resource Url Components for getShipment
 Resource Url Components for createPackageShipments
 @param returnId Unique identifier of the return for which to create replacement package shipments.
 */
-+(MOZUURLComponents*)URLComponentsForCreatePackageShipmentsOperationWithReturnId:(NSString *)returnId;
++ (MOZUURLComponents *)URLComponentsForCreatePackageShipmentsOperationWithReturnId:(NSString *)returnId;
 
 
 //
@@ -56,7 +56,7 @@ Resource Url Components for deleteShipment
 @param returnId Unique identifier of the return associated with the replacement shipment to delete.
 @param shipmentId Unique identifier of the return replacement shipment to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId;
++ (MOZUURLComponents *)URLComponentsForDeleteShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId;
 
 
 

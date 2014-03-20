@@ -20,15 +20,15 @@
 
 @interface MOZUEventDeliveryAttempt : JSONModel<MOZUEventDeliveryAttempt>
 
-@property(nonatomic) NSString * deliveryStatus;
+@property(nonatomic) NSString *deliveryStatus;
 
-@property(nonatomic) NSString * errorType;
+@property(nonatomic) NSString *errorType;
 
-@property(nonatomic) NSDate * executionDate;
+@property(nonatomic) NSDate *executionDate;
 
-@property(nonatomic) NSString * message;
+@property(nonatomic) NSString *message;
 
-@property(nonatomic) MOZUHttpStatus* httpStatus;
+@property(nonatomic) MOZUHttpStatus *httpStatus;
 
 @end
 

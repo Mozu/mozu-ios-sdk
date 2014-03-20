@@ -11,7 +11,7 @@
 #import "MOZUEvent.h"
 
 @implementation MOZUEvent
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

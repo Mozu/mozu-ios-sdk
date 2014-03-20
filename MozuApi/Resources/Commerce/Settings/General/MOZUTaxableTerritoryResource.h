@@ -19,9 +19,9 @@
 @interface MOZUTaxableTerritoryResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -34,7 +34,7 @@
 Retrieves a list of the taxable territories configured for the site.
 */
 
--(void)taxableTerritoriesWithUserClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)taxableTerritoriesWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -48,7 +48,7 @@ Creates a new territory for which to calculate sales tax.
 @param body Properties of the taxable territory to create.
 */
 
--(void)addTaxableTerritoryWithBody:(MOZUTaxableTerritory*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUTaxableTerritory* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addTaxableTerritoryWithBody:(MOZUTaxableTerritory *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUTaxableTerritory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -62,7 +62,7 @@ Updates one or more taxable territories configured for a site.
 @param body Properties of the taxable territories to update.
 */
 
--(void)updateTaxableTerritoriesWithBody:(NSArray<MOZUTaxableTerritory>*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateTaxableTerritoriesWithBody:(NSArray<MOZUTaxableTerritory> *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUTaxableTerritory> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -25,12 +25,12 @@
 /**
 The name of the property type value.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 /**
 The data storage type associated with this property type value.
 */
-@property(nonatomic) NSString * storageType;
+@property(nonatomic) NSString *storageType;
 
 @end
 

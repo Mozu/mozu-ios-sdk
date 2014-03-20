@@ -11,7 +11,7 @@
 #import "MOZURuntimeCategory.h"
 
 @implementation MOZURuntimeCategory
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

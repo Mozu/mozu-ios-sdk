@@ -11,7 +11,7 @@
 #import "MOZUField.h"
 
 @implementation MOZUField
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

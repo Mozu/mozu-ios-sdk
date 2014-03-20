@@ -11,7 +11,7 @@
 #import "MOZUTenantMasterCatalog.h"
 
 @implementation MOZUTenantMasterCatalog
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

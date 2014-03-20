@@ -25,12 +25,12 @@
 /**
 If true, the property value is initialized.
 */
-@property(nonatomic) BOOL initialized;
+@property(nonatomic) BOOLinitialized;
 
 /**
 Value of the initializable third-party capability property.
 */
-@property(nonatomic) NSString * value;
+@property(nonatomic) NSString *value;
 
 @end
 

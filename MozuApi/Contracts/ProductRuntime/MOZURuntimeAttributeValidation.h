@@ -25,37 +25,37 @@
 /**
 System-supplied and read-only.
 */
-@property(nonatomic) NSDate * maxDateValue;
+@property(nonatomic) NSDate *maxDateValue;
 
 /**
 The maximum number of characters for the numeric length.
 */
-@property(nonatomic) double maxNumericValue;
+@property(nonatomic) doublemaxNumericValue;
 
 /**
 The maximum number of characters for the string length.
 */
-@property(nonatomic) NSNumber * maxStringLength;
+@property(nonatomic) NSNumber *maxStringLength;
 
 /**
 System-supplied and read-only.
 */
-@property(nonatomic) NSDate * minDateValue;
+@property(nonatomic) NSDate *minDateValue;
 
 /**
 The minimum number of characters for the numeric length.
 */
-@property(nonatomic) double minNumericValue;
+@property(nonatomic) doubleminNumericValue;
 
 /**
 The minimum character length of the string.
 */
-@property(nonatomic) NSNumber * minStringLength;
+@property(nonatomic) NSNumber *minStringLength;
 
 /**
 Regular expression used to process attribute values that require special formatting such as phone numbers.
 */
-@property(nonatomic) NSString * regularExpression;
+@property(nonatomic) NSString *regularExpression;
 
 @end
 

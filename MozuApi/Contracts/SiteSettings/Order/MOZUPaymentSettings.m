@@ -11,7 +11,7 @@
 #import "MOZUPaymentSettings.h"
 
 @implementation MOZUPaymentSettings
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

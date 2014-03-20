@@ -32,21 +32,21 @@ Retrieves a list of categories according to any specified filter criteria and so
 @param startIndex 
 */
 
-+(MOZUClient*)clientForGetCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the details of a single category.
 @param categoryId Unique identifier of the category to retrieve.
 */
 
-+(MOZUClient*)clientForGetCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the list of subcategories within a category.
 @param categoryId Unique identifier of the category for which to retrieve subcategories.
 */
 
-+(MOZUClient*)clientForGetChildCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetChildCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -60,7 +60,7 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 @param body Properties of the new category to create. You must specify a name and parent category if you want to create it as a subcategory.
 */
 
-+(MOZUClient*)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -76,7 +76,7 @@ Update the properties of a defined category or move it to another location in th
 @param categoryId Unique identifier of the category to modify.
 */
 
-+(MOZUClient*)clientForUpdateCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory*)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdateCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -91,7 +91,7 @@ Deletes the category specified by its category ID.
 @param categoryId Unique identifier of the category to delete.
 */
 
-+(MOZUClient*)clientForDeleteCategoryByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteCategoryByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

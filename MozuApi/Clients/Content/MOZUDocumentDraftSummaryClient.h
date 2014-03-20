@@ -29,7 +29,7 @@ Retrieves a list of the documents currently in draft state, according to any def
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+(MOZUClient*)clientForListDocumentDraftSummariesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForListDocumentDraftSummariesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -44,7 +44,7 @@ Deletes the drafts of the specified documents. Published documents cannot be del
 @param documentLists List of document lists that contain documents to delete.
 */
 
-+(MOZUClient*)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString *)body documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString *)body documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -59,7 +59,7 @@ Publish one or more document drafts to live content on the site.
 @param documentLists List of document lists that contain documents to publish.
 */
 
-+(MOZUClient*)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString *)body documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString *)body documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

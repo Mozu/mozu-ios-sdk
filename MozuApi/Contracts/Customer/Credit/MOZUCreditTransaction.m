@@ -11,7 +11,7 @@
 #import "MOZUCreditTransaction.h"
 
 @implementation MOZUCreditTransaction
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

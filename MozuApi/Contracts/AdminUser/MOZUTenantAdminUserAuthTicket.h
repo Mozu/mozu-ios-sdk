@@ -27,47 +27,47 @@
 /**
 Alphanumeric string used to authenticate the user in API request headers.
 */
-@property(nonatomic) NSString * accessToken;
+@property(nonatomic) NSString *accessToken;
 
 /**
 The date and time the user access token expires.
 */
-@property(nonatomic) NSDate * accessTokenExpiration;
+@property(nonatomic) NSDate *accessTokenExpiration;
 
 /**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
-@property(nonatomic) NSDate * createdOn;
+@property(nonatomic) NSDate *createdOn;
 
 /**
 Collection of behaviors encrypted in the user authentication ticket. Behaviors are granted to users as part of the role assigned for the given tenant or developer account.
 */
-@property(nonatomic) NSArray* grantedBehaviors;
+@property(nonatomic) NSArray *grantedBehaviors;
 
 /**
 Alphanumeric string used to generate a new user authentication ticket after the access token expires.
 */
-@property(nonatomic) NSString * refreshToken;
+@property(nonatomic) NSString *refreshToken;
 
 /**
 The date and time the user refresh token expires.
 */
-@property(nonatomic) NSDate * refreshTokenExpiration;
+@property(nonatomic) NSDate *refreshTokenExpiration;
 
 /**
 Collection of tenants for which the user authentication ticket grants access.
 */
-@property(nonatomic) NSArray<MOZUTenant>* availableTenants;
+@property(nonatomic) NSArray<MOZUTenant> *availableTenants;
 
 /**
 Tenant information associated with the user authentication ticket.
 */
-@property(nonatomic) MOZUTenant* tenant;
+@property(nonatomic) MOZUTenant *tenant;
 
 /**
 User information associated with the authentication ticket.
 */
-@property(nonatomic) MOZUUserProfile* user;
+@property(nonatomic) MOZUUserProfile *user;
 
 @end
 

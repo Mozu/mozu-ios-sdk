@@ -28,7 +28,7 @@ Retrieves a list of the fulfillment information for the specified order.
 @param orderId Unique identifier of the order.
 */
 
-+(MOZUClient*)clientForGetFulfillmentInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetFulfillmentInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -52,7 +52,7 @@ Updates one or more properties of fulfillment information for the specified orde
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+(MOZUClient*)clientForSetFulFillmentInfoOperationWithBody:(MOZUFulfillmentInfo*)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForSetFulFillmentInfoOperationWithBody:(MOZUFulfillmentInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

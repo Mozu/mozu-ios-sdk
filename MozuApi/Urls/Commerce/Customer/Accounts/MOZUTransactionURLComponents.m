@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetTransactionsOperationWithAccountId:(NSInteger)accountId {
-	NSString* template = @"/api/commerce/customer/accounts/{accountId}/transactions";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetTransactionsOperationWithAccountId:(NSInteger)accountId {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/transactions";
+	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 	};
 
@@ -33,9 +33,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId {
-	NSString* template = @"/api/commerce/customer/accounts/{accountId}/transactions";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/transactions";
+	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 	};
 
@@ -56,9 +56,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId {
-	NSString* template = @"/api/commerce/customer/accounts/{accountId}/transactions/{transactionId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/transactions/{transactionId}";
+	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 		@"transactionId" : transactionId,
 	};

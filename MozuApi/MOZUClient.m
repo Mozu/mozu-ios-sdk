@@ -17,15 +17,15 @@
 
 @interface MOZUClient()
 
-@property(nonatomic, strong) NSString* JSONResult;
+@property(nonatomic, strong) NSString *JSONResult;
 @property(nonatomic, strong) id result; // Is this needed?
 @property(nonatomic, assign) NSInteger statusCode;
-@property(nonatomic, strong) MOZUAPIError* error;
+@property(nonatomic, strong) MOZUAPIError *error;
 
 @property (nonatomic, strong) NSMutableDictionary *mutableHeaders;
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic, strong) MOZUURLComponents *resourceURLComponents;
-@property (nonatomic, strong) NSString * verb;
+@property (nonatomic, strong) NSString *verb;
 @property (nonatomic, strong) NSString *bodyString;
 @property (nonatomic, strong) NSDictionary *dataViewModeMap;
 
@@ -36,7 +36,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 
 @implementation MOZUClient
 
--(instancetype)init
+- (instancetype)init
 {
     if (self = [super init])
     {
@@ -147,7 +147,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         
         if (APIContext.tenantHost.length == 0) {
             id tenantRes = [[MOZUTenantResource alloc] init];
-            [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant* result, MOZUAPIError* error, NSHTTPURLResponse* response) {
+            [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     completion(result.domain, nil);
                 } else {
@@ -202,7 +202,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
 }
 
--(void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
+- (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
 {
     __block NSMutableURLRequest *request = [NSMutableURLRequest new];
     
@@ -244,7 +244,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     [request setHTTPMethod:self.verb];
     
     if (![self.verb isEqualToString:@"GET"]) {
-        NSData* body = [self.bodyString dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *body = [self.bodyString dataUsingEncoding:NSUTF8StringEncoding];
         [request setHTTPBody:body];
     }
     
@@ -254,7 +254,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                                                     self.statusCode = [httpResponse statusCode];
                                                     self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                     self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult error:error];

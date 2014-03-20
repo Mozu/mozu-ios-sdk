@@ -28,7 +28,7 @@ Retrieves the details of a package of return replacement items.
 @param returnId Unique identifier of the return associated with the replacement package to retrieve.
 */
 
-+(MOZUClient*)clientForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Retrieves the package label image supplied by the carrier for a return replacement.
@@ -36,7 +36,7 @@ Retrieves the package label image supplied by the carrier for a return replaceme
 @param returnId Unique identifier of the return associated with the replacement package label to retrieve.
 */
 
-+(MOZUClient*)clientForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -51,7 +51,7 @@ Creates a new physical package of return replacement items.
 @param returnId Unique identifier of the return for which to create a replacement package.
 */
 
-+(MOZUClient*)clientForCreatePackageOperationWithBody:(MOZUCommercePackage*)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUCommercePackage *)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -67,7 +67,7 @@ Updates one or more properties of a package associated with a return replacement
 @param returnId Unique identifier of the return associated with the replacement package to update.
 */
 
-+(MOZUClient*)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage*)body returnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //
@@ -82,7 +82,7 @@ Deletes a package associated with a return replacement.
 @param returnId Unique identifier of the return associated with the replacement package to delete.
 */
 
-+(MOZUClient*)clientForDeletePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDeletePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 

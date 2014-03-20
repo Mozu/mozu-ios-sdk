@@ -11,7 +11,7 @@
 #import "MOZUShippingRate.h"
 
 @implementation MOZUShippingRate
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

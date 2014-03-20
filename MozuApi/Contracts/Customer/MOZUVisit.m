@@ -11,7 +11,7 @@
 #import "MOZUVisit.h"
 
 @implementation MOZUVisit
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

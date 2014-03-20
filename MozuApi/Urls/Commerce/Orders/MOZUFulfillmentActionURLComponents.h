@@ -28,7 +28,7 @@
 Resource Url Components for performFulfillmentAction
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
 */
-+(MOZUURLComponents*)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString *)orderId;
 
 
 //

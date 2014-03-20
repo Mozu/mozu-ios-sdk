@@ -14,14 +14,14 @@
 
 
 @interface MOZUFulfillmentActionResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUFulfillmentActionResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -51,9 +51,9 @@ Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare i
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
 */
 
--(void)performFulfillmentActionWithBody:(MOZUFulfillmentAction*)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUOrder* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)performFulfillmentActionWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUFulfillmentActionClient clientForPerformFulfillmentActionOperationWithBody:body orderId:orderId userClaims:userClaims];
+	MOZUClient *client = [MOZUFulfillmentActionClient clientForPerformFulfillmentActionOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

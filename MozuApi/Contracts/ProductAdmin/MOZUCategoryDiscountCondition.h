@@ -25,7 +25,7 @@
 /**
 The unique identifier of the product category associated with the discount.
 */
-@property(nonatomic) NSInteger categoryId;
+@property(nonatomic) NSIntegercategoryId;
 
 @end
 

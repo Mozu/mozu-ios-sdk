@@ -11,7 +11,7 @@
 #import "MOZUPickupItem.h"
 
 @implementation MOZUPickupItem
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

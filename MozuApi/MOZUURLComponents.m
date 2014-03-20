@@ -39,10 +39,10 @@
 @implementation MOZUURLComponents
 
 
-- (instancetype)initWithTemplate:(NSString*)template
-                     parameters:(NSDictionary*)params
-                       location:(MOZUURLLocation)location
-                         useSSL:(BOOL)useSSL
+- (instancetype)initWithTemplate:(NSString *)template
+                      parameters:(NSDictionary *)params
+                        location:(MOZUURLLocation)location
+                          useSSL:(BOOL)useSSL
 {
     
     if (self = [super init]) {
@@ -119,8 +119,8 @@
 + (void)substituteValue:(id)value parameterName:(NSString *)paramName string:(NSMutableString *)string
 {
     DDLogDebug(@"Before: %@", string);
-    NSString* replacementPattern = [NSString stringWithFormat:@"{%@}", paramName];
-    NSString* valueStr = value ? [NSString stringWithFormat:@"%@", value] : @"";
+    NSString *replacementPattern = [NSString stringWithFormat:@"{%@}", paramName];
+    NSString *valueStr = value ? [NSString stringWithFormat:@"%@", value] : @"";
     
     [string replaceOccurrencesOfString:replacementPattern withString:valueStr options:0 range:NSMakeRange(0, [string length])];
     
@@ -128,7 +128,7 @@
     [string replaceOccurrencesOfString:replacementPattern withString:valueStr options:0 range:NSMakeRange(0, [string length])];
     
     // Removes parameters with no values (i.e. empty strings).
-    NSString* removeString = [NSString stringWithFormat:@"%@=", paramName];
+    NSString *removeString = [NSString stringWithFormat:@"%@=", paramName];
     if ([value isEqual:@""] && [string rangeOfString:removeString].location != NSNotFound) {
         [string replaceOccurrencesOfString:removeString withString:@"" options:0 range:NSMakeRange(0, [string length])];
     }
@@ -138,7 +138,7 @@
 
 + (void)postProcessPath:(NSMutableString *)path
 {
-    NSString* removeString = nil;
+    NSString *removeString = nil;
     
     // Remove //
     removeString = @"//";
@@ -147,7 +147,7 @@
 
 + (void)postProcessQuery:(NSMutableString *)query
 {
-    NSString* removeString = nil;
+    NSString *removeString = nil;
     
     // Remove duplicate &&
     removeString = @"&&";

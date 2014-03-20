@@ -21,9 +21,9 @@
 @interface MOZUAdminProductResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
 
 //
@@ -43,21 +43,21 @@ Retrieves a list of products according to any specified facets, filter criteria,
 @param startIndex 
 */
 
--(void)productsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProductCollection* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)productsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of a product definition.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)productWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProduct* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)productWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a product that is associated with one or more specific catalogs.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)productInCatalogsWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductInCatalogInfo>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)productInCatalogsWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUProductInCatalogInfo> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of a product associated with a specific catalog.
@@ -65,7 +65,7 @@ Retrieves the details of a product associated with a specific catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)productInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductInCatalogInfo* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)productInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductInCatalogInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -79,7 +79,7 @@ Creates a new product definition in the specified master catalog.
 @param body Properties of the new product. You must supply values for the product code, product name, and price.
 */
 
--(void)addProductWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProduct* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addProductWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Associates a new product defined in the master catalog with a specific catalog.
@@ -87,7 +87,7 @@ Associates a new product defined in the master catalog with a specific catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)addProductInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductInCatalogInfo* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)addProductInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductInCatalogInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -102,7 +102,7 @@ Updates one or more properties of a product definition in a master catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)updateProductWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAdminProduct* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateProductWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Updates the properties of a product specific to each catalog associated with the product.
@@ -110,7 +110,7 @@ Updates the properties of a product specific to each catalog associated with the
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)updateProductInCatalogsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductInCatalogInfo>*)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUProductInCatalogInfo>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateProductInCatalogsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductInCatalogInfo> *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUProductInCatalogInfo> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Updates one or more properties of a product associated with a specific catalog.
@@ -119,7 +119,7 @@ Updates one or more properties of a product associated with a specific catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)updateProductInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo*)body productCode:(NSString *)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUProductInCatalogInfo* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateProductInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductInCatalogInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -133,7 +133,7 @@ Deletes the specified product from a master catalog.
 @param productCode 
 */
 
--(void)deleteProductWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteProductWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Removes the product association defined for a specific catalog.
@@ -141,7 +141,7 @@ Removes the product association defined for a specific catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
--(void)deleteProductInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)deleteProductInCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode catalogId:(NSInteger)catalogId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

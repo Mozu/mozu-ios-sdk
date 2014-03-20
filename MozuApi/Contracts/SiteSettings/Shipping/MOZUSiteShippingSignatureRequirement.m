@@ -11,7 +11,7 @@
 #import "MOZUSiteShippingSignatureRequirement.h"
 
 @implementation MOZUSiteShippingSignatureRequirement
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

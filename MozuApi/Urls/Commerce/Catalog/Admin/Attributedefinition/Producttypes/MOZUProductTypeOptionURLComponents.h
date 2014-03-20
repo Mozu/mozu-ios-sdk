@@ -21,14 +21,14 @@
 Resource Url Components for getOptions
 @param productTypeId Identifier of the product type to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetOptionsOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForGetOptionsOperationWithProductTypeId:(NSInteger)productTypeId;
 
 /**
 Resource Url Components for getOption
 @param productTypeId The identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForGetOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -41,7 +41,7 @@ Resource Url Components for getOption
 Resource Url Components for addOption
 @param productTypeId Identifier of the product type.
 */
-+(MOZUURLComponents*)URLComponentsForAddOptionOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForAddOptionOperationWithProductTypeId:(NSInteger)productTypeId;
 
 
 //
@@ -55,7 +55,7 @@ Resource Url Components for updateOption
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForUpdateOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -69,7 +69,7 @@ Resource Url Components for deleteOption
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForDeleteOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
 
 
 

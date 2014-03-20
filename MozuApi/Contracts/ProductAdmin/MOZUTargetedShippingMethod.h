@@ -25,12 +25,12 @@
 /**
 The code associated with the carrier's shipping method service type. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD
 */
-@property(nonatomic) NSString * code;
+@property(nonatomic) NSString *code;
 
 /**
 Name of the shipping method service type associated with the targeted discount.
 */
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString *name;
 
 @end
 

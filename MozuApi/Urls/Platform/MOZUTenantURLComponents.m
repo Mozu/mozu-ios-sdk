@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId {
-	NSString* template = @"/api/platform/tenants/{tenantId}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId {
+	NSString *template = @"/api/platform/tenants/{tenantId}";
+	NSDictionary *params = @{
 		@"tenantId" : @(tenantId),
 	};
 

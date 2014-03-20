@@ -25,37 +25,37 @@
 /**
 The masked credit card number part returned from the payment gateway.
 */
-@property(nonatomic) NSString * cardNumberPart;
+@property(nonatomic) NSString *cardNumberPart;
 
 /**
 The type of credit card, such as Visa or Amex.
 */
-@property(nonatomic) NSString * cardType;
+@property(nonatomic) NSString *cardType;
 
 /**
 Unique identifier of the customer account contact associated with the credit card.
 */
-@property(nonatomic) NSInteger contactId;
+@property(nonatomic) NSIntegercontactId;
 
 /**
 The two-digit month the credit card expires.
 */
-@property(nonatomic) short expireMonth;
+@property(nonatomic) shortexpireMonth;
 
 /**
 The four-digit year the credit card expires.
 */
-@property(nonatomic) short expireYear;
+@property(nonatomic) shortexpireYear;
 
 /**
 Unique ID of the credit card for the customer account. This identifier is separate from the credit card number.
 */
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
 /**
 The name printed on the credit card.
 */
-@property(nonatomic) NSString * nameOnCard;
+@property(nonatomic) NSString *nameOnCard;
 
 @end
 

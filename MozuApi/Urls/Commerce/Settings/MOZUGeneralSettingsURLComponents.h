@@ -20,7 +20,7 @@
 /**
 Resource Url Components for getGeneralSettings
 */
-+(MOZUURLComponents*)URLComponentsForGetGeneralSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForGetGeneralSettingsOperation;
 
 
 //
@@ -39,7 +39,7 @@ Resource Url Components for getGeneralSettings
 /**
 Resource Url Components for updateGeneralSettings
 */
-+(MOZUURLComponents*)URLComponentsForUpdateGeneralSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForUpdateGeneralSettingsOperation;
 
 
 //

@@ -27,7 +27,7 @@
 /**
 Resource Url Components for getRates
 */
-+(MOZUURLComponents*)URLComponentsForGetRatesOperation;
++ (MOZUURLComponents *)URLComponentsForGetRatesOperation;
 
 
 //

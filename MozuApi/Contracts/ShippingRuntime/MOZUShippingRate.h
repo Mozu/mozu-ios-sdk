@@ -29,34 +29,34 @@
 /**
 The total calculated shipping amount requested for the package or shipment.
 */
-@property(nonatomic) NSNumber * amount;
+@property(nonatomic) NSNumber *amount;
 
 /**
 The carrier-defined alphanumeric code associated with this shipping rate.
 */
-@property(nonatomic) NSString * code;
+@property(nonatomic) NSString *code;
 
-@property(nonatomic) NSNumber * daysInTransit;
+@property(nonatomic) NSNumber *daysInTransit;
 
 /**
 Localized content for a shipping rate based on the defined locale code.
 */
-@property(nonatomic) MOZUShippingRateLocalizedContent* content;
+@property(nonatomic) MOZUShippingRateLocalizedContent *content;
 
 /**
 Collection of carrier-specific key-value attribute pairs required to retrieve a shipping rate request.
 */
-@property(nonatomic) NSArray<MOZUCustomAttribute>* customAttributes;
+@property(nonatomic) NSArray<MOZUCustomAttribute> *customAttributes;
 
 /**
 Array list of success/failure messages associated with the shipping rate validation.
 */
-@property(nonatomic) NSArray<MOZUShippingRateValidationMessage>* messages;
+@property(nonatomic) NSArray<MOZUShippingRateValidationMessage> *messages;
 
 /**
 Properties of a calculated shipping rate for individual line items in a shipment.
 */
-@property(nonatomic) NSArray<MOZUShippingItemRate>* shippingItemRates;
+@property(nonatomic) NSArray<MOZUShippingItemRate> *shippingItemRates;
 
 @end
 

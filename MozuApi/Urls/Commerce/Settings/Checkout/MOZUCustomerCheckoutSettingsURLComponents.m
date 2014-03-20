@@ -17,9 +17,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetCustomerCheckoutSettingsOperation {
-	NSString* template = @"/api/commerce/settings/checkout/customercheckoutsettings";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForGetCustomerCheckoutSettingsOperation {
+	NSString *template = @"/api/commerce/settings/checkout/customercheckoutsettings";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -38,9 +38,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateCustomerCheckoutSettingsOperation {
-	NSString* template = @"/api/commerce/settings/checkout/customercheckoutsettings";
-	NSDictionary* params = nil;
++ (MOZUURLComponents *)URLComponentsForUpdateCustomerCheckoutSettingsOperation {
+	NSString *template = @"/api/commerce/settings/checkout/customercheckoutsettings";
+	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

@@ -14,14 +14,14 @@
 
 
 @interface MOZUDiscountTargetResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUDiscountTargetResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -43,9 +43,9 @@ Retrieves the discount target, that is which products, categories, or shipping m
 @param discountId Unique identifier of the discount. System-supplied and read only.
 */
 
--(void)discountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountTarget* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)discountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDiscountTarget *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDiscountTargetClient clientForGetDiscountTargetOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
+	MOZUClient *client = [MOZUDiscountTargetClient clientForGetDiscountTargetOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {
@@ -74,9 +74,9 @@ Modifies properties of the discount target, for example, the dollar amount, or p
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
--(void)updateDiscountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget*)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(MOZUDiscountTarget* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)updateDiscountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget *)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDiscountTarget *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUDiscountTargetClient clientForUpdateDiscountTargetOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
+	MOZUClient *client = [MOZUDiscountTargetClient clientForUpdateDiscountTargetOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

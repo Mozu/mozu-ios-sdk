@@ -11,7 +11,7 @@
 #import "MOZUProductPurchasableState.h"
 
 @implementation MOZUProductPurchasableState
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

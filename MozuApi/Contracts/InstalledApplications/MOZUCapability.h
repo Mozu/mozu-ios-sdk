@@ -23,33 +23,33 @@
 
 @interface MOZUCapability : JSONModel<MOZUCapability>
 
-@property(nonatomic) NSArray* activeCreditTypes;
+@property(nonatomic) NSArray *activeCreditTypes;
 
-@property(nonatomic) NSArray* activeShoppingCountries;
+@property(nonatomic) NSArray *activeShoppingCountries;
 
-@property(nonatomic) NSString * capabilityMode;
+@property(nonatomic) NSString *capabilityMode;
 
-@property(nonatomic) NSString * capabilityType;
+@property(nonatomic) NSString *capabilityType;
 
-@property(nonatomic) NSNumber * enabled;
+@property(nonatomic) NSNumber *enabled;
 
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
-@property(nonatomic) NSNumber * initialized;
+@property(nonatomic) NSNumber *initialized;
 
-@property(nonatomic) NSNumber * scopeId;
+@property(nonatomic) NSNumber *scopeId;
 
-@property(nonatomic) NSString * scopeType;
+@property(nonatomic) NSString *scopeType;
 
-@property(nonatomic) NSArray<MOZUActiveShippingCountry>* activeShippingCountries;
+@property(nonatomic) NSArray<MOZUActiveShippingCountry> *activeShippingCountries;
 
-@property(nonatomic) NSArray<MOZUOperationUrl>* operationUrls;
+@property(nonatomic) NSArray<MOZUOperationUrl> *operationUrls;
 
-@property(nonatomic) NSArray<MOZUInitializablePropertyValue>* supportedCreditTypes;
+@property(nonatomic) NSArray<MOZUInitializablePropertyValue> *supportedCreditTypes;
 
-@property(nonatomic) NSArray<MOZUInitializableShippingCountryPropertyValue>* supportedShippingCountries;
+@property(nonatomic) NSArray<MOZUInitializableShippingCountryPropertyValue> *supportedShippingCountries;
 
-@property(nonatomic) NSArray<MOZUInitializablePropertyValue>* supportedShoppingCountries;
+@property(nonatomic) NSArray<MOZUInitializablePropertyValue> *supportedShoppingCountries;
 
 @end
 

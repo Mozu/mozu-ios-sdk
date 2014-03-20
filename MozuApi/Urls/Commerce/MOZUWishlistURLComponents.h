@@ -26,20 +26,20 @@ Resource Url Components for getWishlists
 @param q A list of search terms to use in the query when searching across wish list name. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 */
-+(MOZUURLComponents*)URLComponentsForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit;
++ (MOZUURLComponents *)URLComponentsForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit;
 
 /**
 Resource Url Components for getWishlist
 @param wishlistId Unique identifier of the shopper wish list to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetWishlistOperationWithWishlistId:(NSString *)wishlistId;
++ (MOZUURLComponents *)URLComponentsForGetWishlistOperationWithWishlistId:(NSString *)wishlistId;
 
 /**
 Resource Url Components for getWishlistByName
 @param customerAccountId The unique identifier of the customer account for which to retrieve wish lists.
 @param wishlistName The name of the wish list to retrieve.
 */
-+(MOZUURLComponents*)URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName;
++ (MOZUURLComponents *)URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName;
 
 
 //
@@ -51,7 +51,7 @@ Resource Url Components for getWishlistByName
 /**
 Resource Url Components for createWishlist
 */
-+(MOZUURLComponents*)URLComponentsForCreateWishlistOperation;
++ (MOZUURLComponents *)URLComponentsForCreateWishlistOperation;
 
 
 //
@@ -64,7 +64,7 @@ Resource Url Components for createWishlist
 Resource Url Components for updateWishlist
 @param wishlistId Unique identifier of the shopper wish list to update.
 */
-+(MOZUURLComponents*)URLComponentsForUpdateWishlistOperationWithWishlistId:(NSString *)wishlistId;
++ (MOZUURLComponents *)URLComponentsForUpdateWishlistOperationWithWishlistId:(NSString *)wishlistId;
 
 
 //
@@ -77,7 +77,7 @@ Resource Url Components for updateWishlist
 Resource Url Components for deleteWishlist
 @param wishlistId Unique identifier of the wish list to delete.
 */
-+(MOZUURLComponents*)URLComponentsForDeleteWishlistOperationWithWishlistId:(NSString *)wishlistId;
++ (MOZUURLComponents *)URLComponentsForDeleteWishlistOperationWithWishlistId:(NSString *)wishlistId;
 
 
 

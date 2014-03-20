@@ -12,8 +12,8 @@
 
 @property (nonatomic, readwrite) NSTimeInterval accessTokenExpirationInterval;
 @property (nonatomic, readwrite) NSTimeInterval refreshTokenExpirationInterval;
-@property (nonatomic, readwrite) NSDate* accessTokenExpirationDate;
-@property (nonatomic, readwrite) NSDate* refreshTokenExpirationDate;
+@property (nonatomic, readwrite) NSDate *accessTokenExpirationDate;
+@property (nonatomic, readwrite) NSDate *refreshTokenExpirationDate;
 
 @end
 

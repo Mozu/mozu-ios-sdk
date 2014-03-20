@@ -34,14 +34,14 @@ Deletes the draft version of product changes for each product code specified in 
 @param body Properties of the pending product changes to include in this operation.
 */
 
-+(MOZUClient*)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
 Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
 @param body Properties of the pending product changes to include in this operation.
 */
 
-+(MOZUClient*)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope*)body userClaims:(MOZUUserAuthTicket*)userClaims;
++ (MOZUClient *)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body userClaims:(MOZUUserAuthTicket *)userClaims;
 
 
 //

@@ -31,9 +31,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode {
-	NSString* template = @"/api/commerce/carts/{cartId}/coupons/{couponCode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode {
+	NSString *template = @"/api/commerce/carts/{cartId}/coupons/{couponCode}";
+	NSDictionary *params = @{
 		@"cartId" : cartId,
 		@"couponCode" : couponCode,
 	};
@@ -48,18 +48,18 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRemoveCouponsOperationWithCartId:(NSString *)cartId {
-	NSString* template = @"/api/commerce/carts/{cartId}/coupons";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRemoveCouponsOperationWithCartId:(NSString *)cartId {
+	NSString *template = @"/api/commerce/carts/{cartId}/coupons";
+	NSDictionary *params = @{
 		@"cartId" : cartId,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode {
-	NSString* template = @"/api/commerce/carts/{cartId}/coupons/{couponcode}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode {
+	NSString *template = @"/api/commerce/carts/{cartId}/coupons/{couponcode}";
+	NSDictionary *params = @{
 		@"cartId" : cartId,
 		@"couponCode" : couponCode,
 	};

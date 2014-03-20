@@ -14,14 +14,14 @@
 
 
 @interface MOZUContentFacetResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
 @implementation MOZUContentFacetResource
 
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -44,9 +44,9 @@ Retrieves the properties of facets that aid in indexing and searching.
 @param propertyName The property name associated with the facets to retrieve.
 */
 
--(void)facetsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName propertyName:(NSString *)propertyName userClaims:(MOZUUserAuthTicket*)userClaims completionHandler:(void(^)(NSArray<MOZUContentFacet>* result, MOZUAPIError* error, NSHTTPURLResponse* response))handler
+- (void)facetsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName propertyName:(NSString *)propertyName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUContentFacet> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient * client = [MOZUContentFacetClient clientForGetFacetsOperationWithDataViewMode:dataViewMode documentListName:documentListName propertyName:propertyName userClaims:userClaims];
+	MOZUClient *client = [MOZUContentFacetClient clientForGetFacetsOperationWithDataViewMode:dataViewMode documentListName:documentListName propertyName:propertyName userClaims:userClaims];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
 		if (handler != nil) {

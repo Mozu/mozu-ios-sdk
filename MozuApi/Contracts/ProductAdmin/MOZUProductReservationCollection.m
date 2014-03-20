@@ -11,7 +11,7 @@
 #import "MOZUProductReservationCollection.h"
 
 @implementation MOZUProductReservationCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

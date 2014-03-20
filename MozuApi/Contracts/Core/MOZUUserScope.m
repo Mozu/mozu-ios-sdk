@@ -11,7 +11,7 @@
 #import "MOZUUserScope.h"
 
 @implementation MOZUUserScope
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

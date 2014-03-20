@@ -11,7 +11,7 @@
 #import "MOZUResetPasswordInfo.h"
 
 @implementation MOZUResetPasswordInfo
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

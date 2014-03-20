@@ -35,10 +35,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForApplyShippingAdjustmentOperationWithBody:(MOZUAdjustment*)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForApplyShippingAdjustmentOperationWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdjustmentURLComponents URLComponentsForApplyShippingAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -50,10 +50,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForApplyAdjustmentOperationWithBody:(MOZUAdjustment*)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForApplyAdjustmentOperationWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdjustmentURLComponents URLComponentsForApplyAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 	client.userClaims = userClaims;
@@ -72,10 +72,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForRemoveShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForRemoveShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdjustmentURLComponents URLComponentsForRemoveShippingAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
@@ -86,10 +86,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForRemoveAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForRemoveAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdjustmentURLComponents URLComponentsForRemoveAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 

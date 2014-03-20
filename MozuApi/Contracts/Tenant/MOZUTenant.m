@@ -11,7 +11,7 @@
 #import "MOZUTenant.h"
 
 @implementation MOZUTenant
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

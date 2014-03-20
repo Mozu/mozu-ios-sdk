@@ -21,15 +21,15 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUPaymentSettingsURLComponents URLComponentsForGetThirdPartyPaymentWorkflowsOperation];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUExternalPaymentWorkflowDefinition arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 

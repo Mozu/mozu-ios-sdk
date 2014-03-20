@@ -31,9 +31,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString* template = @"/api/commerce/orders/{orderId}/coupons/{couponCode}?updatemode={updateMode}&version={version}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version {
+	NSString *template = @"/api/commerce/orders/{orderId}/coupons/{couponCode}?updatemode={updateMode}&version={version}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"couponCode" : couponCode,
 		@"updateMode" : updateMode ? updateMode : @"",
@@ -50,9 +50,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForRemoveCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString* template = @"/api/commerce/orders/{orderId}/coupons/{couponcode}?updatemode={updateMode}&version={version}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRemoveCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version {
+	NSString *template = @"/api/commerce/orders/{orderId}/coupons/{couponcode}?updatemode={updateMode}&version={version}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"couponCode" : couponCode,
 		@"updateMode" : updateMode ? updateMode : @"",
@@ -62,9 +62,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForRemoveCouponsOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString* template = @"/api/commerce/orders/{orderId}/coupons?updatemode={updateMode}&version={version}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForRemoveCouponsOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
+	NSString *template = @"/api/commerce/orders/{orderId}/coupons?updatemode={updateMode}&version={version}";
+	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",

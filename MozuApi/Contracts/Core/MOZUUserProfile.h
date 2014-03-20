@@ -25,27 +25,27 @@
 /**
 The email address of the specified user or the email address associated with the specified entity.
 */
-@property(nonatomic) NSString * emailAddress;
+@property(nonatomic) NSString *emailAddress;
 
 /**
 The first name of the contact. The maximum character length is 200.
 */
-@property(nonatomic) NSString * firstName;
+@property(nonatomic) NSString *firstName;
 
 /**
 The last name or surname of the contact. The maximum character length is 200.
 */
-@property(nonatomic) NSString * lastName;
+@property(nonatomic) NSString *lastName;
 
 /**
 Identifier of the user.
 */
-@property(nonatomic) NSString * userId;
+@property(nonatomic) NSString *userId;
 
 /**
 The user name associated with the user profile.
 */
-@property(nonatomic) NSString * userName;
+@property(nonatomic) NSString *userName;
 
 @end
 

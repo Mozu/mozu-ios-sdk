@@ -27,22 +27,22 @@
 /**
 If true, the credential fields for the gateway are configured with valid values. For security purposes, Mozu does not return the credential fields for the gateway subresource.
 */
-@property(nonatomic) BOOL areGatewayCredentialFieldsSet;
+@property(nonatomic) BOOLareGatewayCredentialFieldsSet;
 
 /**
 The types of credit cards the merchant supports using this payment gateway.
 */
-@property(nonatomic) NSArray* supportedCards;
+@property(nonatomic) NSArray *supportedCards;
 
 /**
 Account information associated with the specified payment gateway.
 */
-@property(nonatomic) MOZUGatewayAccount* gatewayAccount;
+@property(nonatomic) MOZUGatewayAccount *gatewayAccount;
 
 /**
 Properties of the payment gateway definition.
 */
-@property(nonatomic) MOZUGatewayDefinition* gatewayDefinition;
+@property(nonatomic) MOZUGatewayDefinition *gatewayDefinition;
 
 @end
 

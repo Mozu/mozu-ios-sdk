@@ -22,10 +22,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForGetLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForGetLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -39,10 +39,10 @@
 	return client;
 }
 
-+(MOZUClient*)clientForGetLocationInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForGetLocationInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForGetLocationInventoriesOperationWithLocationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -63,10 +63,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory>*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForAddLocationInventoryOperationWithLocationCode:locationCode];
 	id verb = @"POST";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -75,7 +75,7 @@
 	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUAdminLocationInventory arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
@@ -89,10 +89,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment>*)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment> *)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForUpdateLocationInventoryOperationWithLocationCode:locationCode];
 	id verb = @"PUT";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -101,7 +101,7 @@
 	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray * jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUAdminLocationInventory arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
@@ -115,10 +115,10 @@
 #pragma mark -
 //
 
-+(MOZUClient*)clientForDeleteLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket*)userClaims {
++ (MOZUClient *)clientForDeleteLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims {
 	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForDeleteLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
 	id verb = @"DELETE";
-	MOZUClient* client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];

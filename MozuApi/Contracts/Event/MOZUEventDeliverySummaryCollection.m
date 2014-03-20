@@ -11,7 +11,7 @@
 #import "MOZUEventDeliverySummaryCollection.h"
 
 @implementation MOZUEventDeliverySummaryCollection
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
 }

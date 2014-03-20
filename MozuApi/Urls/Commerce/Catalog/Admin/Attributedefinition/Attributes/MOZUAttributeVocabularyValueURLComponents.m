@@ -17,18 +17,18 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForGetAttributeVocabularyValuesOperationWithAttributeFQN:(NSString *)attributeFQN {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetAttributeVocabularyValuesOperationWithAttributeFQN:(NSString *)attributeFQN {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
+	NSDictionary *params = @{
 		@"attributeFQN" : attributeFQN,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForGetAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForGetAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
+	NSDictionary *params = @{
 		@"attributeFQN" : attributeFQN,
 		@"value" : value,
 	};
@@ -43,9 +43,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForAddAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForAddAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
+	NSDictionary *params = @{
 		@"attributeFQN" : attributeFQN,
 	};
 
@@ -59,18 +59,18 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:(NSString *)attributeFQN {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:(NSString *)attributeFQN {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
+	NSDictionary *params = @{
 		@"attributeFQN" : attributeFQN,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+(MOZUURLComponents*)URLComponentsForUpdateAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForUpdateAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
+	NSDictionary *params = @{
 		@"attributeFQN" : attributeFQN,
 		@"value" : value,
 	};
@@ -85,9 +85,9 @@
 #pragma mark -
 //
 
-+(MOZUURLComponents*)URLComponentsForDeleteAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value {
-	NSString* template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
-	NSDictionary* params = @{
++ (MOZUURLComponents *)URLComponentsForDeleteAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
+	NSDictionary *params = @{
 		@"attributeFQN" : attributeFQN,
 		@"value" : value,
 	};

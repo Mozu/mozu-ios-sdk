@@ -25,11 +25,11 @@
 /**
 If true, the system cannot apply any discounts to this product. Discount restrictions are defined at the master catalog level. Client administrators cannot override discount restrictions at the catalog level, but they can limit the restriction to a defined time interval.
 */
-@property(nonatomic) NSNumber * discountsRestricted;
+@property(nonatomic) NSNumber *discountsRestricted;
 
-@property(nonatomic) NSDate * discountsRestrictedEndDate;
+@property(nonatomic) NSDate *discountsRestrictedEndDate;
 
-@property(nonatomic) NSDate * discountsRestrictedStartDate;
+@property(nonatomic) NSDate *discountsRestrictedStartDate;
 
 @end
 

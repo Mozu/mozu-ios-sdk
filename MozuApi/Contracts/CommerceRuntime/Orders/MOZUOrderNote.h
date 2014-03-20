@@ -26,17 +26,17 @@
 /**
 Unique identifier of the order note.
 */
-@property(nonatomic) NSString * id;
+@property(nonatomic) NSString *id;
 
 /**
 The text content of the order note.
 */
-@property(nonatomic) NSString * text;
+@property(nonatomic) NSString *text;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
-@property(nonatomic) MOZUAuditInfo* auditInfo;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

@@ -15,7 +15,7 @@
 	unsigned char output[outputLength];
 	
 	CC_SHA256(self.UTF8String, (unsigned int)[self lengthOfBytesUsingEncoding:NSUTF8StringEncoding], output);
-    NSData* data = [NSData dataWithBytes:(const void *)output length:outputLength];
+    NSData *data = [NSData dataWithBytes:(const void *)output length:outputLength];
 	return [data base64EncodedStringWithOptions:0];
     
 }
