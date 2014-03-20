@@ -44,7 +44,7 @@ typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
 	@param useSSL Determines whether to use http or https.
 	@param refreshInterval (Optional) This overrides the MOZURefreshInterval provided by the API service.
 	@param completion Called when authentication succeeds or fails. Check MOZUAPIError object passed in. 
-	@returns
+	@returns none
  */
 - (void)authenticateWithAuthInfo:(MOZUAppAuthInfo *)appAuthInfo
                          appHost:(NSString *)host

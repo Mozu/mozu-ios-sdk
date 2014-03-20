@@ -15,7 +15,11 @@ typedef NS_ENUM(NSUInteger, MOZUURLLocation) {
 
 @interface MOZUURLComponents : NSObject
 
+/**
+ Returns a URL created from the MOZUURLComponents. The path component must not start with "//". If those requirements are not met, nil is returned.
+ */
 @property (nonatomic, strong, readonly) NSURL *URL;
+
 @property (nonatomic, assign, readonly) MOZUURLLocation location;
 @property (nonatomic, assign, readonly) BOOL useSSL;
 @property (nonatomic, strong, readonly) NSString *scheme; // Attempting to set the scheme with an invalid scheme string will cause an exception.
