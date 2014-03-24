@@ -19,19 +19,29 @@
 
 
 /**
-	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchant intends to sell the product.
+	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchang intends to sell the product.
 */
 @interface MOZURuntimeProductPrice : JSONModel<MOZURuntimeProductPrice>
+
+@property(nonatomic) NSNumber * catalogListPrice;
+
+@property(nonatomic) NSNumber * catalogSalePrice;
+
+@property(nonatomic) NSNumber * msrp;
 
 /**
 The price the merchant intends to charge for the product.
 */
 @property(nonatomic) NSNumber * price;
 
+@property(nonatomic) NSString * priceType;
+
 /**
 The sale price defined for the product.
 */
 @property(nonatomic) NSNumber * salePrice;
+
+@property(nonatomic) NSString * salePriceType;
 
 /**
 The discount applied to the product price.

@@ -28,9 +28,6 @@ Identifier of the entity.
 */
 @property(nonatomic) NSNumber * id;
 
-/**
-Code that identifies the location associated with this product reservation.
-*/
 @property(nonatomic) NSString * locationCode;
 
 /**
@@ -49,12 +46,12 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 @property(nonatomic) NSString * productCode;
 
 /**
-The quantity of items associated with the product reservation.
+Inventory count.
 */
 @property(nonatomic) NSInteger quantity;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

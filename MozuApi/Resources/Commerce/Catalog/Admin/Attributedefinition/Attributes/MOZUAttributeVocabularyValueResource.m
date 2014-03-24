@@ -39,7 +39,7 @@
 //
 
 /**
-Retrieves a list of vocabulary values defined for the attribute specified in the request.
+Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
@@ -55,7 +55,7 @@ Retrieves a list of vocabulary values defined for the attribute specified in the
 }
 
 /**
-Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
+Retrieves an attribute vocabulary value by providing the attribute FQN and value.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
@@ -79,7 +79,7 @@ Retrieves the details of a vocabulary value defined for an attribute by providin
 //
 
 /**
-Creates a vocabulary value for a defined product attribute.
+Adds a new attribute vocabulary value.
 @param body The predefined vocabulary value to add to the attribute content.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */

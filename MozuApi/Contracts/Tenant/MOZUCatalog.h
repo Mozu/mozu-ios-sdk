@@ -17,40 +17,22 @@
 @end
 
 
-/**
-	Properties of an individual product catalog.
-*/
 @interface MOZUCatalog : JSONModel<MOZUCatalog>
 
 @property(nonatomic) NSDate * createDate;
 
-/**
-The default currency code for the product catalog. Currently, only "USD" is supported.
-*/
 @property(nonatomic) NSString * defaultCurrencyCode;
 
-/**
-The default locale code for the product catalog. Currently, only "en-US" is supported.
-*/
 @property(nonatomic) NSString * defaultLocaleCode;
 
-/**
-The date and time the catalog was deleted.
-*/
 @property(nonatomic) NSDate * deleteDate;
 
 @property(nonatomic) NSInteger id;
 
-/**
-If true, the catalog has been deleted.
-*/
 @property(nonatomic) BOOL isDeleted;
 
 @property(nonatomic) NSInteger masterCatalogId;
 
-/**
-The user-defined name of the product catalog.
-*/
 @property(nonatomic) NSString * name;
 
 @property(nonatomic) NSString * status;

@@ -31,8 +31,8 @@
 //
 
 /**
-Generates a new authentication ticket for a customer account.
-@param body The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
+
+@param body 
 */
 
 + (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUCustomerUserAuthInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -45,8 +45,8 @@ Generates a new authentication ticket for a customer account.
 //
 
 /**
-Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
-@param refreshToken The refresh token string required to refresh a user's authentication ticket.
+
+@param refreshToken 
 */
 
 + (MOZUClient *)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket *)userClaims;

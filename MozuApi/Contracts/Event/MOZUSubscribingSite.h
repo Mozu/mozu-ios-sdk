@@ -17,10 +17,16 @@
 @end
 
 
+/**
+	The properties of the site requesting the subscription push or pull.
+*/
 @interface MOZUSubscribingSite : JSONModel<MOZUSubscribingSite>
 
 @property(nonatomic) NSNumber * siteId;
 
+/**
+Unique identifier of the Mozu tenant.
+*/
 @property(nonatomic) NSNumber * tenantId;
 
 @end

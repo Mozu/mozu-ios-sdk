@@ -17,14 +17,8 @@
 @end
 
 
-/**
-	Properties of a customer segment used to group sets of customers for targeted reporting and discounts.
-*/
 @interface MOZUAdminCustomerSegment : JSONModel<MOZUAdminCustomerSegment>
 
-/**
-Unique identifier of the customer segment.
-*/
 @property(nonatomic) NSInteger id;
 
 @end

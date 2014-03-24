@@ -17,19 +17,10 @@
 @end
 
 
-/**
-	Properties of a developer account used to build a company's applications and themes.
-*/
 @interface MOZUDeveloperAccount : JSONModel<MOZUDeveloperAccount>
 
-/**
-Unique identifier of the developer account.
-*/
 @property(nonatomic) NSInteger id;
 
-/**
-The name of the developer account.
-*/
 @property(nonatomic) NSString * name;
 
 @end

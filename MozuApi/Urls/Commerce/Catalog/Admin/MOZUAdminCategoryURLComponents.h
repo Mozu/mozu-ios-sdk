@@ -20,21 +20,21 @@
 /**
 Resource Url Components for getCategories
 @param startIndex 
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). <b>For example - "filter=IsDisplayed+eq+true"</b>
 */
 + (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getCategory
-@param categoryId Unique identifier of the category to retrieve.
+@param categoryId Unique identifier of the category.
 */
 + (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId;
 
 /**
 Resource Url Components for getChildCategories
-@param categoryId Unique identifier of the category for which to retrieve subcategories.
+@param categoryId Unique identifier of the category whose subcategories are retrieved.
 */
 + (MOZUURLComponents *)URLComponentsForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId;
 
@@ -73,8 +73,8 @@ Resource Url Components for updateCategory
 
 /**
 Resource Url Components for deleteCategoryById
-@param categoryId Unique identifier of the category to delete.
-@param cascadeDelete If true, also delete all subcategories associated with the specified category.
+@param categoryId Unique identifier of the category being deleted.
+@param cascadeDelete If true, any subcategories of a category are deleted when this category is deleted. Default: False.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete;
 

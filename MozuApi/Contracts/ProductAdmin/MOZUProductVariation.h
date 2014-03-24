@@ -30,9 +30,6 @@ The difference between the base weight for a product and this variation of the p
 */
 @property(nonatomic) NSNumber * deltaWeight;
 
-/**
-Describes the types of fulfillment that are supported for this product variation. A variation can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
-*/
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
 
 /**
@@ -41,7 +38,7 @@ If true, this variation of this product is marked available for sale.
 @property(nonatomic) NSNumber * isActive;
 
 /**
-If true, the production variation is no longer available for sale. For example, if a client stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read only.
+If true, the production variation is no longer available for sale. For example, if a merchant stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read-only.
 */
 @property(nonatomic) NSNumber * isOrphan;
 
@@ -72,9 +69,6 @@ Wrapper for the list of option attributes configured for the product variation.
 */
 @property(nonatomic) NSArray<MOZUProductVariationOption> *options;
 
-/**
-Supplier-defined properties assigned for the product variation.
-*/
 @property(nonatomic) MOZUProductSupplierInfo *supplierInfo;
 
 @end

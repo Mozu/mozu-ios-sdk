@@ -63,9 +63,6 @@ Human-readable identifier to assign to the category to generate user-friendly UR
 */
 @property(nonatomic) NSString * slug;
 
-/**
-Array of localized product category images in the language specified by the LocaleCode.
-*/
 @property(nonatomic) NSArray<MOZUCategoryLocalizedImage> *categoryImages;
 
 @end

@@ -18,9 +18,6 @@
 @end
 
 
-/**
-	Properties of a development or release package of theme asset or application configuration files.
-*/
 @interface MOZUAppDevPackage : JSONModel<MOZUAppDevPackage>
 
 @property(nonatomic) NSInteger applicationVersionId;

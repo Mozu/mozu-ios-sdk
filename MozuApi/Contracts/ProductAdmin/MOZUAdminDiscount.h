@@ -37,13 +37,10 @@ The type of discount amount, such as an amount or a percentage.
 @property(nonatomic) NSString * amountType;
 
 /**
-The number of times this discount has been redeemed.
+The most recent number of redeemed discounts.
 */
 @property(nonatomic) NSNumber * currentRedemptionCount;
 
-/**
-If true, this discount does not apply to a line item product with a defined sale price. The default is false, which applies the discount to products with and without defined sale prices.
-*/
 @property(nonatomic) NSNumber * doesNotApplyToSalePrice;
 
 /**
@@ -64,13 +61,10 @@ Current status of the product discount. Possible values are "Active", "Scheduled
 @property(nonatomic) NSString * status;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
-/**
-List of conditions that must be met for the discount to apply.
-*/
 @property(nonatomic) MOZUDiscountCondition *conditions;
 
 /**

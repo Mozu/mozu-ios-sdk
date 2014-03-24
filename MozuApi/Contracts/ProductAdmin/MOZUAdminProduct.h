@@ -34,27 +34,24 @@
 
 
 /**
-	Properties of a product in a master catalog. Product properties include discounts, localizable content, inventory information, attribute configurations, price data, and the catalogs associated with a product.
+	Properties of the product such as product code, product name, and product price.
 */
 @interface MOZUAdminProduct : JSONModel<MOZUAdminProduct>
 
 /**
-Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
+Merchant-generated product code for the product that any variation stems from.
 */
 @property(nonatomic) NSString * baseProductCode;
 
-/**
-Describes the types of fulfillment that are supported for this product. A product can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
-*/
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
 
 /**
-If true, the product has configurable options. This option means that a product is not purchasable until the shopper selects options that resolve into a product variation. Configurable options for a product are the choices a shopper makes when ordering a product. Size and color are configurable options. System-supplied and read-only.
+If true, the product has configurable options. This option means that a product is not purchasable until the shopper selects options that resolve into a product variation. Configurable options for a product are the choices a shopper makes when ordering a product. Size and color are configurable options.  System-supplied and read-only.
 */
 @property(nonatomic) BOOL hasConfigurableOptions;
 
 /**
-If true, this product has standalone options that a shopper can select without configuring a defined product variations. System-supplied and read only.
+If true, this product has stand alone options that a shopper can select which can exist without product variations. Stand alone options. System-supplied and read-only.
 */
 @property(nonatomic) BOOL hasStandAloneOptions;
 
@@ -64,28 +61,25 @@ If true, the product must be packaged on its own and should not be jointly packa
 @property(nonatomic) NSNumber * isPackagedStandAlone;
 
 /**
-If true, the product can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription. This property is reserved for future functionality and is system-supplied and read only.
+If true, the product can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription.
 */
 @property(nonatomic) NSNumber * isRecurring;
 
 /**
-If true, the entity is subject to sales tax based on the relevant tax rate.
+If true, the entity is subject to tax based on the relevant tax rate.
 */
 @property(nonatomic) NSNumber * isTaxable;
 
 /**
-If true, this product is valid for the assigned product type.
+If true, the entity is valid for the product type provided.
 */
 @property(nonatomic) NSNumber * isValidForProductType;
 
 /**
-If true, this configured product represents a product variation defined with configurable options. System-supplied and read only.
+If true, the product in this request is a product variation of a product that has configurable options. System-supplied and read-only.
 */
 @property(nonatomic) BOOL isVariation;
 
-/**
-The unique identifier of the master catalog associated with the entity.
-*/
 @property(nonatomic) NSNumber * masterCatalogId;
 
 /**
@@ -93,19 +87,13 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 */
 @property(nonatomic) NSString * productCode;
 
-/**
-Integer that represents the sequential order of the product.
-*/
 @property(nonatomic) NSNumber * productSequence;
 
 /**
-Unique identifier of the product type assigned for this product. Tenant administrators can only define one product type per product.
+Identifier of the product type.
 */
 @property(nonatomic) NSNumber * productTypeId;
 
-/**
-The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
-*/
 @property(nonatomic) NSString * productUsage;
 
 /**
@@ -119,7 +107,7 @@ If the product must be packaged separately, the type of standalone package to us
 @property(nonatomic) NSString * standAlonePackageType;
 
 /**
-The universal product code associated with the product. The UPC of a product is unique across all sales channels.
+The universal product code (UPC code) of the product.
 */
 @property(nonatomic) NSString * upc;
 
@@ -134,29 +122,26 @@ List of discounts available for a product.
 @property(nonatomic) NSArray<MOZUAdminDiscount> *applicableDiscounts;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
-/**
-Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
-*/
 @property(nonatomic) NSArray<MOZUAdminBundledProduct> *bundledProducts;
 
+/**
+Product content set in product admin.
+*/
 @property(nonatomic) MOZUProductLocalizedContent *content;
 
 /**
-List of extra product attributes defined for this product.
+The list of extras set up in product admin.
 */
 @property(nonatomic) NSArray<MOZUProductExtra> *extras;
 
-/**
-Properties of the inventory levels manages for the product.
-*/
 @property(nonatomic) MOZUAdminProductInventoryInfo *inventoryInfo;
 
 /**
-List of option product attributes defined for this product.
+The list of options set up in product admin.
 */
 @property(nonatomic) NSArray<MOZUAdminProductOption> *options;
 
@@ -180,43 +165,28 @@ Width of the package in imperial units of feet and inches.
 */
 @property(nonatomic) MOZUMeasurement *packageWidth;
 
-/**
-Unit price that the client intends to sell the product if no sale price is set.
-*/
 @property(nonatomic) MOZUAdminProductPrice *price;
 
-/**
-Describes the behavior the system uses when determining the price of the product.
-*/
 @property(nonatomic) MOZUProductPricingBehaviorInfo *pricingBehavior;
 
-/**
-Properties defined for a product as they appear in its associated catalogs.
-*/
 @property(nonatomic) NSArray<MOZUProductInCatalogInfo> *productInCatalogs;
 
 /**
-List of property product attributes defined for this product.
+The list of product properties to set in product admin.
 */
 @property(nonatomic) NSArray<MOZUAdminProductProperty> *properties;
 
-/**
-Properties of the product publishing settings for the associated product.
-*/
 @property(nonatomic) MOZUProductPublishingInfo *publishingInfo;
 
 /**
-The search engine optimized content defined for this product.
+search engine optimized product content.
 */
 @property(nonatomic) MOZUProductLocalizedSEOContent *seoContent;
 
-/**
-Supplier-defined properties assigned for the product.
-*/
 @property(nonatomic) MOZUProductSupplierInfo *supplierInfo;
 
 /**
-The list of product variation configurations defined for this product based on its available product option attributes.
+The list of product variation options that exist in product admin.
 */
 @property(nonatomic) NSArray<MOZUProductVariationOption> *variationOptions;
 

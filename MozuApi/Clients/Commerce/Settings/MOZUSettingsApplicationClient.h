@@ -23,7 +23,7 @@
 //
 
 /**
-Retrieve the settings of a third-party application.
+
 */
 
 + (MOZUClient *)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
@@ -43,8 +43,8 @@ Retrieve the settings of a third-party application.
 //
 
 /**
-Initializes an application with the necessary configured settings.
-@param body Properties of the application to update.
+
+@param body 
 */
 
 + (MOZUClient *)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication *)body userClaims:(MOZUUserAuthTicket *)userClaims;

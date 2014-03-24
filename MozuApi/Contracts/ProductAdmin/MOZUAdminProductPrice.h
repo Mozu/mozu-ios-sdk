@@ -23,28 +23,16 @@
 @interface MOZUAdminProductPrice : JSONModel<MOZUAdminProductPrice>
 
 /**
-3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+3-letter ISO 4217 standard global currency code. Currently, only support "USD" (US Dollar).
 */
 @property(nonatomic) NSString * isoCurrencyCode;
 
-/**
-The minimum advertised price a client can charge for the associated product, as determined by the supplier. Client administrators can override the minimum advertised price at the catalog level.
-*/
 @property(nonatomic) NSNumber * map;
 
-/**
-If the product has a supplier-defined minimum advertised price, the date and time after which the client can sell the product for less than the minimum advertised price.
-*/
 @property(nonatomic) NSDate * mapEndDate;
 
-/**
-If the product has a supplier-defined minimum advertised price, the date and time after which the client cannot sell the product for less than the minimum advertised price.
-*/
 @property(nonatomic) NSDate * mapStartDate;
 
-/**
-The manufacturer's suggested retail price, as defined by the supplier.
-*/
 @property(nonatomic) NSNumber * msrp;
 
 /**

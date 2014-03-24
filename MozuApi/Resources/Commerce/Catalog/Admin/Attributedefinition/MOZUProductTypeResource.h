@@ -33,8 +33,8 @@
 
 /**
 Retrieves a list of product types according to any specified filter criteria and sort options.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). <b>For example - "filter=Name+cont+shoes"</b>
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
 @param startIndex 
 */
@@ -42,8 +42,8 @@ Retrieves a list of product types according to any specified filter criteria and
 - (void)productTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves the details of the product type specified in the request.
-@param productTypeId Identifier of the product type to retrieve.
+Retrieves a product type by providing the product type ID.
+@param productTypeId Identifier of the product type being retrieved.
 */
 
 - (void)productTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -56,8 +56,8 @@ Retrieves the details of the product type specified in the request.
 //
 
 /**
-Creates a new product type based on the information supplied in the request.
-@param body Properties of the product type to create.
+Add or create a new product type.
+@param body Add or create the product type using these properties.
 */
 
 - (void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -70,7 +70,7 @@ Creates a new product type based on the information supplied in the request.
 //
 
 /**
-Updates one or more properties of a product type.
+Update a product type by providing the product type ID.
 @param body The details of the product type to update.
 @param productTypeId Identifier of the product type to update.
 */
@@ -85,8 +85,8 @@ Updates one or more properties of a product type.
 //
 
 /**
-Deletes the product type by providing the product type ID.
-@param productTypeId Identifier of the product type to delete.
+Delete product type by providing the product type ID.
+@param productTypeId Identifier of the product type being deleted.
 */
 
 - (void)deleteProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

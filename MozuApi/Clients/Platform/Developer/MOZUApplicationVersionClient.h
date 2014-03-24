@@ -30,61 +30,61 @@
 //
 
 /**
-Retrieves the list of applications associated with the developer account scoped to the user claim specified in the request.
+
 */
 
 + (MOZUClient *)clientForGetAllApplicationsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the details of the application specified in the request. The application specified in the request must be associated with the developer account scoped to the user claim specified in the request header, otherwise the operation returns an error.
-@param applicationId Unique identifier of the application.
+
+@param applicationId 
 */
 
 + (MOZUClient *)clientForGetApplicationOperationWithApplicationId:(NSNumber *)applicationId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the details of a specific version of an application associated with the developer account scoped to the user claim specified in the request.
-@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+
+@param applicationVersionId 
 */
 
 + (MOZUClient *)clientForGetApplicationVersionOperationWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves a list of the package definitions created for an application version, including all development packages and release packages. The application must be associated with the developer account scoped to the user claim specified in the request.
-@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+
+@param applicationVersionId 
 */
 
 + (MOZUClient *)clientForGetPackagesOperationWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the details of a package definition associated with an application version. The application must be associated with the developer account scoped to the user claim specified in the request.
-@param applicationVersionId Unique identifier of the application version associated with the package. Application version IDs are unique across all applications associated with the developer account.
-@param packageId Unique identifier of the package to retrieve.
+
+@param applicationVersionId 
+@param packageId 
 */
 
 + (MOZUClient *)clientForGetPackageOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the metadata for items in a package associated with an application version, including a list of all files and subfolders. The application must be associated with the developer account scoped to the user claim specified in the request.
-@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
-@param packageId Unique identifier of the package.
+
+@param applicationVersionId 
+@param packageId 
 */
 
 + (MOZUClient *)clientForGetPackageItemsMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the metadata of a file in a package for an application version. The application must be associated with the developer account scoped to the user claim specified in the request.
-@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
-@param itempath Complete file directory location and name of the item in the package to retrieve metadata.
-@param packageId Unique identifier of the package.
+
+@param applicationVersionId 
+@param itempath 
+@param packageId 
 */
 
 + (MOZUClient *)clientForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the package of files and sends them to a compressed (zipped) archive.
-@param applicationVersionId The unique identifier of the application version.
-@param packageId The unique identifier of the package to zip.
+
+@param applicationVersionId 
+@param packageId 
 */
 
 + (MOZUClient *)clientForGetPackageFilesZipOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -97,28 +97,28 @@ Retrieves the package of files and sends them to a compressed (zipped) archive.
 //
 
 /**
-Creates a new development or release package for the application version specified in the request.
-@param body Properties of the development or release package to define.
-@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
+
+@param body 
+@param applicationVersionId 
 */
 
 + (MOZUClient *)clientForAddPackageOperationWithBody:(MOZUAppDevPackage *)body applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Update the file name or file path of a development package or release package.
-@param body The file name or path to rename the package.
-@param applicationVersionId The unique identifier of the theme or application version.
-@param packageId The unique identifier of the development or release package.
+
+@param body 
+@param applicationVersionId 
+@param packageId 
 */
 
 + (MOZUClient *)clientForChangePackageFileNameOrPathOperationWithBody:(MOZURenameInfo *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Uploads a file to a defined package for an application version in the file location specified in the request.
-@param body The contents of the package file to upload, which requires a content-type value of "application/octet-stream" in the request header.
-@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
-@param filepath The file location to which to add the package file.
-@param packageId Unique identifier of the package.
+
+@param body 
+@param applicationVersionId 
+@param filepath 
+@param packageId 
 */
 
 + (MOZUClient *)clientForAddPackageFileOperationWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -131,11 +131,11 @@ Uploads a file to a defined package for an application version in the file locat
 //
 
 /**
-Updates one or more properties of a file in a package associated with an application version.
-@param body The contents of the package file to update, which requires a content-type value of "application/octet-stream" in the request header.
-@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
-@param filepath The location path and name that identifies the package file to update.
-@param packageId The unique identifier of the package.
+
+@param body 
+@param applicationVersionId 
+@param filepath 
+@param packageId 
 */
 
 + (MOZUClient *)clientForUpdatePackageFileOperationWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -148,10 +148,10 @@ Updates one or more properties of a file in a package associated with an applica
 //
 
 /**
-Deletes the specified file from a package associated with an application version.
-@param applicationVersionId Unique identifier of the application version.
-@param filepath The file path and name of the file location to delete from the package.
-@param packageId Unique identifier of the package.
+
+@param applicationVersionId 
+@param filepath 
+@param packageId 
 */
 
 + (MOZUClient *)clientForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket *)userClaims;

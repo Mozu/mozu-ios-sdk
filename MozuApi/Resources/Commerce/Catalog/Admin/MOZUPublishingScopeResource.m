@@ -46,8 +46,8 @@
 //
 
 /**
-Deletes the draft version of product changes for each product code specified in the request.
-@param body Properties of the pending product changes to include in this operation.
+
+@param body 
 */
 
 - (void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -62,8 +62,8 @@ Deletes the draft version of product changes for each product code specified in 
 }
 
 /**
-Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
-@param body Properties of the pending product changes to include in this operation.
+
+@param body 
 */
 
 - (void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

@@ -17,29 +17,17 @@
 @end
 
 
-/**
-	Properties of the credential fields associated with the payment gateway.
-*/
 @interface MOZUGatewayCredentialFieldDefinition : JSONModel<MOZUGatewayCredentialFieldDefinition>
 
 /**
-The sequential display order of the gateway in Mozu Admin.
+***Always private and should not be published.***  Previous ApiRefId "Mozu.PaymentService.Contracts.GatewayCredentialFieldDefinition.AdminDisplayOrder"
 */
 @property(nonatomic) NSInteger adminDisplayOrder;
 
-/**
-The name that displays for the payment gateway.
-*/
 @property(nonatomic) NSString * displayName;
 
-/**
-The localizable name of the payment gateway.
-*/
 @property(nonatomic) NSString * name;
 
-/**
-The name of the Volusion store.
-*/
 @property(nonatomic) NSString * volusionStoreName;
 
 @end

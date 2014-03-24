@@ -18,19 +18,10 @@
 @end
 
 
-/**
-	Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
-*/
 @interface MOZULocationType : JSONModel<MOZULocationType>
 
-/**
-User-defined identifying code for the location type.
-*/
 @property(nonatomic) NSString * code;
 
-/**
-The name of the location type.
-*/
 @property(nonatomic) NSString * name;
 
 @property(nonatomic) MOZUAuditInfo *auditInfo;

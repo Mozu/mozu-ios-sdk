@@ -19,22 +19,16 @@
 
 
 /**
-	Properties of an event the system creates each time a create, read, update, or delete operation is performed.
+	When a create, read, update, or delete happens on an order, product, discount, or category.
 */
 @interface MOZUEvent : JSONModel<MOZUEvent>
 
-/**
-The unique identifier of the catalog of products used by a site.
-*/
 @property(nonatomic) NSNumber * catalogId;
 
-/**
-The unique identifier of the API request associated with the event action, which might contain multiple actions.
-*/
 @property(nonatomic) NSString * correlationId;
 
 /**
-The unique identifier of the entity that caused the event. For example, if the event is "product.created", the entity ID value represents the product code of the product that was created.
+The unique identifier of the entity that caused the event. For example, if the event is "ProductCreated", the entity ID value represents the product code of the product that was created.
 */
 @property(nonatomic) NSString * entityId;
 
@@ -43,14 +37,8 @@ The unique identifier of the event.
 */
 @property(nonatomic) NSString * id;
 
-/**
-If true, the event record was generated as a test request for an application.
-*/
 @property(nonatomic) NSNumber * isTest;
 
-/**
-The unique identifier of the master catalog associated with the entity.
-*/
 @property(nonatomic) NSNumber * masterCatalogId;
 
 @property(nonatomic) NSNumber * siteId;
@@ -66,7 +54,7 @@ The type of event that was performed, such as "product.created" or "category.del
 @property(nonatomic) NSString * topic;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

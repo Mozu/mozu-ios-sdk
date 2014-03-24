@@ -19,17 +19,17 @@
 
 /**
 Resource Url Components for getProducts
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
 @param startIndex 
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
 */
 + (MOZUURLComponents *)URLComponentsForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy;
 
 /**
 Resource Url Components for getProductInventory
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param locationCodes Array of location codes for which to retrieve product inventory information.
+@param productCode 
+@param locationCodes 
 */
 + (MOZUURLComponents *)URLComponentsForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes;
 
@@ -38,7 +38,7 @@ Resource Url Components for getProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 @param allowInactive If true, returns an inactive product as part of the query.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param skipInventoryCheck 
 */
 + (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
@@ -53,14 +53,14 @@ Resource Url Components for getProduct
 Resource Url Components for configuredProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param includeOptionDetails If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param skipInventoryCheck 
 */
 + (MOZUURLComponents *)URLComponentsForConfiguredProductOperationWithProductCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 /**
 Resource Url Components for validateProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param skipInventoryCheck 
 */
 + (MOZUURLComponents *)URLComponentsForValidateProductOperationWithProductCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 

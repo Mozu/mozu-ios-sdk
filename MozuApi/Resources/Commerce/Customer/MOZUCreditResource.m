@@ -39,11 +39,11 @@
 //
 
 /**
-Retrieves a list of store credits applied to customer accounts, according any filter and sort criteria specified in the request.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+
+@param filter 
+@param pageSize 
+@param sortBy 
+@param startIndex 
 */
 
 - (void)creditsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCreditCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -58,8 +58,8 @@ Retrieves a list of store credits applied to customer accounts, according any fi
 }
 
 /**
-Retrieves the details of a store credit applied to a customer account.
-@param code User-defined code that identifies the store credit to retrieve.
+
+@param code 
 */
 
 - (void)creditWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -81,8 +81,8 @@ Retrieves the details of a store credit applied to a customer account.
 //
 
 /**
-Creates a new store credit for the customer account specified in the request.
-@param body Properties of the store credit to create.
+
+@param body 
 */
 
 - (void)addCreditWithBody:(MOZUCredit *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -104,9 +104,9 @@ Creates a new store credit for the customer account specified in the request.
 //
 
 /**
-Updates one or more properties of a defined store credit applied to a customer account.
-@param body Properties of the store credit to update.
-@param code User-defined code of the store credit to update.
+
+@param body 
+@param code 
 */
 
 - (void)updateCreditWithBody:(MOZUCredit *)body code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -121,8 +121,8 @@ Updates one or more properties of a defined store credit applied to a customer a
 }
 
 /**
-Associates an unclaimed customer credit with the shopper user authenticated in the request header.
-@param code The code that represents the credit to claim for the shopper.
+
+@param code 
 */
 
 - (void)associateCreditToShopperWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -144,8 +144,8 @@ Associates an unclaimed customer credit with the shopper user authenticated in t
 //
 
 /**
-Deletes a store credit previously applied to a customer account.
-@param code User-defined code of the store credit to delete.
+
+@param code 
 */
 
 - (void)deleteCreditWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

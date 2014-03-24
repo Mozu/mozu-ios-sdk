@@ -40,7 +40,7 @@
 + (MOZUClient *)clientForGetPropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the value types associated with a content property.
+Retrieve the value types associated with a content property.
 */
 
 + (MOZUClient *)clientForPropertyValueTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket *)userClaims;

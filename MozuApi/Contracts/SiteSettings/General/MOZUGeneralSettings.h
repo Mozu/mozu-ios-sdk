@@ -24,9 +24,6 @@
 */
 @interface MOZUGeneralSettings : JSONModel<MOZUGeneralSettings>
 
-/**
-If true, the site allows entry of addresses not verified by an address validation service.
-*/
 @property(nonatomic) NSNumber * allowInvalidAddresses;
 
 /**
@@ -44,9 +41,6 @@ The Google Analytics code associated with a particular store. This could be the 
 */
 @property(nonatomic) NSString * googleAnalyticsCode;
 
-/**
-If true, a service to verify addresses as valid is enabled for the site.
-*/
 @property(nonatomic) NSNumber * isAddressValidationEnabled;
 
 /**
@@ -59,18 +53,12 @@ If true, enable Google analytics for this site. If false, analytics are not enab
 */
 @property(nonatomic) NSNumber * isGoogleAnalyticsEnabled;
 
-/**
-If true, this site represents a Mozu-hosted web storefront.
-*/
 @property(nonatomic) BOOL isMozuWebSite;
 
-/**
-If true, shoppers on this site can create customer wish lists.
-*/
 @property(nonatomic) NSNumber * isWishlistCreationEnabled;
 
 /**
-The physical directory path or URL where the website logo is stored.
+They physical directory path or URL where the website logo is stored.
 */
 @property(nonatomic) NSString * logoPath;
 
@@ -106,9 +94,6 @@ Choose the time zone to use for the site.
 
 @property(nonatomic) NSString * tabletTheme;
 
-/**
-Unique identifier of the tenant site that site uses to render content for the shopper. For example, if this site represents a third-party sales channel such as Amazon but the company wants to send shopper emails, this value represents the Mozu-hosted web storefront site that maintains this content.
-*/
 @property(nonatomic) NSNumber * templateSiteId;
 
 /**
@@ -122,7 +107,7 @@ The name of the website to display on the storefront with no spaces.
 @property(nonatomic) NSString * websiteName;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

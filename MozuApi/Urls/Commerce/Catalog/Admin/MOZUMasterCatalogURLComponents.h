@@ -24,7 +24,7 @@ Resource Url Components for getMasterCatalogs
 
 /**
 Resource Url Components for getMasterCatalog
-@param masterCatalogId The unique identifier of the master catalog associated with the entity.
+@param masterCatalogId 
 */
 + (MOZUURLComponents *)URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId;
 

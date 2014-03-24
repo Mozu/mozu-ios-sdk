@@ -20,15 +20,15 @@
 /**
 Resource Url Components for getProductTypes
 @param startIndex 
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). <b>For example - "filter=Name+cont+shoes"</b>
 */
 + (MOZUURLComponents *)URLComponentsForGetProductTypesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getProductType
-@param productTypeId Identifier of the product type to retrieve.
+@param productTypeId Identifier of the product type being retrieved.
 */
 + (MOZUURLComponents *)URLComponentsForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
 
@@ -66,7 +66,7 @@ Resource Url Components for updateProductType
 
 /**
 Resource Url Components for deleteProductType
-@param productTypeId Identifier of the product type to delete.
+@param productTypeId Identifier of the product type being deleted.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
 

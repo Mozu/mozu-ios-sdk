@@ -23,8 +23,8 @@
 //
 
 /**
-Retrieves a list of transactions associated with the customer account specified in the request.
-@param accountId Unique identifier of the customer account for which to retrieve transactions.
+
+@param accountId 
 */
 
 + (MOZUClient *)clientForGetTransactionsOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -37,9 +37,9 @@ Retrieves a list of transactions associated with the customer account specified 
 //
 
 /**
-Creates a new transaction for the customer account specified in the request.
-@param body Properties of the transaction to create for the customer account.
-@param accountId Unique identifier of the customer account.
+
+@param body 
+@param accountId 
 */
 
 + (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -59,9 +59,9 @@ Creates a new transaction for the customer account specified in the request.
 //
 
 /**
-Deletes a transaction from the customer account specified in the request.
-@param accountId Unique identifier of the customer account from which to delete the transaction.
-@param transactionId Unique identifier of the transaction to delete.
+
+@param accountId 
+@param transactionId 
 */
 
 + (MOZUClient *)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket *)userClaims;

@@ -18,12 +18,12 @@
 
 
 /**
-	The 2-letter code and corresponding country name that the system supports.
+	2-letter code and corresponding country name that the system supports.
 */
 @interface MOZUCountry : JSONModel<MOZUCountry>
 
 /**
-The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+2 letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 @property(nonatomic) NSString * code;
 

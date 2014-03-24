@@ -62,7 +62,7 @@ Retrieve the content associated with the document, such as a product image or PD
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
-@param body Input output stream that delivers information.
+@param body 
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
@@ -78,7 +78,7 @@ Updates the content associated with a document, such as a product image or PDF s
 
 /**
 Deletes the content associated with a document, such as a product image or PDF specifications file.
-@param body Input output stream that delivers information.
+@param body 
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */

@@ -18,18 +18,12 @@
 @end
 
 
-/**
-	Collection of credit cards defined for the customer account.
-*/
 @interface MOZUCardCollection : JSONModel<MOZUCardCollection>
 
-/**
-The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
-*/
-@property(nonatomic) long totalCount;
+@property(nonatomic) NSInteger totalCount;
 
 /**
-An array list of objects in the returned collection.
+Container for an array list of properties in a collection.
 */
 @property(nonatomic) NSArray<MOZUCard> *items;
 

@@ -63,11 +63,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateAccountAttributeOperationWithAccountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing {
-	NSString *template = @"/api/commerce/customer/accounts/{accountId}/attributes?removeMissing={removeMissing}";
++ (MOZUURLComponents *)URLComponentsForUpdateAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/attributes/{attributeFQN}";
 	NSDictionary *params = @{
 		@"accountId" : @(accountId),
-		@"removeMissing" : removeMissing ? removeMissing : @"",
+		@"attributeFQN" : attributeFQN,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -79,6 +79,16 @@
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUURLComponents *)URLComponentsForDeleteAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/attributes/{attributeFQN}";
+	NSDictionary *params = @{
+		@"accountId" : @(accountId),
+		@"attributeFQN" : attributeFQN,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
 
 
 

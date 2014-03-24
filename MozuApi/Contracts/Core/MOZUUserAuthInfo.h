@@ -23,7 +23,7 @@
 @interface MOZUUserAuthInfo : JSONModel<MOZUUserAuthInfo>
 
 /**
-The email address of the specified user or the email address associated with the specified entity.
+The email address of the specified user.
 */
 @property(nonatomic) NSString * emailAddress;
 

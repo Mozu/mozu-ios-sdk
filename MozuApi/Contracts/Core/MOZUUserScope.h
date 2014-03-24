@@ -18,7 +18,7 @@
 
 
 /**
-	Properties of the scope in which a user operates, which represents a developer account or Mozu production tenant.
+	Properties of the scope in which a user operates, which represents a developer account or Mozu tenant.
 */
 @interface MOZUUserScope : JSONModel<MOZUUserScope>
 
@@ -27,13 +27,10 @@ Identifier of the scope, which represents a developer account ID or tenant ID.
 */
 @property(nonatomic) NSNumber * id;
 
-/**
-The name of the developer account or tenant.
-*/
 @property(nonatomic) NSString * name;
 
 /**
-The type of scope, which is a developer account or production tenant.
+The type of scope, which is a developer account or tenant.
 */
 @property(nonatomic) NSString * type;
 

@@ -24,16 +24,16 @@
 //
 
 /**
-Retrieves all stored credit cards for the customer account.
-@param accountId Unique identifier of the customer account.
+
+@param accountId 
 */
 
 + (MOZUClient *)clientForGetAccountCardsOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the details of a credit card stored with a customer account billing contact.
-@param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the card associated with the customer account billing contact.
+
+@param accountId 
+@param cardId 
 */
 
 + (MOZUClient *)clientForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -46,9 +46,9 @@ Retrieves the details of a credit card stored with a customer account billing co
 //
 
 /**
-Creates a new credit card record and stores it for the customer account.
-@param body Properties of the customer credit card to add to the account.
-@param accountId Unique identifier of the customer account.
+
+@param body 
+@param accountId 
 */
 
 + (MOZUClient *)clientForAddAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -61,10 +61,10 @@ Creates a new credit card record and stores it for the customer account.
 //
 
 /**
-Update one or more properties of a credit card defined for a customer account.
-@param body Properties of the customer account credit card to update.
-@param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the credit card.
+
+@param body 
+@param accountId 
+@param cardId 
 */
 
 + (MOZUClient *)clientForUpdateAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId cardId:(NSString *)cardId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -77,9 +77,9 @@ Update one or more properties of a credit card defined for a customer account.
 //
 
 /**
-Removes a stored credit card from a customer account.
-@param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the credit card to delete.
+
+@param accountId 
+@param cardId 
 */
 
 + (MOZUClient *)clientForDeleteAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId userClaims:(MOZUUserAuthTicket *)userClaims;

@@ -17,14 +17,8 @@
 @end
 
 
-/**
-	Properties of a shipping country active for a third-party capability.
-*/
 @interface MOZUActiveShippingCountry : JSONModel<MOZUActiveShippingCountry>
 
-/**
-Array list of the active shipping carriers for the country.
-*/
 @property(nonatomic) NSArray *activeCarriers;
 
 @property(nonatomic) NSString * countryCode;

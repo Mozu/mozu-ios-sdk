@@ -36,7 +36,7 @@
 /**
 Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
 @param body The user authentication information required to generate the user authentication ticket, which consists of a user name and password.
-@param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
+@param tenantId Unique identifier of the Mozu tenant or development store for which to generate the user authentication ticket.
 */
 
 - (void)createUserAuthTicketWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -51,7 +51,7 @@ Creates an authentication ticket for the supplied user to specify in API request
 /**
 Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
 @param body Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
-@param tenantId 
+@param tenantId Unique identifier of the Mozu tenant or development store for which to refresh the authentication ticket.
 */
 
 - (void)refreshAuthTicketWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

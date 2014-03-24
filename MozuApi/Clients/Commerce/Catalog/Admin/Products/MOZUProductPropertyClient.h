@@ -23,16 +23,16 @@
 //
 
 /**
-Retrieves a list of the property attributes configured for the product specified in the request.
-@param productCode 
+Retrieves a list of product properties by providing the product code.
+@param productCode Identifies the product for which a list of properties is being retrieved.
 */
 
 + (MOZUClient *)clientForGetPropertiesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the details of a property attribute configuration for the product specified in the request.
+Retrieves the individual product property by providing the product code and the attribute's fully qualified name.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param productCode Identifies the product for which a single property is being retrieved.
 */
 
 + (MOZUClient *)clientForGetPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -45,9 +45,9 @@ Retrieves the details of a property attribute configuration for the product spec
 //
 
 /**
-Configures a property attribute for the product specified in the request.
-@param body Properties of the property attribute to configure for a product.
-@param productCode 
+Adds or creates an individual property by providing the product code.
+@param body The details of the product property including the attribute detail, user's fully qualified name, and the list of product property values to add.
+@param productCode The merchant-created code that uniquely identifies the product such as a SKU or item number. Identifies the product for which a new property is created.
 */
 
 + (MOZUClient *)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -60,10 +60,10 @@ Configures a property attribute for the product specified in the request.
 //
 
 /**
-Update one or more details of a property attribute configuration for the product specified in the request.
-@param body Details of the property attribute to update for the product configuration.
+Update the details of a product property by providng the product code and the attribute's fully qualified name.
+@param body The details of the product property including the attribute detail, user's fully qualified name, and the list of product property values to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productCode 
+@param productCode Identifies the product for which a list of properties is being updated.
 */
 
 + (MOZUClient *)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -76,9 +76,9 @@ Update one or more details of a property attribute configuration for the product
 //
 
 /**
-Deletes the configuration of a property attribute for the product specified in the request.
+Deletes the property by providing the product code and the attribute's fully qualified name.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productCode 
+@param productCode Identifies the product for which a new property is being deleted.
 */
 
 + (MOZUClient *)clientForDeletePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;

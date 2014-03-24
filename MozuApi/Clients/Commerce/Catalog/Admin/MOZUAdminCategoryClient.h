@@ -26,8 +26,8 @@
 
 /**
 Retrieves a list of categories according to any specified filter criteria and sort options.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). <b>For example - "filter=IsDisplayed+eq+true"</b>
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
 @param startIndex 
 */
@@ -36,14 +36,14 @@ Retrieves a list of categories according to any specified filter criteria and so
 
 /**
 Retrieves the details of a single category.
-@param categoryId Unique identifier of the category to retrieve.
+@param categoryId Unique identifier of the category.
 */
 
 + (MOZUClient *)clientForGetCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the list of subcategories within a category.
-@param categoryId Unique identifier of the category for which to retrieve subcategories.
+Retrieves the subcategories of a category. This is a list of subcategories at the same level (siblings). Use a list of siblings, for example, to display the categories in a horizontal list.
+@param categoryId Unique identifier of the category whose subcategories are retrieved.
 */
 
 + (MOZUClient *)clientForGetChildCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -56,8 +56,8 @@ Retrieves the list of subcategories within a category.
 //
 
 /**
-Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
-@param body Properties of the new category to create. You must specify a name and parent category if you want to create it as a subcategory.
+Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to locate the category in the hierarchy. If a ParentCategoryID is not specified, the new category becomes a top-level category.
+@param body Properties of the new category. Required properties: ParentCategoryID and Content.Name.
 */
 
 + (MOZUClient *)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -70,7 +70,7 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 //
 
 /**
-Update the properties of a defined category or move it to another location in the category hierarchy. Because this operation replaces the defined resource,include all the information to maintain for the category in the request.
+Modifies a category such as moving it to another location in the category tree, or changing whether it is visible on the storefront. This PUT replaces the existing resource, so be sure to include all the information to maintain for the category.
 @param body Properties of the category to modify.
 @param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. Default: False.
 @param categoryId Unique identifier of the category to modify.
@@ -87,8 +87,8 @@ Update the properties of a defined category or move it to another location in th
 
 /**
 Deletes the category specified by its category ID.
-@param cascadeDelete If true, also delete all subcategories associated with the specified category.
-@param categoryId Unique identifier of the category to delete.
+@param cascadeDelete If true, any subcategories of a category are deleted when this category is deleted. Default: False.
+@param categoryId Unique identifier of the category being deleted.
 */
 
 + (MOZUClient *)clientForDeleteCategoryByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete userClaims:(MOZUUserAuthTicket *)userClaims;

@@ -41,11 +41,11 @@
 /**
 Retrieves a list of customer accounts.
 @param fields The fields to include in the response.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param isAnonymous If true, retrieve anonymous shopper accounts in the response.
+@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+@param isAnonymous 
 @param pageSize 
-@param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
-@param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
+@param q 
+@param qLimit 
 @param sortBy 
 @param startIndex 
 */
@@ -78,8 +78,8 @@ Retrieve details of a customer account.
 }
 
 /**
-Retrieves the current login state of the customer account specified in the request.
-@param accountId Unique identifier of the customer account.
+
+@param accountId 
 */
 
 - (void)loginStateWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULoginState *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -101,8 +101,8 @@ Retrieves the current login state of the customer account specified in the reque
 //
 
 /**
-Creates a new customer account based on the information specified in the request.
-@param body Properties of the customer account to update.
+Creates a new customer account.
+@param body 
 */
 
 - (void)addAccountWithBody:(MOZUCustomerAccount *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAccount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -134,9 +134,9 @@ Creates a new customer account based on the information specified in the request
 }
 
 /**
-Adds a new user login to a defined customer account.
-@param body The authentication information for the customer account.
-@param accountId Unique identifier of the customer account.
+
+@param body 
+@param accountId 
 */
 
 - (void)addLoginToExistingCustomerWithBody:(MOZUCustomerLoginInfo *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -151,8 +151,8 @@ Adds a new user login to a defined customer account.
 }
 
 /**
-Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
-@param accountId The unique identifier of the customer account for which to calculate customer lifetime value.
+
+@param accountId 
 */
 
 - (void)recomputeCustomerLifetimeValueWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -167,9 +167,9 @@ Updates the customer lifetime value of the specified customer account in the eve
 }
 
 /**
-Lock or unlock a customer account.
-@param body If true, the customer account is locked from logging in.
-@param accountId The unique identifier of the customer account.
+
+@param body 
+@param accountId 
 */
 
 - (void)setLoginLockedWithBody:(BOOL)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -184,9 +184,9 @@ Lock or unlock a customer account.
 }
 
 /**
-Requires the password for the customer account to be changed.
-@param body If true, the password for the customer account must be changed.
-@param accountId Unique identifier of the customer account.
+
+@param body 
+@param accountId 
 */
 
 - (void)setPasswordChangeRequiredWithBody:(BOOL)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -201,8 +201,8 @@ Requires the password for the customer account to be changed.
 }
 
 /**
-Creates a new customer account and logs the user associated with the customer account into the site.
-@param body Properties of the customer account to create, including the user authentication information.
+
+@param body 
 */
 
 - (void)addAccountAndLoginWithBody:(MOZUCustomerAccountAndAuthInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -217,8 +217,8 @@ Creates a new customer account and logs the user associated with the customer ac
 }
 
 /**
-Creates multiple customer accounts based on the information specified in the request.
-@param body Properties of the customer accounts to create.
+
+@param body 
 */
 
 - (void)addAccountsWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo> *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAccountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -233,8 +233,8 @@ Creates multiple customer accounts based on the information specified in the req
 }
 
 /**
-Retrieves the current login state of a customer account by providing the customer's email address.
-@param emailAddress The email address associated with the customer account.
+
+@param emailAddress 
 */
 
 - (void)loginStateByEmailAddressWithEmailAddress:(NSString *)emailAddress userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULoginState *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -249,8 +249,8 @@ Retrieves the current login state of a customer account by providing the custome
 }
 
 /**
-Retrieves the current login state of a customer account by providing the user name associated with the customer account.
-@param userName The user name associated with the customer account.
+
+@param userName 
 */
 
 - (void)loginStateByUserNameWithUserName:(NSString *)userName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULoginState *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -265,8 +265,8 @@ Retrieves the current login state of a customer account by providing the user na
 }
 
 /**
-Resets the password for a customer account.
-@param body Information required to reset the password for a customer account.
+
+@param body 
 */
 
 - (void)resetPasswordWithBody:(MOZUResetPasswordInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -289,7 +289,7 @@ Resets the password for a customer account.
 
 /**
 Updates a customer account.
-@param body Properties of the customer account to update.
+@param body 
 @param accountId Unique identifier of the customer account.
 */
 
