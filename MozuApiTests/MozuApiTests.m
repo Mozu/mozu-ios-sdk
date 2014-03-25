@@ -26,6 +26,8 @@
 @property (nonatomic, readonly) NSNumber *siteID;
 @property (nonatomic, readonly) NSNumber *masterCatalogID;
 @property (nonatomic, readonly) NSNumber *catalogID;
+@property (nonatomic, readonly) NSString *emailAddress;
+@property (nonatomic, readonly) NSString *password;
 
 @end
 
@@ -48,8 +50,28 @@ static const BOOL MOZUUseSSL = NO;
     _masterCatalogID = @(1);
     _catalogID = @(1);
     
+    [self loadSecureKeys];
+    
     self.waitingForBlock = YES;
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
+}
+
+- (void)loadSecureKeys
+{
+
+#ifdef DEBUG
+    NSString *path = @"/Users/noel_artiles/Documents/MOZUiOSTestsKeys.json";
+#else
+    NSString *path = @"/Volumes/Scratch/work/MOZUiOSTestsKeys.json";
+#endif
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSDictionary *securityDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        _emailAddress = securityDictionary[@"emailAddress"];
+        _password = securityDictionary[@"password"];
+    }
+
 }
 
 - (MOZUAppAuthInfo *)appAuthInfo;
@@ -64,8 +86,8 @@ static const BOOL MOZUUseSSL = NO;
 - (MOZUUserAuthInfo *)userAuthInfo
 {
     MOZUUserAuthInfo *userAuthInfo = [MOZUUserAuthInfo new];
-    userAuthInfo.emailAddress = @"";
-    userAuthInfo.password = @"";
+    userAuthInfo.emailAddress = self.emailAddress;
+    userAuthInfo.password = self.password;
     
     return userAuthInfo;
 }
@@ -450,7 +472,7 @@ static const BOOL MOZUUseSSL = NO;
          }
      }];
 }
-/*
+
 - (void)testGettingTenentList
 {
     MOZUAppAuthInfo *appAuthInfo = [self appAuthInfo];
@@ -476,5 +498,5 @@ static const BOOL MOZUUseSSL = NO;
      }];
     [self waitForBlock];
 }
-*/
+
 @end
