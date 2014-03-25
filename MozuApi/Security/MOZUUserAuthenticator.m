@@ -24,6 +24,30 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 @end
 
 @implementation MOZUUserAuthTicket
+
+- (instancetype)initWithScope:(MOZUAuthenticationScope)scope
+                     tenentId:(NSNumber *)tenentId
+                  accessToken:(NSString *)accessToken
+        accessTokenExpiration:(NSDate *)accessTokenExpiration
+                 refreshToken:(NSString *)refreshToken
+       refreshTokenExpiration:(NSDate *)refreshTokenExpiration
+{
+    NSMutableDictionary *dictionary = [@{@"scope": @(scope),
+                                 @"accessToken": accessToken,
+                                 @"accessTokenExpiration": accessTokenExpiration,
+                                 @"refreshToken": refreshToken,
+                                 @"refreshTokenExpiration": refreshTokenExpiration
+                                 } mutableCopy];
+    if (tenentId) {
+        dictionary[@"tenentId"] = tenentId;
+    }
+    self = [super initWithDictionary:dictionary error:nil];
+    if (self) {
+        
+    }
+    return self;
+}
+
 @end
 
 @implementation MOZUAuthenticationProfile
@@ -180,15 +204,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 - (MOZUAuthenticationProfile *)authenticationProfileWithJSON:(NSString *)JSONData scope:(MOZUAuthenticationScope)scope
 {
     MOZUAuthenticationProfile *authProfile = [MOZUAuthenticationProfile new];
-    JSONModelError *JSONError = nil;
-    MOZUUserAuthTicket *userAuthTicket = [[MOZUUserAuthTicket alloc] initWithString:JSONData error:&JSONError];
-    if (!userAuthTicket) {
-        DDLogError(@"%@", JSONError.localizedDescription);
-    } else {
-        authProfile.authTicket = userAuthTicket;
-        authProfile.authTicket.scope = scope;
-    }
     
+    MOZUUserAuthTicket *userAuthTicket = nil;
     switch (scope) {
         case MOZUTenantAuthenticationScope: {
             JSONModelError *JSONError = nil;
@@ -196,6 +213,13 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
             if (!tenentAdminUserAuthTicket) {
                 DDLogError(@"%@", JSONError.localizedDescription);
             } else {
+                userAuthTicket = [[MOZUUserAuthTicket alloc] initWithScope:scope
+                                                                  tenentId:@(tenentAdminUserAuthTicket.tenant.id)
+                                                               accessToken:tenentAdminUserAuthTicket.accessToken
+                                                     accessTokenExpiration:tenentAdminUserAuthTicket.accessTokenExpiration
+                                                              refreshToken:tenentAdminUserAuthTicket.refreshToken
+                                                    refreshTokenExpiration:tenentAdminUserAuthTicket.refreshTokenExpiration];
+
                 authProfile.userProfile = tenentAdminUserAuthTicket.user;
                 
                 NSMutableArray *authorizedScopes = [[NSMutableArray alloc] initWithCapacity:tenentAdminUserAuthTicket.availableTenants.count];
@@ -222,6 +246,13 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
             if (!developerAdminUserAuthTicket) {
                 DDLogError(@"%@", JSONError.localizedDescription);
             } else {
+                userAuthTicket = [[MOZUUserAuthTicket alloc] initWithScope:scope
+                                                                  tenentId:nil
+                                                               accessToken:developerAdminUserAuthTicket.accessToken
+                                                     accessTokenExpiration:developerAdminUserAuthTicket.accessTokenExpiration
+                                                              refreshToken:developerAdminUserAuthTicket.refreshToken
+                                                    refreshTokenExpiration:developerAdminUserAuthTicket.refreshTokenExpiration];
+
                 authProfile.userProfile = developerAdminUserAuthTicket.user;
                 
                 NSMutableArray *authorizedScopes = [[NSMutableArray alloc] initWithCapacity:developerAdminUserAuthTicket.availableAccounts.count];
@@ -246,6 +277,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
             DDLogError(@"Not implemented: %@", [@(scope) stringValue]);
             break;
     }
+    
+    authProfile.authTicket = userAuthTicket;
+
     return authProfile;
 }
 

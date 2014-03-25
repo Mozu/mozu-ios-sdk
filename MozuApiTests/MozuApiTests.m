@@ -464,7 +464,7 @@ static const BOOL MOZUUseSSL = NO;
          if (profile) {
              XCTAssertNil(error, @"Result with error.");
              if (profile.authorizedScopes && profile.authorizedScopes.count > 0) {
-                 
+                 self.waitingForBlock = NO;
              } else {
                  XCTFail(@"No authorized scopes");
                  self.waitingForBlock = NO;
