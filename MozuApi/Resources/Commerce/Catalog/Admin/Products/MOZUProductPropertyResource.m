@@ -47,7 +47,7 @@ Retrieves a list of product properties by providing the product code.
  {
 	MOZUClient *client = [MOZUProductPropertyClient clientForGetPropertiesOperationWithDataViewMode:dataViewMode productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -64,7 +64,7 @@ Retrieves the individual product property by providing the product code and the 
  {
 	MOZUClient *client = [MOZUProductPropertyClient clientForGetPropertyOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -88,7 +88,7 @@ Adds or creates an individual property by providing the product code.
  {
 	MOZUClient *client = [MOZUProductPropertyClient clientForAddPropertyOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -113,7 +113,7 @@ Update the details of a product property by providng the product code and the at
  {
 	MOZUClient *client = [MOZUProductPropertyClient clientForUpdatePropertyOperationWithDataViewMode:dataViewMode body:body productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -137,7 +137,7 @@ Deletes the property by providing the product code and the attribute's fully qua
  {
 	MOZUClient *client = [MOZUProductPropertyClient clientForDeletePropertyOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

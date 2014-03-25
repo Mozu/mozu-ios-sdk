@@ -47,7 +47,7 @@ Retrieves a list of attribute vocabulary values. To target a query, use one or s
  {
 	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValuesOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -64,7 +64,7 @@ Retrieves an attribute vocabulary value by providing the attribute FQN and value
  {
 	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValueOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN value:value userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -88,7 +88,7 @@ Adds a new attribute vocabulary value.
  {
 	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForAddAttributeVocabularyValueOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -112,7 +112,7 @@ Update existing vocabulary values for an attribute.
  {
 	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -130,7 +130,7 @@ Updates existing attribute vocabulary values.
  {
 	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN value:value userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -154,7 +154,7 @@ Deletes an attribute's vocabulary value.
  {
 	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN value:value userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

@@ -62,7 +62,7 @@ Searches the categories displayed on the storefront for products or product opti
  {
 	MOZUClient *client = [MOZUProductSearchResultClient clientForSearchOperationWithQuery:query filter:filter facetTemplate:facetTemplate facetTemplateSubset:facetTemplateSubset facet:facet facetFieldRangeQuery:facetFieldRangeQuery facetHierPrefix:facetHierPrefix facetHierValue:facetHierValue facetHierDepth:facetHierDepth facetStartIndex:facetStartIndex facetPageSize:facetPageSize facetSettings:facetSettings facetValueFilter:facetValueFilter sortBy:sortBy pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -79,7 +79,7 @@ Suggests possible search terms as the shopper enters search text.
  {
 	MOZUClient *client = [MOZUProductSearchResultClient clientForSuggestOperationWithQ:q pageSize:pageSize userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

@@ -103,9 +103,12 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                                             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                                                             NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                             MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
-                                                            
-                                                            MOZUAuthenticationProfile *authProfile = [self authenticationProfileWithJSON:json scope:userAuthTicket.scope];
-                                                            completion(authProfile, httpResponse, apiError);
+                                                            if (apiError) {
+                                                                completion(nil, httpResponse, apiError);
+                                                            } else {
+                                                                MOZUAuthenticationProfile *authProfile = [self authenticationProfileWithJSON:json scope:userAuthTicket.scope];
+                                                                completion(authProfile, httpResponse, nil);
+                                                            }
                                                         }];
             [dataTask resume];
         }
@@ -136,9 +139,12 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                                             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                                                             NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                             MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
-                                                            
-                                                            MOZUAuthenticationProfile *authProfile = [self authenticationProfileWithJSON:json scope:scope];
-                                                            completion(authProfile, httpResponse, apiError);
+                                                            if (apiError) {
+                                                                completion(nil, httpResponse, apiError);
+                                                            } else {
+                                                                MOZUAuthenticationProfile *authProfile = [self authenticationProfileWithJSON:json scope:scope];
+                                                                completion(authProfile, httpResponse, nil);
+                                                            }
                                                         }];
             [dataTask resume];
         }

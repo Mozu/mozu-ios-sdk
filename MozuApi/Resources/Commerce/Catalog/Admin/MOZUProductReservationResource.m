@@ -50,7 +50,7 @@ Retrieves a list of product reservations according to any specified filter crite
  {
 	MOZUClient *client = [MOZUProductReservationClient clientForGetProductReservationsOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -66,7 +66,7 @@ Retrieves the details of a product reservation.
  {
 	MOZUClient *client = [MOZUProductReservationClient clientForGetProductReservationOperationWithDataViewMode:dataViewMode productReservationId:productReservationId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -90,7 +90,7 @@ Retrieves the details of a product reservation.
  {
 	MOZUClient *client = [MOZUProductReservationClient clientForAddProductReservationsOperationWithDataViewMode:dataViewMode body:body skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -106,7 +106,7 @@ Retrieves the details of a product reservation.
  {
 	MOZUClient *client = [MOZUProductReservationClient clientForCommitReservationsOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -130,7 +130,7 @@ Retrieves the details of a product reservation.
  {
 	MOZUClient *client = [MOZUProductReservationClient clientForUpdateProductReservationsOperationWithDataViewMode:dataViewMode body:body skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -153,7 +153,7 @@ Deletes a product reservation. For example, delete a reservation when an order i
  {
 	MOZUClient *client = [MOZUProductReservationClient clientForDeleteProductReservationOperationWithDataViewMode:dataViewMode productReservationId:productReservationId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

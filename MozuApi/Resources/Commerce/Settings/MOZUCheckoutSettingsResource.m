@@ -46,7 +46,7 @@ Retrieves all checkout settings defined for the site including payment settings 
  {
 	MOZUClient *client = [MOZUCheckoutSettingsClient clientForGetCheckoutSettingsOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

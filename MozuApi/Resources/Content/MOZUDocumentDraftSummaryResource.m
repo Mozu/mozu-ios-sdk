@@ -49,7 +49,7 @@ Retrieves a list of the documents currently in draft state according to any sort
  {
 	MOZUClient *client = [MOZUDocumentDraftSummaryClient clientForListDocumentDraftSummariesOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -73,7 +73,7 @@ Deletes the drafts of the specified documents. Published documents cannot be del
  {
 	MOZUClient *client = [MOZUDocumentDraftSummaryClient clientForDeleteDocumentDraftsOperationWithDataViewMode:dataViewMode body:body documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -97,7 +97,7 @@ Publish one or more document drafts to live content on the site.
  {
 	MOZUClient *client = [MOZUDocumentDraftSummaryClient clientForPublishDocumentsOperationWithDataViewMode:dataViewMode body:body documentLists:documentLists userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

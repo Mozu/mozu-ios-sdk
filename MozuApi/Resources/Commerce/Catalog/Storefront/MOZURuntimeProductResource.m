@@ -50,7 +50,7 @@ Retrieves a list of products that appear on the storefront according to any spec
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForGetProductsOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -67,7 +67,7 @@ Retrieves a list of products that appear on the storefront according to any spec
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForGetProductInventoryOperationWithProductCode:productCode locationCodes:locationCodes userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -86,7 +86,7 @@ Retrieves information about a single product given its product code.
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForGetProductOperationWithProductCode:productCode variationProductCode:variationProductCode allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -112,7 +112,7 @@ Creates a new product selection. A create occurs each time a shopper selects a p
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForConfiguredProductOperationWithBody:body productCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -130,7 +130,7 @@ Validate the final state of shopper-selected options.
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForValidateProductOperationWithBody:body productCode:productCode skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -151,7 +151,7 @@ Validate the final state of shopper-selected options.
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForValidateDiscountsOperationWithBody:body productCode:productCode variationProductCode:variationProductCode customerAccountId:customerAccountId allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

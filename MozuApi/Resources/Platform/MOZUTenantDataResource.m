@@ -47,7 +47,7 @@
  {
 	MOZUClient *client = [MOZUTenantDataClient clientForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -71,7 +71,7 @@
  {
 	MOZUClient *client = [MOZUTenantDataClient clientForCreateDBValueOperationWithBody:body dbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -95,7 +95,7 @@
  {
 	MOZUClient *client = [MOZUTenantDataClient clientForUpdateDBValueOperationWithBody:body dbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -118,7 +118,7 @@
  {
 	MOZUClient *client = [MOZUTenantDataClient clientForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

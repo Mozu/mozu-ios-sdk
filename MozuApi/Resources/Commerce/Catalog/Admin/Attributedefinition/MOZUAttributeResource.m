@@ -50,7 +50,7 @@ Retrieves a paged list of attributes according to any specified filter criteria 
  {
 	MOZUClient *client = [MOZUAttributeClient clientForGetAttributesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -66,7 +66,7 @@ Retrieves summary details of a single attribute, such as whether it's required, 
  {
 	MOZUClient *client = [MOZUAttributeClient clientForGetAttributeOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -89,7 +89,7 @@ Creates a new attribute to describe one aspect of a product such as color or siz
  {
 	MOZUClient *client = [MOZUAttributeClient clientForAddAttributeOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -113,7 +113,7 @@ Updates an existing attribute with attribute properties to set.
  {
 	MOZUClient *client = [MOZUAttributeClient clientForUpdateAttributeOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -136,7 +136,7 @@ Deletes an existing attribute.
  {
 	MOZUClient *client = [MOZUAttributeClient clientForDeleteAttributeOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

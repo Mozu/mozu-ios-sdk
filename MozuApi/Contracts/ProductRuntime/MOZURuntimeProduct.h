@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZURuntimeProductPrice.h"
 #import "MOZURuntimeDiscount.h"
 #import "MOZURuntimeBundledProduct.h"
 #import "MOZURuntimeCategory.h"
@@ -18,6 +17,7 @@
 #import "MOZURuntimeProductInventoryInfo.h"
 #import "MOZURuntimePackageMeasurements.h"
 #import "MOZURuntimeProductOption.h"
+#import "MOZURuntimeProductPrice.h"
 #import "MOZUProductPriceRange.h"
 #import "MOZUProductPricingBehaviorInfo.h"
 #import "MOZURuntimeProductProperty.h"
@@ -84,11 +84,6 @@ The universal product code (UPC code) of the product.
 @property(nonatomic) NSString * variationProductCode;
 
 /**
-Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
-*/
-@property(nonatomic) MOZURuntimeProductPrice *price;
-
-/**
 List of shipping discounts that can be applied to the product.
 */
 @property(nonatomic) NSArray<MOZURuntimeDiscount> *availableShippingDiscounts;
@@ -116,6 +111,11 @@ Dimensions of the packaged product.
 The list of options set up in product admin.
 */
 @property(nonatomic) NSArray<MOZURuntimeProductOption> *options;
+
+/**
+Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+*/
+@property(nonatomic) MOZURuntimeProductPrice *price;
 
 /**
 For products with options that vary the cost of the product, the range between lowest and highest possible price of the product based on the current selection of options.

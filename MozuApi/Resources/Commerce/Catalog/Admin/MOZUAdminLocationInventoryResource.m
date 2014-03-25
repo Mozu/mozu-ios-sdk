@@ -48,7 +48,7 @@
  {
 	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForGetLocationInventoryOperationWithDataViewMode:dataViewMode locationCode:locationCode productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -68,7 +68,7 @@
  {
 	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForGetLocationInventoriesOperationWithDataViewMode:dataViewMode locationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -92,7 +92,7 @@
  {
 	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForAddLocationInventoryOperationWithDataViewMode:dataViewMode body:body locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -116,7 +116,7 @@
  {
 	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForUpdateLocationInventoryOperationWithDataViewMode:dataViewMode body:body locationCode:locationCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -140,7 +140,7 @@
  {
 	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForDeleteLocationInventoryOperationWithDataViewMode:dataViewMode locationCode:locationCode productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

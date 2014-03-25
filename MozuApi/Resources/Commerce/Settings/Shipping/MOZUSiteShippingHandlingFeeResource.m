@@ -46,7 +46,7 @@ Retrieves the details of the order handling fee configured for the site.
  {
 	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForGetOrderHandlingFeeOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -69,7 +69,7 @@ Creates a new order handling fee for the site.
  {
 	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForCreateOrderHandlingFeeOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -92,7 +92,7 @@ Updates the order handling fee amount for the site.
  {
 	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForUpdateOrderHandlingFeeOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

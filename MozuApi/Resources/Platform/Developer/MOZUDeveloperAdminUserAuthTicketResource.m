@@ -38,7 +38,7 @@
 - (void)createDeveloperUserAuthTicketWithBody:(MOZUUserAuthInfo *)body developerAccountId:(NSNumber *)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUDeveloperAdminUserAuthTicketClient clientForCreateDeveloperUserAuthTicketOperationWithBody:body developerAccountId:developerAccountId];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -61,7 +61,7 @@
 - (void)refreshDeveloperAuthTicketWithBody:(MOZUDeveloperAdminUserAuthTicket *)body developerAccountId:(NSNumber *)developerAccountId completionHandler:(void(^)(MOZUDeveloperAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUDeveloperAdminUserAuthTicketClient clientForRefreshDeveloperAuthTicketOperationWithBody:body developerAccountId:developerAccountId];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -83,7 +83,7 @@
 - (void)deleteUserAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUDeveloperAdminUserAuthTicketClient clientForDeleteUserAuthTicketOperationWithRefreshToken:refreshToken];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

@@ -37,6 +37,7 @@ static NSString * const MOZUAuthenticationHost = @"home.mozu-si.volusion.com";
 static NSString * const MOZUTenantHost = @"t7290-s10825.mozu-si.volusion.com";
 static const NSUInteger MOZUTenantID = 7290;
 static const NSInteger MOZUProductCode = 1001;
+//static const NSUInteger MOZUDeveloperIdentifier;
 static const BOOL MOZUUseSSL = NO;
 
 - (void)setUp
@@ -58,6 +59,17 @@ static const BOOL MOZUUseSSL = NO;
     authInfo.SharedSecret = MOZUSharedSecret;
     
     return authInfo;
+}
+
+- (MOZUUserAuthInfo *)userAuthInfo
+{
+    MOZUUserAuthInfo *userAuthInfo = [MOZUUserAuthInfo new];
+//    userAuthInfo.emailAddress = @"";
+//    userAuthInfo.password = @"";
+    userAuthInfo.emailAddress = @"noel_artiles@volusion.com";
+    userAuthInfo.password = @"vBdZEVW6EvFwPdR9CPBN";
+    
+    return userAuthInfo;
 }
 
 - (void)tearDown
@@ -127,7 +139,7 @@ static const BOOL MOZUUseSSL = NO;
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
     
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:MOZUAuthenticationHost useSSL:MOZUUseSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
-        [client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        [client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
             if (result) {
                 DDLogDebug(@"result = %@", [result productCode]);
                 XCTAssertEqualObjects([result productCode] , [@(MOZUProductCode) stringValue] , @"Product codes don't match.");
@@ -283,7 +295,7 @@ static const BOOL MOZUUseSSL = NO;
         [client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
         DDLogDebug(@"BEFORE: Refresh interval: %@", [MOZUAppAuthenticator sharedAppAuthenticator].refreshInterval);
-        [client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        [client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
             DDLogDebug(@"AFTER: Refresh interval: %@", [MOZUAppAuthenticator sharedAppAuthenticator].refreshInterval);
             if (result) {
                 DDLogDebug(@"result = %@", [result productCode]);
@@ -410,6 +422,61 @@ static const BOOL MOZUUseSSL = NO;
     } else {
         self.waitingForBlock = NO;
     }
+}
+
+#pragma mark - Tests for app API calls.
+
+- (void)authenticateAppAndUserWithAppAuthInfo:(MOZUAppAuthInfo *)appAuthInfo userAuthInfo:(MOZUUserAuthInfo *)userAuthInfo completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
+{
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:appAuthInfo
+                                                                    appHost:MOZUAuthenticationHost
+                                                                     useSSL:MOZUUseSSL
+                                                             refeshInterval:nil
+                                                          completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error)
+     {
+         if (error) {
+             completion(nil, response, error);
+         } else {
+             [[MOZUUserAuthenticator sharedUserAuthenticator] authenticateWithUserAuthInfo:userAuthInfo
+                                                                                     scope:MOZUTenantAuthenticationScope
+                                                                                identifier:nil
+                                                                         completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
+              {
+                  if (profile) {
+                      DDLogDebug(@"profile = %@", profile);
+                  } else {
+                      DDLogError(@"%@", error);
+                  }
+                  completion(profile, response, error);
+              }];
+         }
+     }];
+}
+
+- (void)testGettingTenentList
+{
+    MOZUAppAuthInfo *appAuthInfo = [self appAuthInfo];
+    MOZUUserAuthInfo *userAuthInfo = [self userAuthInfo];
+    [self authenticateAppAndUserWithAppAuthInfo:appAuthInfo
+                                   userAuthInfo:userAuthInfo
+                              completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
+     {
+         if (profile) {
+             XCTAssertNil(error, @"Result with error.");
+             if (profile.authorizedScopes && profile.authorizedScopes.count > 0) {
+                 
+             } else {
+                 XCTFail(@"No authorized scopes");
+                 self.waitingForBlock = NO;
+             }
+         } else {
+             DDLogError(@"%@", error);
+             XCTAssertNotNil(error, @"Result nil but had no error.");
+             XCTFail(@"%@", error);
+             self.waitingForBlock = NO;
+         }
+     }];
+    [self waitForBlock];
 }
 
 @end

@@ -48,7 +48,7 @@ Retrieves the details of a product variation based on the supplied product code 
  {
 	MOZUClient *client = [MOZUProductVariationClient clientForGetProductVariationOperationWithDataViewMode:dataViewMode productCode:productCode variationKey:variationKey userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -68,7 +68,7 @@ Retrieves a list of the product variations configured for the specified product 
  {
 	MOZUClient *client = [MOZUProductVariationClient clientForGetProductVariationsOperationWithDataViewMode:dataViewMode productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -99,7 +99,7 @@ Modifies the collection of variations for the specified product code. Because th
  {
 	MOZUClient *client = [MOZUProductVariationClient clientForUpdateProductVariationsOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -117,7 +117,7 @@ Modifies the details of a variation, based on the supplied variation key, for th
  {
 	MOZUClient *client = [MOZUProductVariationClient clientForUpdateProductVariationOperationWithDataViewMode:dataViewMode body:body productCode:productCode variationKey:variationKey userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -141,7 +141,7 @@ Deletes a variation, based on the supplied variation key, for the specified prod
  {
 	MOZUClient *client = [MOZUProductVariationClient clientForDeleteProductVariationOperationWithDataViewMode:dataViewMode productCode:productCode variationKey:variationKey userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

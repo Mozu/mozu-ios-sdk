@@ -47,7 +47,7 @@ Retrieves the discount target, that is which products, categories, or shipping m
  {
 	MOZUClient *client = [MOZUDiscountTargetClient clientForGetDiscountTargetOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -78,7 +78,7 @@ Modifies properties of the discount target, for example, the dollar amount, or p
  {
 	MOZUClient *client = [MOZUDiscountTargetClient clientForUpdateDiscountTargetOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

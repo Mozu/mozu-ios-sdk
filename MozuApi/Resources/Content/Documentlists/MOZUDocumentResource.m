@@ -48,7 +48,7 @@ Get a specific document within the specified document list by providing the docu
  {
 	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -65,7 +65,7 @@ Retrieve the content associated with a document, such as a product image or PDF 
  {
 	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -85,7 +85,7 @@ Retrieves a collection of documents according to any filter and sort criteria.
  {
 	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentsOperationWithDataViewMode:dataViewMode documentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -109,7 +109,7 @@ Creates a new document in an existing list.
  {
 	MOZUClient *client = [MOZUDocumentClient clientForCreateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -134,7 +134,7 @@ Updates a document in a document list.
  {
 	MOZUClient *client = [MOZUDocumentClient clientForUpdateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -152,7 +152,7 @@ Updates the content associated with a document, such as a product image or PDF s
  {
 	MOZUClient *client = [MOZUDocumentClient clientForUpdateDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -176,7 +176,7 @@ Deletes a specific document based on the specified documentId.
  {
 	MOZUClient *client = [MOZUDocumentClient clientForDeleteDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -193,7 +193,7 @@ Deletes the content associated with a document, such as a product image or PDF s
  {
 	MOZUClient *client = [MOZUDocumentClient clientForDeleteDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

@@ -30,7 +30,7 @@ Retrieves a specific address schema based on the country code provided. This ope
 - (void)addressSchemaWithCountryCode:(NSString *)countryCode completionHandler:(void(^)(MOZUAddressSchema *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetAddressSchemaOperationWithCountryCode:countryCode];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -44,7 +44,7 @@ Retrieves the entire list of address schemas that the system supports.
 - (void)addressSchemasWithCompletionHandler:(void(^)(MOZUAddressSchemaCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetAddressSchemasOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -59,7 +59,7 @@ Retrieves the entire list of address schemas that the system supports.
 - (void)behaviorWithBehaviorId:(NSInteger)behaviorId completionHandler:(void(^)(MOZUBehavior *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetBehaviorOperationWithBehaviorId:behaviorId];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -73,7 +73,7 @@ Retrieves the entire list of address schemas that the system supports.
 - (void)behaviorCategoriesWithCompletionHandler:(void(^)(MOZUBehaviorCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetBehaviorCategoriesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -88,7 +88,7 @@ Retrieves the entire list of address schemas that the system supports.
 - (void)behaviorCategoryWithCategoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUBehaviorCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetBehaviorCategoryOperationWithCategoryId:categoryId];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -103,7 +103,7 @@ Retrieves the entire list of address schemas that the system supports.
 - (void)behaviorsWithUserType:(NSString *)userType completionHandler:(void(^)(MOZUBehaviorCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetBehaviorsOperationWithUserType:userType];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -117,7 +117,7 @@ Retrieves the entire list of content locales that the system supports. The conte
 - (void)contentLocalesWithCompletionHandler:(void(^)(MOZUContentLocaleCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetContentLocalesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -131,7 +131,7 @@ Retrieves the entire list of countries that the system supports.
 - (void)countriesWithCompletionHandler:(void(^)(MOZUCountryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetCountriesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -145,7 +145,7 @@ Retrieves the entire list of currencies that the system supports.
 - (void)currenciesWithCompletionHandler:(void(^)(MOZUCurrencyCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetCurrenciesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -159,7 +159,7 @@ Retrieves the entire list of time zones that the system supports.
 - (void)timeZonesWithCompletionHandler:(void(^)(MOZUTimeZoneCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetTimeZonesOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -173,7 +173,7 @@ Retrieves the entire list of top-level Internet domains that the system supports
 - (void)topLevelDomainsWithCompletionHandler:(void(^)(MOZUTopLevelDomainCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetTopLevelDomainsOperation];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -188,7 +188,7 @@ Retrieves the entire list of units of measure that the system supports.
 - (void)unitsOfMeasureWithFilter:(NSString *)filter completionHandler:(void(^)(MOZUUnitOfMeasureCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUReferenceDataClient clientForGetUnitsOfMeasureOperationWithFilter:filter];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

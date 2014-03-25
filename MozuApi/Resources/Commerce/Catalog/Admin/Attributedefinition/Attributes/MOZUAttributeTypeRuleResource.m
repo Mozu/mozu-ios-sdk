@@ -50,7 +50,7 @@ Retrieves a list of attribute type rules according to optional filter criteria a
  {
 	MOZUClient *client = [MOZUAttributeTypeRuleClient clientForGetAttributeTypeRulesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

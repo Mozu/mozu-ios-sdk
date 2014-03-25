@@ -50,7 +50,7 @@ Retrieves a list of discounts according to any specified filter criteria and sor
  {
 	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountsOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -66,7 +66,7 @@ Retrieves the details of a single discount.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -82,7 +82,7 @@ Retrieves the localized content specified for the specified discount.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountContentOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -97,7 +97,7 @@ Generates a random code for a coupon.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForGenerateRandomCouponOperationWithDataViewMode:dataViewMode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -120,7 +120,7 @@ Creates a discount.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForCreateDiscountOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -144,7 +144,7 @@ Modifies a discount.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForUpdateDiscountOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -161,7 +161,7 @@ Modifies the localized content for the specified discount. Rename the discount w
  {
 	MOZUClient *client = [MOZUDiscountClient clientForUpdateDiscountContentOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -184,7 +184,7 @@ Deletes a discount specified by its discount ID.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForDeleteDiscountOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

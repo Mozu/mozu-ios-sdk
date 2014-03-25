@@ -60,7 +60,7 @@ Creates the combinations of variations available for this product type.
  {
 	MOZUClient *client = [MOZUProductTypeVariationClient clientForGenerateProductVariationsOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

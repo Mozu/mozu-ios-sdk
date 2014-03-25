@@ -10,6 +10,8 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUProductSupplierInfo.h"
+#import "MOZUProductVariationOption.h"
 #import "MOZUAdminDiscount.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUAdminBundledProduct.h"
@@ -24,8 +26,6 @@
 #import "MOZUAdminProductProperty.h"
 #import "MOZUProductPublishingInfo.h"
 #import "MOZUProductLocalizedSEOContent.h"
-#import "MOZUProductSupplierInfo.h"
-#import "MOZUProductVariationOption.h"
 
 
 
@@ -116,6 +116,13 @@ System-generated key that represents the attribute values that uniquely identify
 */
 @property(nonatomic) NSString * variationKey;
 
+@property(nonatomic) MOZUProductSupplierInfo *supplierInfo;
+
+/**
+The list of product variation options that exist in product admin.
+*/
+@property(nonatomic) NSArray<MOZUProductVariationOption> *variationOptions;
+
 /**
 List of discounts available for a product.
 */
@@ -182,13 +189,6 @@ The list of product properties to set in product admin.
 search engine optimized product content.
 */
 @property(nonatomic) MOZUProductLocalizedSEOContent *seoContent;
-
-@property(nonatomic) MOZUProductSupplierInfo *supplierInfo;
-
-/**
-The list of product variation options that exist in product admin.
-*/
-@property(nonatomic) NSArray<MOZUProductVariationOption> *variationOptions;
 
 @end
 
