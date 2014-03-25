@@ -64,10 +64,8 @@ static const BOOL MOZUUseSSL = NO;
 - (MOZUUserAuthInfo *)userAuthInfo
 {
     MOZUUserAuthInfo *userAuthInfo = [MOZUUserAuthInfo new];
-//    userAuthInfo.emailAddress = @"";
-//    userAuthInfo.password = @"";
-    userAuthInfo.emailAddress = @"noel_artiles@volusion.com";
-    userAuthInfo.password = @"vBdZEVW6EvFwPdR9CPBN";
+    userAuthInfo.emailAddress = @"";
+    userAuthInfo.password = @"";
     
     return userAuthInfo;
 }
@@ -452,7 +450,7 @@ static const BOOL MOZUUseSSL = NO;
          }
      }];
 }
-
+/*
 - (void)testGettingTenentList
 {
     MOZUAppAuthInfo *appAuthInfo = [self appAuthInfo];
@@ -478,5 +476,5 @@ static const BOOL MOZUUseSSL = NO;
      }];
     [self waitForBlock];
 }
-
+*/
 @end
