@@ -28,19 +28,19 @@
 @property (nonatomic, readonly) NSNumber *catalogID;
 @property (nonatomic, readonly) NSString *emailAddress;
 @property (nonatomic, readonly) NSString *password;
+@property (nonatomic, readonly) NSString *appID;
+@property (nonatomic, readonly) NSString *sharedSecret;
+@property (nonatomic, readonly) NSString *authenticationHost;
+@property (nonatomic, readonly) NSString *tenantHost;
 
 @end
 
 @implementation MozuApiTests
 
-static NSString * const MOZUAppID = @"f4ff75a969544ca5849aa2df016be775";
-static NSString * const MOZUSharedSecret = @"149b0a7c0b6b48499605a2df016be775";
-static NSString * const MOZUAuthenticationHost = @"home.mozu-si.volusion.com";
-static NSString * const MOZUTenantHost = @"t7290-s10825.mozu-si.volusion.com";
-static const NSUInteger MOZUTenantID = 7290;
-static const NSInteger MOZUProductCode = 1001;
+static const NSUInteger tenantID = 7290;
+static const NSInteger productCode = 1001;
 //static const NSUInteger MOZUDeveloperIdentifier;
-static const BOOL MOZUUseSSL = NO;
+static const BOOL useSSL = NO;
 
 - (void)setUp
 {
@@ -68,8 +68,16 @@ static const BOOL MOZUUseSSL = NO;
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
         NSDictionary *securityDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        // App authentication
+        _appID = securityDictionary[@"appID"];
+        _sharedSecret = securityDictionary[@"sharedSecret"];
+        _authenticationHost = securityDictionary[@"authenticationHost"];
+        
+        // User authentication
         _emailAddress = securityDictionary[@"emailAddress"];
         _password = securityDictionary[@"password"];
+        
+        _tenantHost = securityDictionary[@"tenantHost"];
     }
 
 }
@@ -77,8 +85,8 @@ static const BOOL MOZUUseSSL = NO;
 - (MOZUAppAuthInfo *)appAuthInfo;
 {
     MOZUAppAuthInfo *authInfo = [MOZUAppAuthInfo new];
-    authInfo.ApplicationId = MOZUAppID;
-    authInfo.SharedSecret = MOZUSharedSecret;
+    authInfo.ApplicationId = self.appID;
+    authInfo.SharedSecret = self.sharedSecret;
     
     return authInfo;
 }
@@ -112,13 +120,13 @@ static const BOOL MOZUUseSSL = NO;
     
     MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:MOZUAuthenticationHost useSSL:MOZUUseSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (error) {
             DDLogError(@"%@", error.localizedDescription);
             XCTAssertNil(response, @"Resource not nil but had error.");
             self.waitingForBlock = NO;
         } else {
-            [tenantResource tenantWithTenantId:MOZUTenantID userClaims:nil completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [tenantResource tenantWithTenantId:tenantID userClaims:nil completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (error) {
                     DDLogError(@"%@", error.localizedDescription);
                     XCTAssertNil(result, @"Result not nil but had error.");
@@ -138,8 +146,8 @@ static const BOOL MOZUUseSSL = NO;
 - (void)testMozuClient
 {
     MOZUURLComponents *components = [[MOZUURLComponents alloc] initWithTemplate:@"/api/commerce/catalog/admin/products/{productCode}"
-                                                                     parameters:@{@"productCode": @(MOZUProductCode)}
-                                                                       location:MOZUTenantPod useSSL:MOZUUseSSL];
+                                                                     parameters:@{@"productCode": @(productCode)}
+                                                                       location:MOZUTenantPod useSSL:useSSL];
     
     MOZUAppAuthInfo *authInfo = [self appAuthInfo];
     
@@ -153,16 +161,16 @@ static const BOOL MOZUUseSSL = NO;
         return model;
     };
 
-    client.context = [[MOZUAPIContext alloc] initWithTenantId:MOZUTenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
-    client.context.tenantHost = MOZUTenantHost;
+    client.context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
+    client.context.tenantHost = self.tenantHost;
     NSString *dataViewModeString = [@(MOZULive) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:MOZUAuthenticationHost useSSL:MOZUUseSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
             if (result) {
                 DDLogDebug(@"result = %@", [result productCode]);
-                XCTAssertEqualObjects([result productCode] , [@(MOZUProductCode) stringValue] , @"Product codes don't match.");
+                XCTAssertEqualObjects([result productCode] , [@(productCode) stringValue] , @"Product codes don't match.");
             } else {
                 DDLogError(@"%@", error.localizedDescription);
                 XCTAssertNotNil(error, @"Result nil but had no error.");
@@ -181,12 +189,12 @@ static const BOOL MOZUUseSSL = NO;
 {
     MOZUAppAuthInfo *authInfo = [self appAuthInfo];
     
-    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:MOZUTenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
-    context.tenantHost = MOZUTenantHost;
+    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
+    context.tenantHost = self.tenantHost;
     
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:MOZUAuthenticationHost useSSL:MOZUUseSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
-        [adminProductResource productWithDataViewMode:MOZULive productCode:[@(MOZUProductCode) stringValue] userClaims:nil completionHandler:^(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        [adminProductResource productWithDataViewMode:MOZULive productCode:[@(productCode) stringValue] userClaims:nil completionHandler:^(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
                 XCTAssertNil(error, @"Result with error.");
@@ -206,12 +214,12 @@ static const BOOL MOZUUseSSL = NO;
 {
     MOZUAppAuthInfo *authInfo = [self appAuthInfo];
     
-    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:MOZUTenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
-    context.tenantHost = MOZUTenantHost;
+    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
+    context.tenantHost = self.tenantHost;
     
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:MOZUAuthenticationHost useSSL:MOZUUseSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [adminProductResource productsWithDataViewMode:MOZULive
                                             startIndex:@(0)
                                               pageSize:@(200)
@@ -244,14 +252,14 @@ static const BOOL MOZUUseSSL = NO;
     MOZUAppAuthInfo *authInfo = [self appAuthInfo];
     
     // Context
-    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:MOZUTenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
-    context.tenantHost = MOZUTenantHost;
+    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
+    context.tenantHost = self.tenantHost;
 
     // Resource
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:MOZUAuthenticationHost useSSL:MOZUUseSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
-        [adminProductResource productInCatalogsWithDataViewMode:MOZULive productCode:[@(MOZUProductCode) stringValue] userClaims:nil completionHandler:^(NSArray<MOZUProductInCatalogInfo> *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        [adminProductResource productInCatalogsWithDataViewMode:MOZULive productCode:[@(productCode) stringValue] userClaims:nil completionHandler:^(NSArray<MOZUProductInCatalogInfo> *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
                 XCTAssertNil(error, @"Result with error.");
@@ -296,8 +304,8 @@ static const BOOL MOZUUseSSL = NO;
         __block NSUInteger loopsCopy = loops;
         
         MOZUURLComponents *components = [[MOZUURLComponents alloc] initWithTemplate:@"/api/commerce/catalog/admin/products/{productCode}"
-                                                                         parameters:@{@"productCode": @(MOZUProductCode)}
-                                                                           location:MOZUTenantPod useSSL:MOZUUseSSL];
+                                                                         parameters:@{@"productCode": @(productCode)}
+                                                                           location:MOZUTenantPod useSSL:useSSL];
         MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"GET"];
         client.userClaims = userClaims;
         client.JSONParser = ^(NSString *JSONResult) {
@@ -309,8 +317,8 @@ static const BOOL MOZUUseSSL = NO;
             return model;
         };
 
-        client.context = [[MOZUAPIContext alloc] initWithTenantId:MOZUTenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
-        client.context.tenantHost = MOZUTenantHost;
+        client.context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
+        client.context.tenantHost = self.tenantHost;
         NSString *dataViewModeString = [@(MOZULive) stringValue];
         [client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
@@ -319,7 +327,7 @@ static const BOOL MOZUUseSSL = NO;
             DDLogDebug(@"AFTER: Refresh interval: %@", [MOZUAppAuthenticator sharedAppAuthenticator].refreshInterval);
             if (result) {
                 DDLogDebug(@"result = %@", [result productCode]);
-                XCTAssertEqualObjects([result productCode] , [@(MOZUProductCode) stringValue] , @"Product codes don't match.");
+                XCTAssertEqualObjects([result productCode] , [@(productCode) stringValue] , @"Product codes don't match.");
                 loopsCopy--;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(interval * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     [self executeClientWithUserAuthTicket:userClaims interval:interval loops:loopsCopy];
@@ -342,10 +350,10 @@ static const BOOL MOZUUseSSL = NO;
     MOZUAppAuthInfo *authInfo = [self appAuthInfo];
     
     // Context
-    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:MOZUTenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
-    context.tenantHost = MOZUTenantHost;
+    MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
+    context.tenantHost = self.tenantHost;
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:MOZUAuthenticationHost useSSL:MOZUUseSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         // Resource
         MOZUAddressValidationRequestResource *addressValidationResource = [[MOZUAddressValidationRequestResource alloc] initWithAPIContext:context];
         MOZUAddressValidationRequest *validationRequest = [MOZUAddressValidationRequest new];
@@ -423,11 +431,11 @@ static const BOOL MOZUUseSSL = NO;
         
         MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
         DDLogDebug(@"BEFORE: User access token expiration: %@", userClaims.accessTokenExpiration);
-        [tenantResource tenantWithTenantId:MOZUTenantID userClaims:userClaims completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        [tenantResource tenantWithTenantId:tenantID userClaims:userClaims completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             DDLogDebug(@"After: User access token expiration: %@", userClaims.accessTokenExpiration);
             if (result) {
                 DDLogDebug(@"result = %@", [@(result.id) stringValue]);
-                XCTAssertEqualObjects(@(result.id) , @(MOZUTenantID) , @"Tenent ids don't match.");
+                XCTAssertEqualObjects(@(result.id) , @(tenantID) , @"Tenent ids don't match.");
                 loopsCopy--;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(interval * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     [self executeGetTenentWithUserAuthTicket:userClaims interval:interval loops:loopsCopy];
@@ -449,8 +457,8 @@ static const BOOL MOZUUseSSL = NO;
 - (void)authenticateAppAndUserWithAppAuthInfo:(MOZUAppAuthInfo *)appAuthInfo userAuthInfo:(MOZUUserAuthInfo *)userAuthInfo completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
 {
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:appAuthInfo
-                                                                    appHost:MOZUAuthenticationHost
-                                                                     useSSL:MOZUUseSSL
+                                                                    appHost:self.authenticationHost
+                                                                     useSSL:useSSL
                                                              refeshInterval:nil
                                                           completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error)
      {
