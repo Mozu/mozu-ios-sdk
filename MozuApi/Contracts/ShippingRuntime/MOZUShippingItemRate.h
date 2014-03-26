@@ -17,24 +17,12 @@
 @end
 
 
-/**
-	Properties of a shipping rate calculated for a line item in a shipment.
-*/
 @interface MOZUShippingItemRate : JSONModel<MOZUShippingItemRate>
 
-/**
-The calculated shipping amount for an item in a shipment.
-*/
 @property(nonatomic) NSNumber * amount;
 
-/**
-Unique identifier of the item for which to calculate a shipping rate.
-*/
 @property(nonatomic) NSString * itemId;
 
-/**
-The quantity of the line item for which to calculate shipping.
-*/
 @property(nonatomic) NSNumber * quantity;
 
 @end

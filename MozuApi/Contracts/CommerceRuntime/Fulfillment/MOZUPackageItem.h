@@ -17,19 +17,10 @@
 @end
 
 
-/**
-	Properties of an item shipped in a physical package.
-*/
 @interface MOZUPackageItem : JSONModel<MOZUPackageItem>
 
-/**
-Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-*/
 @property(nonatomic) NSString * productCode;
 
-/**
-The quantity of an item shipped in the specified package.
-*/
 @property(nonatomic) NSInteger quantity;
 
 @end

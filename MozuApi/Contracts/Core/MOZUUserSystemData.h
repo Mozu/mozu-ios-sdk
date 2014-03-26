@@ -23,7 +23,7 @@
 @interface MOZUUserSystemData : JSONModel<MOZUUserSystemData>
 
 /**
-Date and time when the entity was created, represented in UTC Date/Time.
+Date and time when the entity was created. UTC Date/Time.
 */
 @property(nonatomic) NSDate * createdOn;
 
@@ -33,7 +33,7 @@ The number of failed authentication attempts associated with the user.
 @property(nonatomic) unsigned char failedLoginAttemptCount;
 
 /**
-The date and time the initial login was unsuccessful, which is system-supplied and read only. Each time user authentication fails, an update occurs on this field.
+The date and time the initial login was unsuccessful. Each time a user attempts to authenticate and it fails, an update occurs on this field. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * firstFailedLoginAttemptOn;
 
@@ -53,12 +53,12 @@ When the user's account was last locked. System-supplied and read-only.
 @property(nonatomic) NSDate * lastLockedOn;
 
 /**
-When the user last logged into the store. System-supplied and read-only.
+ When the user last logged into the store. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * lastLoginOn;
 
 /**
-When the password was last modified. System-supplied and read-only.
+ When the password was last modified. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * lastPasswordChangeOn;
 
@@ -68,7 +68,7 @@ The number of login attempts left for the user. The user must login successfully
 @property(nonatomic) NSInteger remainingLoginAttempts;
 
 /**
-Date and time when the entity was last updated, represented in UTC Date/Time.
+Date and time when the entity was last updated. UTC Date/Time.
 */
 @property(nonatomic) NSDate * updatedOn;
 

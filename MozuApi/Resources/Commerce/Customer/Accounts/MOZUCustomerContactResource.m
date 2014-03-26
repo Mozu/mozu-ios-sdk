@@ -48,7 +48,7 @@ Retrieves the specified contact for a customer account such as a billing or ship
  {
 	MOZUClient *client = [MOZUCustomerContactClient clientForGetAccountContactOperationWithAccountId:accountId contactId:contactId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -58,8 +58,8 @@ Retrieves the specified contact for a customer account such as a billing or ship
 /**
 Retrieves a list of contacts for a customer according to any specified filter criteria and sort options.
 @param accountId Unique identifier of the customer account associated with the contact information to retrieve.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
 @param startIndex 
 */
@@ -68,7 +68,7 @@ Retrieves a list of contacts for a customer according to any specified filter cr
  {
 	MOZUClient *client = [MOZUCustomerContactClient clientForGetAccountContactsOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -92,7 +92,7 @@ Creates a new contact for a customer account such as a new shipping address.
  {
 	MOZUClient *client = [MOZUCustomerContactClient clientForAddAccountContactOperationWithBody:body accountId:accountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -117,7 +117,7 @@ Updates a contact for a specified customer account such as to update addresses o
  {
 	MOZUClient *client = [MOZUCustomerContactClient clientForUpdateAccountContactOperationWithBody:body accountId:accountId contactId:contactId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -141,7 +141,7 @@ Deletes a contact for the specified customer account.
  {
 	MOZUClient *client = [MOZUCustomerContactClient clientForDeleteAccountContactOperationWithAccountId:accountId contactId:contactId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

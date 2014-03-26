@@ -40,8 +40,8 @@
 
 /**
 Retrieves a list of discounts according to any specified filter criteria and sort options.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
 @param startIndex 
 */
@@ -50,7 +50,7 @@ Retrieves a list of discounts according to any specified filter criteria and sor
  {
 	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountsOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -66,7 +66,7 @@ Retrieves the details of a single discount.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -82,7 +82,7 @@ Retrieves the localized content specified for the specified discount.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountContentOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -97,7 +97,7 @@ Generates a random code for a coupon.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForGenerateRandomCouponOperationWithDataViewMode:dataViewMode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -112,15 +112,15 @@ Generates a random code for a coupon.
 //
 
 /**
-Creates a new discount or coupon to apply to a product, category, order, or shipping.
-@param body Properties of the discount to create. You must specify the discount name, amount type, start date, and target.
+Creates a discount.
+@param body Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 */
 
 - (void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUDiscountClient clientForCreateDiscountOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -135,16 +135,16 @@ Creates a new discount or coupon to apply to a product, category, order, or ship
 //
 
 /**
-Updates one or more properties of a defined discount.
-@param body Properties of the discount to update.
-@param discountId Unique identifier of the discount to update.
+Modifies a discount.
+@param body Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
+@param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
 - (void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUDiscountClient clientForUpdateDiscountOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -152,8 +152,8 @@ Updates one or more properties of a defined discount.
 }
 
 /**
-Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
-@param body The discount content to update, including the discount name.
+Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
+@param body New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
@@ -161,7 +161,7 @@ Updates the localizable content for the specified discount or rename the discoun
  {
 	MOZUClient *client = [MOZUDiscountClient clientForUpdateDiscountContentOperationWithDataViewMode:dataViewMode body:body discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -184,7 +184,7 @@ Deletes a discount specified by its discount ID.
  {
 	MOZUClient *client = [MOZUDiscountClient clientForDeleteDiscountOperationWithDataViewMode:dataViewMode discountId:discountId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

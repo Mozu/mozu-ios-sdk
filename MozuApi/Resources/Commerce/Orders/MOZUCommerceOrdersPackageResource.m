@@ -48,7 +48,7 @@ Retrieves the details of a package of order items.
  {
 	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetPackageOperationWithOrderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -56,16 +56,16 @@ Retrieves the details of a package of order items.
 }
 
 /**
-Retrieves a list of the actions available to perform for a package associated with order fulfillment.
-@param orderId Unique identifier of the order associated with the package fulfillment.
-@param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
+
+@param orderId 
+@param packageId 
 */
 
 - (void)availablePackageFulfillmentActionsWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetAvailablePackageFulfillmentActionsOperationWithOrderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -82,7 +82,7 @@ Retrieves the package label image supplied by the carrier.
  {
 	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetPackageLabelOperationWithOrderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -106,7 +106,7 @@ Creates a new physical package of order items.
  {
 	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForCreatePackageOperationWithBody:body orderId:orderId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -131,7 +131,7 @@ Updates one or more properties of a physical package of order items.
  {
 	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForUpdatePackageOperationWithBody:body orderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -155,7 +155,7 @@ Removes a physical package of items from the specified order.
  {
 	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForDeletePackageOperationWithOrderId:orderId packageId:packageId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

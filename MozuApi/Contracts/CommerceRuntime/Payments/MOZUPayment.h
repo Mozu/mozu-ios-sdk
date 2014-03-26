@@ -32,13 +32,10 @@ The total monetary amount collected in this payment transaction for the order.
 @property(nonatomic) NSNumber * amountCollected;
 
 /**
-If the payment transaction is a shopper store credit, the total monetary amount credited in this payment transaction for the order.
+If the payment transaction is a shopper credit, the total monetary amount credited in this payment transaction for the order.
 */
 @property(nonatomic) NSNumber * amountCredited;
 
-/**
-The total amount originally requested for this payment.
-*/
 @property(nonatomic) NSNumber * amountRequested;
 
 /**
@@ -67,7 +64,7 @@ The transaction ID supplied by the payment service to associate with this order 
 @property(nonatomic) NSString * paymentServiceTransactionId;
 
 /**
-The type of payment transaction performed, such as check, credit card, or PayPal Express. Additional payment types will be supported in future releases.
+The type of payment transaction performed, either check or credit card. Paypal and additional payment types will be supported in a future release.
 */
 @property(nonatomic) NSString * paymentType;
 
@@ -77,12 +74,12 @@ Current status of the payment transaction for the order.
 @property(nonatomic) NSString * status;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
-Properties of the customer billing information associated with this payment.
+The billing information associates with this payment.
 */
 @property(nonatomic) MOZUBillingInfo *billingInfo;
 

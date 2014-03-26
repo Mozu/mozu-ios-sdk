@@ -46,15 +46,15 @@
 //
 
 /**
-
-@param body 
+Retrieves a list of calculated shipping rates available on the storefront.
+@param body Properties of item to rate.
 */
 
 - (void)ratesWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURatesResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUObjectClient clientForGetRatesOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

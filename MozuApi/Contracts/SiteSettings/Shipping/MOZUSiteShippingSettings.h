@@ -26,7 +26,7 @@
 @interface MOZUSiteShippingSettings : JSONModel<MOZUSiteShippingSettings>
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
@@ -35,9 +35,6 @@ The combined price for all items in the order, including all selected options bu
 */
 @property(nonatomic) MOZUSiteShippingHandlingFee *orderHandlingFee;
 
-/**
-Properties of the package signature requirements for the site.
-*/
 @property(nonatomic) MOZUSiteShippingSignatureRequirement *signatureRequirement;
 
 @end

@@ -19,27 +19,24 @@
 
 
 /**
-	Properties of an attribute applied to an order.
+	A characteristic of an order.
 */
 @interface MOZUOrderAttribute : JSONModel<MOZUOrderAttribute>
 
-/**
-Unique identifier of the order attribute definition.
-*/
 @property(nonatomic) NSNumber * attributeDefinitionId;
 
 /**
-The fully qualified name of the attribute, which is a user defined attribute identifier.
+The fully qualified name of the attribute.
 */
 @property(nonatomic) NSString * fullyQualifiedName;
 
 /**
-The values defined for the order attribute.
+The values of the order attribute.
 */
 @property(nonatomic) NSArray *values;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

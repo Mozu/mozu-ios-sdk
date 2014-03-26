@@ -20,31 +20,31 @@
 /**
 Resource Url Components for getProducts
 @param startIndex 
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param q A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.
-@param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
-@param noCount If true, the operation does not return the TotalCount number of results.
+@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+@param q 
+@param qLimit 
+@param noCount 
 */
 + (MOZUURLComponents *)URLComponentsForGetProductsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount;
 
 /**
 Resource Url Components for getProduct
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param productCode Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ë-Ø, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.
 */
 + (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for getProductInCatalogs
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param productCode 
 */
 + (MOZUURLComponents *)URLComponentsForGetProductInCatalogsOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for getProductInCatalog
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param catalogId The unique identifier of the catalog of products used by a site.
+@param productCode 
+@param catalogId 
 */
 + (MOZUURLComponents *)URLComponentsForGetProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
 
@@ -62,7 +62,7 @@ Resource Url Components for addProduct
 
 /**
 Resource Url Components for addProductInCatalog
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param productCode 
 */
 + (MOZUURLComponents *)URLComponentsForAddProductInCatalogOperationWithProductCode:(NSString *)productCode;
 
@@ -81,14 +81,14 @@ Resource Url Components for updateProduct
 
 /**
 Resource Url Components for updateProductInCatalogs
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param productCode 
 */
 + (MOZUURLComponents *)URLComponentsForUpdateProductInCatalogsOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for updateProductInCatalog
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param catalogId The unique identifier of the catalog of products used by a site.
+@param productCode 
+@param catalogId 
 */
 + (MOZUURLComponents *)URLComponentsForUpdateProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
 
@@ -101,14 +101,14 @@ Resource Url Components for updateProductInCatalog
 
 /**
 Resource Url Components for deleteProduct
-@param productCode 
+@param productCode Merchant-created code associated with the product such as a SKU.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteProductOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for deleteProductInCatalog
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param catalogId The unique identifier of the catalog of products used by a site.
+@param productCode 
+@param catalogId 
 */
 + (MOZUURLComponents *)URLComponentsForDeleteProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
 

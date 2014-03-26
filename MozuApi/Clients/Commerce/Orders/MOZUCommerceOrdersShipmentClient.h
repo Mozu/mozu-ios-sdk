@@ -25,9 +25,9 @@
 //
 
 /**
-Retrieves the details of the order shipment specified in the request.
-@param orderId Unique identifier of the order associated with the shipment to retrieve.
-@param shipmentId Unique identifier of the shipment to retrieve.
+
+@param orderId 
+@param shipmentId 
 */
 
 + (MOZUClient *)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -69,7 +69,7 @@ Creates a shipment from one or more package associated with an order and assign 
 //
 
 /**
-Deletes the shipment specified in the request.
+Cancels a shipment.
 @param orderId Unique identifier of the order to cancel shipment.
 @param shipmentId Unique identifier of the shipment to cancel.
 */

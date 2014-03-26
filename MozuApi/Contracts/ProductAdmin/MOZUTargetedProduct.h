@@ -22,9 +22,6 @@
 */
 @interface MOZUTargetedProduct : JSONModel<MOZUTargetedProduct>
 
-/**
-Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-*/
 @property(nonatomic) NSString * productCode;
 
 @end

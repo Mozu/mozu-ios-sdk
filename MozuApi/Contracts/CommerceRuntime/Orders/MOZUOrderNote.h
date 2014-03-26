@@ -19,7 +19,7 @@
 
 
 /**
-	Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
+	For a customer, the order note could be a comment or a gift message. For a merchant, the order note is internal only for administrative purposes and not available to the customer.
 */
 @interface MOZUOrderNote : JSONModel<MOZUOrderNote>
 
@@ -34,7 +34,7 @@ The text content of the order note.
 @property(nonatomic) NSString * text;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

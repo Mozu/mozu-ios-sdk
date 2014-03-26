@@ -32,14 +32,14 @@
 //
 
 /**
-Retrieve the details of all master catalog associated with a tenant.
+
 */
 
 - (void)masterCatalogsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUMasterCatalogCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieve the details of the master catalog specified in the request.
-@param masterCatalogId The unique identifier of the master catalog associated with the entity.
+
+@param masterCatalogId 
 */
 
 - (void)masterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -59,8 +59,8 @@ Retrieve the details of the master catalog specified in the request.
 //
 
 /**
-Updates the product publishing mode for the master catalog specified in the request.
-@param body Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
+
+@param body 
 @param masterCatalogId 
 */
 

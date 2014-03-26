@@ -40,7 +40,7 @@
 
 /**
 Retrieves the properties of facets that aid in indexing and searching.
-@param documentListName The document list associated with the facets to retrieve.
+@param documentListName The document list associated with the facets are to retrieve.
 @param propertyName The property name associated with the facets to retrieve.
 */
 
@@ -48,7 +48,7 @@ Retrieves the properties of facets that aid in indexing and searching.
  {
 	MOZUClient *client = [MOZUContentFacetClient clientForGetFacetsOperationWithDataViewMode:dataViewMode documentListName:documentListName propertyName:propertyName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

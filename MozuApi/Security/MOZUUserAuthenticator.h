@@ -17,7 +17,7 @@
 
 typedef void(^MOZUUserAuthenticationCompletionBlock)(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error);
 
-typedef NS_ENUM(NSUInteger, MOZUAuthenticationScope) {
+typedef NS_ENUM(NSInteger, MOZUAuthenticationScope) {
     MOZUTenantAuthenticationScope,
     MOZUCustomerAuthenticationScope,
     MOZUDeveloperAuthenticationScope
@@ -44,6 +44,12 @@ typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
 @property (nonatomic, strong) NSNumber * siteId;
 @property (nonatomic, strong) NSNumber * tenentId;
 
+- (instancetype)initWithScope:(MOZUAuthenticationScope)scope
+                     tenentId:(NSNumber *)tenentId
+                  accessToken:(NSString *)accessToken
+        accessTokenExpiration:(NSDate *)accessTokenExpiration
+                 refreshToken:(NSString *)refreshToken
+       refreshTokenExpiration:(NSDate *)refreshTokenExpiration;
 @end
 
 @interface MOZUAuthenticationProfile : NSObject

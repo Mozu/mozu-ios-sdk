@@ -26,13 +26,10 @@
 @property(nonatomic) NSNumber * appliesToSalePrice;
 
 /**
-Alphanumeric code associated with the coupon or promotion that results in a discounted price.
+If the product discount requires a coupon, the coupon code string applied.
 */
 @property(nonatomic) NSString * couponCode;
 
-/**
-If true, the system ignores this discount when pricing the order.
-*/
 @property(nonatomic) NSNumber * excluded;
 
 /**

@@ -26,7 +26,7 @@
 
 /**
 Resource Url Components for createUserAuthTicket
-@param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
+@param tenantId Unique identifier of the Mozu tenant or development store for which to generate the user authentication ticket.
 */
 + (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber *)tenantId;
 
@@ -39,7 +39,7 @@ Resource Url Components for createUserAuthTicket
 
 /**
 Resource Url Components for refreshAuthTicket
-@param tenantId 
+@param tenantId Unique identifier of the Mozu tenant or development store for which to refresh the authentication ticket.
 */
 + (MOZUURLComponents *)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber *)tenantId;
 

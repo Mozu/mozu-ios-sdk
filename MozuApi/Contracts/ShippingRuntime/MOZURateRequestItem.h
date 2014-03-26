@@ -18,29 +18,14 @@
 @end
 
 
-/**
-	Properties of an item for which to calculate a shipping rate.
-*/
 @interface MOZURateRequestItem : JSONModel<MOZURateRequestItem>
 
-/**
-Unique identifier of the item to ship, for which to calculate a shipping rate.
-*/
 @property(nonatomic) NSString * itemId;
 
-/**
-Quantity of the item for which to calculate the shipping rate.
-*/
 @property(nonatomic) NSNumber * quantity;
 
-/**
-If true, this item must ship separately from other items in a shipment.
-*/
 @property(nonatomic) NSNumber * shipsByItself;
 
-/**
-The measured weight and dimensions of the item to ship.
-*/
 @property(nonatomic) MOZUItemMeasurements *unitMeasurements;
 
 @end

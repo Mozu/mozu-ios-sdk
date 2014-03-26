@@ -39,15 +39,15 @@
 //
 
 /**
-Retrieves the value of a record in the Mozu database.
-@param dbEntryQuery The database entry query string used to retrieve the record information.
+
+@param dbEntryQuery 
 */
 
 - (void)dBValueWithDbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUUserDataClient clientForGetDBValueOperationWithDbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -62,16 +62,16 @@ Retrieves the value of a record in the Mozu database.
 //
 
 /**
-Creates a new record in the Mozu database based on the information supplied in the request.
-@param body The value string to create.
-@param dbEntryQuery The database entry string to create.
+
+@param body 
+@param dbEntryQuery 
 */
 
 - (void)createDBValueWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUUserDataClient clientForCreateDBValueOperationWithBody:body dbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -86,16 +86,16 @@ Creates a new record in the Mozu database based on the information supplied in t
 //
 
 /**
-Updates a record in the Mozu database based on the information supplied in the request.
-@param body The database value to update.
-@param dbEntryQuery The database entry query string used to update the record information.
+
+@param body 
+@param dbEntryQuery 
 */
 
 - (void)updateDBValueWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUUserDataClient clientForUpdateDBValueOperationWithBody:body dbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -110,15 +110,15 @@ Updates a record in the Mozu database based on the information supplied in the r
 //
 
 /**
-Removes a previously defined record in the Mozu database.
-@param dbEntryQuery The database entry string to delete.
+
+@param dbEntryQuery 
 */
 
 - (void)deleteDBValueWithDbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUUserDataClient clientForDeleteDBValueOperationWithDbEntryQuery:dbEntryQuery userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

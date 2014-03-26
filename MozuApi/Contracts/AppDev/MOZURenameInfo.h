@@ -17,19 +17,10 @@
 @end
 
 
-/**
-	Information required to update the name of a file in a package, which consists of the original name and the new name.
-*/
 @interface MOZURenameInfo : JSONModel<MOZURenameInfo>
 
-/**
-The destination file location and file name to specify.
-*/
 @property(nonatomic) NSString * theNewFullPath;
 
-/**
-The original file location and file name.
-*/
 @property(nonatomic) NSString * oldFullPath;
 
 @end

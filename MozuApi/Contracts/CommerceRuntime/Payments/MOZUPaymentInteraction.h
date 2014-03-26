@@ -33,9 +33,6 @@ If applicable, the check number associated with this payment interaction.
 */
 @property(nonatomic) NSString * checkNumber;
 
-/**
-3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-*/
 @property(nonatomic) NSString * currencyCode;
 
 /**
@@ -63,6 +60,8 @@ Response code from the gateway associated with the payment interaction. For exam
 */
 @property(nonatomic) NSString * gatewayResponseCode;
 
+@property(nonatomic) NSString * gatewayResponseText;
+
 /**
 Unique identifier of the gateway transaction associated with the payment interaction.
 */
@@ -73,9 +72,6 @@ Unique identifier of the payment interaction.
 */
 @property(nonatomic) NSString * id;
 
-/**
-Date and time the payment interaction occured.
-*/
 @property(nonatomic) NSDate * interactionDate;
 
 /**
@@ -83,9 +79,6 @@ The type of payment interaction, such as Capture or CheckReceived.
 */
 @property(nonatomic) NSString * interactionType;
 
-/**
-If true, the payment interaction was manually defined s part of offline order processing.
-*/
 @property(nonatomic) BOOL isManual;
 
 /**
@@ -93,9 +86,6 @@ If true, this payment interaction repeats on a scheduled interval.
 */
 @property(nonatomic) NSNumber * isRecurring;
 
-/**
-Note content entered for a payment interaction.
-*/
 @property(nonatomic) NSString * note;
 
 /**
@@ -103,9 +93,6 @@ Unique identifier of the order associated with this payment interaction.
 */
 @property(nonatomic) NSString * orderId;
 
-/**
-The status of the payment prior to the interaction being performed, which enables manual rollback of previous transactions.
-*/
 @property(nonatomic) NSString * paymentEntryStatus;
 
 /**
@@ -119,12 +106,12 @@ Unique identifier of previous interaction that this payment interaction is modif
 @property(nonatomic) NSNumber * paymentTransactionInteractionIdReference;
 
 /**
-The status of this payment interaction. Possible values are New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack.
+The status of this payment interaction. Possible values are "Success" or "Failure".
 */
 @property(nonatomic) NSString * status;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

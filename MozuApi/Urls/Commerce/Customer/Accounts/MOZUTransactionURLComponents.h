@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getTransactions
-@param accountId Unique identifier of the customer account for which to retrieve transactions.
+@param accountId 
 */
 + (MOZUURLComponents *)URLComponentsForGetTransactionsOperationWithAccountId:(NSInteger)accountId;
 
@@ -32,7 +32,7 @@ Resource Url Components for getTransactions
 
 /**
 Resource Url Components for addTransaction
-@param accountId Unique identifier of the customer account.
+@param accountId 
 */
 + (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId;
 
@@ -52,8 +52,8 @@ Resource Url Components for addTransaction
 
 /**
 Resource Url Components for removeTransaction
-@param accountId Unique identifier of the customer account from which to delete the transaction.
-@param transactionId Unique identifier of the transaction to delete.
+@param accountId 
+@param transactionId 
 */
 + (MOZUURLComponents *)URLComponentsForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId;
 

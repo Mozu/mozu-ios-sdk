@@ -17,24 +17,12 @@
 @end
 
 
-/**
-	The properties of the credentials required to communicate with the external payment processor.
-*/
 @interface MOZUThirdPartyCredentialField : JSONModel<MOZUThirdPartyCredentialField>
 
-/**
-System-supplied API name required to communicate with the external payment processor.
-*/
 @property(nonatomic) NSString * apiName;
 
-/**
-System-supplied name that displays for the third party credential field.
-*/
 @property(nonatomic) NSString * displayName;
 
-/**
-The value supplied for the third party credential.
-*/
 @property(nonatomic) NSString * value;
 
 @end

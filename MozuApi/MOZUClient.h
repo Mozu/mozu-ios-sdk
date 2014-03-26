@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, MOZUClientError)
     MOZUClientErrorMissingHost,
 };
 
-typedef void(^MOZUClientCompletionBlock)(id result, MOZUAPIError *error, NSHTTPURLResponse *response);
+typedef void(^MOZUClientCompletionBlock)(id result, NSHTTPURLResponse *response, MOZUAPIError *error);
 typedef id(^MOZUClientJSONParserBlock)(NSString *JSONResult);
 
 typedef NS_ENUM(NSUInteger, MOZUClientSessionConfiguration)

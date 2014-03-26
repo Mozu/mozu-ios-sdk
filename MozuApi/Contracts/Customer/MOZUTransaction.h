@@ -17,39 +17,18 @@
 @end
 
 
-/**
-	Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.
-*/
 @interface MOZUTransaction : JSONModel<MOZUTransaction>
 
-/**
-If applicable, the amount of the transaction.
-*/
 @property(nonatomic) NSNumber * amount;
 
-/**
-The date and time the customer transaction occurred.
-*/
 @property(nonatomic) NSDate * date;
 
-/**
-The type of interaction the customer used to perform the transaction, which is "Website," "Call," "Store," or "Unknown."
-*/
 @property(nonatomic) NSString * interactionType;
 
-/**
-The unique identifier of the transaction.
-*/
 @property(nonatomic) NSString * transactionId;
 
-/**
-The type of transaction the customer performed, which is "Order," "Return," "OrderPickup," or "Wishlist."
-*/
 @property(nonatomic) NSString * transactionType;
 
-/**
-Unique identifier of the customer visit associated with the transaction. Customers can perform multiple transactions in the same visit.
-*/
 @property(nonatomic) NSString * visitId;
 
 @end

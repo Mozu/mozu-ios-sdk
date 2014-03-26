@@ -31,8 +31,8 @@
 //
 
 /**
-
-@param body 
+Retrieves a list of calculated shipping rates available on the storefront.
+@param body Properties of item to rate.
 */
 
 + (MOZUClient *)clientForGetRatesOperationWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims;

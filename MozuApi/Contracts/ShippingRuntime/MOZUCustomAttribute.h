@@ -19,22 +19,22 @@
 
 
 /**
-	Properties of a custom attribute used to integrate with a shipping provider, which consists of an array of necessary key-value pairs.
+	Collection of carrier-specific key-value attribute pairs required to retrieve a shipping rate request for the storefront.
 */
 @interface MOZUCustomAttribute : JSONModel<MOZUCustomAttribute>
 
 /**
-Value for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
-*/
-@property(nonatomic) NSString * value;
-
-/**
-Key required for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
+A field that requires a value for a specific shipping carrier to complete a rate request.
 */
 @property(nonatomic) NSString * key;
 
 /**
-Collection of child attributes associated with a shipping provider integration.
+The value of the carrier-specific field key.
+*/
+@property(nonatomic) NSString * value;
+
+/**
+A list of carrier-specific child attributes required to retrieve a shipping rate request for the storefront.
 */
 @property(nonatomic) NSArray<MOZUCustomAttribute> *childAttributes;
 

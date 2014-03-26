@@ -40,7 +40,7 @@
 
 /**
 Retrieves a collection of document lists.
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param startIndex 
 */
 
@@ -48,7 +48,7 @@ Retrieves a collection of document lists.
  {
 	MOZUClient *client = [MOZUDocumentListClient clientForGetDocumentListsOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -64,7 +64,7 @@ Retrieve the details of a document list by providing the list name.
  {
 	MOZUClient *client = [MOZUDocumentListClient clientForGetDocumentListOperationWithDataViewMode:dataViewMode documentListName:documentListName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

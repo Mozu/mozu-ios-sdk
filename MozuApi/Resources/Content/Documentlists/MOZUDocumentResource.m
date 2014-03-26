@@ -39,7 +39,7 @@
 //
 
 /**
-Retrieves a document within the specified document list.
+Get a specific document within the specified document list by providing the document ID.
 @param documentId Identifier of the document being retrieved.
 @param documentListName The name of the document list associated with the document to retrieve.
 */
@@ -48,7 +48,7 @@ Retrieves a document within the specified document list.
  {
 	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -65,7 +65,7 @@ Retrieve the content associated with a document, such as a product image or PDF 
  {
 	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -75,17 +75,17 @@ Retrieve the content associated with a document, such as a product image or PDF 
 /**
 Retrieves a collection of documents according to any filter and sort criteria.
 @param documentListName The name of the document list.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). <b>For example - "filter=Name+sw+Events"</b>
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
+@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by 'ASC' or in descending (z-a) order, represented by 'DESC'. The sortBy parameter follows an available property. <b>For example: sortBy=productCode+asc</b>
+@param startIndex Used to create paged results from a query. Indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
 - (void)documentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUDocumentClient clientForGetDocumentsOperationWithDataViewMode:dataViewMode documentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -100,7 +100,7 @@ Retrieves a collection of documents according to any filter and sort criteria.
 //
 
 /**
-Creates a new document in an defined document list.
+Creates a new document in an existing list.
 @param body The descriptive name of the newly created document.
 @param documentListName The descriptive alphanumeric document list name being created.
 */
@@ -109,7 +109,7 @@ Creates a new document in an defined document list.
  {
 	MOZUClient *client = [MOZUDocumentClient clientForCreateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -134,7 +134,7 @@ Updates a document in a document list.
  {
 	MOZUClient *client = [MOZUDocumentClient clientForUpdateDocumentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -143,7 +143,7 @@ Updates a document in a document list.
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
-@param body Input output stream that delivers information.
+@param body 
 @param documentId Unique identifier of the document.
 @param documentListName The name of the document list associated with the document.
 */
@@ -152,7 +152,7 @@ Updates the content associated with a document, such as a product image or PDF s
  {
 	MOZUClient *client = [MOZUDocumentClient clientForUpdateDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -167,7 +167,7 @@ Updates the content associated with a document, such as a product image or PDF s
 //
 
 /**
-Deletes a specific document based on the specified document ID.
+Deletes a specific document based on the specified documentId.
 @param documentId Identifier of the document being deleted.
 @param documentListName The name of the document list associated with the document list being deleted.
 */
@@ -176,7 +176,7 @@ Deletes a specific document based on the specified document ID.
  {
 	MOZUClient *client = [MOZUDocumentClient clientForDeleteDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -193,7 +193,7 @@ Deletes the content associated with a document, such as a product image or PDF s
  {
 	MOZUClient *client = [MOZUDocumentClient clientForDeleteDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentId:documentId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

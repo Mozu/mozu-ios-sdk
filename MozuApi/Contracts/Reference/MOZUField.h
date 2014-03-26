@@ -19,7 +19,7 @@
 
 
 /**
-	A property that is a wrapper for additional properties pertaining to the schema such as the type, label, any associated data, an ID, and the order of the response.
+	An property that is a wrapper for additional properties pertaining to the schema such as the type, label, any associated data, an ID, and the order of the response.
 */
 @interface MOZUField : JSONModel<MOZUField>
 

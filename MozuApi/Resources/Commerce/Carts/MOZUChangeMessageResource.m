@@ -39,14 +39,14 @@
 //
 
 /**
-Retrieves the messages associated with the current shopper's cart.
+Retrieves messages to and from the current shopper. These are messages supplied by the system to notify the shopper of price increases or decreases or product unavailability.
 */
 
 - (void)messagesWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartChangeMessageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUChangeMessageClient clientForGetMessagesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -82,7 +82,7 @@ Deletes all messages associated with the cart of the current shopper.
  {
 	MOZUClient *client = [MOZUChangeMessageClient clientForRemoveAllMessagesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -98,7 +98,7 @@ Removes a single message associated with the cart of the current shopper.
  {
 	MOZUClient *client = [MOZUChangeMessageClient clientForRemoveMessageOperationWithMessageId:messageId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

@@ -13,6 +13,7 @@
 #import "MOZUAuditInfo.h"
 #import "MOZUChangeMessage.h"
 #import "MOZUFulfillmentInfo.h"
+#import "MOZUInvalidCoupon.h"
 #import "MOZUCartItem.h"
 #import "MOZUAppliedDiscount.h"
 
@@ -23,39 +24,27 @@
 
 
 /**
-	Properties of a shopping cart.
+	Properties of an active shopping cart.
 */
 @interface MOZUCart : JSONModel<MOZUCart>
 
-/**
-Code that identifies the channel associated with the site where the shopping cart was created.
-*/
 @property(nonatomic) NSString * channelCode;
 
 @property(nonatomic) NSArray *couponCodes;
 
-/**
-3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-*/
 @property(nonatomic) NSString * currencyCode;
 
-/**
-The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
-*/
 @property(nonatomic) NSString * customerInteractionType;
 
-/**
-The aggregate total for all items in the cart, including costs associated with shopper-defined options or extras and any applied discounts.
-*/
 @property(nonatomic) NSNumber * discountedSubtotal;
 
 /**
-The subtotal of the cart including any applied discount calculations.
+The estimated total of the cart after all discounts have been applied.
 */
 @property(nonatomic) NSNumber * discountedTotal;
 
 /**
-Estimated amount of discounts applied to all items in the cart, which is system-supplied and read-only.
+Estimated amount of discounts applied to all items in the cart. Usually a negative dollar amount or number. System-supplied and read-only.
 */
 @property(nonatomic) NSNumber * discountTotal;
 
@@ -69,9 +58,6 @@ The monetary sum of all fees incurred in the cart.
 */
 @property(nonatomic) NSNumber * feeTotal;
 
-/**
-If the handling fee for the cart is subject to sales tax, the total tax amount.
-*/
 @property(nonatomic) NSNumber * handlingTaxTotal;
 
 /**
@@ -89,9 +75,6 @@ The date in UTC Date/Time when the items in the cart were last validated against
 */
 @property(nonatomic) NSDate * lastValidationDate;
 
-/**
-The shipping subtotal amount calculated without any applied discounts.
-*/
 @property(nonatomic) NSNumber * shippingSubTotal;
 
 /**
@@ -100,7 +83,7 @@ The total amount of tax incurred on the shipping charges in the cart.
 @property(nonatomic) NSNumber * shippingTaxTotal;
 
 /**
-The total shipping amount estimated for the cart, including tax.
+The total shipping amount estimated for the cart.
 */
 @property(nonatomic) NSNumber * shippingTotal;
 
@@ -134,18 +117,12 @@ Unique identifier of the user associated with the shopping cart.
 */
 @property(nonatomic) NSString * userId;
 
-/**
-Unique identifier of the customer visit in which the cart was created or last modified.
-*/
 @property(nonatomic) NSString * visitId;
 
-/**
-Unique identifier of the web session in which the cart was created or last modified.
-*/
 @property(nonatomic) NSString * webSessionId;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
@@ -154,19 +131,15 @@ Messages logged or created each time the cart was modified.
 */
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
-/**
-Properties of the information required to fulfill this cart.
-*/
 @property(nonatomic) MOZUFulfillmentInfo *fulfillmentInfo;
 
+@property(nonatomic) NSArray<MOZUInvalidCoupon> *invalidCoupons;
+
 /**
-An array list of objects in the returned collection.
+Container for an array list of properties in a collection.
 */
 @property(nonatomic) NSArray<MOZUCartItem> *items;
 
-/**
-List of order-level discounts projected to apply to the cart at checkout.
-*/
 @property(nonatomic) NSArray<MOZUAppliedDiscount> *orderDiscounts;
 
 @end

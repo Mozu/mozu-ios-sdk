@@ -46,15 +46,15 @@
 //
 
 /**
-Generates a new authentication ticket for a customer account.
-@param body The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
+
+@param body 
 */
 
 - (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -69,15 +69,15 @@ Generates a new authentication ticket for a customer account.
 //
 
 /**
-Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
-@param refreshToken The refresh token string required to refresh a user's authentication ticket.
+
+@param refreshToken 
 */
 
 - (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

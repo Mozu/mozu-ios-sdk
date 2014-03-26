@@ -46,7 +46,7 @@ Retrieves a list of the taxable territories configured for the site.
  {
 	MOZUClient *client = [MOZUTaxableTerritoryClient clientForGetTaxableTerritoriesOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -69,7 +69,7 @@ Creates a new territory for which to calculate sales tax.
  {
 	MOZUClient *client = [MOZUTaxableTerritoryClient clientForAddTaxableTerritoryOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -92,7 +92,7 @@ Updates one or more taxable territories configured for a site.
  {
 	MOZUClient *client = [MOZUTaxableTerritoryClient clientForUpdateTaxableTerritoriesOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

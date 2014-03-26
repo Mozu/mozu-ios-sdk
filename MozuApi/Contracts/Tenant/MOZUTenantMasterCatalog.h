@@ -18,38 +18,20 @@
 @end
 
 
-/**
-	Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.
-*/
 @interface MOZUTenantMasterCatalog : JSONModel<MOZUTenantMasterCatalog>
 
 @property(nonatomic) NSDate * createDate;
 
-/**
-The default three-letter ISO currency code associated with this master catalog. At this time, only "USD" is supported.
-*/
 @property(nonatomic) NSString * defaultCurrencyCode;
 
-/**
-The default locale code associated with this master catalog. At this time, only "en-US" is supported.
-*/
 @property(nonatomic) NSString * defaultLocaleCode;
 
-/**
-The date and time the master catalog was deleted.
-*/
 @property(nonatomic) NSDate * deleteDate;
 
 @property(nonatomic) NSInteger id;
 
-/**
-If true, this master catalog and its associated catalogs have been deleted from the tenant.
-*/
 @property(nonatomic) BOOL isDeleted;
 
-/**
-User-defined name of the master catalog.
-*/
 @property(nonatomic) NSString * name;
 
 @property(nonatomic) NSString * status;
@@ -58,9 +40,6 @@ User-defined name of the master catalog.
 
 @property(nonatomic) NSDate * updateDate;
 
-/**
-Collection of product catalogs that use product definitions from the master catalog.
-*/
 @property(nonatomic) NSArray<MOZUCatalog> *catalogs;
 
 @end

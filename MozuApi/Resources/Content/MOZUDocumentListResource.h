@@ -33,7 +33,7 @@
 
 /**
 Retrieves a collection of document lists.
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param startIndex 
 */
 

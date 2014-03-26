@@ -35,7 +35,7 @@ The name that displays for the document type.
 @property(nonatomic) NSString * displayName;
 
 /**
-Specifies where the document type can be used across the site. If the document type has no scope restrictions, the scope is "Global".
+The document type scope specifies where the the template can be used such as "Global".
 */
 @property(nonatomic) NSString * documentTypeScope;
 

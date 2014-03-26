@@ -74,7 +74,7 @@ The current state of the document, which is Active, Draft, or Latest. Active doc
 @property(nonatomic) NSString * publishState;
 
 /**
-Date and time when the entity was last updated, represented in UTC Date/Time.
+Date and time when the entity was last updated. UTC Date/Time.
 */
 @property(nonatomic) NSDate * updateDate;
 

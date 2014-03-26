@@ -18,10 +18,13 @@
 
 
 /**
-	Summary properties of an unpublished document draft.
+	A high level description of the document draft.
 */
 @interface MOZUDocumentDraftSummary : JSONModel<MOZUDocumentDraftSummary>
 
+/**
+Date when the entity was last updated. UTC Date/Time.
+*/
 @property(nonatomic) NSDate * activeUpdateDate;
 
 /**
@@ -29,6 +32,9 @@ Name of the document list associated with the draft.
 */
 @property(nonatomic) NSString * documentListName;
 
+/**
+The most recent date the draft has been modified. System-supplied and read-only.
+*/
 @property(nonatomic) NSDate * draftUpdateDate;
 
 /**
@@ -47,7 +53,7 @@ Whether the draft has been published.
 @property(nonatomic) NSString * publishType;
 
 /**
-Unique identifier of the user who last modified the item. This value is system-supplied and read-only.
+Unique identifier of the entity who updated the resource property most recently. System-supplied and read-only.
 */
 @property(nonatomic) NSString * updatedBy;
 

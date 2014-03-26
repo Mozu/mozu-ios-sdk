@@ -17,19 +17,10 @@
 @end
 
 
-/**
-	Properties of a value for a product property.
-*/
 @interface MOZUPricingProductPropertyValue : JSONModel<MOZUPricingProductPropertyValue>
 
-/**
-If the product property value is a text entry, the string value of the product property.
-*/
 @property(nonatomic) NSString * stringValue;
 
-/**
-If the product property value is selected from a list of possible values, the selected value.
-*/
 @property(nonatomic) NSObject * value;
 
 @end

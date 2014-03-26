@@ -18,16 +18,34 @@
 @end
 
 
+/**
+	Properties of a collection of subscriptions to event notifications.
+*/
 @interface MOZUSubscriptionCollection : JSONModel<MOZUSubscriptionCollection>
 
-@property(nonatomic) long pageCount;
+/**
+The number of pages returned based on the startIndex and pageSize supplied. Signed 64-bit (8-byte) integer. System-supplied and read-only.
+*/
+@property(nonatomic) NSInteger pageCount;
 
+/**
+Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
+*/
 @property(nonatomic) NSInteger pageSize;
 
+/**
+Used to create paged results from a query. Indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+*/
 @property(nonatomic) NSInteger startIndex;
 
-@property(nonatomic) long totalCount;
+/**
+The number of the resource entity items listed in the query collection. Signed 64-bit (8-byte) integer. System-supplied and read-only.
+*/
+@property(nonatomic) NSInteger totalCount;
 
+/**
+Container for an array list of properties in a collection.
+*/
 @property(nonatomic) NSArray<MOZUSubscription> *items;
 
 @end

@@ -19,14 +19,14 @@
 
 /**
 Resource Url Components for getAccountCards
-@param accountId Unique identifier of the customer account.
+@param accountId 
 */
 + (MOZUURLComponents *)URLComponentsForGetAccountCardsOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for getAccountCard
-@param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the card associated with the customer account billing contact.
+@param accountId 
+@param cardId 
 */
 + (MOZUURLComponents *)URLComponentsForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId;
 
@@ -39,7 +39,7 @@ Resource Url Components for getAccountCard
 
 /**
 Resource Url Components for addAccountCard
-@param accountId Unique identifier of the customer account.
+@param accountId 
 */
 + (MOZUURLComponents *)URLComponentsForAddAccountCardOperationWithAccountId:(NSInteger)accountId;
 
@@ -52,8 +52,8 @@ Resource Url Components for addAccountCard
 
 /**
 Resource Url Components for updateAccountCard
-@param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the credit card.
+@param accountId 
+@param cardId 
 */
 + (MOZUURLComponents *)URLComponentsForUpdateAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId;
 
@@ -66,8 +66,8 @@ Resource Url Components for updateAccountCard
 
 /**
 Resource Url Components for deleteAccountCard
-@param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the credit card to delete.
+@param accountId 
+@param cardId 
 */
 + (MOZUURLComponents *)URLComponentsForDeleteAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId;
 

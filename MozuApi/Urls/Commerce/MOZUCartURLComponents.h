@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getCart
-@param cartId Identifier of the cart to retrieve.
+@param cartId Identifier of the cart being retrieved.
 */
 + (MOZUURLComponents *)URLComponentsForGetCartOperationWithCartId:(NSString *)cartId;
 
@@ -73,7 +73,7 @@ Resource Url Components for updateCart
 
 /**
 Resource Url Components for deleteCart
-@param cartId Identifier of the cart to delete.
+@param cartId Identifier of the cart being deleted.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteCartOperationWithCartId:(NSString *)cartId;
 

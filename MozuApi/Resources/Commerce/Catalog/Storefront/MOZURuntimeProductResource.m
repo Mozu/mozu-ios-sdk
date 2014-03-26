@@ -39,9 +39,9 @@
 //
 
 /**
-Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options. A set of filter expressions representing the search parameters for a query.
+@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
 @param sortBy 
 @param startIndex 
 */
@@ -50,7 +50,7 @@ Retrieves a list of products that appear on the storefront according to any spec
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForGetProductsOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -58,16 +58,16 @@ Retrieves a list of products that appear on the storefront according to any spec
 }
 
 /**
-Retrieves the active inventory level information associated with the product or location specified in the request.
-@param locationCodes Array of location codes for which to retrieve product inventory information.
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+
+@param locationCodes 
+@param productCode 
 */
 
 - (void)productInventoryWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURuntimeLocationInventoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForGetProductInventoryOperationWithProductCode:productCode locationCodes:locationCodes userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -78,7 +78,7 @@ Retrieves the active inventory level information associated with the product or 
 Retrieves information about a single product given its product code.
 @param allowInactive If true, returns an inactive product as part of the query.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param skipInventoryCheck 
 @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
 
@@ -86,7 +86,7 @@ Retrieves information about a single product given its product code.
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForGetProductOperationWithProductCode:productCode variationProductCode:variationProductCode allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -101,18 +101,18 @@ Retrieves information about a single product given its product code.
 //
 
 /**
-Creates a new product configuration each time a shopper selects a product option value. After the shopper defines values for all required product options, the shopper can add the product configuration to a cart.
+Creates a new product selection. A create occurs each time a shopper selects a product option as they configure a product. Once all the required product options are configured, the product can be added to a cart.
 @param body For a product with shopper-configurable options, the properties of the product options selected by the shopper.
 @param includeOptionDetails If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param skipInventoryCheck 
 */
 
 - (void)configuredProductWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUConfiguredProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForConfiguredProductOperationWithBody:body productCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -123,14 +123,14 @@ Creates a new product configuration each time a shopper selects a product option
 Validate the final state of shopper-selected options.
 @param body For a product with shopper-configurable options, the properties of the product options selected by the shopper.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param skipInventoryCheck 
 */
 
 - (void)validateProductWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductValidationSummary *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForValidateProductOperationWithBody:body productCode:productCode skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -151,7 +151,7 @@ Validate the final state of shopper-selected options.
  {
 	MOZUClient *client = [MOZURuntimeProductClient clientForValidateDiscountsOperationWithBody:body productCode:productCode variationProductCode:variationProductCode customerAccountId:customerAccountId allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

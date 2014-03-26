@@ -17,14 +17,8 @@
 @end
 
 
-/**
-	Properties of the authentication ticket refresh requests, which includes the refresh token string.
-*/
 @interface MOZUAuthTicketRequest : JSONModel<MOZUAuthTicketRequest>
 
-/**
-The refresh token string from the application authentication ticket.
-*/
 @property(nonatomic) NSString * refreshToken;
 
 @end

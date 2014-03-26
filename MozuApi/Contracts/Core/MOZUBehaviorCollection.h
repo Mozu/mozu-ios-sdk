@@ -19,17 +19,17 @@
 
 
 /**
-	List of application behaviors and details for each record in the list.
+	***Always private and should not be published.***
 */
 @interface MOZUBehaviorCollection : JSONModel<MOZUBehaviorCollection>
 
 /**
-The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
+The number of the resource entity items listed in the query collection. Signed 64-bit (8-byte) integer. System-supplied and read-only.
 */
-@property(nonatomic) long totalCount;
+@property(nonatomic) NSInteger totalCount;
 
 /**
-An array list of objects in the returned collection.
+Container for an array list of properties in a collection.
 */
 @property(nonatomic) NSArray<MOZUBehavior> *items;
 

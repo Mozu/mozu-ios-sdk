@@ -128,9 +128,10 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                                                     NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                     MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
-                                                    
-                                                    self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
-                                                    [self refreshIntervalsIncludingRefreshTokenExpiration:YES];
+                                                    if (!apiError) {
+                                                        self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
+                                                        [self refreshIntervalsIncludingRefreshTokenExpiration:YES];
+                                                    }
                                                     completion(httpResponse, apiError);
                                                 }];
     [dataTask resume];
@@ -158,9 +159,10 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                                                     NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                     MOZUAPIError *apiError = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:json error:error];
-                                                    
-                                                    self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
-                                                    [self refreshIntervalsIncludingRefreshTokenExpiration:NO];
+                                                    if (!apiError) {
+                                                        self.authTicket = [[MOZUAuthTicket alloc] initWithString:json error:nil];
+                                                        [self refreshIntervalsIncludingRefreshTokenExpiration:NO];
+                                                    }
                                                     completion(httpResponse, apiError);
                                                 }];
     [dataTask resume];

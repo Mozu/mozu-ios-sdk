@@ -19,14 +19,14 @@
 
 /**
 Resource Url Components for getOrderNotes
-@param orderId Unique identifier of the order.
+@param orderId Unique identifier of the order whose notes are retrieved.
 */
 + (MOZUURLComponents *)URLComponentsForGetOrderNotesOperationWithOrderId:(NSString *)orderId;
 
 /**
 Resource Url Components for getOrderNote
-@param orderId Unique identifier of the order associated with the note.
-@param noteId Unique identifier of the order note to retrieve.
+@param orderId Unique identifier of the order note to retrieve.
+@param noteId Unique identifier of the note text to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
 
@@ -39,7 +39,7 @@ Resource Url Components for getOrderNote
 
 /**
 Resource Url Components for createOrderNote
-@param orderId Unique identifier of the order for which to add a note.
+@param orderId Unique identifier of the order to add a note.
 */
 + (MOZUURLComponents *)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString *)orderId;
 
@@ -52,8 +52,8 @@ Resource Url Components for createOrderNote
 
 /**
 Resource Url Components for updateOrderNote
-@param orderId Unique identifier of the order.
-@param noteId Unique identifier of the order note.
+@param orderId Unique identifier of the order whose note is being updated.
+@param noteId Unique identifier of the note whose text is being updated.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
 
@@ -66,8 +66,8 @@ Resource Url Components for updateOrderNote
 
 /**
 Resource Url Components for deleteOrderNote
-@param orderId Unique identifier of the order associated with the note.
-@param noteId Unique identifier of the order note to delete.
+@param orderId Unique identifier of the order note to delete.
+@param noteId Unique identifier of the note text to delete.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
 

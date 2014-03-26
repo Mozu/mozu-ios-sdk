@@ -39,15 +39,15 @@
 //
 
 /**
-Retrieves the cart specified in the request.
-@param cartId Identifier of the cart to retrieve.
+Retrieve a cart specified by its cart ID.
+@param cartId Identifier of the cart being retrieved.
 */
 
 - (void)cartWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCartClient clientForGetCartOperationWithCartId:cartId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -62,7 +62,7 @@ Retrieves a cart's contents for the current shopper. If the shopper does not hav
  {
 	MOZUClient *client = [MOZUCartClient clientForGetOrCreateCartOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -70,14 +70,14 @@ Retrieves a cart's contents for the current shopper. If the shopper does not hav
 }
 
 /**
-Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+Retrieves the number of items in the active cart and the status of the cart such as whether or not it has expired. Only an anonymous user's cart (guest that does not log in) that is emptied and idle will expire after 14 days. Note that the expiration counter is renewed each time action is made to the cart. For shoppers or users that are logged in, the cart does not expire.
 */
 
 - (void)cartSummaryWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartSummary *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCartClient clientForGetCartSummaryOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -85,7 +85,7 @@ Retrieves summary information associated with the cart of the current shopper, i
 }
 
 /**
-Retrieves the cart of the user specified in the request.
+Retrieve a user's cart by specifying the user ID.
 @param userId Unique identifier of the user whose cart you want to retrieve.
 */
 
@@ -93,7 +93,7 @@ Retrieves the cart of the user specified in the request.
  {
 	MOZUClient *client = [MOZUCartClient clientForGetUserCartOperationWithUserId:userId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -101,7 +101,7 @@ Retrieves the cart of the user specified in the request.
 }
 
 /**
-Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+Retrieves the current status of the specified user's cart, including the number of items in the active cart.
 @param userId Unique identifier of the user whose cart details you want to retrieve.
 */
 
@@ -109,7 +109,7 @@ Retrieves summary information associated with the cart of user specified in the 
  {
 	MOZUClient *client = [MOZUCartClient clientForGetUserCartSummaryOperationWithUserId:userId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -139,7 +139,7 @@ Update the current shopper's cart.
  {
 	MOZUClient *client = [MOZUCartClient clientForUpdateCartOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -154,15 +154,15 @@ Update the current shopper's cart.
 //
 
 /**
-Deletes the cart specified in the request.
-@param cartId Identifier of the cart to delete.
+Delete the cart specified by its cart ID.
+@param cartId Identifier of the cart being deleted.
 */
 
 - (void)deleteCartWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCartClient clientForDeleteCartOperationWithCartId:cartId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}
@@ -177,7 +177,7 @@ Deletes the cart of the currently active shopper.
  {
 	MOZUClient *client = [MOZUCartClient clientForDeleteCurrentCartOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

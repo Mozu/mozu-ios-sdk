@@ -29,6 +29,8 @@ Unique identifier for the storefront container used to organize products.
 */
 @property(nonatomic) NSInteger categoryId;
 
+@property(nonatomic) BOOL isDisplayed;
+
 /**
 The numeric value that denotes the place this entity occupies in the order of the entity list.
 */

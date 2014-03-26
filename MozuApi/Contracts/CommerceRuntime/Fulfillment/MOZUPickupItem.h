@@ -17,19 +17,10 @@
 @end
 
 
-/**
-	Properties of an item in an in-store pickup.
-*/
 @interface MOZUPickupItem : JSONModel<MOZUPickupItem>
 
-/**
-Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-*/
 @property(nonatomic) NSString * productCode;
 
-/**
-The quantity of the item in the in-store pickup.
-*/
 @property(nonatomic) NSInteger quantity;
 
 @end

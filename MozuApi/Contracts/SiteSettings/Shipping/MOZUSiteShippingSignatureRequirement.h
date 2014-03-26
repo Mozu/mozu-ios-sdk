@@ -17,19 +17,10 @@
 @end
 
 
-/**
-	Properties of the shipment signature requirements for the specified site.
-*/
 @interface MOZUSiteShippingSignatureRequirement : JSONModel<MOZUSiteShippingSignatureRequirement>
 
-/**
-If true, this site requires signatures on shipments for orders that exceed the minimum value threshold.
-*/
 @property(nonatomic) NSNumber * isSignatureRequired;
 
-/**
-The minimum order amount that requires a signature on shipments. For example, if you want to require customer signatures on all orders over $5,000, the MinimumValueThreshold would be 5001.
-*/
 @property(nonatomic) NSNumber * minimumValueThreshold;
 
 @end

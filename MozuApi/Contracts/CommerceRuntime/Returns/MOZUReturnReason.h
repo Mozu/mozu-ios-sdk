@@ -17,19 +17,10 @@
 @end
 
 
-/**
-	The reason for which the item is returned. Valid values include Damaged, Defective, MissingParts, DifferentExpectations, Late, NoLongerWanted, or Other.
-*/
 @interface MOZUReturnReason : JSONModel<MOZUReturnReason>
 
-/**
-The quantity of the item returned for the specified reason.
-*/
 @property(nonatomic) NSInteger quantity;
 
-/**
-The reason for which an item is returned to the merchant.
-*/
 @property(nonatomic) NSString * reason;
 
 @end

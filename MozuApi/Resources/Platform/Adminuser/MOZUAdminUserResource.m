@@ -30,7 +30,7 @@ Retrieves the details of the specified administrator user account.
 - (void)userWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUUser *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUAdminUserClient clientForGetUserOperationWithUserId:userId userClaims:userClaims];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -45,7 +45,7 @@ Retrieves a list of the Mozu tenants or development stores for which the specifi
 - (void)tenantScopesForUserWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUTenantCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUAdminUserClient clientForGetTenantScopesForUserOperationWithUserId:userId userClaims:userClaims];
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

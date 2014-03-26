@@ -39,15 +39,15 @@
 //
 
 /**
-Retrieves a list of extra attributes defined for the specified product type.
-@param productTypeId Identifier of the product type.
+Retrieves a list of extras by providing the product type ID.
+@param productTypeId Identifier of the product type whose list is being retrieved.
 */
 
 - (void)extrasWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeInProductType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUProductTypeExtraClient clientForGetExtrasOperationWithDataViewMode:dataViewMode productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -55,7 +55,7 @@ Retrieves a list of extra attributes defined for the specified product type.
 }
 
 /**
-Retrieves the details of an extra attribute definition for the specified product type.
+Retrieves an extra by providing the attribute's FQN and product type ID.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type whose extra is being retrieved.
 */
@@ -64,7 +64,7 @@ Retrieves the details of an extra attribute definition for the specified product
  {
 	MOZUClient *client = [MOZUProductTypeExtraClient clientForGetExtraOperationWithDataViewMode:dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -79,16 +79,16 @@ Retrieves the details of an extra attribute definition for the specified product
 //
 
 /**
-Assigns a defined extra attribute to the product type based on the information supplied in the request.
-@param body The properties of the extra attribute definition for this product type assignment.
-@param productTypeId Identifier of the product type.
+Add or create an extra.
+@param body The properties of the attribute in product type to add or create extras.
+@param productTypeId Identifier of the product type to add an extra.
 */
 
 - (void)addExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUProductTypeExtraClient clientForAddExtraOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -103,17 +103,17 @@ Assigns a defined extra attribute to the product type based on the information s
 //
 
 /**
-Update the definition of an extra attribute for the specified product type.
-@param body The properties of the extra attribute definition to update for the product type.
+Update an extra by providing the attribute's FQN and product type ID.
+@param body The properties of the attribute in product type to update. The attributes exist as extras.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type.
+@param productTypeId Identifier of the product type whose extra is being updated.
 */
 
 - (void)updateExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUProductTypeExtraClient clientForUpdateExtraOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -128,16 +128,16 @@ Update the definition of an extra attribute for the specified product type.
 //
 
 /**
-Removes an extra attribute definition from the specified product type.
+Delete an extra.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type.
+@param productTypeId Identifier of the product type whose extra is being deleted.
 */
 
 - (void)deleteExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUProductTypeExtraClient clientForDeleteExtraOperationWithDataViewMode:dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

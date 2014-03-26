@@ -23,14 +23,14 @@
 //
 
 /**
-Retrieve a list of all location types defined for the tenant.
+
 */
 
 + (MOZUClient *)clientForGetLocationTypesOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the details of the location type specified in the request.
-@param locationTypeCode The user-defined code that identifies the location type.
+
+@param locationTypeCode 
 */
 
 + (MOZUClient *)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -43,8 +43,8 @@ Retrieves the details of the location type specified in the request.
 //
 
 /**
-Creates a new location type based on the information specified in the request.
-@param body Properties of the location type to create.
+
+@param body 
 */
 
 + (MOZUClient *)clientForAddLocationTypeOperationWithBody:(MOZULocationType *)body userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -57,9 +57,9 @@ Creates a new location type based on the information specified in the request.
 //
 
 /**
-Updates the name of a defined location type.
-@param body Properties of the location type to update.
-@param locationTypeCode The user-defined code that identifies the location type.
+
+@param body 
+@param locationTypeCode 
 */
 
 + (MOZUClient *)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType *)body locationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -72,8 +72,8 @@ Updates the name of a defined location type.
 //
 
 /**
-Deletes the location type specified in the request.
-@param locationTypeCode User-defined code used to identify the location type.
+
+@param locationTypeCode 
 */
 
 + (MOZUClient *)clientForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode userClaims:(MOZUUserAuthTicket *)userClaims;

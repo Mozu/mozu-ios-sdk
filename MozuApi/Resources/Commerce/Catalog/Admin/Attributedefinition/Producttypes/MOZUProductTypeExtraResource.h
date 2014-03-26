@@ -31,14 +31,14 @@
 //
 
 /**
-Retrieves a list of extra attributes defined for the specified product type.
-@param productTypeId Identifier of the product type.
+Retrieves a list of extras by providing the product type ID.
+@param productTypeId Identifier of the product type whose list is being retrieved.
 */
 
 - (void)extrasWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeInProductType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves the details of an extra attribute definition for the specified product type.
+Retrieves an extra by providing the attribute's FQN and product type ID.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type whose extra is being retrieved.
 */
@@ -53,9 +53,9 @@ Retrieves the details of an extra attribute definition for the specified product
 //
 
 /**
-Assigns a defined extra attribute to the product type based on the information supplied in the request.
-@param body The properties of the extra attribute definition for this product type assignment.
-@param productTypeId Identifier of the product type.
+Add or create an extra.
+@param body The properties of the attribute in product type to add or create extras.
+@param productTypeId Identifier of the product type to add an extra.
 */
 
 - (void)addExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -68,10 +68,10 @@ Assigns a defined extra attribute to the product type based on the information s
 //
 
 /**
-Update the definition of an extra attribute for the specified product type.
-@param body The properties of the extra attribute definition to update for the product type.
+Update an extra by providing the attribute's FQN and product type ID.
+@param body The properties of the attribute in product type to update. The attributes exist as extras.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type.
+@param productTypeId Identifier of the product type whose extra is being updated.
 */
 
 - (void)updateExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -84,9 +84,9 @@ Update the definition of an extra attribute for the specified product type.
 //
 
 /**
-Removes an extra attribute definition from the specified product type.
+Delete an extra.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type.
+@param productTypeId Identifier of the product type whose extra is being deleted.
 */
 
 - (void)deleteExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

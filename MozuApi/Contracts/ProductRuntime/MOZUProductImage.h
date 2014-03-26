@@ -27,9 +27,6 @@ Descriptive text associated with the image or video that appears on the storefro
 */
 @property(nonatomic) NSString * altText;
 
-/**
-The identifier of the product image in the Mozu CMS. Supply a value for either the CMS ID or the Image URL parameter.
-*/
 @property(nonatomic) NSString * cmsId;
 
 /**
@@ -42,9 +39,6 @@ URL of the product image.
 */
 @property(nonatomic) NSString * imageUrl;
 
-/**
-Type of media specification required to successfully render the product image, video, or other content.
-*/
 @property(nonatomic) NSString * mediaType;
 
 /**

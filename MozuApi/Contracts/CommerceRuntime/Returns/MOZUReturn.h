@@ -24,7 +24,7 @@
 
 
 /**
-	Properties of a return of one or more previously fulfilled items.
+	Properties of a return of one or more items shipped with a previously completed order.
 */
 @interface MOZUReturn : JSONModel<MOZUReturn>
 
@@ -33,24 +33,12 @@ The actions a user can perform for the return at this time.
 */
 @property(nonatomic) NSArray *availableActions;
 
-/**
-The code that identifies the channel associated with the return, which is typically the same channel associated with the order.
-*/
 @property(nonatomic) NSString * channelCode;
 
-/**
-3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-*/
 @property(nonatomic) NSString * currencyCode;
 
-/**
-Unique identifier of the customer account associated with the return.
-*/
 @property(nonatomic) NSNumber * customerAccountId;
 
-/**
-String that describes the customer interaction used to return an item. Possible values are Website, Store, Call, and Unknown.
-*/
 @property(nonatomic) NSString * customerInteractionType;
 
 /**
@@ -58,29 +46,17 @@ Unique identifier of the return.
 */
 @property(nonatomic) NSString * id;
 
-/**
-The code that uniquely identifies the location where items were returned.
-*/
 @property(nonatomic) NSString * locationCode;
 
-/**
-The total value of the return to the merchant for accounting purposes. This total represents the combined product loss and shipping loss associated with the return.
-*/
 @property(nonatomic) NSNumber * lossTotal;
 
 /**
-If this return is associated with a previously completed order, the unique identifier of the original order.
+Unique identifier of the original completed order associated with this return.
 */
 @property(nonatomic) NSString * originalOrderId;
 
-/**
-The total tax amount levied on the product loss amount.
-*/
 @property(nonatomic) NSNumber * productLossTaxTotal;
 
-/**
-The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
-*/
 @property(nonatomic) NSNumber * productLossTotal;
 
 /**
@@ -98,9 +74,6 @@ Unique identifier for the order created as a result of the return. If the return
 */
 @property(nonatomic) NSString * returnOrderId;
 
-/**
-The type of return, which is "Refund" or "Replace".
-*/
 @property(nonatomic) NSString * returnType;
 
 /**
@@ -108,19 +81,10 @@ The date by which a shopper must ship items associated with a return in an "awai
 */
 @property(nonatomic) NSDate * rmaDeadline;
 
-/**
-The total tax amount levied on the shipping loss amount.
-*/
 @property(nonatomic) NSNumber * shippingLossTaxTotal;
 
-/**
-The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
-*/
 @property(nonatomic) NSNumber * shippingLossTotal;
 
-/**
-Unique identifier of the site.
-*/
 @property(nonatomic) NSNumber * siteId;
 
 /**
@@ -128,35 +92,23 @@ Current status of the return, such as "ReturnAuthorized".
 */
 @property(nonatomic) NSString * status;
 
-/**
-Unique identifier of the Mozu tenant.
-*/
 @property(nonatomic) NSNumber * tenantId;
 
-/**
-Unique identifier of the user responsible for the return. Read only and supplied by the original order.
-*/
 @property(nonatomic) NSString * userId;
 
-/**
-The unique identifier of the customer visit associated with the return transaction.
-*/
 @property(nonatomic) NSString * visitId;
 
-/**
-Unique identifier of the web session in which the return was created or last modified, which is system-supplied and read only.
-*/
 @property(nonatomic) NSString * webSessionId;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**
-An array list of objects in the returned collection.
+Container for an array list of properties in a collection.
 */
 @property(nonatomic) NSArray<MOZUReturnItem> *items;
 
@@ -165,13 +117,10 @@ Collection of merchant-supplied notes entered for the return.
 */
 @property(nonatomic) NSArray<MOZUOrderNote> *notes;
 
-/**
-List of packages associated with a replacement order for a return.
-*/
 @property(nonatomic) NSArray<MOZUCommercePackage> *packages;
 
 /**
-Array list of payments associated with this return, if applicable.
+Array of payments associated with this return, if applicable.
 */
 @property(nonatomic) NSArray<MOZUPayment> *payments;
 

@@ -39,7 +39,7 @@
 //
 
 /**
-Retrieves a list of all option attributes configured for the product specified in the request.
+Retrieves a list of options by providing the product type ID.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -47,7 +47,7 @@ Retrieves a list of all option attributes configured for the product specified i
  {
 	MOZUClient *client = [MOZUProductOptionClient clientForGetOptionsOperationWithDataViewMode:dataViewMode productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -55,7 +55,7 @@ Retrieves a list of all option attributes configured for the product specified i
 }
 
 /**
-Retrieves the details of an option attribute configuration for the specified product.
+Retrieves the catalog option by providing the product type ID and the attribute's fully qualified name.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
@@ -64,7 +64,7 @@ Retrieves the details of an option attribute configuration for the specified pro
  {
 	MOZUClient *client = [MOZUProductOptionClient clientForGetOptionOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -79,8 +79,8 @@ Retrieves the details of an option attribute configuration for the specified pro
 //
 
 /**
-Configures an option attribute for the product specified in the request.
-@param body Properties of the option attribute to define for the product.
+Adds or creates a product option.
+@param body The product option being added or created.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -88,7 +88,7 @@ Configures an option attribute for the product specified in the request.
  {
 	MOZUClient *client = [MOZUProductOptionClient clientForAddOptionOperationWithDataViewMode:dataViewMode body:body productCode:productCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -103,8 +103,8 @@ Configures an option attribute for the product specified in the request.
 //
 
 /**
-Updates one or more properties of an option attribute configured for a product.
-@param body Properties of the product option attribute configuration to update.
+Updates a product option by providing the product type ID and the attribute's fully qualified name. There is also a request body to supply additional information.
+@param body The product option being updated.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
@@ -113,7 +113,7 @@ Updates one or more properties of an option attribute configured for a product.
  {
 	MOZUClient *client = [MOZUProductOptionClient clientForUpdateOptionOperationWithDataViewMode:dataViewMode body:body productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -128,7 +128,7 @@ Updates one or more properties of an option attribute configured for a product.
 //
 
 /**
-Deletes the configuration of an option attribute for the product specified in the request.
+Deletes the catalog option by providing the product type ID and the attribute's fully qualified name.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
@@ -137,7 +137,7 @@ Deletes the configuration of an option attribute for the product specified in th
  {
 	MOZUClient *client = [MOZUProductOptionClient clientForDeleteOptionOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

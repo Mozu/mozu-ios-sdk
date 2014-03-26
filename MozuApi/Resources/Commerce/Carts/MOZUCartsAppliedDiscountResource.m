@@ -62,7 +62,7 @@
  {
 	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForApplyCouponOperationWithCartId:cartId couponCode:couponCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -85,7 +85,7 @@
  {
 	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForRemoveCouponsOperationWithCartId:cartId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -102,7 +102,7 @@
  {
 	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForRemoveCouponOperationWithCartId:cartId couponCode:couponCode userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

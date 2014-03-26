@@ -39,14 +39,14 @@
 //
 
 /**
-Retrieve the settings of a third-party application.
+
 */
 
 - (void)thirdPartyGetApplicationWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUSettingsApplicationClient clientForThirdPartyGetApplicationOperationWithUserClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -68,15 +68,15 @@ Retrieve the settings of a third-party application.
 //
 
 /**
-Initializes an application with the necessary configured settings.
-@param body Properties of the application to update.
+
+@param body 
 */
 
 - (void)thirdPartyUpdateApplicationWithBody:(MOZUSiteSettingsApplication *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUSettingsApplicationClient clientForThirdPartyUpdateApplicationOperationWithBody:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}

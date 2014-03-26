@@ -17,40 +17,21 @@
 @end
 
 
-/**
-	Properties of an interaction with the payment gateway.
-*/
 @interface MOZUPaymentGatewayInteraction : JSONModel<MOZUPaymentGatewayInteraction>
 
-/**
-If required by the payment gateway, the authorization code of the transaction.
-*/
+@property(nonatomic) NSString * gatewayResponseText;
+
+@property(nonatomic) NSString * gatewayTransactionId;
+
 @property(nonatomic) NSString * gatewayAuthCode;
 
-/**
-AVS codes supplied by the payment gateway.
-*/
 @property(nonatomic) NSString * gatewayAVSCodes;
 
-/**
-CVV2 codes supplied by the payment gateway.
-*/
 @property(nonatomic) NSString * gatewayCVV2Codes;
 
-/**
-Unique identifier of the payment interaction from the payment gateway.
-*/
 @property(nonatomic) NSNumber * gatewayInteractionId;
 
-/**
-Response code from the gateway associated with the payment interaction. For example, if the gateway returns "Not Authorized," an interaction for voiding the payment transaction would result.
-*/
 @property(nonatomic) NSString * gatewayResponseCode;
-
-/**
-Unique identifier of the gateway transaction associated with the payment interaction.
-*/
-@property(nonatomic) NSString * gatewayTransactionId;
 
 @end
 

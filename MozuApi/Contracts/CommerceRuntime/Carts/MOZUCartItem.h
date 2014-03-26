@@ -27,19 +27,13 @@
 */
 @interface MOZUCartItem : JSONModel<MOZUCartItem>
 
-/**
-The subtotal of the cart item including any applied discount calculations.
-*/
 @property(nonatomic) NSNumber * discountedTotal;
 
 /**
-Estimated amount of discounts applied to the item in the cart, which is system-supplied and read-only.
+The total amount discounted from an item.
 */
 @property(nonatomic) NSNumber * discountTotal;
 
-/**
-Represents the total price of the cart item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
-*/
 @property(nonatomic) NSNumber * extendedTotal;
 
 /**
@@ -47,14 +41,8 @@ The total amount of all fees incurred for the item.
 */
 @property(nonatomic) NSNumber * feeTotal;
 
-/**
-The location code associated with the location where this cart item will be fulfilled.
-*/
 @property(nonatomic) NSString * fulfillmentLocationCode;
 
-/**
-The method used to fulfill this cart item, which is direct ship or in-store pickup.
-*/
 @property(nonatomic) NSString * fulfillmentMethod;
 
 /**
@@ -63,7 +51,7 @@ Unique identifier of the cart item.
 @property(nonatomic) NSString * id;
 
 /**
-If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.
+If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items.
 */
 @property(nonatomic) NSNumber * isRecurring;
 
@@ -103,7 +91,7 @@ Estimated amount of the item in the cart without sales tax, shipping costs, and 
 @property(nonatomic) NSNumber * subtotal;
 
 /**
-The amount of the item in the cart that is subject to tax.
+The amount of the item in the cart that is subject to tax. This amount typically represents the cart item subtotal before applied discounts.
 */
 @property(nonatomic) NSNumber * taxableTotal;
 
@@ -113,7 +101,7 @@ Estimated total amount of the item, including the product price, sales tax, ship
 @property(nonatomic) NSNumber * total;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
@@ -122,14 +110,8 @@ The properties of the associated product.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 
-/**
-List of product-level discounts projected to apply to the cart item at checkout.
-*/
 @property(nonatomic) NSArray<MOZUAppliedProductDiscount> *productDiscounts;
 
-/**
-List of shipping discounts projected to apply to the cart item at checkout.
-*/
 @property(nonatomic) NSArray<MOZUShippingDiscount> *shippingDiscounts;
 
 /**

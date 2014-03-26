@@ -24,81 +24,36 @@
 @end
 
 
-/**
-	Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.
-*/
 @interface MOZULocation : JSONModel<MOZULocation>
 
-/**
-User-defined code to assign to this location.
-*/
 @property(nonatomic) NSString * code;
 
-/**
-User-defined description of this location.
-*/
 @property(nonatomic) NSString * description;
 
-/**
-The fax number associated with this location.
-*/
 @property(nonatomic) NSString * fax;
 
-/**
-The user-defined name of the location.
-*/
 @property(nonatomic) NSString * name;
 
-/**
-Any tenant-defined notes associated with this location.
-*/
 @property(nonatomic) NSString * note;
 
-/**
-The phone number associated with this location.
-*/
 @property(nonatomic) NSString * phone;
 
-/**
-If true, this location maintains its own product inventory. If the location uses the direct ship fulfillment type, it must also support inventory.
-*/
 @property(nonatomic) BOOL supportsInventory;
 
-/**
-List of tenant-defined tags associated with this location.
-*/
 @property(nonatomic) NSArray *tags;
 
-/**
-The physical address properties of the location.
-*/
 @property(nonatomic) MOZUAddress *address;
 
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
-/**
-List of order fulfillment types associated with this location. The location can have fulfillment types of direct ship (DS), in-store pickup (SP), or both.
-*/
 @property(nonatomic) NSArray<MOZUFulfillmentType> *fulfillmentTypes;
 
-/**
-The geographical coordinates associated with this location.
-*/
 @property(nonatomic) MOZUCoordinates *geo;
 
-/**
-List of location types associated with this location. You can associate individual locations with any number of location types.
-*/
 @property(nonatomic) NSArray<MOZULocationType> *locationTypes;
 
-/**
-List of standard operating hours for each day of the week this location is open for shopper business.
-*/
 @property(nonatomic) MOZURegularHours *regularHours;
 
-/**
-Properties of a fulfillment contact for the shipping origin address associated with a location.
-*/
 @property(nonatomic) MOZUShippingOriginContact *shippingOriginContact;
 
 @end

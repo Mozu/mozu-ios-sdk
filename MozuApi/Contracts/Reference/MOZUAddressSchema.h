@@ -19,12 +19,12 @@
 
 
 /**
-	Describes the structure of postal addresses based on the country specified. Because addresses vary from country to country, this schema allows a flexible storage structure.
+	The structure of postal addresses based on the country specified. Since addresses vary from country to country, this schema allows a flexible storage structure.
 */
 @interface MOZUAddressSchema : JSONModel<MOZUAddressSchema>
 
 /**
-The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+2 letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 @property(nonatomic) NSString * countryCode;
 

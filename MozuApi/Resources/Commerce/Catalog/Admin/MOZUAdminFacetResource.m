@@ -48,7 +48,7 @@ Retrieves a facet specified by its unique identifier and displays its properties
  {
 	MOZUClient *client = [MOZUAdminFacetClient clientForGetFacetOperationWithDataViewMode:dataViewMode facetId:facetId validate:validate userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -66,7 +66,7 @@ Retrieves a list of the facets defined for the specified category.
  {
 	MOZUClient *client = [MOZUAdminFacetClient clientForGetFacetCategoryListOperationWithDataViewMode:dataViewMode categoryId:categoryId includeAvailable:includeAvailable validate:validate userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -81,15 +81,15 @@ Retrieves a list of the facets defined for the specified category.
 //
 
 /**
-Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
-@param body Properties of the new facet to create. You must specify the source, type, and category.
+Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
+@param body Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
 */
 
 - (void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUAdminFacetClient clientForAddFacetOperationWithDataViewMode:dataViewMode body:body userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -105,7 +105,7 @@ Creates a new category, price, or attribute facet. Define the category or attrib
 
 /**
 Modifies one or more properties of a defined facet.
-@param body Properties of the defined facet to modify.
+@param body Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.
 @param facetId Unique identifier of the facet to modify.
 */
 
@@ -113,7 +113,7 @@ Modifies one or more properties of a defined facet.
  {
 	MOZUClient *client = [MOZUAdminFacetClient clientForUpdateFacetOperationWithDataViewMode:dataViewMode body:body facetId:facetId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -136,7 +136,7 @@ Deletes the facet specified by its unique identifier.
  {
 	MOZUClient *client = [MOZUAdminFacetClient clientForDeleteFacetByIdOperationWithDataViewMode:dataViewMode facetId:facetId userClaims:userClaims];
 	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);
 		}

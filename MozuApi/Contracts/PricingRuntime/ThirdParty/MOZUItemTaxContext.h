@@ -17,34 +17,16 @@
 @end
 
 
-/**
-	Properties of the tax context applicable for line items in an order.
-*/
 @interface MOZUItemTaxContext : JSONModel<MOZUItemTaxContext>
 
-/**
-Unique identifier of the line item in the order.
-*/
 @property(nonatomic) NSString * id;
 
-/**
-Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-*/
 @property(nonatomic) NSString * productCode;
 
-/**
-Quantity of the line item in the order.
-*/
 @property(nonatomic) NSInteger quantity;
 
-/**
-Amount of tax applied to shipping costs for the line item in the order.
-*/
 @property(nonatomic) NSNumber * shippingTax;
 
-/**
-The total tax amount applied to the line item in the order, minus any shipping taxes.
-*/
 @property(nonatomic) NSNumber * tax;
 
 @end

@@ -22,7 +22,7 @@
 
 
 /**
-	Properties of a previously fulfilled item associated with a return.
+	Properties of an item associated with a return for a previously shipped order.
 */
 @interface MOZUReturnItem : JSONModel<MOZUReturnItem>
 
@@ -31,14 +31,8 @@ Unique identifier of the item in the original completed order. All return items 
 */
 @property(nonatomic) NSString * orderItemId;
 
-/**
-The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
-*/
 @property(nonatomic) NSNumber * productLossAmount;
 
-/**
-The total tax amount levied on the product loss amount.
-*/
 @property(nonatomic) NSNumber * productLossTaxAmount;
 
 /**
@@ -56,34 +50,16 @@ The quantity of the item shipped to the shopper in the event of a return item re
 */
 @property(nonatomic) NSInteger quantityShipped;
 
-/**
-The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
-*/
 @property(nonatomic) NSNumber * shippingLossAmount;
 
-/**
-The total tax amount levied on the shipping loss amount.
-*/
 @property(nonatomic) NSNumber * shippingLossTaxAmount;
 
-/**
-Properties of a collection of component products that make up a single returned product bundle with its own product code.
-*/
 @property(nonatomic) NSArray<MOZUReturnBundle> *bundledProducts;
 
-/**
-List of merchant-supplied notes associated with the return item.
-*/
 @property(nonatomic) NSArray<MOZUOrderNote> *notes;
 
-/**
-Properties of the product definition associated with the item in the return.
-*/
 @property(nonatomic) MOZUCommerceProduct *product;
 
-/**
-The list of return reasons for the item and the quantity associated with each return reason.
-*/
 @property(nonatomic) NSArray<MOZUReturnReason> *reasons;
 
 @end

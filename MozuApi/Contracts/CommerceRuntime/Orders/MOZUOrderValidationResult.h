@@ -18,39 +18,18 @@
 @end
 
 
-/**
-	Properties of the resulting order validation performed by an order validation capability.
-*/
 @interface MOZUOrderValidationResult : JSONModel<MOZUOrderValidationResult>
 
-/**
-Date and time when the entity was created, represented in UTC Date/Time.
-*/
 @property(nonatomic) NSDate * createdDate;
 
-/**
-The status returned from the order validation capability for the order specified in the request, which is Pass, Fail, Error, or Review.
-*/
 @property(nonatomic) NSString * status;
 
-/**
-Read-only identifier defined by the order validation capability that uniquely identifies this validation operation.
-*/
 @property(nonatomic) NSString * validationId;
 
-/**
-Read-only name of this order validator supplied by the capability.
-*/
 @property(nonatomic) NSString * validatorName;
 
-/**
-The type of order validator supplied by the capability. At this time, the only supported validator type is Fraud.
-*/
 @property(nonatomic) NSString * validatorType;
 
-/**
-Collection of messages returned by the order validation capability.
-*/
 @property(nonatomic) NSArray<MOZUOrderValidationMessage> *messages;
 
 @end

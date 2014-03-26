@@ -31,14 +31,14 @@
 //
 
 /**
-Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
+Retrieves a list of product extras.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 - (void)extrasWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUProductExtra> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves the details of an extra attribute configuration for the product specified in the request.
+Retrieves an individual product extra.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
@@ -53,8 +53,8 @@ Retrieves the details of an extra attribute configuration for the product specif
 //
 
 /**
-Configure an extra attribute for the product specified in the request.
-@param body Properties of the product extra to configure for the specified product.
+Add or create an extra.
+@param body Properties of the product extra to create such as the attribute detail, fully qualified name, and list of product extra values.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -68,8 +68,8 @@ Configure an extra attribute for the product specified in the request.
 //
 
 /**
-Updates the configuration of an extra attribute for the product specified in the request.
-@param body Properties of the extra attribute to update for the specified product.
+Update a product extra.
+@param body Properties of the product extra to update such as the attribute detail, fully qualified name, and list of product extra values.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
@@ -84,7 +84,7 @@ Updates the configuration of an extra attribute for the product specified in the
 //
 
 /**
-Delete a product extra configuration for the product specified in the request.
+Delete a product extra by providing the product code and the attribute's fully qualified name.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */

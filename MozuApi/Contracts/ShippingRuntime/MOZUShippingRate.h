@@ -22,40 +22,31 @@
 
 
 /**
-	Properties of a shipping rate calculated for a specified carrier.
+	Properties of a shipping rate estimated by a carrier.
 */
 @interface MOZUShippingRate : JSONModel<MOZUShippingRate>
 
 /**
-The total calculated shipping amount requested for the package or shipment.
+The monetary amount in the specified currency locale code.
 */
 @property(nonatomic) NSNumber * amount;
 
-/**
-The carrier-defined alphanumeric code associated with this shipping rate.
-*/
 @property(nonatomic) NSString * code;
 
 @property(nonatomic) NSNumber * daysInTransit;
 
-/**
-Localized content for a shipping rate based on the defined locale code.
-*/
 @property(nonatomic) MOZUShippingRateLocalizedContent *content;
 
 /**
-Collection of carrier-specific key-value attribute pairs required to retrieve a shipping rate request.
+A collection of carrier-specific attributes that make up the shipping rate requested from the storefront.
 */
 @property(nonatomic) NSArray<MOZUCustomAttribute> *customAttributes;
 
 /**
-Array list of success/failure messages associated with the shipping rate validation.
+List of messages associated with the shipping rate validation.
 */
 @property(nonatomic) NSArray<MOZUShippingRateValidationMessage> *messages;
 
-/**
-Properties of a calculated shipping rate for individual line items in a shipment.
-*/
 @property(nonatomic) NSArray<MOZUShippingItemRate> *shippingItemRates;
 
 @end

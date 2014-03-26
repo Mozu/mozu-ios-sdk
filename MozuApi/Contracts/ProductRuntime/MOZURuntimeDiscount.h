@@ -18,24 +18,24 @@
 
 
 /**
-	Properties of a defined product, order, or shipping discount.
+	Properties of a defined product discount.
 */
 @interface MOZURuntimeDiscount : JSONModel<MOZURuntimeDiscount>
 
 /**
-Unique identifier of the discount. System-supplied and read only.
+Unique Identifier of the discount.
 */
 @property(nonatomic) NSInteger discountId;
 
 /**
-The date and time the discount can no longer be redeemed. Date in UTC Date/Time. System-supplied and read only.
+The date and time when the product discount will no longer be active. Date in UTC Date/Time. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * expirationDate;
 
 @property(nonatomic) NSString * friendlyDescription;
 
 /**
-The localizable name assigned for the product discount.
+The name assigned for the product discount.
 */
 @property(nonatomic) NSString * name;
 

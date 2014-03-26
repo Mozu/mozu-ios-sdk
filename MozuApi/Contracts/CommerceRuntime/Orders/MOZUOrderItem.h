@@ -27,34 +27,22 @@
 */
 @interface MOZUOrderItem : JSONModel<MOZUOrderItem>
 
-/**
-The subtotal of the order item including any applied discount calculations.
-*/
 @property(nonatomic) NSNumber * discountedTotal;
 
 /**
-Estimated amount of discounts applied to the item in the order, which is system-supplied and read-only.
+Amount of discounts applied to an item in an order. Usually a negative dollar amount or number. System-supplied and read-only.
 */
 @property(nonatomic) NSNumber * discountTotal;
 
-/**
-Represents the total price of the order item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
-*/
 @property(nonatomic) NSNumber * extendedTotal;
 
 /**
-The total sum of all fees incurred for an item in an order.
+The total monetary sum of all fees incurred for an item in an order.
 */
 @property(nonatomic) NSNumber * feeTotal;
 
-/**
-Code that identifies the location used to fulfill this order item, whether via in-store pickup or direct shipment.
-*/
 @property(nonatomic) NSString * fulfillmentLocationCode;
 
-/**
-The method used to fulfill the item in the order, which is "PickUp" or "Ship".
-*/
 @property(nonatomic) NSString * fulfillmentMethod;
 
 /**
@@ -63,7 +51,7 @@ Unique identifier of a specific item in an order.
 @property(nonatomic) NSString * id;
 
 /**
-If true, the item in the order can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription. This property is reserved for future functionality and is system-supplied and read only.
+If true, the item in the order can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription.
 */
 @property(nonatomic) NSNumber * isRecurring;
 
@@ -118,7 +106,7 @@ The total monetary sum of a specific item in an order.
 @property(nonatomic) NSNumber * total;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
@@ -127,14 +115,8 @@ The product properties of an item in an order.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 
-/**
-List of product discounts that apply to the item in the order.
-*/
 @property(nonatomic) NSArray<MOZUAppliedProductDiscount> *productDiscounts;
 
-/**
-List of shipping discounts that apply to the item in the order.
-*/
 @property(nonatomic) NSArray<MOZUShippingDiscount> *shippingDiscounts;
 
 /**

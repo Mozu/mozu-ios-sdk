@@ -23,7 +23,7 @@
 //
 
 /**
-Retrieves the messages associated with the current shopper's cart.
+Retrieves messages to and from the current shopper. These are messages supplied by the system to notify the shopper of price increases or decreases or product unavailability.
 */
 
 + (MOZUClient *)clientForGetMessagesOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;

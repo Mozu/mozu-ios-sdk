@@ -20,7 +20,7 @@
 
 
 /**
-	A descriptive container in a storefront hierarchy to organize collections of products.
+	A descriptive container in a storefront hierarchy to organize collections of products. Only available at the site-level when multiple sites and site groups exist.
 */
 @interface MOZUAdminCategory : JSONModel<MOZUAdminCategory>
 
@@ -57,7 +57,7 @@ The numeric value that denotes the place this entity occupies in the order of th
 @property(nonatomic) NSNumber * sequence;
 
 /**
-Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

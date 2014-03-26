@@ -49,7 +49,7 @@ Generate an authentication ticket for an application.
 
 /**
 Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
-@param body The refresh token string required to update the application authentication ticket.
+@param body 
 */
 
 - (void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest *)body completionHandler:(void(^)(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

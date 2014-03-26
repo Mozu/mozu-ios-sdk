@@ -34,7 +34,7 @@
 /**
 Retrieves the contents of an attribute associated with the specified customer account.
 @param accountId Identifier of the customer account associated with the attribute to retrieve.
-@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param attributeFQN 
 */
 
 - (void)accountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -58,9 +58,9 @@ Retrieves the list of customer account attributes.
 //
 
 /**
-Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
-@param body Properties of the customer account attribute to create.
-@param accountId Unique identifier of the customer account.
+
+@param body 
+@param accountId 
 */
 
 - (void)addAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -73,13 +73,13 @@ Applies a defined attribute to the customer account specified in the request and
 //
 
 /**
-Updates one or more details of a customer account attribute.
-@param body The properties of the customer account attribute to update.
+Update a single customer account attribute by providing the customer account ID. This operation can optionally indicate whether or not items missing from the collection should be removed.
+@param body 
 @param accountId Identifier of the customer account associated with the attribute.
-@param removeMissing If true, remove the items missing from the collection.
+@param attributeFQN 
 */
 
-- (void)updateAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -88,6 +88,14 @@ Updates one or more details of a customer account attribute.
 #pragma mark -
 //
 
+/**
+
+@param accountId 
+@param attributeFQN 
+*/
+
+- (void)deleteAccountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 
 @end

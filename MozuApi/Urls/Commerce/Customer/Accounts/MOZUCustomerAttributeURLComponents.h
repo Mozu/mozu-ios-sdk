@@ -20,7 +20,7 @@
 /**
 Resource Url Components for getAccountAttribute
 @param accountId Identifier of the customer account associated with the attribute to retrieve.
-@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param attributeFQN 
 */
 + (MOZUURLComponents *)URLComponentsForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN;
 
@@ -43,7 +43,7 @@ Resource Url Components for getAccountAttributes
 
 /**
 Resource Url Components for addAccountAttribute
-@param accountId Unique identifier of the customer account.
+@param accountId 
 */
 + (MOZUURLComponents *)URLComponentsForAddAccountAttributeOperationWithAccountId:(NSInteger)accountId;
 
@@ -57,9 +57,9 @@ Resource Url Components for addAccountAttribute
 /**
 Resource Url Components for updateAccountAttribute
 @param accountId Identifier of the customer account associated with the attribute.
-@param removeMissing If true, remove the items missing from the collection.
+@param attributeFQN 
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateAccountAttributeOperationWithAccountId:(NSInteger)accountId removeMissing:(NSNumber *)removeMissing;
++ (MOZUURLComponents *)URLComponentsForUpdateAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -67,6 +67,13 @@ Resource Url Components for updateAccountAttribute
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+Resource Url Components for deleteAccountAttribute
+@param accountId 
+@param attributeFQN 
+*/
++ (MOZUURLComponents *)URLComponentsForDeleteAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN;
 
 
 

@@ -39,7 +39,7 @@
 @interface MOZUAPIAdditionalErrorData : JSONModel <MOZUAPIAdditionalErrorData>
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *value;
+@property (nonatomic) NSObject *value;
 
 @end
 
