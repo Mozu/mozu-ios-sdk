@@ -123,7 +123,7 @@ NSString *jsonStr = @"{ \
 
     NSString *jsonStr = [self loadFile:@"ApiError1.txt"];
     //NSError *error = nil;
-    MOZUAPIError *apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200];
+    MOZUAPIError *apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200 error:nil];
     DDLogError(@"%@", apiError.localizedDescription);
     XCTAssertNotNil(apiError, @"failed to parse MOZUApiError");
     //XCTAssertNotNil(mozuError, @"failed to parse MOZUApiError");
@@ -133,7 +133,7 @@ NSString *jsonStr = @"{ \
 {
     NSString *jsonStr = [self loadFile:@"ApiError2.txt"];
     //NSError *error = nil;
-    MOZUAPIError *apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200];
+    MOZUAPIError *apiError = [[MOZUAPIError alloc] initWithString:jsonStr statusCode:200 error:nil];
     DDLogError(@"%@", apiError.localizedDescription);
     XCTAssertNotNil(apiError, @"failed to parse MOZUApiError");
 }

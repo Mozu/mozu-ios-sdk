@@ -70,6 +70,6 @@
 @property (nonatomic, readonly) NSArray<MOZUAPIAdditionalErrorData> *additionalErrorData;
 @property (nonatomic, readonly) NSInteger httpStatusCode;
 
-- (id)initWithString:(NSString *)JSONData statusCode:(NSInteger)statusCode;
+- (id)initWithString:(NSString *)JSONData statusCode:(NSInteger)statusCode error:(JSONModelError **)error;
 
 @end

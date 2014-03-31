@@ -16,9 +16,14 @@ static NSString * const MOZUInvalidResponseException = @"MOZUInvalidResponseExce
 + (MOZUAPIError *)ensureSuccessOfResponse:(NSHTTPURLResponse *)response JSONResult:(NSString *)JSON error:(NSError *)error; {
     if (response) {
         if (response.statusCode < 200 || response.statusCode > 299) {
-            MOZUAPIError *apiError = [[MOZUAPIError alloc] initWithString:JSON statusCode:response.statusCode];
-            DDLogError(@"%@", error);
-            return apiError;
+            JSONModelError *jsonError = nil;
+            MOZUAPIError *apiError = [[MOZUAPIError alloc] initWithString:JSON statusCode:response.statusCode error:&jsonError];
+            if (apiError) {
+                DDLogError(@"%@", apiError);
+                return apiError;
+            } else {
+                return (MOZUAPIError *)jsonError;
+            }
         } else {
             return nil;
         }
