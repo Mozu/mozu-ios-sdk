@@ -23,7 +23,7 @@
 //
 
 /**
-
+Retrieves the details of the third-party payment service workflows configured for the site.
 */
 
 + (MOZUClient *)clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;

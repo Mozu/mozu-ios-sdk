@@ -23,7 +23,7 @@
 @interface MOZUAttributeTypeRule : JSONModel<MOZUAttributeTypeRule>
 
 /**
-The data type of the attribute. There are four valid data types: "Bool",  "DateTime", "Number", "String"
+The data type of the attribute. There are four valid data types: "Bool", "DateTime", "Number", "String"
 */
 @property(nonatomic) NSString * attributeDataType;
 
@@ -33,7 +33,7 @@ An attribute's data type would be either "NotSpecified", "Textbox", "Textarea", 
 @property(nonatomic) NSString * attributeInputType;
 
 /**
-Describes how an attribute will be used. Valid types are "Extra", "Option", and "Property"
+Describes how an attribute will be used. Valid types are "Extra", "Option", and "Property".
 */
 @property(nonatomic) NSString * attributeUsageType;
 

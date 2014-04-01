@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getDiscountTarget
-@param discountId Unique Identifier of the discount.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 */
 + (MOZUURLComponents *)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId;
 

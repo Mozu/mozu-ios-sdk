@@ -21,29 +21,29 @@
 
 
 /**
-	Properties of the billing information entered for a payment.
+	Properties of the billing information entered for an order during checkout.
 */
 @interface MOZUBillingInfo : JSONModel<MOZUBillingInfo>
 
 /**
-If true, the customer's shipping address is the same as the customer's billing address.
+If true, the system overrides the customer's billing address information with the supplied fulfillment information. 
 */
 @property(nonatomic) BOOL isSameBillingShippingAddress;
 
 /**
-The type of payment, such as credit card or check. Additional payment types such as PayPal will be supported in future releases.
+The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
 */
 @property(nonatomic) NSString * paymentType;
 
 @property(nonatomic) NSString * storeCreditCode;
 
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
-The cardholder's billing address.
+The cardholder's billing contact information, including addresses.
 */
 @property(nonatomic) MOZUContact *billingContact;
 

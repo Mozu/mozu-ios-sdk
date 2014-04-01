@@ -21,7 +21,7 @@
 
 
 /**
-	Properties for a shipping rate calculation requested from the storefront.
+	Properties required to request a shipping rate calculation.
 */
 @interface MOZURateRequest : JSONModel<MOZURateRequest>
 
@@ -31,25 +31,16 @@
 
 @property(nonatomic) NSNumber * isDestinationAddressCommercial;
 
-/**
-3-letter ISO 4217 standard global currency code. Currently, only support "USD" (US Dollar).
-*/
 @property(nonatomic) NSString * isoCurrencyCode;
 
 @property(nonatomic) NSNumber * orderTotal;
 
 @property(nonatomic) NSArray *shippingServiceTypes;
 
-/**
-A collection of carrier-specific attributes that make up the shipping rate requested from the storefront.
-*/
 @property(nonatomic) NSArray<MOZUCustomAttribute> *customAttributes;
 
 @property(nonatomic) MOZUAddress *destinationAddress;
 
-/**
-Container for an array list of properties in a collection.
-*/
 @property(nonatomic) NSArray<MOZURateRequestItem> *items;
 
 @property(nonatomic) MOZUAddress *originAddress;

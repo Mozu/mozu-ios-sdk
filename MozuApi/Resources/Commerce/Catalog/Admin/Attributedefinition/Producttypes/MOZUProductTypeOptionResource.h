@@ -31,16 +31,16 @@
 //
 
 /**
-Retrieves a  list of product attributes that exist as options by specifying the product type ID.
-@param productTypeId Identifier of the product type options to retrieve.
+Retrieves a list of option product attributes defined for the specified product type.
+@param productTypeId Identifier of the product type to retrieve.
 */
 
 - (void)optionsWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUAttributeInProductType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves a single product attribute that exists as an option by providing the product type ID and the attribute's fully qualified name.
+Retrieves the details of an option attribute defined for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId The identifier of the product option type of the option being retrieved.
+@param productTypeId The identifier of the product type.
 */
 
 - (void)optionWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -53,9 +53,9 @@ Retrieves a single product attribute that exists as an option by providing the p
 //
 
 /**
-Adds or creates the attribute which exists as an option.
-@param body Adds or creates the attribute which exists as an option to the product type.
-@param productTypeId Identifier of the product type where an attribute which exists as an option is being added.
+Assigns an option attribute to the product type based on the information supplied in the request.
+@param body Properties of the option attribute to define for the specified product type.
+@param productTypeId Identifier of the product type.
 */
 
 - (void)addOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -68,10 +68,10 @@ Adds or creates the attribute which exists as an option.
 //
 
 /**
-Updates the product attribute that exists as an option.
-@param body Updates the attribute which exist as options in the product type.
+Updates an option attribute definition for the specified product type.
+@param body Properties of the option product attribute to define for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type whose attribute that exists as an option to update.
+@param productTypeId Identifier of the product type.
 */
 
 - (void)updateOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -84,9 +84,9 @@ Updates the product attribute that exists as an option.
 //
 
 /**
-Deletes the product option by providing the product type ID and the attribute's fully qualified name.
+Removes an option attribute definition for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type option to delete.
+@param productTypeId Identifier of the product type.
 */
 
 - (void)deleteOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

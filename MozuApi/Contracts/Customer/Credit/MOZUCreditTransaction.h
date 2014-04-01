@@ -18,16 +18,34 @@
 @end
 
 
+/**
+	Properties of a transaction performed for a customer credit that update the remaining balance of the credit.
+*/
 @interface MOZUCreditTransaction : JSONModel<MOZUCreditTransaction>
 
+/**
+Comments entered for a transaction. Depending on the interface, these comments might be visible to authorized shoppers and users.
+*/
 @property(nonatomic) NSString * comments;
 
+/**
+Unique identifier of the customer credit transaction.
+*/
 @property(nonatomic) NSNumber * id;
 
+/**
+The amount to apply to the credit balance. The defined transaction type determines whether this amount represents a positive or negative integer.
+*/
 @property(nonatomic) NSNumber * impactAmount;
 
+/**
+The type of transaction to perform for the customer credit. To decrease the balance, set this parameter to "Debit". To increase the balance, set this parameter to "Credit".
+*/
 @property(nonatomic) NSString * transactionType;
 
+/**
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+*/
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end

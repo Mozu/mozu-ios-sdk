@@ -26,30 +26,48 @@
 @interface MOZUGatewayDefinition : JSONModel<MOZUGatewayDefinition>
 
 /**
-2 letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 @property(nonatomic) NSString * countryCode;
 
+/**
+Unique identifier of the payment gateway definition.
+*/
 @property(nonatomic) NSString * id;
 
+/**
+The implementing type name of the integration with the payment gateway.
+*/
 @property(nonatomic) NSString * integrationImplTypeName;
 
+/**
+Name of the payment gateway.
+*/
 @property(nonatomic) NSString * name;
 
+/**
+URL of the production payment service.
+*/
 @property(nonatomic) NSString * prodServiceURL;
 
+/**
+URL of the test payment service environment.
+*/
 @property(nonatomic) NSString * testServiceURL;
 
 /**
-***Always private and should not be published.***
+Credential fields for the payment gateway. For security purposes, Mozu does not return these credential fields.
 */
 @property(nonatomic) NSArray<MOZUGatewayCredentialFieldDefinition> *credentialDefinitions;
 
 /**
-***Always private and should not be published.***
+Definition of the preauthorization gateway.
 */
 @property(nonatomic) MOZUPreAuthorizeDefinition *preAuthorizeDefinition;
 
+/**
+The types of credit cards supported by this payment gateway.
+*/
 @property(nonatomic) NSArray<MOZUSupportedCard> *supportedCards;
 
 @end

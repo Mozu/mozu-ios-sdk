@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	The name of the shipping rate in the language specified by the defined locale code.
+*/
 @interface MOZUShippingRateLocalizedContent : JSONModel<MOZUShippingRateLocalizedContent>
 
+/**
+Language used for the entity. Currently, only "en-US" is supported.
+*/
 @property(nonatomic) NSString * localeCode;
 
+/**
+The name of the shipping rate in the language specified by the defined locale code.
+*/
 @property(nonatomic) NSString * name;
 
 @end

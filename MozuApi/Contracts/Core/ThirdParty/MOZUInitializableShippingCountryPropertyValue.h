@@ -18,12 +18,24 @@
 @end
 
 
+/**
+	Property value that can be initialized for a capability that uses shipping countries.
+*/
 @interface MOZUInitializableShippingCountryPropertyValue : JSONModel<MOZUInitializableShippingCountryPropertyValue>
 
+/**
+If true, the property value is initialized.
+*/
 @property(nonatomic) BOOL initialized;
 
+/**
+Value of the initializable third-party capability property.
+*/
 @property(nonatomic) NSString * value;
 
+/**
+Child value in a hierarchy of shipping country properties.
+*/
 @property(nonatomic) NSArray<MOZUInitializablePropertyValue> *child;
 
 @end

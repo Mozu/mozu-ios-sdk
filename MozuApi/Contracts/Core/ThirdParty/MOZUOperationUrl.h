@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties of a URL endpoint associated with a capability operation.
+*/
 @interface MOZUOperationUrl : JSONModel<MOZUOperationUrl>
 
+/**
+The name of the URL endpoint.
+*/
 @property(nonatomic) NSString * name;
 
+/**
+The URL endpoint address.
+*/
 @property(nonatomic) NSString * url;
 
 @end

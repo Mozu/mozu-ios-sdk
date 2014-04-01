@@ -78,6 +78,9 @@ The image configured for the product on the storefront.
 */
 @property(nonatomic) MOZUProductImage *image;
 
+/**
+Properties of the active inventory level of the associated product.
+*/
 @property(nonatomic) MOZURuntimeProductInventoryInfo *inventoryInfo;
 
 /**

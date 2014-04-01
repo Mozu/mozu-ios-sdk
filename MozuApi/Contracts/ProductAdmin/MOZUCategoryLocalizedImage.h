@@ -17,24 +17,51 @@
 @end
 
 
+/**
+	The localized product category image in the language specified by the LocaleCode.
+*/
 @interface MOZUCategoryLocalizedImage : JSONModel<MOZUCategoryLocalizedImage>
 
+/**
+Descriptive text associated with the image or video that appears on the web  storefront.
+*/
 @property(nonatomic) NSString * altText;
 
 @property(nonatomic) NSString * cmsId;
 
+/**
+Identifier of the localized product category image.
+*/
 @property(nonatomic) NSNumber * id;
 
+/**
+Image title that appears on the web storefront set to the language specified by the site's LocaleCode.
+*/
 @property(nonatomic) NSString * imageLabel;
 
+/**
+URL of the product category image.
+*/
 @property(nonatomic) NSString * imageUrl;
 
+/**
+Language used for the entity. Currently, only "en-US" is supported.
+*/
 @property(nonatomic) NSString * localeCode;
 
+/**
+Type of media specification required to successfully render the image, video, or other media content for the product category.
+*/
 @property(nonatomic) NSString * mediaType;
 
+/**
+Integer that represents the sequential order of this category image or video.
+*/
 @property(nonatomic) NSNumber * sequence;
 
+/**
+The URL of the product category video. The path name is set in the language specified by the LocaleCode.
+*/
 @property(nonatomic) NSString * videoUrl;
 
 @end

@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties of a method used to fulfill items for an order. Fulfillment types are system-supplied, and include direct ship (DS) or in-store pickup (SP) at this time.
+*/
 @interface MOZUFulfillmentType : JSONModel<MOZUFulfillmentType>
 
+/**
+The system-supplied code that identifies the fulfillment type, which is "DS" for direct ship or "SP" for in-store pickup.
+*/
 @property(nonatomic) NSString * code;
 
+/**
+The system-supplied name of the fulfillment type, which is "Direct Ship" or "In Store Pickup".
+*/
 @property(nonatomic) NSString * name;
 
 @end

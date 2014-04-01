@@ -48,7 +48,7 @@
 - (void)propertyTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPropertyType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieve the value types associated with a content property.
+Retrieves the value types associated with a content property.
 */
 
 - (void)propertyValueTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUPropertyValueType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

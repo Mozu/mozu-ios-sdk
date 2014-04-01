@@ -18,16 +18,31 @@
 @end
 
 
+/**
+	Properties of the commerce summary associated with a customer account, which includes details about the shopper's most recent order, wish lists, and total order value over time.
+*/
 @interface MOZUCommerceSummary : JSONModel<MOZUCommerceSummary>
 
+/**
+The date and time the shopper last submitted an order for any site associated with the tenant.
+*/
 @property(nonatomic) NSDate * lastOrderDate;
 
+/**
+The total number of order the shopper submitted across all sites associated with the tenant.
+*/
 @property(nonatomic) NSInteger orderCount;
 
 @property(nonatomic) NSInteger visitsCount;
 
+/**
+The number of wish lists associated with a customer account. This number represents the total number of a shopper's wish lists across all sites associated with a tenant.
+*/
 @property(nonatomic) NSInteger wishlistCount;
 
+/**
+The aggregate total amount of all orders the shopper submitted, across all sites associated with the tenant.
+*/
 @property(nonatomic) MOZUCurrencyAmount *totalOrderAmount;
 
 @end

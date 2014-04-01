@@ -17,8 +17,14 @@
 @end
 
 
+/**
+	Container for the label that describes the range of operating hours for a location.
+*/
 @interface MOZUHours : JSONModel<MOZUHours>
 
+/**
+Label that describes the range of operating hours for a location. For example - {"Label": "10:00 AM - 6:00 PM"}
+*/
 @property(nonatomic) NSString * label;
 
 @end

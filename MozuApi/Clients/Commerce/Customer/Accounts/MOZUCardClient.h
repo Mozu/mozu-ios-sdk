@@ -24,8 +24,8 @@
 //
 
 /**
-
-@param accountId 
+Retrieves all stored credit cards for the customer account.
+@param accountId Unique identifier of the customer account.
 */
 
 + (MOZUClient *)clientForGetAccountCardsOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -46,9 +46,9 @@
 //
 
 /**
-
-@param body 
-@param accountId 
+Creates a new credit card record and stores it for the customer account.
+@param body Properties of the customer credit card to add to the account.
+@param accountId Unique identifier of the customer account.
 */
 
 + (MOZUClient *)clientForAddAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -61,9 +61,9 @@
 //
 
 /**
-
-@param body 
-@param accountId 
+Update one or more properties of a credit card defined for a customer account.
+@param body Properties of the customer account credit card to update.
+@param accountId Unique identifier of the customer account.
 @param cardId 
 */
 
@@ -77,9 +77,9 @@
 //
 
 /**
-
-@param accountId 
-@param cardId 
+Removes a stored credit card from a customer account.
+@param accountId Unique identifier of the customer account.
+@param cardId Unique identifier of the credit card to delete.
 */
 
 + (MOZUClient *)clientForDeleteAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId userClaims:(MOZUUserAuthTicket *)userClaims;

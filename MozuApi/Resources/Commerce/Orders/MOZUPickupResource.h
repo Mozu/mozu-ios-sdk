@@ -31,17 +31,17 @@
 //
 
 /**
-
-@param orderId 
-@param pickupId 
+Retrieves the details of the in-store pickup specified in the request.
+@param orderId Unique identifier of the order associated with the pickup.
+@param pickupId Unique identifier of the pickup to retrieve.
 */
 
 - (void)pickupWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param orderId 
-@param pickupId 
+Retrieves a list of the actions available to perform for the pickup specified in the request.
+@param orderId Unique identifier of the order associated with the pickup.
+@param pickupId Unique identifier of the pickup for which to retrieve available actions.
 */
 
 - (void)availablePickupFulfillmentActionsWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -54,9 +54,9 @@
 //
 
 /**
-
-@param body 
-@param orderId 
+Create a new pickup for the order specified in the request for in-store fufillment.
+@param body Properties of the in-store pickup to create.
+@param orderId Unique identifier of the order.
 */
 
 - (void)createPickupWithBody:(MOZUPickup *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -69,10 +69,10 @@
 //
 
 /**
-
-@param body 
-@param orderId 
-@param pickupId 
+Updates one or more details of a defined in-store pickup.
+@param body Properties of the in-store pickup to update.
+@param orderId Unique identifier of the order associated with the in-store pickup.
+@param pickupId Unique identifier of the pickup to update.
 */
 
 - (void)updatePickupWithBody:(MOZUPickup *)body orderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -85,9 +85,9 @@
 //
 
 /**
-
-@param orderId 
-@param pickupId 
+Removes a pickup previously defined for order item in-store pickup fulfillment.
+@param orderId Unique identifier of the order associated with the pickup.
+@param pickupId Unique identifier of the pickup to remove.
 */
 
 - (void)deletePickupWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

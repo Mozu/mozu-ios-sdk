@@ -87,10 +87,9 @@
 
 static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
 
-- (instancetype)initWithString:(NSString *)JSONData statusCode:(NSInteger)statusCode
+- (id)initWithString:(NSString *)JSONData statusCode:(NSInteger)statusCode error:(JSONModelError **)error
 {
-    JSONModelError *jsonModelError = nil;
-    MOZUAPIErrorPrivate *apiErrorPrivate = [[MOZUAPIErrorPrivate alloc] initWithString:JSONData error:&jsonModelError];
+    MOZUAPIErrorPrivate *apiErrorPrivate = [[MOZUAPIErrorPrivate alloc] initWithString:JSONData error:error];
         NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] initWithCapacity:9];
     
     if (apiErrorPrivate) {
@@ -166,7 +165,7 @@ static NSString * const MOZUAPIErrorDomain = @"MOZUAPIErrorDomain";
         return self;
 
     } else {
-        DDLogError(@"%@", jsonModelError.localizedDescription);
+        DDLogError(@"%@", (*error).localizedDescription);
         return nil;
     }
 }

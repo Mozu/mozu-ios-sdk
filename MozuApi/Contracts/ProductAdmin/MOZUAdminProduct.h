@@ -10,8 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUProductSupplierInfo.h"
-#import "MOZUProductVariationOption.h"
 #import "MOZUAdminDiscount.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUAdminBundledProduct.h"
@@ -26,6 +24,8 @@
 #import "MOZUAdminProductProperty.h"
 #import "MOZUProductPublishingInfo.h"
 #import "MOZUProductLocalizedSEOContent.h"
+#import "MOZUProductSupplierInfo.h"
+#import "MOZUProductVariationOption.h"
 
 
 
@@ -46,7 +46,7 @@ Merchant-generated product code for the product that any variation stems from.
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
 
 /**
-If true, the product has configurable options. This option means that a product is not purchasable until the shopper selects options that resolve into a product variation. Configurable options for a product are the choices a shopper makes when ordering a product. Size and color are configurable options.  System-supplied and read-only.
+If true, the product has configurable options. This option means that a product is not purchasable until the shopper selects options that resolve into a product variation. Configurable options for a product are the choices a shopper makes when ordering a product. Size and color are configurable options. System-supplied and read-only.
 */
 @property(nonatomic) BOOL hasConfigurableOptions;
 
@@ -61,7 +61,7 @@ If true, the product must be packaged on its own and should not be jointly packa
 @property(nonatomic) NSNumber * isPackagedStandAlone;
 
 /**
-If true, the product can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription.
+If true, the product can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription. This property is reserved for future functionality and is system-supplied and read only.
 */
 @property(nonatomic) NSNumber * isRecurring;
 
@@ -87,6 +87,9 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 */
 @property(nonatomic) NSString * productCode;
 
+/**
+Integer that represents the sequential order of the product.
+*/
 @property(nonatomic) NSNumber * productSequence;
 
 /**
@@ -116,20 +119,13 @@ System-generated key that represents the attribute values that uniquely identify
 */
 @property(nonatomic) NSString * variationKey;
 
-@property(nonatomic) MOZUProductSupplierInfo *supplierInfo;
-
-/**
-The list of product variation options that exist in product admin.
-*/
-@property(nonatomic) NSArray<MOZUProductVariationOption> *variationOptions;
-
 /**
 List of discounts available for a product.
 */
 @property(nonatomic) NSArray<MOZUAdminDiscount> *applicableDiscounts;
 
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
@@ -145,6 +141,9 @@ The list of extras set up in product admin.
 */
 @property(nonatomic) NSArray<MOZUProductExtra> *extras;
 
+/**
+Properties of the inventory levels manages for the product.
+*/
 @property(nonatomic) MOZUAdminProductInventoryInfo *inventoryInfo;
 
 /**
@@ -176,6 +175,9 @@ Width of the package in imperial units of feet and inches.
 
 @property(nonatomic) MOZUProductPricingBehaviorInfo *pricingBehavior;
 
+/**
+Properties defined for a product as they appear in its associated catalogs.
+*/
 @property(nonatomic) NSArray<MOZUProductInCatalogInfo> *productInCatalogs;
 
 /**
@@ -183,12 +185,22 @@ The list of product properties to set in product admin.
 */
 @property(nonatomic) NSArray<MOZUAdminProductProperty> *properties;
 
+/**
+Properties of the product publishing settings for the associated product.
+*/
 @property(nonatomic) MOZUProductPublishingInfo *publishingInfo;
 
 /**
 search engine optimized product content.
 */
 @property(nonatomic) MOZUProductLocalizedSEOContent *seoContent;
+
+@property(nonatomic) MOZUProductSupplierInfo *supplierInfo;
+
+/**
+The list of product variation options that exist in product admin.
+*/
+@property(nonatomic) NSArray<MOZUProductVariationOption> *variationOptions;
 
 @end
 

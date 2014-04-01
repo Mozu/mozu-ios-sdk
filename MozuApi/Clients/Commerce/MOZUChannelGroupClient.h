@@ -24,18 +24,18 @@
 //
 
 /**
-
-@param filter 
-@param pageSize 
-@param sortBy 
-@param startIndex 
+Retrieves a list of defined channel groups according to any filter and sort criteria specified in the request.
+@param filter FilterSetAll
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
 + (MOZUClient *)clientForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-
-@param code 
+Retrieves the details of a defined channel group.
+@param code The code that uniquely identifies the channel group.
 */
 
 + (MOZUClient *)clientForGetChannelGroupOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -48,8 +48,8 @@
 //
 
 /**
-
-@param body 
+Creates a new group of channels with common information.
+@param body Properties of the channel group to create.
 */
 
 + (MOZUClient *)clientForCreateChannelGroupOperationWithBody:(MOZUChannelGroup *)body userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -62,9 +62,9 @@
 //
 
 /**
-
-@param body 
-@param code 
+Updates one or more properties of a defined channel group.
+@param body Properties of the channel group to update.
+@param code Code that identifies the channel group.
 */
 
 + (MOZUClient *)clientForUpdateChannelGroupOperationWithBody:(MOZUChannelGroup *)body code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -77,8 +77,8 @@
 //
 
 /**
-
-@param code 
+Deletes a defined group of channels, which removes the group association with each channel in the group but does not delete the channel definitions themselves.
+@param code User-defined code that uniqely identifies the channel group.
 */
 
 + (MOZUClient *)clientForDeleteChannelGroupOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;

@@ -23,17 +23,17 @@
 @interface MOZUUserProfile : JSONModel<MOZUUserProfile>
 
 /**
-The email address of the specified user.
+The email address of the specified user or the email address associated with the specified entity.
 */
 @property(nonatomic) NSString * emailAddress;
 
 /**
-The first name of the contact. Max length: 200.
+The first name of the contact. The maximum character length is 200.
 */
 @property(nonatomic) NSString * firstName;
 
 /**
-The last name or surname of the contact. Max length: 200.
+The last name or surname of the contact. The maximum character length is 200.
 */
 @property(nonatomic) NSString * lastName;
 

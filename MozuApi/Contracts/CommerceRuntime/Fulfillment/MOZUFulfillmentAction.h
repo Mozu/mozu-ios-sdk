@@ -17,12 +17,24 @@
 @end
 
 
+/**
+	Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.
+*/
 @interface MOZUFulfillmentAction : JSONModel<MOZUFulfillmentAction>
 
+/**
+The name of the fulfillment action to perform, which is "Ship" or "PickUp".
+*/
 @property(nonatomic) NSString * actionName;
 
+/**
+Array list of packages for which to perform the fulfillment action.
+*/
 @property(nonatomic) NSArray *packageIds;
 
+/**
+Array list of in-store pickups for which to perform the fulfillment action.
+*/
 @property(nonatomic) NSArray *pickupIds;
 
 @end

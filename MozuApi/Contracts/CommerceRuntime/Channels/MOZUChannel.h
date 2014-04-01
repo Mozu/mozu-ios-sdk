@@ -18,22 +18,46 @@
 @end
 
 
+/**
+	Properties of a channel used to divide a company into logical business divisions, such as "US Retail," "US Online," or "Amazon." All sites and orders are associated with a channel.
+*/
 @interface MOZUChannel : JSONModel<MOZUChannel>
 
+/**
+User-defined code that uniquely identifies the channel.
+*/
 @property(nonatomic) NSString * code;
 
 @property(nonatomic) NSString * countryCode;
 
+/**
+User-defined code that identifies the channel group.
+*/
 @property(nonatomic) NSString * groupCode;
 
+/**
+User-defined name of the channel.
+*/
 @property(nonatomic) NSString * name;
 
+/**
+The geographical region associated with this channel. This region could represent any geographical entity from a state to a continent.
+*/
 @property(nonatomic) NSString * region;
 
+/**
+Array list of site identifiers associated with this channel. Each tenant site must have a channel association.
+*/
 @property(nonatomic) NSArray *siteIds;
 
+/**
+Unique identifier of the Mozu tenant.
+*/
 @property(nonatomic) NSInteger tenantId;
 
+/**
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+*/
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end

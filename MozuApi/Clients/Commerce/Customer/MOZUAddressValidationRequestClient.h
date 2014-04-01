@@ -31,8 +31,8 @@
 //
 
 /**
-
-@param body 
+Validates the customer address supplied in the request.
+@param body Properties of the address to validate.
 */
 
 + (MOZUClient *)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims;

@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties of a value that can be initialized for a capability property.
+*/
 @interface MOZUInitializablePropertyValue : JSONModel<MOZUInitializablePropertyValue>
 
+/**
+If true, the property value is initialized.
+*/
 @property(nonatomic) BOOL initialized;
 
+/**
+Value of the initializable third-party capability property.
+*/
 @property(nonatomic) NSString * value;
 
 @end

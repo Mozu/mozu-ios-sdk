@@ -18,27 +18,27 @@
 
 
 /**
-	Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+	Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @interface MOZUAuditInfo : JSONModel<MOZUAuditInfo>
 
 /**
-Unique identifier of the user created the resource entity. System-supplied and read-only.
+Unique identifier of the user created the resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) NSString * createBy;
 
 /**
-Date and time when the entity was created. UTC Date/Time.
+Date and time when the entity was created, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * createDate;
 
 /**
-Unique identifier of the entity who updated the resource property most recently. System-supplied and read-only.
+Unique identifier of the user who last modified the item. This value is system-supplied and read-only.
 */
 @property(nonatomic) NSString * updateBy;
 
 /**
-Date and time when the entity was last updated. UTC Date/Time.
+Date and time when the entity was last updated, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * updateDate;
 

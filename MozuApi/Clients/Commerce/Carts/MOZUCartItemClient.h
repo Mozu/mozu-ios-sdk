@@ -45,7 +45,7 @@ Retrieves a particular cart item by providing the cart item ID.
 //
 
 /**
-Adds an item such as product to the current shopper's cart.
+Adds a product to the current shopper's cart.
 @param body All properties of the new cart item. The product code is required.
 */
 
@@ -59,7 +59,7 @@ Adds an item such as product to the current shopper's cart.
 //
 
 /**
-Update properties of a specific cart item.
+Update the product or product quantity of an item in the current shopper's cart.
 @param body The properties of the cart item to update.
 @param cartItemId Identifier of the cart item to update.
 */
@@ -67,7 +67,7 @@ Update properties of a specific cart item.
 + (MOZUClient *)clientForUpdateCartItemOperationWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Update the quantity of an individual cart item in the cart of a current shopper.
+Update the quantity of an individual cart item in the cart of the current shopper.
 @param cartItemId Identifier of the cart item to update quantity.
 @param quantity The number of cart items in the shopper's active cart.
 */
@@ -82,13 +82,13 @@ Update the quantity of an individual cart item in the cart of a current shopper.
 //
 
 /**
-Removes all cart items in the shopper's active cart.
+Removes all items in the current shopper's active cart.
 */
 
 + (MOZUClient *)clientForRemoveAllCartItemsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Delete a specific cart item by providing the cart item ID.
+Deletes a specific cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to delete.
 */
 

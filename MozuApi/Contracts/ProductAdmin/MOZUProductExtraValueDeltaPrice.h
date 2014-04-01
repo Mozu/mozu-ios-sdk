@@ -18,17 +18,17 @@
 
 
 /**
-	The difference between the highest price and the lowest price of the product extra values.
+	The properties of the price difference between the product extra and the base product.
 */
 @interface MOZUProductExtraValueDeltaPrice : JSONModel<MOZUProductExtraValueDeltaPrice>
 
 /**
-3-letter ISO 4217 standard global currency code. Currently, only support "USD" (US Dollar).
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
 @property(nonatomic) NSString * currencyCode;
 
 /**
-The difference between the highest price and the lowest price for product extra values.
+The difference between the price associated with this product extra and the base product. For example, if a product with a defined monogram extra costs an additional $10, the DeltaPrice value is "10".
 */
 @property(nonatomic) NSNumber * deltaPrice;
 

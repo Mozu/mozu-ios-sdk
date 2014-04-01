@@ -58,6 +58,9 @@ Human-readable identifier to associated with a product category to create friend
 */
 @property(nonatomic) NSString * slug;
 
+/**
+Array list of image media associated with the product category.
+*/
 @property(nonatomic) NSArray<MOZUCategoryImage> *categoryImages;
 
 @end

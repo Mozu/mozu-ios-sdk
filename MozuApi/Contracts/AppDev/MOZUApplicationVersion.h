@@ -19,16 +19,34 @@
 @end
 
 
+/**
+	Properties of a specific version of an application.
+*/
 @interface MOZUApplicationVersion : JSONModel<MOZUApplicationVersion>
 
+/**
+Unique identifier of the application version.
+*/
 @property(nonatomic) NSInteger id;
 
+/**
+The name of the application version.
+*/
 @property(nonatomic) NSString * name;
 
+/**
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+*/
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
+/**
+Properties of a development package of files for an application version.
+*/
 @property(nonatomic) NSArray<MOZUAppDevPackage> *devPackages;
 
+/**
+Properties of a releasable package of files for an application version.
+*/
 @property(nonatomic) MOZUAppDevPackage *releasePackage;
 
 @end

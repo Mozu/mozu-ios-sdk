@@ -83,9 +83,9 @@ Retrieves the list of customer account attributes.
 //
 
 /**
-
+Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
 @param body 
-@param accountId 
+@param accountId Unique identifier of the customer account.
 */
 
 - (void)addAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -107,7 +107,7 @@ Retrieves the list of customer account attributes.
 //
 
 /**
-Update a single customer account attribute by providing the customer account ID. This operation can optionally indicate whether or not items missing from the collection should be removed.
+Updates one or more details of a customer account attribute.
 @param body 
 @param accountId Identifier of the customer account associated with the attribute.
 @param attributeFQN 

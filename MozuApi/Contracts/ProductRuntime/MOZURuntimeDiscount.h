@@ -23,7 +23,7 @@
 @interface MOZURuntimeDiscount : JSONModel<MOZURuntimeDiscount>
 
 /**
-Unique Identifier of the discount.
+Unique identifier of the discount. System-supplied and read only.
 */
 @property(nonatomic) NSInteger discountId;
 

@@ -23,7 +23,7 @@
 @interface MOZUTaxableTerritory : JSONModel<MOZUTaxableTerritory>
 
 /**
-2 letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 @property(nonatomic) NSString * countryCode;
 
@@ -33,7 +33,7 @@ If true, all shipping charges for this territory are subject to sales tax.
 @property(nonatomic) NSNumber * isShippingTaxable;
 
 /**
-2 letter geographic code representing the state for the physical or mailing address. Currently limited to the US.
+The two-letter geographic code representing the state for the physical or mailing address. This is currently limited to the US.
 */
 @property(nonatomic) NSString * stateOrProvinceCode;
 

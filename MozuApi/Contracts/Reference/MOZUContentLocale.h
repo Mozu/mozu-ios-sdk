@@ -18,7 +18,7 @@
 
 
 /**
-	The content locale indicates the language spoken and the country where the language is spoken. Currently, only code "en-US" for name "English - United States" is supported.
+	Properties of a content locale that determines the language and format used for a site.
 */
 @interface MOZUContentLocale : JSONModel<MOZUContentLocale>
 

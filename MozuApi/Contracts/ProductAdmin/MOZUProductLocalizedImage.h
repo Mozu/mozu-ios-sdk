@@ -49,8 +49,14 @@ Language used for the entity. Currently, only "en-US" is supported.
 */
 @property(nonatomic) NSString * localeCode;
 
+/**
+Type of media specification required to successfully render the image, video, or other content for the product.
+*/
 @property(nonatomic) NSString * mediaType;
 
+/**
+Integer that represents the order of the localized product image in the sequence.
+*/
 @property(nonatomic) NSNumber * sequence;
 
 /**

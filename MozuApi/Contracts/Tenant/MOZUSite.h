@@ -17,24 +17,45 @@
 @end
 
 
+/**
+	Properties of a site associated with a tenant.
+*/
 @interface MOZUSite : JSONModel<MOZUSite>
 
 @property(nonatomic) NSInteger catalogId;
 
 @property(nonatomic) NSString * countryCode;
 
+/**
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+*/
 @property(nonatomic) NSString * currencyCode;
 
+/**
+The domain associated with the site.
+*/
 @property(nonatomic) NSString * domain;
 
 @property(nonatomic) NSInteger id;
 
+/**
+Language used for the entity. Currently, only "en-US" is supported.
+*/
 @property(nonatomic) NSString * localeCode;
 
+/**
+The name of the site.
+*/
 @property(nonatomic) NSString * name;
 
+/**
+The primary custom domain of the site.
+*/
 @property(nonatomic) NSString * primaryCustomDomain;
 
+/**
+Unique identifier of the Mozu tenant.
+*/
 @property(nonatomic) NSInteger tenantId;
 
 @end

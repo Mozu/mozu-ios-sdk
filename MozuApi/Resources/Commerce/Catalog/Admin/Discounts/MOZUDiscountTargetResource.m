@@ -40,7 +40,7 @@
 
 /**
 Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
-@param discountId Unique Identifier of the discount.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 */
 
 - (void)discountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDiscountTarget *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

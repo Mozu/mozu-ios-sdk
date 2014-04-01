@@ -26,12 +26,12 @@
 @interface MOZUDiscountTarget : JSONModel<MOZUDiscountTarget>
 
 /**
-If true, the target discount applies to all products sold on the storefront. Applies only if the discount type is "Product".
+If true, the target discount applies to all products sold on the storefront.
 */
 @property(nonatomic) NSNumber * includeAllProducts;
 
 /**
-The type of target to which the discount applies, such as a product.
+The type of target to which the discount applies, such as a product or shipping.
 */
 @property(nonatomic) NSString * type;
 
@@ -40,8 +40,14 @@ The product categories to which the discount can apply.
 */
 @property(nonatomic) NSArray<MOZUTargetedCategory> *categories;
 
+/**
+Array list of categories to exclude for this discount.
+*/
 @property(nonatomic) NSArray<MOZUTargetedCategory> *excludedCategories;
 
+/**
+Array list of products to exclude for this discount.
+*/
 @property(nonatomic) NSArray<MOZUTargetedProduct> *excludedProducts;
 
 /**

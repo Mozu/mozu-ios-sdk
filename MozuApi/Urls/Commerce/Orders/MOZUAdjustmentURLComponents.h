@@ -33,17 +33,17 @@
 
 /**
 Resource Url Components for applyShippingAdjustment
-@param orderId 
-@param updateMode 
-@param version 
+@param orderId Unique identifier of the order associated with the shipping adjustment.
+@param updateMode Specifies whether to apply the shipping adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+@param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 + (MOZUURLComponents *)URLComponentsForApplyShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version;
 
 /**
 Resource Url Components for applyAdjustment
 @param orderId Unique identifier of the order for which to apply the adjustment.
-@param updateMode 
-@param version 
+@param updateMode Specifies whether to apply the adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+@param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 + (MOZUURLComponents *)URLComponentsForApplyAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version;
 
@@ -56,17 +56,17 @@ Resource Url Components for applyAdjustment
 
 /**
 Resource Url Components for removeShippingAdjustment
-@param orderId 
-@param updateMode 
-@param version 
+@param orderId Unique identifier of the order with the applied shipping adjustment.
+@param updateMode Specifies whether to remove the shipping adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+@param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 + (MOZUURLComponents *)URLComponentsForRemoveShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version;
 
 /**
 Resource Url Components for removeAdjustment
 @param orderId Unique identifier of the order for which to delete the adjustment.
-@param updateMode 
-@param version 
+@param updateMode Specifies whether to remove the adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+@param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 + (MOZUURLComponents *)URLComponentsForRemoveAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version;
 

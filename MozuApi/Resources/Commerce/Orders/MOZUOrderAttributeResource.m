@@ -39,8 +39,8 @@
 //
 
 /**
-Retrieves a list of order attributes.
-@param orderId Identifier of the order whose order attributes are being retrieved.
+Retrieves a list of the attributes defined for the order specified in the request.
+@param orderId Unique identifier of the order for which to retrieve a list of defined attributes.
 */
 
 - (void)orderAttributesWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -62,9 +62,9 @@ Retrieves a list of order attributes.
 //
 
 /**
-Create a new list of order attributes by providing the order ID.
-@param body The attribute properties to create to associate with the order ID.
-@param orderId Identifier of the order whose attributes are being created.
+Applies a list of attributes to the order specified in the request and defines a value for each attribute in the request body.
+@param body The list of attributes to associate with the order, and the properties of each attribute to define for the order.
+@param orderId Unique identifier of the order for which to assign the attributes.
 */
 
 - (void)createOrderAttributesWithBody:(NSArray<MOZUOrderAttribute> *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUOrderAttribute> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -86,9 +86,9 @@ Create a new list of order attributes by providing the order ID.
 //
 
 /**
-Update the properties of an order's attributes by providing the order ID and by removing any missing properties if removeMissing is set to true.
-@param body List of order attributes being updated.
-@param orderId Identifier of the order whose order attributes are being updated.
+Updates one or more properties of an attribute defined for the order specified in the request.
+@param body List of order attributes to update, including the properties of each defined attribute in the list.
+@param orderId Identifier of the order for which to update attributes.
 @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 */
 

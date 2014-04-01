@@ -31,7 +31,7 @@
 //
 
 /**
-Retrieves a list of subscriptions.
+
 @param filter 
 @param pageSize 
 @param sortBy 

@@ -31,12 +31,12 @@ Settings for the checkout login. Choose whether or not shoppers must first login
 @property(nonatomic) MOZUCustomerCheckoutSettings *customerCheckoutSettings;
 
 /**
-Credit card payment authorization setting defined for the site. Choose whether or not the shopper's credit card is authorized and charged. Possibilities include, "authorize and charge the shopper's credit card for the full order amount when the order is placed," "authorize the shopper's credit card for the full amount when the order is placed and charge the credit card when the order is shipped," or "authorize and charge the shopper's credit card for the full amount when the order is shipped." Check on these phrases. According to Eric Swann, they may have changed]
+Credit card payment authorization setting defined for the site for order processing.
 */
 @property(nonatomic) MOZUOrderProcessingSettings *orderProcessingSettings;
 
 /**
-Payment gateway settings defined for the site. A payment gateway is an eCommerce application service provider that authorizes payments for eBusinesses,  online retailers, and other stores that have an online commerce component. Currently, only the Authorize.net gateway is supported.
+Payment gateway settings defined for the site. A payment gateway is an eCommerce application service provider that authorizes payments for eBusinesses, online retailers, and other stores that have an online commerce component. Currently, only the Authorize.net gateway is supported.
 */
 @property(nonatomic) MOZUPaymentSettings *paymentSettings;
 

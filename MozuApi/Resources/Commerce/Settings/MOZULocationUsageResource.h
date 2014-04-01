@@ -32,14 +32,14 @@
 //
 
 /**
-
+Retrieves the configured site location usages for the location usage code specified in the request.
 */
 
 - (void)locationUsagesWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocationUsageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param code 
+Retrieves the location usages for the site specified in the request header.
+@param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
 
 - (void)locationUsageWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -59,9 +59,9 @@
 //
 
 /**
-
-@param body 
-@param code 
+Updates the location usage for the site based on the location usage code specified in the request.
+@param body Properties of the location usage type to update.
+@param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 */
 
 - (void)updateLocationUsageWithBody:(MOZULocationUsage *)body code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

@@ -40,8 +40,8 @@
 
 /**
 Retrieves a paged list of attributes according to any specified filter criteria and sort options.
-@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
-@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param startIndex 
 */
@@ -58,7 +58,7 @@ Retrieves a paged list of attributes according to any specified filter criteria 
 }
 
 /**
-Retrieves summary details of a single attribute, such as whether it's required, has multiple values, or is entered by the shopper. Another operation retrieves the attribute's list of attribute values.
+Retrieves the details of the specified product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
@@ -81,8 +81,8 @@ Retrieves summary details of a single attribute, such as whether it's required, 
 //
 
 /**
-Creates a new attribute to describe one aspect of a product such as color or size.  Specify several properties when creating the attribute. Include its display name, whether it represents a product option that a shopper selects when purchasing it, or whether the shopper supplies the value (if required to do so), such as engraved initials. Include how attribute values should appear on the storefront such as via radio buttons or text boxes.
-@param body Properties of the attribute to create.
+Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
+@param body Properties of the new product attribute to create.
 */
 
 - (void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -128,7 +128,7 @@ Updates an existing attribute with attribute properties to set.
 //
 
 /**
-Deletes an existing attribute.
+Deletes a defined product attribute. You cannot delete an attribute assigned a value for a product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 

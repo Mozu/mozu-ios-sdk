@@ -35,7 +35,7 @@ The date and time the user access token expires.
 @property(nonatomic) NSDate * accessTokenExpiration;
 
 /**
-Date and time when the entity was created. UTC Date/Time.
+Date and time when the entity was created, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * createdOn;
 

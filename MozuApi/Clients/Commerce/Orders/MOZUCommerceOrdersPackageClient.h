@@ -31,9 +31,9 @@ Retrieves the details of a package of order items.
 + (MOZUClient *)clientForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-
-@param orderId 
-@param packageId 
+Retrieves a list of the actions available to perform for a package associated with order fulfillment.
+@param orderId Unique identifier of the order associated with the package fulfillment.
+@param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 */
 
 + (MOZUClient *)clientForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;

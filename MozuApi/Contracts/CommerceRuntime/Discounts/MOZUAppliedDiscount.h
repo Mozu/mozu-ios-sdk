@@ -28,6 +28,9 @@ Alphanumeric code associated with the coupon or promotion that results in a disc
 */
 @property(nonatomic) NSString * couponCode;
 
+/**
+If true, the system ignores this discount when pricing the order.
+*/
 @property(nonatomic) NSNumber * excluded;
 
 /**

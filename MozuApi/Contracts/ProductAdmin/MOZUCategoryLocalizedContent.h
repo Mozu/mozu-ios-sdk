@@ -24,6 +24,26 @@
 @interface MOZUCategoryLocalizedContent : JSONModel<MOZUCategoryLocalizedContent>
 
 /**
+Title defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
+*/
+@property(nonatomic) NSString * metaTagTitle;
+
+/**
+The name of the product category in the language specified by the locale code.
+*/
+@property(nonatomic) NSString * name;
+
+/**
+Title that appears on new product category pages, in the language specified by the locale code.
+*/
+@property(nonatomic) NSString * pageTitle;
+
+/**
+Human-readable identifier to assign to the category to generate user-friendly URLs.
+*/
+@property(nonatomic) NSString * slug;
+
+/**
 Description of the product category in the language specified by the locale code.
 */
 @property(nonatomic) NSString * description;
@@ -44,25 +64,8 @@ Keywords defined for the product category metadata, used to manage internal prod
 @property(nonatomic) NSString * metaTagKeywords;
 
 /**
-Title defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
+Array of localized product category images in the language specified by the LocaleCode.
 */
-@property(nonatomic) NSString * metaTagTitle;
-
-/**
-The name of the product category in the language specified by the locale code.
-*/
-@property(nonatomic) NSString * name;
-
-/**
-Title that appears on new product category pages, in the language specified by the locale code.
-*/
-@property(nonatomic) NSString * pageTitle;
-
-/**
-Human-readable identifier to assign to the category to generate user-friendly URLs.
-*/
-@property(nonatomic) NSString * slug;
-
 @property(nonatomic) NSArray<MOZUCategoryLocalizedImage> *categoryImages;
 
 @end

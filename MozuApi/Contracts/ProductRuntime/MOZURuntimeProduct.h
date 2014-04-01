@@ -30,12 +30,12 @@
 
 
 /**
-	Properties of the product that appears on the site storefront.
+	Properties of the product that appears on a designated storefront.
 */
 @interface MOZURuntimeProduct : JSONModel<MOZURuntimeProduct>
 
 /**
-Date and time when the entity was created. UTC Date/Time.
+Date and time when the entity was created, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * createDate;
 
@@ -65,6 +65,9 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 */
 @property(nonatomic) NSString * productCode;
 
+/**
+Integer that represents the sequential order of the product.
+*/
 @property(nonatomic) NSNumber * productSequence;
 
 /**
@@ -74,6 +77,9 @@ A product type is like a product template that can be reused.
 
 @property(nonatomic) NSString * productUsage;
 
+/**
+The publishing state of the product definition in the master catalog, which is "New", "Draft", or "Live".
+*/
 @property(nonatomic) NSString * publishState;
 
 /**
@@ -81,6 +87,9 @@ The universal product code (UPC code) of the product.
 */
 @property(nonatomic) NSArray *upc;
 
+/**
+Product code that represents the product variation selected based on the option values the shopper entered.
+*/
 @property(nonatomic) NSString * variationProductCode;
 
 /**
@@ -100,6 +109,9 @@ Complex type that contains content for a language specified by LocaleCode.
 */
 @property(nonatomic) MOZUProductContent *content;
 
+/**
+Array of active inventory level information associated with the product.
+*/
 @property(nonatomic) MOZURuntimeProductInventoryInfo *inventoryInfo;
 
 /**

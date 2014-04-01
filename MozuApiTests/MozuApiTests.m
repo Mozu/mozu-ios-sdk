@@ -37,7 +37,7 @@
 
 @implementation MozuApiTests
 
-static const NSUInteger tenantID = 7290;
+static const NSUInteger tenantID = 2442;
 static const NSInteger productCode = 1001;
 //static const NSUInteger MOZUDeveloperIdentifier;
 static const BOOL useSSL = NO;
@@ -46,7 +46,7 @@ static const BOOL useSSL = NO;
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    _siteID = @(10825);
+    _siteID = @(4593);
     _masterCatalogID = @(1);
     _catalogID = @(1);
     

@@ -22,10 +22,10 @@ Resource Url Components for getAccounts
 @param startIndex 
 @param pageSize 
 @param sortBy 
-@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param fields The fields to include in the response.
-@param q 
-@param qLimit 
+@param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
+@param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param isAnonymous 
 */
 + (MOZUURLComponents *)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous;

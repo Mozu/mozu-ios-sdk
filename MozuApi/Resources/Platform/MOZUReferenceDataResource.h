@@ -37,7 +37,7 @@
 
 /**
 Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
-@param countryCode 2 letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+@param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 
 - (void)addressSchemaWithCountryCode:(NSString *)countryCode completionHandler:(void(^)(MOZUAddressSchema *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -76,7 +76,7 @@ Retrieves the entire list of address schemas that the system supports.
 - (void)behaviorsWithUserType:(NSString *)userType completionHandler:(void(^)(MOZUBehaviorCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves the entire list of content locales that the system supports. The content locales indicate the language used and the country where the language is used. Just because the system supports the content locale does not mean that the site or site group supports the language. For example,currently only "en-US" is supported.
+Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
 */
 
 - (void)contentLocalesWithCompletionHandler:(void(^)(MOZUContentLocaleCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -100,14 +100,14 @@ Retrieves the entire list of time zones that the system supports.
 - (void)timeZonesWithCompletionHandler:(void(^)(MOZUTimeZoneCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves the entire list of top-level Internet domains that the system supports.
+Retrieves the entire list of top-level internet domains that the system supports.
 */
 
 - (void)topLevelDomainsWithCompletionHandler:(void(^)(MOZUTopLevelDomainCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves the entire list of units of measure that the system supports.
-@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+Retrieves an array list of all units of measure the system supports.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
 
 - (void)unitsOfMeasureWithFilter:(NSString *)filter completionHandler:(void(^)(MOZUUnitOfMeasureCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
