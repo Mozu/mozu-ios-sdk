@@ -17,10 +17,16 @@
 @end
 
 
+/**
+	Properties of an item in an in-store pickup.
+*/
 @interface MOZUPickupItem : JSONModel<MOZUPickupItem>
 
 @property(nonatomic) NSString * productCode;
 
+/**
+The quantity of the item in the in-store pickup.
+*/
 @property(nonatomic) NSInteger quantity;
 
 @end

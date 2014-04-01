@@ -19,12 +19,12 @@
 
 
 /**
-	Account information for the payment.
+	Account information for the payment gateway.
 */
 @interface MOZUGatewayAccount : JSONModel<MOZUGatewayAccount>
 
 /**
-2 letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 */
 @property(nonatomic) NSString * countryCode;
 

@@ -36,8 +36,8 @@ Searches the categories displayed on the storefront for products or product opti
 @param facetTemplate The facet template to use on the storefront. A template displays all facets associated with the template on the storefront product search. Currently, only category-level facet templates are available.
 @param facetTemplateSubset Display a subset of the facets defined in the template specified in facetTemplate parameter.
 @param facetValueFilter The facet values to apply to the filter.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product search results by any of its properties, including product code, type, category, and name. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). <b>For example - "filter=categoryId+eq+12"</b>
-@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product search results by any of its properties, including product code, type, category, and name. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=categoryId+eq+12"
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param query The terms to search on.
 @param sortBy 
 @param startIndex 
@@ -47,7 +47,7 @@ Searches the categories displayed on the storefront for products or product opti
 
 /**
 Suggests possible search terms as the shopper enters search text.
-@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param q Text that the shopper is currently entering.
 */
 

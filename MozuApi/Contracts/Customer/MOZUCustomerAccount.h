@@ -34,7 +34,7 @@ If true, the customer prefers to receive marketing material such as newsletters 
 @property(nonatomic) BOOL acceptsMarketing;
 
 /**
-The legal or doing business as (DBA) or tradestyle name of the business or organization. Max length: 200.
+The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 */
 @property(nonatomic) NSString * companyOrOrganization;
 
@@ -78,10 +78,13 @@ Collection of customer account attributes.
 @property(nonatomic) NSArray<MOZUCustomerAttribute> *attributes;
 
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
+/**
+Properties of the commerce summary associated with a customer account, which includes details about the shopper's most recent order, wish lists, and total order value over time.
+*/
 @property(nonatomic) MOZUCommerceSummary *commerceSummary;
 
 /**

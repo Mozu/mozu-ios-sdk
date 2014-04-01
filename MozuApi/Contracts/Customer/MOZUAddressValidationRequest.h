@@ -18,8 +18,14 @@
 @end
 
 
+/**
+	Properties of the address to validate.
+*/
 @interface MOZUAddressValidationRequest : JSONModel<MOZUAddressValidationRequest>
 
+/**
+Properties of the address to validate.
+*/
 @property(nonatomic) MOZUAddress *address;
 
 @end

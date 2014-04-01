@@ -24,7 +24,7 @@
 
 /**
 Retrieves the properties of facets that aid in indexing and searching.
-@param documentListName The document list associated with the facets are to retrieve.
+@param documentListName The document list associated with the facets to retrieve.
 @param propertyName The property name associated with the facets to retrieve.
 */
 

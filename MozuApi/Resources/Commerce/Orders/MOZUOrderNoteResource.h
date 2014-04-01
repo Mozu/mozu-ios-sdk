@@ -32,15 +32,15 @@
 
 /**
 Retrieves a list of all notes for an order.
-@param orderId Unique identifier of the order whose notes are retrieved.
+@param orderId Unique identifier of the order.
 */
 
 - (void)orderNotesWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUOrderNote> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves a specific order note from an order.
-@param noteId Unique identifier of the note text to retrieve.
-@param orderId Unique identifier of the order note to retrieve.
+Retrieves the details of a specific order note.
+@param noteId Unique identifier of the order note to retrieve.
+@param orderId Unique identifier of the order associated with the note.
 */
 
 - (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -53,9 +53,9 @@ Retrieves a specific order note from an order.
 //
 
 /**
-Adds a note to the order. This is an internal note that the merchant can add to an order.
-@param body The Unicode alphanumeric text contained in the note. Max length: 256 characters.
-@param orderId Unique identifier of the order to add a note.
+Creates a new merchant note for the specified order.
+@param body The alphanumeric text contained in the note. The maximum length is 256 characters.
+@param orderId Unique identifier of the order for which to add a note.
 */
 
 - (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -68,10 +68,10 @@ Adds a note to the order. This is an internal note that the merchant can add to 
 //
 
 /**
-Updates a specific order note for an order.
-@param body The Unicode alphanumeric text contained in the note.
-@param noteId Unique identifier of the note whose text is being updated.
-@param orderId Unique identifier of the order whose note is being updated.
+Updates a specific note for an order.
+@param body The content of the order note. The maximum length is 256 characters.
+@param noteId Unique identifier of the order note.
+@param orderId Unique identifier of the order.
 */
 
 - (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -84,9 +84,9 @@ Updates a specific order note for an order.
 //
 
 /**
-Deletes a specific order note on an order.
-@param noteId Unique identifier of the note text to delete.
-@param orderId Unique identifier of the order note to delete.
+Deletes the specified order note.
+@param noteId Unique identifier of the order note to delete.
+@param orderId Unique identifier of the order associated with the note.
 */
 
 - (void)deleteOrderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

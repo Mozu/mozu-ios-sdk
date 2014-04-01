@@ -19,14 +19,29 @@
 @end
 
 
+/**
+	Metadata associated with a folder in a package of files for an application version.
+*/
 @interface MOZUFolderMetadata : JSONModel<MOZUFolderMetadata>
 
+/**
+The directory of the file location of the folder in the package.
+*/
 @property(nonatomic) NSString * fullPath;
 
+/**
+The name of the folder.
+*/
 @property(nonatomic) NSString * name;
 
+/**
+Array list of files in the folder.
+*/
 @property(nonatomic) NSArray<MOZUFileMetadata> *files;
 
+/**
+Array list of subfolders stored in this folder.
+*/
 @property(nonatomic) NSArray<MOZUFolderMetadata> *subFolders;
 
 @end

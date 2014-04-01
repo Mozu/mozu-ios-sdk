@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties of the active product inventory levels for a specific location.
+*/
 @interface MOZURuntimeLocationInventory : JSONModel<MOZURuntimeLocationInventory>
 
+/**
+User-defined code that uniquely identifies the location.
+*/
 @property(nonatomic) NSString * locationCode;
 
+/**
+The current level of active product stock available at the specified location.
+*/
 @property(nonatomic) NSNumber * stockAvailable;
 
 @end

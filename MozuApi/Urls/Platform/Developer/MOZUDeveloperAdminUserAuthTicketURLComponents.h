@@ -26,7 +26,7 @@
 
 /**
 Resource Url Components for createDeveloperUserAuthTicket
-@param developerAccountId 
+@param developerAccountId Unique identifier of the developer account.
 */
 + (MOZUURLComponents *)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId;
 
@@ -39,7 +39,7 @@ Resource Url Components for createDeveloperUserAuthTicket
 
 /**
 Resource Url Components for refreshDeveloperAuthTicket
-@param developerAccountId 
+@param developerAccountId Unique identifier of the developer account.
 */
 + (MOZUURLComponents *)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId;
 
@@ -52,7 +52,7 @@ Resource Url Components for refreshDeveloperAuthTicket
 
 /**
 Resource Url Components for deleteUserAuthTicket
-@param refreshToken 
+@param refreshToken Refresh token string associated with the developer account authentication ticket.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 

@@ -23,10 +23,10 @@
 //
 
 /**
-Retrieves a list of the documents currently in draft state according to any sort criteria defined.
+Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 @param documentLists Lists that contain the document drafts.
-@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
-@param startIndex Used to create paged results from a query. Indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
 + (MOZUClient *)clientForListDocumentDraftSummariesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists userClaims:(MOZUUserAuthTicket *)userClaims;

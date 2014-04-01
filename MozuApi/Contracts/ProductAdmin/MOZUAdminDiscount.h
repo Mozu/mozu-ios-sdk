@@ -48,8 +48,6 @@ Unique identifier of the discount.
 */
 @property(nonatomic) NSNumber * id;
 
-@property(nonatomic) NSNumber * maximumUsesPerUser;
-
 /**
 The scope to which the discount applies, which is "Order" for order discounts or "LineItem" for individual product discounts.
 */
@@ -60,8 +58,10 @@ Current status of the product discount. Possible values are "Active", "Scheduled
 */
 @property(nonatomic) NSString * status;
 
+@property(nonatomic) NSNumber * maximumUsesPerUser;
+
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

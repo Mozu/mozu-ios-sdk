@@ -26,8 +26,8 @@ Resource Url Components for getPackage
 
 /**
 Resource Url Components for getAvailablePackageFulfillmentActions
-@param orderId 
-@param packageId 
+@param orderId Unique identifier of the order associated with the package fulfillment.
+@param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 

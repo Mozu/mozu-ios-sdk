@@ -43,7 +43,7 @@ Resource Url Components for getAccountAttributes
 
 /**
 Resource Url Components for addAccountAttribute
-@param accountId 
+@param accountId Unique identifier of the customer account.
 */
 + (MOZUURLComponents *)URLComponentsForAddAccountAttributeOperationWithAccountId:(NSInteger)accountId;
 

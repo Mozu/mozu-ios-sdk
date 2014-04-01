@@ -41,12 +41,15 @@ Name of the product type, such as "Shoes" or "TVs".
 */
 @property(nonatomic) NSString * name;
 
+/**
+The number of products associated with this product type.
+*/
 @property(nonatomic) NSNumber * productCount;
 
 @property(nonatomic) NSArray *productUsages;
 
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

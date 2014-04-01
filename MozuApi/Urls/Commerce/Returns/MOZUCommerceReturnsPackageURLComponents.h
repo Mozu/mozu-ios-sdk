@@ -19,15 +19,15 @@
 
 /**
 Resource Url Components for getPackage
-@param returnId 
-@param packageId 
+@param returnId Unique identifier of the return associated with the replacement package to retrieve.
+@param packageId Unique identifier of the return replacement package to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId;
 
 /**
 Resource Url Components for getPackageLabel
-@param returnId 
-@param packageId 
+@param returnId Unique identifier of the return associated with the replacement package label to retrieve.
+@param packageId Unique identifier of the return replacement package for which to retrieve the label.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId;
 
@@ -40,7 +40,7 @@ Resource Url Components for getPackageLabel
 
 /**
 Resource Url Components for createPackage
-@param returnId 
+@param returnId Unique identifier of the return for which to create a replacement package.
 */
 + (MOZUURLComponents *)URLComponentsForCreatePackageOperationWithReturnId:(NSString *)returnId;
 
@@ -53,8 +53,8 @@ Resource Url Components for createPackage
 
 /**
 Resource Url Components for updatePackage
-@param returnId 
-@param packageId 
+@param returnId Unique identifier of the return associated with the replacement package to update.
+@param packageId Unique identifier of the return replacement package to update.
 */
 + (MOZUURLComponents *)URLComponentsForUpdatePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId;
 
@@ -67,8 +67,8 @@ Resource Url Components for updatePackage
 
 /**
 Resource Url Components for deletePackage
-@param returnId 
-@param packageId 
+@param returnId Unique identifier of the return associated with the replacement package to delete.
+@param packageId Unique identifier of the return replacement package to delete.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId;
 

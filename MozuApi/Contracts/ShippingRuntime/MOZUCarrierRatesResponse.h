@@ -19,12 +19,24 @@
 @end
 
 
+/**
+	Arrayed list of calculated shipping rates for the specified carrier.
+*/
 @interface MOZUCarrierRatesResponse : JSONModel<MOZUCarrierRatesResponse>
 
+/**
+Unique identifier of the shipping carrier.
+*/
 @property(nonatomic) NSString * carrierId;
 
+/**
+Collection of carrier-specific key-value attribute pairs required to retrieve a shipping rate request.
+*/
 @property(nonatomic) NSArray<MOZUCustomAttribute> *customAttributes;
 
+/**
+Array list of calculated shipping rates for the specified carrier.
+*/
 @property(nonatomic) NSArray<MOZUShippingRate> *shippingRates;
 
 @end

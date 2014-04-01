@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getDBValue
-@param dbEntryQuery 
+@param dbEntryQuery The database entry query string used to retrieve the record information.
 */
 + (MOZUURLComponents *)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
 
@@ -32,7 +32,7 @@ Resource Url Components for getDBValue
 
 /**
 Resource Url Components for createDBValue
-@param dbEntryQuery 
+@param dbEntryQuery The database entry string to create.
 */
 + (MOZUURLComponents *)URLComponentsForCreateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
 
@@ -45,7 +45,7 @@ Resource Url Components for createDBValue
 
 /**
 Resource Url Components for updateDBValue
-@param dbEntryQuery 
+@param dbEntryQuery The database entry query string used to update the record information.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
 
@@ -58,7 +58,7 @@ Resource Url Components for updateDBValue
 
 /**
 Resource Url Components for deleteDBValue
-@param dbEntryQuery 
+@param dbEntryQuery The database entry string to delete.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
 

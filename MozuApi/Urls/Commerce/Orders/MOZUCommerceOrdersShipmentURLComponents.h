@@ -19,8 +19,8 @@
 
 /**
 Resource Url Components for getShipment
-@param orderId 
-@param shipmentId 
+@param orderId Unique identifier of the order associated with the shipment to retrieve.
+@param shipmentId Unique identifier of the shipment to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;
 

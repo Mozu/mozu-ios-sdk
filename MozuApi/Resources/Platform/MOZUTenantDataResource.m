@@ -39,8 +39,8 @@
 //
 
 /**
-
-@param dbEntryQuery 
+Retrieves the value of a record in the Mozu database.
+@param dbEntryQuery The database entry query string used to retrieve the record information.
 */
 
 - (void)dBValueWithDbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -62,9 +62,9 @@
 //
 
 /**
-
-@param body 
-@param dbEntryQuery 
+Creates a new record in the Mozu database based on the information supplied in the request.
+@param body The value string to create.
+@param dbEntryQuery The database entry string to create.
 */
 
 - (void)createDBValueWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -86,9 +86,9 @@
 //
 
 /**
-
-@param body 
-@param dbEntryQuery 
+Updates a record in the Mozu database based on the information supplied in the request.
+@param body The database value to update.
+@param dbEntryQuery The database entry query string used to update the record information.
 */
 
 - (void)updateDBValueWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -110,8 +110,8 @@
 //
 
 /**
-
-@param dbEntryQuery 
+Removes a previously defined record in the Mozu database.
+@param dbEntryQuery The database entry string to delete.
 */
 
 - (void)deleteDBValueWithDbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

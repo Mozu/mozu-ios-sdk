@@ -24,12 +24,12 @@
 @interface MOZUAddressSchemaCollection : JSONModel<MOZUAddressSchemaCollection>
 
 /**
-The number of the resource entity items listed in the query collection. Signed 64-bit (8-byte) integer. System-supplied and read-only.
+The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
 */
 @property(nonatomic) NSInteger totalCount;
 
 /**
-Container for an array list of properties in a collection.
+An array list of objects in the returned collection.
 */
 @property(nonatomic) NSArray<MOZUAddressSchema> *items;
 

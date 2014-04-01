@@ -24,41 +24,41 @@ Resource Url Components for getAllApplications
 
 /**
 Resource Url Components for getApplication
-@param applicationId 
+@param applicationId Unique identifier of the application.
 */
 + (MOZUURLComponents *)URLComponentsForGetApplicationOperationWithApplicationId:(NSNumber *)applicationId;
 
 /**
 Resource Url Components for getApplicationVersion
-@param applicationVersionId 
+@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 */
 + (MOZUURLComponents *)URLComponentsForGetApplicationVersionOperationWithApplicationVersionId:(NSInteger)applicationVersionId;
 
 /**
 Resource Url Components for getPackages
-@param applicationVersionId 
+@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackagesOperationWithApplicationVersionId:(NSInteger)applicationVersionId;
 
 /**
 Resource Url Components for getPackage
-@param applicationVersionId 
-@param packageId 
+@param applicationVersionId Unique identifier of the application version associated with the package. Application version IDs are unique across all applications associated with the developer account.
+@param packageId Unique identifier of the package to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId;
 
 /**
 Resource Url Components for getPackageItemsMetadata
-@param applicationVersionId 
-@param packageId 
+@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+@param packageId Unique identifier of the package.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageItemsMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId;
 
 /**
 Resource Url Components for getPackageItemMetadata
-@param applicationVersionId 
-@param packageId 
-@param itempath 
+@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+@param packageId Unique identifier of the package.
+@param itempath Complete file directory location and name of the item in the package to retrieve metadata.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageItemMetadataOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath;
 
@@ -78,7 +78,7 @@ Resource Url Components for getPackageFilesZip
 
 /**
 Resource Url Components for addPackage
-@param applicationVersionId 
+@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 */
 + (MOZUURLComponents *)URLComponentsForAddPackageOperationWithApplicationVersionId:(NSInteger)applicationVersionId;
 
@@ -91,9 +91,9 @@ Resource Url Components for changePackageFileNameOrPath
 
 /**
 Resource Url Components for addPackageFile
-@param applicationVersionId 
-@param packageId 
-@param filepath 
+@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+@param packageId Unique identifier of the package.
+@param filepath The file location to which to add the package file.
 */
 + (MOZUURLComponents *)URLComponentsForAddPackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath;
 
@@ -106,9 +106,9 @@ Resource Url Components for addPackageFile
 
 /**
 Resource Url Components for updatePackageFile
-@param applicationVersionId 
-@param packageId 
-@param filepath 
+@param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+@param packageId The unique identifier of the package.
+@param filepath The location path and name that identifies the package file to update.
 */
 + (MOZUURLComponents *)URLComponentsForUpdatePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath;
 
@@ -121,9 +121,9 @@ Resource Url Components for updatePackageFile
 
 /**
 Resource Url Components for deletePackageFile
-@param applicationVersionId 
-@param packageId 
-@param filepath 
+@param applicationVersionId Unique identifier of the application version.
+@param packageId Unique identifier of the package.
+@param filepath The file path and name of the file location to delete from the package.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePackageFileOperationWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath;
 

@@ -23,7 +23,7 @@
 @interface MOZUProductVariationDeltaPrice : JSONModel<MOZUProductVariationDeltaPrice>
 
 /**
-3-letter ISO 4217 standard global currency code. Currently, only support "USD" (US Dollar).
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
 @property(nonatomic) NSString * currencyCode;
 

@@ -35,7 +35,7 @@
 
 
 /**
-	All of the properties of the specified order.
+	Properties of an order, including its components.
 */
 @interface MOZUOrder : JSONModel<MOZUOrder>
 
@@ -57,6 +57,9 @@ Date when the order was cancelled. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * cancelledDate;
 
+/**
+Code that identifies the channel associated with the site where the order was submitted.
+*/
 @property(nonatomic) NSString * channelCode;
 
 /**
@@ -64,8 +67,14 @@ Date when the order was closed. Closed order is an order that has been processed
 */
 @property(nonatomic) NSDate * closedDate;
 
+/**
+Array list of coupon codes associated with an order submitted using an external system. Mozu populates this list during the order import process.
+*/
 @property(nonatomic) NSArray *couponCodes;
 
+/**
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+*/
 @property(nonatomic) NSString * currencyCode;
 
 /**
@@ -73,29 +82,38 @@ Numeric identifer of the customer account.
 */
 @property(nonatomic) NSNumber * customerAccountId;
 
+/**
+The type of interaction the shopper used to submit the order. Possibel values are Website, Call, Store, or Unknown.
+*/
 @property(nonatomic) NSString * customerInteractionType;
 
+/**
+The tax identification number (TIN) of the customer who submitted the order. If the customer who submitted the order has a customer account defined for the tenant, the system sets this value when the order is submitted.
+*/
 @property(nonatomic) NSString * customerTaxId;
 
+/**
+The aggregate total for all line items in the order, including costs associated with shopper-defined options or extras and any applied discounts.
+*/
 @property(nonatomic) NSNumber * discountedSubtotal;
 
 /**
-The total amount of the order after all applicable discounts have been applied.
+The subtotal of the order including any applied discount calculations.
 */
 @property(nonatomic) NSNumber * discountedTotal;
 
 /**
-Amount of discounts applied to all items in an order. Usually a negative dollar amount or number. System-supplied and read-only.
+Estimated amount of discounts applied to all items in the order, which is system-supplied and read-only.
 */
 @property(nonatomic) NSNumber * discountTotal;
 
 /**
-The email address of the specified user.
+The email address of the specified user or the email address associated with the specified entity.
 */
 @property(nonatomic) NSString * email;
 
 /**
-The date when the order will no longer be active or considered abandoned. For example, if a guest or anonymous shoppper has 14 days of inactivity, the order is considered abandoned after that period of inactivity. An order never expires for shoppers who are logged into their account. Date in UTC Date/Time. System-supplied and read-only.
+The date when the order will no longer be active or considered abandoned. For example, if a guest or anonymous shopper has 14 days of inactivity, the order is considered abandoned after that period of inactivity. An order never expires for shoppers who are logged into their account. Date in UTC Date/Time. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * expirationDate;
 
@@ -107,7 +125,7 @@ The monetary sum of all fees incurred in the order.
 @property(nonatomic) NSNumber * feeTotal;
 
 /**
-Indicates the status of the order as its items are fulfilled.
+The current fulfillment status of the order, which is "Fulfilled," "NotFulfilled," or "PartiallyFulfilled." The order is considered fulfilled when all packages are shipped or all pickups are picked up.
 */
 @property(nonatomic) NSString * fulfillmentStatus;
 
@@ -116,14 +134,20 @@ The combined price for all items in the order, including all selected options bu
 */
 @property(nonatomic) NSNumber * handlingAmount;
 
+/**
+If the handling fee for the order is subject to sales tax, the total tax amount.
+*/
 @property(nonatomic) NSNumber * handlingTaxTotal;
 
 @property(nonatomic) NSNumber * handlingTotal;
 
+/**
+If true, the order has a draft that may include one or more uncommitted changes to the order or its components.
+*/
 @property(nonatomic) NSNumber * hasDraft;
 
 /**
-Identifier of the order.
+Unique identifier of the order.
 */
 @property(nonatomic) NSString * id;
 
@@ -134,10 +158,16 @@ The IP address from which the order originated.
 */
 @property(nonatomic) NSString * ipAddress;
 
+/**
+If true, this version of the order is a draft that might contain uncommitted changes.
+*/
 @property(nonatomic) NSNumber * isDraft;
 
 @property(nonatomic) BOOL isEligibleForReturns;
 
+/**
+If true, this order was submitted using an external system, and the order record was imported into Mozu.
+*/
 @property(nonatomic) NSNumber * isImport;
 
 /**
@@ -155,6 +185,9 @@ The date when the order was last validated against the product catalog. Date in 
 */
 @property(nonatomic) NSDate * lastValidationDate;
 
+/**
+The unique code that identifies the location where the order was submitted.
+*/
 @property(nonatomic) NSString * locationCode;
 
 /**
@@ -167,6 +200,9 @@ Identifier of the cart prior to the customer proceeding to checkout.
 */
 @property(nonatomic) NSString * originalCartId;
 
+/**
+If this order was created to fulfill an item replacement as part of a return merchandise authorization (RMA), the unique identifier of the return.
+*/
 @property(nonatomic) NSString * parentReturnId;
 
 /**
@@ -179,6 +215,9 @@ Status of any returns associated with this order after it was completed.
 */
 @property(nonatomic) NSString * returnStatus;
 
+/**
+The shipping subtotal amount calculated without any applied discounts.
+*/
 @property(nonatomic) NSNumber * shippingSubTotal;
 
 /**
@@ -196,6 +235,9 @@ Unique identifier of the site.
 */
 @property(nonatomic) NSNumber * siteId;
 
+/**
+The device from which the order originated in the case of offline orders.
+*/
 @property(nonatomic) NSString * sourceDevice;
 
 /**
@@ -229,14 +271,23 @@ Amount of the order, including items, sales tax, shipping costs, and other fees.
 @property(nonatomic) NSNumber * total;
 
 /**
-The total monetary amount collected to date for the order.
+The total amount collected to date for the order.
 */
 @property(nonatomic) NSNumber * totalCollected;
 
+/**
+The current version number of the order.
+*/
 @property(nonatomic) NSString * version;
 
+/**
+Unique identifier of the customer visit in which the order was created or last updated.
+*/
 @property(nonatomic) NSString * visitId;
 
+/**
+Unique identifier of the web session in which the order was created or last updated.
+*/
 @property(nonatomic) NSString * webSessionId;
 
 /**
@@ -250,7 +301,7 @@ Paged list collection of order attributes.
 @property(nonatomic) NSArray<MOZUOrderAttribute> *attributes;
 
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
@@ -264,12 +315,15 @@ Paged list of notes entered when the order was modified.
 */
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
+/**
+Properties of the item fulfillment information associated with the order. Shoppers can fulfill order items using in-store pickup or direct shipping.
+*/
 @property(nonatomic) MOZUFulfillmentInfo *fulfillmentInfo;
 
 @property(nonatomic) NSArray<MOZUInvalidCoupon> *invalidCoupons;
 
 /**
-Container for an array list of properties in a collection.
+An array list of objects in the returned collection.
 */
 @property(nonatomic) NSArray<MOZUOrderItem> *items;
 
@@ -278,10 +332,13 @@ Paged list collection of order notes.
 */
 @property(nonatomic) NSArray<MOZUOrderNote> *notes;
 
+/**
+List of order-level discounts that apply to the order.
+*/
 @property(nonatomic) NSArray<MOZUAppliedDiscount> *orderDiscounts;
 
 /**
-Wrapper for the physical packages shipped for the specified order.
+Array list of physical packages shipped for the specified order.
 */
 @property(nonatomic) NSArray<MOZUCommercePackage> *packages;
 
@@ -290,12 +347,24 @@ Wrapper for a collection of payments associated with this order. An order can in
 */
 @property(nonatomic) NSArray<MOZUPayment> *payments;
 
+/**
+Array list of the in-store pickups defined for the order.
+*/
 @property(nonatomic) NSArray<MOZUPickup> *pickups;
 
+/**
+Array list of the shipments defined to fulfill items in this order using the direct ship fulfillment method.
+*/
 @property(nonatomic) NSArray<MOZUShipment> *shipments;
 
+/**
+Properties of an ad-hoc price adjustment made for an order.
+*/
 @property(nonatomic) MOZUAdjustment *shippingAdjustment;
 
+/**
+List of shipping discounts to apply to the order.
+*/
 @property(nonatomic) NSArray<MOZUShippingDiscount> *shippingDiscounts;
 
 /**

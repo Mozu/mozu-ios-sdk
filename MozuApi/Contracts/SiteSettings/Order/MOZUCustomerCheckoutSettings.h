@@ -29,7 +29,7 @@ The type of customer checking out in the order such as a guest who has not logge
 @property(nonatomic) NSString * customerCheckoutType;
 
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

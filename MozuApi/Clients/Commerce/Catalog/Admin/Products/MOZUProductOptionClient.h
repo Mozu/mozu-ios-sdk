@@ -23,14 +23,14 @@
 //
 
 /**
-Retrieves a list of options by providing the product type ID.
+Retrieves a list of all option attributes configured for the product specified in the request.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
 + (MOZUClient *)clientForGetOptionsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the catalog option by providing the product type ID and the attribute's fully qualified name.
+Retrieves the details of an option attribute configuration for the specified product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
@@ -45,8 +45,8 @@ Retrieves the catalog option by providing the product type ID and the attribute'
 //
 
 /**
-Adds or creates a product option.
-@param body The product option being added or created.
+Configures an option attribute for the product specified in the request.
+@param body Properties of the option attribute to define for the product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -60,8 +60,8 @@ Adds or creates a product option.
 //
 
 /**
-Updates a product option by providing the product type ID and the attribute's fully qualified name. There is also a request body to supply additional information.
-@param body The product option being updated.
+Updates one or more properties of an option attribute configured for a product.
+@param body Properties of the product option attribute configuration to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
@@ -76,7 +76,7 @@ Updates a product option by providing the product type ID and the attribute's fu
 //
 
 /**
-Deletes the catalog option by providing the product type ID and the attribute's fully qualified name.
+Deletes the configuration of an option attribute for the product specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */

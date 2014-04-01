@@ -32,9 +32,9 @@
 //
 
 /**
-
-@param returnId 
-@param shipmentId 
+Retrieves the details of the specified return replacement shipment.
+@param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
+@param shipmentId Unique identifier of the return replacement shipment to retrieve.
 */
 
 - (void)shipmentWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUShipment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -47,9 +47,9 @@
 //
 
 /**
-
-@param body 
-@param returnId 
+Creates a shipment from one or more packages associated with a return replacement.
+@param body List of packages in the return replacement shipment.
+@param returnId Unique identifier of the return for which to create replacement package shipments.
 */
 
 - (void)createPackageShipmentsWithBody:(NSString *)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUCommercePackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -69,9 +69,9 @@
 //
 
 /**
-
-@param returnId 
-@param shipmentId 
+Deletes a shipment for a return replacement.
+@param returnId Unique identifier of the return associated with the replacement shipment to delete.
+@param shipmentId Unique identifier of the return replacement shipment to delete.
 */
 
 - (void)deleteShipmentWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

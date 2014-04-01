@@ -17,10 +17,16 @@
 @end
 
 
+/**
+	Properties of an item shipped in a physical package.
+*/
 @interface MOZUPackageItem : JSONModel<MOZUPackageItem>
 
 @property(nonatomic) NSString * productCode;
 
+/**
+The quantity of an item shipped in the specified package.
+*/
 @property(nonatomic) NSInteger quantity;
 
 @end

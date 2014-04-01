@@ -28,7 +28,7 @@ The token that stores an encrypted list of the application's configured behavior
 @property(nonatomic) NSString * accessToken;
 
 /**
-Date and time the access token expires. After the access token expires, refresh the authentication ticket using the Refresh Token.
+Date and time the access token expires. After the access token expires, refresh the authentication ticket using the refresh koken.
 */
 @property(nonatomic) NSDate * accessTokenExpiration;
 

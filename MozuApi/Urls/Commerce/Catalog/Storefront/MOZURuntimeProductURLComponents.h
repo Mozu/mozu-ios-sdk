@@ -19,17 +19,17 @@
 
 /**
 Resource Url Components for getProducts
-@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param startIndex 
-@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 */
 + (MOZUURLComponents *)URLComponentsForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy;
 
 /**
 Resource Url Components for getProductInventory
-@param productCode 
-@param locationCodes 
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param locationCodes Array of location codes for which to retrieve product inventory information.
 */
 + (MOZUURLComponents *)URLComponentsForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes;
 

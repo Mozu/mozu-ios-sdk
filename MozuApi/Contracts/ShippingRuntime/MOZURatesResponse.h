@@ -18,8 +18,14 @@
 @end
 
 
+/**
+	Properties of the calculated shipping rate based on the information supplied in the request.
+*/
 @interface MOZURatesResponse : JSONModel<MOZURatesResponse>
 
+/**
+Arrayed list of calculated shipping rates for each assocuated carrier.
+*/
 @property(nonatomic) NSArray<MOZUCarrierRatesResponse> *rates;
 
 @end

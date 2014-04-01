@@ -18,8 +18,14 @@
 @end
 
 
+/**
+	Array list of possible valid address matches based on the entry supplied in the request.
+*/
 @interface MOZUAddressValidationResponse : JSONModel<MOZUAddressValidationResponse>
 
+/**
+Array list of possible valid address matches based on the entry supplied in the request.
+*/
 @property(nonatomic) NSArray<MOZUAddress> *addressCandidates;
 
 @end

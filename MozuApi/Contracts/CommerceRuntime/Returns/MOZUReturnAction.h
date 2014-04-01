@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties of an action a user can perform for a return.
+*/
 @interface MOZUReturnAction : JSONModel<MOZUReturnAction>
 
+/**
+The name of the action to perform for the return.
+*/
 @property(nonatomic) NSString * actionName;
 
+/**
+The list of returns for which to perform the action.
+*/
 @property(nonatomic) NSArray *returnIds;
 
 @end

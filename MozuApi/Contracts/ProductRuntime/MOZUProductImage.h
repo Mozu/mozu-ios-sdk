@@ -39,6 +39,9 @@ URL of the product image.
 */
 @property(nonatomic) NSString * imageUrl;
 
+/**
+Type of media specification required to successfully render the product image, video, or other content.
+*/
 @property(nonatomic) NSString * mediaType;
 
 /**

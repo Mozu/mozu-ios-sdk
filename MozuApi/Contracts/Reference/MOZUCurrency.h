@@ -18,12 +18,12 @@
 
 
 /**
-	Three-letter currency code that the system supports. Derived from the ISO 4217 standard. For example, the code "EUR" for the name "Euro Member Countries" is an entry that returns in a list of items.
+	Three-letter currency code that the system supports, which is derived from the ISO 4217 standard. For example, the code "EUR" for the name "Euro Member Countries" is an entry that returns in a list of items.
 */
 @interface MOZUCurrency : JSONModel<MOZUCurrency>
 
 /**
-3-letter ISO 4217 standard global currency code. Currently, only support "USD" (US Dollar).
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
 @property(nonatomic) NSString * code;
 

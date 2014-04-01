@@ -19,13 +19,13 @@
 
 /**
 Resource Url Components for getProperties
-@param productTypeId Identifier of the product type whose properties are being retrieved as a paged list.
+@param productTypeId Identifier of the product type.
 */
 + (MOZUURLComponents *)URLComponentsForGetPropertiesOperationWithProductTypeId:(NSInteger)productTypeId;
 
 /**
 Resource Url Components for getProperty
-@param productTypeId Identifier of the product type whose single instance of a property is being retrieved.
+@param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 + (MOZUURLComponents *)URLComponentsForGetPropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
@@ -39,7 +39,7 @@ Resource Url Components for getProperty
 
 /**
 Resource Url Components for addProperty
-@param productTypeId Identifier of the product type whose properties are being added or created to the product type.
+@param productTypeId Identifier of the product type.
 */
 + (MOZUURLComponents *)URLComponentsForAddPropertyOperationWithProductTypeId:(NSInteger)productTypeId;
 
@@ -52,7 +52,7 @@ Resource Url Components for addProperty
 
 /**
 Resource Url Components for updateProperty
-@param productTypeId Identifier of the product type whose single instance of a property is being updated.
+@param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 + (MOZUURLComponents *)URLComponentsForUpdatePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
@@ -66,7 +66,7 @@ Resource Url Components for updateProperty
 
 /**
 Resource Url Components for deleteProperty
-@param productTypeId Identifier of the product type whose properties are being deleted.
+@param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePropertyOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;

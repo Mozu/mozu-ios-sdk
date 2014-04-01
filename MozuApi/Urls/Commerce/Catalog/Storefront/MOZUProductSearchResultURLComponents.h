@@ -20,7 +20,7 @@
 /**
 Resource Url Components for search
 @param query The terms to search on.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product search results by any of its properties, including product code, type, category, and name. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). <b>For example - "filter=categoryId+eq+12"</b>
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product search results by any of its properties, including product code, type, category, and name. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=categoryId+eq+12"
 @param facetTemplate The facet template to use on the storefront. A template displays all facets associated with the template on the storefront product search. Currently, only category-level facet templates are available.
 @param facetTemplateSubset Display a subset of the facets defined in the template specified in facetTemplate parameter.
 @param facet Individually list the facet fields you want to display in a storefront product search.
@@ -33,7 +33,7 @@ Resource Url Components for search
 @param facetSettings Settings reserved for future facet search functionality on a storefront product search.
 @param facetValueFilter The facet values to apply to the filter.
 @param sortBy 
-@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex 
 */
 + (MOZUURLComponents *)URLComponentsForSearchOperationWithQuery:(NSString *)query filter:(NSString *)filter facetTemplate:(NSString *)facetTemplate facetTemplateSubset:(NSString *)facetTemplateSubset facet:(NSString *)facet facetFieldRangeQuery:(NSString *)facetFieldRangeQuery facetHierPrefix:(NSString *)facetHierPrefix facetHierValue:(NSString *)facetHierValue facetHierDepth:(NSString *)facetHierDepth facetStartIndex:(NSString *)facetStartIndex facetPageSize:(NSString *)facetPageSize facetSettings:(NSString *)facetSettings facetValueFilter:(NSString *)facetValueFilter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
@@ -41,7 +41,7 @@ Resource Url Components for search
 /**
 Resource Url Components for suggest
 @param q Text that the shopper is currently entering.
-@param pageSize Used to create paged results from a query. Specifies the number of results to display on each page. Maximum: 200.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 */
 + (MOZUURLComponents *)URLComponentsForSuggestOperationWithQ:(NSString *)q pageSize:(NSNumber *)pageSize;
 

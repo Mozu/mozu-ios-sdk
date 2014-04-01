@@ -18,10 +18,19 @@
 @end
 
 
+/**
+	Paged collection of development or release packages associated with an application version.
+*/
 @interface MOZUPackageCollection : JSONModel<MOZUPackageCollection>
 
+/**
+The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
+*/
 @property(nonatomic) NSInteger totalCount;
 
+/**
+An array list of objects in the returned collection.
+*/
 @property(nonatomic) NSArray<MOZUAppDevPackage> *items;
 
 @end

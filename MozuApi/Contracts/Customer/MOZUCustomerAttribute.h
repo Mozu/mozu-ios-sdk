@@ -23,6 +23,9 @@
 */
 @interface MOZUCustomerAttribute : JSONModel<MOZUCustomerAttribute>
 
+/**
+Unique identifier of the attribute definition.
+*/
 @property(nonatomic) NSNumber * attributeDefinitionId;
 
 /**
@@ -36,7 +39,7 @@ List of values for the attribute.
 @property(nonatomic) NSArray *values;
 
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

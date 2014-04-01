@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties of the geographical coordinates associated with a specific location.
+*/
 @interface MOZUCoordinates : JSONModel<MOZUCoordinates>
 
+/**
+The latitude coordinate of the location.
+*/
 @property(nonatomic) double lat;
 
+/**
+The longitude coordinate of the location.
+*/
 @property(nonatomic) double lng;
 
 @end

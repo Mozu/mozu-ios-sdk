@@ -23,16 +23,16 @@
 //
 
 /**
-Retrieves a list of product properties that belong to a product type.
-@param productTypeId Identifier of the product type whose properties are being retrieved as a paged list.
+Retrieves a list of product property attributes defined for a product type.
+@param productTypeId Identifier of the product type.
 */
 
 + (MOZUClient *)clientForGetPropertiesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims;
 
 /**
-Retrieves the single property by providing the property ID and the attribute's user-defined fully qualified name.
+Retrieves a product property attribute definition for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type whose single instance of a property is being retrieved.
+@param productTypeId Identifier of the product type.
 */
 
 + (MOZUClient *)clientForGetPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -45,9 +45,9 @@ Retrieves the single property by providing the property ID and the attribute's u
 //
 
 /**
-Adds or creates the attribute which exists as properties in the product type.
-@param body The attribute in product type refers to the specific product attribute that is being created to exist as a property only available in the product type template.
-@param productTypeId Identifier of the product type whose properties are being added or created to the product type.
+Assigns a property attribute to the specified product type, according to the information defined in the request.
+@param body Properties of the property attribute to define for the specified product type.
+@param productTypeId Identifier of the product type.
 */
 
 + (MOZUClient *)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -60,10 +60,10 @@ Adds or creates the attribute which exists as properties in the product type.
 //
 
 /**
-Updates the single property by providing the property ID and the attribute's user-defined fully qualified name.
-@param body The properties of the attribute (that exist as properties) are being updated.
+Updates the definition of a property attribute for the specified product type.
+@param body Properties of the property attribute to define for the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type whose single instance of a property is being updated.
+@param productTypeId Identifier of the product type.
 */
 
 + (MOZUClient *)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -76,9 +76,9 @@ Updates the single property by providing the property ID and the attribute's use
 //
 
 /**
-Deletes the property by providing the attribute's user-defined fully qualified name.
+Removes a property attribute previously defined for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type whose properties are being deleted.
+@param productTypeId Identifier of the product type.
 */
 
 + (MOZUClient *)clientForDeletePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;

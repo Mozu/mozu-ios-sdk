@@ -32,11 +32,11 @@
 /**
 Retrieves a list of customer accounts.
 @param fields The fields to include in the response.
-@param filter A set of filter expressions representing the search parameter syntax when filtering results of a query: eq=equals, ne=not equals, gt=greater than, lt = less than, ge = greater than or equals, le = less than or equals, sw = starts with, or cont = contains. <b>For example: filter=categoryId+eq+12</b>
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param isAnonymous 
 @param pageSize 
-@param q 
-@param qLimit 
+@param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
+@param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param sortBy 
 @param startIndex 
 */
@@ -65,8 +65,8 @@ Retrieve details of a customer account.
 //
 
 /**
-Creates a new customer account.
-@param body 
+Creates a new customer account based on the information specified in the request.
+@param body Properties of the customer account to update.
 */
 
 + (MOZUClient *)clientForAddAccountOperationWithBody:(MOZUCustomerAccount *)body userClaims:(MOZUUserAuthTicket *)userClaims;
@@ -154,7 +154,7 @@ Creates a new customer account.
 
 /**
 Updates a customer account.
-@param body 
+@param body Properties of the customer account to update.
 @param accountId Unique identifier of the customer account.
 */
 

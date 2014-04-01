@@ -37,7 +37,7 @@ Identifier of the entity.
 @property(nonatomic) NSString * name;
 
 /**
-For validation purposes, the integer value must be a list of behavior ID's.
+For validation purposes, the integer value must be a list of behavior Id's.
 */
 @property(nonatomic) NSArray *requiresBehaviorIds;
 

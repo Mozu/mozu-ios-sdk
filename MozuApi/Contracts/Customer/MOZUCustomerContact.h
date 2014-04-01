@@ -32,19 +32,19 @@ Unique identifier of the customer account.
 @property(nonatomic) NSInteger accountId;
 
 /**
-The legal or doing business as (DBA) or tradestyle name of the business or organization. Max length: 200.
+The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 */
 @property(nonatomic) NSString * companyOrOrganization;
 
 /**
-The email address of the specified user.
+The email address of the specified user or the email address associated with the specified entity.
 */
 @property(nonatomic) NSString * email;
 
 @property(nonatomic) NSString * faxNumber;
 
 /**
-The first name of the contact. Max length: 200.
+The first name of the contact. The maximum character length is 200.
 */
 @property(nonatomic) NSString * firstName;
 
@@ -54,12 +54,12 @@ Identifier of the customer contact.
 @property(nonatomic) NSInteger id;
 
 /**
-The last name or surname of the contact. Max length: 200.
+The last name or surname of the contact. The maximum character length is 200.
 */
 @property(nonatomic) NSString * lastNameOrSurname;
 
 /**
-The middle name or the first initial of the middle name of the contact. Max length: 100.
+The middle name or the first initial of the middle name of the contact. The maximum character length is 100.
 */
 @property(nonatomic) NSString * middleNameOrInitial;
 
@@ -69,7 +69,7 @@ Address associated with the customer account contact.
 @property(nonatomic) MOZUAddress *address;
 
 /**
-Identifier and datetime stamp information recorded when creating or updating a resource entity. System-supplied and read-only.
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 

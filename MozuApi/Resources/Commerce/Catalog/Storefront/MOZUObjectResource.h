@@ -39,8 +39,8 @@
 //
 
 /**
-Retrieves a list of calculated shipping rates available on the storefront.
-@param body Properties of item to rate.
+
+@param body 
 */
 
 - (void)ratesWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURatesResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

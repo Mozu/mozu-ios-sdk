@@ -28,7 +28,7 @@ The monetary amount in the specified currency locale code.
 @property(nonatomic) NSNumber * amount;
 
 /**
-3-letter ISO 4217 standard global currency code. Currently, only support "USD" (US Dollar).
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
 @property(nonatomic) NSString * currencyCode;
 

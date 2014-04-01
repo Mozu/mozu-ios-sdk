@@ -18,17 +18,17 @@
 
 
 /**
-	Properties of a message returned when a shipping rate fails validation.
+	Properties of a success/failure message notification associated with validating a shipping rate.
 */
 @interface MOZUShippingRateValidationMessage : JSONModel<MOZUShippingRateValidationMessage>
 
 /**
-URL displayed with the shipping validation failure message that links to help information.
+URL displayed with the shipping validation message that links to help information.
 */
 @property(nonatomic) NSString * helpLink;
 
 /**
-Content of the shipping rate validation failure message.
+Content of the shipping rate validation message.
 */
 @property(nonatomic) NSString * message;
 
