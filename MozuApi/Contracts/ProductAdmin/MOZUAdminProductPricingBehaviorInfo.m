@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUProductPricingBehaviorInfo.h"
+#import "MOZUAdminProductPricingBehaviorInfo.h"
 
-@implementation MOZUProductPricingBehaviorInfo
+@implementation MOZUAdminProductPricingBehaviorInfo
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;

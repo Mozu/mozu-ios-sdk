@@ -30,14 +30,9 @@
 @interface MOZULocation : JSONModel<MOZULocation>
 
 /**
-User-defined code to assign to this location.
-*/
-@property(nonatomic) NSString * code;
-
-/**
 User-defined description of this location.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 The fax number associated with this location.
@@ -68,6 +63,11 @@ If true, this location maintains its own product inventory. If the location uses
 List of tenant-defined tags associated with this location.
 */
 @property(nonatomic) NSArray *tags;
+
+/**
+User-defined code to assign to this location.
+*/
+@property(nonatomic) NSString * code;
 
 /**
 The physical address properties of the location.

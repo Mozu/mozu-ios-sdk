@@ -24,6 +24,21 @@
 @interface MOZUDocument : JSONModel<MOZUDocument>
 
 /**
+The character length associated with the document content.
+*/
+@property(nonatomic) NSNumber * contentLength;
+
+/**
+The mime type associated with the document content, if applicable.
+*/
+@property(nonatomic) NSString * contentMimeType;
+
+/**
+The date and time the most recent content update was made. UTC date/time. System-supplied and read-only.
+*/
+@property(nonatomic) NSDate * contentUpdateDate;
+
+/**
 The name of the document list associated with the document.
 */
 @property(nonatomic) NSString * documentListName;
@@ -62,21 +77,6 @@ The current state of the document, which is Active, Draft, or Latest. Active doc
 Date and time when the entity was last updated, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * updateDate;
-
-/**
-The character length associated with the document content.
-*/
-@property(nonatomic) NSNumber * contentLength;
-
-/**
-The mime type associated with the document content, if applicable.
-*/
-@property(nonatomic) NSString * contentMimeType;
-
-/**
-The date and time the most recent content update was made. UTC date/time. System-supplied and read-only.
-*/
-@property(nonatomic) NSDate * contentUpdateDate;
 
 /**
 List of properties for the given property value.

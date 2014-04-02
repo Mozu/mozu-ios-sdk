@@ -27,7 +27,7 @@
 /**
 User-defined description of the document type.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 The name that displays for the document type.

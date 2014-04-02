@@ -19,7 +19,7 @@
 
 @interface MOZUPreAuthorizeTransactionTypeDataContract : JSONModel<MOZUPreAuthorizeTransactionTypeDataContract>
 
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 Identifier of the entity.

@@ -16,7 +16,7 @@
 #import "MOZURuntimeProductInventoryInfo.h"
 #import "MOZURuntimePackageMeasurements.h"
 #import "MOZURuntimeProductPrice.h"
-#import "MOZUProductPricingBehaviorInfo.h"
+#import "MOZURuntimeProductPricingBehaviorInfo.h"
 #import "MOZURuntimeProductProperty.h"
 #import "MOZUProductPurchasableState.h"
 
@@ -93,7 +93,7 @@ Price that the merchant intends to sell the product which is not necessarily the
 */
 @property(nonatomic) MOZURuntimeProductPrice *price;
 
-@property(nonatomic) MOZUProductPricingBehaviorInfo *pricingBehavior;
+@property(nonatomic) MOZURuntimeProductPricingBehaviorInfo *pricingBehavior;
 
 /**
 The list of product properties configured in product admin.

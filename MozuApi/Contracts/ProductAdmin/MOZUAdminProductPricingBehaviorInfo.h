@@ -13,11 +13,11 @@
 
 
 
-@protocol MOZUProductPricingBehaviorInfo
+@protocol MOZUAdminProductPricingBehaviorInfo
 @end
 
 
-@interface MOZUProductPricingBehaviorInfo : JSONModel<MOZUProductPricingBehaviorInfo>
+@interface MOZUAdminProductPricingBehaviorInfo : JSONModel<MOZUAdminProductPricingBehaviorInfo>
 
 @property(nonatomic) NSNumber * discountsRestricted;
 

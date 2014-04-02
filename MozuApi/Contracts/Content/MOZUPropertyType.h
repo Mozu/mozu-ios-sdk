@@ -27,7 +27,7 @@
 /**
 Description of the content property type.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 The display name of the content property type.

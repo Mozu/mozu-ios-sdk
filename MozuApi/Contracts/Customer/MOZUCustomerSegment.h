@@ -22,7 +22,7 @@
 
 @property(nonatomic) NSString * code;
 
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 @property(nonatomic) NSInteger id;
 

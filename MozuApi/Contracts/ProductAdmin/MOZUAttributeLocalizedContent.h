@@ -25,7 +25,7 @@
 /**
 Localized content for the description of this attribute displayed in the storefront.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 Language used for the entity. Currently, only "en-US" is supported.

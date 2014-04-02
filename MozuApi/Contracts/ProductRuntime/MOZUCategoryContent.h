@@ -26,7 +26,7 @@
 /**
 The localized description of the category to display on a storefront.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 Defined description of the metadata used to manage product information internally, such as search engine optimization.
