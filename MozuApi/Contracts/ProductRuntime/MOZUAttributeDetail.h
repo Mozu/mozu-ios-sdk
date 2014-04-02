@@ -36,7 +36,7 @@ Unique sequence of the attribute for its data type.
 /**
 Description of the attribute in the language specified by the locale code.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 The input type (such as date or text area) accepted for the attribute's data type.

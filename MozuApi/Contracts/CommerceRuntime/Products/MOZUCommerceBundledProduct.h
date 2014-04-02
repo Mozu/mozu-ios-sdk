@@ -20,7 +20,7 @@
 
 @interface MOZUCommerceBundledProduct : JSONModel<MOZUCommerceBundledProduct>
 
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 @property(nonatomic) BOOL isPackagedStandAlone;
 

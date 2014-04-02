@@ -19,6 +19,9 @@
 #import "MOZURefreshInterval.h"
 #import "DDTTYLogger.h"
 #import "MOZUAddressValidationRequestResource.h"
+#import "MOZULocationResource.h"
+#import "MOZUAdminLocationResource.h"
+#import "MOZURuntimeProductResource.h"
 
 @interface MozuApiTests : XCTestCase
 
@@ -454,8 +457,11 @@ static const BOOL useSSL = NO;
 
 #pragma mark - Tests for app API calls.
 
-- (void)authenticateAppAndUserWithAppAuthInfo:(MOZUAppAuthInfo *)appAuthInfo userAuthInfo:(MOZUUserAuthInfo *)userAuthInfo completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
+- (void)authenticateAppAndUserWithCompletionHandler:(MOZUUserAuthenticationCompletionBlock)completion
 {
+    MOZUAppAuthInfo *appAuthInfo = [self appAuthInfo];
+    MOZUUserAuthInfo *userAuthInfo = [self userAuthInfo];
+    
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:appAuthInfo
                                                                     appHost:self.authenticationHost
                                                                      useSSL:useSSL
@@ -483,11 +489,8 @@ static const BOOL useSSL = NO;
 
 - (void)testGettingTenentList
 {
-    MOZUAppAuthInfo *appAuthInfo = [self appAuthInfo];
-    MOZUUserAuthInfo *userAuthInfo = [self userAuthInfo];
-    [self authenticateAppAndUserWithAppAuthInfo:appAuthInfo
-                                   userAuthInfo:userAuthInfo
-                              completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
+
+    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
      {
          if (profile) {
              XCTAssertNil(error, @"Result with error.");
@@ -506,5 +509,122 @@ static const BOOL useSSL = NO;
      }];
     [self waitForBlock];
 }
+
+- (void)testGettingStorefrontLocations
+{
+    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile) {
+            XCTAssertNil(error, @"Result with error.");
+            if (profile.authTicket) {
+                MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:nil catalogId:nil];
+                MOZULocationResource *locationResource = [[MOZULocationResource alloc] initWithAPIContext:context];
+                [locationResource locationsInUsageTypeWithLocationUsageType:@"SP" startIndex:nil pageSize:nil sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                    if (result) {
+                        XCTAssertNil(error, @"Result with error.");
+                        DDLogDebug(@"%@", result);
+                        self.waitingForBlock = NO;
+                    } else {
+                        DDLogError(@"%@", error);
+                        XCTAssertNotNil(error, @"Result nil but had no error.");
+                        XCTFail(@"%@", error);
+                        self.waitingForBlock = NO;
+                    }
+                }];
+            } else {
+                XCTFail(@"No user auth ticket.");
+                self.waitingForBlock = NO;
+            }
+        } else {
+            DDLogError(@"%@", error);
+            XCTAssertNotNil(error, @"Result nil but had no error.");
+            XCTFail(@"%@", error);
+            self.waitingForBlock = NO;
+        }
+
+    }];
+    [self waitForBlock];
+}
+
+- (void)testGettingAdminLocations
+{
+    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile) {
+            XCTAssertNil(error, @"Result with error.");
+            if (profile.authTicket) {
+                MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:nil catalogId:nil];
+                MOZUAdminLocationResource *locationResource = [[MOZUAdminLocationResource alloc] initWithAPIContext:context];
+                [locationResource locationsWithStartIndex:nil pageSize:nil sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                    if (result) {
+                        XCTAssertNil(error, @"Result with error.");
+                        DDLogDebug(@"%@", result);
+                        self.waitingForBlock = NO;
+                    } else {
+                        DDLogError(@"%@", error);
+                        XCTAssertNotNil(error, @"Result nil but had no error.");
+                        XCTFail(@"%@", error);
+                        self.waitingForBlock = NO;
+                    }
+                }];
+            } else {
+                XCTFail(@"No user auth ticket.");
+                self.waitingForBlock = NO;
+            }
+        } else {
+            DDLogError(@"%@", error);
+            XCTAssertNotNil(error, @"Result nil but had no error.");
+            XCTFail(@"%@", error);
+            self.waitingForBlock = NO;
+        }
+        
+    }];
+    [self waitForBlock];
+}
+
+- (void)testGettingRuntimeProducts
+{
+    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile) {
+            XCTAssertNil(error, @"Result with error.");
+            if (profile.authTicket) {
+                
+                // Setup authTicket for selected tenant/scope.
+                MOZUScope *scope = profile.authorizedScopes[1]; //2442
+                NSInteger tenantID = scope.id;
+                [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+                    if (profile.authTicket) {
+                        MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+                        
+                        MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
+                        [runtimeProductResource productsWithFilter:nil startIndex:@0 pageSize:@200 sortBy:nil userClaims:profile.authTicket completionHandler:^(MOZURuntimeProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                            if (result) {
+                                XCTAssertNil(error, @"Result with error.");
+                                DDLogDebug(@"%@", result);
+                                XCTAssert(result.items && result.items.count > 0, @"No items");
+                                self.waitingForBlock = NO;
+                            } else {
+                                DDLogError(@"%@", error);
+                                XCTAssertNotNil(error, @"Result nil but had no error.");
+                                XCTFail(@"%@", error);
+                                self.waitingForBlock = NO;
+                            }
+                        }];
+                    } else {
+                        XCTFail(@"No user auth ticket.");
+                        self.waitingForBlock = NO;
+                    }
+                }];
+            } else {
+                XCTFail(@"No user auth ticket.");
+                self.waitingForBlock = NO;
+            }
+        } else {
+            DDLogError(@"%@", error);
+            XCTAssertNotNil(error, @"Result nil but had no error.");
+            XCTFail(@"%@", error);
+            self.waitingForBlock = NO;
+        }
+        
+    }];
+    [self waitForBlock];}
 
 @end

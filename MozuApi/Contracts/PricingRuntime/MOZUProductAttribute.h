@@ -30,7 +30,7 @@ The data type of the attribute. There are four valid data types: "Bool", "DateTi
 /**
 The description of this product attribute.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 The storefront interface input type for this attribute such as a radio button or drop-down menu selection.

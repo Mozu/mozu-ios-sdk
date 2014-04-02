@@ -30,7 +30,7 @@ The amount of the order-level adjustment, which can be a positive or negative am
 /**
 The shopper-facing description of the order-level adjustment.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 /**
 Administrator notes associated with the order adjustment. These comments are not shopper facing.

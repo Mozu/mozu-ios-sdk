@@ -19,7 +19,7 @@
 #import "MOZUAdminProductOption.h"
 #import "MOZUMeasurement.h"
 #import "MOZUAdminProductPrice.h"
-#import "MOZUProductPricingBehaviorInfo.h"
+#import "MOZUAdminProductPricingBehaviorInfo.h"
 #import "MOZUProductInCatalogInfo.h"
 #import "MOZUAdminProductProperty.h"
 #import "MOZUProductPublishingInfo.h"
@@ -173,7 +173,7 @@ Width of the package in imperial units of feet and inches.
 
 @property(nonatomic) MOZUAdminProductPrice *price;
 
-@property(nonatomic) MOZUProductPricingBehaviorInfo *pricingBehavior;
+@property(nonatomic) MOZUAdminProductPricingBehaviorInfo *pricingBehavior;
 
 /**
 Properties defined for a product as they appear in its associated catalogs.

@@ -11,15 +11,17 @@
 
 @implementation JSONValueTransformer (NSDate)
 
--(NSDate*)NSDateFromNSString:(NSString*)dateStr {
+-(NSDate*)NSDateFromNSString:(NSString*)string
+{
     NSDate* retVal = nil;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"];
-    retVal = [dateFormatter dateFromString:dateStr];
+    retVal = [dateFormatter dateFromString:string];
     return retVal;
 }
 
--(id)JSONObjectFromNSDate:(NSDate*)date {
+-(NSString*)JSONObjectFromNSDate:(NSDate*)date
+{
     NSString* retVal = nil;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"];

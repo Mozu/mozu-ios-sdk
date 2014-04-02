@@ -31,7 +31,7 @@
 /**
 Short description of the product in the language specified in the locale code for the storefront.
 */
-@property(nonatomic) NSString * description;
+@property(nonatomic) NSString * theDescription;
 
 @property(nonatomic) NSNumber * discountsRestricted;
 

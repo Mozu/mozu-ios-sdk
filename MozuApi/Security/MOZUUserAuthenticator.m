@@ -28,15 +28,20 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 - (instancetype)initWithScope:(MOZUAuthenticationScope)scope
                      tenentId:(NSNumber *)tenentId
                   accessToken:(NSString *)accessToken
-        accessTokenExpiration:(NSDate *)accessTokenExpiration
+        accessTokenExpiration:(NSDate *)accessTokenExpirationDate
                  refreshToken:(NSString *)refreshToken
-       refreshTokenExpiration:(NSDate *)refreshTokenExpiration
+       refreshTokenExpiration:(NSDate *)refreshTokenExpirationDate
 {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"];
+    NSString *accessTokenExpiration = [dateFormatter stringFromDate:accessTokenExpirationDate];
+    NSString *refreshTokenExpiration = [dateFormatter stringFromDate:refreshTokenExpirationDate];
+    
     NSMutableDictionary *dictionary = [@{@"scope": @(scope),
                                  @"accessToken": accessToken,
-                                 @"accessTokenExpiration": accessTokenExpiration,
+                                         @"accessTokenExpiration": accessTokenExpiration,
                                  @"refreshToken": refreshToken,
-                                 @"refreshTokenExpiration": refreshTokenExpiration
+                                 @"refreshTokenExpiration": refreshTokenExpiration,
                                  } mutableCopy];
     if (tenentId) {
         dictionary[@"tenentId"] = tenentId;

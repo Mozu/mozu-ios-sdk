@@ -26,6 +26,8 @@
 */
 @interface MOZUAdminDiscount : JSONModel<MOZUAdminDiscount>
 
+@property(nonatomic) NSNumber * maximumUsesPerUser;
+
 /**
 The integer amount of the discount. For example, an entry of "10" could represent a discount of $10.00 or a discount of 10%, depending on the type.
 */
@@ -57,8 +59,6 @@ The scope to which the discount applies, which is "Order" for order discounts or
 Current status of the product discount. Possible values are "Active", "Scheduled", or "Expired".
 */
 @property(nonatomic) NSString * status;
-
-@property(nonatomic) NSNumber * maximumUsesPerUser;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

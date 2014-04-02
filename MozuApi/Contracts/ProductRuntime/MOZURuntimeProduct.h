@@ -19,7 +19,7 @@
 #import "MOZURuntimeProductOption.h"
 #import "MOZURuntimeProductPrice.h"
 #import "MOZUProductPriceRange.h"
-#import "MOZUProductPricingBehaviorInfo.h"
+#import "MOZURuntimeProductPricingBehaviorInfo.h"
 #import "MOZURuntimeProductProperty.h"
 #import "MOZUProductPurchasableState.h"
 
@@ -134,7 +134,7 @@ For products with options that vary the cost of the product, the range between l
 */
 @property(nonatomic) MOZUProductPriceRange *priceRange;
 
-@property(nonatomic) MOZUProductPricingBehaviorInfo *pricingBehavior;
+@property(nonatomic) MOZURuntimeProductPricingBehaviorInfo *pricingBehavior;
 
 /**
 The list of product properties set up in product admin.
