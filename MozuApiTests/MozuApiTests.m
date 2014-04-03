@@ -49,6 +49,9 @@ static const NSInteger productCode = 1001;
 //static const NSUInteger MOZUDeveloperIdentifier;
 static const BOOL useSSL = NO;
 
+
+typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error);
+
 - (void)setUp
 {
     [super setUp];
@@ -516,13 +519,34 @@ static const BOOL useSSL = NO;
     [self waitForBlock];
 }
 
-- (void)testGettingStorefrontLocations
+- (void)authenticateAndSelectTenantWithCompletionHandler:(MOZUTenantSelectionCompletionBlock)completion
 {
     [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile) {
+            if (profile.authTicket) {
+                // Setup authTicket for selected tenant/scope.
+                MOZUScope *scope = profile.authorizedScopes[1]; //2442
+                [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+                    completion(scope, profile, response, error);
+                }];
+            } else {
+                DDLogError(@"No user auth ticket.");
+                completion(nil, nil, response, error);
+            }
+        } else {
+            DDLogError(@"%@", error);
+            completion(nil, nil, response, error);
+        }
+    }];
+}
+
+- (void)testGettingStorefrontLocations
+{
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile) {
             XCTAssertNil(error, @"Result with error.");
             if (profile.authTicket) {
-                MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:nil catalogId:nil];
+                MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:nil catalogId:nil];
                 MOZULocationResource *locationResource = [[MOZULocationResource alloc] initWithAPIContext:context];
                 [locationResource locationsInUsageTypeWithLocationUsageType:@"SP" startIndex:nil pageSize:nil sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                     if (result) {
@@ -546,7 +570,6 @@ static const BOOL useSSL = NO;
             XCTFail(@"%@", error);
             self.waitingForBlock = NO;
         }
-
     }];
     [self waitForBlock];
 }
@@ -554,11 +577,11 @@ static const BOOL useSSL = NO;
 // Gets location codes from tenant and site.
 - (void)testGettingAdminLocations
 {
-    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile) {
             XCTAssertNil(error, @"Result with error.");
             if (profile.authTicket) {
-                MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:nil catalogId:nil];
+                MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:nil catalogId:nil];
                 MOZUAdminLocationResource *locationResource = [[MOZUAdminLocationResource alloc] initWithAPIContext:context];
                 [locationResource locationsWithStartIndex:nil pageSize:nil sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                     if (result) {
@@ -591,48 +614,28 @@ static const BOOL useSSL = NO;
 
 - (void)testGettingRuntimeProducts
 {
-    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-        if (profile) {
-            XCTAssertNil(error, @"Result with error.");
-            if (profile.authTicket) {
-                
-                // Setup authTicket for selected tenant/scope.
-                MOZUScope *scope = profile.authorizedScopes[1]; //2442
-                NSInteger tenantID = scope.id;
-                [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-                    if (profile.authTicket) {
-                        MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:@1 catalogId:@1];
-                        
-                        MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
-                        [runtimeProductResource productsWithFilter:nil startIndex:@0 pageSize:@200 sortBy:nil userClaims:profile.authTicket completionHandler:^(MOZURuntimeProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-                            if (result) {
-                                XCTAssertNil(error, @"Result with error.");
-                                DDLogDebug(@"%@", result);
-                                XCTAssert(result.items && result.items.count > 0, @"No items");
-                                self.waitingForBlock = NO;
-                            } else {
-                                DDLogError(@"%@", error);
-                                XCTAssertNotNil(error, @"Result nil but had no error.");
-                                XCTFail(@"%@", error);
-                                self.waitingForBlock = NO;
-                            }
-                        }];
-                    } else {
-                        XCTFail(@"No user auth ticket.");
-                        self.waitingForBlock = NO;
-                    }
-                }];
-            } else {
-                XCTFail(@"No user auth ticket.");
-                self.waitingForBlock = NO;
-            }
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile.authTicket) {
+            MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            
+            MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
+            [runtimeProductResource productsWithFilter:nil startIndex:@0 pageSize:@200 sortBy:nil userClaims:profile.authTicket completionHandler:^(MOZURuntimeProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                if (result) {
+                    XCTAssertNil(error, @"Result with error.");
+                    DDLogDebug(@"%@", result);
+                    XCTAssert(result.items && result.items.count > 0, @"No items");
+                    self.waitingForBlock = NO;
+                } else {
+                    DDLogError(@"%@", error);
+                    XCTAssertNotNil(error, @"Result nil but had no error.");
+                    XCTFail(@"%@", error);
+                    self.waitingForBlock = NO;
+                }
+            }];
         } else {
-            DDLogError(@"%@", error);
-            XCTAssertNotNil(error, @"Result nil but had no error.");
-            XCTFail(@"%@", error);
+            XCTFail(@"No user auth ticket.");
             self.waitingForBlock = NO;
         }
-        
     }];
     [self waitForBlock];
 }
@@ -640,48 +643,28 @@ static const BOOL useSSL = NO;
 // Gets inventory (including product code) at a certain location (code).
 - (void)testGettingLocationInventory
 {
-    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-        if (profile) {
-            XCTAssertNil(error, @"Result with error.");
-            if (profile.authTicket) {
-                
-                // Setup authTicket for selected tenant/scope.
-                MOZUScope *scope = profile.authorizedScopes[1]; //2442
-                NSInteger tenantID = scope.id;
-                [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-                    if (profile.authTicket) {
-                        MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:@1 catalogId:@1];
-                        
-                        MOZUAdminLocationInventoryResource *locationInventoryResource = [[MOZUAdminLocationInventoryResource alloc] initWithAPIContext:context];
-                        [locationInventoryResource locationInventoriesWithDataViewMode:MOZULive locationCode:@"homebase" startIndex:@0 pageSize:@200 sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZUAdminLocationInventoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-                            if (result) {
-                                XCTAssertNil(error, @"Result with error.");
-                                DDLogDebug(@"%@", result);
-                                XCTAssert(result.items && result.items.count > 0, @"No items");
-                                self.waitingForBlock = NO;
-                            } else {
-                                DDLogError(@"%@", error);
-                                XCTAssertNotNil(error, @"Result nil but had no error.");
-                                XCTFail(@"%@", error);
-                                self.waitingForBlock = NO;
-                            }
-                        }];
-                    } else {
-                        XCTFail(@"No user auth ticket.");
-                        self.waitingForBlock = NO;
-                    }
-                }];
-            } else {
-                XCTFail(@"No user auth ticket.");
-                self.waitingForBlock = NO;
-            }
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile.authTicket) {
+            MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            
+            MOZUAdminLocationInventoryResource *locationInventoryResource = [[MOZUAdminLocationInventoryResource alloc] initWithAPIContext:context];
+            [locationInventoryResource locationInventoriesWithDataViewMode:MOZULive locationCode:@"homebase" startIndex:@0 pageSize:@200 sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZUAdminLocationInventoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                if (result) {
+                    XCTAssertNil(error, @"Result with error.");
+                    DDLogDebug(@"%@", result);
+                    XCTAssert(result.items && result.items.count > 0, @"No items");
+                    self.waitingForBlock = NO;
+                } else {
+                    DDLogError(@"%@", error);
+                    XCTAssertNotNil(error, @"Result nil but had no error.");
+                    XCTFail(@"%@", error);
+                    self.waitingForBlock = NO;
+                }
+            }];
         } else {
-            DDLogError(@"%@", error);
-            XCTAssertNotNil(error, @"Result nil but had no error.");
-            XCTFail(@"%@", error);
+            XCTFail(@"No user auth ticket.");
             self.waitingForBlock = NO;
         }
-        
     }];
     [self waitForBlock];
 }
@@ -689,47 +672,27 @@ static const BOOL useSSL = NO;
 //
 - (void)testGettingProductDetails
 {
-    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-        if (profile) {
-            XCTAssertNil(error, @"Result with error.");
-            if (profile.authTicket) {
-                
-                // Setup authTicket for selected tenant/scope.
-                MOZUScope *scope = profile.authorizedScopes[1]; //2442
-                NSInteger tenantID = scope.id;
-                [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-                    if (profile.authTicket) {
-                        MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:@1 catalogId:@1];
-                        
-                        MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
-                        [runtimeProductResource productWithProductCode:@"1001" variationProductCode:nil allowInactive:@NO skipInventoryCheck:@YES userClaims:profile.authTicket completionHandler:^(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-                            if (result) {
-                                XCTAssertNil(error, @"Result with error.");
-                                DDLogDebug(@"%@", result);
-                                self.waitingForBlock = NO;
-                            } else {
-                                DDLogError(@"%@", error);
-                                XCTAssertNotNil(error, @"Result nil but had no error.");
-                                XCTFail(@"%@", error);
-                                self.waitingForBlock = NO;
-                            }
-                        }];
-                    } else {
-                        XCTFail(@"No user auth ticket.");
-                        self.waitingForBlock = NO;
-                    }
-                }];
-            } else {
-                XCTFail(@"No user auth ticket.");
-                self.waitingForBlock = NO;
-            }
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile.authTicket) {
+            MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            
+            MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
+            [runtimeProductResource productWithProductCode:@"1001" variationProductCode:nil allowInactive:@NO skipInventoryCheck:@YES userClaims:profile.authTicket completionHandler:^(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                if (result) {
+                    XCTAssertNil(error, @"Result with error.");
+                    DDLogDebug(@"%@", result);
+                    self.waitingForBlock = NO;
+                } else {
+                    DDLogError(@"%@", error);
+                    XCTAssertNotNil(error, @"Result nil but had no error.");
+                    XCTFail(@"%@", error);
+                    self.waitingForBlock = NO;
+                }
+            }];
         } else {
-            DDLogError(@"%@", error);
-            XCTAssertNotNil(error, @"Result nil but had no error.");
-            XCTFail(@"%@", error);
+            XCTFail(@"No user auth ticket.");
             self.waitingForBlock = NO;
         }
-        
     }];
     [self waitForBlock];
 }
@@ -738,96 +701,56 @@ static const BOOL useSSL = NO;
 
 - (void)testGettingCustomerAccounts
 {
-    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-        if (profile) {
-            XCTAssertNil(error, @"Result with error.");
-            if (profile.authTicket) {
-                
-                // Setup authTicket for selected tenant/scope.
-                MOZUScope *scope = profile.authorizedScopes[1]; //2442
-                NSInteger tenantID = scope.id;
-                [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-                    if (profile.authTicket) {
-                        MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:@1 catalogId:@1];
-                        
-                        MOZUCustomerAccountResource *customerAccountResource = [[MOZUCustomerAccountResource alloc] initWithAPIContext:context];
-                        [customerAccountResource accountsWithStartIndex:@0 pageSize:@200 sortBy:nil filter:nil fields:nil q:nil qLimit:@100 isAnonymous:@NO userClaims:profile.authTicket completionHandler:^(MOZUCustomerAccountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-                            if (result) {
-                                XCTAssertNil(error, @"Result with error.");
-                                DDLogDebug(@"%@", result);
-                                XCTAssert(result.items && result.items.count > 0, @"No items");
-                                self.waitingForBlock = NO;
-                            } else {
-                                DDLogError(@"%@", error);
-                                XCTAssertNotNil(error, @"Result nil but had no error.");
-                                XCTFail(@"%@", error);
-                                self.waitingForBlock = NO;
-                            }
-                        }];
-                    } else {
-                        XCTFail(@"No user auth ticket.");
-                        self.waitingForBlock = NO;
-                    }
-                }];
-            } else {
-                XCTFail(@"No user auth ticket.");
-                self.waitingForBlock = NO;
-            }
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile.authTicket) {
+            MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            
+            MOZUCustomerAccountResource *customerAccountResource = [[MOZUCustomerAccountResource alloc] initWithAPIContext:context];
+            [customerAccountResource accountsWithStartIndex:@0 pageSize:@200 sortBy:nil filter:nil fields:nil q:nil qLimit:@100 isAnonymous:@NO userClaims:profile.authTicket completionHandler:^(MOZUCustomerAccountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                if (result) {
+                    XCTAssertNil(error, @"Result with error.");
+                    DDLogDebug(@"%@", result);
+                    XCTAssert(result.items && result.items.count > 0, @"No items");
+                    self.waitingForBlock = NO;
+                } else {
+                    DDLogError(@"%@", error);
+                    XCTAssertNotNil(error, @"Result nil but had no error.");
+                    XCTFail(@"%@", error);
+                    self.waitingForBlock = NO;
+                }
+            }];
         } else {
-            DDLogError(@"%@", error);
-            XCTAssertNotNil(error, @"Result nil but had no error.");
-            XCTFail(@"%@", error);
+            XCTFail(@"No user auth ticket.");
             self.waitingForBlock = NO;
         }
-        
     }];
     [self waitForBlock];
 }
 
 - (void)testGettingCustomerOrders
 {
-    [self authenticateAppAndUserWithCompletionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-        if (profile) {
-            XCTAssertNil(error, @"Result with error.");
-            if (profile.authTicket) {
-                
-                // Setup authTicket for selected tenant/scope.
-                MOZUScope *scope = profile.authorizedScopes[1]; //2442
-                NSInteger tenantID = scope.id;
-                [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
-                    if (profile.authTicket) {
-                        MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:@1 catalogId:@1];
-                        
-                        MOZUOrderResource *orderResource = [[MOZUOrderResource alloc] initWithAPIContext:context];
-                        [orderResource ordersWithStartIndex:@0 pageSize:@200 sortBy:nil filter:@"customerAccountId+eq+1001" q:nil qLimit:@100 userClaims:profile.authTicket completionHandler:^(MOZUOrderCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-                            if (result) {
-                                XCTAssertNil(error, @"Result with error.");
-                                DDLogDebug(@"%@", result);
-                                XCTAssert(result.items && result.items.count > 0, @"No items");
-                                self.waitingForBlock = NO;
-                            } else {
-                                DDLogError(@"%@", error);
-                                XCTAssertNotNil(error, @"Result nil but had no error.");
-                                XCTFail(@"%@", error);
-                                self.waitingForBlock = NO;
-                            }
-                        }];
-                    } else {
-                        XCTFail(@"No user auth ticket.");
-                        self.waitingForBlock = NO;
-                    }
-                }];
-            } else {
-                XCTFail(@"No user auth ticket.");
-                self.waitingForBlock = NO;
-            }
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile.authTicket) {
+            MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            
+            MOZUOrderResource *orderResource = [[MOZUOrderResource alloc] initWithAPIContext:context];
+            [orderResource ordersWithStartIndex:@0 pageSize:@200 sortBy:nil filter:@"customerAccountId+eq+1001" q:nil qLimit:@100 userClaims:profile.authTicket completionHandler:^(MOZUOrderCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                if (result) {
+                    XCTAssertNil(error, @"Result with error.");
+                    DDLogDebug(@"%@", result);
+                    XCTAssert(result.items && result.items.count > 0, @"No items");
+                    self.waitingForBlock = NO;
+                } else {
+                    DDLogError(@"%@", error);
+                    XCTAssertNotNil(error, @"Result nil but had no error.");
+                    XCTFail(@"%@", error);
+                    self.waitingForBlock = NO;
+                }
+            }];
         } else {
-            DDLogError(@"%@", error);
-            XCTAssertNotNil(error, @"Result nil but had no error.");
-            XCTFail(@"%@", error);
+            XCTFail(@"No user auth ticket.");
             self.waitingForBlock = NO;
         }
-        
     }];
     [self waitForBlock];
 }
