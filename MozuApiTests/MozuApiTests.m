@@ -525,7 +525,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
         if (profile) {
             if (profile.authTicket) {
                 // Setup authTicket for selected tenant/scope.
-                MOZUScope *scope = profile.authorizedScopes[1]; //2442
+//                MOZUScope *scope = profile.authorizedScopes[1]; //2442
+                MOZUScope *scope = [MOZUScope new];
+                scope.id = 2442;
+                scope.name = @"NoelTenant";
                 [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
                     completion(scope, profile, response, error);
                 }];
@@ -739,6 +742,63 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                     XCTAssertNil(error, @"Result with error.");
                     DDLogDebug(@"%@", result);
                     XCTAssert(result.items && result.items.count > 0, @"No items");
+                    self.waitingForBlock = NO;
+                } else {
+                    DDLogError(@"%@", error);
+                    XCTAssertNotNil(error, @"Result nil but had no error.");
+                    XCTFail(@"%@", error);
+                    self.waitingForBlock = NO;
+                }
+            }];
+        } else {
+            XCTFail(@"No user auth ticket.");
+            self.waitingForBlock = NO;
+        }
+    }];
+    [self waitForBlock];
+}
+
+#pragma mark - Orders
+
+- (void)testGettingOrders
+{
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile.authTicket) {
+            MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            
+            MOZUOrderResource *orderResource = [[MOZUOrderResource alloc] initWithAPIContext:context];
+            [orderResource ordersWithStartIndex:@0 pageSize:@200 sortBy:nil filter:nil q:nil qLimit:@100 userClaims:profile.authTicket completionHandler:^(MOZUOrderCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                if (result) {
+                    XCTAssertNil(error, @"Result with error.");
+                    DDLogDebug(@"%@", result);
+                    XCTAssert(result.items && result.items.count > 0, @"No items");
+                    self.waitingForBlock = NO;
+                } else {
+                    DDLogError(@"%@", error);
+                    XCTAssertNotNil(error, @"Result nil but had no error.");
+                    XCTFail(@"%@", error);
+                    self.waitingForBlock = NO;
+                }
+            }];
+        } else {
+            XCTFail(@"No user auth ticket.");
+            self.waitingForBlock = NO;
+        }
+    }];
+    [self waitForBlock];
+}
+
+- (void)testGettingOrderDetails
+{
+    [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (profile.authTicket) {
+            MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            
+            MOZUOrderResource *orderResource = [[MOZUOrderResource alloc] initWithAPIContext:context];
+            [orderResource orderWithOrderId:@"043ce5dd157c2819fcfcf8960000098a" draft:@(NO) userClaims:profile.authTicket completionHandler:^(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                if (result) {
+                    XCTAssertNil(error, @"Result with error.");
+                    DDLogDebug(@"%@", result);
                     self.waitingForBlock = NO;
                 } else {
                     DDLogError(@"%@", error);
