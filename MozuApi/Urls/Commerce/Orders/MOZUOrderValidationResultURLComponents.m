@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUFulfillmentInfoURLComponents.h"
+#import "MOZUOrderValidationResultURLComponents.h"
 
-@implementation MOZUFulfillmentInfoURLComponents
+@implementation MOZUOrderValidationResultURLComponents
 
 //
 #pragma mark -
@@ -17,11 +17,10 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetFulfillmentInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	NSString *template = @"/api/commerce/orders/{orderId}/fulfillmentinfo?draft={draft}";
++ (MOZUURLComponents *)URLComponentsForGetValidationResultsOperationWithOrderId:(NSString *)orderId {
+	NSString *template = @"/api/commerce/orders/{orderId}/validationresults";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
-		@"draft" : draft ? draft : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -41,12 +40,10 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForSetFulFillmentInfoOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/fulfillmentinfo?updatemode={updateMode}&version={version}";
++ (MOZUURLComponents *)URLComponentsForAddValidationResultOperationWithOrderId:(NSString *)orderId {
+	NSString *template = @"/api/commerce/orders/{orderId}/validationresults";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
-		@"updateMode" : updateMode ? updateMode : @"",
-		@"version" : version ? version : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

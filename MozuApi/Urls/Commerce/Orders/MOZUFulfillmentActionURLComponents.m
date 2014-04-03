@@ -17,6 +17,16 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForGetFulfillmentInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
+	NSString *template = @"/api/commerce/orders/{orderId}/fulfillmentinfo?draft={draft}";
+	NSDictionary *params = @{
+		@"orderId" : orderId,
+		@"draft" : draft ? draft : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
@@ -39,6 +49,17 @@
 #pragma mark Put Operations
 #pragma mark -
 //
+
++ (MOZUURLComponents *)URLComponentsForSetFulFillmentInfoOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
+	NSString *template = @"/api/commerce/orders/{orderId}/fulfillmentinfo?updatemode={updateMode}&version={version}";
+	NSDictionary *params = @{
+		@"orderId" : orderId,
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
 
 
 //

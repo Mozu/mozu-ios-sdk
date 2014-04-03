@@ -28,7 +28,7 @@
 }
 
 + (MOZUURLComponents *)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate {
-	NSString *template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includAvaliable={includeAvailable}&validate={validate}";
+	NSString *template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includeAvaliable={includeAvailable}&validate={validate}";
 	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"includeAvailable" : includeAvailable ? includeAvailable : @"",
