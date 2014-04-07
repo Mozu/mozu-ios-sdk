@@ -46,9 +46,9 @@ Retrieves a list of defined channel groups according to any filter and sort crit
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)channelGroupsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUChannelGroupCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)channelGroupsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUChannelGroupCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChannelGroupClient clientForGetChannelGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUChannelGroupClient clientForGetChannelGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@ Retrieves the details of a defined channel group.
 @param code The code that uniquely identifies the channel group.
 */
 
-- (void)channelGroupWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)channelGroupWithCode:(NSString *)code completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChannelGroupClient clientForGetChannelGroupOperationWithCode:code userClaims:userClaims];
+	MOZUClient *client = [MOZUChannelGroupClient clientForGetChannelGroupOperationWithCode:code];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@ Creates a new group of channels with common information.
 @param body Properties of the channel group to create.
 */
 
-- (void)createChannelGroupWithBody:(MOZUChannelGroup *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createChannelGroupWithBody:(MOZUChannelGroup *)body completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChannelGroupClient clientForCreateChannelGroupOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUChannelGroupClient clientForCreateChannelGroupOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@ Updates one or more properties of a defined channel group.
 @param code Code that identifies the channel group.
 */
 
-- (void)updateChannelGroupWithBody:(MOZUChannelGroup *)body code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateChannelGroupWithBody:(MOZUChannelGroup *)body code:(NSString *)code completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChannelGroupClient clientForUpdateChannelGroupOperationWithBody:body code:code userClaims:userClaims];
+	MOZUClient *client = [MOZUChannelGroupClient clientForUpdateChannelGroupOperationWithBody:body code:code];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -132,9 +132,9 @@ Deletes a defined group of channels, which removes the group association with ea
 @param code User-defined code that uniqely identifies the channel group.
 */
 
-- (void)deleteChannelGroupWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteChannelGroupWithCode:(NSString *)code completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChannelGroupClient clientForDeleteChannelGroupOperationWithCode:code userClaims:userClaims];
+	MOZUClient *client = [MOZUChannelGroupClient clientForDeleteChannelGroupOperationWithCode:code];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

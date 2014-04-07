@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUAttribute.h"
 #import "MOZUAttributeCollection.h"
 
@@ -31,14 +30,14 @@ Retrieves a paged list of attributes according to any specified filter criteria 
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetAttributesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetAttributesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Retrieves the details of the specified product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForGetAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -52,7 +51,7 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 @param body Properties of the new product attribute to create.
 */
 
-+ (MOZUClient *)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body;
 
 
 //
@@ -67,7 +66,7 @@ Updates an existing attribute with attribute properties to set.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body attributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -81,7 +80,7 @@ Deletes a defined product attribute. You cannot delete an attribute assigned a v
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForDeleteAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN;
 
 
 

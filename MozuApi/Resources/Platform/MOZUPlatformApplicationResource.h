@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUInstalledApplications.h"
 
 
@@ -35,7 +34,7 @@
 @param appId 
 */
 
-- (void)applicationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applicationWithAppId:(NSString *)appId completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -57,7 +56,7 @@
 @param appId 
 */
 
-- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

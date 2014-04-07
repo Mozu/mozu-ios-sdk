@@ -22,12 +22,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetMasterCatalogsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetMasterCatalogsOperation {
 	id url = [MOZUMasterCatalogURLComponents URLComponentsForGetMasterCatalogsOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUMasterCatalogCollection alloc] initWithString:jsonResult error:nil];
@@ -36,7 +35,7 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId {
 	id url = [MOZUMasterCatalogURLComponents URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -44,7 +43,6 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminMasterCatalog alloc] initWithString:jsonResult error:nil];
@@ -67,7 +65,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId {
 	id url = [MOZUMasterCatalogURLComponents URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:masterCatalogId];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -76,7 +74,6 @@
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminMasterCatalog alloc] initWithString:jsonResult error:nil];

@@ -22,7 +22,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetDocumentTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetDocumentTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
 	id url = [MOZUDocumentTypeURLComponents URLComponentsForGetDocumentTypesOperationWithPageSize:pageSize startIndex:startIndex];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -30,7 +30,6 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDocumentTypeCollection alloc] initWithString:jsonResult error:nil];
@@ -39,7 +38,7 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName {
 	id url = [MOZUDocumentTypeURLComponents URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:documentTypeName];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -47,7 +46,6 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDocumentType alloc] initWithString:jsonResult error:nil];

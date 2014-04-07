@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUDocumentType.h"
 #import "MOZUDocumentTypeCollection.h"
 
@@ -29,14 +28,14 @@
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetDocumentTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetDocumentTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
 
 /**
 
 @param documentTypeName 
 */
 
-+ (MOZUClient *)clientForGetDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName;
 
 
 //

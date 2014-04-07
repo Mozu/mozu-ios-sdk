@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUAddressValidationRequest.h"
 #import "MOZUAddressValidationResponse.h"
 
@@ -43,7 +42,7 @@ Validates the customer address supplied in the request.
 @param body Properties of the address to validate.
 */
 
-- (void)validateAddressWithBody:(MOZUAddressValidationRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAddressValidationResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)validateAddressWithBody:(MOZUAddressValidationRequest *)body completionHandler:(void(^)(MOZUAddressValidationResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

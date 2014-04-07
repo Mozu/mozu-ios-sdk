@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZURuntimeProduct.h"
 #import "MOZURuntimeLocationInventoryCollection.h"
 #import "MOZUProductOptionSelections.h"
@@ -37,7 +36,7 @@ Retrieves a list of products that appear on the storefront according to any spec
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy;
 
 /**
 Retrieves the active inventory level information associated with the product or location specified in the request.
@@ -45,7 +44,7 @@ Retrieves the active inventory level information associated with the product or 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-+ (MOZUClient *)clientForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes;
 
 /**
 Retrieves information about a single product given its product code.
@@ -55,7 +54,7 @@ Retrieves information about a single product given its product code.
 @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
 
-+ (MOZUClient *)clientForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 
 //
@@ -72,7 +71,7 @@ Creates a new product selection. A create occurs each time a shopper selects a p
 @param skipInventoryCheck 
 */
 
-+ (MOZUClient *)clientForConfiguredProductOperationWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForConfiguredProductOperationWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 /**
 Validate the final state of shopper-selected options.
@@ -81,7 +80,7 @@ Validate the final state of shopper-selected options.
 @param skipInventoryCheck 
 */
 
-+ (MOZUClient *)clientForValidateProductOperationWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForValidateProductOperationWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 /**
 
@@ -93,7 +92,7 @@ Validate the final state of shopper-selected options.
 @param variationProductCode 
 */
 
-+ (MOZUClient *)clientForValidateDiscountsOperationWithBody:(MOZUDiscountSelections *)body productCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForValidateDiscountsOperationWithBody:(MOZUDiscountSelections *)body productCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 
 //

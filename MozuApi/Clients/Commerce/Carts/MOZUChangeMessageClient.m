@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetMessagesOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetMessagesOperation {
 	id url = [MOZUChangeMessageURLComponents URLComponentsForGetMessagesOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCartChangeMessageCollection alloc] initWithString:jsonResult error:nil];
@@ -56,21 +55,19 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForRemoveAllMessagesOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForRemoveAllMessagesOperation {
 	id url = [MOZUChangeMessageURLComponents URLComponentsForRemoveAllMessagesOperation];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 
-+ (MOZUClient *)clientForRemoveMessageOperationWithMessageId:(NSString *)messageId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForRemoveMessageOperationWithMessageId:(NSString *)messageId {
 	id url = [MOZUChangeMessageURLComponents URLComponentsForRemoveMessageOperationWithMessageId:messageId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 

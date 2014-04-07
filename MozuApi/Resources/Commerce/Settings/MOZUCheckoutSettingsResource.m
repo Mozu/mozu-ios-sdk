@@ -42,9 +42,9 @@
 Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
 */
 
-- (void)checkoutSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)checkoutSettingsWithCompletionHandler:(void(^)(MOZUCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCheckoutSettingsClient clientForGetCheckoutSettingsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUCheckoutSettingsClient clientForGetCheckoutSettingsOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

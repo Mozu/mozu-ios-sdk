@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUCart.h"
 
 
@@ -42,7 +41,7 @@
 @param couponCode 
 */
 
-+ (MOZUClient *)clientForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode;
 
 
 //
@@ -56,7 +55,7 @@
 @param cartId 
 */
 
-+ (MOZUClient *)clientForRemoveCouponsOperationWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForRemoveCouponsOperationWithCartId:(NSString *)cartId;
 
 /**
 
@@ -64,7 +63,7 @@
 @param couponCode 
 */
 
-+ (MOZUClient *)clientForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode;
 
 
 

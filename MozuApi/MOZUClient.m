@@ -147,7 +147,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         
         if (APIContext.tenantHost.length == 0) {
             id tenantRes = [[MOZUTenantResource alloc] init];
-            [tenantRes tenantWithTenantId:APIContext.tenantId userClaims:nil completionHandler:^void(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [tenantRes tenantWithTenantId:APIContext.tenantId completionHandler:^void(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     completion(result.domain, nil);
                 } else {
@@ -184,7 +184,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     
     if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
         // Add MOZU_X_VOL_APP_CLAIMS to headers
-        if (!self.context || !self.context.appAuthClaim || [self.context.appAuthClaim isEqualToString:@""]) {
+        if (!self.context || !self.context.appAuthTicket || [self.context.appAuthTicket.accessToken isEqualToString:@""]) {
             [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
                 if (error) {
                     DDLogError(@"%@", error.localizedDescription);
@@ -194,7 +194,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                 }
             }];
         } else {
-            [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.context.appAuthClaim];
+            [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.context.appAuthTicket.accessToken];
             completion(nil);
         }
     } else {
@@ -225,9 +225,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         }
     }];
     
-    if (self.userClaims) {
+    if (self.context.userAuthTicket) {
         dispatch_group_enter(group);
-        [self validateUserClaims:self.userClaims completionHandler:^(NSError *error) {
+        [self validateUserClaims:self.context.userAuthTicket completionHandler:^(NSError *error) {
             if (error) {
                 DDLogError(@"%@", error.localizedDescription);
             }

@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUAdminMasterCatalog.h"
 #import "MOZUMasterCatalogCollection.h"
 
@@ -35,14 +34,14 @@
 Retrieve the details of all master catalog associated with a tenant.
 */
 
-- (void)masterCatalogsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUMasterCatalogCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)masterCatalogsWithCompletionHandler:(void(^)(MOZUMasterCatalogCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieve the details of the master catalog specified in the request.
 @param masterCatalogId 
 */
 
-- (void)masterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)masterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -64,7 +63,7 @@ Updates the product publishing mode for the master catalog specified in the requ
 @param masterCatalogId 
 */
 
-- (void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

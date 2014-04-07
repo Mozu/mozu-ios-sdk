@@ -28,13 +28,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest *)body {
 	id url = [MOZUAddressValidationRequestURLComponents URLComponentsForValidateAddressOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAddressValidationResponse alloc] initWithString:jsonResult error:nil];

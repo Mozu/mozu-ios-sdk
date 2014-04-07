@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUCustomerSegment.h"
 #import "MOZUCustomerSegmentCollection.h"
 
@@ -31,14 +30,14 @@
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 
 @param identifier 
 */
 
-+ (MOZUClient *)clientForGetSegmentOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 
 //
@@ -52,7 +51,7 @@
 @param body 
 */
 
-+ (MOZUClient *)clientForAddSegmentOperationWithBody:(MOZUCustomerSegment *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddSegmentOperationWithBody:(MOZUCustomerSegment *)body;
 
 /**
 
@@ -60,7 +59,7 @@
 @param identifier 
 */
 
-+ (MOZUClient *)clientForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
 
 
 //
@@ -75,7 +74,7 @@
 @param identifier 
 */
 
-+ (MOZUClient *)clientForUpdateSegmentOperationWithBody:(MOZUCustomerSegment *)body identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateSegmentOperationWithBody:(MOZUCustomerSegment *)body identifier:(NSInteger)identifier;
 
 
 //
@@ -89,7 +88,7 @@
 @param identifier 
 */
 
-+ (MOZUClient *)clientForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 /**
 
@@ -97,7 +96,7 @@
 @param identifier 
 */
 
-+ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
 
 
 

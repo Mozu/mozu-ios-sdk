@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCustomerCheckoutSettingsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetCustomerCheckoutSettingsOperation {
 	id url = [MOZUCustomerCheckoutSettingsURLComponents URLComponentsForGetCustomerCheckoutSettingsOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerCheckoutSettings alloc] initWithString:jsonResult error:nil];
@@ -49,13 +48,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateCustomerCheckoutSettingsOperationWithBody:(MOZUCustomerCheckoutSettings *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateCustomerCheckoutSettingsOperationWithBody:(MOZUCustomerCheckoutSettings *)body {
 	id url = [MOZUCustomerCheckoutSettingsURLComponents URLComponentsForUpdateCustomerCheckoutSettingsOperation];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerCheckoutSettings alloc] initWithString:jsonResult error:nil];

@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetValidationResultsOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetValidationResultsOperationWithOrderId:(NSString *)orderId {
 	id url = [MOZUOrderValidationResultURLComponents URLComponentsForGetValidationResultsOperationWithOrderId:orderId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
@@ -50,13 +49,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddValidationResultOperationWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForAddValidationResultOperationWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId {
 	id url = [MOZUOrderValidationResultURLComponents URLComponentsForAddValidationResultOperationWithOrderId:orderId];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrderValidationResult alloc] initWithString:jsonResult error:nil];

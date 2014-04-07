@@ -44,9 +44,9 @@ Retrieves the details of an item in a shopper wish list.
 @param wishlistItemId Unique identifier of the wish list associated with the item to retrieve.
 */
 
-- (void)wishlistItemWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistItemWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistItemClient clientForGetWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
+	MOZUClient *client = [MOZUWishlistItemClient clientForGetWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -64,9 +64,9 @@ Retrieves a list of items in a shopper wish list according to any specified filt
 @param wishlistId Unique identifier of the wish list associated with the items to retrieve.
 */
 
-- (void)wishlistItemsWithWishlistId:(NSString *)wishlistId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUWishlistItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistItemsWithWishlistId:(NSString *)wishlistId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUWishlistItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistItemClient clientForGetWishlistItemsOperationWithWishlistId:wishlistId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUWishlistItemClient clientForGetWishlistItemsOperationWithWishlistId:wishlistId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@ Retrieves a list of items in a shopper wish list according to any specified filt
 @param wishlistName 
 */
 
-- (void)wishlistItemsByWishlistNameWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUWishlistItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistItemsByWishlistNameWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUWishlistItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistItemClient clientForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:customerAccountId wishlistName:wishlistName startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUWishlistItemClient clientForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:customerAccountId wishlistName:wishlistName startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@ Adds a product in a site's catalog as an item in a shopper wish list.
 @param wishlistId Unique identifier of the wish list associated with the item to add.
 */
 
-- (void)addItemToWishlistWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addItemToWishlistWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistItemClient clientForAddItemToWishlistOperationWithBody:body wishlistId:wishlistId userClaims:userClaims];
+	MOZUClient *client = [MOZUWishlistItemClient clientForAddItemToWishlistOperationWithBody:body wishlistId:wishlistId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -134,9 +134,9 @@ Updates the details of an item in a shopper wish list.
 @param wishlistItemId Unique identifier of the item in the shopper wish list to update.
 */
 
-- (void)updateWishlistItemWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateWishlistItemWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistItemClient clientForUpdateWishlistItemOperationWithBody:body wishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
+	MOZUClient *client = [MOZUWishlistItemClient clientForUpdateWishlistItemOperationWithBody:body wishlistId:wishlistId wishlistItemId:wishlistItemId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -152,9 +152,9 @@ Updates the quantity of an item in a shopper wish list.
 @param wishlistItemId Unique identifier of the item in the wish list to update quantity.
 */
 
-- (void)updateWishlistItemQuantityWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateWishlistItemQuantityWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistItemClient clientForUpdateWishlistItemQuantityOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId quantity:quantity userClaims:userClaims];
+	MOZUClient *client = [MOZUWishlistItemClient clientForUpdateWishlistItemQuantityOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId quantity:quantity];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -175,9 +175,9 @@ Removes all items associated with a shopper wish list.
 @param wishlistId Unique identifier of the wish list associated with the items to remove.
 */
 
-- (void)removeAllWishlistItemsWithWishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeAllWishlistItemsWithWishlistId:(NSString *)wishlistId completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistItemClient clientForRemoveAllWishlistItemsOperationWithWishlistId:wishlistId userClaims:userClaims];
+	MOZUClient *client = [MOZUWishlistItemClient clientForRemoveAllWishlistItemsOperationWithWishlistId:wishlistId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -192,9 +192,9 @@ Removes an item from the wish list specified in the request.
 @param wishlistItemId Unique identifier of the item to remove from the shopper wish list.
 */
 
-- (void)deleteWishlistItemWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteWishlistItemWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistItemClient clientForDeleteWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId userClaims:userClaims];
+	MOZUClient *client = [MOZUWishlistItemClient clientForDeleteWishlistItemOperationWithWishlistId:wishlistId wishlistItemId:wishlistItemId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

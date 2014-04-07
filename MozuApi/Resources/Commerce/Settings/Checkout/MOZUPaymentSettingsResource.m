@@ -42,9 +42,9 @@
 Retrieves the details of the third-party payment service workflows configured for the site.
 */
 
-- (void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)thirdPartyPaymentWorkflowsWithCompletionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPaymentSettingsClient clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUPaymentSettingsClient clientForGetThirdPartyPaymentWorkflowsOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

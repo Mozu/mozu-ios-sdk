@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUCart.h"
 #import "MOZUCartSummary.h"
 
@@ -28,33 +27,33 @@ Retrieves the cart specified in the request.
 @param cartId Identifier of the cart to retrieve.
 */
 
-+ (MOZUClient *)clientForGetCartOperationWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetCartOperationWithCartId:(NSString *)cartId;
 
 /**
 Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
 */
 
-+ (MOZUClient *)clientForGetOrCreateCartOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetOrCreateCartOperation;
 
 /**
 Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 */
 
-+ (MOZUClient *)clientForGetCartSummaryOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetCartSummaryOperation;
 
 /**
 Retrieves the cart of the user specified in the request.
 @param userId Unique identifier of the user whose cart you want to retrieve.
 */
 
-+ (MOZUClient *)clientForGetUserCartOperationWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetUserCartOperationWithUserId:(NSString *)userId;
 
 /**
 Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 @param userId Unique identifier of the user whose cart details you want to retrieve.
 */
 
-+ (MOZUClient *)clientForGetUserCartSummaryOperationWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetUserCartSummaryOperationWithUserId:(NSString *)userId;
 
 
 //
@@ -75,7 +74,7 @@ Update the current shopper's cart.
 @param body All of the properties of the cart to update. The product code is required.
 */
 
-+ (MOZUClient *)clientForUpdateCartOperationWithBody:(MOZUCart *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateCartOperationWithBody:(MOZUCart *)body;
 
 
 //
@@ -89,13 +88,13 @@ Deletes the cart specified in the request.
 @param cartId Identifier of the cart to delete.
 */
 
-+ (MOZUClient *)clientForDeleteCartOperationWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteCartOperationWithCartId:(NSString *)cartId;
 
 /**
 Deletes the cart of the currently active shopper.
 */
 
-+ (MOZUClient *)clientForDeleteCurrentCartOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteCurrentCartOperation;
 
 
 

@@ -22,12 +22,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetEventsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetEventsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	id url = [MOZUEventNotificationURLComponents URLComponentsForGetEventsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUEventCollection alloc] initWithString:jsonResult error:nil];
@@ -36,12 +35,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetEventOperationWithEventId:(NSString *)eventId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetEventOperationWithEventId:(NSString *)eventId {
 	id url = [MOZUEventNotificationURLComponents URLComponentsForGetEventOperationWithEventId:eventId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUEvent alloc] initWithString:jsonResult error:nil];

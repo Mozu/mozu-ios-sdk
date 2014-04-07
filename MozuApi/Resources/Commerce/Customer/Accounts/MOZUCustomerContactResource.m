@@ -44,9 +44,9 @@ Retrieves the specified contact for a customer account such as a billing or ship
 @param contactId Unique identifier of the customer account contact to retrieve.
 */
 
-- (void)accountContactWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerContact *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)accountContactWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId completionHandler:(void(^)(MOZUCustomerContact *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerContactClient clientForGetAccountContactOperationWithAccountId:accountId contactId:contactId userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerContactClient clientForGetAccountContactOperationWithAccountId:accountId contactId:contactId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -64,9 +64,9 @@ Retrieves a list of contacts for a customer according to any specified filter cr
 @param startIndex 
 */
 
-- (void)accountContactsWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerContactCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)accountContactsWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUCustomerContactCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerContactClient clientForGetAccountContactsOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerContactClient clientForGetAccountContactsOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -88,9 +88,9 @@ Creates a new contact for a customer account such as a new shipping address.
 @param accountId Unique identifier of the customer account containing the new contact.
 */
 
-- (void)addAccountContactWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerContact *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addAccountContactWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUCustomerContact *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerContactClient clientForAddAccountContactOperationWithBody:body accountId:accountId userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerContactClient clientForAddAccountContactOperationWithBody:body accountId:accountId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -113,9 +113,9 @@ Updates a contact for a specified customer account such as to update addresses o
 @param contactId Unique identifer of the customer account contact being updated.
 */
 
-- (void)updateAccountContactWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerContact *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAccountContactWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId completionHandler:(void(^)(MOZUCustomerContact *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerContactClient clientForUpdateAccountContactOperationWithBody:body accountId:accountId contactId:contactId userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerContactClient clientForUpdateAccountContactOperationWithBody:body accountId:accountId contactId:contactId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -137,9 +137,9 @@ Deletes a contact for the specified customer account.
 @param contactId Unique identifier of the customer account contact to delete.
 */
 
-- (void)deleteAccountContactWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteAccountContactWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerContactClient clientForDeleteAccountContactOperationWithAccountId:accountId contactId:contactId userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerContactClient clientForDeleteAccountContactOperationWithAccountId:accountId contactId:contactId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUDocument.h"
 
 
@@ -28,7 +27,7 @@ Retrieves a document based on its document list and folder path in the document 
 @param documentName The name of the document, which is unique within its folder.
 */
 
-+ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 /**
 Retrieve the content associated with the document, such as a product image or PDF specifications file.
@@ -36,7 +35,7 @@ Retrieve the content associated with the document, such as a product image or PD
 @param documentName The name of the document, which is unique within its folder.
 */
 
-+ (MOZUClient *)clientForGetTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 
 //
@@ -59,7 +58,7 @@ Updates the content associated with a document, such as a product image or PDF s
 @param documentName The name of the document, which is unique within its folder.
 */
 
-+ (MOZUClient *)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 
 //
@@ -75,7 +74,7 @@ Deletes the content associated with a document, such as a product image or PDF s
 @param documentName The name of the document, which is unique within its folder.
 */
 
-+ (MOZUClient *)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 
 

@@ -39,7 +39,6 @@ static
 @interface MOZUClient : NSObject
 
 // These can be used to configure client behavior.
-@property (nonatomic, strong) MOZUUserAuthTicket *userClaims;
 @property (nonatomic, strong) MOZUAPIContext *context;
 @property (nonatomic, strong) MOZUClientJSONParserBlock JSONParser; // Used to convert network response into "result" in completion handler.
 @property (nonatomic, strong) id body;

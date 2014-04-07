@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZURateRequest.h"
 #import "MOZURatesResponse.h"
 
@@ -35,7 +34,7 @@
 @param body 
 */
 
-+ (MOZUClient *)clientForGetRatesOperationWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetRatesOperationWithBody:(MOZURateRequest *)body;
 
 
 //

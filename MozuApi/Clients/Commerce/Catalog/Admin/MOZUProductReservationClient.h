@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUProductReservation.h"
 #import "MOZUProductReservationCollection.h"
 
@@ -31,14 +30,14 @@ Retrieves a list of product reservations according to any specified filter crite
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Retrieves the details of a product reservation.
 @param productReservationId Unique identifier of the product reservation.
 */
 
-+ (MOZUClient *)clientForGetProductReservationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetProductReservationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId;
 
 
 //
@@ -53,14 +52,14 @@ Retrieves the details of a product reservation.
 @param skipInventoryCheck 
 */
 
-+ (MOZUClient *)clientForAddProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 /**
 
 @param body 
 */
 
-+ (MOZUClient *)clientForCommitReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCommitReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body;
 
 
 //
@@ -75,7 +74,7 @@ Retrieves the details of a product reservation.
 @param skipInventoryCheck 
 */
 
-+ (MOZUClient *)clientForUpdateProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateProductReservationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
 
 //
@@ -89,7 +88,7 @@ Deletes a product reservation. For example, delete a reservation when an order i
 @param productReservationId Unique identifier of the reservation.
 */
 
-+ (MOZUClient *)clientForDeleteProductReservationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteProductReservationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId;
 
 
 

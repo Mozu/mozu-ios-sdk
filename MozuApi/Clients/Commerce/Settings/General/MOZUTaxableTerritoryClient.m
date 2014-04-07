@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetTaxableTerritoriesOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetTaxableTerritoriesOperation {
 	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForGetTaxableTerritoriesOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
@@ -43,13 +42,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory *)body {
 	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForAddTaxableTerritoryOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUTaxableTerritory alloc] initWithString:jsonResult error:nil];
@@ -65,13 +63,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateTaxableTerritoriesOperationWithBody:(NSArray<MOZUTaxableTerritory> *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateTaxableTerritoriesOperationWithBody:(NSArray<MOZUTaxableTerritory> *)body {
 	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForUpdateTaxableTerritoriesOperation];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];

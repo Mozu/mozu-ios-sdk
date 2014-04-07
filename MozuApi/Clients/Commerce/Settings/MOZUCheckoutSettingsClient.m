@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCheckoutSettingsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetCheckoutSettingsOperation {
 	id url = [MOZUCheckoutSettingsURLComponents URLComponentsForGetCheckoutSettingsOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCheckoutSettings alloc] initWithString:jsonResult error:nil];

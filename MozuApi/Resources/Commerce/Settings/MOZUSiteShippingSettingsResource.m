@@ -42,9 +42,9 @@
 Retrieves a list of the shipping settings configured for a site.
 */
 
-- (void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)siteShippingSettingsWithCompletionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

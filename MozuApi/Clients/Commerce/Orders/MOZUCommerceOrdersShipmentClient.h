@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUShipment.h"
 #import "MOZUCommercePackage.h"
 #import "MOZUShippingRate.h"
@@ -30,14 +29,14 @@ Retrieves the details of the order shipment specified in the request.
 @param shipmentId Unique identifier of the shipment to retrieve.
 */
 
-+ (MOZUClient *)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;
 
 /**
 Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 */
 
-+ (MOZUClient *)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId;
 
 
 //
@@ -52,7 +51,7 @@ Creates a shipment from one or more package associated with an order and assign 
 @param orderId Unique identifier of the order for this shipment.
 */
 
-+ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSString *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSString *)body orderId:(NSString *)orderId;
 
 
 //
@@ -74,7 +73,7 @@ Deletes the shipment specified in the request.
 @param shipmentId Unique identifier of the shipment to cancel.
 */
 
-+ (MOZUClient *)clientForDeleteShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;
 
 
 

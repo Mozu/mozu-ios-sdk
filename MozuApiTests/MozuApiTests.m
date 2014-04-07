@@ -136,7 +136,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
             XCTAssertNil(response, @"Resource not nil but had error.");
             self.waitingForBlock = NO;
         } else {
-            [tenantResource tenantWithTenantId:tenantID userClaims:nil completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [tenantResource tenantWithTenantId:tenantID completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (error) {
                     DDLogError(@"%@", error.localizedDescription);
                     XCTAssertNil(result, @"Result not nil but had error.");
@@ -204,7 +204,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
-        [adminProductResource productWithDataViewMode:MOZULive productCode:[@(productCode) stringValue] userClaims:nil completionHandler:^(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        [adminProductResource productWithDataViewMode:MOZULive productCode:[@(productCode) stringValue] completionHandler:^(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
                 XCTAssertNil(error, @"Result with error.");
@@ -238,7 +238,6 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                                                      q:nil
                                                 qLimit:@(100)
                                                noCount:@(NO)
-                                            userClaims:nil
                                      completionHandler:^(MOZUAdminProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                                          if (result) {
                                              DDLogDebug(@"result = %@", result);
@@ -269,17 +268,20 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
     
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
-        [adminProductResource productInCatalogsWithDataViewMode:MOZULive productCode:[@(productCode) stringValue] userClaims:nil completionHandler:^(NSArray<MOZUProductInCatalogInfo> *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-            if (result) {
-                DDLogDebug(@"result = %@", result);
-                XCTAssertNil(error, @"Result with error.");
-            } else {
-                DDLogError(@"%@", error.localizedDescription);
-                XCTAssertNotNil(error, @"Result nil but had no error.");
-                XCTFail(@"%@", error);
-            }
-            self.waitingForBlock = NO;
-        }];
+        [adminProductResource productInCatalogsWithDataViewMode:MOZULive
+                                                    productCode:[@(productCode) stringValue]
+                                              completionHandler:^(NSArray<MOZUProductInCatalogInfo> *result, MOZUAPIError *error, NSHTTPURLResponse *response)
+         {
+             if (result) {
+                 DDLogDebug(@"result = %@", result);
+                 XCTAssertNil(error, @"Result with error.");
+             } else {
+                 DDLogError(@"%@", error.localizedDescription);
+                 XCTAssertNotNil(error, @"Result nil but had no error.");
+                 XCTFail(@"%@", error);
+             }
+             self.waitingForBlock = NO;
+         }];
     }];
     
     [self waitForBlock];
@@ -289,7 +291,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
 {
     // Authentication
     MOZUAppAuthInfo *appAuthInfo = [self appAuthInfo];
-    
+ 
     // Refresh interval
     NSTimeInterval accessTokenInterval = 0.5 * 60.0;
     NSTimeInterval refreshTokenInterval = 2.0 * 60.0;
@@ -317,7 +319,6 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                                                                          parameters:@{@"productCode": @(productCode)}
                                                                            location:MOZUTenantPod useSSL:useSSL];
         MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:components verb:@"GET"];
-        client.userClaims = userClaims;
         client.JSONParser = ^(NSString *JSONResult) {
             JSONModelError *JSONError = nil;
             JSONModel *model = [[MOZUAdminProduct alloc] initWithString:JSONResult error:&JSONError];
@@ -328,6 +329,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
         };
 
         client.context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
+        client.context.userAuthTicket = userClaims;
         client.context.tenantHost = self.tenantHost;
         NSString *dataViewModeString = [@(MOZULive) stringValue];
         [client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
@@ -374,8 +376,8 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
         address.countryCode = @"US";
         address.addressType = @"Residential";
         validationRequest.address = address;
-
-        [addressValidationResource validateAddressWithBody:validationRequest userClaims:nil completionHandler:^(MOZUAddressValidationResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+        [addressValidationResource validateAddressWithBody:validationRequest completionHandler:^(MOZUAddressValidationResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
                 XCTAssertNil(error, @"Result with error.");
@@ -441,7 +443,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
         
         MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
         DDLogDebug(@"BEFORE: User access token expiration: %@", userClaims.accessTokenExpiration);
-        [tenantResource tenantWithTenantId:tenantID userClaims:userClaims completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        [tenantResource tenantWithTenantId:tenantID completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             DDLogDebug(@"After: User access token expiration: %@", userClaims.accessTokenExpiration);
             if (result) {
                 DDLogDebug(@"result = %@", [@(result.id) stringValue]);
@@ -550,8 +552,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
             XCTAssertNil(error, @"Result with error.");
             if (profile.authTicket) {
                 MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:nil catalogId:nil];
+                context.userAuthTicket = profile.authTicket;
+                
                 MOZULocationResource *locationResource = [[MOZULocationResource alloc] initWithAPIContext:context];
-                [locationResource locationsInUsageTypeWithLocationUsageType:@"SP" startIndex:nil pageSize:nil sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                [locationResource locationsInUsageTypeWithLocationUsageType:@"SP" startIndex:nil pageSize:nil sortBy:nil filter:nil completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                     if (result) {
                         XCTAssertNil(error, @"Result with error.");
                         DDLogDebug(@"%@", result);
@@ -585,8 +589,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
             XCTAssertNil(error, @"Result with error.");
             if (profile.authTicket) {
                 MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:nil catalogId:nil];
+                context.userAuthTicket = profile.authTicket;
+                
                 MOZUAdminLocationResource *locationResource = [[MOZUAdminLocationResource alloc] initWithAPIContext:context];
-                [locationResource locationsWithStartIndex:nil pageSize:nil sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                [locationResource locationsWithStartIndex:nil pageSize:nil sortBy:nil filter:nil completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                     if (result) {
                         XCTAssertNil(error, @"Result with error.");
                         DDLogDebug(@"%@", result);
@@ -620,9 +626,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile.authTicket) {
             MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            context.userAuthTicket = profile.authTicket;
             
             MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
-            [runtimeProductResource productsWithFilter:nil startIndex:@0 pageSize:@200 sortBy:nil userClaims:profile.authTicket completionHandler:^(MOZURuntimeProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [runtimeProductResource productsWithFilter:nil startIndex:@0 pageSize:@200 sortBy:nil completionHandler:^(MOZURuntimeProductCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     XCTAssertNil(error, @"Result with error.");
                     DDLogDebug(@"%@", result);
@@ -649,9 +656,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile.authTicket) {
             MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            context.userAuthTicket = profile.authTicket;
             
             MOZUAdminLocationInventoryResource *locationInventoryResource = [[MOZUAdminLocationInventoryResource alloc] initWithAPIContext:context];
-            [locationInventoryResource locationInventoriesWithDataViewMode:MOZULive locationCode:@"homebase" startIndex:@0 pageSize:@200 sortBy:nil filter:nil userClaims:profile.authTicket completionHandler:^(MOZUAdminLocationInventoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [locationInventoryResource locationInventoriesWithDataViewMode:MOZULive locationCode:@"homebase" startIndex:@0 pageSize:@200 sortBy:nil filter:nil completionHandler:^(MOZUAdminLocationInventoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     XCTAssertNil(error, @"Result with error.");
                     DDLogDebug(@"%@", result);
@@ -678,9 +686,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile.authTicket) {
             MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            context.userAuthTicket = profile.authTicket;
             
             MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
-            [runtimeProductResource productWithProductCode:@"1001" variationProductCode:nil allowInactive:@NO skipInventoryCheck:@YES userClaims:profile.authTicket completionHandler:^(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [runtimeProductResource productWithProductCode:@"1001" variationProductCode:nil allowInactive:@NO skipInventoryCheck:@YES completionHandler:^(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     XCTAssertNil(error, @"Result with error.");
                     DDLogDebug(@"%@", result);
@@ -707,9 +716,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile.authTicket) {
             MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantID siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            context.userAuthTicket = profile.authTicket;
             
             MOZUCustomerAccountResource *customerAccountResource = [[MOZUCustomerAccountResource alloc] initWithAPIContext:context];
-            [customerAccountResource accountsWithStartIndex:@0 pageSize:@200 sortBy:nil filter:nil fields:nil q:nil qLimit:@100 isAnonymous:@NO userClaims:profile.authTicket completionHandler:^(MOZUCustomerAccountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [customerAccountResource accountsWithStartIndex:@0 pageSize:@200 sortBy:nil filter:nil fields:nil q:nil qLimit:@100 isAnonymous:@NO completionHandler:^(MOZUCustomerAccountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     XCTAssertNil(error, @"Result with error.");
                     DDLogDebug(@"%@", result);
@@ -735,9 +745,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile.authTicket) {
             MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            context.userAuthTicket = profile.authTicket;
             
             MOZUOrderResource *orderResource = [[MOZUOrderResource alloc] initWithAPIContext:context];
-            [orderResource ordersWithStartIndex:@0 pageSize:@200 sortBy:nil filter:@"customerAccountId+eq+1001" q:nil qLimit:@100 userClaims:profile.authTicket completionHandler:^(MOZUOrderCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [orderResource ordersWithStartIndex:@0 pageSize:@200 sortBy:nil filter:@"customerAccountId+eq+1001" q:nil qLimit:@100 completionHandler:^(MOZUOrderCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     XCTAssertNil(error, @"Result with error.");
                     DDLogDebug(@"%@", result);
@@ -765,9 +776,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile.authTicket) {
             MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            context.userAuthTicket = profile.authTicket;
             
             MOZUOrderResource *orderResource = [[MOZUOrderResource alloc] initWithAPIContext:context];
-            [orderResource ordersWithStartIndex:@0 pageSize:@200 sortBy:nil filter:nil q:nil qLimit:@100 userClaims:profile.authTicket completionHandler:^(MOZUOrderCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [orderResource ordersWithStartIndex:@0 pageSize:@200 sortBy:nil filter:nil q:nil qLimit:@100 completionHandler:^(MOZUOrderCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     XCTAssertNil(error, @"Result with error.");
                     DDLogDebug(@"%@", result);
@@ -793,9 +805,10 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (profile.authTicket) {
             MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:scope.id siteId:self.siteID masterCatalogId:@1 catalogId:@1];
+            context.userAuthTicket = profile.authTicket;
             
             MOZUOrderResource *orderResource = [[MOZUOrderResource alloc] initWithAPIContext:context];
-            [orderResource orderWithOrderId:@"043ce5dd157c2819fcfcf8960000098a" draft:@(NO) userClaims:profile.authTicket completionHandler:^(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [orderResource orderWithOrderId:@"043ce5dd157c2819fcfcf8960000098a" draft:@(NO) completionHandler:^(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     XCTAssertNil(error, @"Result with error.");
                     DDLogDebug(@"%@", result);

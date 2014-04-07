@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetTenantOperationWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetTenantOperationWithTenantId:(NSInteger)tenantId {
 	id url = [MOZUTenantURLComponents URLComponentsForGetTenantOperationWithTenantId:tenantId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUTenant alloc] initWithString:jsonResult error:nil];

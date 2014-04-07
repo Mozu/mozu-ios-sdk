@@ -60,9 +60,9 @@ Applies a shipping adjustment to the specified order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-- (void)applyShippingAdjustmentWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applyShippingAdjustmentWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdjustmentClient clientForApplyShippingAdjustmentOperationWithBody:body orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient *client = [MOZUAdjustmentClient clientForApplyShippingAdjustmentOperationWithBody:body orderId:orderId updateMode:updateMode version:version];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -79,9 +79,9 @@ Applies a price adjustment to the specified order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-- (void)applyAdjustmentWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applyAdjustmentWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdjustmentClient clientForApplyAdjustmentOperationWithBody:body orderId:orderId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient *client = [MOZUAdjustmentClient clientForApplyAdjustmentOperationWithBody:body orderId:orderId updateMode:updateMode version:version];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -104,9 +104,9 @@ Removes a shipping adjustment previously applied to an order or draft.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-- (void)removeShippingAdjustmentWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeShippingAdjustmentWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdjustmentClient clientForRemoveShippingAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient *client = [MOZUAdjustmentClient clientForRemoveShippingAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -122,9 +122,9 @@ Removes a price adjustment from the specified order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-- (void)removeAdjustmentWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeAdjustmentWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdjustmentClient clientForRemoveAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version userClaims:userClaims];
+	MOZUClient *client = [MOZUAdjustmentClient clientForRemoveAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

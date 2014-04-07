@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUGeneralSettings.h"
 
 
@@ -34,7 +33,7 @@
 Retrieve a site's general global settings.
 */
 
-- (void)generalSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)generalSettingsWithCompletionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -55,7 +54,7 @@ Updates a site's general global settings.
 @param body The properties of the site's general settings to update.
 */
 
-- (void)updateGeneralSettingsWithBody:(MOZUGeneralSettings *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateGeneralSettingsWithBody:(MOZUGeneralSettings *)body completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -23,12 +23,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy {
 	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZURuntimeCategoryPagedCollection alloc] initWithString:jsonResult error:nil];
@@ -37,12 +36,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive {
 	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZURuntimeCategory alloc] initWithString:jsonResult error:nil];
@@ -51,12 +49,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCategoryTreeOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetCategoryTreeOperation {
 	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryTreeOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZURuntimeCategoryCollection alloc] initWithString:jsonResult error:nil];

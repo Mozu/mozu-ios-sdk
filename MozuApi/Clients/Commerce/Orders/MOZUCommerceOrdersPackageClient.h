@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUCommercePackage.h"
 
 
@@ -28,7 +27,7 @@ Retrieves the details of a package of order items.
 @param packageId Unique identifier of the package to retrieve.
 */
 
-+ (MOZUClient *)clientForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
 /**
 Retrieves a list of the actions available to perform for a package associated with order fulfillment.
@@ -36,7 +35,7 @@ Retrieves a list of the actions available to perform for a package associated wi
 @param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 */
 
-+ (MOZUClient *)clientForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
 /**
 Retrieves the package label image supplied by the carrier.
@@ -44,7 +43,7 @@ Retrieves the package label image supplied by the carrier.
 @param packageId Unique identifier of the package for which to retrieve the label.
 */
 
-+ (MOZUClient *)clientForGetPackageLabelOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetPackageLabelOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
 
 //
@@ -59,7 +58,7 @@ Creates a new physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
 */
 
-+ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId;
 
 
 //
@@ -75,7 +74,7 @@ Updates one or more properties of a physical package of order items.
 @param packageId Unique identifier of the package of order items to update.
 */
 
-+ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId;
 
 
 //
@@ -90,7 +89,7 @@ Removes a physical package of items from the specified order.
 @param packageId Unique identifier of the package to delete.
 */
 
-+ (MOZUClient *)clientForDeletePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeletePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
 
 

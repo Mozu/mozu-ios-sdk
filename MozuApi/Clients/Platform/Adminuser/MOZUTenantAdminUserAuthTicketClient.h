@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUUserAuthInfo.h"
 #import "MOZUTenantAdminUserAuthTicket.h"
 
@@ -36,7 +35,7 @@ Creates an authentication ticket for the supplied user to specify in API request
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 */
 
-+ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId;
 
 
 //
@@ -51,7 +50,7 @@ Generates a new user authentication ticket for the specified tenant by supplying
 @param tenantId 
 */
 
-+ (MOZUClient *)clientForRefreshAuthTicketOperationWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForRefreshAuthTicketOperationWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId;
 
 
 //
@@ -65,7 +64,7 @@ Deletes the authentication ticket for the user by supplying the refresh token.
 @param refreshToken Refresh token string associated with the user authentication ticket.
 */
 
-+ (MOZUClient *)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 
 
 

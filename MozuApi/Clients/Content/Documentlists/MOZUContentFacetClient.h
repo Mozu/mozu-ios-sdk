@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUContentFacet.h"
 
 
@@ -28,7 +27,7 @@ Retrieves the properties of facets that aid in indexing and searching.
 @param propertyName The property name associated with the facets to retrieve.
 */
 
-+ (MOZUClient *)clientForGetFacetsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName propertyName:(NSString *)propertyName userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetFacetsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName propertyName:(NSString *)propertyName;
 
 
 //

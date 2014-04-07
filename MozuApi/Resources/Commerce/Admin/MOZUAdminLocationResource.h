@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZULocation.h"
 #import "MOZULocationCollection.h"
 
@@ -39,14 +38,14 @@
 @param startIndex 
 */
 
-- (void)locationsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 
 @param locationCode 
 */
 
-- (void)locationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationWithLocationCode:(NSString *)locationCode completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -60,7 +59,7 @@
 @param body 
 */
 
-- (void)addLocationWithBody:(MOZULocation *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addLocationWithBody:(MOZULocation *)body completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -75,7 +74,7 @@
 @param locationCode 
 */
 
-- (void)updateLocationWithBody:(MOZULocation *)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateLocationWithBody:(MOZULocation *)body locationCode:(NSString *)locationCode completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -89,7 +88,7 @@
 @param locationCode 
 */
 
-- (void)deleteLocationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteLocationWithLocationCode:(NSString *)locationCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

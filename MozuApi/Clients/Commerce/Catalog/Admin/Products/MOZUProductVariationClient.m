@@ -23,7 +23,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey {
 	id url = [MOZUProductVariationURLComponents URLComponentsForGetProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -31,7 +31,6 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUProductVariation alloc] initWithString:jsonResult error:nil];
@@ -40,7 +39,7 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	id url = [MOZUProductVariationURLComponents URLComponentsForGetProductVariationsOperationWithProductCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -48,7 +47,6 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUProductVariationPagedCollection alloc] initWithString:jsonResult error:nil];
@@ -71,7 +69,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection *)body productCode:(NSString *)productCode {
 	id url = [MOZUProductVariationURLComponents URLComponentsForUpdateProductVariationsOperationWithProductCode:productCode];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -80,7 +78,6 @@
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUProductVariationCollection alloc] initWithString:jsonResult error:nil];
@@ -89,7 +86,7 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey {
 	id url = [MOZUProductVariationURLComponents URLComponentsForUpdateProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -98,7 +95,6 @@
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUProductVariation alloc] initWithString:jsonResult error:nil];
@@ -114,7 +110,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForDeleteProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey {
 	id url = [MOZUProductVariationURLComponents URLComponentsForDeleteProductVariationOperationWithProductCode:productCode variationKey:variationKey];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -122,7 +118,6 @@
 	NSString *dataViewModeString = [@(dataViewMode) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
-	client.userClaims = userClaims;
 	return client;
 }
 

@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUInstalledApplications.h"
 
 
@@ -27,7 +26,7 @@
 @param appId 
 */
 
-+ (MOZUClient *)clientForGetApplicationOperationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetApplicationOperationWithAppId:(NSString *)appId;
 
 
 //
@@ -49,7 +48,7 @@
 @param appId 
 */
 
-+ (MOZUClient *)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId;
 
 
 //

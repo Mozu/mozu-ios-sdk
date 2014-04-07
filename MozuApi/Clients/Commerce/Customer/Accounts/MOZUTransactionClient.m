@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetTransactionsOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetTransactionsOperationWithAccountId:(NSInteger)accountId {
 	id url = [MOZUTransactionURLComponents URLComponentsForGetTransactionsOperationWithAccountId:accountId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
@@ -43,13 +42,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId {
 	id url = [MOZUTransactionURLComponents URLComponentsForAddTransactionOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUTransaction alloc] initWithString:jsonResult error:nil];
@@ -72,12 +70,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId {
 	id url = [MOZUTransactionURLComponents URLComponentsForRemoveTransactionOperationWithAccountId:accountId transactionId:transactionId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 

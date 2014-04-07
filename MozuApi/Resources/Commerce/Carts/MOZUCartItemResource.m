@@ -42,9 +42,9 @@
 Retrieves a list of cart items including the total number of items in the cart.
 */
 
-- (void)cartItemsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)cartItemsWithCompletionHandler:(void(^)(MOZUCartItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartItemClient clientForGetCartItemsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUCartItemClient clientForGetCartItemsOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -58,9 +58,9 @@ Retrieves a particular cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to retrieve.
 */
 
-- (void)cartItemWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)cartItemWithCartItemId:(NSString *)cartItemId completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartItemClient clientForGetCartItemOperationWithCartItemId:cartItemId userClaims:userClaims];
+	MOZUClient *client = [MOZUCartItemClient clientForGetCartItemOperationWithCartItemId:cartItemId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -81,9 +81,9 @@ Adds a product to the current shopper's cart.
 @param body All properties of the new cart item. The product code is required.
 */
 
-- (void)addItemToCartWithBody:(MOZUCartItem *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addItemToCartWithBody:(MOZUCartItem *)body completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartItemClient clientForAddItemToCartOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUCartItemClient clientForAddItemToCartOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -105,9 +105,9 @@ Update the product or product quantity of an item in the current shopper's cart.
 @param cartItemId Identifier of the cart item to update.
 */
 
-- (void)updateCartItemWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCartItemWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartItemClient clientForUpdateCartItemOperationWithBody:body cartItemId:cartItemId userClaims:userClaims];
+	MOZUClient *client = [MOZUCartItemClient clientForUpdateCartItemOperationWithBody:body cartItemId:cartItemId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -122,9 +122,9 @@ Update the quantity of an individual cart item in the cart of the current shoppe
 @param quantity The number of cart items in the shopper's active cart.
 */
 
-- (void)updateCartItemQuantityWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCartItemQuantityWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartItemClient clientForUpdateCartItemQuantityOperationWithCartItemId:cartItemId quantity:quantity userClaims:userClaims];
+	MOZUClient *client = [MOZUCartItemClient clientForUpdateCartItemQuantityOperationWithCartItemId:cartItemId quantity:quantity];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -144,9 +144,9 @@ Update the quantity of an individual cart item in the cart of the current shoppe
 Removes all items in the current shopper's active cart.
 */
 
-- (void)removeAllCartItemsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeAllCartItemsWithCompletionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartItemClient clientForRemoveAllCartItemsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUCartItemClient clientForRemoveAllCartItemsOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -160,9 +160,9 @@ Deletes a specific cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to delete.
 */
 
-- (void)deleteCartItemWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteCartItemWithCartItemId:(NSString *)cartItemId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartItemClient clientForDeleteCartItemOperationWithCartItemId:cartItemId userClaims:userClaims];
+	MOZUClient *client = [MOZUCartItemClient clientForDeleteCartItemOperationWithCartItemId:cartItemId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

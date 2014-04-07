@@ -43,9 +43,9 @@
 @param appId 
 */
 
-- (void)applicationWithAppId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applicationWithAppId:(NSString *)appId completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetApplicationOperationWithAppId:appId userClaims:userClaims];
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetApplicationOperationWithAppId:appId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -74,9 +74,9 @@
 @param appId 
 */
 
-- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPlatformApplicationClient clientForUpdateApplicationOperationWithBody:body appId:appId userClaims:userClaims];
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForUpdateApplicationOperationWithBody:body appId:appId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

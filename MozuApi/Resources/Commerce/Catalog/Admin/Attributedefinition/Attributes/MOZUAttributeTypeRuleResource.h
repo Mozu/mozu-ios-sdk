@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUAttributeTypeRuleCollection.h"
 
 
@@ -38,7 +37,7 @@ Retrieves a list of attribute type rules according to optional filter criteria a
 @param startIndex 
 */
 
-- (void)attributeTypeRulesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAttributeTypeRuleCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributeTypeRulesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUAttributeTypeRuleCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

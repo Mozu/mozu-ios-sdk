@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUTenant.h"
+
+@class MOZUTenant;
+@class MOZUSite;
+@class MOZUAuthTicket;
+@class MOZUUserAuthTicket;
 
 @interface MOZUAPIContext : JSONModel
 
@@ -18,7 +22,8 @@
 @property(nonatomic) NSString *siteHost;
 @property(nonatomic) NSString *correlationId;
 @property(nonatomic) NSString *hmacSHA256;
-@property(nonatomic) NSString *appAuthClaim;
+@property(nonatomic) MOZUAuthTicket *appAuthTicket;
+@property(nonatomic) MOZUUserAuthTicket *userAuthTicket;
 @property(nonatomic) NSNumber *masterCatalogId;
 @property(nonatomic) NSNumber *catalogId;
 @property(nonatomic) MOZUTenant *tenant;

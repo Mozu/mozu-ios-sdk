@@ -35,12 +35,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode {
 	id url = [MOZUCartsAppliedDiscountURLComponents URLComponentsForApplyCouponOperationWithCartId:cartId couponCode:couponCode];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCart alloc] initWithString:jsonResult error:nil];
@@ -56,12 +55,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForRemoveCouponsOperationWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForRemoveCouponsOperationWithCartId:(NSString *)cartId {
 	id url = [MOZUCartsAppliedDiscountURLComponents URLComponentsForRemoveCouponsOperationWithCartId:cartId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCart alloc] initWithString:jsonResult error:nil];
@@ -70,12 +68,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode {
 	id url = [MOZUCartsAppliedDiscountURLComponents URLComponentsForRemoveCouponOperationWithCartId:cartId couponCode:couponCode];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCart alloc] initWithString:jsonResult error:nil];

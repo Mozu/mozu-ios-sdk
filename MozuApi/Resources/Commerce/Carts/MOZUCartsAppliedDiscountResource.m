@@ -58,9 +58,9 @@
 @param couponCode 
 */
 
-- (void)applyCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applyCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForApplyCouponOperationWithCartId:cartId couponCode:couponCode userClaims:userClaims];
+	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForApplyCouponOperationWithCartId:cartId couponCode:couponCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -81,9 +81,9 @@
 @param cartId 
 */
 
-- (void)removeCouponsWithCartId:(NSString *)cartId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeCouponsWithCartId:(NSString *)cartId completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForRemoveCouponsOperationWithCartId:cartId userClaims:userClaims];
+	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForRemoveCouponsOperationWithCartId:cartId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -98,9 +98,9 @@
 @param couponCode 
 */
 
-- (void)removeCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForRemoveCouponOperationWithCartId:cartId couponCode:couponCode userClaims:userClaims];
+	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForRemoveCouponOperationWithCartId:cartId couponCode:couponCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
