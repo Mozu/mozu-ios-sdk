@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUTenant.h"
 
 
@@ -30,7 +29,7 @@ Retrieve details about a specific tenant by providing the tenant ID.
 @param tenantId Unique identifier of the Mozu tenant.
 */
 
-- (void)tenantWithTenantId:(NSInteger)tenantId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)tenantWithTenantId:(NSInteger)tenantId completionHandler:(void(^)(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

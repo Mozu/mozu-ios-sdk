@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUAdminDiscount.h"
 #import "MOZUDiscountLocalizedContent.h"
 #import "MOZUDiscountCollection.h"
@@ -32,27 +31,27 @@ Retrieves a list of discounts according to any specified filter criteria and sor
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Retrieves the details of a single discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+ (MOZUClient *)clientForGetDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId;
 
 /**
 Retrieves the localized content specified for the specified discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+ (MOZUClient *)clientForGetDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId;
 
 /**
 Generates a random code for a coupon.
 */
 
-+ (MOZUClient *)clientForGenerateRandomCouponOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGenerateRandomCouponOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode;
 
 
 //
@@ -66,7 +65,7 @@ Creates a discount.
 @param body Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 */
 
-+ (MOZUClient *)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body;
 
 
 //
@@ -81,7 +80,7 @@ Modifies a discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+ (MOZUClient *)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId;
 
 /**
 Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
@@ -89,7 +88,7 @@ Modifies the localized content for the specified discount. Rename the discount w
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+ (MOZUClient *)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent *)body discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent *)body discountId:(NSInteger)discountId;
 
 
 //
@@ -103,7 +102,7 @@ Deletes a discount specified by its discount ID.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+ (MOZUClient *)clientForDeleteDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId;
 
 
 

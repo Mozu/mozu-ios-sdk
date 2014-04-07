@@ -23,12 +23,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCartItemsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetCartItemsOperation {
 	id url = [MOZUCartItemURLComponents URLComponentsForGetCartItemsOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCartItemCollection alloc] initWithString:jsonResult error:nil];
@@ -37,12 +36,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCartItemOperationWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetCartItemOperationWithCartItemId:(NSString *)cartItemId {
 	id url = [MOZUCartItemURLComponents URLComponentsForGetCartItemOperationWithCartItemId:cartItemId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCartItem alloc] initWithString:jsonResult error:nil];
@@ -58,13 +56,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddItemToCartOperationWithBody:(MOZUCartItem *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForAddItemToCartOperationWithBody:(MOZUCartItem *)body {
 	id url = [MOZUCartItemURLComponents URLComponentsForAddItemToCartOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCartItem alloc] initWithString:jsonResult error:nil];
@@ -80,13 +77,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateCartItemOperationWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateCartItemOperationWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId {
 	id url = [MOZUCartItemURLComponents URLComponentsForUpdateCartItemOperationWithCartItemId:cartItemId];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCartItem alloc] initWithString:jsonResult error:nil];
@@ -95,12 +91,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity {
 	id url = [MOZUCartItemURLComponents URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:cartItemId quantity:quantity];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCartItem alloc] initWithString:jsonResult error:nil];
@@ -116,12 +111,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForRemoveAllCartItemsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForRemoveAllCartItemsOperation {
 	id url = [MOZUCartItemURLComponents URLComponentsForRemoveAllCartItemsOperation];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCart alloc] initWithString:jsonResult error:nil];
@@ -130,12 +124,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForDeleteCartItemOperationWithCartItemId:(NSString *)cartItemId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForDeleteCartItemOperationWithCartItemId:(NSString *)cartItemId {
 	id url = [MOZUCartItemURLComponents URLComponentsForDeleteCartItemOperationWithCartItemId:cartItemId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 

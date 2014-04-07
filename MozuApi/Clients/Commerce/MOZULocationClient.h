@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZULocationCollection.h"
 #import "MOZULocation.h"
 
@@ -28,7 +27,7 @@
 @param code 
 */
 
-+ (MOZUClient *)clientForGetLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetLocationOperationWithCode:(NSString *)code;
 
 /**
 
@@ -36,7 +35,7 @@
 @param locationUsageType 
 */
 
-+ (MOZUClient *)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code;
 
 /**
 
@@ -47,20 +46,20 @@
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 
 */
 
-+ (MOZUClient *)clientForGetDirectShipLocationOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetDirectShipLocationOperation;
 
 /**
 
 @param code 
 */
 
-+ (MOZUClient *)clientForGetInStorePickupLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetInStorePickupLocationOperationWithCode:(NSString *)code;
 
 /**
 
@@ -70,7 +69,7 @@
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 
 //

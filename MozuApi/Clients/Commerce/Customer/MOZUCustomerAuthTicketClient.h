@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUCustomerUserAuthInfo.h"
 #import "MOZUCustomerAuthTicket.h"
 
@@ -35,7 +34,7 @@
 @param body 
 */
 
-+ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUCustomerUserAuthInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUCustomerUserAuthInfo *)body;
 
 
 //
@@ -49,7 +48,7 @@
 @param refreshToken 
 */
 
-+ (MOZUClient *)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 
 
 //

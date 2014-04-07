@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUExternalPaymentWorkflowDefinition.h"
 
 
@@ -34,7 +33,7 @@
 Retrieves the details of the third-party payment service workflows configured for the site.
 */
 
-- (void)thirdPartyPaymentWorkflowsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)thirdPartyPaymentWorkflowsWithCompletionHandler:(void(^)(NSArray<MOZUExternalPaymentWorkflowDefinition> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

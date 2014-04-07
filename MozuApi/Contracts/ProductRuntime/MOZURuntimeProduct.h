@@ -58,7 +58,9 @@ If true, the entity is subject to tax based on the relevant tax rate.
 */
 @property(nonatomic) BOOL isTaxable;
 
-@property(nonatomic) NSArray *mfgPartNumber;
+@property(nonatomic) NSString * mfgPartNumber;
+
+@property(nonatomic) NSArray *mfgPartNumbers;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
@@ -85,7 +87,9 @@ The publishing state of the product definition in the master catalog, which is "
 /**
 The universal product code (UPC code) of the product.
 */
-@property(nonatomic) NSArray *upc;
+@property(nonatomic) NSString * upc;
+
+@property(nonatomic) NSArray *upCs;
 
 /**
 Product code that represents the product variation selected based on the option values the shopper entered.

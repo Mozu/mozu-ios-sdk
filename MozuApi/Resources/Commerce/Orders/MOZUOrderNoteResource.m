@@ -43,9 +43,9 @@ Retrieves a list of all notes for an order.
 @param orderId Unique identifier of the order.
 */
 
-- (void)orderNotesWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUOrderNote> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orderNotesWithOrderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUOrderNote> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderNoteClient clientForGetOrderNotesOperationWithOrderId:orderId userClaims:userClaims];
+	MOZUClient *client = [MOZUOrderNoteClient clientForGetOrderNotesOperationWithOrderId:orderId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -60,9 +60,9 @@ Retrieves the details of a specific order note.
 @param orderId Unique identifier of the order associated with the note.
 */
 
-- (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderNoteClient clientForGetOrderNoteOperationWithOrderId:orderId noteId:noteId userClaims:userClaims];
+	MOZUClient *client = [MOZUOrderNoteClient clientForGetOrderNoteOperationWithOrderId:orderId noteId:noteId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -84,9 +84,9 @@ Creates a new merchant note for the specified order.
 @param orderId Unique identifier of the order for which to add a note.
 */
 
-- (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderNoteClient clientForCreateOrderNoteOperationWithBody:body orderId:orderId userClaims:userClaims];
+	MOZUClient *client = [MOZUOrderNoteClient clientForCreateOrderNoteOperationWithBody:body orderId:orderId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@ Updates a specific note for an order.
 @param orderId Unique identifier of the order.
 */
 
-- (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderNoteClient clientForUpdateOrderNoteOperationWithBody:body orderId:orderId noteId:noteId userClaims:userClaims];
+	MOZUClient *client = [MOZUOrderNoteClient clientForUpdateOrderNoteOperationWithBody:body orderId:orderId noteId:noteId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -133,9 +133,9 @@ Deletes the specified order note.
 @param orderId Unique identifier of the order associated with the note.
 */
 
-- (void)deleteOrderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteOrderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderNoteClient clientForDeleteOrderNoteOperationWithOrderId:orderId noteId:noteId userClaims:userClaims];
+	MOZUClient *client = [MOZUOrderNoteClient clientForDeleteOrderNoteOperationWithOrderId:orderId noteId:noteId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUCustomerUserAuthInfo.h"
 #import "MOZUCustomerAuthTicket.h"
 
@@ -43,7 +42,7 @@
 @param body 
 */
 
-- (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -57,7 +56,7 @@
 @param refreshToken 
 */
 
-- (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUOrderValidationResult.h"
 
 
@@ -27,7 +26,7 @@
 @param orderId 
 */
 
-+ (MOZUClient *)clientForGetValidationResultsOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetValidationResultsOperationWithOrderId:(NSString *)orderId;
 
 
 //
@@ -49,7 +48,7 @@
 @param orderId 
 */
 
-+ (MOZUClient *)clientForAddValidationResultOperationWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddValidationResultOperationWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId;
 
 
 //

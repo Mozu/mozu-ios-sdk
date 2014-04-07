@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUTransaction.h"
 
 
@@ -27,7 +26,7 @@ Retrieves a list of transactions associated with the customer account specified 
 @param accountId Unique identifier of the customer account for which to retrieve transactions.
 */
 
-+ (MOZUClient *)clientForGetTransactionsOperationWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetTransactionsOperationWithAccountId:(NSInteger)accountId;
 
 
 //
@@ -42,7 +41,7 @@ Creates a new transaction for the customer account specified in the request.
 @param accountId Unique identifier of the customer account.
 */
 
-+ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId;
 
 
 //
@@ -64,7 +63,7 @@ Deletes a transaction from the customer account specified in the request.
 @param transactionId Unique identifier of the transaction to delete.
 */
 
-+ (MOZUClient *)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForRemoveTransactionOperationWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId;
 
 
 

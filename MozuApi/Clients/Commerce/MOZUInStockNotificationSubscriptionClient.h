@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUInStockNotificationSubscription.h"
 #import "MOZUInStockNotificationSubscriptionCollection.h"
 
@@ -31,14 +30,14 @@
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 
 @param identifier 
 */
 
-+ (MOZUClient *)clientForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
 
 
 //
@@ -52,7 +51,7 @@
 @param body 
 */
 
-+ (MOZUClient *)clientForAddInStockNotificationSubscriptionOperationWithBody:(MOZUInStockNotificationSubscription *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddInStockNotificationSubscriptionOperationWithBody:(MOZUInStockNotificationSubscription *)body;
 
 
 //
@@ -73,7 +72,7 @@
 @param identifier 
 */
 
-+ (MOZUClient *)clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
 
 
 

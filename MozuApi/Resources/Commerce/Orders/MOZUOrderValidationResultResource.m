@@ -43,9 +43,9 @@
 @param orderId 
 */
 
-- (void)validationResultsWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUOrderValidationResult> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)validationResultsWithOrderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUOrderValidationResult> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderValidationResultClient clientForGetValidationResultsOperationWithOrderId:orderId userClaims:userClaims];
+	MOZUClient *client = [MOZUOrderValidationResultClient clientForGetValidationResultsOperationWithOrderId:orderId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -74,9 +74,9 @@
 @param orderId 
 */
 
-- (void)addValidationResultWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderValidationResult *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addValidationResultWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrderValidationResult *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderValidationResultClient clientForAddValidationResultOperationWithBody:body orderId:orderId userClaims:userClaims];
+	MOZUClient *client = [MOZUOrderValidationResultClient clientForAddValidationResultOperationWithBody:body orderId:orderId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

@@ -46,9 +46,9 @@
 @param startIndex 
 */
 
-- (void)locationsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminLocationClient clientForGetLocationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminLocationClient clientForGetLocationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@
 @param locationCode 
 */
 
-- (void)locationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationWithLocationCode:(NSString *)locationCode completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminLocationClient clientForGetLocationOperationWithLocationCode:locationCode userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminLocationClient clientForGetLocationOperationWithLocationCode:locationCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@
 @param body 
 */
 
-- (void)addLocationWithBody:(MOZULocation *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addLocationWithBody:(MOZULocation *)body completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminLocationClient clientForAddLocationOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminLocationClient clientForAddLocationOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@
 @param locationCode 
 */
 
-- (void)updateLocationWithBody:(MOZULocation *)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateLocationWithBody:(MOZULocation *)body locationCode:(NSString *)locationCode completionHandler:(void(^)(MOZULocation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminLocationClient clientForUpdateLocationOperationWithBody:body locationCode:locationCode userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminLocationClient clientForUpdateLocationOperationWithBody:body locationCode:locationCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -132,9 +132,9 @@
 @param locationCode 
 */
 
-- (void)deleteLocationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteLocationWithLocationCode:(NSString *)locationCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminLocationClient clientForDeleteLocationOperationWithLocationCode:locationCode userClaims:userClaims];
+	MOZUClient *client = [MOZUAdminLocationClient clientForDeleteLocationOperationWithLocationCode:locationCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

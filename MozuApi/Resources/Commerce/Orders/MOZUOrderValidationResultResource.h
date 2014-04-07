@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUOrderValidationResult.h"
 
 
@@ -35,7 +34,7 @@
 @param orderId 
 */
 
-- (void)validationResultsWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUOrderValidationResult> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)validationResultsWithOrderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUOrderValidationResult> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -57,7 +56,7 @@
 @param orderId 
 */
 
-- (void)addValidationResultWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderValidationResult *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addValidationResultWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrderValidationResult *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

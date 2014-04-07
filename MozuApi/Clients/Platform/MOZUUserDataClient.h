@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 
 
 @interface MOZUUserDataClient : NSObject
@@ -26,7 +25,7 @@ Retrieves the value of a record in the Mozu database.
 @param dbEntryQuery The database entry query string used to retrieve the record information.
 */
 
-+ (MOZUClient *)clientForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
 
 
 //
@@ -41,7 +40,7 @@ Creates a new record in the Mozu database based on the information supplied in t
 @param dbEntryQuery The database entry string to create.
 */
 
-+ (MOZUClient *)clientForCreateDBValueOperationWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCreateDBValueOperationWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery;
 
 
 //
@@ -56,7 +55,7 @@ Updates a record in the Mozu database based on the information supplied in the r
 @param dbEntryQuery The database entry query string used to update the record information.
 */
 
-+ (MOZUClient *)clientForUpdateDBValueOperationWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateDBValueOperationWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery;
 
 
 //
@@ -70,7 +69,7 @@ Removes a previously defined record in the Mozu database.
 @param dbEntryQuery The database entry string to delete.
 */
 
-+ (MOZUClient *)clientForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
 
 
 

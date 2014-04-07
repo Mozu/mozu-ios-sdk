@@ -22,12 +22,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId {
 	id url = [MOZUCustomerContactURLComponents URLComponentsForGetAccountContactOperationWithAccountId:accountId contactId:contactId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerContact alloc] initWithString:jsonResult error:nil];
@@ -36,12 +35,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAccountContactsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetAccountContactsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	id url = [MOZUCustomerContactURLComponents URLComponentsForGetAccountContactsOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerContactCollection alloc] initWithString:jsonResult error:nil];
@@ -57,13 +55,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddAccountContactOperationWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForAddAccountContactOperationWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId {
 	id url = [MOZUCustomerContactURLComponents URLComponentsForAddAccountContactOperationWithAccountId:accountId];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerContact alloc] initWithString:jsonResult error:nil];
@@ -79,13 +76,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateAccountContactOperationWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateAccountContactOperationWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId {
 	id url = [MOZUCustomerContactURLComponents URLComponentsForUpdateAccountContactOperationWithAccountId:accountId contactId:contactId];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerContact alloc] initWithString:jsonResult error:nil];
@@ -101,12 +97,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForDeleteAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId {
 	id url = [MOZUCustomerContactURLComponents URLComponentsForDeleteAccountContactOperationWithAccountId:accountId contactId:contactId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 

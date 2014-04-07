@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUProductVariation.h"
 #import "MOZUProductVariationPagedCollection.h"
 #import "MOZUProductVariationCollection.h"
@@ -38,7 +37,7 @@ Retrieves the details of a product variation based on the supplied product code 
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
-- (void)productVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductVariation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)productVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey completionHandler:(void(^)(MOZUProductVariation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of the product variations configured for the specified product code.
@@ -49,7 +48,7 @@ Retrieves a list of the product variations configured for the specified product 
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)productVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductVariationPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)productVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUProductVariationPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -71,7 +70,7 @@ Modifies the collection of variations for the specified product code. Because th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-- (void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductVariationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection *)body productCode:(NSString *)productCode completionHandler:(void(^)(MOZUProductVariationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Modifies the details of a variation, based on the supplied variation key, for the specified product code.
@@ -80,7 +79,7 @@ Modifies the details of a variation, based on the supplied variation key, for th
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
-- (void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductVariation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey completionHandler:(void(^)(MOZUProductVariation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -95,7 +94,7 @@ Deletes a variation, based on the supplied variation key, for the specified prod
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
-- (void)deleteProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteProductVariationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUTenantCollection.h"
 #import "MOZUUser.h"
 
@@ -31,14 +30,14 @@ Retrieves the details of the specified administrator user account.
 @param userId Unique identifier of the administrator account to retrieve.
 */
 
-- (void)userWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUUser *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)userWithUserId:(NSString *)userId completionHandler:(void(^)(MOZUUser *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
 @param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 */
 
-- (void)tenantScopesForUserWithUserId:(NSString *)userId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUTenantCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)tenantScopesForUserWithUserId:(NSString *)userId completionHandler:(void(^)(MOZUTenantCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

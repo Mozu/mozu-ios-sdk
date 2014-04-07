@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUSiteShippingSettings.h"
 
 
@@ -34,7 +33,7 @@
 Retrieves a list of the shipping settings configured for a site.
 */
 
-- (void)siteShippingSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)siteShippingSettingsWithCompletionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

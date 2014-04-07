@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUCheckoutSettings.h"
 
 
@@ -26,7 +25,7 @@
 Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
 */
 
-+ (MOZUClient *)clientForGetCheckoutSettingsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetCheckoutSettingsOperation;
 
 
 //

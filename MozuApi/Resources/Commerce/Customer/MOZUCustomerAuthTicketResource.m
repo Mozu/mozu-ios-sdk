@@ -50,9 +50,9 @@
 @param body 
 */
 
-- (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -73,9 +73,9 @@
 @param refreshToken 
 */
 
-- (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

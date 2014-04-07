@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUSiteShippingHandlingFee.h"
 
 
@@ -26,7 +25,7 @@
 Retrieves the details of the order handling fee configured for the site.
 */
 
-+ (MOZUClient *)clientForGetOrderHandlingFeeOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetOrderHandlingFeeOperation;
 
 
 //
@@ -40,7 +39,7 @@ Creates a new order handling fee for the site.
 @param body Properties of the order handling fee to assess for order shipment.
 */
 
-+ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body;
 
 
 //
@@ -54,7 +53,7 @@ Updates the order handling fee amount for the site.
 @param body The combined price for all items in the order, including all selected options but excluding any discounts.
 */
 
-+ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body;
 
 
 //

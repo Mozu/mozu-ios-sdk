@@ -27,7 +27,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body {
 	id url = [MOZUPublishingScopeURLComponents URLComponentsForDiscardDraftsOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -36,11 +36,10 @@
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
-	client.userClaims = userClaims;
 	return client;
 }
 
-+ (MOZUClient *)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body {
 	id url = [MOZUPublishingScopeURLComponents URLComponentsForPublishDraftsOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -49,7 +48,6 @@
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
-	client.userClaims = userClaims;
 	return client;
 }
 

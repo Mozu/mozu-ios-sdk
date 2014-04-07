@@ -42,9 +42,9 @@
 Retrieves the messages associated with the current shopper's cart.
 */
 
-- (void)messagesWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCartChangeMessageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)messagesWithCompletionHandler:(void(^)(MOZUCartChangeMessageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChangeMessageClient clientForGetMessagesOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUChangeMessageClient clientForGetMessagesOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -78,9 +78,9 @@ Retrieves the messages associated with the current shopper's cart.
 Deletes all messages associated with the cart of the current shopper.
 */
 
-- (void)removeAllMessagesWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeAllMessagesWithCompletionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChangeMessageClient clientForRemoveAllMessagesOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUChangeMessageClient clientForRemoveAllMessagesOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -94,9 +94,9 @@ Removes a single message associated with the cart of the current shopper.
 @param messageId Identifier of the message to remove from the cart.
 */
 
-- (void)removeMessageWithMessageId:(NSString *)messageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeMessageWithMessageId:(NSString *)messageId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChangeMessageClient clientForRemoveMessageOperationWithMessageId:messageId userClaims:userClaims];
+	MOZUClient *client = [MOZUChangeMessageClient clientForRemoveMessageOperationWithMessageId:messageId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

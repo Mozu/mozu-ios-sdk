@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUGeneralSettings.h"
 
 
@@ -26,7 +25,7 @@
 Retrieve a site's general global settings.
 */
 
-+ (MOZUClient *)clientForGetGeneralSettingsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetGeneralSettingsOperation;
 
 
 //
@@ -47,7 +46,7 @@ Updates a site's general global settings.
 @param body The properties of the site's general settings to update.
 */
 
-+ (MOZUClient *)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings *)body;
 
 
 //

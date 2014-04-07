@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUCustomerCheckoutSettings.h"
 
 
@@ -34,7 +33,7 @@
 Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
 */
 
-- (void)customerCheckoutSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)customerCheckoutSettingsWithCompletionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -55,7 +54,7 @@ Modifies existing site checkout settings. Modify Payment, Customer Checkout, and
 @param body All the properties to update in the checkout settings.
 */
 
-- (void)updateCustomerCheckoutSettingsWithBody:(MOZUCustomerCheckoutSettings *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCustomerCheckoutSettingsWithBody:(MOZUCustomerCheckoutSettings *)body completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

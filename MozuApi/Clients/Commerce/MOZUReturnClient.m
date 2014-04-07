@@ -24,12 +24,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetReturnsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetReturnsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	id url = [MOZUReturnURLComponents URLComponentsForGetReturnsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUReturnCollection alloc] initWithString:jsonResult error:nil];
@@ -38,12 +37,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetReturnOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetReturnOperationWithReturnId:(NSString *)returnId {
 	id url = [MOZUReturnURLComponents URLComponentsForGetReturnOperationWithReturnId:returnId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUReturn alloc] initWithString:jsonResult error:nil];
@@ -52,21 +50,19 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAvailableReturnActionsOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetAvailableReturnActionsOperationWithReturnId:(NSString *)returnId {
 	id url = [MOZUReturnURLComponents URLComponentsForGetAvailableReturnActionsOperationWithReturnId:returnId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 
-+ (MOZUClient *)clientForGetPaymentsOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetPaymentsOperationWithReturnId:(NSString *)returnId {
 	id url = [MOZUReturnURLComponents URLComponentsForGetPaymentsOperationWithReturnId:returnId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUPaymentCollection alloc] initWithString:jsonResult error:nil];
@@ -75,12 +71,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetPaymentOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetPaymentOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId {
 	id url = [MOZUReturnURLComponents URLComponentsForGetPaymentOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUPayment alloc] initWithString:jsonResult error:nil];
@@ -89,12 +84,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId {
 	id url = [MOZUReturnURLComponents URLComponentsForGetAvailablePaymentActionsForReturnOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 
@@ -105,13 +99,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateReturnOperationWithBody:(MOZUReturn *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForCreateReturnOperationWithBody:(MOZUReturn *)body {
 	id url = [MOZUReturnURLComponents URLComponentsForCreateReturnOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUReturn alloc] initWithString:jsonResult error:nil];
@@ -120,13 +113,12 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForPerformPaymentActionForReturnOperationWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId paymentId:(NSString *)paymentId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForPerformPaymentActionForReturnOperationWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId paymentId:(NSString *)paymentId {
 	id url = [MOZUReturnURLComponents URLComponentsForPerformPaymentActionForReturnOperationWithReturnId:returnId paymentId:paymentId];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUReturn alloc] initWithString:jsonResult error:nil];
@@ -135,13 +127,12 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForCreatePaymentActionForReturnOperationWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForCreatePaymentActionForReturnOperationWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId {
 	id url = [MOZUReturnURLComponents URLComponentsForCreatePaymentActionForReturnOperationWithReturnId:returnId];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUReturn alloc] initWithString:jsonResult error:nil];
@@ -150,13 +141,12 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForPerformReturnActionsOperationWithBody:(MOZUReturnAction *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForPerformReturnActionsOperationWithBody:(MOZUReturnAction *)body {
 	id url = [MOZUReturnURLComponents URLComponentsForPerformReturnActionsOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUReturnCollection alloc] initWithString:jsonResult error:nil];
@@ -172,13 +162,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateReturnOperationWithBody:(MOZUReturn *)body returnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateReturnOperationWithBody:(MOZUReturn *)body returnId:(NSString *)returnId {
 	id url = [MOZUReturnURLComponents URLComponentsForUpdateReturnOperationWithReturnId:returnId];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUReturn alloc] initWithString:jsonResult error:nil];
@@ -194,12 +183,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteReturnOperationWithReturnId:(NSString *)returnId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForDeleteReturnOperationWithReturnId:(NSString *)returnId {
 	id url = [MOZUReturnURLComponents URLComponentsForDeleteReturnOperationWithReturnId:returnId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 

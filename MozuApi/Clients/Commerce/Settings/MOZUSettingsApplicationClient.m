@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForThirdPartyGetApplicationOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForThirdPartyGetApplicationOperation {
 	id url = [MOZUSettingsApplicationURLComponents URLComponentsForThirdPartyGetApplicationOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUSiteSettingsApplication alloc] initWithString:jsonResult error:nil];
@@ -49,13 +48,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication *)body {
 	id url = [MOZUSettingsApplicationURLComponents URLComponentsForThirdPartyUpdateApplicationOperation];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUSiteSettingsApplication alloc] initWithString:jsonResult error:nil];

@@ -44,9 +44,9 @@
 @param startIndex 
 */
 
-- (void)documentTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex completionHandler:(void(^)(MOZUDocumentTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentTypeClient clientForGetDocumentTypesOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentTypeClient clientForGetDocumentTypesOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -60,9 +60,9 @@
 @param documentTypeName 
 */
 
-- (void)documentTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUDocumentType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName completionHandler:(void(^)(MOZUDocumentType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentTypeClient clientForGetDocumentTypeOperationWithDataViewMode:dataViewMode documentTypeName:documentTypeName userClaims:userClaims];
+	MOZUClient *client = [MOZUDocumentTypeClient clientForGetDocumentTypeOperationWithDataViewMode:dataViewMode documentTypeName:documentTypeName];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

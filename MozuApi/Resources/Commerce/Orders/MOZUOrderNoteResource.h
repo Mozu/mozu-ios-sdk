@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUOrderNote.h"
 
 
@@ -35,7 +34,7 @@ Retrieves a list of all notes for an order.
 @param orderId Unique identifier of the order.
 */
 
-- (void)orderNotesWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUOrderNote> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orderNotesWithOrderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUOrderNote> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of a specific order note.
@@ -43,7 +42,7 @@ Retrieves the details of a specific order note.
 @param orderId Unique identifier of the order associated with the note.
 */
 
-- (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -58,7 +57,7 @@ Creates a new merchant note for the specified order.
 @param orderId Unique identifier of the order for which to add a note.
 */
 
-- (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -74,7 +73,7 @@ Updates a specific note for an order.
 @param orderId Unique identifier of the order.
 */
 
-- (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -89,7 +88,7 @@ Deletes the specified order note.
 @param orderId Unique identifier of the order associated with the note.
 */
 
-- (void)deleteOrderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteOrderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

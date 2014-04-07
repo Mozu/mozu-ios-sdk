@@ -22,12 +22,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	id url = [MOZUChannelGroupURLComponents URLComponentsForGetChannelGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUChannelGroupCollection alloc] initWithString:jsonResult error:nil];
@@ -36,12 +35,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetChannelGroupOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetChannelGroupOperationWithCode:(NSString *)code {
 	id url = [MOZUChannelGroupURLComponents URLComponentsForGetChannelGroupOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUChannelGroup alloc] initWithString:jsonResult error:nil];
@@ -57,13 +55,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateChannelGroupOperationWithBody:(MOZUChannelGroup *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForCreateChannelGroupOperationWithBody:(MOZUChannelGroup *)body {
 	id url = [MOZUChannelGroupURLComponents URLComponentsForCreateChannelGroupOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUChannelGroup alloc] initWithString:jsonResult error:nil];
@@ -79,13 +76,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateChannelGroupOperationWithBody:(MOZUChannelGroup *)body code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateChannelGroupOperationWithBody:(MOZUChannelGroup *)body code:(NSString *)code {
 	id url = [MOZUChannelGroupURLComponents URLComponentsForUpdateChannelGroupOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUChannelGroup alloc] initWithString:jsonResult error:nil];
@@ -101,12 +97,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteChannelGroupOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForDeleteChannelGroupOperationWithCode:(NSString *)code {
 	id url = [MOZUChannelGroupURLComponents URLComponentsForDeleteChannelGroupOperationWithCode:code];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 	return client;
 }
 

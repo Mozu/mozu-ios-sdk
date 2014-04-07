@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetBillingInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetBillingInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
 	id url = [MOZUBillingInfoURLComponents URLComponentsForGetBillingInfoOperationWithOrderId:orderId draft:draft];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUBillingInfo alloc] initWithString:jsonResult error:nil];
@@ -49,13 +48,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForSetBillingInfoOperationWithBody:(MOZUBillingInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForSetBillingInfoOperationWithBody:(MOZUBillingInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
 	id url = [MOZUBillingInfoURLComponents URLComponentsForSetBillingInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUBillingInfo alloc] initWithString:jsonResult error:nil];

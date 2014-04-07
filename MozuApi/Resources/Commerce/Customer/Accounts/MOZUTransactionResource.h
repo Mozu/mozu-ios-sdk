@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUTransaction.h"
 
 
@@ -35,7 +34,7 @@ Retrieves a list of transactions associated with the customer account specified 
 @param accountId Unique identifier of the customer account for which to retrieve transactions.
 */
 
-- (void)transactionsWithAccountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSArray<MOZUTransaction> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)transactionsWithAccountId:(NSInteger)accountId completionHandler:(void(^)(NSArray<MOZUTransaction> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -50,7 +49,7 @@ Creates a new transaction for the customer account specified in the request.
 @param accountId Unique identifier of the customer account.
 */
 
-- (void)addTransactionWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUTransaction *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addTransactionWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUTransaction *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -72,7 +71,7 @@ Deletes a transaction from the customer account specified in the request.
 @param transactionId Unique identifier of the transaction to delete.
 */
 
-- (void)removeTransactionWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeTransactionWithAccountId:(NSInteger)accountId transactionId:(NSString *)transactionId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

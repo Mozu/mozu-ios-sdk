@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUProductType.h"
 #import "MOZUProductTypeCollection.h"
 
@@ -39,14 +38,14 @@ Retrieves a list of product types according to any specified filter criteria and
 @param startIndex 
 */
 
-- (void)productTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)productTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUProductTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of the product type specified in the request.
 @param productTypeId Identifier of the product type to retrieve.
 */
 
-- (void)productTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)productTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -60,7 +59,7 @@ Creates a new product type based on the information supplied in the request.
 @param body Properties of the product type to create.
 */
 
-- (void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -75,7 +74,7 @@ Updates one or more properties of a product type.
 @param productTypeId Identifier of the product type to update.
 */
 
-- (void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -89,7 +88,7 @@ Deletes the product type by providing the product type ID.
 @param productTypeId Identifier of the product type to delete.
 */
 
-- (void)deleteProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

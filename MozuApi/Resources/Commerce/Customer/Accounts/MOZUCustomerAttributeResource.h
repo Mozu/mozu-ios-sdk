@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUCustomerAttribute.h"
 #import "MOZUCustomerAttributeCollection.h"
 
@@ -37,7 +36,7 @@ Retrieves the contents of an attribute associated with the specified customer ac
 @param attributeFQN 
 */
 
-- (void)accountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)accountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the list of customer account attributes.
@@ -48,7 +47,7 @@ Retrieves the list of customer account attributes.
 @param startIndex 
 */
 
-- (void)accountAttributesWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttributeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)accountAttributesWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUCustomerAttributeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -63,7 +62,7 @@ Applies a defined attribute to the customer account specified in the request and
 @param accountId Unique identifier of the customer account.
 */
 
-- (void)addAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -79,7 +78,7 @@ Updates one or more details of a customer account attribute.
 @param attributeFQN 
 */
 
-- (void)updateAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAccountAttributeWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUCustomerAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -94,7 +93,7 @@ Updates one or more details of a customer account attribute.
 @param attributeFQN 
 */
 
-- (void)deleteAccountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteAccountAttributeWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

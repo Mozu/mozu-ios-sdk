@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUExternalPaymentWorkflowDefinition.h"
 
 
@@ -26,7 +25,7 @@
 Retrieves the details of the third-party payment service workflows configured for the site.
 */
 
-+ (MOZUClient *)clientForGetThirdPartyPaymentWorkflowsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetThirdPartyPaymentWorkflowsOperation;
 
 
 //

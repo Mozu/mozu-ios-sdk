@@ -22,12 +22,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetLocationOperationWithCode:(NSString *)code {
 	id url = [MOZULocationURLComponents URLComponentsForGetLocationOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocation alloc] initWithString:jsonResult error:nil];
@@ -36,12 +35,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code {
 	id url = [MOZULocationURLComponents URLComponentsForGetLocationInUsageTypeOperationWithLocationUsageType:locationUsageType code:code];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocation alloc] initWithString:jsonResult error:nil];
@@ -50,12 +48,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	id url = [MOZULocationURLComponents URLComponentsForGetLocationsInUsageTypeOperationWithLocationUsageType:locationUsageType startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocationCollection alloc] initWithString:jsonResult error:nil];
@@ -64,12 +61,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetDirectShipLocationOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetDirectShipLocationOperation {
 	id url = [MOZULocationURLComponents URLComponentsForGetDirectShipLocationOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocation alloc] initWithString:jsonResult error:nil];
@@ -78,12 +74,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetInStorePickupLocationOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetInStorePickupLocationOperationWithCode:(NSString *)code {
 	id url = [MOZULocationURLComponents URLComponentsForGetInStorePickupLocationOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocation alloc] initWithString:jsonResult error:nil];
@@ -92,12 +87,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetInStorePickupLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
 	id url = [MOZULocationURLComponents URLComponentsForGetInStorePickupLocationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocationCollection alloc] initWithString:jsonResult error:nil];

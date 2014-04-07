@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUEventDeliverySummaryCollection.h"
 #import "MOZUEventDeliverySummary.h"
 
@@ -37,7 +36,7 @@
 @param subscriptionId 
 */
 
-- (void)deliveryAttemptSummaryWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUEventDeliverySummary *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deliveryAttemptSummaryWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier completionHandler:(void(^)(MOZUEventDeliverySummary *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 
@@ -48,7 +47,7 @@
 @param subscriptionId 
 */
 
-- (void)deliveryAttemptSummariesWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUEventDeliverySummaryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deliveryAttemptSummariesWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUEventDeliverySummaryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

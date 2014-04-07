@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZULocation.h"
 #import "MOZULocationCollection.h"
 
@@ -31,14 +30,14 @@
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 
 @param locationCode 
 */
 
-+ (MOZUClient *)clientForGetLocationOperationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetLocationOperationWithLocationCode:(NSString *)locationCode;
 
 
 //
@@ -52,7 +51,7 @@
 @param body 
 */
 
-+ (MOZUClient *)clientForAddLocationOperationWithBody:(MOZULocation *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddLocationOperationWithBody:(MOZULocation *)body;
 
 
 //
@@ -67,7 +66,7 @@
 @param locationCode 
 */
 
-+ (MOZUClient *)clientForUpdateLocationOperationWithBody:(MOZULocation *)body locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateLocationOperationWithBody:(MOZULocation *)body locationCode:(NSString *)locationCode;
 
 
 //
@@ -81,7 +80,7 @@
 @param locationCode 
 */
 
-+ (MOZUClient *)clientForDeleteLocationOperationWithLocationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteLocationOperationWithLocationCode:(NSString *)locationCode;
 
 
 

@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUAdminLocationInventory.h"
 #import "MOZULocationInventoryAdjustment.h"
 #import "MOZUAdminLocationInventoryCollection.h"
@@ -33,7 +32,7 @@ Retrieves all locations for which a product has inventory defined and displays t
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+ (MOZUClient *)clientForGetLocationInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetLocationInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Retrieves the details of the inventory of the product in the location specified in the request.
@@ -41,7 +40,7 @@ Retrieves the details of the inventory of the product in the location specified 
 @param productCode 
 */
 
-+ (MOZUClient *)clientForGetLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCode:(NSString *)locationCode;
 
 
 //
@@ -56,7 +55,7 @@ Creates a new location inventory definition for the product code specified in th
 @param productCode ProductCodeBase
 */
 
-+ (MOZUClient *)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body productCode:(NSString *)productCode;
 
 
 //
@@ -71,7 +70,7 @@ Updates the current level of stock at each location associated with the product 
 @param productCode The product code of the product for which to update active stock on hand inventory at a specified location.
 */
 
-+ (MOZUClient *)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment> *)body productCode:(NSString *)productCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZULocationInventoryAdjustment> *)body productCode:(NSString *)productCode;
 
 
 //
@@ -86,7 +85,7 @@ Deletes the location inventory definition for the product code specified in the 
 @param productCode The product code for which to delete a location's inventory.
 */
 
-+ (MOZUClient *)clientForDeleteLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCode:(NSString *)locationCode userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCode:(NSString *)locationCode;
 
 
 

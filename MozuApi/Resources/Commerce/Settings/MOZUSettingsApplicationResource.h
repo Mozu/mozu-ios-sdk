@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZUSiteSettingsApplication.h"
 
 
@@ -34,7 +33,7 @@
 Retrieve the settings of a third-party application.
 */
 
-- (void)thirdPartyGetApplicationWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)thirdPartyGetApplicationWithCompletionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -55,7 +54,7 @@ Initializes an application with the necessary configured settings.
 @param body Properties of the application to update.
 */
 
-- (void)thirdPartyUpdateApplicationWithBody:(MOZUSiteSettingsApplication *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)thirdPartyUpdateApplicationWithBody:(MOZUSiteSettingsApplication *)body completionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

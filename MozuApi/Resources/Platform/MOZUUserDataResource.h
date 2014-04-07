@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 
 
 @interface MOZUUserDataResource : NSObject
@@ -34,7 +33,7 @@ Retrieves the value of a record in the Mozu database.
 @param dbEntryQuery The database entry query string used to retrieve the record information.
 */
 
-- (void)dBValueWithDbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)dBValueWithDbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -49,7 +48,7 @@ Creates a new record in the Mozu database based on the information supplied in t
 @param dbEntryQuery The database entry string to create.
 */
 
-- (void)createDBValueWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createDBValueWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -64,7 +63,7 @@ Updates a record in the Mozu database based on the information supplied in the r
 @param dbEntryQuery The database entry query string used to update the record information.
 */
 
-- (void)updateDBValueWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateDBValueWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -78,7 +77,7 @@ Removes a previously defined record in the Mozu database.
 @param dbEntryQuery The database entry string to delete.
 */
 
-- (void)deleteDBValueWithDbEntryQuery:(NSString *)dbEntryQuery userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteDBValueWithDbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

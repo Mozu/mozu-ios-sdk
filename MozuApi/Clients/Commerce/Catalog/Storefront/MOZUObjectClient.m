@@ -28,13 +28,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetRatesOperationWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetRatesOperationWithBody:(MOZURateRequest *)body {
 	id url = [MOZUObjectURLComponents URLComponentsForGetRatesOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZURatesResponse alloc] initWithString:jsonResult error:nil];

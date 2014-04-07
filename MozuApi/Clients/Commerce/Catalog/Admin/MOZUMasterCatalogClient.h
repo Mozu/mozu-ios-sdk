@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUAdminMasterCatalog.h"
 #import "MOZUMasterCatalogCollection.h"
 
@@ -27,14 +26,14 @@
 Retrieve the details of all master catalog associated with a tenant.
 */
 
-+ (MOZUClient *)clientForGetMasterCatalogsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetMasterCatalogsOperation;
 
 /**
 Retrieve the details of the master catalog specified in the request.
 @param masterCatalogId 
 */
 
-+ (MOZUClient *)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId;
 
 
 //
@@ -56,7 +55,7 @@ Updates the product publishing mode for the master catalog specified in the requ
 @param masterCatalogId 
 */
 
-+ (MOZUClient *)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId;
 
 
 //

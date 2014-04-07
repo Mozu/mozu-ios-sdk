@@ -44,9 +44,9 @@ Retrieves the details of a package of order items.
 @param packageId Unique identifier of the package to retrieve.
 */
 
-- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetPackageOperationWithOrderId:orderId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetPackageOperationWithOrderId:orderId packageId:packageId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -61,9 +61,9 @@ Retrieves a list of the actions available to perform for a package associated wi
 @param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 */
 
-- (void)availablePackageFulfillmentActionsWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)availablePackageFulfillmentActionsWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetAvailablePackageFulfillmentActionsOperationWithOrderId:orderId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetAvailablePackageFulfillmentActionsOperationWithOrderId:orderId packageId:packageId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -78,9 +78,9 @@ Retrieves the package label image supplied by the carrier.
 @param packageId Unique identifier of the package for which to retrieve the label.
 */
 
-- (void)packageLabelWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageLabelWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetPackageLabelOperationWithOrderId:orderId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetPackageLabelOperationWithOrderId:orderId packageId:packageId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -102,9 +102,9 @@ Creates a new physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
 */
 
-- (void)createPackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForCreatePackageOperationWithBody:body orderId:orderId userClaims:userClaims];
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForCreatePackageOperationWithBody:body orderId:orderId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -127,9 +127,9 @@ Updates one or more properties of a physical package of order items.
 @param packageId Unique identifier of the package of order items to update.
 */
 
-- (void)updatePackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForUpdatePackageOperationWithBody:body orderId:orderId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForUpdatePackageOperationWithBody:body orderId:orderId packageId:packageId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -151,9 +151,9 @@ Removes a physical package of items from the specified order.
 @param packageId Unique identifier of the package to delete.
 */
 
-- (void)deletePackageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deletePackageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForDeletePackageOperationWithOrderId:orderId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForDeletePackageOperationWithOrderId:orderId packageId:packageId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

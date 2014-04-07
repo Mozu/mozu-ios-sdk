@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUWishlist.h"
 #import "MOZUWishlistCollection.h"
 
@@ -33,14 +32,14 @@ Retrieves a list of shopper wish lists according to any filter and sort criteria
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+ (MOZUClient *)clientForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit;
 
 /**
 Retrieves the details of the shopper wish list specified in the request.
 @param wishlistId Unique identifier of the shopper wish list to retrieve.
 */
 
-+ (MOZUClient *)clientForGetWishlistOperationWithWishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetWishlistOperationWithWishlistId:(NSString *)wishlistId;
 
 /**
 
@@ -48,7 +47,7 @@ Retrieves the details of the shopper wish list specified in the request.
 @param wishlistName 
 */
 
-+ (MOZUClient *)clientForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName;
 
 
 //
@@ -62,7 +61,7 @@ Creates a new shopper wish list for the associated customer account. Although cu
 @param body Properties of the wish list to create.
 */
 
-+ (MOZUClient *)clientForCreateWishlistOperationWithBody:(MOZUWishlist *)body userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForCreateWishlistOperationWithBody:(MOZUWishlist *)body;
 
 
 //
@@ -77,7 +76,7 @@ Updates one or more properties of a shopper wish list defined for a customer acc
 @param wishlistId Unique identifier of the shopper wish list to update.
 */
 
-+ (MOZUClient *)clientForUpdateWishlistOperationWithBody:(MOZUWishlist *)body wishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForUpdateWishlistOperationWithBody:(MOZUWishlist *)body wishlistId:(NSString *)wishlistId;
 
 
 //
@@ -91,7 +90,7 @@ Deletes the shopper wish list specified in the request and all items associated 
 @param wishlistId Unique identifier of the wish list to delete.
 */
 
-+ (MOZUClient *)clientForDeleteWishlistOperationWithWishlistId:(NSString *)wishlistId userClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForDeleteWishlistOperationWithWishlistId:(NSString *)wishlistId;
 
 
 

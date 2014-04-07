@@ -46,9 +46,9 @@
 @param startIndex 
 */
 
-- (void)inStockNotificationSubscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscriptionCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)inStockNotificationSubscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUInStockNotificationSubscriptionCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@
 @param identifier 
 */
 
-- (void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@
 @param body 
 */
 
-- (void)addInStockNotificationSubscriptionWithBody:(MOZUInStockNotificationSubscription *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addInStockNotificationSubscriptionWithBody:(MOZUInStockNotificationSubscription *)body completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForAddInStockNotificationSubscriptionOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -115,9 +115,9 @@
 @param identifier 
 */
 
-- (void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:identifier userClaims:userClaims];
+	MOZUClient *client = [MOZUInStockNotificationSubscriptionClient clientForDeleteInStockNotificationSubscriptionOperationWithIdentifier:identifier];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

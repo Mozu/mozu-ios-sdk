@@ -26,9 +26,9 @@
 Retrieves the list of applications associated with the developer account scoped to the user claim specified in the request.
 */
 
-- (void)allApplicationsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUApplicationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)allApplicationsWithCompletionHandler:(void(^)(MOZUApplicationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForGetAllApplicationsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForGetAllApplicationsOperation];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -41,9 +41,9 @@ Retrieves the details of the application specified in the request. The applicati
 @param applicationId Unique identifier of the application.
 */
 
-- (void)applicationWithApplicationId:(NSNumber *)applicationId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAppDevApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applicationWithApplicationId:(NSNumber *)applicationId completionHandler:(void(^)(MOZUAppDevApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForGetApplicationOperationWithApplicationId:applicationId userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForGetApplicationOperationWithApplicationId:applicationId];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -56,9 +56,9 @@ Retrieves the details of a specific version of an application associated with th
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 */
 
-- (void)applicationVersionWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUApplicationVersion *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applicationVersionWithApplicationVersionId:(NSInteger)applicationVersionId completionHandler:(void(^)(MOZUApplicationVersion *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForGetApplicationVersionOperationWithApplicationVersionId:applicationVersionId userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForGetApplicationVersionOperationWithApplicationVersionId:applicationVersionId];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -71,9 +71,9 @@ Retrieves a list of the package definitions created for an application version, 
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 */
 
-- (void)packagesWithApplicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUPackageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packagesWithApplicationVersionId:(NSInteger)applicationVersionId completionHandler:(void(^)(MOZUPackageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackagesOperationWithApplicationVersionId:applicationVersionId userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackagesOperationWithApplicationVersionId:applicationVersionId];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -87,9 +87,9 @@ Retrieves the details of a package definition associated with an application ver
 @param packageId Unique identifier of the package to retrieve.
 */
 
-- (void)packageWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAppDevPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId completionHandler:(void(^)(MOZUAppDevPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackageOperationWithApplicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackageOperationWithApplicationVersionId:applicationVersionId packageId:packageId];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -103,9 +103,9 @@ Retrieves the metadata for items in a package associated with an application ver
 @param packageId Unique identifier of the package.
 */
 
-- (void)packageItemsMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUFolderMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageItemsMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId completionHandler:(void(^)(MOZUFolderMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackageItemsMetadataOperationWithApplicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackageItemsMetadataOperationWithApplicationVersionId:applicationVersionId packageId:packageId];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -120,9 +120,9 @@ Retrieves the metadata of a file in a package for an application version. The ap
 @param packageId Unique identifier of the package.
 */
 
-- (void)packageItemMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageItemMetadataWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId itempath:(NSString *)itempath completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackageItemMetadataOperationWithApplicationVersionId:applicationVersionId packageId:packageId itempath:itempath userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackageItemMetadataOperationWithApplicationVersionId:applicationVersionId packageId:packageId itempath:itempath];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -136,9 +136,9 @@ Retrieves the metadata of a file in a package for an application version. The ap
 @param packageId 
 */
 
-- (void)packageFilesZipWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageFilesZipWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackageFilesZipOperationWithApplicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForGetPackageFilesZipOperationWithApplicationVersionId:applicationVersionId packageId:packageId];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -159,9 +159,9 @@ Creates a new development or release package for the application version specifi
 @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 */
 
-- (void)addPackageWithBody:(MOZUAppDevPackage *)body applicationVersionId:(NSInteger)applicationVersionId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAppDevPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addPackageWithBody:(MOZUAppDevPackage *)body applicationVersionId:(NSInteger)applicationVersionId completionHandler:(void(^)(MOZUAppDevPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForAddPackageOperationWithBody:body applicationVersionId:applicationVersionId userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForAddPackageOperationWithBody:body applicationVersionId:applicationVersionId];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -176,9 +176,9 @@ Creates a new development or release package for the application version specifi
 @param packageId 
 */
 
-- (void)changePackageFileNameOrPathWithBody:(MOZURenameInfo *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)changePackageFileNameOrPathWithBody:(MOZURenameInfo *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForChangePackageFileNameOrPathOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForChangePackageFileNameOrPathOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -194,9 +194,9 @@ Uploads a file to a defined package for an application version in the file locat
 @param packageId Unique identifier of the package.
 */
 
-- (void)addPackageFileWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addPackageFileWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForAddPackageFileOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForAddPackageFileOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId filepath:filepath];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -219,9 +219,9 @@ Updates one or more properties of a file in a package associated with an applica
 @param packageId The unique identifier of the package.
 */
 
-- (void)updatePackageFileWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePackageFileWithBody:(NSInputStream *)body applicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForUpdatePackageFileOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForUpdatePackageFileOperationWithBody:body applicationVersionId:applicationVersionId packageId:packageId filepath:filepath];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -243,9 +243,9 @@ Deletes the specified file from a package associated with an application version
 @param packageId Unique identifier of the package.
 */
 
-- (void)deletePackageFileWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deletePackageFileWithApplicationVersionId:(NSInteger)applicationVersionId packageId:(NSInteger)packageId filepath:(NSString *)filepath completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUApplicationVersionClient clientForDeletePackageFileOperationWithApplicationVersionId:applicationVersionId packageId:packageId filepath:filepath userClaims:userClaims];
+	MOZUClient *client = [MOZUApplicationVersionClient clientForDeletePackageFileOperationWithApplicationVersionId:applicationVersionId packageId:packageId filepath:filepath];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(error, response);

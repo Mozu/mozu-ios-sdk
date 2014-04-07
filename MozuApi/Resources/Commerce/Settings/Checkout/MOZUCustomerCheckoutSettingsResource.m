@@ -42,9 +42,9 @@
 Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
 */
 
-- (void)customerCheckoutSettingsWithUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)customerCheckoutSettingsWithCompletionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerCheckoutSettingsClient clientForGetCustomerCheckoutSettingsOperationWithUserClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerCheckoutSettingsClient clientForGetCustomerCheckoutSettingsOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -72,9 +72,9 @@ Modifies existing site checkout settings. Modify Payment, Customer Checkout, and
 @param body All the properties to update in the checkout settings.
 */
 
-- (void)updateCustomerCheckoutSettingsWithBody:(MOZUCustomerCheckoutSettings *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCustomerCheckoutSettingsWithBody:(MOZUCustomerCheckoutSettings *)body completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerCheckoutSettingsClient clientForUpdateCustomerCheckoutSettingsOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUCustomerCheckoutSettingsClient clientForUpdateCustomerCheckoutSettingsOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

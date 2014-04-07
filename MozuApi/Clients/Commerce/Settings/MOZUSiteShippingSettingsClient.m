@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetSiteShippingSettingsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetSiteShippingSettingsOperation {
 	id url = [MOZUSiteShippingSettingsURLComponents URLComponentsForGetSiteShippingSettingsOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUSiteShippingSettings alloc] initWithString:jsonResult error:nil];

@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetOrderHandlingFeeOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetOrderHandlingFeeOperation {
 	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForGetOrderHandlingFeeOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUSiteShippingHandlingFee alloc] initWithString:jsonResult error:nil];
@@ -42,13 +41,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body {
 	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForCreateOrderHandlingFeeOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUSiteShippingHandlingFee alloc] initWithString:jsonResult error:nil];
@@ -64,13 +62,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body {
 	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForUpdateOrderHandlingFeeOperation];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUSiteShippingHandlingFee alloc] initWithString:jsonResult error:nil];

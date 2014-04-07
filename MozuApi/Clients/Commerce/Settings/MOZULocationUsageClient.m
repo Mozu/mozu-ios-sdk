@@ -22,12 +22,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetLocationUsagesOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetLocationUsagesOperation {
 	id url = [MOZULocationUsageURLComponents URLComponentsForGetLocationUsagesOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocationUsageCollection alloc] initWithString:jsonResult error:nil];
@@ -36,12 +35,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLocationUsageOperationWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetLocationUsageOperationWithCode:(NSString *)code {
 	id url = [MOZULocationUsageURLComponents URLComponentsForGetLocationUsageOperationWithCode:code];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocationUsage alloc] initWithString:jsonResult error:nil];
@@ -64,13 +62,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateLocationUsageOperationWithBody:(MOZULocationUsage *)body code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateLocationUsageOperationWithBody:(MOZULocationUsage *)body code:(NSString *)code {
 	id url = [MOZULocationUsageURLComponents URLComponentsForUpdateLocationUsageOperationWithCode:code];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULocationUsage alloc] initWithString:jsonResult error:nil];

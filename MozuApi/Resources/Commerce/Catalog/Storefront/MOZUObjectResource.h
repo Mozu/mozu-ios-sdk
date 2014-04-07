@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAuthTicket.h"
 #import "MOZURateRequest.h"
 #import "MOZURatesResponse.h"
 
@@ -43,7 +42,7 @@
 @param body 
 */
 
-- (void)ratesWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURatesResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)ratesWithBody:(MOZURateRequest *)body completionHandler:(void(^)(MOZURatesResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

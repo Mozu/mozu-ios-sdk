@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAuthTicket.h"
 #import "MOZUSiteShippingSettings.h"
 
 
@@ -26,7 +25,7 @@
 Retrieves a list of the shipping settings configured for a site.
 */
 
-+ (MOZUClient *)clientForGetSiteShippingSettingsOperationWithUserClaims:(MOZUUserAuthTicket *)userClaims;
++ (MOZUClient *)clientForGetSiteShippingSettingsOperation;
 
 
 //

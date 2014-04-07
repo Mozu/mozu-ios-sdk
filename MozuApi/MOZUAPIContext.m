@@ -8,7 +8,9 @@
 
 #import "MOZUAPIContext.h"
 #import "MOZUHeaders.h"
-
+#import "MOZUTenant.h"
+#import "MOZUAuthTicket.h"
+#import "MOZUUserAuthenticator.h"
 
 @implementation MOZUAPIContext
 

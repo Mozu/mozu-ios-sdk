@@ -46,9 +46,9 @@ Retrieves a list of store credits applied to customer accounts, according any fi
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)creditsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCreditCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)creditsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUCreditCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForGetCreditsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter userClaims:userClaims];
+	MOZUClient *client = [MOZUCreditClient clientForGetCreditsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@ Retrieves the details of a store credit applied to a customer account.
 @param code User-defined code that identifies the store credit to retrieve.
 */
 
-- (void)creditWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)creditWithCode:(NSString *)code completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForGetCreditOperationWithCode:code userClaims:userClaims];
+	MOZUClient *client = [MOZUCreditClient clientForGetCreditOperationWithCode:code];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@ Creates a new store credit for the customer account specified in the request.
 @param body Properties of the store credit to create.
 */
 
-- (void)addCreditWithBody:(MOZUCredit *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addCreditWithBody:(MOZUCredit *)body completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForAddCreditOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUCreditClient clientForAddCreditOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@ Updates one or more properties of a defined store credit applied to a customer a
 @param code User-defined code of the store credit to update.
 */
 
-- (void)updateCreditWithBody:(MOZUCredit *)body code:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCreditWithBody:(MOZUCredit *)body code:(NSString *)code completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForUpdateCreditOperationWithBody:body code:code userClaims:userClaims];
+	MOZUClient *client = [MOZUCreditClient clientForUpdateCreditOperationWithBody:body code:code];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -125,9 +125,9 @@ Updates one or more properties of a defined store credit applied to a customer a
 @param code 
 */
 
-- (void)associateCreditToShopperWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)associateCreditToShopperWithCode:(NSString *)code completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForAssociateCreditToShopperOperationWithCode:code userClaims:userClaims];
+	MOZUClient *client = [MOZUCreditClient clientForAssociateCreditToShopperOperationWithCode:code];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -148,9 +148,9 @@ Deletes a store credit previously applied to a customer account.
 @param code User-defined code of the store credit to delete.
 */
 
-- (void)deleteCreditWithCode:(NSString *)code userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteCreditWithCode:(NSString *)code completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForDeleteCreditOperationWithCode:code userClaims:userClaims];
+	MOZUClient *client = [MOZUCreditClient clientForDeleteCreditOperationWithCode:code];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

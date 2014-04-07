@@ -21,12 +21,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetOrderAttributesOperationWithOrderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForGetOrderAttributesOperationWithOrderId:(NSString *)orderId {
 	id url = [MOZUOrderAttributeURLComponents URLComponentsForGetOrderAttributesOperationWithOrderId:orderId];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
@@ -43,13 +42,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute> *)body orderId:(NSString *)orderId userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForCreateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute> *)body orderId:(NSString *)orderId {
 	id url = [MOZUOrderAttributeURLComponents URLComponentsForCreateOrderAttributesOperationWithOrderId:orderId];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
@@ -66,13 +64,12 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute> *)body orderId:(NSString *)orderId removeMissing:(NSNumber *)removeMissing userClaims:(MOZUUserAuthTicket *)userClaims {
++ (MOZUClient *)clientForUpdateOrderAttributesOperationWithBody:(NSArray<MOZUOrderAttribute> *)body orderId:(NSString *)orderId removeMissing:(NSNumber *)removeMissing {
 	id url = [MOZUOrderAttributeURLComponents URLComponentsForUpdateOrderAttributesOperationWithOrderId:orderId removeMissing:removeMissing];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
-	client.userClaims = userClaims;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];

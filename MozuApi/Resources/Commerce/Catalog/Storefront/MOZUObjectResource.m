@@ -50,9 +50,9 @@
 @param body 
 */
 
-- (void)ratesWithBody:(MOZURateRequest *)body userClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void(^)(MOZURatesResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)ratesWithBody:(MOZURateRequest *)body completionHandler:(void(^)(MOZURatesResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUObjectClient clientForGetRatesOperationWithBody:body userClaims:userClaims];
+	MOZUClient *client = [MOZUObjectClient clientForGetRatesOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
