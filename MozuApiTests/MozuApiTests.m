@@ -47,7 +47,7 @@
 static const NSUInteger tenantID = 2442;
 static const NSInteger productCode = 1001;
 //static const NSUInteger MOZUDeveloperIdentifier;
-static const BOOL useSSL = NO;
+static const BOOL useSSL = YES;
 
 
 typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error);
