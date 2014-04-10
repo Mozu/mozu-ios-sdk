@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUAttribute.h"
+#import "MOZUExtensibleAttributeMetadataItem.h"
 
-@implementation MOZUAttribute
+@implementation MOZUExtensibleAttributeMetadataItem
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;

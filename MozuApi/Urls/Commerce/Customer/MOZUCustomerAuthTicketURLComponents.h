@@ -17,6 +17,11 @@
 #pragma mark -
 //
 
+/**
+Resource Url Components for createAnonymousShopperAuthTicket
+*/
++ (MOZUURLComponents *)URLComponentsForCreateAnonymousShopperAuthTicketOperation;
+
 
 //
 #pragma mark -

@@ -10,18 +10,18 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUAttribute.h"
+#import "MOZUExtensibleAttribute.h"
 
 
 
-@protocol MOZUAttributeCollection
+@protocol MOZUExtensibleAttributeCollection
 @end
 
 
 /**
-	Paged list of defined product attributes.
+	Array list of customer or order attributes.
 */
-@interface MOZUAttributeCollection : JSONModel<MOZUAttributeCollection>
+@interface MOZUExtensibleAttributeCollection : JSONModel<MOZUExtensibleAttributeCollection>
 
 /**
 The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
@@ -43,7 +43,7 @@ The number of results listed in the query collection, represented by a signed 64
 /**
 An array list of objects in the returned collection.
 */
-@property(nonatomic) NSArray<MOZUAttribute> *items;
+@property(nonatomic) NSArray<MOZUExtensibleAttribute> *items;
 
 @end
 

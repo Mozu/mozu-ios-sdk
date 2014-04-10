@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUAttribute.h"
+#import "MOZUAdminAttribute.h"
 #import "MOZUAttributeVocabularyValueInProductType.h"
 
 
@@ -57,7 +57,7 @@ The sequence of this attribute within its product type.
 /**
 The wrapper for the properties of the product attribute to set up or generate from the system in the product admin. Properties include namespace, attribute code, attribute sequence, site group ID, input type, value type, data type, boolean flags, and metadata key value pairs.
 */
-@property(nonatomic) MOZUAttribute *attributeDetail;
+@property(nonatomic) MOZUAdminAttribute *attributeDetail;
 
 /**
 The list of vocabulary values available for the attribute associated with the product type.

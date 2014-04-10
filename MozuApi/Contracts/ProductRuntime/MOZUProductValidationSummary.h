@@ -31,6 +31,22 @@
 */
 @interface MOZUProductValidationSummary : JSONModel<MOZUProductValidationSummary>
 
+@property(nonatomic) NSArray *fulfillmentTypesSupported;
+
+@property(nonatomic) NSNumber * isPackagedStandAlone;
+
+/**
+If true, the entity is subject to tax based on the relevant tax rate.
+*/
+@property(nonatomic) BOOL isTaxable;
+
+@property(nonatomic) NSString * mfgPartNumber;
+
+/**
+Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+*/
+@property(nonatomic) NSString * productCode;
+
 /**
 The descriptive brief product name.
 */
@@ -49,22 +65,6 @@ Brief description of the product typically used when the product is displayed in
 Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 */
 @property(nonatomic) NSString * variationProductCode;
-
-@property(nonatomic) NSArray *fulfillmentTypesSupported;
-
-@property(nonatomic) NSNumber * isPackagedStandAlone;
-
-/**
-If true, the entity is subject to tax based on the relevant tax rate.
-*/
-@property(nonatomic) BOOL isTaxable;
-
-@property(nonatomic) NSString * mfgPartNumber;
-
-/**
-Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-*/
-@property(nonatomic) NSString * productCode;
 
 @property(nonatomic) NSArray<MOZUBundledProductSummary> *bundledProducts;
 

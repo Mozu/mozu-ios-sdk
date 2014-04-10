@@ -14,14 +14,14 @@
 
 
 
-@protocol MOZUAttributeVocabularyValue
+@protocol MOZUAdminAttributeVocabularyValue
 @end
 
 
 /**
 	Properties of an individual vocabulary value for an attribute. For example, a "color" attribute might have the following vocabulary values: Red, Blue, Green.
 */
-@interface MOZUAttributeVocabularyValue : JSONModel<MOZUAttributeVocabularyValue>
+@interface MOZUAdminAttributeVocabularyValue : JSONModel<MOZUAdminAttributeVocabularyValue>
 
 /**
 The actual vocabulary value.

@@ -13,22 +13,22 @@
 
 
 
-@protocol MOZUAttributeMetadataItem
+@protocol MOZUExtensibleAttributeMetadataItem
 @end
 
 
 /**
-	Item used to define additional key-value pairs of data associated with a product attribute.
+	Properties of a metadata item defined for an attribute.
 */
-@interface MOZUAttributeMetadataItem : JSONModel<MOZUAttributeMetadataItem>
+@interface MOZUExtensibleAttributeMetadataItem : JSONModel<MOZUExtensibleAttributeMetadataItem>
 
 /**
-User-defined key for attribute metadata.
+Key used for metadata defined for an extensible attribute.
 */
 @property(nonatomic) NSString * key;
 
 /**
-Value for the user-defined key.
+Value of a metadata item defined for an extensible attribute.
 */
 @property(nonatomic) NSString * value;
 

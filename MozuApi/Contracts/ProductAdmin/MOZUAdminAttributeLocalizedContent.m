@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUAttributeLocalizedContent.h"
+#import "MOZUAdminAttributeLocalizedContent.h"
 
-@implementation MOZUAttributeLocalizedContent
+@implementation MOZUAdminAttributeLocalizedContent
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;

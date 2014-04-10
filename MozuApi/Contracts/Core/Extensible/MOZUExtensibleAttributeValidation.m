@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUAttributeVocabularyValue.h"
+#import "MOZUExtensibleAttributeValidation.h"
 
-@implementation MOZUAttributeVocabularyValue
+@implementation MOZUExtensibleAttributeValidation
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;

@@ -23,6 +23,11 @@
 @interface MOZUFacetSource : JSONModel<MOZUFacetSource>
 
 /**
+The source type for the facet, either "Attribute" or "Element". Category and price facets are elements.
+*/
+@property(nonatomic) NSString * type;
+
+/**
 If true, the facet allows for values that consist of one or more ranges, such as 0-100, 100-200, and 200-300.
 */
 @property(nonatomic) BOOL allowsRangeQuery;
@@ -41,11 +46,6 @@ Identifier of the facet source, which is attribute, category, or price. For attr
 System-supplied and read-only name of the associated facet source.
 */
 @property(nonatomic) NSString * name;
-
-/**
-The source type for the facet, either "Attribute" or "Element". Category and price facets are elements.
-*/
-@property(nonatomic) NSString * type;
 
 @end
 

@@ -22,6 +22,12 @@
 #pragma mark -
 //
 
+/**
+
+*/
+
++ (MOZUClient *)clientForCreateAnonymousShopperAuthTicketOperation;
+
 
 //
 #pragma mark -

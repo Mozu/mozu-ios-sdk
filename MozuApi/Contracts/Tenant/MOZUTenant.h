@@ -10,8 +10,8 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUTenantMasterCatalog.h"
 #import "MOZUSite.h"
+#import "MOZUTenantMasterCatalog.h"
 
 
 
@@ -45,14 +45,14 @@ The name of the tenant.
 @property(nonatomic) NSString * name;
 
 /**
-Collection of master catalogs associated with the tenant.
-*/
-@property(nonatomic) NSArray<MOZUTenantMasterCatalog> *masterCatalogs;
-
-/**
 Collection of sites associated with the tenant.
 */
 @property(nonatomic) NSArray<MOZUSite> *sites;
+
+/**
+Collection of master catalogs associated with the tenant.
+*/
+@property(nonatomic) NSArray<MOZUTenantMasterCatalog> *masterCatalogs;
 
 @end
 

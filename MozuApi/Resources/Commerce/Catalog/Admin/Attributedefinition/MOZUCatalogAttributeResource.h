@@ -10,11 +10,19 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAttribute.h"
-#import "MOZUAttributeCollection.h"
+#import "MOZUAPIContext.h"
+
+#import "MOZUAdminAttribute.h"
+#import "MOZUAdminAttributeCollection.h"
 
 
-@interface MOZUAttributeClient : NSObject
+@interface MOZUCatalogAttributeResource : NSObject
+
+
+@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+
+- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+
 
 //
 #pragma mark -
@@ -30,15 +38,15 @@ Retrieves a paged list of attributes according to any specified filter criteria 
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetAttributesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
-
+- (void)attributesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUAdminAttributeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 /**
 Retrieves the details of the specified product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForGetAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN;
-
+- (void)attributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 //
 #pragma mark -
@@ -51,8 +59,8 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 @param body Properties of the new product attribute to create.
 */
 
-+ (MOZUClient *)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body;
-
+- (void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 //
 #pragma mark -
@@ -66,8 +74,8 @@ Updates an existing attribute with attribute properties to set.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body attributeFQN:(NSString *)attributeFQN;
-
+- (void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 //
 #pragma mark -
@@ -80,8 +88,8 @@ Deletes a defined product attribute. You cannot delete an attribute assigned a v
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForDeleteAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN;
-
+- (void)deleteAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 
 @end

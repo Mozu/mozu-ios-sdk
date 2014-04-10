@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUAttributeVocabularyValue.h"
+#import "MOZUAdminAttributeVocabularyValue.h"
 
 
 
@@ -36,7 +36,7 @@ The vocabulary value of an attribute defined for a product type.
 /**
 Navigates vocabulary value details for an attribute defined for a product type.
 */
-@property(nonatomic) MOZUAttributeVocabularyValue *vocabularyValueDetail;
+@property(nonatomic) MOZUAdminAttributeVocabularyValue *vocabularyValueDetail;
 
 @end
 

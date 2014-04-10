@@ -26,8 +26,6 @@
 */
 @interface MOZUAdminDiscount : JSONModel<MOZUAdminDiscount>
 
-@property(nonatomic) NSNumber * maximumUsesPerUser;
-
 /**
 The integer amount of the discount. For example, an entry of "10" could represent a discount of $10.00 or a discount of 10%, depending on the type.
 */
@@ -49,6 +47,8 @@ The most recent number of redeemed discounts.
 Unique identifier of the discount.
 */
 @property(nonatomic) NSNumber * id;
+
+@property(nonatomic) NSNumber * maximumUsesPerUser;
 
 /**
 The scope to which the discount applies, which is "Order" for order discounts or "LineItem" for individual product discounts.

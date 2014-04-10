@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUAttributeURLComponents.h"
+#import "MOZUCatalogAttributeURLComponents.h"
 
-@implementation MOZUAttributeURLComponents
+@implementation MOZUCatalogAttributeURLComponents
 
 //
 #pragma mark -

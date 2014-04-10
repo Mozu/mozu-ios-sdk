@@ -8,13 +8,13 @@
 * </auto-generated>
 */
 
-#import "MOZUAttributeClient.h"
-#import "MOZUAttributeURLComponents.h"
-#import "MozuAttribute.h"
-#import "MozuAttributeCollection.h"
+#import "MOZUCatalogAttributeClient.h"
+#import "MOZUCatalogAttributeURLComponents.h"
+#import "MozuAdminAttribute.h"
+#import "MozuAdminAttributeCollection.h"
 
 
-@implementation MOZUAttributeClient
+@implementation MOZUCatalogAttributeClient
 
 //
 #pragma mark -
@@ -23,7 +23,7 @@
 //
 
 + (MOZUClient *)clientForGetAttributesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUAttributeURLComponents URLComponentsForGetAttributesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForGetAttributesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -32,14 +32,14 @@
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAttributeCollection alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminAttributeCollection alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
 }
 
 + (MOZUClient *)clientForGetAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUAttributeURLComponents URLComponentsForGetAttributeOperationWithAttributeFQN:attributeFQN];
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForGetAttributeOperationWithAttributeFQN:attributeFQN];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,7 +48,7 @@
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAttribute alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminAttribute alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -61,8 +61,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body {
-	id url = [MOZUAttributeURLComponents URLComponentsForAddAttributeOperation];
++ (MOZUClient *)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body {
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForAddAttributeOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -72,7 +72,7 @@
 	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAttribute alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminAttribute alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -85,8 +85,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUAttributeURLComponents URLComponentsForUpdateAttributeOperationWithAttributeFQN:attributeFQN];
++ (MOZUClient *)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN {
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForUpdateAttributeOperationWithAttributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -96,7 +96,7 @@
 	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAttribute alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminAttribute alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -110,7 +110,7 @@
 //
 
 + (MOZUClient *)clientForDeleteAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUAttributeURLComponents URLComponentsForDeleteAttributeOperationWithAttributeFQN:attributeFQN];
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForDeleteAttributeOperationWithAttributeFQN:attributeFQN];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

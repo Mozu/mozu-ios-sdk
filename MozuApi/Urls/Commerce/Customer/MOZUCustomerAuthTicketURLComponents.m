@@ -17,6 +17,13 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForCreateAnonymousShopperAuthTicketOperation {
+	NSString *template = @"/api/commerce/customer/authtickets/anonymousshopper";
+	NSDictionary *params = nil;
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -

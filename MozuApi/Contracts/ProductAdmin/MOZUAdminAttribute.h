@@ -10,22 +10,22 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUAttributeMetadataItem.h"
+#import "MOZUAdminAttributeMetadataItem.h"
 #import "MOZUAuditInfo.h"
-#import "MOZUAttributeLocalizedContent.h"
+#import "MOZUAdminAttributeLocalizedContent.h"
 #import "MOZUAdminAttributeValidation.h"
-#import "MOZUAttributeVocabularyValue.h"
+#import "MOZUAdminAttributeVocabularyValue.h"
 
 
 
-@protocol MOZUAttribute
+@protocol MOZUAdminAttribute
 @end
 
 
 /**
 	Details of an attribute used to describe individual aspects of a product.
 */
-@interface MOZUAttribute : JSONModel<MOZUAttribute>
+@interface MOZUAdminAttribute : JSONModel<MOZUAdminAttribute>
 
 /**
 The administrative name of the product attribute as it appears in Mozu Admin.
@@ -92,7 +92,7 @@ The type of value associated with the product attribute, which is ShopperEntered
 /**
 List of key-value pairs that store metadata associated with the product attribute.
 */
-@property(nonatomic) NSArray<MOZUAttributeMetadataItem> *attributeMetadata;
+@property(nonatomic) NSArray<MOZUAdminAttributeMetadataItem> *attributeMetadata;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
@@ -102,7 +102,7 @@ Identifier and datetime stamp information recorded when a user or application cr
 /**
 Complex type that contains content for a language specified by LocaleCode.
 */
-@property(nonatomic) MOZUAttributeLocalizedContent *content;
+@property(nonatomic) MOZUAdminAttributeLocalizedContent *content;
 
 /**
 Properties of the validation of a product attribute, which contains rules that dictate what values are valid entries for product attributes.
@@ -112,7 +112,7 @@ Properties of the validation of a product attribute, which contains rules that d
 /**
 Array list of the defined vocabulary values for the specified product attribute. For example, for a Color attribute, vocabulary values might include black, white, and purple.
 */
-@property(nonatomic) NSArray<MOZUAttributeVocabularyValue> *vocabularyValues;
+@property(nonatomic) NSArray<MOZUAdminAttributeVocabularyValue> *vocabularyValues;
 
 @end
 
