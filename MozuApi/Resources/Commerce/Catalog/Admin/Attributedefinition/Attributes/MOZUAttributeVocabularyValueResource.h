@@ -12,7 +12,7 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUAttributeVocabularyValue.h"
+#import "MOZUAdminAttributeVocabularyValue.h"
 
 
 @interface MOZUAttributeVocabularyValueResource : NSObject
@@ -34,7 +34,7 @@ Retrieves a list of attribute vocabulary values. To target a query, use one or s
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-- (void)attributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(NSArray<MOZUAdminAttributeVocabularyValue> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves an attribute vocabulary value by providing the attribute FQN and value.
@@ -42,7 +42,7 @@ Retrieves an attribute vocabulary value by providing the attribute FQN and value
 @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-- (void)attributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(MOZUAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -57,7 +57,7 @@ Adds a new attribute vocabulary value.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-- (void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -72,7 +72,7 @@ Update existing vocabulary values for an attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-- (void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValue> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(NSArray<MOZUAdminAttributeVocabularyValue> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Updates existing attribute vocabulary values.
@@ -81,7 +81,7 @@ Updates existing attribute vocabulary values.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-- (void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(MOZUAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

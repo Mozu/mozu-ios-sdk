@@ -12,7 +12,6 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUFulfillmentInfo.h"
 #import "MOZUFulfillmentAction.h"
 #import "MOZUOrder.h"
 
@@ -31,14 +30,6 @@
 #pragma mark -
 //
 
-/**
-Retrieve a list of the fulfillment information for the specified order.
-@param draft If true, retrieve the draft version of the order's fulfillment information, which might include uncommitted changes.
-@param orderId Retrieves a list of the fulfillment information for the specified order.
-*/
-
-- (void)fulfillmentInfoWithOrderId:(NSString *)orderId draft:(NSNumber *)draft completionHandler:(void(^)(MOZUFulfillmentInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
 
 //
 #pragma mark -
@@ -61,16 +52,6 @@ Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare i
 #pragma mark -
 //
 
-/**
-Updates one or more propertes of fulfillment information for the specified order.
-@param body Array of shipping fulfillment information associated with an order.
-@param orderId Unique identifier of the order associated with the fulfillment information to update.
-@param updateMode Specifies whether to set the fulfillment information by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-@param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-*/
-
-- (void)setFulFillmentInfoWithBody:(MOZUFulfillmentInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(MOZUFulfillmentInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
 
 //
 #pragma mark -

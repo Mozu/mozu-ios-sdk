@@ -21,6 +21,14 @@
 #pragma mark -
 //
 
++ (MOZUClient *)clientForCreateAnonymousShopperAuthTicketOperation {
+	id url = [MOZUCustomerAuthTicketURLComponents URLComponentsForCreateAnonymousShopperAuthTicketOperation];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
+
 
 //
 #pragma mark -

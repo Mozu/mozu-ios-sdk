@@ -24,16 +24,6 @@
 @interface MOZURegularHours : JSONModel<MOZURegularHours>
 
 /**
-The Saturday label array describes the range of hours this location is normally open on Saturdays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-*/
-@property(nonatomic) MOZUHours *saturday;
-
-/**
-The Sunday label array describes the range of hours this location is normally open on Sundays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-*/
-@property(nonatomic) MOZUHours *sunday;
-
-/**
 The Friday label array describes the range of hours this location is normally open on Fridays. For example: {"Label": "10:00 AM - 6:00 PM"}.
 */
 @property(nonatomic) MOZUHours *friday;
@@ -42,6 +32,16 @@ The Friday label array describes the range of hours this location is normally op
 The Monday label array describes the range of hours this location is normally open on Mondays. For example: {"Label": "10:00 AM - 6:00 PM"}.
 */
 @property(nonatomic) MOZUHours *monday;
+
+/**
+The Saturday label array describes the range of hours this location is normally open on Saturdays. For example: {"Label": "10:00 AM - 6:00 PM"}.
+*/
+@property(nonatomic) MOZUHours *saturday;
+
+/**
+The Sunday label array describes the range of hours this location is normally open on Sundays. For example: {"Label": "10:00 AM - 6:00 PM"}.
+*/
+@property(nonatomic) MOZUHours *sunday;
 
 /**
 The Thursday label array describes the range of hours this location is normally open on Thursdays. For example: {"Label": "10:00 AM - 6:00 PM"}.

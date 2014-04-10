@@ -38,6 +38,21 @@
 #pragma mark -
 //
 
+/**
+
+*/
+
+- (void)createAnonymousShopperAuthTicketWithCompletionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForCreateAnonymousShopperAuthTicketOperation];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -

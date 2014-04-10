@@ -8,17 +8,17 @@
 * </auto-generated>
 */
 
-#import "MOZUAttributeClient.h"
-#import "MOZUAttributeResource.h"
+#import "MOZUCatalogAttributeClient.h"
+#import "MOZUCatalogAttributeResource.h"
 
 
 
-@interface MOZUAttributeResource()
+@interface MOZUCatalogAttributeResource()
 @property(readwrite, nonatomic) MOZUAPIContext *apiContext;
 @end
 
 
-@implementation MOZUAttributeResource
+@implementation MOZUCatalogAttributeResource
 
 
 - (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
@@ -46,9 +46,9 @@ Retrieves a paged list of attributes according to any specified filter criteria 
 @param startIndex 
 */
 
-- (void)attributesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUAttributeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUAdminAttributeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeClient clientForGetAttributesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForGetAttributesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -62,9 +62,9 @@ Retrieves the details of the specified product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-- (void)attributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeClient clientForGetAttributeOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForGetAttributeOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -85,9 +85,9 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 @param body Properties of the new product attribute to create.
 */
 
-- (void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body completionHandler:(void(^)(MOZUAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeClient clientForAddAttributeOperationWithDataViewMode:dataViewMode body:body];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForAddAttributeOperationWithDataViewMode:dataViewMode body:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -109,9 +109,9 @@ Updates an existing attribute with attribute properties to set.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-- (void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttribute *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeClient clientForUpdateAttributeOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForUpdateAttributeOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -134,7 +134,7 @@ Deletes a defined product attribute. You cannot delete an attribute assigned a v
 
 - (void)deleteAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeClient clientForDeleteAttributeOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForDeleteAttributeOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

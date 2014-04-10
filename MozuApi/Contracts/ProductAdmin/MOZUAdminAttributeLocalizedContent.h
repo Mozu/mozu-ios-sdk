@@ -13,14 +13,14 @@
 
 
 
-@protocol MOZUAttributeLocalizedContent
+@protocol MOZUAdminAttributeLocalizedContent
 @end
 
 
 /**
 	Localized content displayed in the storefront for this attribute.
 */
-@interface MOZUAttributeLocalizedContent : JSONModel<MOZUAttributeLocalizedContent>
+@interface MOZUAdminAttributeLocalizedContent : JSONModel<MOZUAdminAttributeLocalizedContent>
 
 /**
 Localized content for the description of this attribute displayed in the storefront.

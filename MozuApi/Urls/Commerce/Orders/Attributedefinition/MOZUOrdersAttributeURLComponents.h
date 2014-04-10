@@ -9,7 +9,7 @@
 
 #import "MOZUURLComponents.h"
 
-@interface MOZUAttributeURLComponents : NSObject
+@interface MOZUOrdersAttributeURLComponents : NSObject
 
 //
 #pragma mark -
@@ -19,18 +19,24 @@
 
 /**
 Resource Url Components for getAttributes
-@param startIndex 
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-@param sortBy 
+@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 */
 + (MOZUURLComponents *)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
 
 /**
 Resource Url Components for getAttribute
-@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param attributeFQN 
 */
 + (MOZUURLComponents *)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
+
+/**
+Resource Url Components for getAttributeVocabularyValues
+@param attributeFQN 
+*/
++ (MOZUURLComponents *)URLComponentsForGetAttributeVocabularyValuesOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 
 //
@@ -39,11 +45,6 @@ Resource Url Components for getAttribute
 #pragma mark -
 //
 
-/**
-Resource Url Components for addAttribute
-*/
-+ (MOZUURLComponents *)URLComponentsForAddAttributeOperation;
-
 
 //
 #pragma mark -
@@ -51,24 +52,12 @@ Resource Url Components for addAttribute
 #pragma mark -
 //
 
-/**
-Resource Url Components for updateAttribute
-@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-*/
-+ (MOZUURLComponents *)URLComponentsForUpdateAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
-
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
-
-/**
-Resource Url Components for deleteAttribute
-@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-*/
-+ (MOZUURLComponents *)URLComponentsForDeleteAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 
 

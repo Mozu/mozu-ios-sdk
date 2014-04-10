@@ -10,7 +10,7 @@
 
 #import "MOZUAttributeVocabularyValueClient.h"
 #import "MOZUAttributeVocabularyValueURLComponents.h"
-#import "MozuAttributeVocabularyValue.h"
+#import "MozuAdminAttributeVocabularyValue.h"
 
 
 @implementation MOZUAttributeVocabularyValueClient
@@ -32,7 +32,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUAttributeVocabularyValue arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+		return [MOZUAdminAttributeVocabularyValue arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;
@@ -48,7 +48,7 @@
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAttributeVocabularyValue alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminAttributeVocabularyValue alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -61,7 +61,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN {
++ (MOZUClient *)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForAddAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -72,7 +72,7 @@
 	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAttributeVocabularyValue alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminAttributeVocabularyValue alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -85,7 +85,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN {
++ (MOZUClient *)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForUpdateAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -97,13 +97,13 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUAttributeVocabularyValue arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+		return [MOZUAdminAttributeVocabularyValue arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value {
++ (MOZUClient *)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value {
 	id url = [MOZUAttributeVocabularyValueURLComponents URLComponentsForUpdateAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -114,7 +114,7 @@
 	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAttributeVocabularyValue alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminAttributeVocabularyValue alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

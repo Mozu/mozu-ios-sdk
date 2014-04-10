@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "mozu-ios-sdk"
-  s.version          = "0.1.0"
+  s.version          = "1.7.0"
   s.summary          = "A short description of mozu-ios-sdk."
   s.description      = <<-DESC
                        An optional longer description of mozu-ios-sdk
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/NAME'
 
   # s.platform     = :ios, '5.0'
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '7.1'
   s.osx.deployment_target = '10.9'
   s.requires_arc = true
 

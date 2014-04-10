@@ -30,6 +30,12 @@
 #pragma mark -
 //
 
+/**
+
+*/
+
+- (void)createAnonymousShopperAuthTicketWithCompletionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 //
 #pragma mark -

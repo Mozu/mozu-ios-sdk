@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUAttributeVocabularyValue.h"
+#import "MOZUAdminAttributeVocabularyValue.h"
 #import "MOZUProductExtraValueDeltaPrice.h"
 
 
@@ -42,7 +42,7 @@ Properties of a defined value for a product extra attribute.
 /**
 Detail of the product extra attribute vocabulary value.
 */
-@property(nonatomic) MOZUAttributeVocabularyValue *attributeVocabularyValueDetail;
+@property(nonatomic) MOZUAdminAttributeVocabularyValue *attributeVocabularyValueDetail;
 
 /**
 The difference between the price associated with this product extra and the base product. For example, if a product with a defined monogram extra costs an additional $10, the DeltaPrice value is "10".
