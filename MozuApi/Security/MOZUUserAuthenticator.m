@@ -41,11 +41,11 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 - (BOOL)isEqual:(id)object
 {
     BOOL sameID = self.id == [object id];
-    BOOL sameName = nilEqualToString(self.name, [object name]);
+    BOOL sameName = [self string:self.name nilOrEqualToString:[object name]];
     return sameID && sameName;
 }
 
-BOOL nilEqualToString(NSString *a, NSString *b)
+- (BOOL)string:(NSString *)a nilOrEqualToString:(NSString *)b
 {
     return (a == nil && b == nil) || [a isEqualToString:b];
 }
