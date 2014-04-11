@@ -21,6 +21,35 @@
 static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBackgroundSessionIdentifier";
 
 @implementation MOZUScope
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        _id   = [coder decodeIntegerForKey:@"id"];
+        _name = [coder decodeObjectForKey:@"name"];
+    }
+    return self;
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeInteger:_id forKey:@"id"];
+    [encoder encodeObject:_name forKey:@"name"];
+}
+
+- (BOOL)isEqual:(id)object
+{
+    BOOL sameID = self.id == [object id];
+    BOOL sameName = nilEqualToString(self.name, [object name]);
+    return sameID && sameName;
+}
+
+BOOL nilEqualToString(NSString *a, NSString *b)
+{
+    return (a == nil && b == nil) || [a isEqualToString:b];
+}
+
 @end
 
 @implementation MOZUUserAuthTicket
