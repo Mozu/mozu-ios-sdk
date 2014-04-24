@@ -53,7 +53,7 @@ Retrieves the list of all available payment actions dependent on the order payme
 @param paymentId Unique identifer of the payment for which to retrieve available actions.
 */
 
-- (void)availablePaymentActionsWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)availablePaymentActionsWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

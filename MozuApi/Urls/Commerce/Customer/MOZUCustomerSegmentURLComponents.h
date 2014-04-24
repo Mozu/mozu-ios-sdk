@@ -46,10 +46,9 @@ Resource Url Components for addSegment
 
 /**
 Resource Url Components for addSegmentAccounts
-@param accountIds 
 @param identifier 
 */
-+ (MOZUURLComponents *)URLComponentsForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForAddSegmentAccountsOperationWithIdentifier:(NSInteger)identifier;
 
 
 //
@@ -79,10 +78,9 @@ Resource Url Components for deleteSegment
 
 /**
 Resource Url Components for deleteSegmentAccounts
-@param accountIds 
 @param identifier 
 */
-+ (MOZUURLComponents *)URLComponentsForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForDeleteSegmentAccountsOperationWithIdentifier:(NSInteger)identifier;
 
 
 

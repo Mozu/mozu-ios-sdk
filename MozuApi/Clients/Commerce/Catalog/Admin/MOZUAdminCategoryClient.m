@@ -78,8 +78,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body {
-	id url = [MOZUAdminCategoryURLComponents URLComponentsForAddCategoryOperation];
++ (MOZUClient *)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body incrementSequence:(NSNumber *)incrementSequence {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForAddCategoryOperationWithIncrementSequence:incrementSequence];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

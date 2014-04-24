@@ -55,11 +55,11 @@
 
 /**
 
-@param accountIds 
+@param body 
 @param identifier 
 */
 
-+ (MOZUClient *)clientForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
++ (MOZUClient *)clientForAddSegmentAccountsOperationWithBody:(NSArray *)body identifier:(NSInteger)identifier;
 
 
 //
@@ -92,11 +92,11 @@
 
 /**
 
-@param accountIds 
+@param body 
 @param identifier 
 */
 
-+ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier;
++ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithBody:(NSArray *)body identifier:(NSInteger)identifier;
 
 
 

@@ -56,7 +56,7 @@ Retrieves a list of the actions available to perform for the specified return ba
 @param returnId Retrieves a list of the actions available to perform for the specified return based on its current state.
 */
 
-- (void)availableReturnActionsWithReturnId:(NSString *)returnId completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)availableReturnActionsWithReturnId:(NSString *)returnId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of all payments submitted as part of a refund associated with a customer return.
@@ -79,7 +79,7 @@ Retrieves a list of the payment actions available to perform for the specified r
 @param returnId Unique identifier of the return associated with the payment.
 */
 
-- (void)availablePaymentActionsForReturnWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)availablePaymentActionsForReturnWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

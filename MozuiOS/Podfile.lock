@@ -4,7 +4,7 @@ PODS:
   - CocoaLumberjack/Core (1.8.1)
   - CocoaLumberjack/Extensions (1.8.1):
     - CocoaLumberjack/Core
-  - JSONModel (0.12.0)
+  - JSONModel (0.13.0)
   - mozu-ios-sdk (1.7.0):
     - CocoaLumberjack
     - JSONModel
@@ -46,7 +46,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
-  JSONModel: f391da60a15e11f8fa8950fb980b8f799ae3453f
+  JSONModel: 1ce27c7d59de0ada0048e64f20006ce02e9ce73d
   mozu-ios-sdk: 51ce4f44eef7928d1977dd523c9b79f79daaba71
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.32.1

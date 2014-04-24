@@ -29,6 +29,11 @@
 @interface MOZUReturn : JSONModel<MOZUReturn>
 
 /**
+Unique identifier of the Mozu tenant.
+*/
+@property(nonatomic) NSNumber * tenantId;
+
+/**
 The actions a user can perform for the return at this time.
 */
 @property(nonatomic) NSArray *availableActions;
@@ -127,11 +132,6 @@ Unique identifier of the site.
 Current status of the return, such as "ReturnAuthorized".
 */
 @property(nonatomic) NSString * status;
-
-/**
-Unique identifier of the Mozu tenant.
-*/
-@property(nonatomic) NSNumber * tenantId;
 
 /**
 Unique identifier of the user responsible for the return. Read only and supplied by the original order.

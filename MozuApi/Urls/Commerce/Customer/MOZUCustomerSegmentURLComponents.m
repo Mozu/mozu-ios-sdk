@@ -52,10 +52,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier {
++ (MOZUURLComponents *)URLComponentsForAddSegmentAccountsOperationWithIdentifier:(NSInteger)identifier {
 	NSString *template = @"/api/commerce/customer/segments/{identifier}/accounts";
 	NSDictionary *params = @{
-		@"accountIds" : @(accountIds),
 		@"identifier" : @(identifier),
 	};
 
@@ -94,10 +93,9 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier {
++ (MOZUURLComponents *)URLComponentsForDeleteSegmentAccountsOperationWithIdentifier:(NSInteger)identifier {
 	NSString *template = @"/api/commerce/customer/segments/{identifier}/accounts";
 	NSDictionary *params = @{
-		@"accountIds" : @(accountIds),
 		@"identifier" : @(identifier),
 	};
 

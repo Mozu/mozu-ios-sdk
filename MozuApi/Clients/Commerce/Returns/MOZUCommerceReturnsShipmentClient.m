@@ -42,7 +42,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSString *)body returnId:(NSString *)returnId {
++ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSArray *)body returnId:(NSString *)returnId {
 	id url = [MOZUCommerceReturnsShipmentURLComponents URLComponentsForCreatePackageShipmentsOperationWithReturnId:returnId];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

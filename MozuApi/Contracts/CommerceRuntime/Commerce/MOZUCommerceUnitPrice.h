@@ -23,11 +23,6 @@
 @interface MOZUCommerceUnitPrice : JSONModel<MOZUCommerceUnitPrice>
 
 /**
-The calculated amount of the discount to apply.
-*/
-@property(nonatomic) NSNumber * discountAmount;
-
-/**
 Represents the total price of the line item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
 */
 @property(nonatomic) NSNumber * extendedAmount;

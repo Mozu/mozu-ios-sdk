@@ -20,14 +20,6 @@
 
 @interface MOZUSubscription : JSONModel<MOZUSubscription>
 
-@property(nonatomic) NSString * createBy;
-
-@property(nonatomic) NSDate * createDate;
-
-@property(nonatomic) NSString * endpoint;
-
-@property(nonatomic) NSString * id;
-
 @property(nonatomic) NSNumber * isActive;
 
 @property(nonatomic) NSNumber * noCallback;
@@ -47,6 +39,14 @@
 @property(nonatomic) NSNumber * confirmed;
 
 @property(nonatomic) NSString * contentType;
+
+@property(nonatomic) NSString * createBy;
+
+@property(nonatomic) NSDate * createDate;
+
+@property(nonatomic) NSString * endpoint;
+
+@property(nonatomic) NSString * id;
 
 @property(nonatomic) NSArray<MOZUSubscribingSite> *subscribingSites;
 

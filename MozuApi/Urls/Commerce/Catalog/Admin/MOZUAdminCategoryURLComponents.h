@@ -47,8 +47,9 @@ Resource Url Components for getChildCategories
 
 /**
 Resource Url Components for addCategory
+@param incrementSequence 
 */
-+ (MOZUURLComponents *)URLComponentsForAddCategoryOperation;
++ (MOZUURLComponents *)URLComponentsForAddCategoryOperationWithIncrementSequence:(NSNumber *)incrementSequence;
 
 
 //
