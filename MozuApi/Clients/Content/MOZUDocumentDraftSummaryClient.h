@@ -43,7 +43,7 @@ Deletes the drafts of the specified documents. Published documents cannot be del
 @param documentLists List of document lists that contain documents to delete.
 */
 
-+ (MOZUClient *)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString *)body documentLists:(NSString *)documentLists;
++ (MOZUClient *)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray *)body documentLists:(NSString *)documentLists;
 
 
 //
@@ -58,7 +58,7 @@ Publish one or more document drafts to live content on the site.
 @param documentLists List of document lists that contain documents to publish.
 */
 
-+ (MOZUClient *)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSString *)body documentLists:(NSString *)documentLists;
++ (MOZUClient *)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray *)body documentLists:(NSString *)documentLists;
 
 
 //

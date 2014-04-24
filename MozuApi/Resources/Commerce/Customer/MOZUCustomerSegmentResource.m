@@ -98,13 +98,13 @@
 
 /**
 
-@param accountIds 
+@param body 
 @param identifier 
 */
 
-- (void)addSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addSegmentAccountsWithBody:(NSArray *)body identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerSegmentClient clientForAddSegmentAccountsOperationWithAccountIds:accountIds identifier:identifier];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForAddSegmentAccountsOperationWithBody:body identifier:identifier];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -162,13 +162,13 @@
 
 /**
 
-@param accountIds 
+@param body 
 @param identifier 
 */
 
-- (void)deleteSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteSegmentAccountsWithBody:(NSArray *)body identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerSegmentClient clientForDeleteSegmentAccountsOperationWithAccountIds:accountIds identifier:identifier];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForDeleteSegmentAccountsOperationWithBody:body identifier:identifier];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

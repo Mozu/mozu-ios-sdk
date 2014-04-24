@@ -24,11 +24,6 @@
 @interface MOZUTaxableLineItem : JSONModel<MOZUTaxableLineItem>
 
 /**
-The quantity of the line item in the order.
-*/
-@property(nonatomic) NSInteger quantity;
-
-/**
 Unique identifier of the taxable line item.
 */
 @property(nonatomic) NSString * id;
@@ -49,6 +44,11 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 @property(nonatomic) NSString * productCode;
 
 @property(nonatomic) NSString * productName;
+
+/**
+The quantity of the line item in the order.
+*/
+@property(nonatomic) NSInteger quantity;
 
 @property(nonatomic) NSString * reason;
 

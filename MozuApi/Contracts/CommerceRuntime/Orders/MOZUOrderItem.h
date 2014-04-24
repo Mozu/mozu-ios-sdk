@@ -28,11 +28,6 @@
 @interface MOZUOrderItem : JSONModel<MOZUOrderItem>
 
 /**
-Total amount of shipping fees associated with the specified item in the order.
-*/
-@property(nonatomic) NSNumber * shippingTotal;
-
-/**
 The subtotal of the order item including any applied discount calculations.
 */
 @property(nonatomic) NSNumber * discountedTotal;
@@ -101,6 +96,11 @@ The quantity of a specific item in an order.
 The total amount of sales tax incurred for shipping charges associated with this item in a cart.
 */
 @property(nonatomic) NSNumber * shippingTaxTotal;
+
+/**
+Total amount of shipping fees associated with the specified item in the order.
+*/
+@property(nonatomic) NSNumber * shippingTotal;
 
 /**
 Amount of the item in the order without sales tax, shipping costs, and other fees.

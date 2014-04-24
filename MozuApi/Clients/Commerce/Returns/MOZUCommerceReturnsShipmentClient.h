@@ -43,7 +43,7 @@ Creates a shipment from one or more packages associated with a return replacemen
 @param returnId Unique identifier of the return for which to create replacement package shipments.
 */
 
-+ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSString *)body returnId:(NSString *)returnId;
++ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSArray *)body returnId:(NSString *)returnId;
 
 
 //

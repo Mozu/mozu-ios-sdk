@@ -63,11 +63,11 @@
 ;
 /**
 
-@param accountIds 
+@param body 
 @param identifier 
 */
 
-- (void)addSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addSegmentAccountsWithBody:(NSArray *)body identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -100,11 +100,11 @@
 ;
 /**
 
-@param accountIds 
+@param body 
 @param identifier 
 */
 
-- (void)deleteSegmentAccountsWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteSegmentAccountsWithBody:(NSArray *)body identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

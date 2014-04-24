@@ -54,9 +54,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddCategoryOperation {
-	NSString *template = @"/api/commerce/catalog/admin/categories/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForAddCategoryOperationWithIncrementSequence:(NSNumber *)incrementSequence {
+	NSString *template = @"/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}";
+	NSDictionary *params = @{
+		@"incrementSequence" : incrementSequence ? incrementSequence : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

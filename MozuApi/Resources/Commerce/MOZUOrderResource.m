@@ -64,7 +64,7 @@ Retrieves available order actions which depends on the status of the order. Acti
 @param orderId Unique identifier of the available order actions to get.
 */
 
-- (void)availableActionsWithOrderId:(NSString *)orderId completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)availableActionsWithOrderId:(NSString *)orderId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUOrderClient clientForGetAvailableActionsOperationWithOrderId:orderId];
 	client.context = self.apiContext;

@@ -51,7 +51,7 @@ Creates a shipment from one or more package associated with an order and assign 
 @param orderId Unique identifier of the order for this shipment.
 */
 
-+ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSString *)body orderId:(NSString *)orderId;
++ (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSArray *)body orderId:(NSString *)orderId;
 
 
 //

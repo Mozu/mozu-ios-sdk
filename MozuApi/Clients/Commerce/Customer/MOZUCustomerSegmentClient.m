@@ -69,11 +69,12 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForAddSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier {
-	id url = [MOZUCustomerSegmentURLComponents URLComponentsForAddSegmentAccountsOperationWithAccountIds:accountIds identifier:identifier];
++ (MOZUClient *)clientForAddSegmentAccountsOperationWithBody:(NSArray *)body identifier:(NSInteger)identifier {
+	id url = [MOZUCustomerSegmentURLComponents URLComponentsForAddSegmentAccountsOperationWithIdentifier:identifier];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
+	client.body = body;
 	return client;
 }
 
@@ -113,11 +114,12 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithAccountIds:(NSInteger)accountIds identifier:(NSInteger)identifier {
-	id url = [MOZUCustomerSegmentURLComponents URLComponentsForDeleteSegmentAccountsOperationWithAccountIds:accountIds identifier:identifier];
++ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithBody:(NSArray *)body identifier:(NSInteger)identifier {
+	id url = [MOZUCustomerSegmentURLComponents URLComponentsForDeleteSegmentAccountsOperationWithIdentifier:identifier];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
+	client.body = body;
 	return client;
 }
 
