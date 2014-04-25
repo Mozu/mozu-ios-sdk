@@ -53,11 +53,11 @@ The user-defined name of the product catalog.
 */
 @property(nonatomic) NSString * name;
 
-@property(nonatomic) NSString * status;
-
 @property(nonatomic) NSInteger tenantId;
 
 @property(nonatomic) NSDate * updateDate;
+
+@property(nonatomic) NSString * status;
 
 @end
 

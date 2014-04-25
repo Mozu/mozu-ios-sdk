@@ -10,8 +10,8 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUAdminLocationInventory.h"
 #import "MOZULocationInventoryAdjustment.h"
+#import "MOZUAdminLocationInventory.h"
 #import "MOZUAdminLocationInventoryCollection.h"
 
 
@@ -52,10 +52,11 @@ Retrieves the details of the inventory of the product in the location specified 
 /**
 Creates a new location inventory definition for the product code specified in the request.
 @param body Array list of the location inventory definitions associated with the product code specified in the request. For each location, you must define the locationCode value and the stockOnHand value. All other properties in the array are system-supplied and read only.
+@param performUpserts 
 @param productCode ProductCodeBase
 */
 
-+ (MOZUClient *)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body productCode:(NSString *)productCode;
++ (MOZUClient *)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body productCode:(NSString *)productCode performUpserts:(NSNumber *)performUpserts;
 
 
 //

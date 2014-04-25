@@ -61,8 +61,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body locationCode:(NSString *)locationCode {
-	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForAddLocationInventoryOperationWithLocationCode:locationCode];
++ (MOZUClient *)clientForAddLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body locationCode:(NSString *)locationCode performUpserts:(NSNumber *)performUpserts {
+	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForAddLocationInventoryOperationWithLocationCode:locationCode performUpserts:performUpserts];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

@@ -12,7 +12,7 @@
 @interface MOZUURLComponents()
 
 @property (nonatomic, assign) MOZUURLLocation location;
-@property (nonatomic, assign) BOOL useSSL;
+//@property (nonatomic, assign) BOOL useSSL; // TODO: Uncomment when ssl bug is fixed.
 @property (nonatomic, strong) NSURLComponents *components;
 
 @end
@@ -165,6 +165,13 @@
 }
 
 #pragma mark - NSURLComponents properties
+
+// TODO: Remove when ssl bug is fixed.
+- (void)setUseSSL:(BOOL)useSSL
+{
+    _useSSL = useSSL;
+    self.components.scheme = useSSL ? @"https" : @"http";
+}
 
 - (NSURL *)URL
 {

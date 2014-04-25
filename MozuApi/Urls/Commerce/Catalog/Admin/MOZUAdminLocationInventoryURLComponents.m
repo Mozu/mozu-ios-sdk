@@ -47,10 +47,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithLocationCode:(NSString *)locationCode {
-	NSString *template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}";
++ (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithLocationCode:(NSString *)locationCode performUpserts:(NSNumber *)performUpserts {
+	NSString *template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}?performUpserts={performUpserts}";
 	NSDictionary *params = @{
 		@"locationCode" : locationCode,
+		@"performUpserts" : performUpserts ? performUpserts : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
