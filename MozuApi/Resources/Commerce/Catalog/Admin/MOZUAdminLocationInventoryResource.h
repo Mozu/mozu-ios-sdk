@@ -61,9 +61,10 @@ Retrieves a list of all product inventory definitions for the location code spec
 Creates an array of product inventory definitions for the location specified in the request. When adding a new inventory definition, you must specify the productCode and stockOnHand value in each array you define. All other properties are system-supplied and read only.
 @param body Array list of product inventory definitions for all associated locations. For each location inventory in the list, define the productCode and stockOnHand values.
 @param locationCode User-defined code that uniquely identifies the location.
+@param performUpserts 
 */
 
-- (void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body locationCode:(NSString *)locationCode completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addLocationInventoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminLocationInventory> *)body locationCode:(NSString *)locationCode performUpserts:(NSNumber *)performUpserts completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

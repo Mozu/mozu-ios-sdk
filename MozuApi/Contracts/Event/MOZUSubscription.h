@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUSubscribingSite.h"
+#import "MOZUSubscribingTenant.h"
 
 
 
@@ -19,18 +19,6 @@
 
 
 @interface MOZUSubscription : JSONModel<MOZUSubscription>
-
-@property(nonatomic) NSNumber * isActive;
-
-@property(nonatomic) NSNumber * noCallback;
-
-@property(nonatomic) NSString * notificationDeliveryType;
-
-@property(nonatomic) NSArray *topics;
-
-@property(nonatomic) NSString * updateBy;
-
-@property(nonatomic) NSDate * updateDate;
 
 @property(nonatomic) NSString * apiVersion;
 
@@ -48,7 +36,19 @@
 
 @property(nonatomic) NSString * id;
 
-@property(nonatomic) NSArray<MOZUSubscribingSite> *subscribingSites;
+@property(nonatomic) NSNumber * isActive;
+
+@property(nonatomic) NSNumber * noCallback;
+
+@property(nonatomic) NSString * notificationDeliveryType;
+
+@property(nonatomic) NSArray *topics;
+
+@property(nonatomic) NSString * updateBy;
+
+@property(nonatomic) NSDate * updateDate;
+
+@property(nonatomic) NSArray<MOZUSubscribingTenant> *subscribingTenants;
 
 @end
 

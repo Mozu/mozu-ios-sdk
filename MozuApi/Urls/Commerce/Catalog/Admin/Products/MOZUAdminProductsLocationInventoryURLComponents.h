@@ -44,8 +44,9 @@ Resource Url Components for getLocationInventory
 /**
 Resource Url Components for addLocationInventory
 @param productCode ProductCodeBase
+@param performUpserts 
 */
-+ (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithProductCode:(NSString *)productCode performUpserts:(NSNumber *)performUpserts;
 
 
 //

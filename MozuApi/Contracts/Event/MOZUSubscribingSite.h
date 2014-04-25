@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUAuditInfo.h"
 
 
 
@@ -19,9 +20,11 @@
 
 @interface MOZUSubscribingSite : JSONModel<MOZUSubscribingSite>
 
+@property(nonatomic) NSNumber * isActive;
+
 @property(nonatomic) NSNumber * siteId;
 
-@property(nonatomic) NSNumber * tenantId;
+@property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end
 

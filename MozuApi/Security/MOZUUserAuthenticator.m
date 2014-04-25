@@ -334,6 +334,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
     
     components.host = [MOZUAppAuthenticator sharedAppAuthenticator].host;
+    components.useSSL = [MOZUAppAuthenticator sharedAppAuthenticator].useSSL; // TODO: Remove this when ssl bug is fixed.
     return components.URL;
 }
 
@@ -354,6 +355,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
     
     components.host = [MOZUAppAuthenticator sharedAppAuthenticator].host;
+    components.useSSL = [MOZUAppAuthenticator sharedAppAuthenticator].useSSL; // TODO: Remove this when ssl bug is fixed.
     return components.URL;
 }
 
@@ -374,6 +376,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
     
     components.host = [MOZUAppAuthenticator sharedAppAuthenticator].host;
+    components.useSSL = [MOZUAppAuthenticator sharedAppAuthenticator].useSSL; // TODO: Remove this when ssl bug is fixed.
     return components.URL;
 }
 

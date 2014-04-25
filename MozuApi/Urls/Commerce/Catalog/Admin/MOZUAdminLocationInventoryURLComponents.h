@@ -44,8 +44,9 @@ Resource Url Components for getLocationInventories
 /**
 Resource Url Components for addLocationInventory
 @param locationCode User-defined code that uniquely identifies the location.
+@param performUpserts 
 */
-+ (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithLocationCode:(NSString *)locationCode;
++ (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithLocationCode:(NSString *)locationCode performUpserts:(NSNumber *)performUpserts;
 
 
 //

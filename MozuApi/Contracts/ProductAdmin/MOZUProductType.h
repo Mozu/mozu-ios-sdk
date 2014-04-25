@@ -24,8 +24,6 @@
 */
 @interface MOZUProductType : JSONModel<MOZUProductType>
 
-@property(nonatomic) NSNumber * masterCatalogId;
-
 /**
 Identifier of the entity.
 */
@@ -35,6 +33,8 @@ Identifier of the entity.
 If true, this product is associated with the overall product type. There is only one BaseProductType per site group. System-supplied and read-only.
 */
 @property(nonatomic) BOOL isBaseProductType;
+
+@property(nonatomic) NSNumber * masterCatalogId;
 
 /**
 Name of the product type, such as "Shoes" or "TVs".

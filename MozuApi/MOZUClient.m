@@ -214,6 +214,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
             DDLogError(@"%@", error.localizedDescription);
             dispatch_group_leave(group);
         } else {
+            // TODO: Remove next line when useSSL bug is fixed.
+            self.resourceURLComponents.useSSL = [MOZUAppAuthenticator sharedAppAuthenticator].useSSL;
             self.resourceURLComponents.host = host;
             request.URL = self.resourceURLComponents.URL;
             [self validateHeaders:self.mutableHeaders request:request completionHandler:^(NSError *error) {
