@@ -127,6 +127,8 @@ The product properties of an item in an order.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 
+@property(nonatomic) MOZUAppliedProductDiscount *productDiscount;
+
 /**
 List of product discounts that apply to the item in the order.
 */

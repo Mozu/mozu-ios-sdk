@@ -127,6 +127,8 @@ The properties of the product associated with an item in a wish list.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 
+@property(nonatomic) MOZUAppliedProductDiscount *productDiscount;
+
 /**
 Array of product discounts applicable to an item in a wish list. This property is not used at this time and is reserved for future functionality.
 */
