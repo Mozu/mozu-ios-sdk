@@ -122,6 +122,8 @@ The properties of the associated product.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 
+@property(nonatomic) MOZUAppliedProductDiscount *productDiscount;
+
 /**
 List of product-level discounts projected to apply to the cart item at checkout.
 */
