@@ -45,6 +45,11 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return sameID && sameName;
 }
 
+- (NSUInteger)hash
+{
+    return self.id;
+}
+
 - (BOOL)string:(NSString *)a nilOrEqualToString:(NSString *)b
 {
     return (a == nil && b == nil) || [a isEqualToString:b];
@@ -85,6 +90,47 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 @end
 
 @implementation MOZUAuthenticationProfile
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        _authTicket       = [coder decodeObjectForKey:@"authTicket"];
+        _authorizedScopes = [coder decodeObjectForKey:@"authorizedScopes"];
+        _activeScope      = [coder decodeObjectForKey:@"activeScope"];
+        _userProfile      = [coder decodeObjectForKey:@"userProfile"];
+        _shopperAccount   = [coder decodeObjectForKey:@"shopperAccount"];
+    }
+    return self;
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_authTicket forKey:@"authTicket"];
+    [encoder encodeObject:_authorizedScopes forKey:@"authorizedScopes"];
+    [encoder encodeObject:_activeScope forKey:@"activeScope"];
+    [encoder encodeObject:_userProfile forKey:@"userProfile"];
+    [encoder encodeObject:_shopperAccount forKey:@"shopperAccount"];
+}
+
+- (NSUInteger)hash
+{
+    return [self.userProfile.emailAddress hash];
+}
+
+/*
+- (BOOL)isEqual:(id)object
+{
+    BOOL sameID = self.id == [object id];
+    BOOL sameName = [self string:self.name nilOrEqualToString:[object name]];
+    return sameID && sameName;
+}
+
+- (BOOL)string:(NSString *)a nilOrEqualToString:(NSString *)b
+{
+    return (a == nil && b == nil) || [a isEqualToString:b];
+}
+*/
 @end
 
 @implementation MOZUUserAuthenticator

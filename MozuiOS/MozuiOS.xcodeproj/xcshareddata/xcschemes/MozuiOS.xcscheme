@@ -26,6 +26,9 @@
                   Identifier = "MozuApiTests/testAccessTokenRefresh">
                </Test>
                <Test
+                  Identifier = "MozuApiTests/testGettingAdminLocations">
+               </Test>
+               <Test
                   Identifier = "MozuApiTests/testUserAuthentication">
                </Test>
             </SkippedTests>
