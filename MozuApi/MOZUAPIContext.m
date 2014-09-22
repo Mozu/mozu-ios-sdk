@@ -87,6 +87,7 @@
         _siteHost = headers[MOZU_X_VOL_SITE_DOMAIN];
         _correlationId = headers[MOZU_X_VOL_CORRELATION];
         _hmacSHA256 = headers[MOZU_X_VOL_HMAC_SHA256];
+        _date = headers[MOZU_DATE];
         
         if ([[headers allKeys] containsObject:MOZU_X_VOL_MASTER_CATALOG] && headers[MOZU_X_VOL_MASTER_CATALOG]) {
             _masterCatalogId = @([headers[MOZU_X_VOL_MASTER_CATALOG] integerValue]);
@@ -113,6 +114,29 @@
         };
     
     return [[JSONKeyMapper alloc] initWithDictionary:dict];
+}
+
+- (id)cloneWith:(MOZUAPIContextModificationBlock)apiContextModification
+{
+    MOZUAPIContext* cloned = [self init];
+    
+    cloned.appAuthTicket = self.appAuthTicket;
+    cloned.catalogId = self.catalogId;
+    cloned.correlationId = self.correlationId;
+    cloned.currency = [NSString stringWithString:self.currency];
+    cloned.date = [NSString stringWithString:self.date];
+    cloned.hmacSHA256 = [NSString stringWithString:self.hmacSHA256];
+    cloned.locale = [NSString stringWithString:self.locale];
+    cloned.masterCatalogId = self.masterCatalogId;
+    cloned.siteId = self.siteId;
+    cloned.siteHost = [NSString stringWithString:self.siteHost];
+    cloned.tenant = self.tenant;
+    cloned.tenantId = self.tenantId;
+    cloned.tenantHost = [NSString stringWithString:self.tenantHost];
+    cloned.userAuthTicket = self.userAuthTicket;
+    
+    apiContextModification(cloned);
+    return cloned;
 }
 
 @end

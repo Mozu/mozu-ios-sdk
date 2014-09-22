@@ -83,6 +83,17 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     {
         [self setHeader:MOZU_X_VOL_CATALOG value:[context.catalogId stringValue]];
     }
+    
+    if (context.locale != nil)
+    {
+        [self setHeader:MOZU_X_VOL_LOCALE value:context.locale];
+    }
+    
+    if (context.currency != nil)
+    {
+        [self setHeader:MOZU_X_VOL_CURRENCY value:context.currency];
+    }
+    
 }
 
 - (void)validateUserClaims:(MOZUUserAuthTicket *)userClaims completionHandler:(void (^)(NSError *error))completion

@@ -47,13 +47,13 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     if (self) {
         _backgroundSessionIdentifier = MOZUClientBackgroundSessionIdentifier;
         _sessionConfiguration = MOZUAppAuthenticatorDefaultSessionConfiguration;
+        self.useSSL = YES;
+        self.host = @"home.mozu.com";
     }
     return self;
 }
 
 - (void)authenticateWithAuthInfo:(MOZUAppAuthInfo *)appAuthInfo
-                         appHost:(NSString *)host
-                          useSSL:(BOOL)useSSL
                   refeshInterval:(MOZURefreshInterval *)refreshInterval
                completionHandler:(MOZUAppAuthenticationCompletionBlock)completion
 {
@@ -61,8 +61,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSParameterAssert(appAuthInfo.applicationId && appAuthInfo.sharedSecret);
     _appAuthInfo = appAuthInfo;
     _URLComponents = [NSURLComponents new];
-    _URLComponents.host = host;
-    _URLComponents.scheme = useSSL ? @"https" : @"http";
+    _URLComponents.host = self.host;
+    _URLComponents.scheme = self.useSSL ? @"https" : @"http";
     _refreshInterval = refreshInterval;
     [self authenticateAppWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         completion(response, error);
@@ -74,7 +74,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     if (!self.URLComponents) {
         self.URLComponents = [NSURLComponents new];
     }
-    self.URLComponents.host = host;
+    self.URLComponents.host = self.host;
 }
 
 - (NSString *)host
@@ -87,7 +87,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     if (!self.URLComponents) {
         self.URLComponents = [NSURLComponents new];
     }
-    self.URLComponents.scheme = useSSL ? @"https" : @"http";
+    self.URLComponents.scheme = self.useSSL ? @"https" : @"http";
 }
 
 - (BOOL)useSSL

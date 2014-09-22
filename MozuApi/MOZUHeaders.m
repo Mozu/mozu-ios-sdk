@@ -18,7 +18,10 @@ NSString * const MOZU_X_VOL_CORRELATION = @"x-vol-correlation";
 NSString * const MOZU_X_VOL_HMAC_SHA256 = @"x-vol-hmac-sha256";
 NSString * const MOZU_X_VOL_APP_CLAIMS = @"x-vol-app-claims";
 NSString * const MOZU_X_VOL_USER_CLAIMS = @"x-vol-user-claims";
+NSString * const MOZU_X_VOL_LOCALE = @"x-vol-locale";
+NSString * const MOZU_X_VOL_CURRENCY = @"x-vol-currency";
 NSString * const MOZU_X_VOL_VERSION = @"x-vol-version";
 NSString * const MOZU_X_VOL_DATAVIEW_MODE = @"x-vol-dataview-mode";
+NSString * const MOZU_DATE = @"Date";
 
 

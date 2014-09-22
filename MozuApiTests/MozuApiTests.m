@@ -60,6 +60,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     _catalogID = @(1);
     
     [self loadSecureKeys];
+    [self pointSharedAppAuthenticatorToDesiredEnv];
     
     self.waitingForBlock = YES;
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
@@ -97,8 +98,8 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
 - (MOZUAppAuthInfo *)appAuthInfo;
 {
     MOZUAppAuthInfo *authInfo = [MOZUAppAuthInfo new];
-    authInfo.ApplicationId = self.appID;
-    authInfo.SharedSecret = self.sharedSecret;
+    authInfo.applicationId = self.appID;
+    authInfo.sharedSecret = self.sharedSecret;
     
     return authInfo;
 }
@@ -110,6 +111,14 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     userAuthInfo.password = self.password;
     
     return userAuthInfo;
+}
+
+- (void)pointSharedAppAuthenticatorToDesiredEnv
+{
+    // if you want to point to a different env, set it here
+    // otherwise the default is prod
+    // [MOZUAppAuthenticator sharedAppAuthenticator].host = <the host of the desired env>
+    // [MOZUAppAuthenticator sharedAppAuthenticator].useSSL = <whether the host of the desired env uses SSL>
 }
 
 - (void)tearDown
@@ -132,7 +141,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     
     MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (error) {
             DDLogError(@"%@", error.localizedDescription);
             XCTAssertNil(response, @"Resource not nil but had error.");
@@ -178,7 +187,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     NSString *dataViewModeString = [@(MOZULive) stringValue];
 	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
             if (result) {
                 DDLogDebug(@"result = %@", [result productCode]);
@@ -205,7 +214,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     context.tenantHost = self.tenantHost;
     
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [adminProductResource productWithDataViewMode:MOZULive productCode:productCode completionHandler:^(MOZUAdminProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
             if (result) {
                 DDLogDebug(@"result = %@", result);
@@ -231,7 +240,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [adminProductResource productsWithDataViewMode:MOZULive
                                             startIndex:@(0)
                                               pageSize:@(20)
@@ -269,7 +278,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     // Resource
     MOZUAdminProductResource *adminProductResource = [[MOZUAdminProductResource alloc] initWithAPIContext:context];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         [adminProductResource productInCatalogsWithDataViewMode:MOZULive
                                                     productCode:productCode
                                               completionHandler:^(NSArray<MOZUProductInCatalogInfo> *result, MOZUAPIError *error, NSHTTPURLResponse *response)
@@ -367,7 +376,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:self.tenantID siteId:self.siteID masterCatalogId:self.masterCatalogID catalogId:self.catalogID];
     context.tenantHost = self.tenantHost;
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo appHost:self.authenticationHost useSSL:useSSL refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:authInfo refeshInterval:nil completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         // Resource
         MOZUAddressValidationRequestResource *addressValidationResource = [[MOZUAddressValidationRequestResource alloc] initWithAPIContext:context];
         MOZUAddressValidationRequest *validationRequest = [MOZUAddressValidationRequest new];
@@ -476,8 +485,6 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     MOZUUserAuthInfo *userAuthInfo = [self userAuthInfo];
     
     [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:appAuthInfo
-                                                                    appHost:self.authenticationHost
-                                                                     useSSL:useSSL
                                                              refeshInterval:nil
                                                           completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error)
      {

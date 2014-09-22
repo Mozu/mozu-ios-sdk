@@ -47,8 +47,6 @@ typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
 	@returns none
  */
 - (void)authenticateWithAuthInfo:(MOZUAppAuthInfo *)appAuthInfo
-                         appHost:(NSString *)host
-                          useSSL:(BOOL)useSSL
                   refeshInterval:(MOZURefreshInterval *)refreshInterval
                completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 

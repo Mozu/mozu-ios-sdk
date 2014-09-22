@@ -14,6 +14,10 @@
 @class MOZUAuthTicket;
 @class MOZUUserAuthTicket;
 
+@class MOZUAPIContext;
+typedef void(^MOZUAPIContextModificationBlock)(MOZUAPIContext* apiContext);
+
+
 @interface MOZUAPIContext : JSONModel
 
 @property(nonatomic) NSInteger tenantId;
@@ -28,6 +32,8 @@
 @property(nonatomic) NSNumber *catalogId;
 @property(nonatomic) MOZUTenant *tenant;
 @property(nonatomic) NSString *date;
+@property(nonatomic) NSString *locale;
+@property(nonatomic) NSString *currency;
 
 /**
  Creates an instance of a MOZUAPIContext object.
@@ -73,6 +79,10 @@
  */
 - (id)initWithHeaders:(NSDictionary *)headers;
 
-
+- (id)cloneWith:(MOZUAPIContextModificationBlock)apiContextModification;
 
 @end
+
+
+
+
