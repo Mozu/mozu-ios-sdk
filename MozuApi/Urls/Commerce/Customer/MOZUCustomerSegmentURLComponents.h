@@ -19,18 +19,20 @@
 
 /**
 Resource Url Components for getSegments
-@param startIndex 
-@param pageSize 
-@param sortBy 
-@param filter 
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getSegment
-@param identifier 
+@param identifier Unique identifier of the customer segment to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetSegmentOperationWithIdentifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForGetSegmentOperationWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields;
 
 
 //
@@ -41,12 +43,13 @@ Resource Url Components for getSegment
 
 /**
 Resource Url Components for addSegment
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddSegmentOperation;
++ (MOZUURLComponents *)URLComponentsForAddSegmentOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for addSegmentAccounts
-@param identifier 
+@param identifier Unique identifier of the customer segment for which to add the associated customer accounts.
 */
 + (MOZUURLComponents *)URLComponentsForAddSegmentAccountsOperationWithIdentifier:(NSInteger)identifier;
 
@@ -59,9 +62,10 @@ Resource Url Components for addSegmentAccounts
 
 /**
 Resource Url Components for updateSegment
-@param identifier 
+@param identifier Unique identifier of the customer segment.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields;
 
 
 //
@@ -72,13 +76,13 @@ Resource Url Components for updateSegment
 
 /**
 Resource Url Components for deleteSegment
-@param identifier 
+@param identifier Unique identifier of the customer segment to delete.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 /**
 Resource Url Components for deleteSegmentAccounts
-@param identifier 
+@param identifier Unique identifier of the segment from which to remove the customer accounts.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteSegmentAccountsOperationWithIdentifier:(NSInteger)identifier;
 

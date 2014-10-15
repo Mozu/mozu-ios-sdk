@@ -18,10 +18,11 @@
 @interface MOZUChangeMessageResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,9 +32,10 @@
 
 /**
 Retrieves the messages associated with the current shopper's cart.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)messagesWithCompletionHandler:(void(^)(MOZUCartChangeMessageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)messagesWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartChangeMessageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

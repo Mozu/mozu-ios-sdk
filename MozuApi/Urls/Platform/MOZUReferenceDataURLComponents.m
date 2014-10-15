@@ -17,95 +17,114 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode {
-	NSString *template = @"/api/platform/reference/addressschema/{countryCode}";
++ (MOZUURLComponents *)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/addressschema/{countryCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"countryCode" : countryCode ? countryCode : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetAddressSchemasOperation {
-	NSString *template = @"/api/platform/reference/addressschemas";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetAddressSchemasOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/addressschemas?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId {
-	NSString *template = @"/api/platform/reference/behaviors/{behaviorId}";
++ (MOZUURLComponents *)URLComponentsForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/behaviors/{behaviorId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"behaviorId" : @(behaviorId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoriesOperation {
-	NSString *template = @"/api/platform/reference/behaviors/categories";
-	NSDictionary *params = nil;
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
-}
-
-+ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId {
-	NSString *template = @"/api/platform/reference/behaviors/categories/{categoryId}";
++ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/behaviors/categories/{categoryId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetBehaviorsOperationWithUserType:(NSString *)userType {
-	NSString *template = @"/api/platform/reference/behaviors?userType={userType}";
++ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoriesOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/behaviors/categories?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetBehaviorsOperationWithUserType:(NSString *)userType responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/behaviors?userType={userType}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"userType" : userType ? userType : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetContentLocalesOperation {
-	NSString *template = @"/api/platform/reference/contentLocales";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetContentLocalesOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/contentLocales?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetCountriesOperation {
-	NSString *template = @"/api/platform/reference/countries";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetCountriesOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/countries?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetCurrenciesOperation {
-	NSString *template = @"/api/platform/reference/currencies";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetCurrenciesOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/currencies?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetTimeZonesOperation {
-	NSString *template = @"/api/platform/reference/timezones";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetTimeZonesOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/timezones?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetTopLevelDomainsOperation {
-	NSString *template = @"/api/platform/reference/topleveldomains";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetTopLevelDomainsOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/topleveldomains?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter {
-	NSString *template = @"/api/platform/reference/unitsofmeasure?filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/unitsofmeasure?filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];

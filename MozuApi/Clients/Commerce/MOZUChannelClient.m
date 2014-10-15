@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetChannelsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUChannelURLComponents URLComponentsForGetChannelsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetChannelsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUChannelURLComponents URLComponentsForGetChannelsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetChannelOperationWithCode:(NSString *)code {
-	id url = [MOZUChannelURLComponents URLComponentsForGetChannelOperationWithCode:code];
++ (MOZUClient *)clientForGetChannelOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	id url = [MOZUChannelURLComponents URLComponentsForGetChannelOperationWithCode:code responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateChannelOperationWithBody:(MOZUChannel *)body {
-	id url = [MOZUChannelURLComponents URLComponentsForCreateChannelOperation];
++ (MOZUClient *)clientForCreateChannelOperationWithBody:(MOZUChannel *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUChannelURLComponents URLComponentsForCreateChannelOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,8 +76,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateChannelOperationWithBody:(MOZUChannel *)body code:(NSString *)code {
-	id url = [MOZUChannelURLComponents URLComponentsForUpdateChannelOperationWithCode:code];
++ (MOZUClient *)clientForUpdateChannelOperationWithBody:(MOZUChannel *)body code:(NSString *)code responseFields:(NSString *)responseFields {
+	id url = [MOZUChannelURLComponents URLComponentsForUpdateChannelOperationWithCode:code responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

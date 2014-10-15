@@ -42,6 +42,9 @@ Estimated total amount of the cart, including items, sales tax, shipping costs, 
 */
 @property(nonatomic) NSNumber * total;
 
+/**
+The combined total quantity across all items in the cart.
+*/
 @property(nonatomic) NSNumber * totalQuantity;
 
 @end

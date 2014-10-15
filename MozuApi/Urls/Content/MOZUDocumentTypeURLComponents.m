@@ -17,20 +17,22 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
-	NSString *template = @"/api/content/documenttypes/?pageSize={pageSize}&startIndex={startIndex}";
++ (MOZUURLComponents *)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documenttypes/?pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName {
-	NSString *template = @"/api/content/documenttypes/{documentTypeName}";
++ (MOZUURLComponents *)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documenttypes/{documentTypeName}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"documentTypeName" : documentTypeName,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -43,12 +45,31 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForCreateDocumentTypeOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documenttypes/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
 #pragma mark Put Operations
 #pragma mark -
 //
+
++ (MOZUURLComponents *)URLComponentsForUpdateDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documenttypes/{documentTypeName}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"documentTypeName" : documentTypeName,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
 
 
 //

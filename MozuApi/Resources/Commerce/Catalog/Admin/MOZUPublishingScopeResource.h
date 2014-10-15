@@ -18,10 +18,13 @@
 @interface MOZUPublishingScopeResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUDataViewMode dataViewMode;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode)dataViewMode;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -41,14 +44,14 @@ Deletes the draft version of product changes for each product code specified in 
 @param body Properties of the pending product changes to include in this operation.
 */
 
-- (void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)discardDraftsWithBody:(MOZUPublishingScope *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
 @param body Properties of the pending product changes to include in this operation.
 */
 
-- (void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)publishDraftsWithBody:(MOZUPublishingScope *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

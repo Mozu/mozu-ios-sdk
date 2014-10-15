@@ -19,10 +19,11 @@
 @interface MOZUCartResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -33,35 +34,40 @@
 /**
 Retrieves the cart specified in the request.
 @param cartId Identifier of the cart to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)cartWithCartId:(NSString *)cartId completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)cartWithCartId:(NSString *)cartId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)orCreateCartWithCompletionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orCreateCartWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)cartSummaryWithCompletionHandler:(void(^)(MOZUCartSummary *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
-Retrieves the cart of the user specified in the request.
-@param userId Unique identifier of the user whose cart you want to retrieve.
-*/
-
-- (void)userCartWithUserId:(NSString *)userId completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)cartSummaryWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartSummary *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+@param responseFields Use this field to include those fields which are not included by default.
 @param userId Unique identifier of the user whose cart details you want to retrieve.
 */
 
-- (void)userCartSummaryWithUserId:(NSString *)userId completionHandler:(void(^)(MOZUCartSummary *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)userCartSummaryWithUserId:(NSString *)userId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartSummary *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves the cart of the user specified in the request.
+@param responseFields Use this field to include those fields which are not included by default.
+@param userId Unique identifier of the user whose cart you want to retrieve.
+*/
+
+- (void)userCartWithUserId:(NSString *)userId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -80,9 +86,10 @@ Retrieves summary information associated with the cart of user specified in the 
 /**
 Update the current shopper's cart.
 @param body All of the properties of the cart to update. The product code is required.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateCartWithBody:(MOZUCart *)body completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCartWithBody:(MOZUCart *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

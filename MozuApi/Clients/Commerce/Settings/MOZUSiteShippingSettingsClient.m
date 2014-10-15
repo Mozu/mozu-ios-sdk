@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetSiteShippingSettingsOperation {
-	id url = [MOZUSiteShippingSettingsURLComponents URLComponentsForGetSiteShippingSettingsOperation];
++ (MOZUClient *)clientForGetSiteShippingSettingsOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUSiteShippingSettingsURLComponents URLComponentsForGetSiteShippingSettingsOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

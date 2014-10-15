@@ -23,7 +23,7 @@
 @interface MOZURuntimeAttributeValidation : JSONModel<MOZURuntimeAttributeValidation>
 
 /**
- System-supplied and read-only.
+System-supplied and read-only.
 */
 @property(nonatomic) NSDate * maxDateValue;
 
@@ -38,7 +38,7 @@ The maximum number of characters for the string length.
 @property(nonatomic) NSNumber * maxStringLength;
 
 /**
- System-supplied and read-only.
+System-supplied and read-only.
 */
 @property(nonatomic) NSDate * minDateValue;
 

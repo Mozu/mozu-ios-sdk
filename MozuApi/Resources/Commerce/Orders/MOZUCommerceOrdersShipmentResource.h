@@ -13,17 +13,18 @@
 #import "MOZUAPIContext.h"
 
 #import "MOZUShipment.h"
-#import "MOZUCommercePackage.h"
-#import "MOZUShippingRate.h"
+#import "MOZUCommerceShippingRate.h"
+#import "MOZUPackage.h"
 
 
 @interface MOZUCommerceOrdersShipmentResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -34,17 +35,19 @@
 /**
 Retrieves the details of the order shipment specified in the request.
 @param orderId Unique identifier of the order associated with the shipment to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 @param shipmentId Unique identifier of the shipment to retrieve.
 */
 
-- (void)shipmentWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId completionHandler:(void(^)(MOZUShipment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)shipmentWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUShipment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
+@param draft 
 @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 */
 
-- (void)availableShipmentMethodsWithOrderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUShippingRate> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)availableShipmentMethodsWithOrderId:(NSString *)orderId draft:(NSNumber *)draft completionHandler:(void(^)(NSArray<MOZUCommerceShippingRate> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -59,7 +62,7 @@ Creates a shipment from one or more package associated with an order and assign 
 @param orderId Unique identifier of the order for this shipment.
 */
 
-- (void)createPackageShipmentsWithBody:(NSArray *)body orderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUCommercePackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageShipmentsWithBody:(NSArray *)body orderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUPackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

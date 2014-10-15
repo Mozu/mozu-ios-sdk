@@ -25,7 +25,7 @@
 
 
 /**
-	Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both..
+	Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.
 */
 @interface MOZULocation : JSONModel<MOZULocation>
 
@@ -96,6 +96,9 @@ List of standard operating hours for each day of the week this location is open 
 */
 @property(nonatomic) MOZURegularHours *regularHours;
 
+/**
+Properties of a fulfillment contact for the shipping origin address associated with a location.
+*/
 @property(nonatomic) MOZUShippingOriginContact *shippingOriginContact;
 
 @end

@@ -21,13 +21,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForListDocumentDraftSummariesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists {
-	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForListDocumentDraftSummariesOperationWithPageSize:pageSize startIndex:startIndex documentLists:documentLists];
++ (MOZUClient *)clientForListDocumentDraftSummariesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists responseFields:(NSString *)responseFields {
+	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForListDocumentDraftSummariesOperationWithPageSize:pageSize startIndex:startIndex documentLists:documentLists responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -44,13 +41,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteDocumentDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray *)body documentLists:(NSString *)documentLists {
++ (MOZUClient *)clientForDeleteDocumentDraftsOperationWithBody:(NSArray *)body documentLists:(NSString *)documentLists {
 	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForDeleteDocumentDraftsOperationWithDocumentLists:documentLists];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 	return client;
@@ -63,13 +57,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForPublishDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray *)body documentLists:(NSString *)documentLists {
++ (MOZUClient *)clientForPublishDocumentsOperationWithBody:(NSArray *)body documentLists:(NSString *)documentLists {
 	id url = [MOZUDocumentDraftSummaryURLComponents URLComponentsForPublishDocumentsOperationWithDocumentLists:documentLists];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 	return client;

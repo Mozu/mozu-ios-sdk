@@ -19,14 +19,16 @@
 
 /**
 Resource Url Components for getLocationUsages
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetLocationUsagesOperation;
++ (MOZUURLComponents *)URLComponentsForGetLocationUsagesOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getLocationUsage
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetLocationUsageOperationWithCode:(NSString *)code;
++ (MOZUURLComponents *)URLComponentsForGetLocationUsageOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields;
 
 
 //
@@ -45,8 +47,9 @@ Resource Url Components for getLocationUsage
 /**
 Resource Url Components for updateLocationUsage
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString *)code;
++ (MOZUURLComponents *)URLComponentsForUpdateLocationUsageOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields;
 
 
 //

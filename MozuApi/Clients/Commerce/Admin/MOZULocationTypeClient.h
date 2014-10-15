@@ -22,17 +22,18 @@
 //
 
 /**
-
+Retrieve a list of all location types defined for the tenant.
 */
 
 + (MOZUClient *)clientForGetLocationTypesOperation;
 
 /**
-
-@param locationTypeCode 
+Retrieves the details of the location type specified in the request.
+@param locationTypeCode The user-defined code that identifies the location type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;
++ (MOZUClient *)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -42,11 +43,12 @@
 //
 
 /**
-
-@param body 
+Creates a new location type based on the information specified in the request.
+@param body Properties of the location type to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddLocationTypeOperationWithBody:(MOZULocationType *)body;
++ (MOZUClient *)clientForAddLocationTypeOperationWithBody:(MOZULocationType *)body responseFields:(NSString *)responseFields;
 
 
 //
@@ -56,12 +58,13 @@
 //
 
 /**
-
-@param body 
-@param locationTypeCode 
+Updates the name of a defined location type.
+@param body Properties of the location type to update.
+@param locationTypeCode The user-defined code that identifies the location type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType *)body locationTypeCode:(NSString *)locationTypeCode;
++ (MOZUClient *)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType *)body locationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -71,8 +74,8 @@
 //
 
 /**
-
-@param locationTypeCode 
+Deletes the location type specified in the request.
+@param locationTypeCode User-defined code used to identify the location type.
 */
 
 + (MOZUClient *)clientForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;

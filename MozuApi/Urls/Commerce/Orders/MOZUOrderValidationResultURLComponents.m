@@ -40,10 +40,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddValidationResultOperationWithOrderId:(NSString *)orderId {
-	NSString *template = @"/api/commerce/orders/{orderId}/validationresults";
++ (MOZUURLComponents *)URLComponentsForAddValidationResultOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/validationresults?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

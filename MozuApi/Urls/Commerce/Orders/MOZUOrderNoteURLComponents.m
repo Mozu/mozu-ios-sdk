@@ -26,11 +26,12 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId {
-	NSString *template = @"/api/commerce/orders/{orderId}/notes/{noteId}";
++ (MOZUURLComponents *)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/notes/{noteId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"noteId" : noteId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -43,10 +44,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString *)orderId {
-	NSString *template = @"/api/commerce/orders/{orderId}/notes";
++ (MOZUURLComponents *)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/notes?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -59,11 +61,12 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId {
-	NSString *template = @"/api/commerce/orders/{orderId}/notes/{noteId}";
++ (MOZUURLComponents *)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/notes/{noteId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"noteId" : noteId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

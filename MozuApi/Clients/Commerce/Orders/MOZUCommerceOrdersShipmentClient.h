@@ -11,8 +11,8 @@
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
 #import "MOZUShipment.h"
-#import "MOZUCommercePackage.h"
-#import "MOZUShippingRate.h"
+#import "MOZUCommerceShippingRate.h"
+#import "MOZUPackage.h"
 
 
 @interface MOZUCommerceOrdersShipmentClient : NSObject
@@ -26,17 +26,19 @@
 /**
 Retrieves the details of the order shipment specified in the request.
 @param orderId Unique identifier of the order associated with the shipment to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 @param shipmentId Unique identifier of the shipment to retrieve.
 */
 
-+ (MOZUClient *)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;
++ (MOZUClient *)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields;
 
 /**
 Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
+@param draft 
 @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 */
 
-+ (MOZUClient *)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId;
++ (MOZUClient *)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft;
 
 
 //

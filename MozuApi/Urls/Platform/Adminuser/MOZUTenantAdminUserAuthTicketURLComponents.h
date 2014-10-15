@@ -27,8 +27,9 @@
 /**
 Resource Url Components for createUserAuthTicket
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber *)tenantId;
++ (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields;
 
 
 //
@@ -40,8 +41,9 @@ Resource Url Components for createUserAuthTicket
 /**
 Resource Url Components for refreshAuthTicket
 @param tenantId 
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber *)tenantId;
++ (MOZUURLComponents *)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields;
 
 
 //

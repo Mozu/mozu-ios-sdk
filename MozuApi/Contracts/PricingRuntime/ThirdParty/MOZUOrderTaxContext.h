@@ -18,14 +18,29 @@
 @end
 
 
+/**
+	Properties of the tax context applicable for the order.
+*/
 @interface MOZUOrderTaxContext : JSONModel<MOZUOrderTaxContext>
 
+/**
+Tax amount applied to the handling fee defined for orders on this site.
+*/
 @property(nonatomic) NSNumber * handlingFeeTax;
 
+/**
+Tax amount applied to the order.
+*/
 @property(nonatomic) NSNumber * orderTax;
 
+/**
+Tax amount applied to the shipping costs on the order.
+*/
 @property(nonatomic) NSNumber * shippingTax;
 
+/**
+Properties of the tax context applicable for line items in an order.
+*/
 @property(nonatomic) NSArray<MOZUItemTaxContext> *itemTaxContexts;
 
 @end

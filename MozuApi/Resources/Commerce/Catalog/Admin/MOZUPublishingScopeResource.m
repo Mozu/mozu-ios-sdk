@@ -12,16 +12,14 @@
 #import "MOZUPublishingScopeResource.h"
 
 
-
 @interface MOZUPublishingScopeResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUPublishingScopeResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -50,9 +63,9 @@ Deletes the draft version of product changes for each product code specified in 
 @param body Properties of the pending product changes to include in this operation.
 */
 
-- (void)discardDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)discardDraftsWithBody:(MOZUPublishingScope *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPublishingScopeClient clientForDiscardDraftsOperationWithDataViewMode:dataViewMode body:body];
+	MOZUClient *client = [MOZUPublishingScopeClient clientForDiscardDraftsOperationWithDataViewMode:self.dataViewMode body:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -66,9 +79,9 @@ Publishes the draft version of product changes for each product code specified i
 @param body Properties of the pending product changes to include in this operation.
 */
 
-- (void)publishDraftsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)publishDraftsWithBody:(MOZUPublishingScope *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPublishingScopeClient clientForPublishDraftsOperationWithDataViewMode:dataViewMode body:body];
+	MOZUClient *client = [MOZUPublishingScopeClient clientForPublishDraftsOperationWithDataViewMode:self.dataViewMode body:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

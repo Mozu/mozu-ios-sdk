@@ -12,16 +12,13 @@
 #import "MOZUOrderNoteResource.h"
 
 
-
 @interface MOZUOrderNoteResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUOrderNoteResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -58,11 +60,12 @@ Retrieves a list of all notes for an order.
 Retrieves the details of a specific order note.
 @param noteId Unique identifier of the order note to retrieve.
 @param orderId Unique identifier of the order associated with the note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderNoteClient clientForGetOrderNoteOperationWithOrderId:orderId noteId:noteId];
+	MOZUClient *client = [MOZUOrderNoteClient clientForGetOrderNoteOperationWithOrderId:orderId noteId:noteId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -82,11 +85,12 @@ Retrieves the details of a specific order note.
 Creates a new merchant note for the specified order.
 @param body The alphanumeric text contained in the note. The maximum length is 256 characters.
 @param orderId Unique identifier of the order for which to add a note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderNoteClient clientForCreateOrderNoteOperationWithBody:body orderId:orderId];
+	MOZUClient *client = [MOZUOrderNoteClient clientForCreateOrderNoteOperationWithBody:body orderId:orderId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -107,11 +111,12 @@ Updates a specific note for an order.
 @param body The content of the order note. The maximum length is 256 characters.
 @param noteId Unique identifier of the order note.
 @param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderNoteClient clientForUpdateOrderNoteOperationWithBody:body orderId:orderId noteId:noteId];
+	MOZUClient *client = [MOZUOrderNoteClient clientForUpdateOrderNoteOperationWithBody:body orderId:orderId noteId:noteId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

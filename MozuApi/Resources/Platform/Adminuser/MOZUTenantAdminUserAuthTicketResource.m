@@ -32,12 +32,13 @@
 /**
 Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
 @param body The user authentication information required to generate the user authentication ticket, which consists of a user name and password.
+@param responseFields Use this field to include those fields which are not included by default.
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 */
 
-- (void)createUserAuthTicketWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createUserAuthTicketWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUTenantAdminUserAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body tenantId:tenantId];
+	MOZUClient *client = [MOZUTenantAdminUserAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body tenantId:tenantId responseFields:responseFields];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -55,12 +56,13 @@ Creates an authentication ticket for the supplied user to specify in API request
 /**
 Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
 @param body Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
+@param responseFields Use this field to include those fields which are not included by default.
 @param tenantId 
 */
 
-- (void)refreshAuthTicketWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)refreshAuthTicketWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUTenantAdminUserAuthTicketClient clientForRefreshAuthTicketOperationWithBody:body tenantId:tenantId];
+	MOZUClient *client = [MOZUTenantAdminUserAuthTicketClient clientForRefreshAuthTicketOperationWithBody:body tenantId:tenantId responseFields:responseFields];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);

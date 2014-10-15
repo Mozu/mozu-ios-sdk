@@ -31,8 +31,9 @@ Resource Url Components for createAnonymousShopperAuthTicket
 
 /**
 Resource Url Components for createUserAuthTicket
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperation;
++ (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -43,9 +44,10 @@ Resource Url Components for createUserAuthTicket
 
 /**
 Resource Url Components for refreshUserAuthTicket
-@param refreshToken 
+@param refreshToken The refresh token string required to refresh a user's authentication ticket.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
++ (MOZUURLComponents *)URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken responseFields:(NSString *)responseFields;
 
 
 //

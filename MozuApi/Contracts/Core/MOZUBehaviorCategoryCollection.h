@@ -19,7 +19,7 @@
 
 
 /**
-	***Always private and should not be published.***
+	List of categories of application behaviors.
 */
 @interface MOZUBehaviorCategoryCollection : JSONModel<MOZUBehaviorCategoryCollection>
 

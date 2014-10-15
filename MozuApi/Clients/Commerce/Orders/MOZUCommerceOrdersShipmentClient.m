@@ -11,8 +11,8 @@
 #import "MOZUCommerceOrdersShipmentClient.h"
 #import "MOZUCommerceOrdersShipmentURLComponents.h"
 #import "MozuShipment.h"
-#import "MozuCommercePackage.h"
-#import "MozuShippingRate.h"
+#import "MozuCommerceShippingRate.h"
+#import "MozuPackage.h"
 
 
 @implementation MOZUCommerceOrdersShipmentClient
@@ -23,8 +23,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId {
-	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetShipmentOperationWithOrderId:orderId shipmentId:shipmentId];
++ (MOZUClient *)clientForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields {
+	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetShipmentOperationWithOrderId:orderId shipmentId:shipmentId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -36,15 +36,15 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId {
-	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:orderId];
++ (MOZUClient *)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
+	id url = [MOZUCommerceOrdersShipmentURLComponents URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:orderId draft:draft];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUShippingRate arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+		return [MOZUCommerceShippingRate arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;
@@ -66,7 +66,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUCommercePackage arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+		return [MOZUPackage arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;

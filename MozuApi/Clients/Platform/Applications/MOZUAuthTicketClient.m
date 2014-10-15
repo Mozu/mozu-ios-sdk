@@ -28,8 +28,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAuthenticateAppOperationWithBody:(MOZUAppAuthInfo *)body {
-	id url = [MOZUAuthTicketURLComponents URLComponentsForAuthenticateAppOperation];
++ (MOZUClient *)clientForAuthenticateAppOperationWithBody:(MOZUAppAuthInfo *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUAuthTicketURLComponents URLComponentsForAuthenticateAppOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -49,8 +49,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForRefreshAppAuthTicketOperationWithBody:(MOZUAuthTicketRequest *)body {
-	id url = [MOZUAuthTicketURLComponents URLComponentsForRefreshAppAuthTicketOperation];
++ (MOZUClient *)clientForRefreshAppAuthTicketOperationWithBody:(MOZUAuthTicketRequest *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUAuthTicketURLComponents URLComponentsForRefreshAppAuthTicketOperationWithResponseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

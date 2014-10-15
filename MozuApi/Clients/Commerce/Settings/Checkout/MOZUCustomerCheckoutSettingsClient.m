@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCustomerCheckoutSettingsOperation {
-	id url = [MOZUCustomerCheckoutSettingsURLComponents URLComponentsForGetCustomerCheckoutSettingsOperation];
++ (MOZUClient *)clientForGetCustomerCheckoutSettingsOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerCheckoutSettingsURLComponents URLComponentsForGetCustomerCheckoutSettingsOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,8 +48,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateCustomerCheckoutSettingsOperationWithBody:(MOZUCustomerCheckoutSettings *)body {
-	id url = [MOZUCustomerCheckoutSettingsURLComponents URLComponentsForUpdateCustomerCheckoutSettingsOperation];
++ (MOZUClient *)clientForUpdateCustomerCheckoutSettingsOperationWithBody:(MOZUCustomerCheckoutSettings *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerCheckoutSettingsURLComponents URLComponentsForUpdateCustomerCheckoutSettingsOperationWithResponseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

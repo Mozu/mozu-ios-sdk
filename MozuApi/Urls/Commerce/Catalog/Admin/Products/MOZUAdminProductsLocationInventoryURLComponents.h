@@ -24,15 +24,17 @@ Resource Url Components for getLocationInventories
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetLocationInventoriesOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetLocationInventoriesOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getLocationInventory
-@param productCode 
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param locationCode User-defined code that identifies the location.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetLocationInventoryOperationWithProductCode:(NSString *)productCode locationCode:(NSString *)locationCode;
++ (MOZUURLComponents *)URLComponentsForGetLocationInventoryOperationWithProductCode:(NSString *)productCode locationCode:(NSString *)locationCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -43,8 +45,8 @@ Resource Url Components for getLocationInventory
 
 /**
 Resource Url Components for addLocationInventory
-@param productCode ProductCodeBase
-@param performUpserts 
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param performUpserts The performUpserts query string parameter lets the service perform an update if the record already exists instead of throwing an already exists conflict exception. PerformUpserts=true means it updates if the record already exists. By default, no value specified means that the service assumes PerformUpserts=false.
 */
 + (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithProductCode:(NSString *)productCode performUpserts:(NSNumber *)performUpserts;
 

@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCartOperationWithCartId:(NSString *)cartId {
-	id url = [MOZUCartURLComponents URLComponentsForGetCartOperationWithCartId:cartId];
++ (MOZUClient *)clientForGetCartOperationWithCartId:(NSString *)cartId responseFields:(NSString *)responseFields {
+	id url = [MOZUCartURLComponents URLComponentsForGetCartOperationWithCartId:cartId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetOrCreateCartOperation {
-	id url = [MOZUCartURLComponents URLComponentsForGetOrCreateCartOperation];
++ (MOZUClient *)clientForGetOrCreateCartOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUCartURLComponents URLComponentsForGetOrCreateCartOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,8 +48,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCartSummaryOperation {
-	id url = [MOZUCartURLComponents URLComponentsForGetCartSummaryOperation];
++ (MOZUClient *)clientForGetCartSummaryOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUCartURLComponents URLComponentsForGetCartSummaryOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -61,27 +61,27 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetUserCartOperationWithUserId:(NSString *)userId {
-	id url = [MOZUCartURLComponents URLComponentsForGetUserCartOperationWithUserId:userId];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUCart alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetUserCartSummaryOperationWithUserId:(NSString *)userId {
-	id url = [MOZUCartURLComponents URLComponentsForGetUserCartSummaryOperationWithUserId:userId];
++ (MOZUClient *)clientForGetUserCartSummaryOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields {
+	id url = [MOZUCartURLComponents URLComponentsForGetUserCartSummaryOperationWithUserId:userId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCartSummary alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetUserCartOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields {
+	id url = [MOZUCartURLComponents URLComponentsForGetUserCartOperationWithUserId:userId responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUCart alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -101,8 +101,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateCartOperationWithBody:(MOZUCart *)body {
-	id url = [MOZUCartURLComponents URLComponentsForUpdateCartOperation];
++ (MOZUClient *)clientForUpdateCartOperationWithBody:(MOZUCart *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCartURLComponents URLComponentsForUpdateCartOperationWithResponseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

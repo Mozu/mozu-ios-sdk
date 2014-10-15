@@ -19,8 +19,9 @@
 
 /**
 Resource Url Components for getGeneralSettings
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetGeneralSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForGetGeneralSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -38,8 +39,9 @@ Resource Url Components for getGeneralSettings
 
 /**
 Resource Url Components for updateGeneralSettings
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateGeneralSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForUpdateGeneralSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

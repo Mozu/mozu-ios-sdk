@@ -11,7 +11,6 @@
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
 #import "MOZUPropertyTypeCollection.h"
-#import "MOZUPropertyValueType.h"
 #import "MOZUPropertyType.h"
 
 
@@ -24,25 +23,21 @@
 //
 
 /**
-
-@param pageSize 
-@param startIndex 
+Retrieves a list of the content property types.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+ (MOZUClient *)clientForGetPropertyTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUClient *)clientForGetPropertyTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields;
 
 /**
-
-@param propertyTypeName 
+Retrieves the details of the content property type.
+@param propertyTypeName The name of the content property type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetPropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName;
-
-/**
-Retrieves the value types associated with a content property.
-*/
-
-+ (MOZUClient *)clientForPropertyValueTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode;
++ (MOZUClient *)clientForGetPropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields;
 
 
 //
@@ -51,6 +46,14 @@ Retrieves the value types associated with a content property.
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForCreatePropertyTypeOperationWithBody:(MOZUPropertyType *)body responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -58,12 +61,28 @@ Retrieves the value types associated with a content property.
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param propertyTypeName 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForUpdatePropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPropertyType *)body propertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+
+@param propertyTypeName 
+*/
+
++ (MOZUClient *)clientForDeletePropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName;
 
 
 

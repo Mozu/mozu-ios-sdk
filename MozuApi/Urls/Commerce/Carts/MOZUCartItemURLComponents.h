@@ -18,15 +18,17 @@
 //
 
 /**
-Resource Url Components for getCartItems
-*/
-+ (MOZUURLComponents *)URLComponentsForGetCartItemsOperation;
-
-/**
 Resource Url Components for getCartItem
 @param cartItemId Identifier of the cart item to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetCartItemOperationWithCartItemId:(NSString *)cartItemId;
++ (MOZUURLComponents *)URLComponentsForGetCartItemOperationWithCartItemId:(NSString *)cartItemId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getCartItems
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetCartItemsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -37,8 +39,9 @@ Resource Url Components for getCartItem
 
 /**
 Resource Url Components for addItemToCart
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddItemToCartOperation;
++ (MOZUURLComponents *)URLComponentsForAddItemToCartOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -48,17 +51,19 @@ Resource Url Components for addItemToCart
 //
 
 /**
-Resource Url Components for updateCartItem
-@param cartItemId Identifier of the cart item to update.
-*/
-+ (MOZUURLComponents *)URLComponentsForUpdateCartItemOperationWithCartItemId:(NSString *)cartItemId;
-
-/**
 Resource Url Components for updateCartItemQuantity
 @param cartItemId Identifier of the cart item to update quantity.
 @param quantity The number of cart items in the shopper's active cart.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity;
++ (MOZUURLComponents *)URLComponentsForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for updateCartItem
+@param cartItemId Identifier of the cart item to update.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateCartItemOperationWithCartItemId:(NSString *)cartItemId responseFields:(NSString *)responseFields;
 
 
 //

@@ -17,9 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetSiteShippingSettingsOperation {
-	NSString *template = @"/api/commerce/settings/shipping/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetSiteShippingSettingsOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/settings/shipping/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

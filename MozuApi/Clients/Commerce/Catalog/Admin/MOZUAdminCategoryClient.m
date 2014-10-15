@@ -23,13 +23,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetCategoriesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetCategoriesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetCategoriesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -39,33 +36,27 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId {
-	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetCategoryOperationWithCategoryId:categoryId];
++ (MOZUClient *)clientForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetChildCategoriesOperationWithCategoryId:categoryId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAdminCategory alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminCategoryCollection alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
 }
 
-+ (MOZUClient *)clientForGetChildCategoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId {
-	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetChildCategoriesOperationWithCategoryId:categoryId];
++ (MOZUClient *)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForGetCategoryOperationWithCategoryId:categoryId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAdminCategoryCollection alloc] initWithString:jsonResult error:nil];
+		return [[MOZUAdminCategory alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -78,13 +69,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body incrementSequence:(NSNumber *)incrementSequence {
-	id url = [MOZUAdminCategoryURLComponents URLComponentsForAddCategoryOperationWithIncrementSequence:incrementSequence];
++ (MOZUClient *)clientForAddCategoryOperationWithBody:(MOZUAdminCategory *)body incrementSequence:(NSNumber *)incrementSequence responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForAddCategoryOperationWithIncrementSequence:incrementSequence responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 
@@ -102,13 +90,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateCategoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility {
-	id url = [MOZUAdminCategoryURLComponents URLComponentsForUpdateCategoryOperationWithCategoryId:categoryId cascadeVisibility:cascadeVisibility];
++ (MOZUClient *)clientForUpdateCategoryOperationWithBody:(MOZUAdminCategory *)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForUpdateCategoryOperationWithCategoryId:categoryId cascadeVisibility:cascadeVisibility responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 
@@ -126,13 +111,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteCategoryByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete {
++ (MOZUClient *)clientForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete {
 	id url = [MOZUAdminCategoryURLComponents URLComponentsForDeleteCategoryByIdOperationWithCategoryId:categoryId cascadeDelete:cascadeDelete];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	return client;
 }

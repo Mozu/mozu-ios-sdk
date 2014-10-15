@@ -22,6 +22,9 @@
 */
 @interface MOZUChangeMessage : JSONModel<MOZUChangeMessage>
 
+/**
+The order or item amount changed, if applicable.
+*/
 @property(nonatomic) NSNumber * amount;
 
 /**
@@ -64,8 +67,14 @@ Represents the type of object affected by the change, such as Cart Item or Produ
 */
 @property(nonatomic) NSString * subjectType;
 
+/**
+If true, the change associated with the message executed successfully.
+*/
 @property(nonatomic) NSNumber * success;
 
+/**
+The unique identifier of the user who initiated the change.
+*/
 @property(nonatomic) NSString * userId;
 
 /**

@@ -27,6 +27,9 @@ Language used for the entity. Currently, only "en-US" is supported.
 */
 @property(nonatomic) NSString * localeCode;
 
+/**
+The localized value defined for the attribute.
+*/
 @property(nonatomic) NSString * value;
 
 @end

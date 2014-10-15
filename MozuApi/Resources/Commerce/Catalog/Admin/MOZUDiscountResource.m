@@ -12,16 +12,14 @@
 #import "MOZUDiscountResource.h"
 
 
-
 @interface MOZUDiscountResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUDiscountResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -42,29 +55,14 @@
 Retrieves a list of discounts according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-- (void)discountsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUDiscountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)discountsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDiscountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountsOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
-/**
-Retrieves the details of a single discount.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
-*/
-
-- (void)discountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountOperationWithDataViewMode:dataViewMode discountId:discountId];
+	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountsOperationWithDataViewMode:self.dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -76,11 +74,29 @@ Retrieves the details of a single discount.
 /**
 Retrieves the localized content specified for the specified discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)discountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUDiscountLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)discountContentWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDiscountLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountContentOperationWithDataViewMode:dataViewMode discountId:discountId];
+	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountContentOperationWithDataViewMode:self.dataViewMode discountId:discountId responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+Retrieves the details of a single discount.
+@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)discountWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUDiscountClient clientForGetDiscountOperationWithDataViewMode:self.dataViewMode discountId:discountId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -91,11 +107,12 @@ Retrieves the localized content specified for the specified discount.
 
 /**
 Generates a random code for a coupon.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)generateRandomCouponWithDataViewMode:(MOZUDataViewMode)dataViewMode completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)generateRandomCouponWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountClient clientForGenerateRandomCouponOperationWithDataViewMode:dataViewMode];
+	MOZUClient *client = [MOZUDiscountClient clientForGenerateRandomCouponOperationWithResponseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -112,13 +129,14 @@ Generates a random code for a coupon.
 //
 
 /**
-Creates a discount.
-@param body Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
+Creates a new discount or coupon to apply to a product, category, order, or shipping.
+@param body Properties of the discount to create. You must specify the discount name, amount type, start date, and target.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createDiscountWithBody:(MOZUAdminDiscount *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountClient clientForCreateDiscountOperationWithDataViewMode:dataViewMode body:body];
+	MOZUClient *client = [MOZUDiscountClient clientForCreateDiscountOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -135,14 +153,15 @@ Creates a discount.
 //
 
 /**
-Modifies a discount.
-@param body Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
+Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+@param body The discount content to update, including the discount name.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateDiscountContentWithBody:(MOZUDiscountLocalizedContent *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDiscountLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountClient clientForUpdateDiscountOperationWithDataViewMode:dataViewMode body:body discountId:discountId];
+	MOZUClient *client = [MOZUDiscountClient clientForUpdateDiscountContentOperationWithBody:body discountId:discountId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -152,14 +171,15 @@ Modifies a discount.
 }
 
 /**
-Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
-@param body New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+Updates one or more properties of a defined discount.
+@param body Properties of the discount to update.
+@param discountId Unique identifier of the discount to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent *)body discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUDiscountLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateDiscountWithBody:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountClient clientForUpdateDiscountContentOperationWithDataViewMode:dataViewMode body:body discountId:discountId];
+	MOZUClient *client = [MOZUDiscountClient clientForUpdateDiscountOperationWithBody:body discountId:discountId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -180,9 +200,9 @@ Deletes a discount specified by its discount ID.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-- (void)deleteDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteDiscountWithDiscountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountClient clientForDeleteDiscountOperationWithDataViewMode:dataViewMode discountId:discountId];
+	MOZUClient *client = [MOZUDiscountClient clientForDeleteDiscountOperationWithDiscountId:discountId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

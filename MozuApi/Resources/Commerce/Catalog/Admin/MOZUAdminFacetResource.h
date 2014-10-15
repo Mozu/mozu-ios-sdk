@@ -19,10 +19,11 @@
 @interface MOZUAdminFacetResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -33,19 +34,21 @@
 /**
 Retrieves a facet specified by its unique identifier and displays its properties.
 @param facetId Unique identifier of the facet to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
-- (void)facetWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)facetWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of the facets defined for the specified category.
 @param categoryId Unique identifier of the category associated with the facets to retrieve.
 @param includeAvailable If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
+@param responseFields Use this field to include those fields which are not included by default.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 */
 
-- (void)facetCategoryListWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate completionHandler:(void(^)(MOZUFacetSet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)facetCategoryListWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFacetSet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -55,11 +58,12 @@ Retrieves a list of the facets defined for the specified category.
 //
 
 /**
-Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
-@param body Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
+Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
+@param body Properties of the new facet to create. You must specify the source, type, and category.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addFacetWithBody:(MOZUAdminFacet *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -70,11 +74,12 @@ Creates a new category, price, or attribute facet. Supply the category or attrib
 
 /**
 Modifies one or more properties of a defined facet.
-@param body Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.
+@param body Properties of the defined facet to modify.
 @param facetId Unique identifier of the facet to modify.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateFacetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body facetId:(NSInteger)facetId completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateFacetWithBody:(MOZUAdminFacet *)body facetId:(NSInteger)facetId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminFacet *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -88,7 +93,7 @@ Deletes the facet specified by its unique identifier.
 @param facetId Unique identifier of the facet to delete.
 */
 
-- (void)deleteFacetByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteFacetByIdWithFacetId:(NSInteger)facetId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

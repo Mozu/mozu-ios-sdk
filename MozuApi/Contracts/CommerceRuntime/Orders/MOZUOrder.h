@@ -15,12 +15,13 @@
 #import "MOZUAuditInfo.h"
 #import "MOZUBillingInfo.h"
 #import "MOZUChangeMessage.h"
+#import "MOZUDigitalPackage.h"
 #import "MOZUFulfillmentInfo.h"
+#import "MOZUAppliedDiscount.h"
 #import "MOZUInvalidCoupon.h"
 #import "MOZUOrderItem.h"
 #import "MOZUOrderNote.h"
-#import "MOZUAppliedDiscount.h"
-#import "MOZUCommercePackage.h"
+#import "MOZUPackage.h"
 #import "MOZUPayment.h"
 #import "MOZUPickup.h"
 #import "MOZUShipment.h"
@@ -39,12 +40,24 @@
 */
 @interface MOZUOrder : JSONModel<MOZUOrder>
 
+/**
+The date and time the order was accepted by the tenant.
+*/
 @property(nonatomic) NSDate * acceptedDate;
 
+/**
+If true, the customer account associated with the order is opted in to receive marketing materials.
+*/
 @property(nonatomic) NSNumber * acceptsMarketing;
 
+/**
+The amount of the order the shopper can receive in the event of a return. This amount represents the amount captured at the time the order was submitted, not when the order was returned.
+*/
 @property(nonatomic) NSNumber * amountAvailableForRefund;
 
+/**
+The total amount of the order not currently associated with a payment. The shopper must create one or more payments to satisfy this amount before the order can be fully paid.
+*/
 @property(nonatomic) NSNumber * amountRemainingForPayment;
 
 /**
@@ -83,7 +96,7 @@ Numeric identifer of the customer account.
 @property(nonatomic) NSNumber * customerAccountId;
 
 /**
-The type of interaction the shopper used to submit the order. Possibel values are Website, Call, Store, or Unknown.
+The type of interaction the shopper used to submit the order. Possible values are Website, Call, Store, or Unknown.
 */
 @property(nonatomic) NSString * customerInteractionType;
 
@@ -117,6 +130,9 @@ The date when the order will no longer be active or considered abandoned. For ex
 */
 @property(nonatomic) NSDate * expirationDate;
 
+/**
+Unique identifier used by an external program to identify a Mozu order.
+*/
 @property(nonatomic) NSString * externalId;
 
 /**
@@ -134,11 +150,16 @@ The combined price for all items in the order, including all selected options bu
 */
 @property(nonatomic) NSNumber * handlingAmount;
 
+@property(nonatomic) NSNumber * handlingSubTotal;
+
 /**
 If the handling fee for the order is subject to sales tax, the total tax amount.
 */
 @property(nonatomic) NSNumber * handlingTaxTotal;
 
+/**
+This total represents the handling amount value with any applied discounts.
+*/
 @property(nonatomic) NSNumber * handlingTotal;
 
 /**
@@ -151,6 +172,9 @@ Unique identifier of the order.
 */
 @property(nonatomic) NSString * id;
 
+/**
+If the order was imported from an external program, the date and time the order was imported into Mozu.
+*/
 @property(nonatomic) NSDate * importDate;
 
 /**
@@ -163,6 +187,9 @@ If true, this version of the order is a draft that might contain uncommitted cha
 */
 @property(nonatomic) NSNumber * isDraft;
 
+/**
+If true, the shopper can return any of the items in this order to the tenant.
+*/
 @property(nonatomic) BOOL isEligibleForReturns;
 
 /**
@@ -199,6 +226,8 @@ The order number that displays on the storefront which differs from the order ID
 Identifier of the cart prior to the customer proceeding to checkout.
 */
 @property(nonatomic) NSString * originalCartId;
+
+@property(nonatomic) NSString * parentOrderId;
 
 /**
 If this order was created to fulfill an item replacement as part of a return merchandise authorization (RMA), the unique identifier of the return.
@@ -241,7 +270,7 @@ The device from which the order originated in the case of offline orders.
 @property(nonatomic) NSString * sourceDevice;
 
 /**
-The current status of this order. Possible values are "New", "Open", "Processing", "Closed", or "Cancelled". System-supplied and read-only.
+The current status of this order. Possible values are "Pending", "Submitted", "Processing", "Pending Review", "Closed", or "Cancelled". System-supplied and read-only.
 */
 @property(nonatomic) NSString * status;
 
@@ -274,6 +303,11 @@ Amount of the order, including items, sales tax, shipping costs, and other fees.
 The total amount collected to date for the order.
 */
 @property(nonatomic) NSNumber * totalCollected;
+
+/**
+This specifies the order type. This means, was this order placed online or offline? Online means shopper created the order at checkout, offline means the order was a phone order.
+*/
+@property(nonatomic) NSString * type;
 
 /**
 The current version number of the order.
@@ -316,10 +350,20 @@ Paged list of notes entered when the order was modified.
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**
+Specifies the fulfillment of digital packages associated with this order.
+*/
+@property(nonatomic) NSArray<MOZUDigitalPackage> *digitalPackages;
+
+/**
 Properties of the item fulfillment information associated with the order. Shoppers can fulfill order items using in-store pickup or direct shipping.
 */
 @property(nonatomic) MOZUFulfillmentInfo *fulfillmentInfo;
 
+@property(nonatomic) NSArray<MOZUAppliedDiscount> *handlingDiscounts;
+
+/**
+List of invalid coupon codes the shopper entered for the order.
+*/
 @property(nonatomic) NSArray<MOZUInvalidCoupon> *invalidCoupons;
 
 /**
@@ -340,7 +384,7 @@ List of order-level discounts that apply to the order.
 /**
 Array list of physical packages shipped for the specified order.
 */
-@property(nonatomic) NSArray<MOZUCommercePackage> *packages;
+@property(nonatomic) NSArray<MOZUPackage> *packages;
 
 /**
 Wrapper for a collection of payments associated with this order. An order can include any number of payments.
@@ -372,6 +416,9 @@ A paged list collection of shopper notes for the order.
 */
 @property(nonatomic) MOZUShopperNotes *shopperNotes;
 
+/**
+Response returned by an order validation capability application.
+*/
 @property(nonatomic) NSArray<MOZUOrderValidationResult> *validationResults;
 
 @end

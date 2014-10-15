@@ -26,18 +26,20 @@
 Retrieves a list of product types according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetProductTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUClient *)clientForGetProductTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Retrieves the details of the product type specified in the request.
 @param productTypeId Identifier of the product type to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId;
++ (MOZUClient *)clientForGetProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields;
 
 
 //
@@ -49,9 +51,10 @@ Retrieves the details of the product type specified in the request.
 /**
 Creates a new product type based on the information supplied in the request.
 @param body Properties of the product type to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body;
++ (MOZUClient *)clientForAddProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body responseFields:(NSString *)responseFields;
 
 
 //
@@ -64,9 +67,10 @@ Creates a new product type based on the information supplied in the request.
 Updates one or more properties of a product type.
 @param body The details of the product type to update.
 @param productTypeId Identifier of the product type to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body productTypeId:(NSInteger)productTypeId;
++ (MOZUClient *)clientForUpdateProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields;
 
 
 //

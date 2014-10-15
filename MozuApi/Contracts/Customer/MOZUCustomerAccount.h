@@ -38,10 +38,19 @@ The legal or doing business as (DBA) or tradestyle name of the business or organ
 */
 @property(nonatomic) NSString * companyOrOrganization;
 
+/**
+The email address associated with the customer account.
+*/
 @property(nonatomic) NSString * emailAddress;
 
+/**
+Unique identifier an external system uses to identify this customer account.
+*/
 @property(nonatomic) NSString * externalId;
 
+/**
+The first name associated with the customer account.
+*/
 @property(nonatomic) NSString * firstName;
 
 /**
@@ -49,10 +58,19 @@ Identifier of the entity.
 */
 @property(nonatomic) NSInteger id;
 
+/**
+If true, this customer account represents an anonymous shopper.
+*/
 @property(nonatomic) BOOL isAnonymous;
 
+/**
+The last name associated with the customer account.
+*/
 @property(nonatomic) NSString * lastName;
 
+/**
+Language used for the entity. Currently, only "en-US" is supported.
+*/
 @property(nonatomic) NSString * localeCode;
 
 /**
@@ -66,10 +84,13 @@ The tax identification number associated with the customer account.
 @property(nonatomic) NSString * taxId;
 
 /**
-Unique identifier of the user associated with the customer account.
+Unique identifier of the user associated with the customer account. All customer accounts must have a defined user ID. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 */
 @property(nonatomic) NSString * userId;
 
+/**
+The user name of the user associated with the customer account.
+*/
 @property(nonatomic) NSString * userName;
 
 /**
@@ -97,6 +118,9 @@ List of customer account notes.
 */
 @property(nonatomic) NSArray<MOZUCustomerNote> *notes;
 
+/**
+List of customer segments associated with the customer account. Customer accounts can be members of any number of segments.
+*/
 @property(nonatomic) NSArray<MOZUCustomerSegment> *segments;
 
 @end

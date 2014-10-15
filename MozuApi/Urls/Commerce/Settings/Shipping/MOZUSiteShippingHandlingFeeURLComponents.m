@@ -17,9 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetOrderHandlingFeeOperation {
-	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetOrderHandlingFeeOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -31,9 +33,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForCreateOrderHandlingFeeOperation {
-	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForCreateOrderHandlingFeeOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -45,9 +49,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateOrderHandlingFeeOperation {
-	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForUpdateOrderHandlingFeeOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

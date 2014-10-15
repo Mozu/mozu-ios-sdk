@@ -24,10 +24,11 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
-	NSString *template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
++ (MOZUURLComponents *)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/admin/locationtypes/{locationTypeCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"locationTypeCode" : locationTypeCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -40,9 +41,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddLocationTypeOperation {
-	NSString *template = @"/api/commerce/admin/locationtypes/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForAddLocationTypeOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/admin/locationtypes/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -54,10 +57,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
-	NSString *template = @"/api/commerce/admin/locationtypes/{locationTypeCode}";
++ (MOZUURLComponents *)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/admin/locationtypes/{locationTypeCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"locationTypeCode" : locationTypeCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -12,8 +12,8 @@
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUCommerceProduct.h"
-#import "MOZUAppliedProductDiscount.h"
-#import "MOZUShippingDiscount.h"
+#import "MOZUAppliedLineItemProductDiscount.h"
+#import "MOZUAppliedLineItemShippingDiscount.h"
 #import "MOZUCommerceUnitPrice.h"
 
 
@@ -53,9 +53,11 @@ Code that identifies the location used to fulfill this order item, whether via i
 @property(nonatomic) NSString * fulfillmentLocationCode;
 
 /**
-The method used to fulfill the item in the order, which is "PickUp" or "Ship".
+The method used to fulfill the item in the order, which is "PickUp" or "Ship". The fulfillment method for the order depends on the supported fulfillment types defined for the product.
 */
 @property(nonatomic) NSString * fulfillmentMethod;
+
+@property(nonatomic) NSNumber * handlingAmount;
 
 /**
 Unique identifier of a specific item in an order.
@@ -127,17 +129,20 @@ The product properties of an item in an order.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 
-@property(nonatomic) MOZUAppliedProductDiscount *productDiscount;
+/**
+The discount that applies to the product.
+*/
+@property(nonatomic) MOZUAppliedLineItemProductDiscount *productDiscount;
 
 /**
 List of product discounts that apply to the item in the order.
 */
-@property(nonatomic) NSArray<MOZUAppliedProductDiscount> *productDiscounts;
+@property(nonatomic) NSArray<MOZUAppliedLineItemProductDiscount> *productDiscounts;
 
 /**
 List of shipping discounts that apply to the item in the order.
 */
-@property(nonatomic) NSArray<MOZUShippingDiscount> *shippingDiscounts;
+@property(nonatomic) NSArray<MOZUAppliedLineItemShippingDiscount> *shippingDiscounts;
 
 /**
 Properties of the unit price associated with the order item.

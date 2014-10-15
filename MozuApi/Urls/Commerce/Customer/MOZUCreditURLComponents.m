@@ -17,22 +17,24 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetCreditsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/customer/credits/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetCreditsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/credits/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetCreditOperationWithCode:(NSString *)code {
-	NSString *template = @"/api/commerce/customer/credits/{code}";
++ (MOZUURLComponents *)URLComponentsForGetCreditOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/credits/{code}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"code" : code,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -45,9 +47,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddCreditOperation {
-	NSString *template = @"/api/commerce/customer/credits/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForAddCreditOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/credits/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,19 +63,21 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateCreditOperationWithCode:(NSString *)code {
-	NSString *template = @"/api/commerce/customer/credits/{code}";
++ (MOZUURLComponents *)URLComponentsForAssociateCreditToShopperOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/credits/{code}/associate-to-shopper?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"code" : code,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForAssociateCreditToShopperOperationWithCode:(NSString *)code {
-	NSString *template = @"/api/commerce/customer/credits/{code}/associate-to-shopper";
++ (MOZUURLComponents *)URLComponentsForUpdateCreditOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/credits/{code}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"code" : code,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

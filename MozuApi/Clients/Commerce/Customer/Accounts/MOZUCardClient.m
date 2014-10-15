@@ -22,27 +22,27 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetAccountCardsOperationWithAccountId:(NSInteger)accountId {
-	id url = [MOZUCardURLComponents URLComponentsForGetAccountCardsOperationWithAccountId:accountId];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUCardCollection alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId {
-	id url = [MOZUCardURLComponents URLComponentsForGetAccountCardOperationWithAccountId:accountId cardId:cardId];
++ (MOZUClient *)clientForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId responseFields:(NSString *)responseFields {
+	id url = [MOZUCardURLComponents URLComponentsForGetAccountCardOperationWithAccountId:accountId cardId:cardId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCard alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetAccountCardsOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	id url = [MOZUCardURLComponents URLComponentsForGetAccountCardsOperationWithAccountId:accountId responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUCardCollection alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId {
-	id url = [MOZUCardURLComponents URLComponentsForAddAccountCardOperationWithAccountId:accountId];
++ (MOZUClient *)clientForAddAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	id url = [MOZUCardURLComponents URLComponentsForAddAccountCardOperationWithAccountId:accountId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,8 +76,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId cardId:(NSString *)cardId {
-	id url = [MOZUCardURLComponents URLComponentsForUpdateAccountCardOperationWithAccountId:accountId cardId:cardId];
++ (MOZUClient *)clientForUpdateAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId cardId:(NSString *)cardId responseFields:(NSString *)responseFields {
+	id url = [MOZUCardURLComponents URLComponentsForUpdateAccountCardOperationWithAccountId:accountId cardId:cardId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

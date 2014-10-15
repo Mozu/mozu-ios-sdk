@@ -53,11 +53,17 @@ The user-defined name of the product catalog.
 */
 @property(nonatomic) NSString * name;
 
+/**
+The current status of the product catalog.
+*/
+@property(nonatomic) NSString * status;
+
+/**
+Unique identifier of the Mozu tenant.
+*/
 @property(nonatomic) NSInteger tenantId;
 
 @property(nonatomic) NSDate * updateDate;
-
-@property(nonatomic) NSString * status;
 
 @end
 

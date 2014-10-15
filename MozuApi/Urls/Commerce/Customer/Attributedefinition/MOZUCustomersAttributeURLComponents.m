@@ -17,22 +17,14 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/customer/attributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/attributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
-	};
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
-}
-
-+ (MOZUURLComponents *)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN {
-	NSString *template = @"/api/commerce/customer/attributedefinition/attributes/{attributeFQN}";
-	NSDictionary *params = @{
-		@"attributeFQN" : attributeFQN,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -42,6 +34,16 @@
 	NSString *template = @"/api/commerce/customer/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
 	NSDictionary *params = @{
 		@"attributeFQN" : attributeFQN,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"attributeFQN" : attributeFQN,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -12,16 +12,14 @@
 #import "MOZUPropertyTypeResource.h"
 
 
-
 @interface MOZUPropertyTypeResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUPropertyTypeResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -39,14 +52,15 @@
 //
 
 /**
-
-@param pageSize 
-@param startIndex 
+Retrieves a list of the content property types.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)propertyTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex completionHandler:(void(^)(MOZUPropertyTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)propertyTypesWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPropertyTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPropertyTypeClient clientForGetPropertyTypesOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex];
+	MOZUClient *client = [MOZUPropertyTypeClient clientForGetPropertyTypesOperationWithDataViewMode:self.dataViewMode pageSize:pageSize startIndex:startIndex responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -56,28 +70,14 @@
 }
 
 /**
-
-@param propertyTypeName 
+Retrieves the details of the content property type.
+@param propertyTypeName The name of the content property type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)propertyTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName completionHandler:(void(^)(MOZUPropertyType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)propertyTypeWithPropertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPropertyType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPropertyTypeClient clientForGetPropertyTypeOperationWithDataViewMode:dataViewMode propertyTypeName:propertyTypeName];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
-/**
-Retrieves the value types associated with a content property.
-*/
-
-- (void)propertyValueTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode completionHandler:(void(^)(NSArray<MOZUPropertyValueType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUPropertyTypeClient clientForPropertyValueTypesOperationWithDataViewMode:dataViewMode];
+	MOZUClient *client = [MOZUPropertyTypeClient clientForGetPropertyTypeOperationWithDataViewMode:self.dataViewMode propertyTypeName:propertyTypeName responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -93,6 +93,23 @@ Retrieves the value types associated with a content property.
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)createPropertyTypeWithBody:(MOZUPropertyType *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPropertyType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPropertyTypeClient clientForCreatePropertyTypeOperationWithBody:body responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -
@@ -100,12 +117,46 @@ Retrieves the value types associated with a content property.
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param propertyTypeName 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)updatePropertyTypeWithBody:(MOZUPropertyType *)body propertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPropertyType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPropertyTypeClient clientForUpdatePropertyTypeOperationWithDataViewMode:self.dataViewMode body:body propertyTypeName:propertyTypeName responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+
+@param propertyTypeName 
+*/
+
+- (void)deletePropertyTypeWithPropertyTypeName:(NSString *)propertyTypeName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPropertyTypeClient clientForDeletePropertyTypeOperationWithDataViewMode:self.dataViewMode propertyTypeName:propertyTypeName];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(error, response);
+		}
+	}];
+}
 
 
 

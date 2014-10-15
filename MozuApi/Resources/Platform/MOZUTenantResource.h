@@ -18,6 +18,7 @@
 @interface MOZUTenantResource : NSObject
 
 
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -26,10 +27,11 @@
 
 /**
 Retrieve details about a specific tenant by providing the tenant ID.
+@param responseFields Use this field to include those fields which are not included by default.
 @param tenantId Unique identifier of the Mozu tenant.
 */
 
-- (void)tenantWithTenantId:(NSInteger)tenantId completionHandler:(void(^)(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)tenantWithTenantId:(NSInteger)tenantId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

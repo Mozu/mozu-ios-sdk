@@ -19,8 +19,9 @@
 
 /**
 Resource Url Components for getCustomerCheckoutSettings
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetCustomerCheckoutSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForGetCustomerCheckoutSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -38,8 +39,9 @@ Resource Url Components for getCustomerCheckoutSettings
 
 /**
 Resource Url Components for updateCustomerCheckoutSettings
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateCustomerCheckoutSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForUpdateCustomerCheckoutSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

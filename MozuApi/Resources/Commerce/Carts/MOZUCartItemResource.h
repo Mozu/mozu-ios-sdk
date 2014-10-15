@@ -20,10 +20,11 @@
 @interface MOZUCartItemResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -32,17 +33,19 @@
 //
 
 /**
-Retrieves a list of cart items including the total number of items in the cart.
-*/
-
-- (void)cartItemsWithCompletionHandler:(void(^)(MOZUCartItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
 Retrieves a particular cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)cartItemWithCartItemId:(NSString *)cartItemId completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)cartItemWithCartItemId:(NSString *)cartItemId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves a list of cart items including the total number of items in the cart.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)cartItemsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -54,9 +57,10 @@ Retrieves a particular cart item by providing the cart item ID.
 /**
 Adds a product to the current shopper's cart.
 @param body All properties of the new cart item. The product code is required.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addItemToCartWithBody:(MOZUCartItem *)body completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addItemToCartWithBody:(MOZUCartItem *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -66,20 +70,22 @@ Adds a product to the current shopper's cart.
 //
 
 /**
-Update the product or product quantity of an item in the current shopper's cart.
-@param body The properties of the cart item to update.
-@param cartItemId Identifier of the cart item to update.
-*/
-
-- (void)updateCartItemWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
 Update the quantity of an individual cart item in the cart of the current shopper.
 @param cartItemId Identifier of the cart item to update quantity.
 @param quantity The number of cart items in the shopper's active cart.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateCartItemQuantityWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCartItemQuantityWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Update the product or product quantity of an item in the current shopper's cart.
+@param body The properties of the cart item to update.
+@param cartItemId Identifier of the cart item to update.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)updateCartItemWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

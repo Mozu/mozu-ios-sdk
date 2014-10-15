@@ -17,22 +17,24 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/admin/locations/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/admin/locations/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetLocationOperationWithLocationCode:(NSString *)locationCode {
-	NSString *template = @"/api/commerce/admin/locations/{locationCode}";
++ (MOZUURLComponents *)URLComponentsForGetLocationOperationWithLocationCode:(NSString *)locationCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/admin/locations/{locationCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"locationCode" : locationCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -45,9 +47,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddLocationOperation {
-	NSString *template = @"/api/commerce/admin/locations/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForAddLocationOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/admin/locations/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,10 +63,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateLocationOperationWithLocationCode:(NSString *)locationCode {
-	NSString *template = @"/api/commerce/admin/locations/{locationCode}";
++ (MOZUURLComponents *)URLComponentsForUpdateLocationOperationWithLocationCode:(NSString *)locationCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/admin/locations/{locationCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"locationCode" : locationCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

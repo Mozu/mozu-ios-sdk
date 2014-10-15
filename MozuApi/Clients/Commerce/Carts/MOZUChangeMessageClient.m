@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetMessagesOperation {
-	id url = [MOZUChangeMessageURLComponents URLComponentsForGetMessagesOperation];
++ (MOZUClient *)clientForGetMessagesOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUChangeMessageURLComponents URLComponentsForGetMessagesOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

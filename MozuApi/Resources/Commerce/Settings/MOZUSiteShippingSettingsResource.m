@@ -12,16 +12,13 @@
 #import "MOZUSiteShippingSettingsResource.h"
 
 
-
 @interface MOZUSiteShippingSettingsResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUSiteShippingSettingsResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -40,11 +42,12 @@
 
 /**
 Retrieves a list of the shipping settings configured for a site.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)siteShippingSettingsWithCompletionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)siteShippingSettingsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperation];
+	MOZUClient *client = [MOZUSiteShippingSettingsClient clientForGetSiteShippingSettingsOperationWithResponseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

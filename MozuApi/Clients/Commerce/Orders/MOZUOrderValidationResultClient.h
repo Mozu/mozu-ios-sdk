@@ -22,8 +22,8 @@
 //
 
 /**
-
-@param orderId 
+Retrieves a list of the validation results associated with the order.
+@param orderId Unique identifier of the order.
 */
 
 + (MOZUClient *)clientForGetValidationResultsOperationWithOrderId:(NSString *)orderId;
@@ -43,12 +43,13 @@
 //
 
 /**
-
-@param body 
-@param orderId 
+Add a new order validation result to a submitted order.
+@param body Properties of the validation result to add for the order.
+@param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddValidationResultOperationWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId;
++ (MOZUClient *)clientForAddValidationResultOperationWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //

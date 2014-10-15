@@ -35,8 +35,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUOrdersAppliedDiscountURLComponents URLComponentsForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version];
++ (MOZUClient *)clientForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUOrdersAppliedDiscountURLComponents URLComponentsForApplyCouponOperationWithOrderId:orderId couponCode:couponCode updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

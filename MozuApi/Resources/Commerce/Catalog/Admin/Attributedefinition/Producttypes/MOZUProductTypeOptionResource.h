@@ -18,10 +18,13 @@
 @interface MOZUProductTypeOptionResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUDataViewMode dataViewMode;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode)dataViewMode;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -34,15 +37,16 @@ Retrieves a list of option product attributes defined for the specified product 
 @param productTypeId Identifier of the product type to retrieve.
 */
 
-- (void)optionsWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(NSArray<MOZUAttributeInProductType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)optionsWithProductTypeId:(NSInteger)productTypeId completionHandler:(void(^)(NSArray<MOZUAttributeInProductType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of an option attribute defined for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId The identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)optionWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)optionWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -55,9 +59,10 @@ Retrieves the details of an option attribute defined for the specified product t
 Assigns an option attribute to the product type based on the information supplied in the request.
 @param body Properties of the option attribute to define for the specified product type.
 @param productTypeId Identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addOptionWithBody:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -71,9 +76,10 @@ Updates an option attribute definition for the specified product type.
 @param body Properties of the option product attribute to define for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateOptionWithBody:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -88,7 +94,7 @@ Removes an option attribute definition for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
-- (void)deleteOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteOptionWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

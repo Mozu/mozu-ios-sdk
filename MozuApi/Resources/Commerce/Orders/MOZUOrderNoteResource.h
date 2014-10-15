@@ -18,10 +18,11 @@
 @interface MOZUOrderNoteResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -40,9 +41,10 @@ Retrieves a list of all notes for an order.
 Retrieves the details of a specific order note.
 @param noteId Unique identifier of the order note to retrieve.
 @param orderId Unique identifier of the order associated with the note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orderNoteWithOrderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -55,9 +57,10 @@ Retrieves the details of a specific order note.
 Creates a new merchant note for the specified order.
 @param body The alphanumeric text contained in the note. The maximum length is 256 characters.
 @param orderId Unique identifier of the order for which to add a note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -71,9 +74,10 @@ Updates a specific note for an order.
 @param body The content of the order note. The maximum length is 256 characters.
 @param noteId Unique identifier of the order note.
 @param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateOrderNoteWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrderNote *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

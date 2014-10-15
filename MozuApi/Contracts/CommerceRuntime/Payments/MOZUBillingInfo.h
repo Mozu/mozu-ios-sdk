@@ -26,7 +26,7 @@
 @interface MOZUBillingInfo : JSONModel<MOZUBillingInfo>
 
 /**
-If true, the system overrides the customer's billing address information with the supplied fulfillment information. 
+If true, the system overrides the customer's billing address information with the supplied fulfillment information.
 */
 @property(nonatomic) BOOL isSameBillingShippingAddress;
 
@@ -35,6 +35,9 @@ The type of payment, such as credit card, check, or PayPal Express. Additional p
 */
 @property(nonatomic) NSString * paymentType;
 
+/**
+The code that identifies the store credit to apply to the order.
+*/
 @property(nonatomic) NSString * storeCreditCode;
 
 /**

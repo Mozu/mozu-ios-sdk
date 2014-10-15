@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUView.h"
 
 
 
@@ -22,8 +23,10 @@
 */
 @interface MOZUDocumentList : JSONModel<MOZUDocumentList>
 
+@property(nonatomic) NSString * documentListType;
+
 /**
-A document type is a template.
+List of document types associated with this document list.
 */
 @property(nonatomic) NSArray *documentTypes;
 
@@ -32,15 +35,31 @@ If true, publishing of draft documents in this document list is enabled for the 
 */
 @property(nonatomic) NSNumber * enablePublishing;
 
+@property(nonatomic) NSString * listFQN;
+
 /**
 The name of the document list.
 */
 @property(nonatomic) NSString * name;
 
+@property(nonatomic) NSString * namespace;
+
+@property(nonatomic) NSNumber * scopeId;
+
+@property(nonatomic) NSString * scopeType;
+
+@property(nonatomic) NSString * security;
+
 /**
 If true, changes documents in this list can be saved as drafts until they are published to the site. If false, all document changes are immediately published in live mode. System-supplied and read only.
 */
 @property(nonatomic) NSNumber * supportsPublishing;
+
+@property(nonatomic) NSArray *usages;
+
+@property(nonatomic) NSObject * metadata;
+
+@property(nonatomic) NSArray<MOZUView> *views;
 
 @end
 

@@ -24,17 +24,19 @@
 //
 
 /**
-Retrieves a list of cart items including the total number of items in the cart.
-*/
-
-+ (MOZUClient *)clientForGetCartItemsOperation;
-
-/**
 Retrieves a particular cart item by providing the cart item ID.
 @param cartItemId Identifier of the cart item to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetCartItemOperationWithCartItemId:(NSString *)cartItemId;
++ (MOZUClient *)clientForGetCartItemOperationWithCartItemId:(NSString *)cartItemId responseFields:(NSString *)responseFields;
+
+/**
+Retrieves a list of cart items including the total number of items in the cart.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForGetCartItemsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -46,9 +48,10 @@ Retrieves a particular cart item by providing the cart item ID.
 /**
 Adds a product to the current shopper's cart.
 @param body All properties of the new cart item. The product code is required.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddItemToCartOperationWithBody:(MOZUCartItem *)body;
++ (MOZUClient *)clientForAddItemToCartOperationWithBody:(MOZUCartItem *)body responseFields:(NSString *)responseFields;
 
 
 //
@@ -58,20 +61,22 @@ Adds a product to the current shopper's cart.
 //
 
 /**
-Update the product or product quantity of an item in the current shopper's cart.
-@param body The properties of the cart item to update.
-@param cartItemId Identifier of the cart item to update.
-*/
-
-+ (MOZUClient *)clientForUpdateCartItemOperationWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId;
-
-/**
 Update the quantity of an individual cart item in the cart of the current shopper.
 @param cartItemId Identifier of the cart item to update quantity.
 @param quantity The number of cart items in the shopper's active cart.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity;
++ (MOZUClient *)clientForUpdateCartItemQuantityOperationWithCartItemId:(NSString *)cartItemId quantity:(NSInteger)quantity responseFields:(NSString *)responseFields;
+
+/**
+Update the product or product quantity of an item in the current shopper's cart.
+@param body The properties of the cart item to update.
+@param cartItemId Identifier of the cart item to update.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForUpdateCartItemOperationWithBody:(MOZUCartItem *)body cartItemId:(NSString *)cartItemId responseFields:(NSString *)responseFields;
 
 
 //

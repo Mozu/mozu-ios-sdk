@@ -24,8 +24,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetAccountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter fields:fields q:q qLimit:qLimit isAnonymous:isAnonymous];
++ (MOZUClient *)clientForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetAccountsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter fields:fields q:q qLimit:qLimit isAnonymous:isAnonymous responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -37,27 +37,27 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAccountOperationWithAccountId:(NSInteger)accountId {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetAccountOperationWithAccountId:accountId];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUCustomerAccount alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetLoginStateOperationWithAccountId:(NSInteger)accountId {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateOperationWithAccountId:accountId];
++ (MOZUClient *)clientForGetLoginStateOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateOperationWithAccountId:accountId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZULoginState alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetAccountOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetAccountOperationWithAccountId:accountId responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUCustomerAccount alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -70,8 +70,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddAccountOperationWithBody:(MOZUCustomerAccount *)body {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountOperation];
++ (MOZUClient *)clientForAddAccountOperationWithBody:(MOZUCustomerAccount *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -93,8 +93,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForAddLoginToExistingCustomerOperationWithBody:(MOZUCustomerLoginInfo *)body accountId:(NSInteger)accountId {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:accountId];
++ (MOZUClient *)clientForAddLoginToExistingCustomerOperationWithBody:(MOZUCustomerLoginInfo *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:accountId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -133,8 +133,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForAddAccountAndLoginOperationWithBody:(MOZUCustomerAccountAndAuthInfo *)body {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountAndLoginOperation];
++ (MOZUClient *)clientForAddAccountAndLoginOperationWithBody:(MOZUCustomerAccountAndAuthInfo *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountAndLoginOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -147,8 +147,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForAddAccountsOperationWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo> *)body {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountsOperation];
++ (MOZUClient *)clientForAddAccountsOperationWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo> *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForAddAccountsOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -161,8 +161,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:emailAddress];
++ (MOZUClient *)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:emailAddress responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -174,8 +174,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateByUserNameOperationWithUserName:userName];
++ (MOZUClient *)clientForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForGetLoginStateByUserNameOperationWithUserName:userName responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -203,8 +203,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateAccountOperationWithBody:(MOZUCustomerAccount *)body accountId:(NSInteger)accountId {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForUpdateAccountOperationWithAccountId:accountId];
++ (MOZUClient *)clientForUpdateAccountOperationWithBody:(MOZUCustomerAccount *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForUpdateAccountOperationWithAccountId:accountId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

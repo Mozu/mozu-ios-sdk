@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUAdminLocationURLComponents URLComponentsForGetLocationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetLocationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminLocationURLComponents URLComponentsForGetLocationsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLocationOperationWithLocationCode:(NSString *)locationCode {
-	id url = [MOZUAdminLocationURLComponents URLComponentsForGetLocationOperationWithLocationCode:locationCode];
++ (MOZUClient *)clientForGetLocationOperationWithLocationCode:(NSString *)locationCode responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminLocationURLComponents URLComponentsForGetLocationOperationWithLocationCode:locationCode responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddLocationOperationWithBody:(MOZULocation *)body {
-	id url = [MOZUAdminLocationURLComponents URLComponentsForAddLocationOperation];
++ (MOZUClient *)clientForAddLocationOperationWithBody:(MOZULocation *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminLocationURLComponents URLComponentsForAddLocationOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,8 +76,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateLocationOperationWithBody:(MOZULocation *)body locationCode:(NSString *)locationCode {
-	id url = [MOZUAdminLocationURLComponents URLComponentsForUpdateLocationOperationWithLocationCode:locationCode];
++ (MOZUClient *)clientForUpdateLocationOperationWithBody:(MOZULocation *)body locationCode:(NSString *)locationCode responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminLocationURLComponents URLComponentsForUpdateLocationOperationWithLocationCode:locationCode responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

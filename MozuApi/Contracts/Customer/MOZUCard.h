@@ -32,6 +32,9 @@ The type of credit card, such as Visa or Amex.
 */
 @property(nonatomic) NSString * cardType;
 
+/**
+Unique identifier of the customer account contact associated with the credit card.
+*/
 @property(nonatomic) NSInteger contactId;
 
 /**

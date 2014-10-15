@@ -26,8 +26,9 @@
 
 /**
 Resource Url Components for authenticateApp
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAuthenticateAppOperation;
++ (MOZUURLComponents *)URLComponentsForAuthenticateAppOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -38,8 +39,9 @@ Resource Url Components for authenticateApp
 
 /**
 Resource Url Components for refreshAppAuthTicket
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForRefreshAppAuthTicketOperation;
++ (MOZUURLComponents *)URLComponentsForRefreshAppAuthTicketOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

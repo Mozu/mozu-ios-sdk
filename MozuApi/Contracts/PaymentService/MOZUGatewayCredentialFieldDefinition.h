@@ -37,6 +37,9 @@ The localizable name of the payment gateway.
 */
 @property(nonatomic) NSString * name;
 
+/**
+The name of the Volusion store.
+*/
 @property(nonatomic) NSString * volusionStoreName;
 
 @end

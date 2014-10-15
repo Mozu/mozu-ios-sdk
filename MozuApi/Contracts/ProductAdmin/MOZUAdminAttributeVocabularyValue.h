@@ -38,5 +38,7 @@ Complex type that contains content for a language specified by LocaleCode.
 */
 @property(nonatomic) MOZUAttributeVocabularyValueLocalizedContent *content;
 
+@property(nonatomic) NSArray<MOZUAttributeVocabularyValueLocalizedContent> *localizedContent;
+
 @end
 

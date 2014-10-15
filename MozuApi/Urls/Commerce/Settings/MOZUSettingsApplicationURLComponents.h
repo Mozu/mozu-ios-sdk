@@ -19,8 +19,9 @@
 
 /**
 Resource Url Components for thirdPartyGetApplication
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForThirdPartyGetApplicationOperation;
++ (MOZUURLComponents *)URLComponentsForThirdPartyGetApplicationOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -38,8 +39,9 @@ Resource Url Components for thirdPartyGetApplication
 
 /**
 Resource Url Components for thirdPartyUpdateApplication
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForThirdPartyUpdateApplicationOperation;
++ (MOZUURLComponents *)URLComponentsForThirdPartyUpdateApplicationOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

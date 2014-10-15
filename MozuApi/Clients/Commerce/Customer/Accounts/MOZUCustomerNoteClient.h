@@ -26,20 +26,22 @@
 Retrieves the contents of a particular note attached to a specified customer account.
 @param accountId Unique identifier of the customer account that contains the note being retrieved.
 @param noteId Unique identifier of a particular note to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId;
++ (MOZUClient *)clientForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId responseFields:(NSString *)responseFields;
 
 /**
 Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
 @param accountId Unique identifier of the customer account.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+ (MOZUClient *)clientForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUClient *)clientForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 
 //
@@ -52,9 +54,10 @@ Retrieves a list of notes added to a customer account according to any specified
 Adds a new note to the specified customer account.
 @param body Properties of the customer account note to create.
 @param accountId Unique identifier of the customer account for which to create the note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddAccountNoteOperationWithBody:(MOZUCustomerNote *)body accountId:(NSInteger)accountId;
++ (MOZUClient *)clientForAddAccountNoteOperationWithBody:(MOZUCustomerNote *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -68,9 +71,10 @@ Modifies an existing note for a customer account.
 @param body The new content to replace the existing note.
 @param accountId Unique identifier of the customer account note to modify.
 @param noteId Unique identifier of the note to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateAccountNoteOperationWithBody:(MOZUCustomerNote *)body accountId:(NSInteger)accountId noteId:(NSInteger)noteId;
++ (MOZUClient *)clientForUpdateAccountNoteOperationWithBody:(MOZUCustomerNote *)body accountId:(NSInteger)accountId noteId:(NSInteger)noteId responseFields:(NSString *)responseFields;
 
 
 //

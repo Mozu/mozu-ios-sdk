@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetFulfillmentInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	id url = [MOZUFulfillmentInfoURLComponents URLComponentsForGetFulfillmentInfoOperationWithOrderId:orderId draft:draft];
++ (MOZUClient *)clientForGetFulfillmentInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	id url = [MOZUFulfillmentInfoURLComponents URLComponentsForGetFulfillmentInfoOperationWithOrderId:orderId draft:draft responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,8 +48,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForSetFulFillmentInfoOperationWithBody:(MOZUFulfillmentInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUFulfillmentInfoURLComponents URLComponentsForSetFulFillmentInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
++ (MOZUClient *)clientForSetFulFillmentInfoOperationWithBody:(MOZUFulfillmentInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUFulfillmentInfoURLComponents URLComponentsForSetFulFillmentInfoOperationWithOrderId:orderId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

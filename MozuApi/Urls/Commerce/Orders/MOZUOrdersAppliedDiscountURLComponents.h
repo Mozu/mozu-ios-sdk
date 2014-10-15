@@ -37,8 +37,9 @@ Resource Url Components for applyCoupon
 @param couponCode Alphanumeric code associated with the coupon or promotion that results in a discounted price.
 @param updateMode Specifies whether to apply the coupon by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version;
++ (MOZUURLComponents *)URLComponentsForApplyCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields;
 
 
 //

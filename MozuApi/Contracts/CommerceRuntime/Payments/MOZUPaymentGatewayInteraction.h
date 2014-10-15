@@ -47,6 +47,9 @@ Response code from the gateway associated with the payment interaction. For exam
 */
 @property(nonatomic) NSString * gatewayResponseCode;
 
+/**
+Textual message returned by the payment gateway.
+*/
 @property(nonatomic) NSString * gatewayResponseText;
 
 /**

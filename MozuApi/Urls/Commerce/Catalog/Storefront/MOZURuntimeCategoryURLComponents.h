@@ -23,20 +23,23 @@ Resource Url Components for getCategories
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
+@param responseFields 
 */
-+ (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy;
++ (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getCategory
 @param categoryId Unique identifier for the storefront container used to organize products.
 @param allowInactive If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
+@param responseFields 
 */
-+ (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive;
++ (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getCategoryTree
+@param responseFields 
 */
-+ (MOZUURLComponents *)URLComponentsForGetCategoryTreeOperation;
++ (MOZUURLComponents *)URLComponentsForGetCategoryTreeOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

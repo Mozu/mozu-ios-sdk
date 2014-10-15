@@ -23,9 +23,10 @@
 
 /**
 Retrieves the messages associated with the current shopper's cart.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetMessagesOperation;
++ (MOZUClient *)clientForGetMessagesOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId {
-	id url = [MOZUDiscountTargetURLComponents URLComponentsForGetDiscountTargetOperationWithDiscountId:discountId];
++ (MOZUClient *)clientForGetDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId responseFields:(NSString *)responseFields {
+	id url = [MOZUDiscountTargetURLComponents URLComponentsForGetDiscountTargetOperationWithDiscountId:discountId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -51,13 +51,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget *)body discountId:(NSInteger)discountId {
-	id url = [MOZUDiscountTargetURLComponents URLComponentsForUpdateDiscountTargetOperationWithDiscountId:discountId];
++ (MOZUClient *)clientForUpdateDiscountTargetOperationWithBody:(MOZUDiscountTarget *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields {
+	id url = [MOZUDiscountTargetURLComponents URLComponentsForUpdateDiscountTargetOperationWithDiscountId:discountId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 

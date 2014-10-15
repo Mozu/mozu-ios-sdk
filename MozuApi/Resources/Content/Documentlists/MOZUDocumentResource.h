@@ -19,10 +19,13 @@
 @interface MOZUDocumentResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUDataViewMode dataViewMode;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode)dataViewMode;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,31 +34,33 @@
 //
 
 /**
-Retrieves a specific document within the specified document list by providing the document ID.
-@param documentId Identifier of the document being retrieved.
-@param documentListName The name of the document list associated with the document to retrieve.
-*/
-
-- (void)documentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
 Retrieve the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 @param documentId Unique identifier of the document.
 @param documentListName The name of the document list associated with the document.
 */
 
-- (void)documentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentContentWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves a document within the specified document list.
+@param documentId Identifier of the document being retrieved.
+@param documentListName The name of the document list associated with the document to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)documentWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a collection of documents according to any filter and sort criteria.
 @param documentListName The name of the document list.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)documentsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex completionHandler:(void(^)(MOZUDocumentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentsWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -65,12 +70,13 @@ Retrieves a collection of documents according to any filter and sort criteria.
 //
 
 /**
-Creates a new document in an existing list.
+Creates a new document in an defined document list.
 @param body The descriptive name of the newly created document.
 @param documentListName The descriptive alphanumeric document list name being created.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createDocumentWithBody:(MOZUDocument *)body documentListName:(NSString *)documentListName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -80,22 +86,23 @@ Creates a new document in an existing list.
 //
 
 /**
-Updates a document in a document list.
-@param body Properties of the document to update.
-@param documentId Unique identifier of the document to update.
-@param documentListName Name of the document list associated with the document.
-*/
-
-- (void)updateDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
 Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
-@param body 
+@param body Input output stream that delivers information.
 @param documentId Unique identifier of the document.
 @param documentListName The name of the document list associated with the document.
 */
 
-- (void)updateDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateDocumentContentWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Updates a document in a document list.
+@param body Properties of the document to update.
+@param documentId Unique identifier of the document to update.
+@param documentListName Name of the document list associated with the document.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)updateDocumentWithBody:(MOZUDocument *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -110,7 +117,7 @@ Deletes a specific document based on the specified document ID.
 @param documentListName The name of the document list associated with the document list being deleted.
 */
 
-- (void)deleteDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteDocumentWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Deletes the content associated with a document, such as a product image or PDF specification, by supplying the document ID.
@@ -118,7 +125,7 @@ Deletes the content associated with a document, such as a product image or PDF s
 @param documentListName The name of the document list associated with the document.
 */
 
-- (void)deleteDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteDocumentContentWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

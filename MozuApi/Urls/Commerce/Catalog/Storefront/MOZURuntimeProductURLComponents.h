@@ -23,24 +23,27 @@ Resource Url Components for getProducts
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
+@param responseFields 
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy;
++ (MOZUURLComponents *)URLComponentsForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getProductInventory
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param locationCodes Array of location codes for which to retrieve product inventory information.
+@param responseFields 
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes;
++ (MOZUURLComponents *)URLComponentsForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 @param allowInactive If true, returns an inactive product as part of the query.
-@param skipInventoryCheck 
+@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param responseFields 
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
++ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
 
 
 //
@@ -53,26 +56,35 @@ Resource Url Components for getProduct
 Resource Url Components for configuredProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param includeOptionDetails If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
-@param skipInventoryCheck 
+@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param responseFields 
 */
-+ (MOZUURLComponents *)URLComponentsForConfiguredProductOperationWithProductCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck;
++ (MOZUURLComponents *)URLComponentsForConfiguredProductOperationWithProductCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for validateProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param skipInventoryCheck 
+@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForValidateProductOperationWithProductCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck;
++ (MOZUURLComponents *)URLComponentsForValidateProductOperationWithProductCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for validateDiscounts
-@param productCode 
-@param variationProductCode 
-@param customerAccountId 
-@param allowInactive 
-@param skipInventoryCheck 
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
+@param customerAccountId Unique ID of the customer account associated with the shopper requesting the discount.
+@param allowInactive If true, this operation returns inactive product discounts as part of the POST.
+@param skipInventoryCheck If true, do not validate the product inventory when evaluating the list of discounts.
+@param responseFields 
 */
-+ (MOZUURLComponents *)URLComponentsForValidateDiscountsOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck;
++ (MOZUURLComponents *)URLComponentsForValidateDiscountsOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getProductInventories
+@param responseFields 
+*/
++ (MOZUURLComponents *)URLComponentsForGetProductInventoriesOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

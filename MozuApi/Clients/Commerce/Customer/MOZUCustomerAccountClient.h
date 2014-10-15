@@ -32,29 +32,32 @@
 Retrieves a list of customer accounts.
 @param fields The fields to include in the response.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param isAnonymous 
+@param isAnonymous If true, retrieve anonymous shopper accounts in the response.
 @param pageSize 
 @param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous;
++ (MOZUClient *)clientForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous responseFields:(NSString *)responseFields;
+
+/**
+Retrieves the current login state of the customer account specified in the request.
+@param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForGetLoginStateOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 /**
 Retrieve details of a customer account.
 @param accountId Unique identifier of the customer account to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetAccountOperationWithAccountId:(NSInteger)accountId;
-
-/**
-
-@param accountId 
-*/
-
-+ (MOZUClient *)clientForGetLoginStateOperationWithAccountId:(NSInteger)accountId;
++ (MOZUClient *)clientForGetAccountOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -66,80 +69,86 @@ Retrieve details of a customer account.
 /**
 Creates a new customer account based on the information specified in the request.
 @param body Properties of the customer account to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddAccountOperationWithBody:(MOZUCustomerAccount *)body;
++ (MOZUClient *)clientForAddAccountOperationWithBody:(MOZUCustomerAccount *)body responseFields:(NSString *)responseFields;
 
 /**
-
-@param body 
-@param accountId 
+Modify the password associated with a customer account.
+@param body The password information required to change the user password.
+@param accountId The customer account information required to change the userpassword.
 */
 
 + (MOZUClient *)clientForChangePasswordOperationWithBody:(MOZUPasswordInfo *)body accountId:(NSInteger)accountId;
 
 /**
-
-@param body 
-@param accountId 
+Adds a new user login to a defined customer account.
+@param body The authentication information for the customer account.
+@param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddLoginToExistingCustomerOperationWithBody:(MOZUCustomerLoginInfo *)body accountId:(NSInteger)accountId;
++ (MOZUClient *)clientForAddLoginToExistingCustomerOperationWithBody:(MOZUCustomerLoginInfo *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 /**
-
-@param accountId 
+Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
+@param accountId The unique identifier of the customer account for which to calculate customer lifetime value.
 */
 
 + (MOZUClient *)clientForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId;
 
 /**
-
-@param body 
-@param accountId 
+Lock or unlock a customer account.
+@param body If true, the customer account is locked from logging in.
+@param accountId The unique identifier of the customer account.
 */
 
 + (MOZUClient *)clientForSetLoginLockedOperationWithBody:(BOOL)body accountId:(NSInteger)accountId;
 
 /**
-
-@param body 
-@param accountId 
+Requires the password for the customer account to be changed.
+@param body If true, the password for the customer account must be changed.
+@param accountId Unique identifier of the customer account.
 */
 
 + (MOZUClient *)clientForSetPasswordChangeRequiredOperationWithBody:(BOOL)body accountId:(NSInteger)accountId;
 
 /**
-
-@param body 
+Creates a new customer account and logs the user associated with the customer account into the site.
+@param body Properties of the customer account to create, including the user authentication information.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddAccountAndLoginOperationWithBody:(MOZUCustomerAccountAndAuthInfo *)body;
++ (MOZUClient *)clientForAddAccountAndLoginOperationWithBody:(MOZUCustomerAccountAndAuthInfo *)body responseFields:(NSString *)responseFields;
 
 /**
-
-@param body 
+Creates multiple customer accounts based on the information specified in the request.
+@param body Properties of the customer accounts to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddAccountsOperationWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo> *)body;
++ (MOZUClient *)clientForAddAccountsOperationWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo> *)body responseFields:(NSString *)responseFields;
 
 /**
-
-@param emailAddress 
+Retrieves the current login state of a customer account by providing the customer's email address.
+@param emailAddress The email address associated with the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress;
++ (MOZUClient *)clientForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress responseFields:(NSString *)responseFields;
 
 /**
-
-@param userName 
+Retrieves the current login state of a customer account by providing the user name associated with the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
+@param userName The user name associated with the customer account.
 */
 
-+ (MOZUClient *)clientForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName;
++ (MOZUClient *)clientForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName responseFields:(NSString *)responseFields;
 
 /**
-
-@param body 
+Resets the password for a customer account.
+@param body Information required to reset the password for a customer account.
 */
 
 + (MOZUClient *)clientForResetPasswordOperationWithBody:(MOZUResetPasswordInfo *)body;
@@ -155,9 +164,10 @@ Creates a new customer account based on the information specified in the request
 Updates a customer account.
 @param body Properties of the customer account to update.
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateAccountOperationWithBody:(MOZUCustomerAccount *)body accountId:(NSInteger)accountId;
++ (MOZUClient *)clientForUpdateAccountOperationWithBody:(MOZUCustomerAccount *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //

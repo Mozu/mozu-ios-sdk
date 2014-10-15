@@ -17,14 +17,15 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetTransactionsOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/customer/credits/{code}/transactions?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetTransactionsOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/credits/{code}/transactions?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"code" : code,
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -37,10 +38,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithCode:(NSString *)code {
-	NSString *template = @"/api/commerce/customer/credits/{code}/transactions";
++ (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/credits/{code}/transactions?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"code" : code,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

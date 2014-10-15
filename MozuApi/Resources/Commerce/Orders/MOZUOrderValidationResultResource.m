@@ -12,16 +12,13 @@
 #import "MOZUOrderValidationResultResource.h"
 
 
-
 @interface MOZUOrderValidationResultResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUOrderValidationResultResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -39,8 +41,8 @@
 //
 
 /**
-
-@param orderId 
+Retrieves a list of the validation results associated with the order.
+@param orderId Unique identifier of the order.
 */
 
 - (void)validationResultsWithOrderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUOrderValidationResult> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -69,14 +71,15 @@
 //
 
 /**
-
-@param body 
-@param orderId 
+Add a new order validation result to a submitted order.
+@param body Properties of the validation result to add for the order.
+@param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addValidationResultWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrderValidationResult *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addValidationResultWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrderValidationResult *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUOrderValidationResultClient clientForAddValidationResultOperationWithBody:body orderId:orderId];
+	MOZUClient *client = [MOZUOrderValidationResultClient clientForAddValidationResultOperationWithBody:body orderId:orderId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

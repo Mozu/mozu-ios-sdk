@@ -369,10 +369,10 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     
     switch (authTicket.scope) {
         case MOZUTenantAuthenticationScope:
-            components = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForRefreshAuthTicketOperationWithTenantId:identifier];
+            components = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForRefreshAuthTicketOperationWithTenantId:identifier responseFields:nil];
             break;
         case MOZUDeveloperAuthenticationScope:
-            components = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:identifier];
+            components = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:identifier responseFields:nil];
             break;
         default:
             DDLogError(@"Not implemented: %@", [@(authTicket.scope) stringValue]);
@@ -390,10 +390,10 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     
     switch (scope) {
         case MOZUTenantAuthenticationScope:
-            components = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForCreateUserAuthTicketOperationWithTenantId:identifier];
+            components = [MOZUTenantAdminUserAuthTicketURLComponents URLComponentsForCreateUserAuthTicketOperationWithTenantId:identifier responseFields:nil];
             break;
         case MOZUDeveloperAuthenticationScope:
-            components = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:identifier];
+            components = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:identifier responseFields:nil];
             break;
         default:
             DDLogError(@"Not implemented: %@", [@(scope) stringValue]);

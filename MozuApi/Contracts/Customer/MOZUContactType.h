@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties of a type of contact associated with a customer account, such as Billing or Fulfillment.
+*/
 @interface MOZUContactType : JSONModel<MOZUContactType>
 
+/**
+If true, this is the primary contact of this contact type.
+*/
 @property(nonatomic) BOOL isPrimary;
 
+/**
+The name of this contact type.
+*/
 @property(nonatomic) NSString * name;
 
 @end

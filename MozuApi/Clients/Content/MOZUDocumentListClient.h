@@ -25,17 +25,19 @@
 /**
 Retrieves a collection of document lists.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetDocumentListsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUClient *)clientForGetDocumentListsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields;
 
 /**
 Retrieve the details of a document list by providing the list name.
 @param documentListName The name of the document list.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetDocumentListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName;
++ (MOZUClient *)clientForGetDocumentListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName responseFields:(NSString *)responseFields;
 
 
 //
@@ -44,6 +46,14 @@ Retrieve the details of a document list by providing the list name.
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForCreateDocumentListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocumentList *)body responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -51,12 +61,28 @@ Retrieve the details of a document list by providing the list name.
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param documentListName 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForUpdateDocumentListOperationWithBody:(MOZUDocumentList *)body documentListName:(NSString *)documentListName responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+
+@param documentListName 
+*/
+
++ (MOZUClient *)clientForDeleteDocumentListOperationWithDocumentListName:(NSString *)documentListName;
 
 
 

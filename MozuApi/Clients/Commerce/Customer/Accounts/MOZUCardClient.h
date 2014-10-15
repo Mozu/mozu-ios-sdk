@@ -23,19 +23,21 @@
 //
 
 /**
-Retrieves all stored credit cards for the customer account.
+Retrieves the details of a credit card stored with a customer account billing contact.
 @param accountId Unique identifier of the customer account.
+@param cardId Unique identifier of the card associated with the customer account billing contact.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetAccountCardsOperationWithAccountId:(NSInteger)accountId;
++ (MOZUClient *)clientForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId responseFields:(NSString *)responseFields;
 
 /**
-
-@param accountId 
-@param cardId 
+Retrieves all stored credit cards for the customer account.
+@param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId;
++ (MOZUClient *)clientForGetAccountCardsOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -48,9 +50,10 @@ Retrieves all stored credit cards for the customer account.
 Creates a new credit card record and stores it for the customer account.
 @param body Properties of the customer credit card to add to the account.
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId;
++ (MOZUClient *)clientForAddAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -63,10 +66,11 @@ Creates a new credit card record and stores it for the customer account.
 Update one or more properties of a credit card defined for a customer account.
 @param body Properties of the customer account credit card to update.
 @param accountId Unique identifier of the customer account.
-@param cardId 
+@param cardId Unique identifier of the credit card.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId cardId:(NSString *)cardId;
++ (MOZUClient *)clientForUpdateAccountCardOperationWithBody:(MOZUCard *)body accountId:(NSInteger)accountId cardId:(NSString *)cardId responseFields:(NSString *)responseFields;
 
 
 //

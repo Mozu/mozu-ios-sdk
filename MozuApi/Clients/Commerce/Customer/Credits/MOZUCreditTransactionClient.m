@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetTransactionsOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUCreditTransactionURLComponents URLComponentsForGetTransactionsOperationWithCode:code startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetTransactionsOperationWithCode:(NSString *)code startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUCreditTransactionURLComponents URLComponentsForGetTransactionsOperationWithCode:code startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -42,8 +42,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUCreditTransaction *)body code:(NSString *)code {
-	id url = [MOZUCreditTransactionURLComponents URLComponentsForAddTransactionOperationWithCode:code];
++ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUCreditTransaction *)body code:(NSString *)code responseFields:(NSString *)responseFields {
+	id url = [MOZUCreditTransactionURLComponents URLComponentsForAddTransactionOperationWithCode:code responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

@@ -18,18 +18,39 @@
 @end
 
 
+/**
+	Properties of an authentication ticket generated for a customer account.
+*/
 @interface MOZUCustomerAuthTicket : JSONModel<MOZUCustomerAuthTicket>
 
+/**
+Access token string that enables authentication for the customer account.
+*/
 @property(nonatomic) NSString * accessToken;
 
+/**
+The date and time the access token expires.
+*/
 @property(nonatomic) NSDate * accessTokenExpiration;
 
+/**
+Refresh token string used to generate a new access token after expiration for a customer account authentication ticket.
+*/
 @property(nonatomic) NSString * refreshToken;
 
+/**
+The date and time the refresh token expires.
+*/
 @property(nonatomic) NSDate * refreshTokenExpiration;
 
+/**
+User ID associated with the customer account authentication ticket.
+*/
 @property(nonatomic) NSString * userId;
 
+/**
+Properties of the customer account associated with the authentication ticket.
+*/
 @property(nonatomic) MOZUCustomerAccount *customerAccount;
 
 @end

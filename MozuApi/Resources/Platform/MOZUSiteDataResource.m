@@ -12,16 +12,13 @@
 #import "MOZUSiteDataResource.h"
 
 
-
 @interface MOZUSiteDataResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUSiteDataResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -41,11 +43,12 @@
 /**
 Retrieves the value of a record in the Mozu database.
 @param dbEntryQuery The database entry query string used to retrieve the record information.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)dBValueWithDbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)dBValueWithDbEntryQuery:(NSString *)dbEntryQuery responseFields:(NSString *)responseFields completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUSiteDataClient clientForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
+	MOZUClient *client = [MOZUSiteDataClient clientForGetDBValueOperationWithDbEntryQuery:dbEntryQuery responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

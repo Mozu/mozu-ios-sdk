@@ -38,8 +38,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUProductTypePropertyURLComponents URLComponentsForGetPropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
++ (MOZUClient *)clientForGetPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUProductTypePropertyURLComponents URLComponentsForGetPropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -61,8 +61,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId {
-	id url = [MOZUProductTypePropertyURLComponents URLComponentsForAddPropertyOperationWithProductTypeId:productTypeId];
++ (MOZUClient *)clientForAddPropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields {
+	id url = [MOZUProductTypePropertyURLComponents URLComponentsForAddPropertyOperationWithProductTypeId:productTypeId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -85,8 +85,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUProductTypePropertyURLComponents URLComponentsForUpdatePropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN];
++ (MOZUClient *)clientForUpdatePropertyOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUProductTypePropertyURLComponents URLComponentsForUpdatePropertyOperationWithProductTypeId:productTypeId attributeFQN:attributeFQN responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

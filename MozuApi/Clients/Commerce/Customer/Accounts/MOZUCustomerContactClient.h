@@ -26,20 +26,22 @@
 Retrieves the specified contact for a customer account such as a billing or shipping contact.
 @param accountId Unique identifier of the customer account whose contact information is being retrieved.
 @param contactId Unique identifier of the customer account contact to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId;
++ (MOZUClient *)clientForGetAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId responseFields:(NSString *)responseFields;
 
 /**
 Retrieves a list of contacts for a customer according to any specified filter criteria and sort options.
 @param accountId Unique identifier of the customer account associated with the contact information to retrieve.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetAccountContactsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUClient *)clientForGetAccountContactsOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 
 //
@@ -52,9 +54,10 @@ Retrieves a list of contacts for a customer according to any specified filter cr
 Creates a new contact for a customer account such as a new shipping address.
 @param body Properties of the new contact. Required properties: Contact.Email, ContactType.
 @param accountId Unique identifier of the customer account containing the new contact.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddAccountContactOperationWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId;
++ (MOZUClient *)clientForAddAccountContactOperationWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -68,9 +71,10 @@ Updates a contact for a specified customer account such as to update addresses o
 @param body All properties the updated contact will have. Required properties: Name and email address.
 @param accountId Unique identifier of the customer account whose contact information is being updated.
 @param contactId Unique identifer of the customer account contact being updated.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateAccountContactOperationWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId;
++ (MOZUClient *)clientForUpdateAccountContactOperationWithBody:(MOZUCustomerContact *)body accountId:(NSInteger)accountId contactId:(NSInteger)contactId responseFields:(NSString *)responseFields;
 
 
 //

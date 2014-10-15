@@ -28,8 +28,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest *)body {
-	id url = [MOZUAddressValidationRequestURLComponents URLComponentsForValidateAddressOperation];
++ (MOZUClient *)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUAddressValidationRequestURLComponents URLComponentsForValidateAddressOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

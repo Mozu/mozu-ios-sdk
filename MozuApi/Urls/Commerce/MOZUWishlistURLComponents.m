@@ -17,8 +17,8 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit {
-	NSString *template = @"/api/commerce/wishlists/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}";
++ (MOZUURLComponents *)URLComponentsForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
@@ -26,25 +26,28 @@
 		@"filter" : filter ? filter : @"",
 		@"q" : q ? q : @"",
 		@"qLimit" : qLimit ? qLimit : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetWishlistOperationWithWishlistId:(NSString *)wishlistId {
-	NSString *template = @"/api/commerce/wishlists/{wishlistId}";
++ (MOZUURLComponents *)URLComponentsForGetWishlistOperationWithWishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName {
-	NSString *template = @"/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}";
++ (MOZUURLComponents *)URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"customerAccountId" : @(customerAccountId),
 		@"wishlistName" : wishlistName,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -57,9 +60,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForCreateWishlistOperation {
-	NSString *template = @"/api/commerce/wishlists/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForCreateWishlistOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -71,10 +76,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateWishlistOperationWithWishlistId:(NSString *)wishlistId {
-	NSString *template = @"/api/commerce/wishlists/{wishlistId}";
++ (MOZUURLComponents *)URLComponentsForUpdateWishlistOperationWithWishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetApplicationOperationWithAppId:(NSString *)appId {
-	id url = [MOZUPlatformApplicationURLComponents URLComponentsForGetApplicationOperationWithAppId:appId];
++ (MOZUClient *)clientForGetApplicationOperationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields {
+	id url = [MOZUPlatformApplicationURLComponents URLComponentsForGetApplicationOperationWithAppId:appId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,8 +48,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId {
-	id url = [MOZUPlatformApplicationURLComponents URLComponentsForUpdateApplicationOperationWithAppId:appId];
++ (MOZUClient *)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId responseFields:(NSString *)responseFields {
+	id url = [MOZUPlatformApplicationURLComponents URLComponentsForUpdateApplicationOperationWithAppId:appId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

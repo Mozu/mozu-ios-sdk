@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUCommercePackage.h"
+#import "MOZUPackage.h"
 
 
 @interface MOZUCommerceReturnsPackageClient : NSObject
@@ -22,20 +22,21 @@
 //
 
 /**
-Retrieves the details of a package of return replacement items.
-@param packageId Unique identifier of the return replacement package to retrieve.
-@param returnId Unique identifier of the return associated with the replacement package to retrieve.
-*/
-
-+ (MOZUClient *)clientForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId;
-
-/**
 Retrieves the package label image supplied by the carrier for a return replacement.
 @param packageId Unique identifier of the return replacement package for which to retrieve the label.
 @param returnId Unique identifier of the return associated with the replacement package label to retrieve.
 */
 
 + (MOZUClient *)clientForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId;
+
+/**
+Retrieves the details of a package of return replacement items.
+@param packageId Unique identifier of the return replacement package to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+@param returnId Unique identifier of the return associated with the replacement package to retrieve.
+*/
+
++ (MOZUClient *)clientForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
 
 
 //
@@ -47,10 +48,11 @@ Retrieves the package label image supplied by the carrier for a return replaceme
 /**
 Creates a new physical package of return replacement items.
 @param body Properties of the physical package for a return replacement.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return for which to create a replacement package.
 */
 
-+ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUCommercePackage *)body returnId:(NSString *)returnId;
++ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields;
 
 
 //
@@ -63,10 +65,11 @@ Creates a new physical package of return replacement items.
 Updates one or more properties of a package associated with a return replacement.
 @param body Properties of the return replacement package to update.
 @param packageId Unique identifier of the return replacement package to update.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return associated with the replacement package to update.
 */
 
-+ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId;
++ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
 
 
 //

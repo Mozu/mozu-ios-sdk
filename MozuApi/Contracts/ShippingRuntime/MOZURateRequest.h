@@ -25,24 +25,54 @@
 */
 @interface MOZURateRequest : JSONModel<MOZURateRequest>
 
+/**
+List of shipping carriers for which to retrieve shipping rate information.
+*/
 @property(nonatomic) NSArray *carrierIds;
 
+/**
+The date and time the shipment will be shipped to the shopper.
+*/
 @property(nonatomic) NSDate * estimatedShipmentDate;
 
+/**
+If true, the destination address associated with the shipping rate request is a commercial address.
+*/
 @property(nonatomic) NSNumber * isDestinationAddressCommercial;
 
+/**
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+*/
 @property(nonatomic) NSString * isoCurrencyCode;
 
+/**
+The total amount of the order used to calculate the shipping rate estimate.
+*/
 @property(nonatomic) NSNumber * orderTotal;
 
+/**
+The shipping methods associated with this request.
+*/
 @property(nonatomic) NSArray *shippingServiceTypes;
 
+/**
+List of key-value pairs that represent custom attributes associated with the request.
+*/
 @property(nonatomic) NSArray<MOZUCustomAttribute> *customAttributes;
 
+/**
+The physical address to which the shipment will ship.
+*/
 @property(nonatomic) MOZUAddress *destinationAddress;
 
+/**
+List of items to include in the shipping rate request.
+*/
 @property(nonatomic) NSArray<MOZURateRequestItem> *items;
 
+/**
+The physical address from which the shipment will ship.
+*/
 @property(nonatomic) MOZUAddress *originAddress;
 
 @end

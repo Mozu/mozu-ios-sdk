@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier {
-	id url = [MOZUEventDeliverySummaryURLComponents URLComponentsForGetDeliveryAttemptSummaryOperationWithSubscriptionId:subscriptionId identifier:identifier];
++ (MOZUClient *)clientForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier responseFields:(NSString *)responseFields {
+	id url = [MOZUEventDeliverySummaryURLComponents URLComponentsForGetDeliveryAttemptSummaryOperationWithSubscriptionId:subscriptionId identifier:identifier responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUEventDeliverySummaryURLComponents URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:subscriptionId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUEventDeliverySummaryURLComponents URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:subscriptionId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

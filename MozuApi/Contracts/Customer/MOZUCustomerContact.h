@@ -10,10 +10,10 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUContactType.h"
 #import "MOZUAddress.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUPhone.h"
-#import "MOZUContactType.h"
 
 
 
@@ -41,6 +41,9 @@ The email address of the specified user or the email address associated with the
 */
 @property(nonatomic) NSString * email;
 
+/**
+The fax number associated with the customer account.
+*/
 @property(nonatomic) NSString * faxNumber;
 
 /**
@@ -53,6 +56,8 @@ Identifier of the customer contact.
 */
 @property(nonatomic) NSInteger id;
 
+@property(nonatomic) NSString * label;
+
 /**
 The last name or surname of the contact. The maximum character length is 200.
 */
@@ -62,6 +67,11 @@ The last name or surname of the contact. The maximum character length is 200.
 The middle name or the first initial of the middle name of the contact. The maximum character length is 100.
 */
 @property(nonatomic) NSString * middleNameOrInitial;
+
+/**
+List of the types associated with a customer contact, such as Billing or Fulfillment.
+*/
+@property(nonatomic) NSArray<MOZUContactType> *types;
 
 /**
 Address associated with the customer account contact.
@@ -77,8 +87,6 @@ Identifier and datetime stamp information recorded when a user or application cr
 List of phone numbers associated with the customer account contact.
 */
 @property(nonatomic) MOZUPhone *phoneNumbers;
-
-@property(nonatomic) NSArray<MOZUContactType> *types;
 
 @end
 

@@ -52,8 +52,14 @@ User-defined name of the master catalog.
 */
 @property(nonatomic) NSString * name;
 
+/**
+The current status of the master catalog.
+*/
 @property(nonatomic) NSString * status;
 
+/**
+Unique identifier of the Mozu tenant.
+*/
 @property(nonatomic) NSInteger tenantId;
 
 @property(nonatomic) NSDate * updateDate;

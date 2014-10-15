@@ -12,16 +12,14 @@
 #import "MOZUProductOptionResource.h"
 
 
-
 @interface MOZUProductOptionResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUProductOptionResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -43,9 +56,9 @@ Retrieves a list of all option attributes configured for the product specified i
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-- (void)optionsWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode completionHandler:(void(^)(NSArray<MOZUAdminProductOption> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)optionsWithProductCode:(NSString *)productCode completionHandler:(void(^)(NSArray<MOZUAdminProductOption> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductOptionClient clientForGetOptionsOperationWithDataViewMode:dataViewMode productCode:productCode];
+	MOZUClient *client = [MOZUProductOptionClient clientForGetOptionsOperationWithDataViewMode:self.dataViewMode productCode:productCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -58,11 +71,12 @@ Retrieves a list of all option attributes configured for the product specified i
 Retrieves the details of an option attribute configuration for the specified product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)optionWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminProductOption *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)optionWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminProductOption *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductOptionClient clientForGetOptionOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductOptionClient clientForGetOptionOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -82,11 +96,12 @@ Retrieves the details of an option attribute configuration for the specified pro
 Configures an option attribute for the product specified in the request.
 @param body Properties of the option attribute to define for the product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption *)body productCode:(NSString *)productCode completionHandler:(void(^)(MOZUAdminProductOption *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addOptionWithBody:(MOZUAdminProductOption *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminProductOption *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductOptionClient clientForAddOptionOperationWithDataViewMode:dataViewMode body:body productCode:productCode];
+	MOZUClient *client = [MOZUProductOptionClient clientForAddOptionOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -107,11 +122,12 @@ Updates one or more properties of an option attribute configured for a product.
 @param body Properties of the product option attribute configuration to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminProductOption *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateOptionWithBody:(MOZUAdminProductOption *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminProductOption *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductOptionClient clientForUpdateOptionOperationWithDataViewMode:dataViewMode body:body productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductOptionClient clientForUpdateOptionOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -133,9 +149,9 @@ Deletes the configuration of an option attribute for the product specified in th
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-- (void)deleteOptionWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteOptionWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductOptionClient clientForDeleteOptionOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductOptionClient clientForDeleteOptionOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

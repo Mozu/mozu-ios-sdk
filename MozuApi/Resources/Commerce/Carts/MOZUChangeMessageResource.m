@@ -12,16 +12,13 @@
 #import "MOZUChangeMessageResource.h"
 
 
-
 @interface MOZUChangeMessageResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUChangeMessageResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -40,11 +42,12 @@
 
 /**
 Retrieves the messages associated with the current shopper's cart.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)messagesWithCompletionHandler:(void(^)(MOZUCartChangeMessageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)messagesWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCartChangeMessageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUChangeMessageClient clientForGetMessagesOperation];
+	MOZUClient *client = [MOZUChangeMessageClient clientForGetMessagesOperationWithResponseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

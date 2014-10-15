@@ -17,11 +17,12 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId {
-	NSString *template = @"/api/commerce/returns/{returnId}/shipments/{shipmentId}";
++ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/returns/{returnId}/shipments/{shipmentId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"returnId" : returnId,
 		@"shipmentId" : shipmentId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

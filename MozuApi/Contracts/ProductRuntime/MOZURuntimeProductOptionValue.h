@@ -10,6 +10,8 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZURuntimeBundledProduct.h"
+#import "MOZURuntimeAttributeVocabularyValueDisplayInfo.h"
 
 
 
@@ -66,6 +68,10 @@ The string value entered for a product option attribute.
 The value of a product option attribute.
 */
 @property(nonatomic) NSObject * value;
+
+@property(nonatomic) MOZURuntimeBundledProduct *bundledProduct;
+
+@property(nonatomic) MOZURuntimeAttributeVocabularyValueDisplayInfo *displayInfo;
 
 @end
 

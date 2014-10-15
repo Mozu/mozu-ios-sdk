@@ -44,6 +44,9 @@ The data type of the customer or order attribute, which is Bool, DateTime, Numbe
 */
 @property(nonatomic) NSString * dataType;
 
+/**
+Whether the customer or order attribute appears in Mozu Admin only, or in both Mozu Admin and the website storefront. Possible values are Admin and AdminAndStorefront.
+*/
 @property(nonatomic) NSString * displayGroup;
 
 @property(nonatomic) NSNumber * id;
@@ -58,10 +61,19 @@ If true, the customer or order attribute is active.
 */
 @property(nonatomic) NSNumber * isActive;
 
+/**
+If true, the attribute can have more than one value.
+*/
 @property(nonatomic) NSNumber * isMultiValued;
 
+/**
+If true, the attribute must have a defined value.
+*/
 @property(nonatomic) NSNumber * isRequired;
 
+/**
+If true, the attribute is visible in its defined display group.
+*/
 @property(nonatomic) NSNumber * isVisible;
 
 /**
@@ -69,8 +81,14 @@ Namespace associated with this extensible attribute.
 */
 @property(nonatomic) NSString * namespace;
 
+/**
+Integer that represents the sequence of the attribute.
+*/
 @property(nonatomic) NSNumber * order;
 
+/**
+An attribute value type is either predefined vocabulary by the admin during attribute set up or it can be "AdminEntered" or "ShopperEntered". The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
+*/
 @property(nonatomic) NSString * valueType;
 
 /**

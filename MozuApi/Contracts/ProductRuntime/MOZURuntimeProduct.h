@@ -39,13 +39,21 @@ Date and time when the entity was created, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * createDate;
 
+/**
+The list of fulfillment types the product supports.
+*/
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
+
+@property(nonatomic) NSString * goodsType;
 
 /**
 If true, the product is marked as available for sale. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
 */
 @property(nonatomic) NSNumber * isActive;
 
+/**
+If true, this product cannot ship in a package with other products and must ship in a package by itself.
+*/
 @property(nonatomic) NSNumber * isPackagedStandAlone;
 
 /**
@@ -58,8 +66,14 @@ If true, the entity is subject to tax based on the relevant tax rate.
 */
 @property(nonatomic) BOOL isTaxable;
 
+/**
+The manufacturer part number defined for the product.
+*/
 @property(nonatomic) NSString * mfgPartNumber;
 
+/**
+The list of manufacturer part numbers defined for the product.
+*/
 @property(nonatomic) NSArray *mfgPartNumbers;
 
 /**
@@ -77,6 +91,9 @@ A product type is like a product template that can be reused.
 */
 @property(nonatomic) NSString * productType;
 
+/**
+The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+*/
 @property(nonatomic) NSString * productUsage;
 
 /**
@@ -85,10 +102,13 @@ The publishing state of the product definition in the master catalog, which is "
 @property(nonatomic) NSString * publishState;
 
 /**
-The universal product code (UPC code) of the product.
+The universal product code associated with the product. The UPC of a product is unique across all sales channels.
 */
 @property(nonatomic) NSString * upc;
 
+/**
+The list of universal product codes defined for the product.
+*/
 @property(nonatomic) NSArray *upCs;
 
 /**
@@ -101,6 +121,9 @@ List of shipping discounts that can be applied to the product.
 */
 @property(nonatomic) NSArray<MOZURuntimeDiscount> *availableShippingDiscounts;
 
+/**
+Properties of a collection of component products that make up a single product bundle with its own product code.
+*/
 @property(nonatomic) NSArray<MOZURuntimeBundledProduct> *bundledProducts;
 
 /**
@@ -129,7 +152,7 @@ The list of options set up in product admin.
 @property(nonatomic) NSArray<MOZURuntimeProductOption> *options;
 
 /**
-Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+Unit price that the tenant intends to sell the product if no sale price is set.
 */
 @property(nonatomic) MOZURuntimeProductPrice *price;
 
@@ -138,10 +161,13 @@ For products with options that vary the cost of the product, the range between l
 */
 @property(nonatomic) MOZUProductPriceRange *priceRange;
 
+/**
+Describes the behavior the system uses when determining the price of the product.
+*/
 @property(nonatomic) MOZURuntimeProductPricingBehaviorInfo *pricingBehavior;
 
 /**
-The list of product properties set up in product admin.
+The list of product property attributes defined for the product.
 */
 @property(nonatomic) NSArray<MOZURuntimeProductProperty> *properties;
 

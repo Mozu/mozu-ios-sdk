@@ -31,23 +31,25 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForApplyShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}";
++ (MOZUURLComponents *)URLComponentsForApplyShippingAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/adjustment/shipping?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForApplyAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}";
++ (MOZUURLComponents *)URLComponentsForApplyAdjustmentOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/adjustment?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetBillingInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	id url = [MOZUBillingInfoURLComponents URLComponentsForGetBillingInfoOperationWithOrderId:orderId draft:draft];
++ (MOZUClient *)clientForGetBillingInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	id url = [MOZUBillingInfoURLComponents URLComponentsForGetBillingInfoOperationWithOrderId:orderId draft:draft responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,8 +48,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForSetBillingInfoOperationWithBody:(MOZUBillingInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUBillingInfoURLComponents URLComponentsForSetBillingInfoOperationWithOrderId:orderId updateMode:updateMode version:version];
++ (MOZUClient *)clientForSetBillingInfoOperationWithBody:(MOZUBillingInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUBillingInfoURLComponents URLComponentsForSetBillingInfoOperationWithOrderId:orderId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

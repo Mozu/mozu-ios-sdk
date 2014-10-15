@@ -18,10 +18,11 @@
 @interface MOZULocationTypeResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -30,17 +31,18 @@
 //
 
 /**
-
+Retrieve a list of all location types defined for the tenant.
 */
 
 - (void)locationTypesWithCompletionHandler:(void(^)(NSArray<MOZULocationType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param locationTypeCode 
+Retrieves the details of the location type specified in the request.
+@param locationTypeCode The user-defined code that identifies the location type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)locationTypeWithLocationTypeCode:(NSString *)locationTypeCode completionHandler:(void(^)(MOZULocationType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationTypeWithLocationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -50,11 +52,12 @@
 //
 
 /**
-
-@param body 
+Creates a new location type based on the information specified in the request.
+@param body Properties of the location type to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addLocationTypeWithBody:(MOZULocationType *)body completionHandler:(void(^)(MOZULocationType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addLocationTypeWithBody:(MOZULocationType *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -64,12 +67,13 @@
 //
 
 /**
-
-@param body 
-@param locationTypeCode 
+Updates the name of a defined location type.
+@param body Properties of the location type to update.
+@param locationTypeCode The user-defined code that identifies the location type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateLocationTypeWithBody:(MOZULocationType *)body locationTypeCode:(NSString *)locationTypeCode completionHandler:(void(^)(MOZULocationType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateLocationTypeWithBody:(MOZULocationType *)body locationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -79,8 +83,8 @@
 //
 
 /**
-
-@param locationTypeCode 
+Deletes the location type specified in the request.
+@param locationTypeCode User-defined code used to identify the location type.
 */
 
 - (void)deleteLocationTypeWithLocationTypeCode:(NSString *)locationTypeCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

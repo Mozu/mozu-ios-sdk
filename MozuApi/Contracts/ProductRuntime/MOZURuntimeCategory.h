@@ -29,6 +29,9 @@ Unique identifier for the storefront container used to organize products.
 */
 @property(nonatomic) NSInteger categoryId;
 
+/**
+If true, the category is displayed on the website storefront.
+*/
 @property(nonatomic) BOOL isDisplayed;
 
 /**

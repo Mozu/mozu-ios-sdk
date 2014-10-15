@@ -13,6 +13,7 @@
 #import "MOZUAdminAttributeMetadataItem.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUAdminAttributeLocalizedContent.h"
+#import "MOZUAttributeSearchSettings.h"
 #import "MOZUAdminAttributeValidation.h"
 #import "MOZUAdminAttributeVocabularyValue.h"
 
@@ -77,6 +78,9 @@ If true, the product attribute describes aspects of the product that do not repr
 */
 @property(nonatomic) NSNumber * isProperty;
 
+/**
+The unique identifier of the master catalog associated with the entity.
+*/
 @property(nonatomic) NSNumber * masterCatalogId;
 
 /**
@@ -103,6 +107,13 @@ Identifier and datetime stamp information recorded when a user or application cr
 Complex type that contains content for a language specified by LocaleCode.
 */
 @property(nonatomic) MOZUAdminAttributeLocalizedContent *content;
+
+@property(nonatomic) NSArray<MOZUAdminAttributeLocalizedContent> *localizedContent;
+
+/**
+This API type provides the search and indexing settings for the attribute.
+*/
+@property(nonatomic) MOZUAttributeSearchSettings *searchSettings;
 
 /**
 Properties of the validation of a product attribute, which contains rules that dictate what values are valid entries for product attributes.

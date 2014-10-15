@@ -17,20 +17,22 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId {
-	NSString *template = @"/api/commerce/orders/{orderId}/shipments/{shipmentId}";
++ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/shipments/{shipmentId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"shipmentId" : shipmentId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId {
++ (MOZUURLComponents *)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
 	NSString *template = @"/api/commerce/orders/{orderId}/shipments/methods";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
+		@"draft" : draft ? draft : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

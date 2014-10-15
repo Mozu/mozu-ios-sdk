@@ -26,14 +26,9 @@ Resource Url Components for getProducts
 @param q A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param noCount If true, the operation does not return the TotalCount number of results.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount;
-
-/**
-Resource Url Components for getProduct
-@param productCode Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.
-*/
-+ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForGetProductsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getProductInCatalogs
@@ -44,9 +39,17 @@ Resource Url Components for getProductInCatalogs
 /**
 Resource Url Components for getProductInCatalog
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param catalogId 
+@param catalogId The unique identifier of the catalog of products used by a site.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
++ (MOZUURLComponents *)URLComponentsForGetProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getProduct
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -57,14 +60,16 @@ Resource Url Components for getProductInCatalog
 
 /**
 Resource Url Components for addProduct
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddProductOperation;
++ (MOZUURLComponents *)URLComponentsForAddProductOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for addProductInCatalog
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddProductInCatalogOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForAddProductInCatalogOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -72,12 +77,6 @@ Resource Url Components for addProductInCatalog
 #pragma mark PUT Operations
 #pragma mark -
 //
-
-/**
-Resource Url Components for updateProduct
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-*/
-+ (MOZUURLComponents *)URLComponentsForUpdateProductOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for updateProductInCatalogs
@@ -88,9 +87,17 @@ Resource Url Components for updateProductInCatalogs
 /**
 Resource Url Components for updateProductInCatalog
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param catalogId 
+@param catalogId The unique identifier of the catalog of products used by a site.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
++ (MOZUURLComponents *)URLComponentsForUpdateProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for updateProduct
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateProductOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -108,7 +115,7 @@ Resource Url Components for deleteProduct
 /**
 Resource Url Components for deleteProductInCatalog
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param catalogId 
+@param catalogId The unique identifier of the catalog of products used by a site.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteProductInCatalogOperationWithProductCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
 

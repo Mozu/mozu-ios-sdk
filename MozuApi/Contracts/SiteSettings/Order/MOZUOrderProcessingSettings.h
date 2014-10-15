@@ -24,6 +24,11 @@
 @interface MOZUOrderProcessingSettings : JSONModel<MOZUOrderProcessingSettings>
 
 /**
+Abandoned order threshold in minutes indicates the number of minutes until a pending order is considered abandoned.
+*/
+@property(nonatomic) NSNumber * abandonedOrderThresholdInMinutes;
+
+/**
 Determines whether payment authorization occurs when the order is placed or when the order is shipped.
 */
 @property(nonatomic) NSString * paymentProcessingFlowType;

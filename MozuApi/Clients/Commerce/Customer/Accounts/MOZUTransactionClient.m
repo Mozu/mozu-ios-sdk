@@ -42,8 +42,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId {
-	id url = [MOZUTransactionURLComponents URLComponentsForAddTransactionOperationWithAccountId:accountId];
++ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	id url = [MOZUTransactionURLComponents URLComponentsForAddTransactionOperationWithAccountId:accountId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

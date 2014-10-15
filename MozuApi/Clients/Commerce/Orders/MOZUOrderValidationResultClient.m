@@ -49,8 +49,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddValidationResultOperationWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId {
-	id url = [MOZUOrderValidationResultURLComponents URLComponentsForAddValidationResultOperationWithOrderId:orderId];
++ (MOZUClient *)clientForAddValidationResultOperationWithBody:(MOZUOrderValidationResult *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderValidationResultURLComponents URLComponentsForAddValidationResultOperationWithOrderId:orderId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

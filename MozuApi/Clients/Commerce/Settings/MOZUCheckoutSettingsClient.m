@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCheckoutSettingsOperation {
-	id url = [MOZUCheckoutSettingsURLComponents URLComponentsForGetCheckoutSettingsOperation];
++ (MOZUClient *)clientForGetCheckoutSettingsOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUCheckoutSettingsURLComponents URLComponentsForGetCheckoutSettingsOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

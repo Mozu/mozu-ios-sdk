@@ -12,16 +12,14 @@
 #import "MOZUProductExtraResource.h"
 
 
-
 @interface MOZUProductExtraResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUProductExtraResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -43,9 +56,47 @@ Retrieves a list of extras configured for the product according to any defined f
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-- (void)extrasWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode completionHandler:(void(^)(NSArray<MOZUProductExtra> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)extrasWithProductCode:(NSString *)productCode completionHandler:(void(^)(NSArray<MOZUProductExtra> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductExtraClient clientForGetExtrasOperationWithDataViewMode:dataViewMode productCode:productCode];
+	MOZUClient *client = [MOZUProductExtraClient clientForGetExtrasOperationWithDataViewMode:self.dataViewMode productCode:productCode];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param attributeFQN 
+@param productCode 
+@param value 
+*/
+
+- (void)extraValueLocalizedDeltaPricesWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(NSArray<MOZUProductExtraValueDeltaPrice> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductExtraClient clientForGetExtraValueLocalizedDeltaPricesOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN value:value];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param attributeFQN 
+@param currencyCode 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
+- (void)extraValueLocalizedDeltaPriceWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductExtraValueDeltaPrice *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductExtraClient clientForGetExtraValueLocalizedDeltaPriceOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN value:value currencyCode:currencyCode responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -58,11 +109,12 @@ Retrieves a list of extras configured for the product according to any defined f
 Retrieves the details of an extra attribute configuration for the product specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)extraWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUProductExtra *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)extraWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductExtra *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductExtraClient clientForGetExtraOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductExtraClient clientForGetExtraOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -79,14 +131,35 @@ Retrieves the details of an extra attribute configuration for the product specif
 //
 
 /**
+
+@param body 
+@param attributeFQN 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
+- (void)addExtraValueLocalizedDeltaPriceWithBody:(MOZUProductExtraValueDeltaPrice *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductExtraValueDeltaPrice *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductExtraClient clientForAddExtraValueLocalizedDeltaPriceOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN value:value responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
 Configure an extra attribute for the product specified in the request.
 @param body Properties of the product extra to configure for the specified product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode completionHandler:(void(^)(MOZUProductExtra *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addExtraWithBody:(MOZUProductExtra *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductExtra *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductExtraClient clientForAddExtraOperationWithDataViewMode:dataViewMode body:body productCode:productCode];
+	MOZUClient *client = [MOZUProductExtraClient clientForAddExtraOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -103,15 +176,56 @@ Configure an extra attribute for the product specified in the request.
 //
 
 /**
+
+@param body 
+@param attributeFQN 
+@param productCode 
+@param value 
+*/
+
+- (void)updateExtraValueLocalizedDeltaPricesWithBody:(NSArray<MOZUProductExtraValueDeltaPrice> *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(NSArray<MOZUProductExtraValueDeltaPrice> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductExtraClient clientForUpdateExtraValueLocalizedDeltaPricesOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN value:value];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param body 
+@param attributeFQN 
+@param currencyCode 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
+- (void)updateExtraValueLocalizedDeltaPriceWithBody:(MOZUProductExtraValueDeltaPrice *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductExtraValueDeltaPrice *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductExtraClient clientForUpdateExtraValueLocalizedDeltaPriceOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN value:value currencyCode:currencyCode responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
 Updates the configuration of an extra attribute for the product specified in the request.
 @param body Properties of the extra attribute to update for the specified product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUProductExtra *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateExtraWithBody:(MOZUProductExtra *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductExtra *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductExtraClient clientForUpdateExtraOperationWithDataViewMode:dataViewMode body:body productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductExtraClient clientForUpdateExtraOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -133,9 +247,28 @@ Delete a product extra configuration for the product specified in the request.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
-- (void)deleteExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteExtraWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductExtraClient clientForDeleteExtraOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductExtraClient clientForDeleteExtraOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(error, response);
+		}
+	}];
+}
+
+/**
+
+@param attributeFQN 
+@param currencyCode 
+@param productCode 
+@param value Use this field to include those fields which are not included by default.
+*/
+
+- (void)deleteExtraValueLocalizedDeltaPriceWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductExtraClient clientForDeleteExtraValueLocalizedDeltaPriceOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN value:value currencyCode:currencyCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

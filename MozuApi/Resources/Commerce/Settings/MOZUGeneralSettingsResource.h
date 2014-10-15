@@ -18,10 +18,11 @@
 @interface MOZUGeneralSettingsResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,9 +32,10 @@
 
 /**
 Retrieve a site's general global settings.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)generalSettingsWithCompletionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)generalSettingsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -52,9 +54,10 @@ Retrieve a site's general global settings.
 /**
 Updates a site's general global settings.
 @param body The properties of the site's general settings to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateGeneralSettingsWithBody:(MOZUGeneralSettings *)body completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateGeneralSettingsWithBody:(MOZUGeneralSettings *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

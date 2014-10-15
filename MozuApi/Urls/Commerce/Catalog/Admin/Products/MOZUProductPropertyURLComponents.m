@@ -26,11 +26,36 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetPropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}";
++ (MOZUURLComponents *)URLComponentsForGetPropertyValueLocalizedContentsOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetPropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent/{localeCode}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+		@"localeCode" : localeCode,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetPropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -43,10 +68,23 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddPropertyOperationWithProductCode:(NSString *)productCode {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties";
++ (MOZUURLComponents *)URLComponentsForAddPropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForAddPropertyOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -59,11 +97,36 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdatePropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}";
++ (MOZUURLComponents *)URLComponentsForUpdatePropertyValueLocalizedContentsOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForUpdatePropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent/{localeCode}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+		@"localeCode" : localeCode,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForUpdatePropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -81,6 +144,18 @@
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"attributeFQN" : attributeFQN,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForDeletePropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent/{localeCode}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+		@"localeCode" : localeCode,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

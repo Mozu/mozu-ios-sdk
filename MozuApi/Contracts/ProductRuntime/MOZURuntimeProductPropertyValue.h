@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZURuntimeAttributeVocabularyValueDisplayInfo.h"
 
 
 
@@ -31,6 +32,8 @@ Property string value in the language specified in the locale code for the produ
 Value of the product property.
 */
 @property(nonatomic) NSObject * value;
+
+@property(nonatomic) MOZURuntimeAttributeVocabularyValueDisplayInfo *displayInfo;
 
 @end
 

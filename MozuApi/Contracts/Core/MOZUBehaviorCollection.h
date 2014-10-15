@@ -19,7 +19,7 @@
 
 
 /**
-	***Always private and should not be published.***
+	List of application behaviors and details for each record in the list.
 */
 @interface MOZUBehaviorCollection : JSONModel<MOZUBehaviorCollection>
 

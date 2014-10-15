@@ -23,14 +23,16 @@ Resource Url Components for getAttributes
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getAttribute
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -41,8 +43,9 @@ Resource Url Components for getAttribute
 
 /**
 Resource Url Components for addAttribute
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddAttributeOperation;
++ (MOZUURLComponents *)URLComponentsForAddAttributeOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -54,8 +57,9 @@ Resource Url Components for addAttribute
 /**
 Resource Url Components for updateAttribute
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForUpdateAttributeOperationWithAttributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //

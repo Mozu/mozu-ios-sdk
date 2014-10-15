@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetGeneralSettingsOperation {
-	id url = [MOZUGeneralSettingsURLComponents URLComponentsForGetGeneralSettingsOperation];
++ (MOZUClient *)clientForGetGeneralSettingsOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUGeneralSettingsURLComponents URLComponentsForGetGeneralSettingsOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,8 +48,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings *)body {
-	id url = [MOZUGeneralSettingsURLComponents URLComponentsForUpdateGeneralSettingsOperation];
++ (MOZUClient *)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUGeneralSettingsURLComponents URLComponentsForUpdateGeneralSettingsOperationWithResponseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

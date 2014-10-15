@@ -12,16 +12,13 @@
 #import "MOZUCatalogAttributeResource.h"
 
 
-
 @interface MOZUCatalogAttributeResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUCatalogAttributeResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -42,13 +44,14 @@
 Retrieves a paged list of attributes according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-- (void)attributesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUAdminAttributeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributesWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminAttributeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCatalogAttributeClient clientForGetAttributesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForGetAttributesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -60,11 +63,12 @@ Retrieves a paged list of attributes according to any specified filter criteria 
 /**
 Retrieves the details of the specified product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)attributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributeWithAttributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCatalogAttributeClient clientForGetAttributeOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForGetAttributeOperationWithAttributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -83,11 +87,12 @@ Retrieves the details of the specified product attribute.
 /**
 Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
 @param body Properties of the new product attribute to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addAttributeWithBody:(MOZUAdminAttribute *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCatalogAttributeClient clientForAddAttributeOperationWithDataViewMode:dataViewMode body:body];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForAddAttributeOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -107,11 +112,12 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 Updates an existing attribute with attribute properties to set.
 @param body Any properties of the attribute that to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAttributeWithBody:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminAttribute *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCatalogAttributeClient clientForUpdateAttributeOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForUpdateAttributeOperationWithBody:body attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -132,9 +138,9 @@ Deletes a defined product attribute. You cannot delete an attribute assigned a v
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-- (void)deleteAttributeWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteAttributeWithAttributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCatalogAttributeClient clientForDeleteAttributeOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUCatalogAttributeClient clientForDeleteAttributeOperationWithAttributeFQN:attributeFQN];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

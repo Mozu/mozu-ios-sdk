@@ -42,8 +42,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory *)body {
-	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForAddTaxableTerritoryOperation];
++ (MOZUClient *)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUTaxableTerritoryURLComponents URLComponentsForAddTaxableTerritoryOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

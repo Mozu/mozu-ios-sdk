@@ -23,8 +23,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetOrdersOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit {
-	id url = [MOZUOrderURLComponents URLComponentsForGetOrdersOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit];
++ (MOZUClient *)clientForGetOrdersOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForGetOrdersOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -58,8 +58,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetOrderOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	id url = [MOZUOrderURLComponents URLComponentsForGetOrderOperationWithOrderId:orderId draft:draft];
++ (MOZUClient *)clientForGetOrderOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForGetOrderOperationWithOrderId:orderId draft:draft responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -78,8 +78,21 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateOrderOperationWithBody:(MOZUOrder *)body {
-	id url = [MOZUOrderURLComponents URLComponentsForCreateOrderOperation];
++ (MOZUClient *)clientForCreateOrderFromCartOperationWithCartId:(NSString *)cartId responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForCreateOrderFromCartOperationWithCartId:cartId responseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForCreateOrderOperationWithBody:(MOZUOrder *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForCreateOrderOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -92,21 +105,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForCreateOrderFromCartOperationWithCartId:(NSString *)cartId {
-	id url = [MOZUOrderURLComponents URLComponentsForCreateOrderFromCartOperationWithCartId:cartId];
-	id verb = @"POST";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForPerformOrderActionOperationWithBody:(MOZUOrderAction *)body orderId:(NSString *)orderId {
-	id url = [MOZUOrderURLComponents URLComponentsForPerformOrderActionOperationWithOrderId:orderId];
++ (MOZUClient *)clientForPerformOrderActionOperationWithBody:(MOZUOrderAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForPerformOrderActionOperationWithOrderId:orderId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -126,8 +126,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateOrderDiscountOperationWithBody:(MOZUAppliedDiscount *)body orderId:(NSString *)orderId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUOrderURLComponents URLComponentsForUpdateOrderDiscountOperationWithOrderId:orderId discountId:discountId updateMode:updateMode version:version];
++ (MOZUClient *)clientForUpdateOrderDiscountOperationWithBody:(MOZUAppliedDiscount *)body orderId:(NSString *)orderId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForUpdateOrderDiscountOperationWithOrderId:orderId discountId:discountId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -148,8 +148,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForChangeOrderUserIdOperationWithOrderId:(NSString *)orderId {
-	id url = [MOZUOrderURLComponents URLComponentsForChangeOrderUserIdOperationWithOrderId:orderId];
++ (MOZUClient *)clientForChangeOrderUserIdOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForChangeOrderUserIdOperationWithOrderId:orderId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -161,8 +161,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateOrderOperationWithBody:(MOZUOrder *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUOrderURLComponents URLComponentsForUpdateOrderOperationWithOrderId:orderId updateMode:updateMode version:version];
++ (MOZUClient *)clientForUpdateOrderOperationWithBody:(MOZUOrder *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForUpdateOrderOperationWithOrderId:orderId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

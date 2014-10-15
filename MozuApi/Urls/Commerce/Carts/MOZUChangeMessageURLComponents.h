@@ -19,8 +19,9 @@
 
 /**
 Resource Url Components for getMessages
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetMessagesOperation;
++ (MOZUURLComponents *)URLComponentsForGetMessagesOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

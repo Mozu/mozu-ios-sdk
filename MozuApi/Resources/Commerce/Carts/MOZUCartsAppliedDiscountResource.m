@@ -12,16 +12,13 @@
 #import "MOZUCartsAppliedDiscountResource.h"
 
 
-
 @interface MOZUCartsAppliedDiscountResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUCartsAppliedDiscountResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -53,14 +55,15 @@
 //
 
 /**
-
-@param cartId 
-@param couponCode 
+Applies a defined coupon to the cart specified in the request.
+@param cartId Unique identifier of the cart to which to apply the coupon.
+@param couponCode Code associated with the coupon to apply to the cart.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)applyCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applyCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForApplyCouponOperationWithCartId:cartId couponCode:couponCode];
+	MOZUClient *client = [MOZUCartsAppliedDiscountClient clientForApplyCouponOperationWithCartId:cartId couponCode:couponCode responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -77,8 +80,8 @@
 //
 
 /**
-
-@param cartId 
+Removes one or more applied coupons from the cart specified in the request.
+@param cartId Unique identifier of the cart.
 */
 
 - (void)removeCouponsWithCartId:(NSString *)cartId completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -93,9 +96,9 @@
 }
 
 /**
-
-@param cartId 
-@param couponCode 
+Removes an applied coupon from the cart specified in the request.
+@param cartId Unique identifier of the cart.
+@param couponCode Code associated with the coupon to remove from the cart.
 */
 
 - (void)removeCouponWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode completionHandler:(void(^)(MOZUCart *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

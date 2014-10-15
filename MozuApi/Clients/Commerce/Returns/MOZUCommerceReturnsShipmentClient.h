@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUCommercePackage.h"
+#import "MOZUPackage.h"
 #import "MOZUShipment.h"
 
 
@@ -24,11 +24,12 @@
 
 /**
 Retrieves the details of the specified return replacement shipment.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
 @param shipmentId Unique identifier of the return replacement shipment to retrieve.
 */
 
-+ (MOZUClient *)clientForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId;
++ (MOZUClient *)clientForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields;
 
 
 //

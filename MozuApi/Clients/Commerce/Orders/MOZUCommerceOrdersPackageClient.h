@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUCommercePackage.h"
+#import "MOZUPackage.h"
 
 
 @interface MOZUCommerceOrdersPackageClient : NSObject
@@ -20,14 +20,6 @@
 #pragma mark Get Operations
 #pragma mark -
 //
-
-/**
-Retrieves the details of a package of order items.
-@param orderId Unique identifier of the order associated with the package to retrieve.
-@param packageId Unique identifier of the package to retrieve.
-*/
-
-+ (MOZUClient *)clientForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
 /**
 Retrieves a list of the actions available to perform for a package associated with order fulfillment.
@@ -45,6 +37,15 @@ Retrieves the package label image supplied by the carrier.
 
 + (MOZUClient *)clientForGetPackageLabelOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
+/**
+Retrieves the details of a package of order items.
+@param orderId Unique identifier of the order associated with the package to retrieve.
+@param packageId Unique identifier of the package to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -56,9 +57,10 @@ Retrieves the package label image supplied by the carrier.
 Creates a new physical package of order items.
 @param body Properties of the physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId;
++ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUPackage *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //
@@ -72,9 +74,10 @@ Updates one or more properties of a physical package of order items.
 @param body Wrapper of properties for the package of order items to update.
 @param orderId Unique identifier of the order associated with the package to update.
 @param packageId Unique identifier of the package of order items to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId;
++ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUPackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
 
 
 //

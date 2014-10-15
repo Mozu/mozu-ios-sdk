@@ -18,8 +18,14 @@
 @end
 
 
+/**
+	List of discounts the shopper can redeem for a product in its current state.
+*/
 @interface MOZUDiscountValidationSummary : JSONModel<MOZUDiscountValidationSummary>
 
+/**
+List of discount IDs the shopper can redeem for a product in its current state.
+*/
 @property(nonatomic) NSArray<MOZURuntimeDiscount> *applicableDiscounts;
 
 @end

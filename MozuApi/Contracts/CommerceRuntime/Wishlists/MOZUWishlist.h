@@ -43,7 +43,7 @@ Unique identifier of the customer account associated with the wish list.
 @property(nonatomic) NSNumber * customerAccountId;
 
 /**
-The interaction type the shopper uses to create the wish list, wich is Website, Store, Call, or Unknown. This property is not used at this time and is reserved for future functionality.
+The interaction type the shopper uses to create the wish list, which is Website, Store, Call, or Unknown. This property is not used at this time and is reserved for future functionality.
 */
 @property(nonatomic) NSString * customerInteractionType;
 
@@ -58,7 +58,7 @@ The subtotal of the cart including any applied discount calculations. This prope
 @property(nonatomic) NSNumber * discountedTotal;
 
 /**
-Estimated amount of discounts applied to all items in the wish list, which is system-supplied and read-only.                                This property value is not calculated at this time and is reserved for future functionality.
+Estimated amount of discounts applied to all items in the wish list, which is system-supplied and read-only.   This property value is not calculated at this time and is reserved for future functionality.
 */
 @property(nonatomic) NSNumber * discountTotal;
 
@@ -67,6 +67,9 @@ The date and time this wish list expires. This property value is not calculated 
 */
 @property(nonatomic) NSDate * expirationDate;
 
+/**
+The identifier an external program uses to identify the Mozu wish list.
+*/
 @property(nonatomic) NSString * externalId;
 
 /**
@@ -84,8 +87,14 @@ Unique identifier of this shopper wish list. System-supplied and read only.
 */
 @property(nonatomic) NSString * id;
 
+/**
+If this wish list was imported from an external program, the date and time the wish list was imported.
+*/
 @property(nonatomic) NSDate * importDate;
 
+/**
+If true, this wish list was imported from an external program.
+*/
 @property(nonatomic) NSNumber * isImport;
 
 /**

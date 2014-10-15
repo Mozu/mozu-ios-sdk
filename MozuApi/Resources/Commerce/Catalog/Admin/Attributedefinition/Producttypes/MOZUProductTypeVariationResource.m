@@ -12,16 +12,13 @@
 #import "MOZUProductTypeVariationResource.h"
 
 
-
 @interface MOZUProductTypeVariationResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUProductTypeVariationResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -52,13 +54,14 @@ Generates the variations possible for a product associated with the product type
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param productCode 
 @param productTypeId Unique identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)generateProductVariationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminProductOption> *)body productTypeId:(NSInteger)productTypeId productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUProductVariationPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)generateProductVariationsWithBody:(NSArray<MOZUAdminProductOption> *)body productTypeId:(NSInteger)productTypeId productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductVariationPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeVariationClient clientForGenerateProductVariationsOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	MOZUClient *client = [MOZUProductTypeVariationClient clientForGenerateProductVariationsOperationWithBody:body productTypeId:productTypeId productCode:productCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

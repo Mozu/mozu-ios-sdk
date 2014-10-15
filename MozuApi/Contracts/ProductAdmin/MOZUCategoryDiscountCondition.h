@@ -17,8 +17,14 @@
 @end
 
 
+/**
+	Properties of the conditions that must be met for a discount to apply to a product category.
+*/
 @interface MOZUCategoryDiscountCondition : JSONModel<MOZUCategoryDiscountCondition>
 
+/**
+The unique identifier of the product category associated with the discount.
+*/
 @property(nonatomic) NSInteger categoryId;
 
 @end

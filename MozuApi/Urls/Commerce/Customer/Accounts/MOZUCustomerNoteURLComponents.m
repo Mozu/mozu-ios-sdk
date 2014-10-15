@@ -17,24 +17,26 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId {
-	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}";
++ (MOZUURLComponents *)URLComponentsForGetAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 		@"noteId" : @(noteId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetAccountNotesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -47,10 +49,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddAccountNoteOperationWithAccountId:(NSInteger)accountId {
-	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes";
++ (MOZUURLComponents *)URLComponentsForAddAccountNoteOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"accountId" : @(accountId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -63,11 +66,12 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId {
-	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}";
++ (MOZUURLComponents *)URLComponentsForUpdateAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/notes/{noteId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"accountId" : @(accountId),
 		@"noteId" : @(noteId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

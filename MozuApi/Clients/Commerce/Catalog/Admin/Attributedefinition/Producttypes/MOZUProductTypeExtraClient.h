@@ -32,9 +32,10 @@ Retrieves a list of extra attributes defined for the specified product type.
 Retrieves the details of an extra attribute definition for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type whose extra is being retrieved.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForGetExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -47,9 +48,10 @@ Retrieves the details of an extra attribute definition for the specified product
 Assigns a defined extra attribute to the product type based on the information supplied in the request.
 @param body The properties of the extra attribute definition for this product type assignment.
 @param productTypeId Identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId;
++ (MOZUClient *)clientForAddExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields;
 
 
 //
@@ -63,9 +65,10 @@ Update the definition of an extra attribute for the specified product type.
 @param body The properties of the extra attribute definition to update for the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForUpdateExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //

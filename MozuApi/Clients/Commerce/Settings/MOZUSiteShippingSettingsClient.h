@@ -23,9 +23,10 @@
 
 /**
 Retrieves a list of the shipping settings configured for a site.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetSiteShippingSettingsOperation;
++ (MOZUClient *)clientForGetSiteShippingSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

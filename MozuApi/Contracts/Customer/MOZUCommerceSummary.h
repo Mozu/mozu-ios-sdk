@@ -33,6 +33,9 @@ The total number of order the shopper submitted across all sites associated with
 */
 @property(nonatomic) NSInteger orderCount;
 
+/**
+The number of visits to a site associated with a customer account.
+*/
 @property(nonatomic) NSInteger visitsCount;
 
 /**

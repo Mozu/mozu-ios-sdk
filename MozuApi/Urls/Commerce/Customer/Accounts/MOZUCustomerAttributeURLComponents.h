@@ -20,9 +20,10 @@
 /**
 Resource Url Components for getAccountAttribute
 @param accountId Identifier of the customer account associated with the attribute to retrieve.
-@param attributeFQN 
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getAccountAttributes
@@ -31,8 +32,9 @@ Resource Url Components for getAccountAttributes
 @param pageSize 
 @param sortBy 
 @param filter 
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 
 //
@@ -44,8 +46,9 @@ Resource Url Components for getAccountAttributes
 /**
 Resource Url Components for addAccountAttribute
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddAccountAttributeOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForAddAccountAttributeOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -57,9 +60,10 @@ Resource Url Components for addAccountAttribute
 /**
 Resource Url Components for updateAccountAttribute
 @param accountId Identifier of the customer account associated with the attribute.
-@param attributeFQN 
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForUpdateAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -70,8 +74,8 @@ Resource Url Components for updateAccountAttribute
 
 /**
 Resource Url Components for deleteAccountAttribute
-@param accountId 
-@param attributeFQN 
+@param accountId Unique identifier of the customer account.
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN;
 

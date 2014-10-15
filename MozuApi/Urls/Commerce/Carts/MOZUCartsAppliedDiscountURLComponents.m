@@ -31,11 +31,12 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode {
-	NSString *template = @"/api/commerce/carts/{cartId}/coupons/{couponCode}";
++ (MOZUURLComponents *)URLComponentsForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/carts/{cartId}/coupons/{couponCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"cartId" : cartId,
 		@"couponCode" : couponCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

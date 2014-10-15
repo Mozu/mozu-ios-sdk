@@ -20,8 +20,9 @@
 /**
 Resource Url Components for getTenant
 @param tenantId Unique identifier of the Mozu tenant.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId;
++ (MOZUURLComponents *)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId responseFields:(NSString *)responseFields;
 
 
 //

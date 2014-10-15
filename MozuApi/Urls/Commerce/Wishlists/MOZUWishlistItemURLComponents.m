@@ -17,31 +17,33 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId {
-	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}";
++ (MOZUURLComponents *)URLComponentsForGetWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
 		@"wishlistItemId" : wishlistItemId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetWishlistItemsOperationWithWishlistId:(NSString *)wishlistId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetWishlistItemsOperationWithWishlistId:(NSString *)wishlistId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}/items?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetWishlistItemsByWishlistNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}/items?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"customerAccountId" : @(customerAccountId),
 		@"wishlistName" : wishlistName,
@@ -49,6 +51,7 @@
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -61,10 +64,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddItemToWishlistOperationWithWishlistId:(NSString *)wishlistId {
-	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items";
++ (MOZUURLComponents *)URLComponentsForAddItemToWishlistOperationWithWishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -77,22 +81,24 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId {
-	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}";
++ (MOZUURLComponents *)URLComponentsForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}/{quantity}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
 		@"wishlistItemId" : wishlistItemId,
+		@"quantity" : @(quantity),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity {
-	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}/{quantity}";
++ (MOZUURLComponents *)URLComponentsForUpdateWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"wishlistId" : wishlistId,
 		@"wishlistItemId" : wishlistItemId,
-		@"quantity" : @(quantity),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

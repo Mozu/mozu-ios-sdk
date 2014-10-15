@@ -42,6 +42,9 @@ Identifier of the user.
 */
 @property(nonatomic) NSString * userId;
 
+/**
+The user name associated with the user profile.
+*/
 @property(nonatomic) NSString * userName;
 
 @end

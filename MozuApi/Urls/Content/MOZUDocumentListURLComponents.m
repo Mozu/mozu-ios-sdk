@@ -17,20 +17,22 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetDocumentListsOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
-	NSString *template = @"/api/content/documentlists/?pageSize={pageSize}&startIndex={startIndex}";
++ (MOZUURLComponents *)URLComponentsForGetDocumentListsOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/?pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetDocumentListOperationWithDocumentListName:(NSString *)documentListName {
-	NSString *template = @"/api/content/documentlists/{documentListName}";
++ (MOZUURLComponents *)URLComponentsForGetDocumentListOperationWithDocumentListName:(NSString *)documentListName responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/{documentListName}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"documentListName" : documentListName,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -43,6 +45,15 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForCreateDocumentListOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
@@ -50,12 +61,31 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForUpdateDocumentListOperationWithDocumentListName:(NSString *)documentListName responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/{documentListName}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"documentListName" : documentListName,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUURLComponents *)URLComponentsForDeleteDocumentListOperationWithDocumentListName:(NSString *)documentListName {
+	NSString *template = @"/api/content/documentlists/{documentListName}";
+	NSDictionary *params = @{
+		@"documentListName" : documentListName,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
 
 
 

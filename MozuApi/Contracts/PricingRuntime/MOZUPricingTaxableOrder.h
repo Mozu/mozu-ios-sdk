@@ -39,8 +39,14 @@ The date and time the order was submitted.
 */
 @property(nonatomic) NSDate * orderDate;
 
+/**
+The unique identifier of the original order, used to track order changes for tax purposes.
+*/
 @property(nonatomic) NSString * originalDocumentCode;
 
+/**
+The date and time the original order was placed.
+*/
 @property(nonatomic) NSDate * originalOrderDate;
 
 /**
@@ -48,6 +54,9 @@ The total shipping amount calculated for the order.
 */
 @property(nonatomic) NSNumber * shippingAmount;
 
+/**
+The type of request for which to tax this entity, which is "Order" or "Return."
+*/
 @property(nonatomic) NSString * taxRequestType;
 
 /**

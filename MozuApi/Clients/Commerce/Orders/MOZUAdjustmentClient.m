@@ -35,8 +35,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForApplyShippingAdjustmentOperationWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUAdjustmentURLComponents URLComponentsForApplyShippingAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
++ (MOZUClient *)clientForApplyShippingAdjustmentOperationWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUAdjustmentURLComponents URLComponentsForApplyShippingAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -49,8 +49,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForApplyAdjustmentOperationWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUAdjustmentURLComponents URLComponentsForApplyAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version];
++ (MOZUClient *)clientForApplyAdjustmentOperationWithBody:(MOZUAdjustment *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUAdjustmentURLComponents URLComponentsForApplyAdjustmentOperationWithOrderId:orderId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

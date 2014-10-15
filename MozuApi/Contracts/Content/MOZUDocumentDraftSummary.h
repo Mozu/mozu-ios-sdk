@@ -18,16 +18,13 @@
 
 
 /**
-	A high level description of the document draft.
+	Summary properties of an unpublished document draft.
 */
 @interface MOZUDocumentDraftSummary : JSONModel<MOZUDocumentDraftSummary>
 
 @property(nonatomic) NSDate * activeUpdateDate;
 
-/**
-Name of the document list associated with the draft.
-*/
-@property(nonatomic) NSString * documentListName;
+@property(nonatomic) NSString * documentTypeFQN;
 
 @property(nonatomic) NSDate * draftUpdateDate;
 
@@ -35,6 +32,8 @@ Name of the document list associated with the draft.
 Identifier of document draft.
 */
 @property(nonatomic) NSString * id;
+
+@property(nonatomic) NSString * listFQN;
 
 /**
 Name of the document draft.

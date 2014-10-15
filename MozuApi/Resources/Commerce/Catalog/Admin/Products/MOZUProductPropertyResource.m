@@ -12,16 +12,14 @@
 #import "MOZUProductPropertyResource.h"
 
 
-
 @interface MOZUProductPropertyResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUProductPropertyResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -43,9 +56,47 @@ Retrieves a list of the property attributes configured for the product specified
 @param productCode 
 */
 
-- (void)propertiesWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode completionHandler:(void(^)(NSArray<MOZUAdminProductProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)propertiesWithProductCode:(NSString *)productCode completionHandler:(void(^)(NSArray<MOZUAdminProductProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductPropertyClient clientForGetPropertiesOperationWithDataViewMode:dataViewMode productCode:productCode];
+	MOZUClient *client = [MOZUProductPropertyClient clientForGetPropertiesOperationWithDataViewMode:self.dataViewMode productCode:productCode];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param attributeFQN 
+@param productCode 
+@param value 
+*/
+
+- (void)propertyValueLocalizedContentsWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(NSArray<MOZUProductPropertyValueLocalizedContent> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductPropertyClient clientForGetPropertyValueLocalizedContentsOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN value:value];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param attributeFQN 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
+- (void)propertyValueLocalizedContentWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductPropertyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductPropertyClient clientForGetPropertyValueLocalizedContentOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN value:value localeCode:localeCode responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -57,12 +108,13 @@ Retrieves a list of the property attributes configured for the product specified
 /**
 Retrieves the details of a property attribute configuration for the product specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productCode 
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)propertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminProductProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)propertyWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminProductProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductPropertyClient clientForGetPropertyOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductPropertyClient clientForGetPropertyOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -79,14 +131,35 @@ Retrieves the details of a property attribute configuration for the product spec
 //
 
 /**
+
+@param body Use this field to include those fields which are not included by default.
+@param attributeFQN 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
+- (void)addPropertyValueLocalizedContentWithBody:(MOZUProductPropertyValueLocalizedContent *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductPropertyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductPropertyClient clientForAddPropertyValueLocalizedContentOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN value:value responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
 Configures a property attribute for the product specified in the request.
 @param body Properties of the property attribute to configure for a product.
 @param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addPropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty *)body productCode:(NSString *)productCode completionHandler:(void(^)(MOZUAdminProductProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addPropertyWithBody:(MOZUAdminProductProperty *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminProductProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductPropertyClient clientForAddPropertyOperationWithDataViewMode:dataViewMode body:body productCode:productCode];
+	MOZUClient *client = [MOZUProductPropertyClient clientForAddPropertyOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -103,15 +176,56 @@ Configures a property attribute for the product specified in the request.
 //
 
 /**
+
+@param body 
+@param attributeFQN 
+@param productCode 
+@param value 
+*/
+
+- (void)updatePropertyValueLocalizedContentsWithBody:(NSArray<MOZUProductPropertyValueLocalizedContent> *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(NSArray<MOZUProductPropertyValueLocalizedContent> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductPropertyClient clientForUpdatePropertyValueLocalizedContentsOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN value:value];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param body 
+@param attributeFQN 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
+- (void)updatePropertyValueLocalizedContentWithBody:(MOZUProductPropertyValueLocalizedContent *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductPropertyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductPropertyClient clientForUpdatePropertyValueLocalizedContentOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN value:value localeCode:localeCode responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
 Update one or more details of a property attribute configuration for the product specified in the request.
 @param body Details of the property attribute to update for the product configuration.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updatePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductProperty *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminProductProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePropertyWithBody:(MOZUAdminProductProperty *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminProductProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductPropertyClient clientForUpdatePropertyOperationWithDataViewMode:dataViewMode body:body productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductPropertyClient clientForUpdatePropertyOperationWithDataViewMode:self.dataViewMode body:body productCode:productCode attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -133,9 +247,28 @@ Deletes the configuration of a property attribute for the product specified in t
 @param productCode 
 */
 
-- (void)deletePropertyWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deletePropertyWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductPropertyClient clientForDeletePropertyOperationWithDataViewMode:dataViewMode productCode:productCode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductPropertyClient clientForDeletePropertyOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(error, response);
+		}
+	}];
+}
+
+/**
+
+@param attributeFQN 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param productCode 
+@param value 
+*/
+
+- (void)deletePropertyValueLocalizedContentWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUProductPropertyClient clientForDeletePropertyValueLocalizedContentOperationWithDataViewMode:self.dataViewMode productCode:productCode attributeFQN:attributeFQN value:value localeCode:localeCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

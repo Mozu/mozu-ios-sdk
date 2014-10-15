@@ -39,5 +39,7 @@ Content of the product property value.
 */
 @property(nonatomic) MOZUProductPropertyValueLocalizedContent *content;
 
+@property(nonatomic) NSArray<MOZUProductPropertyValueLocalizedContent> *localizedContent;
+
 @end
 

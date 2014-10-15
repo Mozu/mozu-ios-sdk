@@ -19,8 +19,9 @@
 
 /**
 Resource Url Components for getOrderHandlingFee
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetOrderHandlingFeeOperation;
++ (MOZUURLComponents *)URLComponentsForGetOrderHandlingFeeOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -31,8 +32,9 @@ Resource Url Components for getOrderHandlingFee
 
 /**
 Resource Url Components for createOrderHandlingFee
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreateOrderHandlingFeeOperation;
++ (MOZUURLComponents *)URLComponentsForCreateOrderHandlingFeeOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -43,8 +45,9 @@ Resource Url Components for createOrderHandlingFee
 
 /**
 Resource Url Components for updateOrderHandlingFee
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateOrderHandlingFeeOperation;
++ (MOZUURLComponents *)URLComponentsForUpdateOrderHandlingFeeOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUAdminAttributeVocabularyValueDisplayInfo.h"
 #import "MOZUAdminAttributeVocabularyValue.h"
 
 
@@ -32,6 +33,8 @@ Sequence of the attribute value within the product type.
 The vocabulary value of an attribute defined for a product type.
 */
 @property(nonatomic) NSObject * value;
+
+@property(nonatomic) MOZUAdminAttributeVocabularyValueDisplayInfo *displayInfo;
 
 /**
 Navigates vocabulary value details for an attribute defined for a product type.

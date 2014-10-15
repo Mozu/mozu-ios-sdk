@@ -24,16 +24,18 @@
 
 /**
 Retrieve the details of all master catalog associated with a tenant.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetMasterCatalogsOperation;
++ (MOZUClient *)clientForGetMasterCatalogsOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Retrieve the details of the master catalog specified in the request.
-@param masterCatalogId 
+@param masterCatalogId The unique identifier of the master catalog associated with the entity.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId;
++ (MOZUClient *)clientForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId responseFields:(NSString *)responseFields;
 
 
 //
@@ -53,9 +55,10 @@ Retrieve the details of the master catalog specified in the request.
 Updates the product publishing mode for the master catalog specified in the request.
 @param body Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
 @param masterCatalogId 
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateMasterCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId;
++ (MOZUClient *)clientForUpdateMasterCatalogOperationWithBody:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId responseFields:(NSString *)responseFields;
 
 
 //

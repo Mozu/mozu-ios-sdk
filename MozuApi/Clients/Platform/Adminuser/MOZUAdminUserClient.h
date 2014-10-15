@@ -23,18 +23,20 @@
 //
 
 /**
-Retrieves the details of the specified administrator user account.
-@param userId Unique identifier of the administrator account to retrieve.
-*/
-
-+ (MOZUClient *)clientForGetUserOperationWithUserId:(NSString *)userId;
-
-/**
 Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
+@param responseFields Use this field to include those fields which are not included by default.
 @param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 */
 
-+ (MOZUClient *)clientForGetTenantScopesForUserOperationWithUserId:(NSString *)userId;
++ (MOZUClient *)clientForGetTenantScopesForUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
+
+/**
+Retrieves the details of the specified administrator user account.
+@param responseFields Use this field to include those fields which are not included by default.
+@param userId Unique identifier of the administrator account to retrieve.
+*/
+
++ (MOZUClient *)clientForGetUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
 
 
 //

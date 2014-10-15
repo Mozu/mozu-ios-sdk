@@ -17,22 +17,24 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate {
-	NSString *template = @"/api/commerce/catalog/admin/facets/{facetId}?validate={validate}";
++ (MOZUURLComponents *)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/facets/{facetId}?validate={validate}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"facetId" : @(facetId),
 		@"validate" : validate ? validate : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate {
-	NSString *template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includeAvaliable={includeAvailable}&validate={validate}";
++ (MOZUURLComponents *)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/facets/category/{categoryId}?includeAvailable={includeAvailable}&validate={validate}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"includeAvailable" : includeAvailable ? includeAvailable : @"",
 		@"validate" : validate ? validate : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -45,9 +47,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddFacetOperation {
-	NSString *template = @"/api/commerce/catalog/admin/facets/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForAddFacetOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/facets/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,10 +63,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateFacetOperationWithFacetId:(NSInteger)facetId {
-	NSString *template = @"/api/commerce/catalog/admin/facets/{facetId}";
++ (MOZUURLComponents *)URLComponentsForUpdateFacetOperationWithFacetId:(NSInteger)facetId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/facets/{facetId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"facetId" : @(facetId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

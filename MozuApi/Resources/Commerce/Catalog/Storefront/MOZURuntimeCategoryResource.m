@@ -12,16 +12,13 @@
 #import "MOZURuntimeCategoryResource.h"
 
 
-
 @interface MOZURuntimeCategoryResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZURuntimeCategoryResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -42,13 +44,14 @@
 Retrieves a list of categories according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields 
 @param sortBy 
 @param startIndex 
 */
 
-- (void)categoriesWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy completionHandler:(void(^)(MOZURuntimeCategoryPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)categoriesWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZURuntimeCategoryPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZURuntimeCategoryClient clientForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
+	MOZUClient *client = [MOZURuntimeCategoryClient clientForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -61,11 +64,12 @@ Retrieves a list of categories according to any specified filter criteria and so
 Retrieves the details of a single category.
 @param allowInactive If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
 @param categoryId Unique identifier for the storefront container used to organize products.
+@param responseFields 
 */
 
-- (void)categoryWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive completionHandler:(void(^)(MOZURuntimeCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)categoryWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZURuntimeCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZURuntimeCategoryClient clientForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive];
+	MOZUClient *client = [MOZURuntimeCategoryClient clientForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -76,11 +80,12 @@ Retrieves the details of a single category.
 
 /**
 Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
+@param responseFields 
 */
 
-- (void)categoryTreeWithCompletionHandler:(void(^)(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)categoryTreeWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZURuntimeCategoryClient clientForGetCategoryTreeOperation];
+	MOZUClient *client = [MOZURuntimeCategoryClient clientForGetCategoryTreeOperationWithResponseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

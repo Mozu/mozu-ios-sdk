@@ -12,16 +12,13 @@
 #import "MOZUTransactionResource.h"
 
 
-
 @interface MOZUTransactionResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUTransactionResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -65,11 +67,12 @@ Retrieves a list of transactions associated with the customer account specified 
 Creates a new transaction for the customer account specified in the request.
 @param body Properties of the transaction to create for the customer account.
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addTransactionWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUTransaction *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addTransactionWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTransaction *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUTransactionClient clientForAddTransactionOperationWithBody:body accountId:accountId];
+	MOZUClient *client = [MOZUTransactionClient clientForAddTransactionOperationWithBody:body accountId:accountId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

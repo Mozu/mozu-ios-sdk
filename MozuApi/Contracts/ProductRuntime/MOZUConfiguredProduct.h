@@ -25,12 +25,18 @@
 
 
 /**
-	Properties of a created product selection.
+	Properties of a product configuration with shopper-selected options.
 */
 @interface MOZUConfiguredProduct : JSONModel<MOZUConfiguredProduct>
 
+/**
+The list of fulfillment types the product supports.
+*/
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
 
+/**
+The manufacturer part number supplied for the product.
+*/
 @property(nonatomic) NSString * mfgPartNumber;
 
 /**
@@ -38,6 +44,9 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 */
 @property(nonatomic) NSString * productCode;
 
+/**
+The universal product code defined for the product.
+*/
 @property(nonatomic) NSString * upc;
 
 /**
@@ -50,6 +59,9 @@ List of shipping discounts that can be applied to the configured product.
 */
 @property(nonatomic) NSArray<MOZURuntimeDiscount> *availableShippingDiscounts;
 
+/**
+Properties of the inventory of the configured product, including the number of items in stock, whether the item appears on the storefront, and whether the item is out of stock or can be back ordered.
+*/
 @property(nonatomic) MOZURuntimeProductInventoryInfo *inventoryInfo;
 
 /**
@@ -63,7 +75,7 @@ The list of options set up in product admin.
 @property(nonatomic) NSArray<MOZURuntimeProductOption> *options;
 
 /**
-Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+Unit price that the tenant intends to sell the product if no sale price is set.
 */
 @property(nonatomic) MOZURuntimeProductPrice *price;
 

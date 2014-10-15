@@ -10,6 +10,7 @@
 
 #import "MOZUProductExtraClient.h"
 #import "MOZUProductExtraURLComponents.h"
+#import "MozuProductExtraValueDeltaPrice.h"
 #import "MozuProductExtra.h"
 
 
@@ -38,8 +39,41 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUProductExtraURLComponents URLComponentsForGetExtraOperationWithProductCode:productCode attributeFQN:attributeFQN];
++ (MOZUClient *)clientForGetExtraValueLocalizedDeltaPricesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	id url = [MOZUProductExtraURLComponents URLComponentsForGetExtraValueLocalizedDeltaPricesOperationWithProductCode:productCode attributeFQN:attributeFQN value:value];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUProductExtraValueDeltaPrice arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetExtraValueLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields {
+	id url = [MOZUProductExtraURLComponents URLComponentsForGetExtraValueLocalizedDeltaPriceOperationWithProductCode:productCode attributeFQN:attributeFQN value:value currencyCode:currencyCode responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUProductExtraValueDeltaPrice alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUProductExtraURLComponents URLComponentsForGetExtraOperationWithProductCode:productCode attributeFQN:attributeFQN responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -61,8 +95,25 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode {
-	id url = [MOZUProductExtraURLComponents URLComponentsForAddExtraOperationWithProductCode:productCode];
++ (MOZUClient *)clientForAddExtraValueLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtraValueDeltaPrice *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields {
+	id url = [MOZUProductExtraURLComponents URLComponentsForAddExtraValueLocalizedDeltaPriceOperationWithProductCode:productCode attributeFQN:attributeFQN value:value responseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUProductExtraValueDeltaPrice alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForAddExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	id url = [MOZUProductExtraURLComponents URLComponentsForAddExtraOperationWithProductCode:productCode responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -85,8 +136,43 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUProductExtraURLComponents URLComponentsForUpdateExtraOperationWithProductCode:productCode attributeFQN:attributeFQN];
++ (MOZUClient *)clientForUpdateExtraValueLocalizedDeltaPricesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductExtraValueDeltaPrice> *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	id url = [MOZUProductExtraURLComponents URLComponentsForUpdateExtraValueLocalizedDeltaPricesOperationWithProductCode:productCode attributeFQN:attributeFQN value:value];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUProductExtraValueDeltaPrice arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForUpdateExtraValueLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtraValueDeltaPrice *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields {
+	id url = [MOZUProductExtraURLComponents URLComponentsForUpdateExtraValueLocalizedDeltaPriceOperationWithProductCode:productCode attributeFQN:attributeFQN value:value currencyCode:currencyCode responseFields:responseFields];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUProductExtraValueDeltaPrice alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForUpdateExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUProductExtraURLComponents URLComponentsForUpdateExtraOperationWithProductCode:productCode attributeFQN:attributeFQN responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -111,6 +197,17 @@
 
 + (MOZUClient *)clientForDeleteExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
 	id url = [MOZUProductExtraURLComponents URLComponentsForDeleteExtraOperationWithProductCode:productCode attributeFQN:attributeFQN];
+	id verb = @"DELETE";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	return client;
+}
+
++ (MOZUClient *)clientForDeleteExtraValueLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode {
+	id url = [MOZUProductExtraURLComponents URLComponentsForDeleteExtraValueLocalizedDeltaPriceOperationWithProductCode:productCode attributeFQN:attributeFQN value:value currencyCode:currencyCode];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

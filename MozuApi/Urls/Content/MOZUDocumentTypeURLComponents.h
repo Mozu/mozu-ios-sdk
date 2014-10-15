@@ -19,16 +19,18 @@
 
 /**
 Resource Url Components for getDocumentTypes
-@param pageSize 
-@param startIndex 
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUURLComponents *)URLComponentsForGetDocumentTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getDocumentType
-@param documentTypeName 
+@param documentTypeName The name of the document type to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName;
++ (MOZUURLComponents *)URLComponentsForGetDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields;
 
 
 //
@@ -37,12 +39,25 @@ Resource Url Components for getDocumentType
 #pragma mark -
 //
 
+/**
+Resource Url Components for createDocumentType
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForCreateDocumentTypeOperationWithResponseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
 #pragma mark PUT Operations
 #pragma mark -
 //
+
+/**
+Resource Url Components for updateDocumentType
+@param documentTypeName 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields;
 
 
 //

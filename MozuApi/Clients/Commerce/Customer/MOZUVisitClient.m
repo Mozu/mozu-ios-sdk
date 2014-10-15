@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUVisitURLComponents URLComponentsForGetVisitsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUVisitURLComponents URLComponentsForGetVisitsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetVisitOperationWithVisitId:(NSString *)visitId {
-	id url = [MOZUVisitURLComponents URLComponentsForGetVisitOperationWithVisitId:visitId];
++ (MOZUClient *)clientForGetVisitOperationWithVisitId:(NSString *)visitId responseFields:(NSString *)responseFields {
+	id url = [MOZUVisitURLComponents URLComponentsForGetVisitOperationWithVisitId:visitId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddVisitOperationWithBody:(MOZUVisit *)body {
-	id url = [MOZUVisitURLComponents URLComponentsForAddVisitOperation];
++ (MOZUClient *)clientForAddVisitOperationWithBody:(MOZUVisit *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUVisitURLComponents URLComponentsForAddVisitOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,8 +76,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateVisitOperationWithBody:(MOZUVisit *)body visitId:(NSString *)visitId {
-	id url = [MOZUVisitURLComponents URLComponentsForUpdateVisitOperationWithVisitId:visitId];
++ (MOZUClient *)clientForUpdateVisitOperationWithBody:(MOZUVisit *)body visitId:(NSString *)visitId responseFields:(NSString *)responseFields {
+	id url = [MOZUVisitURLComponents URLComponentsForUpdateVisitOperationWithVisitId:visitId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

@@ -24,10 +24,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber *)tenantId {
-	NSString *template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
++ (MOZUURLComponents *)URLComponentsForCreateUserAuthTicketOperationWithTenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"tenantId" : tenantId ? tenantId : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
@@ -40,10 +41,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber *)tenantId {
-	NSString *template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
++ (MOZUURLComponents *)URLComponentsForRefreshAuthTicketOperationWithTenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"tenantId" : tenantId ? tenantId : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];

@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Information required to reset the password for a customer account.
+*/
 @interface MOZUResetPasswordInfo : JSONModel<MOZUResetPasswordInfo>
 
+/**
+The email address of the specified user or the email address associated with the specified entity.
+*/
 @property(nonatomic) NSString * emailAddress;
 
+/**
+User name of the user associated with the customer account.
+*/
 @property(nonatomic) NSString * userName;
 
 @end

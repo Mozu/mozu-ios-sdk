@@ -23,25 +23,29 @@ Resource Url Components for getDiscounts
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDiscountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
-
-/**
-Resource Url Components for getDiscount
-@param discountId Unique identifier of the discount. System-supplied and read-only.
-*/
-+ (MOZUURLComponents *)URLComponentsForGetDiscountOperationWithDiscountId:(NSInteger)discountId;
++ (MOZUURLComponents *)URLComponentsForGetDiscountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getDiscountContent
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDiscountContentOperationWithDiscountId:(NSInteger)discountId;
++ (MOZUURLComponents *)URLComponentsForGetDiscountContentOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getDiscount
+@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetDiscountOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for generateRandomCoupon
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGenerateRandomCouponOperation;
++ (MOZUURLComponents *)URLComponentsForGenerateRandomCouponOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -52,8 +56,9 @@ Resource Url Components for generateRandomCoupon
 
 /**
 Resource Url Components for createDiscount
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreateDiscountOperation;
++ (MOZUURLComponents *)URLComponentsForCreateDiscountOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -63,16 +68,18 @@ Resource Url Components for createDiscount
 //
 
 /**
-Resource Url Components for updateDiscount
-@param discountId Unique identifier of the discount. System-supplied and read-only.
-*/
-+ (MOZUURLComponents *)URLComponentsForUpdateDiscountOperationWithDiscountId:(NSInteger)discountId;
-
-/**
 Resource Url Components for updateDiscountContent
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateDiscountContentOperationWithDiscountId:(NSInteger)discountId;
++ (MOZUURLComponents *)URLComponentsForUpdateDiscountContentOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for updateDiscount
+@param discountId Unique identifier of the discount to update.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateDiscountOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 
 //

@@ -17,8 +17,8 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
-	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}";
++ (MOZUURLComponents *)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content";
 	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"documentName" : documentName,
@@ -27,11 +27,12 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName {
-	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/content";
++ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"documentName" : documentName,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

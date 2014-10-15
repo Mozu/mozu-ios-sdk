@@ -30,18 +30,12 @@ Retrieves a list of products according to any specified facets, filter criteria,
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param q A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetProductsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount;
-
-/**
-Retrieves an existing product.
-@param productCode Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.
-*/
-
-+ (MOZUClient *)clientForGetProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode;
++ (MOZUClient *)clientForGetProductsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount responseFields:(NSString *)responseFields;
 
 /**
 Retrieves a product that is associated with one or more specific catalogs.
@@ -52,11 +46,20 @@ Retrieves a product that is associated with one or more specific catalogs.
 
 /**
 Retrieves the details of a product associated with a specific catalog.
-@param catalogId 
+@param catalogId The unique identifier of the catalog of products used by a site.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
++ (MOZUClient *)clientForGetProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode catalogId:(NSInteger)catalogId responseFields:(NSString *)responseFields;
+
+/**
+Retrieves the details of a product definition.
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForGetProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -68,17 +71,19 @@ Retrieves the details of a product associated with a specific catalog.
 /**
 Creates a new product definition in the specified master catalog.
 @param body Properties of the new product. You must supply values for the product code, product name, and price.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body;
++ (MOZUClient *)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body responseFields:(NSString *)responseFields;
 
 /**
 Associates a new product defined in the master catalog with a specific catalog.
 @param body Properties of the product to define for the specific catalog association.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode;
++ (MOZUClient *)clientForAddProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -86,14 +91,6 @@ Associates a new product defined in the master catalog with a specific catalog.
 #pragma mark Put Operations
 #pragma mark -
 //
-
-/**
-Updates one or more properties of a product definition in a master catalog.
-@param body Properties of the product definition to update in the master catalog.
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-*/
-
-+ (MOZUClient *)clientForUpdateProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body productCode:(NSString *)productCode;
 
 /**
 Updates the properties of a product specific to each catalog associated with the product.
@@ -106,11 +103,21 @@ Updates the properties of a product specific to each catalog associated with the
 /**
 Updates one or more properties of a product associated with a specific catalog.
 @param body Properties of the product associated with the catalog specified in the request.
-@param catalogId 
+@param catalogId The unique identifier of the catalog of products used by a site.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode catalogId:(NSInteger)catalogId;
++ (MOZUClient *)clientForUpdateProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode catalogId:(NSInteger)catalogId responseFields:(NSString *)responseFields;
+
+/**
+Updates one or more properties of a product definition in a master catalog.
+@param body Properties of the product definition to update in the master catalog.
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForUpdateProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -128,7 +135,7 @@ Deletes the specified product from a master catalog.
 
 /**
 Removes the product association defined for a specific catalog.
-@param catalogId 
+@param catalogId The unique identifier of the catalog of products used by a site.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 

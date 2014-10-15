@@ -17,14 +17,29 @@
 @end
 
 
+/**
+	The login information for a customer account.
+*/
 @interface MOZUCustomerLoginInfo : JSONModel<MOZUCustomerLoginInfo>
 
+/**
+The email address associated with the customer login.
+*/
 @property(nonatomic) NSString * emailAddress;
 
+/**
+If true, this customer account data was imported from an external program.
+*/
 @property(nonatomic) NSNumber * isImport;
 
+/**
+The password associated with the customer login.
+*/
 @property(nonatomic) NSString * password;
 
+/**
+The user name associated with the customer login.
+*/
 @property(nonatomic) NSString * username;
 
 @end

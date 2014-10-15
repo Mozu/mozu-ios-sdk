@@ -24,14 +24,14 @@
 @interface MOZUExternalPaymentWorkflowDefinition : JSONModel<MOZUExternalPaymentWorkflowDefinition>
 
 /**
-The name of the external payment workflow definition.
-*/
-@property(nonatomic) NSString * name;
-
-/**
 If true, the associated external payment workflow definition is enabled for the site.
 */
 @property(nonatomic) BOOL isEnabled;
+
+/**
+The name of the external payment workflow definition.
+*/
+@property(nonatomic) NSString * name;
 
 /**
 The credential fields required to communicate with the external payment processor.

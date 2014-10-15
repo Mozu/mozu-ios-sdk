@@ -12,16 +12,13 @@
 #import "MOZUPaymentResource.h"
 
 
-
 @interface MOZUPaymentResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUPaymentResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -41,28 +43,12 @@
 /**
 Retrieves information about all payment transactions submitted for the specified order.
 @param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)paymentsWithOrderId:(NSString *)orderId completionHandler:(void(^)(MOZUPaymentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)paymentsWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPaymentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPaymentClient clientForGetPaymentsOperationWithOrderId:orderId];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
-/**
-Retrieves information about a specific payment transaction submitted for the specified order.
-@param orderId Unique identifier of the order associated with the payment transaction.
-@param paymentId Unique identifier of the payment transaction submitted for the order.
-*/
-
-- (void)paymentWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId completionHandler:(void(^)(MOZUPayment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUPaymentClient clientForGetPaymentOperationWithOrderId:orderId paymentId:paymentId];
+	MOZUClient *client = [MOZUPaymentClient clientForGetPaymentsOperationWithOrderId:orderId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -88,6 +74,24 @@ Retrieves the list of all available payment actions dependent on the order payme
 	}];
 }
 
+/**
+Retrieves information about a specific payment transaction submitted for the specified order.
+@param orderId Unique identifier of the order associated with the payment transaction.
+@param paymentId Unique identifier of the payment transaction submitted for the order.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)paymentWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPayment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPaymentClient clientForGetPaymentOperationWithOrderId:orderId paymentId:paymentId responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -
@@ -100,11 +104,12 @@ Performs the specified action for an individual order payment transaction.
 @param body The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 @param orderId Unique identifier of the order associated with the payment.
 @param paymentId Unique identifer of the payment for which to perform the action.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)performPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)performPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPaymentClient clientForPerformPaymentActionOperationWithBody:body orderId:orderId paymentId:paymentId];
+	MOZUClient *client = [MOZUPaymentClient clientForPerformPaymentActionOperationWithBody:body orderId:orderId paymentId:paymentId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -117,11 +122,12 @@ Performs the specified action for an individual order payment transaction.
 Creates a new payment transaction for the specified order and performs the specified action.
 @param body To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 @param orderId Unique identifier of the order for which to apply the payment.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPaymentClient clientForCreatePaymentActionOperationWithBody:body orderId:orderId];
+	MOZUClient *client = [MOZUPaymentClient clientForCreatePaymentActionOperationWithBody:body orderId:orderId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

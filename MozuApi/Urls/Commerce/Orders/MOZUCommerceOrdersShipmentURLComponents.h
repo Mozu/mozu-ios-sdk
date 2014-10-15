@@ -21,14 +21,16 @@
 Resource Url Components for getShipment
 @param orderId Unique identifier of the order associated with the shipment to retrieve.
 @param shipmentId Unique identifier of the shipment to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;
++ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getAvailableShipmentMethods
 @param orderId Unique identifier of the order for the available shipment methods being retrieved.
+@param draft 
 */
-+ (MOZUURLComponents *)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft;
 
 
 //

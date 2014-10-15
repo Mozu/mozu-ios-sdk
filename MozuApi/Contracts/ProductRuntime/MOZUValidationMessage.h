@@ -42,5 +42,7 @@ Unique identifier of the entity that triggered the validation.
 */
 @property(nonatomic) NSString * sourceId;
 
+@property(nonatomic) NSString * validationType;
+
 @end
 

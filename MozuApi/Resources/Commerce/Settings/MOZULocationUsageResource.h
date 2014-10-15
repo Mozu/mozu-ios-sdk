@@ -19,10 +19,11 @@
 @interface MOZULocationUsageResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -32,16 +33,18 @@
 
 /**
 Retrieves the configured site location usages for the location usage code specified in the request.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)locationUsagesWithCompletionHandler:(void(^)(MOZULocationUsageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationUsagesWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationUsageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the location usages for the site specified in the request header.
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)locationUsageWithCode:(NSString *)code completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationUsageWithCode:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -61,9 +64,10 @@ Retrieves the location usages for the site specified in the request header.
 Updates the location usage for the site based on the location usage code specified in the request.
 @param body Properties of the location usage type to update.
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateLocationUsageWithBody:(MOZULocationUsage *)body code:(NSString *)code completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateLocationUsageWithBody:(MOZULocationUsage *)body code:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

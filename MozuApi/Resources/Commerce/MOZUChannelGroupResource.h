@@ -19,10 +19,11 @@
 @interface MOZUChannelGroupResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -32,20 +33,22 @@
 
 /**
 Retrieves a list of defined channel groups according to any filter and sort criteria specified in the request.
-@param filter FilterSetAll
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)channelGroupsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUChannelGroupCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)channelGroupsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUChannelGroupCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of a defined channel group.
 @param code The code that uniquely identifies the channel group.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)channelGroupWithCode:(NSString *)code completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)channelGroupWithCode:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -57,9 +60,10 @@ Retrieves the details of a defined channel group.
 /**
 Creates a new group of channels with common information.
 @param body Properties of the channel group to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createChannelGroupWithBody:(MOZUChannelGroup *)body completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createChannelGroupWithBody:(MOZUChannelGroup *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -72,9 +76,10 @@ Creates a new group of channels with common information.
 Updates one or more properties of a defined channel group.
 @param body Properties of the channel group to update.
 @param code Code that identifies the channel group.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateChannelGroupWithBody:(MOZUChannelGroup *)body code:(NSString *)code completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateChannelGroupWithBody:(MOZUChannelGroup *)body code:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUChannelGroup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

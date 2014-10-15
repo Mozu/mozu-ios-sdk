@@ -23,9 +23,10 @@
 
 /**
 Retrieve a site's general global settings.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetGeneralSettingsOperation;
++ (MOZUClient *)clientForGetGeneralSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -44,9 +45,10 @@ Retrieve a site's general global settings.
 /**
 Updates a site's general global settings.
 @param body The properties of the site's general settings to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings *)body;
++ (MOZUClient *)clientForUpdateGeneralSettingsOperationWithBody:(MOZUGeneralSettings *)body responseFields:(NSString *)responseFields;
 
 
 //

@@ -20,10 +20,13 @@
 @interface MOZUDiscountResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUDataViewMode dataViewMode;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode)dataViewMode;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -35,31 +38,35 @@
 Retrieves a list of discounts according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-- (void)discountsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUDiscountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
-Retrieves the details of a single discount.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
-*/
-
-- (void)discountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)discountsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDiscountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the localized content specified for the specified discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)discountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUDiscountLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)discountContentWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDiscountLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves the details of a single discount.
+@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)discountWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Generates a random code for a coupon.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)generateRandomCouponWithDataViewMode:(MOZUDataViewMode)dataViewMode completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)generateRandomCouponWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -69,11 +76,12 @@ Generates a random code for a coupon.
 //
 
 /**
-Creates a discount.
-@param body Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
+Creates a new discount or coupon to apply to a product, category, order, or shipping.
+@param body Properties of the discount to create. You must specify the discount name, amount type, start date, and target.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createDiscountWithBody:(MOZUAdminDiscount *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -83,20 +91,22 @@ Creates a discount.
 //
 
 /**
-Modifies a discount.
-@param body Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
+Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+@param body The discount content to update, including the discount name.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateDiscountContentWithBody:(MOZUDiscountLocalizedContent *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDiscountLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
-@param body New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+Updates one or more properties of a defined discount.
+@param body Properties of the discount to update.
+@param discountId Unique identifier of the discount to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateDiscountContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent *)body discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUDiscountLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateDiscountWithBody:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminDiscount *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -110,7 +120,7 @@ Deletes a discount specified by its discount ID.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-- (void)deleteDiscountWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteDiscountWithDiscountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

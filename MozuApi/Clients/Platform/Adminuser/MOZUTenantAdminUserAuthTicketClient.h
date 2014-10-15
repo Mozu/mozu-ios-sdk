@@ -32,10 +32,11 @@
 /**
 Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
 @param body The user authentication information required to generate the user authentication ticket, which consists of a user name and password.
+@param responseFields Use this field to include those fields which are not included by default.
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 */
 
-+ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId;
++ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields;
 
 
 //
@@ -47,10 +48,11 @@ Creates an authentication ticket for the supplied user to specify in API request
 /**
 Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
 @param body Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
+@param responseFields Use this field to include those fields which are not included by default.
 @param tenantId 
 */
 
-+ (MOZUClient *)clientForRefreshAuthTicketOperationWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId;
++ (MOZUClient *)clientForRefreshAuthTicketOperationWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields;
 
 
 //

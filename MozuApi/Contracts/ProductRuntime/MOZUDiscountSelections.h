@@ -17,8 +17,14 @@
 @end
 
 
+/**
+	The discounts to evaluate for a specified product code at the time of purchase.
+*/
 @interface MOZUDiscountSelections : JSONModel<MOZUDiscountSelections>
 
+/**
+List of discount IDs to evaluate for a product code.
+*/
 @property(nonatomic) NSArray *discountIds;
 
 @end

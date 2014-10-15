@@ -80,7 +80,7 @@ The tagline or text that appears when hovering over the site logo.
 @property(nonatomic) NSString * logoText;
 
 /**
-The mobile theme is the storefront name for the theme.
+The name of the theme to use when viewing this website on a mobile device.
 */
 @property(nonatomic) NSString * mobileTheme;
 
@@ -104,6 +104,9 @@ Choose the time zone to use for the site.
 */
 @property(nonatomic) NSString * siteTimeZone;
 
+/**
+The name of the theme to use when viewing the website on a mobile device.
+*/
 @property(nonatomic) NSString * tabletTheme;
 
 /**

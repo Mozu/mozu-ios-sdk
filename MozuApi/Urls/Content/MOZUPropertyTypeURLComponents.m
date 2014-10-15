@@ -17,28 +17,23 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
-	NSString *template = @"/api/content/propertytypes/?pageSize={pageSize}&startIndex={startIndex}";
++ (MOZUURLComponents *)URLComponentsForGetPropertyTypesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/propertytypes/?pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName {
-	NSString *template = @"/api/content/propertytypes/{propertyTypeName}";
++ (MOZUURLComponents *)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/propertytypes/{propertyTypeName}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"propertyTypeName" : propertyTypeName,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
-}
-
-+ (MOZUURLComponents *)URLComponentsForPropertyValueTypesOperation {
-	NSString *template = @"/api/content/propertytypes/propertyvaluetypes";
-	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -50,6 +45,15 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForCreatePropertyTypeOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/propertytypes/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
@@ -57,12 +61,31 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForUpdatePropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/propertytypes/{propertyTypeName}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"propertyTypeName" : propertyTypeName,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUURLComponents *)URLComponentsForDeletePropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName {
+	NSString *template = @"/api/content/propertytypes/{propertyTypeName}";
+	NSDictionary *params = @{
+		@"propertyTypeName" : propertyTypeName,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
 
 
 

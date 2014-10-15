@@ -23,8 +23,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetOrderItemOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId draft:(NSNumber *)draft {
-	id url = [MOZUOrderItemURLComponents URLComponentsForGetOrderItemOperationWithOrderId:orderId orderItemId:orderItemId draft:draft];
++ (MOZUClient *)clientForGetOrderItemOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForGetOrderItemOperationWithOrderId:orderId orderItemId:orderItemId draft:draft responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -36,8 +36,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetOrderItemsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	id url = [MOZUOrderItemURLComponents URLComponentsForGetOrderItemsOperationWithOrderId:orderId draft:draft];
++ (MOZUClient *)clientForGetOrderItemsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForGetOrderItemsOperationWithOrderId:orderId draft:draft responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -56,8 +56,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateOrderItemOperationWithBody:(MOZUOrderItem *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version skipInventoryCheck:(NSNumber *)skipInventoryCheck {
-	id url = [MOZUOrderItemURLComponents URLComponentsForCreateOrderItemOperationWithOrderId:orderId updateMode:updateMode version:version skipInventoryCheck:skipInventoryCheck];
++ (MOZUClient *)clientForCreateOrderItemOperationWithBody:(MOZUOrderItem *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForCreateOrderItemOperationWithOrderId:orderId updateMode:updateMode version:version skipInventoryCheck:skipInventoryCheck responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -77,8 +77,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateOrderItemDiscountOperationWithBody:(MOZUAppliedDiscount *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateOrderItemDiscountOperationWithOrderId:orderId orderItemId:orderItemId discountId:discountId updateMode:updateMode version:version];
++ (MOZUClient *)clientForUpdateOrderItemDiscountOperationWithBody:(MOZUAppliedDiscount *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateOrderItemDiscountOperationWithOrderId:orderId orderItemId:orderItemId discountId:discountId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -91,8 +91,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateItemFulfillmentOperationWithBody:(MOZUOrderItem *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateItemFulfillmentOperationWithOrderId:orderId orderItemId:orderItemId updateMode:updateMode version:version];
++ (MOZUClient *)clientForUpdateItemFulfillmentOperationWithBody:(MOZUOrderItem *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateItemFulfillmentOperationWithOrderId:orderId orderItemId:orderItemId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -105,8 +105,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateItemProductPriceOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId price:(NSNumber *)price updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateItemProductPriceOperationWithOrderId:orderId orderItemId:orderItemId price:price updateMode:updateMode version:version];
++ (MOZUClient *)clientForUpdateItemProductPriceOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId price:(NSNumber *)price updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateItemProductPriceOperationWithOrderId:orderId orderItemId:orderItemId price:price updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -118,8 +118,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateItemQuantityOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId quantity:(NSInteger)quantity updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateItemQuantityOperationWithOrderId:orderId orderItemId:orderItemId quantity:quantity updateMode:updateMode version:version];
++ (MOZUClient *)clientForUpdateItemQuantityOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId quantity:(NSInteger)quantity updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateItemQuantityOperationWithOrderId:orderId orderItemId:orderItemId quantity:quantity updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

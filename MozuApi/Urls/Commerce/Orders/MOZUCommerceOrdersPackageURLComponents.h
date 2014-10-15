@@ -18,13 +18,6 @@
 //
 
 /**
-Resource Url Components for getPackage
-@param orderId Unique identifier of the order associated with the package to retrieve.
-@param packageId Unique identifier of the package to retrieve.
-*/
-+ (MOZUURLComponents *)URLComponentsForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
-
-/**
 Resource Url Components for getAvailablePackageFulfillmentActions
 @param orderId Unique identifier of the order associated with the package fulfillment.
 @param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
@@ -38,6 +31,14 @@ Resource Url Components for getPackageLabel
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageLabelOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
+/**
+Resource Url Components for getPackage
+@param orderId Unique identifier of the order associated with the package to retrieve.
+@param packageId Unique identifier of the package to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -48,8 +49,9 @@ Resource Url Components for getPackageLabel
 /**
 Resource Url Components for createPackage
 @param orderId Unique identifier of the order associated with this package.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreatePackageOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForCreatePackageOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //
@@ -62,8 +64,9 @@ Resource Url Components for createPackage
 Resource Url Components for updatePackage
 @param orderId Unique identifier of the order associated with the package to update.
 @param packageId Unique identifier of the package of order items to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdatePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
++ (MOZUURLComponents *)URLComponentsForUpdatePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
 
 
 //

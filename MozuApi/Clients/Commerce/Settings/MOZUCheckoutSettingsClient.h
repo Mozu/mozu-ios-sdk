@@ -23,9 +23,10 @@
 
 /**
 Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetCheckoutSettingsOperation;
++ (MOZUClient *)clientForGetCheckoutSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

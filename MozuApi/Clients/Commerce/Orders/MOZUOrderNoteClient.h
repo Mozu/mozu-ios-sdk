@@ -32,9 +32,10 @@ Retrieves a list of all notes for an order.
 Retrieves the details of a specific order note.
 @param noteId Unique identifier of the order note to retrieve.
 @param orderId Unique identifier of the order associated with the note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
++ (MOZUClient *)clientForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields;
 
 
 //
@@ -47,9 +48,10 @@ Retrieves the details of a specific order note.
 Creates a new merchant note for the specified order.
 @param body The alphanumeric text contained in the note. The maximum length is 256 characters.
 @param orderId Unique identifier of the order for which to add a note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForCreateOrderNoteOperationWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId;
++ (MOZUClient *)clientForCreateOrderNoteOperationWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //
@@ -63,9 +65,10 @@ Updates a specific note for an order.
 @param body The content of the order note. The maximum length is 256 characters.
 @param noteId Unique identifier of the order note.
 @param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateOrderNoteOperationWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId;
++ (MOZUClient *)clientForUpdateOrderNoteOperationWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields;
 
 
 //

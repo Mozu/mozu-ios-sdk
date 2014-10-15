@@ -22,6 +22,14 @@
 */
 @interface MOZUCommerceProductPrice : JSONModel<MOZUCommerceProductPrice>
 
+/**
+The credit value when the product happens to be a gift card or similar product.
+*/
+@property(nonatomic) NSNumber * creditValue;
+
+/**
+The manufacturer's suggested retail price for the product.
+*/
 @property(nonatomic) NSNumber * msrp;
 
 /**
@@ -34,6 +42,9 @@ Current sale price defined for a product on a storefront.
 */
 @property(nonatomic) NSNumber * salePrice;
 
+/**
+The override price defined by the tenant for this cart or order item.
+*/
 @property(nonatomic) NSNumber * tenantOverridePrice;
 
 @end

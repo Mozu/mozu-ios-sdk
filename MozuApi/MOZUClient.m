@@ -158,7 +158,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         
         if (APIContext.tenantHost.length == 0) {
             id tenantRes = [[MOZUTenantResource alloc] init];
-            [tenantRes tenantWithTenantId:APIContext.tenantId completionHandler:^void(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [tenantRes tenantWithTenantId:APIContext.tenantId responseFields:nil completionHandler:^void(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     completion(result.domain, nil);
                 } else {

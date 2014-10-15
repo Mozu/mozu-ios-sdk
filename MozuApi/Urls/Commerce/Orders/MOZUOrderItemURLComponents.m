@@ -17,22 +17,24 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetOrderItemOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId draft:(NSNumber *)draft {
-	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}?draft={draft}";
++ (MOZUURLComponents *)URLComponentsForGetOrderItemOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}?draft={draft}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"draft" : draft ? draft : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetOrderItemsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	NSString *template = @"/api/commerce/orders/{orderId}/items?draft={draft}";
++ (MOZUURLComponents *)URLComponentsForGetOrderItemsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items?draft={draft}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"draft" : draft ? draft : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -45,13 +47,14 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForCreateOrderItemOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version skipInventoryCheck:(NSNumber *)skipInventoryCheck {
-	NSString *template = @"/api/commerce/orders/{orderId}/items?updatemode={updateMode}&version={version}&skipInventoryCheck={skipInventoryCheck}";
++ (MOZUURLComponents *)URLComponentsForCreateOrderItemOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items?updatemode={updateMode}&version={version}&skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
 		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -64,52 +67,56 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateOrderItemDiscountOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/discounts/{discountId}?updatemode={updateMode}&version={version}";
++ (MOZUURLComponents *)URLComponentsForUpdateOrderItemDiscountOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/discounts/{discountId}?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"discountId" : @(discountId),
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForUpdateItemFulfillmentOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/fulfillment?updatemode={updateMode}&version={version}";
++ (MOZUURLComponents *)URLComponentsForUpdateItemFulfillmentOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/fulfillment?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForUpdateItemProductPriceOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId price:(NSNumber *)price updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/price/{price}?updatemode={updateMode}&version={version}";
++ (MOZUURLComponents *)URLComponentsForUpdateItemProductPriceOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId price:(NSNumber *)price updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/price/{price}?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"price" : price,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForUpdateItemQuantityOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId quantity:(NSInteger)quantity updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/quantity/{quantity}?updatemode={updateMode}&version={version}";
++ (MOZUURLComponents *)URLComponentsForUpdateItemQuantityOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId quantity:(NSInteger)quantity updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/quantity/{quantity}?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"quantity" : @(quantity),
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

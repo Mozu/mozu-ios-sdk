@@ -19,10 +19,11 @@
 @interface MOZUInStockNotificationSubscriptionResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,21 +32,23 @@
 //
 
 /**
-
-@param filter 
-@param pageSize 
-@param sortBy 
-@param startIndex 
+Retrieves a list of in-stock notification subscriptions.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
+@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)inStockNotificationSubscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUInStockNotificationSubscriptionCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)inStockNotificationSubscriptionsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInStockNotificationSubscriptionCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param identifier 
+Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
+@param identifier Unique identifier of the in-stock notification subscription to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)inStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -55,11 +58,12 @@
 //
 
 /**
-
-@param body 
+Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
+@param body Properties of a subscription that sends the customer a notification when a product is available in a site's active stock.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addInStockNotificationSubscriptionWithBody:(MOZUInStockNotificationSubscription *)body completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addInStockNotificationSubscriptionWithBody:(MOZUInStockNotificationSubscription *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInStockNotificationSubscription *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -76,8 +80,8 @@
 //
 
 /**
-
-@param identifier 
+Deletes a subscription for a customer in-stock notification.
+@param identifier Unique identifier of the customer in-stock notification subscription to delete.
 */
 
 - (void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

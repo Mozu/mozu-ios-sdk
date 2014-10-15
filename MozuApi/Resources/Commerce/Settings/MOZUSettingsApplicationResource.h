@@ -18,10 +18,11 @@
 @interface MOZUSettingsApplicationResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,9 +32,10 @@
 
 /**
 Retrieve the settings of a third-party application.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)thirdPartyGetApplicationWithCompletionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)thirdPartyGetApplicationWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -52,9 +54,10 @@ Retrieve the settings of a third-party application.
 /**
 Initializes an application with the necessary configured settings.
 @param body Properties of the application to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)thirdPartyUpdateApplicationWithBody:(MOZUSiteSettingsApplication *)body completionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)thirdPartyUpdateApplicationWithBody:(MOZUSiteSettingsApplication *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteSettingsApplication *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

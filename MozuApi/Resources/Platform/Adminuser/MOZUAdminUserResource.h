@@ -19,6 +19,7 @@
 @interface MOZUAdminUserResource : NSObject
 
 
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -26,18 +27,20 @@
 //
 
 /**
-Retrieves the details of the specified administrator user account.
-@param userId Unique identifier of the administrator account to retrieve.
-*/
-
-- (void)userWithUserId:(NSString *)userId completionHandler:(void(^)(MOZUUser *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
 Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
+@param responseFields Use this field to include those fields which are not included by default.
 @param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 */
 
-- (void)tenantScopesForUserWithUserId:(NSString *)userId completionHandler:(void(^)(MOZUTenantCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)tenantScopesForUserWithUserId:(NSString *)userId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenantCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves the details of the specified administrator user account.
+@param responseFields Use this field to include those fields which are not included by default.
+@param userId Unique identifier of the administrator account to retrieve.
+*/
+
+- (void)userWithUserId:(NSString *)userId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUUser *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -23,9 +23,10 @@
 
 /**
 Retrieve the settings of a third-party application.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForThirdPartyGetApplicationOperation;
++ (MOZUClient *)clientForThirdPartyGetApplicationOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -44,9 +45,10 @@ Retrieve the settings of a third-party application.
 /**
 Initializes an application with the necessary configured settings.
 @param body Properties of the application to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication *)body;
++ (MOZUClient *)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication *)body responseFields:(NSString *)responseFields;
 
 
 //

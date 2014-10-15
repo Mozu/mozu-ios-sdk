@@ -27,6 +27,9 @@ If true, Mozu manages inventoried stock levels for this product.
 */
 @property(nonatomic) NSNumber * manageStock;
 
+/**
+The location code for the direct ship location associated with the available online stock.
+*/
 @property(nonatomic) NSString * onlineLocationCode;
 
 /**

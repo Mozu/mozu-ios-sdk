@@ -38,6 +38,8 @@ Description of the attribute in the language specified by the locale code.
 */
 @property(nonatomic) NSString * theDescription;
 
+@property(nonatomic) NSString * displayIntention;
+
 /**
 The input type (such as date or text area) accepted for the attribute's data type.
 */
@@ -47,6 +49,16 @@ The input type (such as date or text area) accepted for the attribute's data typ
 Name of the atrribute in the language specified by the locale code.
 */
 @property(nonatomic) NSString * name;
+
+/**
+Indicates whether the attribute value is searchable in the storefont by a shopper.
+*/
+@property(nonatomic) BOOL searchableInStorefront;
+
+/**
+If true, the system indexes the display value of string attributes instead of the canonical value for searching. The canonical value is always used for filtering. This does not apply for for non-string attributes.
+*/
+@property(nonatomic) BOOL searchDisplayValue;
 
 /**
 The usage type of the product attribute, which is property, option, or extra.

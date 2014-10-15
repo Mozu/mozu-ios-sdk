@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getValidationResults
-@param orderId 
+@param orderId Unique identifier of the order.
 */
 + (MOZUURLComponents *)URLComponentsForGetValidationResultsOperationWithOrderId:(NSString *)orderId;
 
@@ -39,9 +39,10 @@ Resource Url Components for getValidationResults
 
 /**
 Resource Url Components for addValidationResult
-@param orderId 
+@param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddValidationResultOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForAddValidationResultOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //

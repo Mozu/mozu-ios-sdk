@@ -12,16 +12,17 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUCommercePackage.h"
+#import "MOZUPackage.h"
 
 
 @interface MOZUCommerceOrdersPackageResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -29,14 +30,6 @@
 #pragma mark -
 //
 
-/**
-Retrieves the details of a package of order items.
-@param orderId Unique identifier of the order associated with the package to retrieve.
-@param packageId Unique identifier of the package to retrieve.
-*/
-
-- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
 /**
 Retrieves a list of the actions available to perform for a package associated with order fulfillment.
 @param orderId Unique identifier of the order associated with the package fulfillment.
@@ -53,6 +46,15 @@ Retrieves the package label image supplied by the carrier.
 
 - (void)packageLabelWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
+/**
+Retrieves the details of a package of order items.
+@param orderId Unique identifier of the order associated with the package to retrieve.
+@param packageId Unique identifier of the package to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 //
 #pragma mark -
@@ -64,9 +66,10 @@ Retrieves the package label image supplied by the carrier.
 Creates a new physical package of order items.
 @param body Properties of the physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createPackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageWithBody:(MOZUPackage *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -80,9 +83,10 @@ Updates one or more properties of a physical package of order items.
 @param body Wrapper of properties for the package of order items to update.
 @param orderId Unique identifier of the order associated with the package to update.
 @param packageId Unique identifier of the package of order items to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updatePackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePackageWithBody:(MOZUPackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

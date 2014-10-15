@@ -32,9 +32,10 @@
 /**
 Validates the customer address supplied in the request.
 @param body Properties of the address to validate.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest *)body;
++ (MOZUClient *)clientForValidateAddressOperationWithBody:(MOZUAddressValidationRequest *)body responseFields:(NSString *)responseFields;
 
 
 //

@@ -17,10 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
-	NSString *template = @"/api/platform/sitedata/{*dbEntryQuery}";
++ (MOZUURLComponents *)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/sitedata/{*dbEntryQuery}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"dbEntryQuery" : dbEntryQuery,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

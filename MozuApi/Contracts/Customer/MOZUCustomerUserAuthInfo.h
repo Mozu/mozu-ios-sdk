@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	The authentication information required to generate an authentication ticket for a customer account.
+*/
 @interface MOZUCustomerUserAuthInfo : JSONModel<MOZUCustomerUserAuthInfo>
 
+/**
+The password of the user associated with the customer account.
+*/
 @property(nonatomic) NSString * password;
 
+/**
+The user name of the user associated with the customer account.
+*/
 @property(nonatomic) NSString * username;
 
 @end

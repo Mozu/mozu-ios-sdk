@@ -23,8 +23,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy {
-	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
++ (MOZUClient *)clientForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoriesOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -36,8 +36,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive {
-	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive];
++ (MOZUClient *)clientForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryOperationWithCategoryId:categoryId allowInactive:allowInactive responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -49,8 +49,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCategoryTreeOperation {
-	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryTreeOperation];
++ (MOZUClient *)clientForGetCategoryTreeOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeCategoryURLComponents URLComponentsForGetCategoryTreeOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

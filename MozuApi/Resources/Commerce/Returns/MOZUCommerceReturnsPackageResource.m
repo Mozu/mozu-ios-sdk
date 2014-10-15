@@ -12,16 +12,13 @@
 #import "MOZUCommerceReturnsPackageResource.h"
 
 
-
 @interface MOZUCommerceReturnsPackageResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUCommerceReturnsPackageResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,28 +29,16 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
 #pragma mark -
 //
-
-/**
-Retrieves the details of a package of return replacement items.
-@param packageId Unique identifier of the return replacement package to retrieve.
-@param returnId Unique identifier of the return associated with the replacement package to retrieve.
-*/
-
-- (void)packageWithReturnId:(NSString *)returnId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForGetPackageOperationWithReturnId:returnId packageId:packageId];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
 
 /**
 Retrieves the package label image supplied by the carrier for a return replacement.
@@ -72,6 +57,24 @@ Retrieves the package label image supplied by the carrier for a return replaceme
 	}];
 }
 
+/**
+Retrieves the details of a package of return replacement items.
+@param packageId Unique identifier of the return replacement package to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+@param returnId Unique identifier of the return associated with the replacement package to retrieve.
+*/
+
+- (void)packageWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForGetPackageOperationWithReturnId:returnId packageId:packageId responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -
@@ -82,12 +85,13 @@ Retrieves the package label image supplied by the carrier for a return replaceme
 /**
 Creates a new physical package of return replacement items.
 @param body Properties of the physical package for a return replacement.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return for which to create a replacement package.
 */
 
-- (void)createPackageWithBody:(MOZUCommercePackage *)body returnId:(NSString *)returnId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageWithBody:(MOZUPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForCreatePackageOperationWithBody:body returnId:returnId];
+	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForCreatePackageOperationWithBody:body returnId:returnId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -107,12 +111,13 @@ Creates a new physical package of return replacement items.
 Updates one or more properties of a package associated with a return replacement.
 @param body Properties of the return replacement package to update.
 @param packageId Unique identifier of the return replacement package to update.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return associated with the replacement package to update.
 */
 
-- (void)updatePackageWithBody:(MOZUCommercePackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePackageWithBody:(MOZUPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForUpdatePackageOperationWithBody:body returnId:returnId packageId:packageId];
+	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForUpdatePackageOperationWithBody:body returnId:returnId packageId:packageId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

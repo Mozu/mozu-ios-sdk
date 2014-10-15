@@ -17,8 +17,14 @@
 @end
 
 
+/**
+	The type of preauthorization gateway.
+*/
 @interface MOZUPreAuthorizeTransactionTypeDataContract : JSONModel<MOZUPreAuthorizeTransactionTypeDataContract>
 
+/**
+Description of the preauthorization transaction type.
+*/
 @property(nonatomic) NSString * theDescription;
 
 /**
@@ -26,6 +32,9 @@ Identifier of the entity.
 */
 @property(nonatomic) NSInteger id;
 
+/**
+The type of preauthorization transaction.
+*/
 @property(nonatomic) NSString * type;
 
 @end

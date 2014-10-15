@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit {
-	id url = [MOZUWishlistURLComponents URLComponentsForGetWishlistsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit];
++ (MOZUClient *)clientForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit responseFields:(NSString *)responseFields {
+	id url = [MOZUWishlistURLComponents URLComponentsForGetWishlistsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetWishlistOperationWithWishlistId:(NSString *)wishlistId {
-	id url = [MOZUWishlistURLComponents URLComponentsForGetWishlistOperationWithWishlistId:wishlistId];
++ (MOZUClient *)clientForGetWishlistOperationWithWishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields {
+	id url = [MOZUWishlistURLComponents URLComponentsForGetWishlistOperationWithWishlistId:wishlistId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,8 +48,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName {
-	id url = [MOZUWishlistURLComponents URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:customerAccountId wishlistName:wishlistName];
++ (MOZUClient *)clientForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName responseFields:(NSString *)responseFields {
+	id url = [MOZUWishlistURLComponents URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:customerAccountId wishlistName:wishlistName responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -68,8 +68,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateWishlistOperationWithBody:(MOZUWishlist *)body {
-	id url = [MOZUWishlistURLComponents URLComponentsForCreateWishlistOperation];
++ (MOZUClient *)clientForCreateWishlistOperationWithBody:(MOZUWishlist *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUWishlistURLComponents URLComponentsForCreateWishlistOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -89,8 +89,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateWishlistOperationWithBody:(MOZUWishlist *)body wishlistId:(NSString *)wishlistId {
-	id url = [MOZUWishlistURLComponents URLComponentsForUpdateWishlistOperationWithWishlistId:wishlistId];
++ (MOZUClient *)clientForUpdateWishlistOperationWithBody:(MOZUWishlist *)body wishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields {
+	id url = [MOZUWishlistURLComponents URLComponentsForUpdateWishlistOperationWithWishlistId:wishlistId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

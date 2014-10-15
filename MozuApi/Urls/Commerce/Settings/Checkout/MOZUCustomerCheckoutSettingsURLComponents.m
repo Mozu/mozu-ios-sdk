@@ -17,9 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetCustomerCheckoutSettingsOperation {
-	NSString *template = @"/api/commerce/settings/checkout/customercheckoutsettings";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetCustomerCheckoutSettingsOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/settings/checkout/customercheckoutsettings?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -38,9 +40,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateCustomerCheckoutSettingsOperation {
-	NSString *template = @"/api/commerce/settings/checkout/customercheckoutsettings";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForUpdateCustomerCheckoutSettingsOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/settings/checkout/customercheckoutsettings?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

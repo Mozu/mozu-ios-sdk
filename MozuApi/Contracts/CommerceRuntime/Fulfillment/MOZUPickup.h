@@ -31,10 +31,18 @@ Array list of actions that can be performed for the in-store pickup.
 @property(nonatomic) NSArray *availableActions;
 
 /**
+The specific code that represents pickup.
+*/
+@property(nonatomic) NSString * code;
+
+/**
 The date and time the customer picked up the order items.
 */
 @property(nonatomic) NSDate * fulfillmentDate;
 
+/**
+The location code that represents the location where the shopper will fulfill this pickup.
+*/
 @property(nonatomic) NSString * fulfillmentLocationCode;
 
 /**
@@ -52,6 +60,9 @@ Identifier and datetime stamp information recorded when a user or application cr
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
+/**
+List of change messages associated with the pickup.
+*/
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**

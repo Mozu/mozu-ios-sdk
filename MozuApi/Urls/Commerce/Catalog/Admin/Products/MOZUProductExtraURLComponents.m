@@ -26,11 +26,36 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetExtraOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}";
++ (MOZUURLComponents *)URLComponentsForGetExtraValueLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetExtraValueLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice/{currencyCode}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+		@"currencyCode" : currencyCode,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetExtraOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -43,10 +68,23 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddExtraOperationWithProductCode:(NSString *)productCode {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras";
++ (MOZUURLComponents *)URLComponentsForAddExtraValueLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForAddExtraOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -59,11 +97,36 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateExtraOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}";
++ (MOZUURLComponents *)URLComponentsForUpdateExtraValueLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForUpdateExtraValueLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice/{currencyCode}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+		@"currencyCode" : currencyCode,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForUpdateExtraOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -81,6 +144,18 @@
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"attributeFQN" : attributeFQN,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForDeleteExtraValueLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice/{currencyCode}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"attributeFQN" : attributeFQN,
+		@"value" : value,
+		@"currencyCode" : currencyCode,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

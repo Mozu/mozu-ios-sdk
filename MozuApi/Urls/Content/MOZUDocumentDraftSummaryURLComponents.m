@@ -17,12 +17,13 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists {
-	NSString *template = @"/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}";
++ (MOZUURLComponents *)URLComponentsForListDocumentDraftSummariesOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex documentLists:(NSString *)documentLists responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"documentLists" : documentLists ? documentLists : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

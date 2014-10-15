@@ -19,10 +19,13 @@
 @interface MOZUProductReservationResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUDataViewMode dataViewMode;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode)dataViewMode;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -34,18 +37,20 @@
 Retrieves a list of product reservations according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-- (void)productReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUProductReservationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)productReservationsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductReservationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of a product reservation.
 @param productReservationId Unique identifier of the product reservation.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)productReservationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId completionHandler:(void(^)(MOZUProductReservation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)productReservationWithProductReservationId:(NSInteger)productReservationId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductReservation *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -55,19 +60,19 @@ Retrieves the details of a product reservation.
 //
 
 /**
-
-@param body 
-@param skipInventoryCheck 
+Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
+@param body Details of the product reservations to add.
+@param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 
-- (void)addProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck completionHandler:(void(^)(NSArray<MOZUProductReservation> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addProductReservationsWithBody:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck completionHandler:(void(^)(NSArray<MOZUProductReservation> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param body 
+Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
+@param body List of unique identifiers of the reservations to commit.
 */
 
-- (void)commitReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)commitReservationsWithBody:(NSArray<MOZUProductReservation> *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -77,12 +82,12 @@ Retrieves the details of a product reservation.
 //
 
 /**
-
-@param body 
-@param skipInventoryCheck 
+Updates an existing product reservation for a product.
+@param body Properties of the product reservations to update.
+@param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
 */
 
-- (void)updateProductReservationsWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck completionHandler:(void(^)(NSArray<MOZUProductReservation> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateProductReservationsWithBody:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck completionHandler:(void(^)(NSArray<MOZUProductReservation> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -96,7 +101,7 @@ Deletes a product reservation. For example, delete a reservation when an order i
 @param productReservationId Unique identifier of the reservation.
 */
 
-- (void)deleteProductReservationWithDataViewMode:(MOZUDataViewMode)dataViewMode productReservationId:(NSInteger)productReservationId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteProductReservationWithProductReservationId:(NSInteger)productReservationId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

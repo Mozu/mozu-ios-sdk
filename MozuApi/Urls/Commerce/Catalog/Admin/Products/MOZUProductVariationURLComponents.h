@@ -18,11 +18,28 @@
 //
 
 /**
+Resource Url Components for getProductVariationLocalizedDeltaPrices
+@param productCode 
+@param variationKey 
+*/
++ (MOZUURLComponents *)URLComponentsForGetProductVariationLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
+
+/**
+Resource Url Components for getProductVariationLocalizedDeltaPrice
+@param productCode 
+@param variationKey 
+@param currencyCode 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
+
+/**
 Resource Url Components for getProductVariation
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
++ (MOZUURLComponents *)URLComponentsForGetProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getProductVariations
@@ -31,8 +48,9 @@ Resource Url Components for getProductVariations
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductVariationsOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetProductVariationsOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 
 //
@@ -40,6 +58,14 @@ Resource Url Components for getProductVariations
 #pragma mark POST Operations
 #pragma mark -
 //
+
+/**
+Resource Url Components for addProductVariationLocalizedDeltaPrice
+@param productCode 
+@param variationKey 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForAddProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields;
 
 
 //
@@ -49,17 +75,35 @@ Resource Url Components for getProductVariations
 //
 
 /**
-Resource Url Components for updateProductVariations
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+Resource Url Components for updateProductVariationLocalizedDeltaPrices
+@param productCode 
+@param variationKey 
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateProductVariationsOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
+
+/**
+Resource Url Components for updateProductVariationLocalizedDeltaPrice
+@param productCode 
+@param variationKey 
+@param currencyCode 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for updateProductVariation
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for updateProductVariations
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields 
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationsOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -74,6 +118,14 @@ Resource Url Components for deleteProductVariation
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
+
+/**
+Resource Url Components for deleteProductVariationLocalizedDeltaPrice
+@param productCode 
+@param variationKey 
+@param currencyCode 
+*/
++ (MOZUURLComponents *)URLComponentsForDeleteProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode;
 
 
 

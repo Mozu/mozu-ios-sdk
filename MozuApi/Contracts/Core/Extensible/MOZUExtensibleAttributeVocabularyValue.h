@@ -23,6 +23,9 @@
 */
 @interface MOZUExtensibleAttributeVocabularyValue : JSONModel<MOZUExtensibleAttributeVocabularyValue>
 
+/**
+If true, the attribute vocabulary value does not appear in the list when defining a value for the attribute.
+*/
 @property(nonatomic) NSNumber * isHidden;
 
 /**

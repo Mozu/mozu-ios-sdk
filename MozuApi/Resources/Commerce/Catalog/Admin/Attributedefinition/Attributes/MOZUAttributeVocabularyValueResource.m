@@ -12,16 +12,13 @@
 #import "MOZUAttributeVocabularyValueResource.h"
 
 
-
 @interface MOZUAttributeVocabularyValueResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUAttributeVocabularyValueResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -39,13 +41,13 @@
 //
 
 /**
-Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
+Retrieves a list of vocabulary values defined for the attribute specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-- (void)attributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(NSArray<MOZUAdminAttributeVocabularyValue> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributeVocabularyValuesWithAttributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(NSArray<MOZUAdminAttributeVocabularyValue> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValuesOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValuesOperationWithAttributeFQN:attributeFQN];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -55,14 +57,51 @@ Retrieves a list of attribute vocabulary values. To target a query, use one or s
 }
 
 /**
-Retrieves an attribute vocabulary value by providing the attribute FQN and value.
+
+@param attributeFQN 
+@param value 
+*/
+
+- (void)attributeVocabularyValueLocalizedContentsWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValueLocalizedContent> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValueLocalizedContentsOperationWithAttributeFQN:attributeFQN value:value];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param attributeFQN 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
+- (void)attributeVocabularyValueLocalizedContentWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeVocabularyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValueLocalizedContentOperationWithAttributeFQN:attributeFQN value:value localeCode:localeCode responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-- (void)attributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)attributeVocabularyValueWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValueOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN value:value];
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForGetAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -79,14 +118,34 @@ Retrieves an attribute vocabulary value by providing the attribute FQN and value
 //
 
 /**
-Adds a new attribute vocabulary value.
-@param body The predefined vocabulary value to add to the attribute content.
-@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+
+@param body 
+@param attributeFQN 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
 */
 
-- (void)addAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addAttributeVocabularyValueLocalizedContentWithBody:(MOZUAttributeVocabularyValueLocalizedContent *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeVocabularyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForAddAttributeVocabularyValueOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForAddAttributeVocabularyValueLocalizedContentOperationWithBody:body attributeFQN:attributeFQN value:value responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+Creates a vocabulary value for a defined product attribute.
+@param body The predefined vocabulary value to add to the attribute content.
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)addAttributeVocabularyValueWithBody:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForAddAttributeVocabularyValueOperationWithBody:body attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -108,9 +167,47 @@ Update existing vocabulary values for an attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-- (void)updateAttributeVocabularyValuesWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(NSArray<MOZUAdminAttributeVocabularyValue> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAttributeVocabularyValuesWithBody:(NSArray<MOZUAdminAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(NSArray<MOZUAdminAttributeVocabularyValue> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValuesOperationWithBody:body attributeFQN:attributeFQN];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param body 
+@param attributeFQN 
+@param value 
+*/
+
+- (void)updateAttributeVocabularyValueLocalizedContentsWithBody:(NSArray<MOZUAttributeVocabularyValueLocalizedContent> *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(NSArray<MOZUAttributeVocabularyValueLocalizedContent> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValueLocalizedContentsOperationWithBody:body attributeFQN:attributeFQN value:value];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+
+@param body 
+@param attributeFQN 
+@param localeCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
+- (void)updateAttributeVocabularyValueLocalizedContentWithBody:(MOZUAttributeVocabularyValueLocalizedContent *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeVocabularyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValueLocalizedContentOperationWithBody:body attributeFQN:attributeFQN value:value localeCode:localeCode responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -123,12 +220,13 @@ Update existing vocabulary values for an attribute.
 Updates existing attribute vocabulary values.
 @param body The predefined vocabulary value to add to the attribute content to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-- (void)updateAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateAttributeVocabularyValueWithBody:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminAttributeVocabularyValue *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:dataViewMode body:body attributeFQN:attributeFQN value:value];
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForUpdateAttributeVocabularyValueOperationWithBody:body attributeFQN:attributeFQN value:value responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -150,9 +248,27 @@ Deletes an attribute's vocabulary value.
 @param value The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-- (void)deleteAttributeVocabularyValueWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteAttributeVocabularyValueWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:dataViewMode attributeFQN:attributeFQN value:value];
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForDeleteAttributeVocabularyValueOperationWithAttributeFQN:attributeFQN value:value];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(error, response);
+		}
+	}];
+}
+
+/**
+
+@param attributeFQN 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param value 
+*/
+
+- (void)deleteAttributeVocabularyValueLocalizedContentWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUAttributeVocabularyValueClient clientForDeleteAttributeVocabularyValueLocalizedContentOperationWithAttributeFQN:attributeFQN value:value localeCode:localeCode];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

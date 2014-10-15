@@ -27,8 +27,9 @@ Resource Url Components for getOptions
 Resource Url Components for getOption
 @param productTypeId The identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -40,8 +41,9 @@ Resource Url Components for getOption
 /**
 Resource Url Components for addOption
 @param productTypeId Identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddOptionOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForAddOptionOperationWithProductTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields;
 
 
 //
@@ -54,8 +56,9 @@ Resource Url Components for addOption
 Resource Url Components for updateOption
 @param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForUpdateOptionOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //

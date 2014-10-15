@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUProductSummary.h"
 #import "MOZUItemMeasurements.h"
 
 
@@ -37,6 +38,8 @@ Quantity of the item for which to calculate the shipping rate.
 If true, this item must ship separately from other items in a shipment.
 */
 @property(nonatomic) NSNumber * shipsByItself;
+
+@property(nonatomic) NSArray<MOZUProductSummary> *productSummaries;
 
 /**
 The measured weight and dimensions of the item to ship.

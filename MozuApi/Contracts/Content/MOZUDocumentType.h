@@ -10,8 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZULocalizedString.h"
-#import "MOZUPropertyType.h"
+#import "MOZUProperty.h"
 
 
 
@@ -24,45 +23,24 @@
 */
 @interface MOZUDocumentType : JSONModel<MOZUDocumentType>
 
-/**
-User-defined description of the document type.
-*/
-@property(nonatomic) NSString * theDescription;
+@property(nonatomic) NSString * adminName;
 
-/**
-The name that displays for the document type.
-*/
-@property(nonatomic) NSString * displayName;
+@property(nonatomic) NSString * documentTypeFQN;
 
-/**
-The document type scope specifies where the the template can be used such as "Global".
-*/
-@property(nonatomic) NSString * documentTypeScope;
+@property(nonatomic) NSString * installationPackage;
 
 /**
 The name of the document type.
 */
 @property(nonatomic) NSString * name;
 
-/**
-If applicable, the name of the parent document type.
-*/
-@property(nonatomic) NSString * parentTypeName;
+@property(nonatomic) NSString * namespace;
 
-/**
-List of content entity descriptions localized to the site or site group's default language.
-*/
-@property(nonatomic) NSArray<MOZULocalizedString> *localizedDescriptions;
+@property(nonatomic) NSString * version;
 
-/**
-List of content entity display names localized to the site or site group's default language.
-*/
-@property(nonatomic) NSArray<MOZULocalizedString> *localizedDisplayNames;
+@property(nonatomic) NSObject * metadata;
 
-/**
-List of content property types associated with the document type.
-*/
-@property(nonatomic) NSArray<MOZUPropertyType> *propertyTypes;
+@property(nonatomic) NSArray<MOZUProperty> *properties;
 
 @end
 

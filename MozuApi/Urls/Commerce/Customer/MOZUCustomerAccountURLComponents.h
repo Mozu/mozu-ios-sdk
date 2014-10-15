@@ -26,21 +26,24 @@ Resource Url Components for getAccounts
 @param fields The fields to include in the response.
 @param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
-@param isAnonymous 
+@param isAnonymous If true, retrieve anonymous shopper accounts in the response.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous;
++ (MOZUURLComponents *)URLComponentsForGetAccountsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter fields:(NSString *)fields q:(NSString *)q qLimit:(NSNumber *)qLimit isAnonymous:(NSNumber *)isAnonymous responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getLoginState
+@param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetLoginStateOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getAccount
 @param accountId Unique identifier of the customer account to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAccountOperationWithAccountId:(NSInteger)accountId;
-
-/**
-Resource Url Components for getLoginState
-@param accountId 
-*/
-+ (MOZUURLComponents *)URLComponentsForGetLoginStateOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForGetAccountOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -51,60 +54,66 @@ Resource Url Components for getLoginState
 
 /**
 Resource Url Components for addAccount
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddAccountOperation;
++ (MOZUURLComponents *)URLComponentsForAddAccountOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for changePassword
-@param accountId 
+@param accountId The customer account information required to change the userpassword.
 */
 + (MOZUURLComponents *)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for addLoginToExistingCustomer
-@param accountId 
+@param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForAddLoginToExistingCustomerOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for recomputeCustomerLifetimeValue
-@param accountId 
+@param accountId The unique identifier of the customer account for which to calculate customer lifetime value.
 */
 + (MOZUURLComponents *)URLComponentsForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for setLoginLocked
-@param accountId 
+@param accountId The unique identifier of the customer account.
 */
 + (MOZUURLComponents *)URLComponentsForSetLoginLockedOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for setPasswordChangeRequired
-@param accountId 
+@param accountId Unique identifier of the customer account.
 */
 + (MOZUURLComponents *)URLComponentsForSetPasswordChangeRequiredOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for addAccountAndLogin
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddAccountAndLoginOperation;
++ (MOZUURLComponents *)URLComponentsForAddAccountAndLoginOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for addAccounts
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddAccountsOperation;
++ (MOZUURLComponents *)URLComponentsForAddAccountsOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getLoginStateByEmailAddress
-@param emailAddress 
+@param emailAddress The email address associated with the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress;
++ (MOZUURLComponents *)URLComponentsForGetLoginStateByEmailAddressOperationWithEmailAddress:(NSString *)emailAddress responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getLoginStateByUserName
-@param userName 
+@param userName The user name associated with the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName;
++ (MOZUURLComponents *)URLComponentsForGetLoginStateByUserNameOperationWithUserName:(NSString *)userName responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for resetPassword
@@ -121,8 +130,9 @@ Resource Url Components for resetPassword
 /**
 Resource Url Components for updateAccount
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateAccountOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForUpdateAccountOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //

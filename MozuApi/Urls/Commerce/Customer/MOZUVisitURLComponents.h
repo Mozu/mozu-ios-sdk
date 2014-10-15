@@ -23,14 +23,16 @@ Resource Url Components for getVisits
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getVisit
 @param visitId Unique identifier of the customer visit to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetVisitOperationWithVisitId:(NSString *)visitId;
++ (MOZUURLComponents *)URLComponentsForGetVisitOperationWithVisitId:(NSString *)visitId responseFields:(NSString *)responseFields;
 
 
 //
@@ -41,8 +43,9 @@ Resource Url Components for getVisit
 
 /**
 Resource Url Components for addVisit
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddVisitOperation;
++ (MOZUURLComponents *)URLComponentsForAddVisitOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -54,8 +57,9 @@ Resource Url Components for addVisit
 /**
 Resource Url Components for updateVisit
 @param visitId Unique identifier of the customer visit to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateVisitOperationWithVisitId:(NSString *)visitId;
++ (MOZUURLComponents *)URLComponentsForUpdateVisitOperationWithVisitId:(NSString *)visitId responseFields:(NSString *)responseFields;
 
 
 //

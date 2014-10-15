@@ -12,16 +12,13 @@
 #import "MOZUCommerceReturnsShipmentResource.h"
 
 
-
 @interface MOZUCommerceReturnsShipmentResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUCommerceReturnsShipmentResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -40,13 +42,14 @@
 
 /**
 Retrieves the details of the specified return replacement shipment.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
 @param shipmentId Unique identifier of the return replacement shipment to retrieve.
 */
 
-- (void)shipmentWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId completionHandler:(void(^)(MOZUShipment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)shipmentWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUShipment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceReturnsShipmentClient clientForGetShipmentOperationWithReturnId:returnId shipmentId:shipmentId];
+	MOZUClient *client = [MOZUCommerceReturnsShipmentClient clientForGetShipmentOperationWithReturnId:returnId shipmentId:shipmentId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -68,7 +71,7 @@ Creates a shipment from one or more packages associated with a return replacemen
 @param returnId Unique identifier of the return for which to create replacement package shipments.
 */
 
-- (void)createPackageShipmentsWithBody:(NSArray *)body returnId:(NSString *)returnId completionHandler:(void(^)(NSArray<MOZUCommercePackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageShipmentsWithBody:(NSArray *)body returnId:(NSString *)returnId completionHandler:(void(^)(NSArray<MOZUPackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCommerceReturnsShipmentClient clientForCreatePackageShipmentsOperationWithBody:body returnId:returnId];
 	client.context = self.apiContext;

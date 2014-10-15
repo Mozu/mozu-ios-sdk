@@ -36,6 +36,9 @@ The carrier-defined alphanumeric code associated with this shipping rate.
 */
 @property(nonatomic) NSString * code;
 
+/**
+The number of days the shipment will spend between the origin address and the destination address.
+*/
 @property(nonatomic) NSNumber * daysInTransit;
 
 /**

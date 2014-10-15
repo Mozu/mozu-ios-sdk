@@ -12,16 +12,13 @@
 #import "MOZUCommerceOrdersPackageResource.h"
 
 
-
 @interface MOZUCommerceOrdersPackageResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUCommerceOrdersPackageResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,28 +29,16 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
 #pragma mark -
 //
-
-/**
-Retrieves the details of a package of order items.
-@param orderId Unique identifier of the order associated with the package to retrieve.
-@param packageId Unique identifier of the package to retrieve.
-*/
-
-- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetPackageOperationWithOrderId:orderId packageId:packageId];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
 
 /**
 Retrieves a list of the actions available to perform for a package associated with order fulfillment.
@@ -89,6 +74,24 @@ Retrieves the package label image supplied by the carrier.
 	}];
 }
 
+/**
+Retrieves the details of a package of order items.
+@param orderId Unique identifier of the order associated with the package to retrieve.
+@param packageId Unique identifier of the package to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForGetPackageOperationWithOrderId:orderId packageId:packageId responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -
@@ -100,11 +103,12 @@ Retrieves the package label image supplied by the carrier.
 Creates a new physical package of order items.
 @param body Properties of the physical package of order items.
 @param orderId Unique identifier of the order associated with this package.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createPackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageWithBody:(MOZUPackage *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForCreatePackageOperationWithBody:body orderId:orderId];
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForCreatePackageOperationWithBody:body orderId:orderId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -125,11 +129,12 @@ Updates one or more properties of a physical package of order items.
 @param body Wrapper of properties for the package of order items to update.
 @param orderId Unique identifier of the order associated with the package to update.
 @param packageId Unique identifier of the package of order items to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updatePackageWithBody:(MOZUCommercePackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUCommercePackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePackageWithBody:(MOZUPackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForUpdatePackageOperationWithBody:body orderId:orderId packageId:packageId];
+	MOZUClient *client = [MOZUCommerceOrdersPackageClient clientForUpdatePackageOperationWithBody:body orderId:orderId packageId:packageId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

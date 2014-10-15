@@ -20,30 +20,35 @@
 /**
 Resource Url Components for getCart
 @param cartId Identifier of the cart to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetCartOperationWithCartId:(NSString *)cartId;
++ (MOZUURLComponents *)URLComponentsForGetCartOperationWithCartId:(NSString *)cartId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getOrCreateCart
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetOrCreateCartOperation;
++ (MOZUURLComponents *)URLComponentsForGetOrCreateCartOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getCartSummary
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetCartSummaryOperation;
-
-/**
-Resource Url Components for getUserCart
-@param userId Unique identifier of the user whose cart you want to retrieve.
-*/
-+ (MOZUURLComponents *)URLComponentsForGetUserCartOperationWithUserId:(NSString *)userId;
++ (MOZUURLComponents *)URLComponentsForGetCartSummaryOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getUserCartSummary
 @param userId Unique identifier of the user whose cart details you want to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString *)userId;
++ (MOZUURLComponents *)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getUserCart
+@param userId Unique identifier of the user whose cart you want to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetUserCartOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
 
 
 //
@@ -61,8 +66,9 @@ Resource Url Components for getUserCartSummary
 
 /**
 Resource Url Components for updateCart
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateCartOperation;
++ (MOZUURLComponents *)URLComponentsForUpdateCartOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

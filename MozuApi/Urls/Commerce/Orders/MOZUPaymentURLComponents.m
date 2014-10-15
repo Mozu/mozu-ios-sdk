@@ -17,20 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetPaymentsOperationWithOrderId:(NSString *)orderId {
-	NSString *template = @"/api/commerce/orders/{orderId}/payments/";
++ (MOZUURLComponents *)URLComponentsForGetPaymentsOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/payments/?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
-	};
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
-}
-
-+ (MOZUURLComponents *)URLComponentsForGetPaymentOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId {
-	NSString *template = @"/api/commerce/orders/{orderId}/payments/{paymentId}";
-	NSDictionary *params = @{
-		@"orderId" : orderId,
-		@"paymentId" : paymentId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -46,6 +37,17 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
++ (MOZUURLComponents *)URLComponentsForGetPaymentOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/payments/{paymentId}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"orderId" : orderId,
+		@"paymentId" : paymentId,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
@@ -53,20 +55,22 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForPerformPaymentActionOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId {
-	NSString *template = @"/api/commerce/orders/{orderId}/payments/{paymentId}/actions";
++ (MOZUURLComponents *)URLComponentsForPerformPaymentActionOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/payments/{paymentId}/actions?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"paymentId" : paymentId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForCreatePaymentActionOperationWithOrderId:(NSString *)orderId {
-	NSString *template = @"/api/commerce/orders/{orderId}/payments/actions";
++ (MOZUURLComponents *)URLComponentsForCreatePaymentActionOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/payments/actions?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

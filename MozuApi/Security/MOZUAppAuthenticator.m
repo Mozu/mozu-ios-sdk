@@ -61,8 +61,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSParameterAssert(appAuthInfo.applicationId && appAuthInfo.sharedSecret);
     _appAuthInfo = appAuthInfo;
     _URLComponents = [NSURLComponents new];
-    _URLComponents.host = self.host;
-    _URLComponents.scheme = self.useSSL ? @"https" : @"http";
+    _URLComponents.host = @"home.mozu.com"; //self.host;
+    _URLComponents.scheme = @"https"; //self.useSSL ? @"https" : @"http”;
     _refreshInterval = refreshInterval;
     [self authenticateAppWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         completion(response, error);

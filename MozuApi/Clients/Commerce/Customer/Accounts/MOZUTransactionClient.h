@@ -39,9 +39,10 @@ Retrieves a list of transactions associated with the customer account specified 
 Creates a new transaction for the customer account specified in the request.
 @param body Properties of the transaction to create for the customer account.
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId;
++ (MOZUClient *)clientForAddTransactionOperationWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //

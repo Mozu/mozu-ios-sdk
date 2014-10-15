@@ -17,22 +17,24 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/customer/segments/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/segments/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetSegmentOperationWithIdentifier:(NSInteger)identifier {
-	NSString *template = @"/api/commerce/customer/segments/{identifier}";
++ (MOZUURLComponents *)URLComponentsForGetSegmentOperationWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/segments/{identifier}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"identifier" : @(identifier),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -45,9 +47,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddSegmentOperation {
-	NSString *template = @"/api/commerce/customer/segments/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForAddSegmentOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/segments/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -68,10 +72,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier {
-	NSString *template = @"/api/commerce/customer/segments/{identifier}";
++ (MOZUURLComponents *)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/segments/{identifier}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"identifier" : @(identifier),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

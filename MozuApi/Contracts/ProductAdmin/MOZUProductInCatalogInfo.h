@@ -27,6 +27,9 @@
 */
 @interface MOZUProductInCatalogInfo : JSONModel<MOZUProductInCatalogInfo>
 
+/**
+The unique identifier of the catalog of products used by a site.
+*/
 @property(nonatomic) NSInteger catalogId;
 
 /**

@@ -20,10 +20,11 @@
 @interface MOZUWishlistItemResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -33,34 +34,37 @@
 
 /**
 Retrieves the details of an item in a shopper wish list.
+@param responseFields Use this field to include those fields which are not included by default.
 @param wishlistId Unique identifier of the wish list item to retrieve.
 @param wishlistItemId Unique identifier of the wish list associated with the item to retrieve.
 */
 
-- (void)wishlistItemWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistItemWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of items in a shopper wish list according to any specified filter and sort criteria.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param wishlistId Unique identifier of the wish list associated with the items to retrieve.
 */
 
-- (void)wishlistItemsWithWishlistId:(NSString *)wishlistId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUWishlistItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistItemsWithWishlistId:(NSString *)wishlistId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlistItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param customerAccountId 
-@param filter 
-@param pageSize 
-@param sortBy 
-@param startIndex 
-@param wishlistName 
+Retrieve a list of items in a customer wish list by supplying the wish list name.
+@param customerAccountId The unique identifier of the customer account associated with the wish list.
+@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
+@param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+@param wishlistName The name of the wish list that contains the items to retrieve.
 */
 
-- (void)wishlistItemsByWishlistNameWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUWishlistItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistItemsByWishlistNameWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlistItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -72,10 +76,11 @@ Retrieves a list of items in a shopper wish list according to any specified filt
 /**
 Adds a product in a site's catalog as an item in a shopper wish list.
 @param body Properties of the item to add to the wish list.
+@param responseFields Use this field to include those fields which are not included by default.
 @param wishlistId Unique identifier of the wish list associated with the item to add.
 */
 
-- (void)addItemToWishlistWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addItemToWishlistWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -85,22 +90,24 @@ Adds a product in a site's catalog as an item in a shopper wish list.
 //
 
 /**
-Updates the details of an item in a shopper wish list.
-@param body Properties of the shopper wish list item to update.
-@param wishlistId Unique identifier of the wish list associated with the item to update.
-@param wishlistItemId Unique identifier of the item in the shopper wish list to update.
-*/
-
-- (void)updateWishlistItemWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
 Updates the quantity of an item in a shopper wish list.
 @param quantity The quantity of the item in the wish list.
+@param responseFields Use this field to include those fields which are not included by default.
 @param wishlistId Unique identifier of the wish list associated with the item quantity to update.
 @param wishlistItemId Unique identifier of the item in the wish list to update quantity.
 */
 
-- (void)updateWishlistItemQuantityWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateWishlistItemQuantityWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Updates the details of an item in a shopper wish list.
+@param body Properties of the shopper wish list item to update.
+@param responseFields Use this field to include those fields which are not included by default.
+@param wishlistId Unique identifier of the wish list associated with the item to update.
+@param wishlistItemId Unique identifier of the item in the shopper wish list to update.
+*/
+
+- (void)updateWishlistItemWithBody:(MOZUWishlistItem *)body wishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlistItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -22,13 +22,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetLocationInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode productCode:(NSString *)productCode {
-	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForGetLocationInventoryOperationWithLocationCode:locationCode productCode:productCode];
++ (MOZUClient *)clientForGetLocationInventoryOperationWithLocationCode:(NSString *)locationCode productCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForGetLocationInventoryOperationWithLocationCode:locationCode productCode:productCode responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -38,13 +35,10 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLocationInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode locationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForGetLocationInventoriesOperationWithLocationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetLocationInventoriesOperationWithLocationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminLocationInventoryURLComponents URLComponentsForGetLocationInventoriesOperationWithLocationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {

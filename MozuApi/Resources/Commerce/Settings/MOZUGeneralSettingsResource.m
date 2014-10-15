@@ -12,16 +12,13 @@
 #import "MOZUGeneralSettingsResource.h"
 
 
-
 @interface MOZUGeneralSettingsResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUGeneralSettingsResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -40,11 +42,12 @@
 
 /**
 Retrieve a site's general global settings.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)generalSettingsWithCompletionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)generalSettingsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUGeneralSettingsClient clientForGetGeneralSettingsOperation];
+	MOZUClient *client = [MOZUGeneralSettingsClient clientForGetGeneralSettingsOperationWithResponseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -70,11 +73,12 @@ Retrieve a site's general global settings.
 /**
 Updates a site's general global settings.
 @param body The properties of the site's general settings to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateGeneralSettingsWithBody:(MOZUGeneralSettings *)body completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateGeneralSettingsWithBody:(MOZUGeneralSettings *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUGeneralSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUGeneralSettingsClient clientForUpdateGeneralSettingsOperationWithBody:body];
+	MOZUClient *client = [MOZUGeneralSettingsClient clientForUpdateGeneralSettingsOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

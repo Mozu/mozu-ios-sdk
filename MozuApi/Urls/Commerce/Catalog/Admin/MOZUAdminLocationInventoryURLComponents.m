@@ -17,24 +17,26 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetLocationInventoryOperationWithLocationCode:(NSString *)locationCode productCode:(NSString *)productCode {
-	NSString *template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}/{productCode}";
++ (MOZUURLComponents *)URLComponentsForGetLocationInventoryOperationWithLocationCode:(NSString *)locationCode productCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}/{productCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"locationCode" : locationCode,
 		@"productCode" : productCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetLocationInventoriesOperationWithLocationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetLocationInventoriesOperationWithLocationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/locationinventory/{locationCode}?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"locationCode" : locationCode,
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

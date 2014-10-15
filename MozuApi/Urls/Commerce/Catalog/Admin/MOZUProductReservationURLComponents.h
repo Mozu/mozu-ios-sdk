@@ -23,14 +23,16 @@ Resource Url Components for getProductReservations
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductReservationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetProductReservationsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getProductReservation
 @param productReservationId Unique identifier of the product reservation.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductReservationOperationWithProductReservationId:(NSInteger)productReservationId;
++ (MOZUURLComponents *)URLComponentsForGetProductReservationOperationWithProductReservationId:(NSInteger)productReservationId responseFields:(NSString *)responseFields;
 
 
 //
@@ -41,7 +43,7 @@ Resource Url Components for getProductReservation
 
 /**
 Resource Url Components for addProductReservations
-@param skipInventoryCheck 
+@param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 + (MOZUURLComponents *)URLComponentsForAddProductReservationsOperationWithSkipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
@@ -59,7 +61,7 @@ Resource Url Components for commitReservations
 
 /**
 Resource Url Components for updateProductReservations
-@param skipInventoryCheck 
+@param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateProductReservationsOperationWithSkipInventoryCheck:(NSNumber *)skipInventoryCheck;
 

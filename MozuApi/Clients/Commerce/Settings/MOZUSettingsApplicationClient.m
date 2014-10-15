@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForThirdPartyGetApplicationOperation {
-	id url = [MOZUSettingsApplicationURLComponents URLComponentsForThirdPartyGetApplicationOperation];
++ (MOZUClient *)clientForThirdPartyGetApplicationOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUSettingsApplicationURLComponents URLComponentsForThirdPartyGetApplicationOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -48,8 +48,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication *)body {
-	id url = [MOZUSettingsApplicationURLComponents URLComponentsForThirdPartyUpdateApplicationOperation];
++ (MOZUClient *)clientForThirdPartyUpdateApplicationOperationWithBody:(MOZUSiteSettingsApplication *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUSettingsApplicationURLComponents URLComponentsForThirdPartyUpdateApplicationOperationWithResponseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

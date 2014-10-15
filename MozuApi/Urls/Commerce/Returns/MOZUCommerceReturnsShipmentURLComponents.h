@@ -21,8 +21,9 @@
 Resource Url Components for getShipment
 @param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
 @param shipmentId Unique identifier of the return replacement shipment to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId;
++ (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields;
 
 
 //

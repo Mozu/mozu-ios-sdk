@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetOrderHandlingFeeOperation {
-	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForGetOrderHandlingFeeOperation];
++ (MOZUClient *)clientForGetOrderHandlingFeeOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForGetOrderHandlingFeeOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -41,8 +41,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body {
-	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForCreateOrderHandlingFeeOperation];
++ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForCreateOrderHandlingFeeOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -62,8 +62,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body {
-	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForUpdateOrderHandlingFeeOperation];
++ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUSiteShippingHandlingFeeURLComponents URLComponentsForUpdateOrderHandlingFeeOperationWithResponseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

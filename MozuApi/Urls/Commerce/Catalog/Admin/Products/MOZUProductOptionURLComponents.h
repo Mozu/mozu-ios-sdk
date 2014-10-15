@@ -27,8 +27,9 @@ Resource Url Components for getOptions
 Resource Url Components for getOption
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -40,8 +41,9 @@ Resource Url Components for getOption
 /**
 Resource Url Components for addOption
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddOptionOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForAddOptionOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -54,8 +56,9 @@ Resource Url Components for addOption
 Resource Url Components for updateOption
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForUpdateOptionOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //

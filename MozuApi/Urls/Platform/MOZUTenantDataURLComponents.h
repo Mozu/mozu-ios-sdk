@@ -20,8 +20,9 @@
 /**
 Resource Url Components for getDBValue
 @param dbEntryQuery The database entry query string used to retrieve the record information.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
++ (MOZUURLComponents *)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery responseFields:(NSString *)responseFields;
 
 
 //

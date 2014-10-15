@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	The cost a client pays the supplier to stock the product.
+*/
 @interface MOZUProductCost : JSONModel<MOZUProductCost>
 
+/**
+The amount paid by the client to stock the product.
+*/
 @property(nonatomic) NSNumber * cost;
 
+/**
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+*/
 @property(nonatomic) NSString * isoCurrencyCode;
 
 @end

@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
+#import "MOZUEventExtendedProperty.h"
 
 
 
@@ -23,8 +24,14 @@
 */
 @interface MOZUEvent : JSONModel<MOZUEvent>
 
+/**
+The unique identifier of the catalog of products used by a site.
+*/
 @property(nonatomic) NSNumber * catalogId;
 
+/**
+The unique identifier of the API request associated with the event action, which might contain multiple actions.
+*/
 @property(nonatomic) NSString * correlationId;
 
 /**
@@ -42,6 +49,9 @@ If true, the event record was generated as a test request for an application.
 */
 @property(nonatomic) NSNumber * isTest;
 
+/**
+The unique identifier of the master catalog associated with the entity.
+*/
 @property(nonatomic) NSNumber * masterCatalogId;
 
 @property(nonatomic) NSNumber * siteId;
@@ -60,6 +70,8 @@ The type of event that was performed, such as "product.created" or "category.del
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
+
+@property(nonatomic) NSArray<MOZUEventExtendedProperty> *extendedProperties;
 
 @end
 

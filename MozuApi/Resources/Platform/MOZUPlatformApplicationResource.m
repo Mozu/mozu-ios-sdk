@@ -12,16 +12,13 @@
 #import "MOZUPlatformApplicationResource.h"
 
 
-
 @interface MOZUPlatformApplicationResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUPlatformApplicationResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -39,13 +41,14 @@
 //
 
 /**
-
-@param appId 
+Retrieves the details of the installed application specified in the request.
+@param appId The application ID that represents the application to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)applicationWithAppId:(NSString *)appId completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applicationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetApplicationOperationWithAppId:appId];
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetApplicationOperationWithAppId:appId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -69,14 +72,15 @@
 //
 
 /**
-
-@param body 
-@param appId 
+Updates one or more properties of the application specified in the request.
+@param body Properties of the application to update.
+@param appId The application ID that represents the application to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPlatformApplicationClient clientForUpdateApplicationOperationWithBody:body appId:appId];
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForUpdateApplicationOperationWithBody:body appId:appId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

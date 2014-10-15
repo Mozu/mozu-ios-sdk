@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUProductContent.h"
+#import "MOZURuntimeProductInventoryInfo.h"
 #import "MOZURuntimePackageMeasurements.h"
 
 
@@ -19,16 +20,61 @@
 @end
 
 
+/**
+	Properties of a component product in a product bundle. A product bundle can represent either a collection of multiple products sold as a single entity, or a collection of the same product sold as a package. For example, a 10-pack of socks.
+*/
 @interface MOZURuntimeBundledProduct : JSONModel<MOZURuntimeBundledProduct>
 
+/**
+When the goodsType is DigitalCredit this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
+*/
+@property(nonatomic) NSNumber * creditValue;
+
+/**
+This is the goods type of the product. Possible values are “Physical,” and “DigitalCredit”. This comes from the productType of the product. Products are defaulted to a Physical goodsType. Gift cards have a goodsType of DigitalCredit.
+*/
+@property(nonatomic) NSString * goodsType;
+
+/**
+If true, the component product of the bundle should not ship in a package with the rest of the product bundle, and should ship in a package by itself. System-supplied and read only.
+*/
 @property(nonatomic) NSNumber * isPackagedStandAlone;
 
+/**
+BundledProducts result from a static bundle or are dynamically added as a result of the shopper selecting products as extras. When the bundled item is dynamic, it includes the attribute's fully qualified name of the extra that it came from. When optionAttributeFQN is null, the bundled item was statically defined, when not null, the item came from an extra selection.
+*/
+@property(nonatomic) NSString * optionAttributeFQN;
+
+/**
+Properties of a value associated with a product option attribute.
+*/
+@property(nonatomic) NSObject * optionValue;
+
+/**
+Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+*/
 @property(nonatomic) NSString * productCode;
 
+@property(nonatomic) NSString * productType;
+
+/**
+The quantity of the component product in the product bundle. System-supplied and read only.
+*/
 @property(nonatomic) NSInteger quantity;
 
+/**
+Localizable product content defined for the product bundle. System-supplied and read only.
+*/
 @property(nonatomic) MOZUProductContent *content;
 
+/**
+This contains the inventory information about bundled products. If it manages stock, it specifies what the out of stock behavior is.
+*/
+@property(nonatomic) MOZURuntimeProductInventoryInfo *inventoryInfo;
+
+/**
+Dimensions of the packaged product.
+*/
 @property(nonatomic) MOZURuntimePackageMeasurements *measurements;
 
 @end

@@ -28,8 +28,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateDeveloperUserAuthTicketOperationWithBody:(MOZUUserAuthInfo *)body developerAccountId:(NSNumber *)developerAccountId {
-	id url = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:developerAccountId];
++ (MOZUClient *)clientForCreateDeveloperUserAuthTicketOperationWithBody:(MOZUUserAuthInfo *)body developerAccountId:(NSNumber *)developerAccountId responseFields:(NSString *)responseFields {
+	id url = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:developerAccountId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -49,8 +49,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForRefreshDeveloperAuthTicketOperationWithBody:(MOZUDeveloperAdminUserAuthTicket *)body developerAccountId:(NSNumber *)developerAccountId {
-	id url = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:developerAccountId];
++ (MOZUClient *)clientForRefreshDeveloperAuthTicketOperationWithBody:(MOZUDeveloperAdminUserAuthTicket *)body developerAccountId:(NSNumber *)developerAccountId responseFields:(NSString *)responseFields {
+	id url = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:developerAccountId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

@@ -21,8 +21,16 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetPickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId {
-	id url = [MOZUPickupURLComponents URLComponentsForGetPickupOperationWithOrderId:orderId pickupId:pickupId];
++ (MOZUClient *)clientForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId {
+	id url = [MOZUPickupURLComponents URLComponentsForGetAvailablePickupFulfillmentActionsOperationWithOrderId:orderId pickupId:pickupId];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetPickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId responseFields:(NSString *)responseFields {
+	id url = [MOZUPickupURLComponents URLComponentsForGetPickupOperationWithOrderId:orderId pickupId:pickupId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -34,14 +42,6 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId {
-	id url = [MOZUPickupURLComponents URLComponentsForGetAvailablePickupFulfillmentActionsOperationWithOrderId:orderId pickupId:pickupId];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	return client;
-}
-
 
 //
 #pragma mark -
@@ -49,8 +49,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreatePickupOperationWithBody:(MOZUPickup *)body orderId:(NSString *)orderId {
-	id url = [MOZUPickupURLComponents URLComponentsForCreatePickupOperationWithOrderId:orderId];
++ (MOZUClient *)clientForCreatePickupOperationWithBody:(MOZUPickup *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	id url = [MOZUPickupURLComponents URLComponentsForCreatePickupOperationWithOrderId:orderId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -70,8 +70,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdatePickupOperationWithBody:(MOZUPickup *)body orderId:(NSString *)orderId pickupId:(NSString *)pickupId {
-	id url = [MOZUPickupURLComponents URLComponentsForUpdatePickupOperationWithOrderId:orderId pickupId:pickupId];
++ (MOZUClient *)clientForUpdatePickupOperationWithBody:(MOZUPickup *)body orderId:(NSString *)orderId pickupId:(NSString *)pickupId responseFields:(NSString *)responseFields {
+	id url = [MOZUPickupURLComponents URLComponentsForUpdatePickupOperationWithOrderId:orderId pickupId:pickupId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

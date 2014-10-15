@@ -12,8 +12,10 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUReturnCollection.h"
+#import "MOZUReturnItemCollection.h"
+#import "MOZUReturnItem.h"
 #import "MOZUReturn.h"
+#import "MOZUReturnCollection.h"
 #import "MOZUPaymentAction.h"
 #import "MOZUPaymentCollection.h"
 #import "MOZUPayment.h"
@@ -23,10 +25,11 @@
 @interface MOZUReturnResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -38,40 +41,36 @@
 Retrieves a list of all returns according to any filter and sort criteria.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)returnsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUReturnCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
-Retrieves a list of properties for the specified return.
-@param returnId Returns the properties of the return specified in the request as well as system-supplied information.
-*/
-
-- (void)returnWithReturnId:(NSString *)returnId completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)returnsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturnCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of the actions available to perform for the specified return based on its current state.
-@param returnId Retrieves a list of the actions available to perform for the specified return based on its current state.
+@param returnId Unique identifier of the return for which to retrieve available actions.
 */
 
 - (void)availableReturnActionsWithReturnId:(NSString *)returnId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves a list of all payments submitted as part of a refund associated with a customer return.
-@param returnId Returns the details of the refund payment associated with the return specified in the request.
+
+@param responseFields Use this field to include those fields which are not included by default.
+@param returnId 
+@param returnItemId 
 */
 
-- (void)paymentsWithReturnId:(NSString *)returnId completionHandler:(void(^)(MOZUPaymentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)returnItemWithReturnId:(NSString *)returnId returnItemId:(NSString *)returnItemId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturnItem *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Retrieves the details of a payment submitted as part of a refund associated with a customer return.
-@param paymentId Unique identifier of the return payment to retrieve.
-@param returnId Unique identifier of the return associated with the payment.
+
+@param responseFields Use this field to include those fields which are not included by default.
+@param returnId 
 */
 
-- (void)paymentWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId completionHandler:(void(^)(MOZUPayment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)returnItemsWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturnItemCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a list of the payment actions available to perform for the specified return when a return results in a refund to the customer.
@@ -80,6 +79,31 @@ Retrieves a list of the payment actions available to perform for the specified r
 */
 
 - (void)availablePaymentActionsForReturnWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves the details of a payment submitted as part of a refund associated with a customer return.
+@param paymentId Unique identifier of the return payment to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+@param returnId Unique identifier of the return associated with the payment.
+*/
+
+- (void)paymentWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPayment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves a list of all payments submitted as part of a refund associated with a customer return.
+@param responseFields Use this field to include those fields which are not included by default.
+@param returnId Returns the details of the refund payment associated with the return specified in the request.
+*/
+
+- (void)paymentsWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPaymentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves a list of properties for the specified return.
+@param responseFields Use this field to include those fields which are not included by default.
+@param returnId Returns the properties of the return specified in the request as well as system-supplied information.
+*/
+
+- (void)returnWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -91,33 +115,46 @@ Retrieves a list of the payment actions available to perform for the specified r
 /**
 Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
 @param body Wrapper for the properties of the return to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createReturnWithBody:(MOZUReturn *)body completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createReturnWithBody:(MOZUReturn *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+
+@param body 
+@param responseFields Use this field to include those fields which are not included by default.
+@param returnId 
+*/
+
+- (void)createReturnItemWithBody:(MOZUReturnItem *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Updates a refund payment associated with a customer return by performing the specified action.
 @param body The payment action to perform for the refund payment.
 @param paymentId Unique identifier of the return payment to update.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return associated with the refund payment.
 */
 
-- (void)performPaymentActionForReturnWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId paymentId:(NSString *)paymentId completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)performPaymentActionForReturnWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Creates a new payment for a return that results in a refund to the customer.
 @param body The payment action to perform for the customer return.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return associated with the payment action.
 */
 
-- (void)createPaymentActionForReturnWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPaymentActionForReturnWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Updates the return by performing the specified action.
-@param body The name of the return action to perform, such as "Refund" or "Replace".
+Updates the return by performing the action specified in the request.
+@param body The name of the return action to perform, such as "Reject" or "Authorize".
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)performReturnActionsWithBody:(MOZUReturnAction *)body completionHandler:(void(^)(MOZUReturnCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)performReturnActionsWithBody:(MOZUReturnAction *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturnCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -129,10 +166,11 @@ Updates the return by performing the specified action.
 /**
 Updates one or more properties of a return for items previously shipped in a completed order.
 @param body Wrapper for the array of properties to update for the return.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return.
 */
 
-- (void)updateReturnWithBody:(MOZUReturn *)body returnId:(NSString *)returnId completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateReturnWithBody:(MOZUReturn *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -141,6 +179,14 @@ Updates one or more properties of a return for items previously shipped in a com
 #pragma mark -
 //
 
+/**
+
+@param returnId 
+@param returnItemId 
+*/
+
+- (void)deleteOrderItemWithReturnId:(NSString *)returnId returnItemId:(NSString *)returnItemId completionHandler:(void(^)(MOZUReturn *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 /**
 Deletes the return specified in the request.
 @param returnId Unique identifier of the return to delete.

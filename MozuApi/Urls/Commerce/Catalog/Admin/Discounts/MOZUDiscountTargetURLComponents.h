@@ -20,8 +20,9 @@
 /**
 Resource Url Components for getDiscountTarget
 @param discountId Unique identifier of the discount. System-supplied and read only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId;
++ (MOZUURLComponents *)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -40,8 +41,9 @@ Resource Url Components for getDiscountTarget
 /**
 Resource Url Components for updateDiscountTarget
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId;
++ (MOZUURLComponents *)URLComponentsForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 
 //

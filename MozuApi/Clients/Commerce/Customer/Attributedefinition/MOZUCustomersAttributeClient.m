@@ -23,27 +23,14 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUCustomersAttributeURLComponents URLComponentsForGetAttributesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomersAttributeURLComponents URLComponentsForGetAttributesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUExtensibleAttributeCollection alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUCustomersAttributeURLComponents URLComponentsForGetAttributeOperationWithAttributeFQN:attributeFQN];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUExtensibleAttribute alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -58,6 +45,19 @@
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 		return [MOZUExtensibleAttributeVocabularyValue arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomersAttributeURLComponents URLComponentsForGetAttributeOperationWithAttributeFQN:attributeFQN responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUExtensibleAttribute alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

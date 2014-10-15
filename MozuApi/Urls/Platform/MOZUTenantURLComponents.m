@@ -17,10 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId {
-	NSString *template = @"/api/platform/tenants/{tenantId}";
++ (MOZUURLComponents *)URLComponentsForGetTenantOperationWithTenantId:(NSInteger)tenantId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/tenants/{tenantId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"tenantId" : @(tenantId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];

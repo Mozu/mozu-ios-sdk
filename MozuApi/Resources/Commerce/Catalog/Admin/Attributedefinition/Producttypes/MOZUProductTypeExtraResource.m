@@ -12,16 +12,14 @@
 #import "MOZUProductTypeExtraResource.h"
 
 
-
 @interface MOZUProductTypeExtraResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUProductTypeExtraResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -43,9 +56,9 @@ Retrieves a list of extra attributes defined for the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
-- (void)extrasWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(NSArray<MOZUAttributeInProductType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)extrasWithProductTypeId:(NSInteger)productTypeId completionHandler:(void(^)(NSArray<MOZUAttributeInProductType> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeExtraClient clientForGetExtrasOperationWithDataViewMode:dataViewMode productTypeId:productTypeId];
+	MOZUClient *client = [MOZUProductTypeExtraClient clientForGetExtrasOperationWithDataViewMode:self.dataViewMode productTypeId:productTypeId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -58,11 +71,12 @@ Retrieves a list of extra attributes defined for the specified product type.
 Retrieves the details of an extra attribute definition for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type whose extra is being retrieved.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)extraWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)extraWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeExtraClient clientForGetExtraOperationWithDataViewMode:dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductTypeExtraClient clientForGetExtraOperationWithDataViewMode:self.dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -82,11 +96,12 @@ Retrieves the details of an extra attribute definition for the specified product
 Assigns a defined extra attribute to the product type based on the information supplied in the request.
 @param body The properties of the extra attribute definition for this product type assignment.
 @param productTypeId Identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addExtraWithBody:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeExtraClient clientForAddExtraOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId];
+	MOZUClient *client = [MOZUProductTypeExtraClient clientForAddExtraOperationWithDataViewMode:self.dataViewMode body:body productTypeId:productTypeId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -107,11 +122,12 @@ Update the definition of an extra attribute for the specified product type.
 @param body The properties of the extra attribute definition to update for the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateExtraWithBody:(MOZUAttributeInProductType *)body productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAttributeInProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeExtraClient clientForUpdateExtraOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductTypeExtraClient clientForUpdateExtraOperationWithDataViewMode:self.dataViewMode body:body productTypeId:productTypeId attributeFQN:attributeFQN responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -133,9 +149,9 @@ Removes an extra attribute definition from the specified product type.
 @param productTypeId Identifier of the product type.
 */
 
-- (void)deleteExtraWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteExtraWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeExtraClient clientForDeleteExtraOperationWithDataViewMode:dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN];
+	MOZUClient *client = [MOZUProductTypeExtraClient clientForDeleteExtraOperationWithDataViewMode:self.dataViewMode productTypeId:productTypeId attributeFQN:attributeFQN];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

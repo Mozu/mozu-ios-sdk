@@ -26,11 +26,12 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
-	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
++ (MOZUURLComponents *)URLComponentsForGetExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 		@"attributeFQN" : attributeFQN,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -43,10 +44,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddExtraOperationWithProductTypeId:(NSInteger)productTypeId {
-	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras";
++ (MOZUURLComponents *)URLComponentsForAddExtraOperationWithProductTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -59,11 +61,12 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN {
-	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
++ (MOZUURLComponents *)URLComponentsForUpdateExtraOperationWithProductTypeId:(NSInteger)productTypeId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productTypeId" : @(productTypeId),
 		@"attributeFQN" : attributeFQN,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

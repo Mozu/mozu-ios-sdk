@@ -21,13 +21,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetFacetsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName propertyName:(NSString *)propertyName {
++ (MOZUClient *)clientForGetFacetsOperationWithDocumentListName:(NSString *)documentListName propertyName:(NSString *)propertyName {
 	id url = [MOZUContentFacetURLComponents URLComponentsForGetFacetsOperationWithDocumentListName:documentListName propertyName:propertyName];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {

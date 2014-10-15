@@ -23,6 +23,8 @@
 */
 @interface MOZURatesResponse : JSONModel<MOZURatesResponse>
 
+@property(nonatomic) NSString * shippingZoneCode;
+
 /**
 Arrayed list of calculated shipping rates for each assocuated carrier.
 */

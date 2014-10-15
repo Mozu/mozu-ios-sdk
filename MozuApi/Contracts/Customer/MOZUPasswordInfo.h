@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	The information required to modify a shopper account password.
+*/
 @interface MOZUPasswordInfo : JSONModel<MOZUPasswordInfo>
 
+/**
+The new account password value.
+*/
 @property(nonatomic) NSString * theNewPassword;
 
+/**
+The previous shopper account password value.
+*/
 @property(nonatomic) NSString * oldPassword;
 
 @end

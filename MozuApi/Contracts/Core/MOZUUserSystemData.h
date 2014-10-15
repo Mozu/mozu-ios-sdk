@@ -23,6 +23,16 @@
 @interface MOZUUserSystemData : JSONModel<MOZUUserSystemData>
 
 /**
+The number of login attempts left for the user. The user must login successfully before this value reaches zero otherwise the account will be locked.
+*/
+@property(nonatomic) NSInteger remainingLoginAttempts;
+
+/**
+Date and time when the entity was last updated, represented in UTC Date/Time.
+*/
+@property(nonatomic) NSDate * updatedOn;
+
+/**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * createdOn;
@@ -53,24 +63,14 @@ When the user's account was last locked. System-supplied and read-only.
 @property(nonatomic) NSDate * lastLockedOn;
 
 /**
- When the user last logged into the store. System-supplied and read-only.
+When the user last logged into the store. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * lastLoginOn;
 
 /**
- When the password was last modified. System-supplied and read-only.
+When the password was last modified. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * lastPasswordChangeOn;
-
-/**
-The number of login attempts left for the user. The user must login successfully before this value reaches zero otherwise the account will be locked.
-*/
-@property(nonatomic) NSInteger remainingLoginAttempts;
-
-/**
-Date and time when the entity was last updated, represented in UTC Date/Time.
-*/
-@property(nonatomic) NSDate * updatedOn;
 
 @end
 

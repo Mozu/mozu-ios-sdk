@@ -23,7 +23,7 @@
 //
 
 /**
-
+Creates an authentication ticket for an anonymous shopper user.
 */
 
 + (MOZUClient *)clientForCreateAnonymousShopperAuthTicketOperation;
@@ -36,11 +36,12 @@
 //
 
 /**
-
-@param body 
+Generates a new authentication ticket for a customer account.
+@param body The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUCustomerUserAuthInfo *)body;
++ (MOZUClient *)clientForCreateUserAuthTicketOperationWithBody:(MOZUCustomerUserAuthInfo *)body responseFields:(NSString *)responseFields;
 
 
 //
@@ -50,11 +51,12 @@
 //
 
 /**
-
-@param refreshToken 
+Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
+@param refreshToken The refresh token string required to refresh a user's authentication ticket.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
++ (MOZUClient *)clientForRefreshUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken responseFields:(NSString *)responseFields;
 
 
 //

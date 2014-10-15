@@ -17,8 +17,8 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}";
++ (MOZUURLComponents *)URLComponentsForGetProductVariationLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"variationKey" : variationKey,
@@ -27,14 +27,38 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetProductVariationsOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice/{currencyCode}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"variationKey" : variationKey,
+		@"currencyCode" : currencyCode,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"variationKey" : variationKey,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetProductVariationsOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -47,6 +71,17 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForAddProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"variationKey" : variationKey,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
@@ -54,20 +89,44 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateProductVariationsOperationWithProductCode:(NSString *)productCode {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations";
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
+		@"variationKey" : variationKey,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForUpdateProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey {
-	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}";
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice/{currencyCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"variationKey" : variationKey,
+		@"currencyCode" : currencyCode,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"variationKey" : variationKey,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForUpdateProductVariationsOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -85,6 +144,17 @@
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"variationKey" : variationKey,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForDeleteProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode {
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice/{currencyCode}";
+	NSDictionary *params = @{
+		@"productCode" : productCode,
+		@"variationKey" : variationKey,
+		@"currencyCode" : currencyCode,
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -36,6 +36,9 @@ If the payment transaction is a shopper store credit, the total monetary amount 
 */
 @property(nonatomic) NSNumber * amountCredited;
 
+/**
+The total amount originally requested for this payment.
+*/
 @property(nonatomic) NSNumber * amountRequested;
 
 /**
@@ -83,6 +86,9 @@ Properties of the customer billing information associated with this payment.
 */
 @property(nonatomic) MOZUBillingInfo *billingInfo;
 
+/**
+List of change messages associated with the payment.
+*/
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**

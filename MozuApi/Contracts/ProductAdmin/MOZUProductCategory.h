@@ -18,7 +18,7 @@
 
 
 /**
-	The category to which a product belongs.
+	The site category to which a product belongs.
 */
 @interface MOZUProductCategory : JSONModel<MOZUProductCategory>
 

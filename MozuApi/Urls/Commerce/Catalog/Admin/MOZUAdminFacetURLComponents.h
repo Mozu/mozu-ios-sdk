@@ -21,16 +21,18 @@
 Resource Url Components for getFacet
 @param facetId Unique identifier of the facet to retrieve.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate;
++ (MOZUURLComponents *)URLComponentsForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getFacetCategoryList
 @param categoryId Unique identifier of the category associated with the facets to retrieve.
 @param includeAvailable If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate;
++ (MOZUURLComponents *)URLComponentsForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate responseFields:(NSString *)responseFields;
 
 
 //
@@ -41,8 +43,9 @@ Resource Url Components for getFacetCategoryList
 
 /**
 Resource Url Components for addFacet
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddFacetOperation;
++ (MOZUURLComponents *)URLComponentsForAddFacetOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -54,8 +57,9 @@ Resource Url Components for addFacet
 /**
 Resource Url Components for updateFacet
 @param facetId Unique identifier of the facet to modify.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateFacetOperationWithFacetId:(NSInteger)facetId;
++ (MOZUURLComponents *)URLComponentsForUpdateFacetOperationWithFacetId:(NSInteger)facetId responseFields:(NSString *)responseFields;
 
 
 //

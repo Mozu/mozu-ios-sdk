@@ -24,9 +24,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAuthenticateAppOperation {
-	NSString *template = @"/api/platform/applications/authtickets/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForAuthenticateAppOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/applications/authtickets/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
@@ -38,9 +40,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForRefreshAppAuthTicketOperation {
-	NSString *template = @"/api/platform/applications/authtickets/refresh-ticket";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForRefreshAppAuthTicketOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/applications/authtickets/refresh-ticket?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }

@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetCreditsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUCreditURLComponents URLComponentsForGetCreditsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetCreditsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUCreditURLComponents URLComponentsForGetCreditsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCreditOperationWithCode:(NSString *)code {
-	id url = [MOZUCreditURLComponents URLComponentsForGetCreditOperationWithCode:code];
++ (MOZUClient *)clientForGetCreditOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	id url = [MOZUCreditURLComponents URLComponentsForGetCreditOperationWithCode:code responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddCreditOperationWithBody:(MOZUCredit *)body {
-	id url = [MOZUCreditURLComponents URLComponentsForAddCreditOperation];
++ (MOZUClient *)clientForAddCreditOperationWithBody:(MOZUCredit *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCreditURLComponents URLComponentsForAddCreditOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,12 +76,11 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateCreditOperationWithBody:(MOZUCredit *)body code:(NSString *)code {
-	id url = [MOZUCreditURLComponents URLComponentsForUpdateCreditOperationWithCode:code];
++ (MOZUClient *)clientForAssociateCreditToShopperOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	id url = [MOZUCreditURLComponents URLComponentsForAssociateCreditToShopperOperationWithCode:code responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCredit alloc] initWithString:jsonResult error:nil];
@@ -90,11 +89,12 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForAssociateCreditToShopperOperationWithCode:(NSString *)code {
-	id url = [MOZUCreditURLComponents URLComponentsForAssociateCreditToShopperOperationWithCode:code];
++ (MOZUClient *)clientForUpdateCreditOperationWithBody:(MOZUCredit *)body code:(NSString *)code responseFields:(NSString *)responseFields {
+	id url = [MOZUCreditURLComponents URLComponentsForUpdateCreditOperationWithCode:code responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
+	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCredit alloc] initWithString:jsonResult error:nil];

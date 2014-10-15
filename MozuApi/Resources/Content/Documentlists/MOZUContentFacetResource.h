@@ -18,10 +18,11 @@
 @interface MOZUContentFacetResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -35,7 +36,7 @@ Retrieves the properties of facets that aid in indexing and searching.
 @param propertyName The property name associated with the facets to retrieve.
 */
 
-- (void)facetsWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName propertyName:(NSString *)propertyName completionHandler:(void(^)(NSArray<MOZUContentFacet> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)facetsWithDocumentListName:(NSString *)documentListName propertyName:(NSString *)propertyName completionHandler:(void(^)(NSArray<MOZUContentFacet> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

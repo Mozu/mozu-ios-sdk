@@ -23,10 +23,11 @@
 
 /**
 Retrieve details about a specific tenant by providing the tenant ID.
+@param responseFields Use this field to include those fields which are not included by default.
 @param tenantId Unique identifier of the Mozu tenant.
 */
 
-+ (MOZUClient *)clientForGetTenantOperationWithTenantId:(NSInteger)tenantId;
++ (MOZUClient *)clientForGetTenantOperationWithTenantId:(NSInteger)tenantId responseFields:(NSString *)responseFields;
 
 
 //

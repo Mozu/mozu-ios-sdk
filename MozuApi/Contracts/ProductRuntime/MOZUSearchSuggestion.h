@@ -22,15 +22,9 @@
 */
 @interface MOZUSearchSuggestion : JSONModel<MOZUSearchSuggestion>
 
-/**
-The query term entered by the shopper.
-*/
-@property(nonatomic) NSString * query;
+@property(nonatomic) NSObject * suggestion;
 
-/**
-The term suggestions to return based on the specified query value.
-*/
-@property(nonatomic) NSArray *suggestions;
+@property(nonatomic) NSString * suggestionType;
 
 @end
 

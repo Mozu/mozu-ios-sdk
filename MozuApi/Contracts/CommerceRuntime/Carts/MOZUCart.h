@@ -33,8 +33,14 @@ Code that identifies the channel associated with the site where the shopping car
 */
 @property(nonatomic) NSString * channelCode;
 
+/**
+The coupon codes applied to the cart. When the customer proceeds to checkout, the coupons applied to the cart apply to the order.
+*/
 @property(nonatomic) NSArray *couponCodes;
 
+/**
+3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+*/
 @property(nonatomic) NSString * currencyCode;
 
 /**
@@ -157,6 +163,9 @@ Properties of the information required to fulfill this cart.
 */
 @property(nonatomic) MOZUFulfillmentInfo *fulfillmentInfo;
 
+/**
+The list of invalid coupons the shopper attempted to enter for the cart.
+*/
 @property(nonatomic) NSArray<MOZUInvalidCoupon> *invalidCoupons;
 
 /**

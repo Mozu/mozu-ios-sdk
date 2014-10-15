@@ -17,9 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForThirdPartyGetApplicationOperation {
-	NSString *template = @"/api/commerce/settings/applications/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForThirdPartyGetApplicationOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/settings/applications/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -38,9 +40,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForThirdPartyUpdateApplicationOperation {
-	NSString *template = @"/api/commerce/settings/applications/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForThirdPartyUpdateApplicationOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/settings/applications/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

@@ -43,6 +43,9 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 */
 @property(nonatomic) NSString * productCode;
 
+/**
+The name of the product that represents a line item in a taxable order.
+*/
 @property(nonatomic) NSString * productName;
 
 /**
@@ -50,6 +53,9 @@ The quantity of the line item in the order.
 */
 @property(nonatomic) NSInteger quantity;
 
+/**
+The reason the item is either taxed or returned.
+*/
 @property(nonatomic) NSString * reason;
 
 /**

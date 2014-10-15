@@ -18,16 +18,18 @@
 //
 
 /**
-Resource Url Components for getUser
-@param userId Unique identifier of the administrator account to retrieve.
-*/
-+ (MOZUURLComponents *)URLComponentsForGetUserOperationWithUserId:(NSString *)userId;
-
-/**
 Resource Url Components for getTenantScopesForUser
 @param userId Unique identifier of the user whose tenant scopes you want to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString *)userId;
++ (MOZUURLComponents *)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getUser
+@param userId Unique identifier of the administrator account to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
 
 
 //

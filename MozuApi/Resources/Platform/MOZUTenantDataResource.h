@@ -17,10 +17,11 @@
 @interface MOZUTenantDataResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,9 +32,10 @@
 /**
 Retrieves the value of a record in the Mozu database.
 @param dbEntryQuery The database entry query string used to retrieve the record information.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)dBValueWithDbEntryQuery:(NSString *)dbEntryQuery completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)dBValueWithDbEntryQuery:(NSString *)dbEntryQuery responseFields:(NSString *)responseFields completionHandler:(void(^)(NSString *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

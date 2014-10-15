@@ -48,6 +48,9 @@
 
 @property(nonatomic) NSDate * updateDate;
 
+/**
+This is a tenant that is associated with a subscription.
+*/
 @property(nonatomic) NSArray<MOZUSubscribingTenant> *subscribingTenants;
 
 @end

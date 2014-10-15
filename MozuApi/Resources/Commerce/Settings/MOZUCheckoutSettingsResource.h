@@ -18,10 +18,11 @@
 @interface MOZUCheckoutSettingsResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,9 +32,10 @@
 
 /**
 Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)checkoutSettingsWithCompletionHandler:(void(^)(MOZUCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)checkoutSettingsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

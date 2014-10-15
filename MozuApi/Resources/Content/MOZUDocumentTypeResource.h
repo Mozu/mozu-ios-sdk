@@ -19,10 +19,13 @@
 @interface MOZUDocumentTypeResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUDataViewMode dataViewMode;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode)dataViewMode;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,19 +34,21 @@
 //
 
 /**
-
-@param pageSize 
-@param startIndex 
+Retrieves a paged list of the system-defined document types.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)documentTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex completionHandler:(void(^)(MOZUDocumentTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentTypesWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param documentTypeName 
+Retrieves a system-defined document type.
+@param documentTypeName The name of the document type to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)documentTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName completionHandler:(void(^)(MOZUDocumentType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentTypeWithDocumentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -52,6 +57,14 @@
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)createDocumentTypeWithBody:(MOZUDocumentType *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 //
 #pragma mark -
@@ -59,6 +72,15 @@
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param documentTypeName 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)updateDocumentTypeWithBody:(MOZUDocumentType *)body documentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 //
 #pragma mark -

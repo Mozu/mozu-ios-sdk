@@ -18,10 +18,11 @@
 @interface MOZUPickupResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -30,20 +31,21 @@
 //
 
 /**
-Retrieves the details of the in-store pickup specified in the request.
-@param orderId Unique identifier of the order associated with the pickup.
-@param pickupId Unique identifier of the pickup to retrieve.
-*/
-
-- (void)pickupWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
 Retrieves a list of the actions available to perform for the pickup specified in the request.
 @param orderId Unique identifier of the order associated with the pickup.
 @param pickupId Unique identifier of the pickup for which to retrieve available actions.
 */
 
 - (void)availablePickupFulfillmentActionsWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves the details of the in-store pickup specified in the request.
+@param orderId Unique identifier of the order associated with the pickup.
+@param pickupId Unique identifier of the pickup to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)pickupWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -56,9 +58,10 @@ Retrieves a list of the actions available to perform for the pickup specified in
 Create a new pickup for the order specified in the request for in-store fufillment.
 @param body Properties of the in-store pickup to create.
 @param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createPickupWithBody:(MOZUPickup *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPickupWithBody:(MOZUPickup *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -72,9 +75,10 @@ Updates one or more details of a defined in-store pickup.
 @param body Properties of the in-store pickup to update.
 @param orderId Unique identifier of the order associated with the in-store pickup.
 @param pickupId Unique identifier of the pickup to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updatePickupWithBody:(MOZUPickup *)body orderId:(NSString *)orderId pickupId:(NSString *)pickupId completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePickupWithBody:(MOZUPickup *)body orderId:(NSString *)orderId pickupId:(NSString *)pickupId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPickup *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

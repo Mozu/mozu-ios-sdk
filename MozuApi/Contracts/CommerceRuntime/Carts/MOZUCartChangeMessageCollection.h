@@ -23,20 +23,9 @@
 */
 @interface MOZUCartChangeMessageCollection : JSONModel<MOZUCartChangeMessageCollection>
 
-/**
-The number of commerce runtime cart change messages transactions that can exist in a collection.
-*/
-@property(nonatomic) NSInteger capacity;
+@property(nonatomic) NSInteger totalCount;
 
-/**
-The number of messages in the collection.
-*/
-@property(nonatomic) NSInteger count;
-
-/**
-Container for an item in a collection.
-*/
-@property(nonatomic) MOZUChangeMessage *item;
+@property(nonatomic) NSArray<MOZUChangeMessage> *items;
 
 @end
 

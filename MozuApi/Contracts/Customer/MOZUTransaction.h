@@ -27,6 +27,8 @@ If applicable, the amount of the transaction.
 */
 @property(nonatomic) NSNumber * amount;
 
+@property(nonatomic) NSString * currencyCode;
+
 /**
 The date and time the customer transaction occurred.
 */

@@ -1,13 +1,12 @@
 PODS:
-  - CocoaLumberjack (2.0.0-beta):
-    - CocoaLumberjack/CLI
-    - CocoaLumberjack/Core
+  - CocoaLumberjack (2.0.0-beta4):
+    - CocoaLumberjack/Default
     - CocoaLumberjack/Extensions
-  - CocoaLumberjack/CLI (2.0.0-beta):
+  - CocoaLumberjack/Core (2.0.0-beta4)
+  - CocoaLumberjack/Default (2.0.0-beta4):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Core (2.0.0-beta)
-  - CocoaLumberjack/Extensions (2.0.0-beta):
-    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0-beta4):
+    - CocoaLumberjack/Default
   - JSONModel (1.0.1)
   - mozu-ios-sdk (1.7.0):
     - CocoaLumberjack
@@ -49,8 +48,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: aadc76d7bd6c839ca84b38ed50cbf89d7cf8c693
+  CocoaLumberjack: 24153b24b17d853d7182b22b128971fb98e8cb18
   JSONModel: 634100aaacbd89811bc8a03da209356e5989c569
   mozu-ios-sdk: 51ce4f44eef7928d1977dd523c9b79f79daaba71
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.34.4

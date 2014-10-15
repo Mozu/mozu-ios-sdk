@@ -26,18 +26,20 @@
 Retrieves a paged list of attributes according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetAttributesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUClient *)clientForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Retrieves the details of the specified product attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -49,9 +51,10 @@ Retrieves the details of the specified product attribute.
 /**
 Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
 @param body Properties of the new product attribute to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body;
++ (MOZUClient *)clientForAddAttributeOperationWithBody:(MOZUAdminAttribute *)body responseFields:(NSString *)responseFields;
 
 
 //
@@ -64,9 +67,10 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 Updates an existing attribute with attribute properties to set.
 @param body Any properties of the attribute that to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForUpdateAttributeOperationWithBody:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -80,7 +84,7 @@ Deletes a defined product attribute. You cannot delete an attribute assigned a v
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForDeleteAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForDeleteAttributeOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 
 

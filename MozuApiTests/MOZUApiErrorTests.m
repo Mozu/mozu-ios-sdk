@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "DDLog.h"
 #import "MOZUAPIError.h"
+#import "MOZUAPILogger.h"
 
 @interface MOZUApiErrorTests : XCTestCase
 

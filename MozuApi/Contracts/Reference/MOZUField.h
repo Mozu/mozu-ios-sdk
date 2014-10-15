@@ -24,6 +24,11 @@
 @interface MOZUField : JSONModel<MOZUField>
 
 /**
+Identifier of the field.
+*/
+@property(nonatomic) NSInteger id;
+
+/**
 Label for the field.
 */
 @property(nonatomic) NSString * label;
@@ -32,11 +37,6 @@ Label for the field.
 Sequence of the field.
 */
 @property(nonatomic) NSInteger order;
-
-/**
-Identifier of the field.
-*/
-@property(nonatomic) NSInteger id;
 
 /**
 Type of field.

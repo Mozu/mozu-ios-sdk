@@ -18,18 +18,19 @@
 //
 
 /**
-Resource Url Components for getDocument
-@param documentListName The name of the document list associated with the document to retrieve.
-@param documentId Identifier of the document being retrieved.
-*/
-+ (MOZUURLComponents *)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
-
-/**
 Resource Url Components for getDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentId Unique identifier of the document.
 */
 + (MOZUURLComponents *)URLComponentsForGetDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
+
+/**
+Resource Url Components for getDocument
+@param documentListName The name of the document list associated with the document to retrieve.
+@param documentId Identifier of the document being retrieved.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getDocuments
@@ -38,8 +39,9 @@ Resource Url Components for getDocuments
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUURLComponents *)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields;
 
 
 //
@@ -51,8 +53,9 @@ Resource Url Components for getDocuments
 /**
 Resource Url Components for createDocument
 @param documentListName The descriptive alphanumeric document list name being created.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreateDocumentOperationWithDocumentListName:(NSString *)documentListName;
++ (MOZUURLComponents *)URLComponentsForCreateDocumentOperationWithDocumentListName:(NSString *)documentListName responseFields:(NSString *)responseFields;
 
 
 //
@@ -62,18 +65,19 @@ Resource Url Components for createDocument
 //
 
 /**
-Resource Url Components for updateDocument
-@param documentListName Name of the document list associated with the document.
-@param documentId Unique identifier of the document to update.
-*/
-+ (MOZUURLComponents *)URLComponentsForUpdateDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
-
-/**
 Resource Url Components for updateDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentId Unique identifier of the document.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
+
+/**
+Resource Url Components for updateDocument
+@param documentListName Name of the document list associated with the document.
+@param documentId Unique identifier of the document to update.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields;
 
 
 //

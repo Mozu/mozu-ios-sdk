@@ -12,16 +12,13 @@
 #import "MOZUCreditResource.h"
 
 
-
 @interface MOZUCreditResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUCreditResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -42,13 +44,14 @@
 Retrieves a list of store credits applied to customer accounts, according any filter and sort criteria specified in the request.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)creditsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUCreditCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)creditsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCreditCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForGetCreditsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	MOZUClient *client = [MOZUCreditClient clientForGetCreditsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -60,11 +63,12 @@ Retrieves a list of store credits applied to customer accounts, according any fi
 /**
 Retrieves the details of a store credit applied to a customer account.
 @param code User-defined code that identifies the store credit to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)creditWithCode:(NSString *)code completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)creditWithCode:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForGetCreditOperationWithCode:code];
+	MOZUClient *client = [MOZUCreditClient clientForGetCreditOperationWithCode:code responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -83,11 +87,12 @@ Retrieves the details of a store credit applied to a customer account.
 /**
 Creates a new store credit for the customer account specified in the request.
 @param body Properties of the store credit to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addCreditWithBody:(MOZUCredit *)body completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addCreditWithBody:(MOZUCredit *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForAddCreditOperationWithBody:body];
+	MOZUClient *client = [MOZUCreditClient clientForAddCreditOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -104,14 +109,14 @@ Creates a new store credit for the customer account specified in the request.
 //
 
 /**
-Updates one or more properties of a defined store credit applied to a customer account.
-@param body Properties of the store credit to update.
-@param code User-defined code of the store credit to update.
+Associates an unclaimed customer credit with the shopper user authenticated in the request header.
+@param code The code that represents the credit to claim for the shopper.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateCreditWithBody:(MOZUCredit *)body code:(NSString *)code completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)associateCreditToShopperWithCode:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForUpdateCreditOperationWithBody:body code:code];
+	MOZUClient *client = [MOZUCreditClient clientForAssociateCreditToShopperOperationWithCode:code responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -121,13 +126,15 @@ Updates one or more properties of a defined store credit applied to a customer a
 }
 
 /**
-
-@param code 
+Updates one or more properties of a defined store credit applied to a customer account.
+@param body Properties of the store credit to update.
+@param code User-defined code of the store credit to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)associateCreditToShopperWithCode:(NSString *)code completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCreditWithBody:(MOZUCredit *)body code:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCredit *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCreditClient clientForAssociateCreditToShopperOperationWithCode:code];
+	MOZUClient *client = [MOZUCreditClient clientForUpdateCreditOperationWithBody:body code:code responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

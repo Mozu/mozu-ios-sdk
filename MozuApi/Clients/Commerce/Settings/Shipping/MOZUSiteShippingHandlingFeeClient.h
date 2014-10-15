@@ -23,9 +23,10 @@
 
 /**
 Retrieves the details of the order handling fee configured for the site.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetOrderHandlingFeeOperation;
++ (MOZUClient *)clientForGetOrderHandlingFeeOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -37,9 +38,10 @@ Retrieves the details of the order handling fee configured for the site.
 /**
 Creates a new order handling fee for the site.
 @param body Properties of the order handling fee to assess for order shipment.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body;
++ (MOZUClient *)clientForCreateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body responseFields:(NSString *)responseFields;
 
 
 //
@@ -51,9 +53,10 @@ Creates a new order handling fee for the site.
 /**
 Updates the order handling fee amount for the site.
 @param body The combined price for all items in the order, including all selected options but excluding any discounts.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body;
++ (MOZUClient *)clientForUpdateOrderHandlingFeeOperationWithBody:(MOZUSiteShippingHandlingFee *)body responseFields:(NSString *)responseFields;
 
 
 //

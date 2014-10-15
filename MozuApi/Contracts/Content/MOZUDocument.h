@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUPropertyValue.h"
 
 
 
@@ -38,15 +37,7 @@ The date and time the most recent content update was made. UTC date/time. System
 */
 @property(nonatomic) NSDate * contentUpdateDate;
 
-/**
-The name of the document list associated with the document.
-*/
-@property(nonatomic) NSString * documentListName;
-
-/**
-The type of document used in the CMS such as "web_page" or "template" or "image_url".
-*/
-@property(nonatomic) NSString * documentType;
+@property(nonatomic) NSString * documentTypeFQN;
 
 /**
 If applicable, the file extension associated with the document content.
@@ -62,6 +53,8 @@ Unique identifier of the document.
 When the document was added to the document list. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * insertDate;
+
+@property(nonatomic) NSString * listFQN;
 
 /**
 The name of the document, which is unique within its folder.
@@ -81,7 +74,7 @@ Date and time when the entity was last updated, represented in UTC Date/Time.
 /**
 List of properties for the given property value.
 */
-@property(nonatomic) NSArray<MOZUPropertyValue> *properties;
+@property(nonatomic) NSObject * properties;
 
 @end
 

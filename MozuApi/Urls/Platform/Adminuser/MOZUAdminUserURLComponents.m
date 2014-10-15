@@ -17,19 +17,21 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetUserOperationWithUserId:(NSString *)userId {
-	NSString *template = @"/api/platform/adminuser/accounts/{userId}";
++ (MOZUURLComponents *)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/adminuser/accounts/{userId}/tenants?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"userId" : userId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetTenantScopesForUserOperationWithUserId:(NSString *)userId {
-	NSString *template = @"/api/platform/adminuser/accounts/{userId}/tenants";
++ (MOZUURLComponents *)URLComponentsForGetUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/adminuser/accounts/{userId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"userId" : userId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];

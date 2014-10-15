@@ -18,29 +18,43 @@
 
 
 /**
-	***Always private and should not be published.***
+	Properties of an application behavior.
 */
 @interface MOZUBehavior : JSONModel<MOZUBehavior>
 
 /**
-Unique identifier for the storefront container used to organize products.
+Unique identifier of the behavior category.
 */
 @property(nonatomic) NSInteger categoryId;
 
 /**
-Identifier of the entity.
+Unique identifier of the behavior.
 */
 @property(nonatomic) NSInteger id;
 
+/**
+If true, this application behavior is not part of the public Mozu API.
+*/
 @property(nonatomic) BOOL isPrivate;
 
+/**
+The name of the behavior.
+*/
 @property(nonatomic) NSString * name;
 
 /**
-For validation purposes, the integer value must be a list of behavior Id's.
+For validation purposes, the integer value must be a list of behavior IDs.
 */
 @property(nonatomic) NSArray *requiresBehaviorIds;
 
+/**
+Provides a list of system roles for a specified behavior.
+*/
+@property(nonatomic) NSArray *systemRoles;
+
+/**
+The user types that are valid for this behavior.
+*/
 @property(nonatomic) NSArray *validUserTypes;
 
 @end

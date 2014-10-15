@@ -17,11 +17,12 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetBillingInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	NSString *template = @"/api/commerce/orders/{orderId}/billinginfo?draft={draft}";
++ (MOZUURLComponents *)URLComponentsForGetBillingInfoOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/billinginfo?draft={draft}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"draft" : draft ? draft : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -41,12 +42,13 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForSetBillingInfoOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/billinginfo?updatemode={updateMode}&version={version}";
++ (MOZUURLComponents *)URLComponentsForSetBillingInfoOperationWithOrderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/billinginfo?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

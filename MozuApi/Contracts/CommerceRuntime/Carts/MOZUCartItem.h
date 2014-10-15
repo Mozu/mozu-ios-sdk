@@ -12,8 +12,8 @@
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUCommerceProduct.h"
-#import "MOZUAppliedProductDiscount.h"
-#import "MOZUShippingDiscount.h"
+#import "MOZUAppliedLineItemProductDiscount.h"
+#import "MOZUAppliedLineItemShippingDiscount.h"
 #import "MOZUCommerceUnitPrice.h"
 
 
@@ -56,6 +56,8 @@ The location code associated with the location where this cart item will be fulf
 The method used to fulfill this cart item, which is direct ship or in-store pickup.
 */
 @property(nonatomic) NSString * fulfillmentMethod;
+
+@property(nonatomic) NSNumber * handlingAmount;
 
 /**
 Unique identifier of the cart item.
@@ -122,17 +124,20 @@ The properties of the associated product.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 
-@property(nonatomic) MOZUAppliedProductDiscount *productDiscount;
+/**
+Product discounts displays a list of all applicable discount.
+*/
+@property(nonatomic) MOZUAppliedLineItemProductDiscount *productDiscount;
 
 /**
 List of product-level discounts projected to apply to the cart item at checkout.
 */
-@property(nonatomic) NSArray<MOZUAppliedProductDiscount> *productDiscounts;
+@property(nonatomic) NSArray<MOZUAppliedLineItemProductDiscount> *productDiscounts;
 
 /**
 List of shipping discounts projected to apply to the cart item at checkout.
 */
-@property(nonatomic) NSArray<MOZUShippingDiscount> *shippingDiscounts;
+@property(nonatomic) NSArray<MOZUAppliedLineItemShippingDiscount> *shippingDiscounts;
 
 /**
 Properties of the unit price associated with the cart item.

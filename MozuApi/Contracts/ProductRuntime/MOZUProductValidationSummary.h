@@ -31,8 +31,16 @@
 */
 @interface MOZUProductValidationSummary : JSONModel<MOZUProductValidationSummary>
 
+/**
+List of fulfillment types that the product supports.
+*/
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
 
+@property(nonatomic) NSString * goodsType;
+
+/**
+If true, this product should not be packaged with other items and should ship by itself.
+*/
 @property(nonatomic) NSNumber * isPackagedStandAlone;
 
 /**
@@ -40,6 +48,9 @@ If true, the entity is subject to tax based on the relevant tax rate.
 */
 @property(nonatomic) BOOL isTaxable;
 
+/**
+The manufacturer's part number for the product.
+*/
 @property(nonatomic) NSString * mfgPartNumber;
 
 /**
@@ -57,8 +68,16 @@ Brief description of the product typically used when the product is displayed in
 */
 @property(nonatomic) NSString * productShortDescription;
 
+@property(nonatomic) NSString * productType;
+
+/**
+The usage type of this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+*/
 @property(nonatomic) NSString * productUsage;
 
+/**
+The universal product code defined for the product.
+*/
 @property(nonatomic) NSString * upc;
 
 /**
@@ -66,6 +85,9 @@ Merchant-created code associated with a specific product variation. Variation pr
 */
 @property(nonatomic) NSString * variationProductCode;
 
+/**
+Properties of a collection of component products that make up a single product bundle with its own product code.
+*/
 @property(nonatomic) NSArray<MOZUBundledProductSummary> *bundledProducts;
 
 /**
@@ -93,6 +115,9 @@ Price that the merchant intends to sell the product which is not necessarily the
 */
 @property(nonatomic) MOZURuntimeProductPrice *price;
 
+/**
+Properties that describe the behavior the system uses when determining the price of the product.
+*/
 @property(nonatomic) MOZURuntimeProductPricingBehaviorInfo *pricingBehavior;
 
 /**

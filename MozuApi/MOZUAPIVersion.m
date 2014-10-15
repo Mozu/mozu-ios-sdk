@@ -13,7 +13,7 @@
 @implementation MOZUAPIVersion
 
 + (NSString *)version {
-	return @"1.7.14119.0";
+	return @"1.11.14269.0";
 }
 
 @end

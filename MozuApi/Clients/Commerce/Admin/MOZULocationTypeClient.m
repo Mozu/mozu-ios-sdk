@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode {
-	id url = [MOZULocationTypeURLComponents URLComponentsForGetLocationTypeOperationWithLocationTypeCode:locationTypeCode];
++ (MOZUClient *)clientForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields {
+	id url = [MOZULocationTypeURLComponents URLComponentsForGetLocationTypeOperationWithLocationTypeCode:locationTypeCode responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddLocationTypeOperationWithBody:(MOZULocationType *)body {
-	id url = [MOZULocationTypeURLComponents URLComponentsForAddLocationTypeOperation];
++ (MOZUClient *)clientForAddLocationTypeOperationWithBody:(MOZULocationType *)body responseFields:(NSString *)responseFields {
+	id url = [MOZULocationTypeURLComponents URLComponentsForAddLocationTypeOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,8 +76,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType *)body locationTypeCode:(NSString *)locationTypeCode {
-	id url = [MOZULocationTypeURLComponents URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:locationTypeCode];
++ (MOZUClient *)clientForUpdateLocationTypeOperationWithBody:(MOZULocationType *)body locationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields {
+	id url = [MOZULocationTypeURLComponents URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:locationTypeCode responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
+#import "MOZUProductExtraValueDeltaPrice.h"
 #import "MOZUProductExtra.h"
 
 
@@ -29,12 +30,33 @@ Retrieves a list of extras configured for the product according to any defined f
 + (MOZUClient *)clientForGetExtrasOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode;
 
 /**
+
+@param attributeFQN 
+@param productCode 
+@param value 
+*/
+
++ (MOZUClient *)clientForGetExtraValueLocalizedDeltaPricesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
+
+/**
+
+@param attributeFQN 
+@param currencyCode 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
++ (MOZUClient *)clientForGetExtraValueLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
+
+/**
 Retrieves the details of an extra attribute configuration for the product specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForGetExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -44,12 +66,24 @@ Retrieves the details of an extra attribute configuration for the product specif
 //
 
 /**
+
+@param body 
+@param attributeFQN 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
++ (MOZUClient *)clientForAddExtraValueLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtraValueDeltaPrice *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
+
+/**
 Configure an extra attribute for the product specified in the request.
 @param body Properties of the product extra to configure for the specified product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode;
++ (MOZUClient *)clientForAddExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -59,13 +93,36 @@ Configure an extra attribute for the product specified in the request.
 //
 
 /**
+
+@param body 
+@param attributeFQN 
+@param productCode 
+@param value 
+*/
+
++ (MOZUClient *)clientForUpdateExtraValueLocalizedDeltaPricesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductExtraValueDeltaPrice> *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
+
+/**
+
+@param body 
+@param attributeFQN 
+@param currencyCode 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
++ (MOZUClient *)clientForUpdateExtraValueLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtraValueDeltaPrice *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
+
+/**
 Updates the configuration of an extra attribute for the product specified in the request.
 @param body Properties of the extra attribute to update for the specified product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForUpdateExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductExtra *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -81,6 +138,16 @@ Delete a product extra configuration for the product specified in the request.
 */
 
 + (MOZUClient *)clientForDeleteExtraOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
+
+/**
+
+@param attributeFQN 
+@param currencyCode 
+@param productCode 
+@param value Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForDeleteExtraValueLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode;
 
 
 

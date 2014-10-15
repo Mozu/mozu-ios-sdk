@@ -21,10 +21,11 @@
 @interface MOZUPaymentResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -35,17 +36,10 @@
 /**
 Retrieves information about all payment transactions submitted for the specified order.
 @param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)paymentsWithOrderId:(NSString *)orderId completionHandler:(void(^)(MOZUPaymentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
-/**
-Retrieves information about a specific payment transaction submitted for the specified order.
-@param orderId Unique identifier of the order associated with the payment transaction.
-@param paymentId Unique identifier of the payment transaction submitted for the order.
-*/
-
-- (void)paymentWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId completionHandler:(void(^)(MOZUPayment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)paymentsWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPaymentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
@@ -54,6 +48,15 @@ Retrieves the list of all available payment actions dependent on the order payme
 */
 
 - (void)availablePaymentActionsWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+Retrieves information about a specific payment transaction submitted for the specified order.
+@param orderId Unique identifier of the order associated with the payment transaction.
+@param paymentId Unique identifier of the payment transaction submitted for the order.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)paymentWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPayment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -67,17 +70,19 @@ Performs the specified action for an individual order payment transaction.
 @param body The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 @param orderId Unique identifier of the order associated with the payment.
 @param paymentId Unique identifer of the payment for which to perform the action.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)performPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)performPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Creates a new payment transaction for the specified order and performs the specified action.
 @param body To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 @param orderId Unique identifier of the order for which to apply the payment.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPaymentActionWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

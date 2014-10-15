@@ -20,67 +20,79 @@
 /**
 Resource Url Components for getAddressSchema
 @param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode;
++ (MOZUURLComponents *)URLComponentsForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getAddressSchemas
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAddressSchemasOperation;
++ (MOZUURLComponents *)URLComponentsForGetAddressSchemasOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getBehavior
-@param behaviorId ***Always private and should not be published.***
+@param behaviorId Unique identifier of the behavior.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId;
-
-/**
-Resource Url Components for getBehaviorCategories
-*/
-+ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoriesOperation;
++ (MOZUURLComponents *)URLComponentsForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getBehaviorCategory
-@param categoryId ***Always private and should not be published.***
+@param categoryId Unique identifier of the behavior category.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId;
++ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getBehaviorCategories
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetBehaviorCategoriesOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getBehaviors
-@param userType 
+@param userType The user type associated with the behaviors to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetBehaviorsOperationWithUserType:(NSString *)userType;
++ (MOZUURLComponents *)URLComponentsForGetBehaviorsOperationWithUserType:(NSString *)userType responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getContentLocales
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetContentLocalesOperation;
++ (MOZUURLComponents *)URLComponentsForGetContentLocalesOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getCountries
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetCountriesOperation;
++ (MOZUURLComponents *)URLComponentsForGetCountriesOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getCurrencies
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetCurrenciesOperation;
++ (MOZUURLComponents *)URLComponentsForGetCurrenciesOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getTimeZones
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetTimeZonesOperation;
++ (MOZUURLComponents *)URLComponentsForGetTimeZonesOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getTopLevelDomains
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetTopLevelDomainsOperation;
++ (MOZUURLComponents *)URLComponentsForGetTopLevelDomainsOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getUnitsOfMeasure
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 
 //

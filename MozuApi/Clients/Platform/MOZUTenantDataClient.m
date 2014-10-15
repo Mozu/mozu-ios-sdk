@@ -20,8 +20,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery {
-	id url = [MOZUTenantDataURLComponents URLComponentsForGetDBValueOperationWithDbEntryQuery:dbEntryQuery];
++ (MOZUClient *)clientForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery responseFields:(NSString *)responseFields {
+	id url = [MOZUTenantDataURLComponents URLComponentsForGetDBValueOperationWithDbEntryQuery:dbEntryQuery responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

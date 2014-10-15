@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
 #import "MOZUAdminAttributeVocabularyValue.h"
+#import "MOZUAttributeVocabularyValueLocalizedContent.h"
 
 
 @interface MOZUAttributeVocabularyValueClient : NSObject
@@ -22,19 +23,38 @@
 //
 
 /**
-Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
+Retrieves a list of vocabulary values defined for the attribute specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForGetAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForGetAttributeVocabularyValuesOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 /**
-Retrieves an attribute vocabulary value by providing the attribute FQN and value.
+
+@param attributeFQN 
+@param value 
+*/
+
++ (MOZUClient *)clientForGetAttributeVocabularyValueLocalizedContentsOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value;
+
+/**
+
+@param attributeFQN 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
++ (MOZUClient *)clientForGetAttributeVocabularyValueLocalizedContentOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields;
+
+/**
+Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-+ (MOZUClient *)clientForGetAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
++ (MOZUClient *)clientForGetAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
 
 
 //
@@ -44,12 +64,23 @@ Retrieves an attribute vocabulary value by providing the attribute FQN and value
 //
 
 /**
-Adds a new attribute vocabulary value.
-@param body The predefined vocabulary value to add to the attribute content.
-@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+
+@param body 
+@param attributeFQN 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
 */
 
-+ (MOZUClient *)clientForAddAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForAddAttributeVocabularyValueLocalizedContentOperationWithBody:(MOZUAttributeVocabularyValueLocalizedContent *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
+
+/**
+Creates a vocabulary value for a defined product attribute.
+@param body The predefined vocabulary value to add to the attribute content.
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForAddAttributeVocabularyValueOperationWithBody:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -64,16 +95,37 @@ Update existing vocabulary values for an attribute.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 
-+ (MOZUClient *)clientForUpdateAttributeVocabularyValuesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUAdminAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForUpdateAttributeVocabularyValuesOperationWithBody:(NSArray<MOZUAdminAttributeVocabularyValue> *)body attributeFQN:(NSString *)attributeFQN;
+
+/**
+
+@param body 
+@param attributeFQN 
+@param value 
+*/
+
++ (MOZUClient *)clientForUpdateAttributeVocabularyValueLocalizedContentsOperationWithBody:(NSArray<MOZUAttributeVocabularyValueLocalizedContent> *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
+
+/**
+
+@param body 
+@param attributeFQN 
+@param localeCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param value 
+*/
+
++ (MOZUClient *)clientForUpdateAttributeVocabularyValueLocalizedContentOperationWithBody:(MOZUAttributeVocabularyValueLocalizedContent *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields;
 
 /**
 Updates existing attribute vocabulary values.
 @param body The predefined vocabulary value to add to the attribute content to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-+ (MOZUClient *)clientForUpdateAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
++ (MOZUClient *)clientForUpdateAttributeVocabularyValueOperationWithBody:(MOZUAdminAttributeVocabularyValue *)body attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
 
 
 //
@@ -88,7 +140,16 @@ Deletes an attribute's vocabulary value.
 @param value The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 */
 
-+ (MOZUClient *)clientForDeleteAttributeVocabularyValueOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
++ (MOZUClient *)clientForDeleteAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value;
+
+/**
+
+@param attributeFQN 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param value 
+*/
+
++ (MOZUClient *)clientForDeleteAttributeVocabularyValueLocalizedContentOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode;
 
 
 

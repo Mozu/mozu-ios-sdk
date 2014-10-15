@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUCapability.h"
+#import "MOZUSiteSettingsCapability.h"
 
 
 
@@ -38,6 +38,9 @@ If true, the third party application settings have been configured and the appli
 */
 @property(nonatomic) NSNumber * initialized;
 
+/**
+If true, the application type is Extension.
+*/
 @property(nonatomic) NSNumber * isExtension;
 
 /**
@@ -48,7 +51,7 @@ URL of the application's setting configuration user interface, supplied by the c
 /**
 List of capabilities installed in a tenant.
 */
-@property(nonatomic) NSArray<MOZUCapability> *capabilities;
+@property(nonatomic) NSArray<MOZUSiteSettingsCapability> *capabilities;
 
 @end
 

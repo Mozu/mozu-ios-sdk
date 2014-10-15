@@ -27,8 +27,9 @@
 /**
 Resource Url Components for performFulfillmentAction
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
+@param responseFields Updated order with a new fulfillment status resulting from the action supplied in the request.
 */
-+ (MOZUURLComponents *)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForPerformFulfillmentActionOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //

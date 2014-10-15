@@ -17,10 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId {
-	NSString *template = @"/api/platform/applications/{appId}";
++ (MOZUURLComponents *)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/applications/{appId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"appId" : appId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -40,10 +41,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId {
-	NSString *template = @"/api/platform/applications/{appId}";
++ (MOZUURLComponents *)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/applications/{appId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"appId" : appId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

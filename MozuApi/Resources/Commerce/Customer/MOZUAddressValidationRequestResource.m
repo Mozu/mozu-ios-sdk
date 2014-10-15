@@ -12,16 +12,13 @@
 #import "MOZUAddressValidationRequestResource.h"
 
 
-
 @interface MOZUAddressValidationRequestResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUAddressValidationRequestResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -48,11 +50,12 @@
 /**
 Validates the customer address supplied in the request.
 @param body Properties of the address to validate.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)validateAddressWithBody:(MOZUAddressValidationRequest *)body completionHandler:(void(^)(MOZUAddressValidationResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)validateAddressWithBody:(MOZUAddressValidationRequest *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAddressValidationResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAddressValidationRequestClient clientForValidateAddressOperationWithBody:body];
+	MOZUClient *client = [MOZUAddressValidationRequestClient clientForValidateAddressOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

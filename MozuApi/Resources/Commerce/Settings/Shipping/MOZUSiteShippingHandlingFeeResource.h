@@ -18,10 +18,11 @@
 @interface MOZUSiteShippingHandlingFeeResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,9 +32,10 @@
 
 /**
 Retrieves the details of the order handling fee configured for the site.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)orderHandlingFeeWithCompletionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orderHandlingFeeWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -45,9 +47,10 @@ Retrieves the details of the order handling fee configured for the site.
 /**
 Creates a new order handling fee for the site.
 @param body Properties of the order handling fee to assess for order shipment.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee *)body completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -59,9 +62,10 @@ Creates a new order handling fee for the site.
 /**
 Updates the order handling fee amount for the site.
 @param body The combined price for all items in the order, including all selected options but excluding any discounts.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee *)body completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

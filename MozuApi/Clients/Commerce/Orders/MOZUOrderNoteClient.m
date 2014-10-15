@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId {
-	id url = [MOZUOrderNoteURLComponents URLComponentsForGetOrderNoteOperationWithOrderId:orderId noteId:noteId];
++ (MOZUClient *)clientForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderNoteURLComponents URLComponentsForGetOrderNoteOperationWithOrderId:orderId noteId:noteId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateOrderNoteOperationWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId {
-	id url = [MOZUOrderNoteURLComponents URLComponentsForCreateOrderNoteOperationWithOrderId:orderId];
++ (MOZUClient *)clientForCreateOrderNoteOperationWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderNoteURLComponents URLComponentsForCreateOrderNoteOperationWithOrderId:orderId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,8 +76,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateOrderNoteOperationWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId {
-	id url = [MOZUOrderNoteURLComponents URLComponentsForUpdateOrderNoteOperationWithOrderId:orderId noteId:noteId];
++ (MOZUClient *)clientForUpdateOrderNoteOperationWithBody:(MOZUOrderNote *)body orderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderNoteURLComponents URLComponentsForUpdateOrderNoteOperationWithOrderId:orderId noteId:noteId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

@@ -20,32 +20,94 @@
 @end
 
 
+/**
+	Properties of the conditions that must be met for a discount to apply to an order.
+*/
 @interface MOZUDiscountCondition : JSONModel<MOZUDiscountCondition>
 
+/**
+If the discount is a coupon, the code required to redeem the coupon.
+*/
 @property(nonatomic) NSString * couponCode;
 
+/**
+The date and time on which the discount expires and cannot be redeemed.
+*/
 @property(nonatomic) NSDate * expirationDate;
 
+/**
+Specifies maximum number of redemptions allowed for each order. If null, it defaults to unlimited.
+*/
+@property(nonatomic) NSNumber * maximumRedemptionsPerOrder;
+
+/**
+The maximum number of times the discount can be redeemed.
+*/
 @property(nonatomic) NSNumber * maxRedemptionCount;
 
+/**
+This pecifies the minimum amount that must be purchased in the combined categories defined in IncludedCategories. This amount is calculated before discounting and it is not used if IncludedCategories is empty.
+*/
+@property(nonatomic) NSNumber * minimumCategorySubtotalBeforeDiscounts;
+
+/**
+The minimum customer lifetime value amount required to redeem this discount.
+*/
 @property(nonatomic) NSNumber * minimumLifetimeValueAmount;
 
+/**
+The minimum order amount required to redeem this discount.
+*/
 @property(nonatomic) NSNumber * minimumOrderAmount;
 
+/**
+This specifies the minimum quantity of products in the categories specified in IncludedCategories, which must be purchased to qualify for the associated discount. This defaults to 1 if  null, and IncludedCategories has values.
+*/
+@property(nonatomic) NSNumber * minimumQuantityProductsRequiredInCategories;
+
+/**
+This specifies the minimum quantity of products in the specified IncludedProducts that must be purchased to qualify for the associated discount. This defaults to 1 if  null, and IncludedProducts has values.
+*/
+@property(nonatomic) NSNumber * minimumQuantityRequiredProducts;
+
+/**
+If true, only authenticated users can redeem the discount. If false, anonymous users can redeem the discount.
+*/
 @property(nonatomic) NSNumber * requiresAuthenticatedUser;
 
+/**
+If true, redemption of this discount requires entry of a coupon code.
+*/
 @property(nonatomic) BOOL requiresCoupon;
 
+/**
+The earliest date and time this discount can be redeemed.
+*/
 @property(nonatomic) NSDate * startDate;
 
+/**
+List of customer segments associated with the discount. Shoppers who are members of an associated customer segment can redeem this discount.
+*/
 @property(nonatomic) NSArray<MOZUAdminCustomerSegment> *customerSegments;
 
+/**
+List of the product categories that are not eligible for the discount.
+*/
 @property(nonatomic) NSArray<MOZUCategoryDiscountCondition> *excludedCategories;
 
+/**
+List of the products that are not eligible for the discount.
+*/
 @property(nonatomic) NSArray<MOZUProductDiscountCondition> *excludedProducts;
 
+/**
+List of product categories that are eligible for the discount.
+*/
 @property(nonatomic) NSArray<MOZUCategoryDiscountCondition> *includedCategories;
 
+/**
+List of products that are eligible for the discount.
+*/
 @property(nonatomic) NSArray<MOZUProductDiscountCondition> *includedProducts;
 
 @end

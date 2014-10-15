@@ -27,31 +27,35 @@
 Retrieves a list of discounts according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-+ (MOZUClient *)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
-
-/**
-Retrieves the details of a single discount.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
-*/
-
-+ (MOZUClient *)clientForGetDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId;
++ (MOZUClient *)clientForGetDiscountsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Retrieves the localized content specified for the specified discount.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId;
++ (MOZUClient *)clientForGetDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
+
+/**
+Retrieves the details of a single discount.
+@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForGetDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 /**
 Generates a random code for a coupon.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGenerateRandomCouponOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode;
++ (MOZUClient *)clientForGenerateRandomCouponOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -61,11 +65,12 @@ Generates a random code for a coupon.
 //
 
 /**
-Creates a discount.
-@param body Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
+Creates a new discount or coupon to apply to a product, category, order, or shipping.
+@param body Properties of the discount to create. You must specify the discount name, amount type, start date, and target.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForCreateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body;
++ (MOZUClient *)clientForCreateDiscountOperationWithBody:(MOZUAdminDiscount *)body responseFields:(NSString *)responseFields;
 
 
 //
@@ -75,20 +80,22 @@ Creates a discount.
 //
 
 /**
-Modifies a discount.
-@param body Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
+Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+@param body The discount content to update, including the discount name.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId;
++ (MOZUClient *)clientForUpdateDiscountContentOperationWithBody:(MOZUDiscountLocalizedContent *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 /**
-Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
-@param body New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+Updates one or more properties of a defined discount.
+@param body Properties of the discount to update.
+@param discountId Unique identifier of the discount to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateDiscountContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountLocalizedContent *)body discountId:(NSInteger)discountId;
++ (MOZUClient *)clientForUpdateDiscountOperationWithBody:(MOZUAdminDiscount *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -102,7 +109,7 @@ Deletes a discount specified by its discount ID.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
 */
 
-+ (MOZUClient *)clientForDeleteDiscountOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId;
++ (MOZUClient *)clientForDeleteDiscountOperationWithDiscountId:(NSInteger)discountId;
 
 
 

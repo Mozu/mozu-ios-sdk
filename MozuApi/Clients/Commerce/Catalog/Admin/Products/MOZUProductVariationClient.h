@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
+#import "MOZUProductVariationDeltaPrice.h"
 #import "MOZUProductVariation.h"
 #import "MOZUProductVariationPagedCollection.h"
 #import "MOZUProductVariationCollection.h"
@@ -24,23 +25,43 @@
 //
 
 /**
+
+@param productCode 
+@param variationKey 
+*/
+
++ (MOZUClient *)clientForGetProductVariationLocalizedDeltaPricesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey;
+
+/**
+
+@param currencyCode 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param variationKey 
+*/
+
++ (MOZUClient *)clientForGetProductVariationLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
+
+/**
 Retrieves the details of a product variation based on the supplied product code and variation key.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
-+ (MOZUClient *)clientForGetProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey;
++ (MOZUClient *)clientForGetProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields;
 
 /**
 Retrieves a list of the product variations configured for the specified product code.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+ (MOZUClient *)clientForGetProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUClient *)clientForGetProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 
 //
@@ -48,6 +69,16 @@ Retrieves a list of the product variations configured for the specified product 
 #pragma mark Post Operations
 #pragma mark -
 //
+
+/**
+
+@param body 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param variationKey 
+*/
+
++ (MOZUClient *)clientForAddProductVariationLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationDeltaPrice *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields;
 
 
 //
@@ -57,21 +88,43 @@ Retrieves a list of the product variations configured for the specified product 
 //
 
 /**
-Modifies the collection of variations for the specified product code. Because this PUT replaces the existing resource, supply all information necessary to maintain for the product variation.
-@param body Wrapper for the collection of variations configured for the specified product code.
-@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+
+@param body 
+@param productCode 
+@param variationKey 
 */
 
-+ (MOZUClient *)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection *)body productCode:(NSString *)productCode;
++ (MOZUClient *)clientForUpdateProductVariationLocalizedDeltaPricesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductVariationDeltaPrice> *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey;
+
+/**
+
+@param body 
+@param currencyCode 
+@param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
+@param variationKey 
+*/
+
++ (MOZUClient *)clientForUpdateProductVariationLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationDeltaPrice *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
 
 /**
 Modifies the details of a variation, based on the supplied variation key, for the specified product code.
 @param body Wrapper for the properties of the specified product variation.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
-+ (MOZUClient *)clientForUpdateProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey;
++ (MOZUClient *)clientForUpdateProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariation *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields;
+
+/**
+Modifies the collection of variations for the specified product code. Because this PUT replaces the existing resource, supply all information necessary to maintain for the product variation.
+@param body Wrapper for the collection of variations configured for the specified product code.
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields 
+*/
+
++ (MOZUClient *)clientForUpdateProductVariationsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductVariationCollection *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -87,6 +140,15 @@ Deletes a variation, based on the supplied variation key, for the specified prod
 */
 
 + (MOZUClient *)clientForDeleteProductVariationOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey;
+
+/**
+
+@param currencyCode 
+@param productCode 
+@param variationKey 
+*/
+
++ (MOZUClient *)clientForDeleteProductVariationLocalizedDeltaPriceOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode;
 
 
 

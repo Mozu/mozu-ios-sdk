@@ -12,16 +12,13 @@
 #import "MOZUCustomerAuthTicketResource.h"
 
 
-
 @interface MOZUCustomerAuthTicketResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUCustomerAuthTicketResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -39,7 +41,7 @@
 //
 
 /**
-
+Creates an authentication ticket for an anonymous shopper user.
 */
 
 - (void)createAnonymousShopperAuthTicketWithCompletionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -61,13 +63,14 @@
 //
 
 /**
-
-@param body 
+Generates a new authentication ticket for a customer account.
+@param body The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body];
+	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -84,13 +87,14 @@
 //
 
 /**
-
-@param refreshToken 
+Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
+@param refreshToken The refresh token string required to refresh a user's authentication ticket.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken];
+	MOZUClient *client = [MOZUCustomerAuthTicketClient clientForRefreshUserAuthTicketOperationWithRefreshToken:refreshToken responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

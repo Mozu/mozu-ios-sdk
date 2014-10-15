@@ -19,8 +19,9 @@
 
 /**
 Resource Url Components for getSiteShippingSettings
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetSiteShippingSettingsOperation;
++ (MOZUURLComponents *)URLComponentsForGetSiteShippingSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

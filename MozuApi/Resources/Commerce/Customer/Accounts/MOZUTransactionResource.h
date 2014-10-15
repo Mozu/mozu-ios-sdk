@@ -18,10 +18,11 @@
 @interface MOZUTransactionResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -47,9 +48,10 @@ Retrieves a list of transactions associated with the customer account specified 
 Creates a new transaction for the customer account specified in the request.
 @param body Properties of the transaction to create for the customer account.
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addTransactionWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUTransaction *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addTransactionWithBody:(MOZUTransaction *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTransaction *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

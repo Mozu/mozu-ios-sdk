@@ -23,9 +23,10 @@
 
 /**
 Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetCustomerCheckoutSettingsOperation;
++ (MOZUClient *)clientForGetCustomerCheckoutSettingsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -44,9 +45,10 @@ Retrieves all checkout settings defined for the site: Payment settings, such as 
 /**
 Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
 @param body All the properties to update in the checkout settings.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateCustomerCheckoutSettingsOperationWithBody:(MOZUCustomerCheckoutSettings *)body;
++ (MOZUClient *)clientForUpdateCustomerCheckoutSettingsOperationWithBody:(MOZUCustomerCheckoutSettings *)body responseFields:(NSString *)responseFields;
 
 
 //

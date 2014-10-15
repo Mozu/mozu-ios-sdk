@@ -19,10 +19,11 @@
 @interface MOZUCustomerAuthTicketResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,7 +32,7 @@
 //
 
 /**
-
+Creates an authentication ticket for an anonymous shopper user.
 */
 
 - (void)createAnonymousShopperAuthTicketWithCompletionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -44,11 +45,12 @@
 //
 
 /**
-
-@param body 
+Generates a new authentication ticket for a customer account.
+@param body The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createUserAuthTicketWithBody:(MOZUCustomerUserAuthInfo *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -58,11 +60,12 @@
 //
 
 /**
-
-@param refreshToken 
+Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
+@param refreshToken The refresh token string required to refresh a user's authentication ticket.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)refreshUserAuthTicketWithRefreshToken:(NSString *)refreshToken responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

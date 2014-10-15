@@ -12,16 +12,13 @@
 #import "MOZUAdminCategoryResource.h"
 
 
-
 @interface MOZUAdminCategoryResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUAdminCategoryResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -42,13 +44,31 @@
 Retrieves a list of categories according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-- (void)categoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUAdminCategoryPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)categoriesWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminCategoryPagedCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminCategoryClient clientForGetCategoriesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	MOZUClient *client = [MOZUAdminCategoryClient clientForGetCategoriesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+Retrieves the list of subcategories within a category.
+@param categoryId Unique identifier of the category for which to retrieve subcategories.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)childCategoriesWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUAdminCategoryClient clientForGetChildCategoriesOperationWithCategoryId:categoryId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -60,27 +80,12 @@ Retrieves a list of categories according to any specified filter criteria and so
 /**
 Retrieves the details of a single category.
 @param categoryId Unique identifier of the category to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)categoryWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)categoryWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminCategoryClient clientForGetCategoryOperationWithDataViewMode:dataViewMode categoryId:categoryId];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
-/**
-Retrieves the subcategories of a category. This is a list of subcategories at the same level (siblings). Use a list of siblings, for example, to display the categories in a horizontal list.
-@param categoryId Unique identifier of the category whose subcategories are retrieved.
-*/
-
-- (void)childCategoriesWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId completionHandler:(void(^)(MOZUAdminCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUAdminCategoryClient clientForGetChildCategoriesOperationWithDataViewMode:dataViewMode categoryId:categoryId];
+	MOZUClient *client = [MOZUAdminCategoryClient clientForGetCategoryOperationWithCategoryId:categoryId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -97,14 +102,15 @@ Retrieves the subcategories of a category. This is a list of subcategories at th
 //
 
 /**
-Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to locate the category in the hierarchy. If a ParentCategoryID is not specified, the new category becomes a top-level category.
-@param body Properties of the new category. Required properties: ParentCategoryID and Content.Name.
-@param incrementSequence 
+Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
+@param body Properties of the new category to create. You must specify a name and parent category if you want to create it as a subcategory.
+@param incrementSequence If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body incrementSequence:(NSNumber *)incrementSequence completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addCategoryWithBody:(MOZUAdminCategory *)body incrementSequence:(NSNumber *)incrementSequence responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminCategoryClient clientForAddCategoryOperationWithDataViewMode:dataViewMode body:body incrementSequence:incrementSequence];
+	MOZUClient *client = [MOZUAdminCategoryClient clientForAddCategoryOperationWithBody:body incrementSequence:incrementSequence responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -121,15 +127,16 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 //
 
 /**
-Modifies a category such as moving it to another location in the category tree, or changing whether it is visible on the storefront. This PUT replaces the existing resource, so be sure to include all the information to maintain for the category.
+Update the properties of a defined category or move it to another location in the category hierarchy. Because this operation replaces the defined resource,include all the information to maintain for the category in the request.
 @param body Properties of the category to modify.
 @param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. Default: False.
 @param categoryId Unique identifier of the category to modify.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateCategoryWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminCategory *)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCategoryWithBody:(MOZUAdminCategory *)body categoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminCategory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminCategoryClient clientForUpdateCategoryOperationWithDataViewMode:dataViewMode body:body categoryId:categoryId cascadeVisibility:cascadeVisibility];
+	MOZUClient *client = [MOZUAdminCategoryClient clientForUpdateCategoryOperationWithBody:body categoryId:categoryId cascadeVisibility:cascadeVisibility responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -147,13 +154,13 @@ Modifies a category such as moving it to another location in the category tree, 
 
 /**
 Deletes the category specified by its category ID.
-@param cascadeDelete If true, any subcategories of a category are deleted when this category is deleted. Default: False.
+@param cascadeDelete If true, also delete all subcategories associated with the specified category.
 @param categoryId Unique identifier of the category to delete.
 */
 
-- (void)deleteCategoryByIdWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteCategoryByIdWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminCategoryClient clientForDeleteCategoryByIdOperationWithDataViewMode:dataViewMode categoryId:categoryId cascadeDelete:cascadeDelete];
+	MOZUClient *client = [MOZUAdminCategoryClient clientForDeleteCategoryByIdOperationWithCategoryId:categoryId cascadeDelete:cascadeDelete];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

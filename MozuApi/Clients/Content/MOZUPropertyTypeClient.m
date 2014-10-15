@@ -11,7 +11,6 @@
 #import "MOZUPropertyTypeClient.h"
 #import "MOZUPropertyTypeURLComponents.h"
 #import "MozuPropertyTypeCollection.h"
-#import "MozuPropertyValueType.h"
 #import "MozuPropertyType.h"
 
 
@@ -23,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetPropertyTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
-	id url = [MOZUPropertyTypeURLComponents URLComponentsForGetPropertyTypesOperationWithPageSize:pageSize startIndex:startIndex];
++ (MOZUClient *)clientForGetPropertyTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
+	id url = [MOZUPropertyTypeURLComponents URLComponentsForGetPropertyTypesOperationWithPageSize:pageSize startIndex:startIndex responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -39,8 +38,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetPropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName {
-	id url = [MOZUPropertyTypeURLComponents URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:propertyTypeName];
++ (MOZUClient *)clientForGetPropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields {
+	id url = [MOZUPropertyTypeURLComponents URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:propertyTypeName responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,18 +54,22 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForPropertyValueTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode {
-	id url = [MOZUPropertyTypeURLComponents URLComponentsForPropertyValueTypesOperation];
-	id verb = @"GET";
+
+//
+#pragma mark -
+#pragma mark Post Operations
+#pragma mark -
+//
+
++ (MOZUClient *)clientForCreatePropertyTypeOperationWithBody:(MOZUPropertyType *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUPropertyTypeURLComponents URLComponentsForCreatePropertyTypeOperationWithResponseFields:responseFields];
+	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
+	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUPropertyValueType arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+		return [[MOZUPropertyType alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -75,16 +78,26 @@
 
 //
 #pragma mark -
-#pragma mark Post Operations
-#pragma mark -
-//
-
-
-//
-#pragma mark -
 #pragma mark Put Operations
 #pragma mark -
 //
+
++ (MOZUClient *)clientForUpdatePropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPropertyType *)body propertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields {
+	id url = [MOZUPropertyTypeURLComponents URLComponentsForUpdatePropertyTypeOperationWithPropertyTypeName:propertyTypeName responseFields:responseFields];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUPropertyType alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
 
 
 //
@@ -92,6 +105,17 @@
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUClient *)clientForDeletePropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName {
+	id url = [MOZUPropertyTypeURLComponents URLComponentsForDeletePropertyTypeOperationWithPropertyTypeName:propertyTypeName];
+	id verb = @"DELETE";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	return client;
+}
 
 
 

@@ -18,10 +18,11 @@
 @interface MOZUCustomerCheckoutSettingsResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,9 +32,10 @@
 
 /**
 Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)customerCheckoutSettingsWithCompletionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)customerCheckoutSettingsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -52,9 +54,10 @@ Retrieves all checkout settings defined for the site: Payment settings, such as 
 /**
 Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
 @param body All the properties to update in the checkout settings.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateCustomerCheckoutSettingsWithBody:(MOZUCustomerCheckoutSettings *)body completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateCustomerCheckoutSettingsWithBody:(MOZUCustomerCheckoutSettings *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCustomerCheckoutSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

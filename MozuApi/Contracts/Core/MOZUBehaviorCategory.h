@@ -18,15 +18,18 @@
 
 
 /**
-	***Always private and should not be published.***
+	Properties of a category of application behaviors.
 */
 @interface MOZUBehaviorCategory : JSONModel<MOZUBehaviorCategory>
 
 /**
-Identifier of the entity.
+Unique identifier of the behavior.
 */
 @property(nonatomic) NSInteger id;
 
+/**
+The name of the behavior.
+*/
 @property(nonatomic) NSString * name;
 
 @end

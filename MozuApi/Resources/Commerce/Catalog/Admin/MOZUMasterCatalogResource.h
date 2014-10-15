@@ -19,10 +19,11 @@
 @interface MOZUMasterCatalogResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -32,16 +33,18 @@
 
 /**
 Retrieve the details of all master catalog associated with a tenant.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)masterCatalogsWithCompletionHandler:(void(^)(MOZUMasterCatalogCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)masterCatalogsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUMasterCatalogCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieve the details of the master catalog specified in the request.
-@param masterCatalogId 
+@param masterCatalogId The unique identifier of the master catalog associated with the entity.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)masterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode masterCatalogId:(NSInteger)masterCatalogId completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)masterCatalogWithMasterCatalogId:(NSInteger)masterCatalogId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -61,9 +64,10 @@ Retrieve the details of the master catalog specified in the request.
 Updates the product publishing mode for the master catalog specified in the request.
 @param body Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
 @param masterCatalogId 
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateMasterCatalogWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateMasterCatalogWithBody:(MOZUAdminMasterCatalog *)body masterCatalogId:(NSInteger)masterCatalogId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminMasterCatalog *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -23,19 +23,21 @@
 //
 
 /**
-
-@param pageSize 
-@param startIndex 
+Retrieves a paged list of the system-defined document types.
+@param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-+ (MOZUClient *)clientForGetDocumentTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex;
++ (MOZUClient *)clientForGetDocumentTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields;
 
 /**
-
-@param documentTypeName 
+Retrieves a system-defined document type.
+@param documentTypeName The name of the document type to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName;
++ (MOZUClient *)clientForGetDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields;
 
 
 //
@@ -44,12 +46,29 @@
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForCreateDocumentTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocumentType *)body responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
 #pragma mark Put Operations
 #pragma mark -
 //
+
+/**
+
+@param body 
+@param documentTypeName 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForUpdateDocumentTypeOperationWithBody:(MOZUDocumentType *)body documentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields;
 
 
 //

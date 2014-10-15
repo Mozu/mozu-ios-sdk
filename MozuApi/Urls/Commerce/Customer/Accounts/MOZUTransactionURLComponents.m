@@ -33,10 +33,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId {
-	NSString *template = @"/api/commerce/customer/accounts/{accountId}/transactions";
++ (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/transactions?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"accountId" : @(accountId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

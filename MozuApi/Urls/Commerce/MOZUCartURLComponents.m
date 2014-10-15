@@ -17,42 +17,49 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetCartOperationWithCartId:(NSString *)cartId {
-	NSString *template = @"/api/commerce/carts/{cartId}";
++ (MOZUURLComponents *)URLComponentsForGetCartOperationWithCartId:(NSString *)cartId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/carts/{cartId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"cartId" : cartId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetOrCreateCartOperation {
-	NSString *template = @"/api/commerce/carts/current";
-	NSDictionary *params = nil;
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
-}
-
-+ (MOZUURLComponents *)URLComponentsForGetCartSummaryOperation {
-	NSString *template = @"/api/commerce/carts/summary";
-	NSDictionary *params = nil;
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
-}
-
-+ (MOZUURLComponents *)URLComponentsForGetUserCartOperationWithUserId:(NSString *)userId {
-	NSString *template = @"/api/commerce/carts/user/{userId}";
++ (MOZUURLComponents *)URLComponentsForGetOrCreateCartOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/carts/current?responseFields={responseFields}";
 	NSDictionary *params = @{
-		@"userId" : userId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString *)userId {
-	NSString *template = @"/api/commerce/carts/user/{userId}/summary";
++ (MOZUURLComponents *)URLComponentsForGetCartSummaryOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/carts/summary?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/carts/user/{userId}/summary?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"userId" : userId,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetUserCartOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/carts/user/{userId}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"userId" : userId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -72,9 +79,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateCartOperation {
-	NSString *template = @"/api/commerce/carts/current";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForUpdateCartOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/carts/current?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

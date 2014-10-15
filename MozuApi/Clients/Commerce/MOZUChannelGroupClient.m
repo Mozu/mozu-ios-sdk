@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUChannelGroupURLComponents URLComponentsForGetChannelGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUChannelGroupURLComponents URLComponentsForGetChannelGroupsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetChannelGroupOperationWithCode:(NSString *)code {
-	id url = [MOZUChannelGroupURLComponents URLComponentsForGetChannelGroupOperationWithCode:code];
++ (MOZUClient *)clientForGetChannelGroupOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	id url = [MOZUChannelGroupURLComponents URLComponentsForGetChannelGroupOperationWithCode:code responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateChannelGroupOperationWithBody:(MOZUChannelGroup *)body {
-	id url = [MOZUChannelGroupURLComponents URLComponentsForCreateChannelGroupOperation];
++ (MOZUClient *)clientForCreateChannelGroupOperationWithBody:(MOZUChannelGroup *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUChannelGroupURLComponents URLComponentsForCreateChannelGroupOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,8 +76,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateChannelGroupOperationWithBody:(MOZUChannelGroup *)body code:(NSString *)code {
-	id url = [MOZUChannelGroupURLComponents URLComponentsForUpdateChannelGroupOperationWithCode:code];
++ (MOZUClient *)clientForUpdateChannelGroupOperationWithBody:(MOZUChannelGroup *)body code:(NSString *)code responseFields:(NSString *)responseFields {
+	id url = [MOZUChannelGroupURLComponents URLComponentsForUpdateChannelGroupOperationWithCode:code responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

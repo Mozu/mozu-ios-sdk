@@ -32,8 +32,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemaOperationWithCountryCode:countryCode];
++ (MOZUClient *)clientForGetAddressSchemaOperationWithCountryCode:(NSString *)countryCode responseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemaOperationWithCountryCode:countryCode responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -45,8 +45,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAddressSchemasOperation {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemasOperation];
++ (MOZUClient *)clientForGetAddressSchemasOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetAddressSchemasOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -58,8 +58,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorOperationWithBehaviorId:behaviorId];
++ (MOZUClient *)clientForGetBehaviorOperationWithBehaviorId:(NSInteger)behaviorId responseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorOperationWithBehaviorId:behaviorId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -71,21 +71,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetBehaviorCategoriesOperation {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorCategoriesOperation];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUBehaviorCategoryCollection alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorCategoryOperationWithCategoryId:categoryId];
++ (MOZUClient *)clientForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorCategoryOperationWithCategoryId:categoryId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -97,8 +84,21 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetBehaviorsOperationWithUserType:(NSString *)userType {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorsOperationWithUserType:userType];
++ (MOZUClient *)clientForGetBehaviorCategoriesOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorCategoriesOperationWithResponseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUBehaviorCategoryCollection alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetBehaviorsOperationWithUserType:(NSString *)userType responseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetBehaviorsOperationWithUserType:userType responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -110,8 +110,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetContentLocalesOperation {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetContentLocalesOperation];
++ (MOZUClient *)clientForGetContentLocalesOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetContentLocalesOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -123,8 +123,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCountriesOperation {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCountriesOperation];
++ (MOZUClient *)clientForGetCountriesOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCountriesOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -136,8 +136,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetCurrenciesOperation {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCurrenciesOperation];
++ (MOZUClient *)clientForGetCurrenciesOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCurrenciesOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -149,8 +149,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetTimeZonesOperation {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetTimeZonesOperation];
++ (MOZUClient *)clientForGetTimeZonesOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetTimeZonesOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -162,8 +162,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetTopLevelDomainsOperation {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetTopLevelDomainsOperation];
++ (MOZUClient *)clientForGetTopLevelDomainsOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetTopLevelDomainsOperationWithResponseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -175,8 +175,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter {
-	id url = [MOZUReferenceDataURLComponents URLComponentsForGetUnitsOfMeasureOperationWithFilter:filter];
++ (MOZUClient *)clientForGetUnitsOfMeasureOperationWithFilter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetUnitsOfMeasureOperationWithFilter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

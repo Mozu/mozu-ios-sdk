@@ -32,9 +32,10 @@ Retrieves a list of all option attributes configured for the product specified i
 Retrieves the details of an option attribute configuration for the specified product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForGetOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -47,9 +48,10 @@ Retrieves the details of an option attribute configuration for the specified pro
 Configures an option attribute for the product specified in the request.
 @param body Properties of the option attribute to define for the product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption *)body productCode:(NSString *)productCode;
++ (MOZUClient *)clientForAddOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -63,9 +65,10 @@ Updates one or more properties of an option attribute configured for a product.
 @param body Properties of the product option attribute configuration to update.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUClient *)clientForUpdateOptionOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProductOption *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //

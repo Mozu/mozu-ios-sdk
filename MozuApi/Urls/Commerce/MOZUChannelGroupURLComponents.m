@@ -17,22 +17,24 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/channelgroups/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetChannelGroupsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/channelgroups/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetChannelGroupOperationWithCode:(NSString *)code {
-	NSString *template = @"/api/commerce/channelgroups/{code}";
++ (MOZUURLComponents *)URLComponentsForGetChannelGroupOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/channelgroups/{code}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"code" : code,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -45,9 +47,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForCreateChannelGroupOperation {
-	NSString *template = @"/api/commerce/channelgroups/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForCreateChannelGroupOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/channelgroups/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,10 +63,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateChannelGroupOperationWithCode:(NSString *)code {
-	NSString *template = @"/api/commerce/channelgroups/{code}";
++ (MOZUURLComponents *)URLComponentsForUpdateChannelGroupOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/channelgroups/{code}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"code" : code,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

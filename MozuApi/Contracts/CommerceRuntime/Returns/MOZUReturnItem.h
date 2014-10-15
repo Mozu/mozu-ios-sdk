@@ -27,6 +27,11 @@
 @interface MOZUReturnItem : JSONModel<MOZUReturnItem>
 
 /**
+Unique identifier of the return whose items you want to get.
+*/
+@property(nonatomic) NSString * id;
+
+/**
 Unique identifier of the item in the original completed order. All return items should be associated with a corresponding order item.
 */
 @property(nonatomic) NSString * orderItemId;
@@ -66,6 +71,9 @@ The total tax amount levied on the shipping loss amount.
 */
 @property(nonatomic) NSNumber * shippingLossTaxAmount;
 
+/**
+Properties of a collection of component products that make up a single returned product bundle with its own product code.
+*/
 @property(nonatomic) NSArray<MOZUReturnBundle> *bundledProducts;
 
 /**

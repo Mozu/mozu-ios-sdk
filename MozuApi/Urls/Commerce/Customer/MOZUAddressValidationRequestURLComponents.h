@@ -26,8 +26,9 @@
 
 /**
 Resource Url Components for validateAddress
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForValidateAddressOperation;
++ (MOZUURLComponents *)URLComponentsForValidateAddressOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

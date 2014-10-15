@@ -19,16 +19,34 @@
 @end
 
 
+/**
+	This specifies if a tenant is associated with a subscription.
+*/
 @interface MOZUSubscribingTenant : JSONModel<MOZUSubscribingTenant>
 
+/**
+This specifies if the subscription is active at the tenant level. If the subscription context is at the tenant level, this property is used over the site level.
+*/
 @property(nonatomic) NSNumber * isActive;
 
+/**
+This specifies the type of subscribing context, which is derived from the state of the subscription. If any subscribing sites exist; for example, a subscription that is not at the tenant level, then the value will be 'site'.
+*/
 @property(nonatomic) NSString * subscribingContextLevelType;
 
+/**
+This specifies the tenant identifier.
+*/
 @property(nonatomic) NSNumber * tenantId;
 
+/**
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+*/
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
+/**
+This specifies the subscribing sites.
+*/
 @property(nonatomic) NSArray<MOZUSubscribingSite> *subscribingSites;
 
 @end

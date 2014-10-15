@@ -17,22 +17,24 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/customer/visits/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetVisitsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/visits/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetVisitOperationWithVisitId:(NSString *)visitId {
-	NSString *template = @"/api/commerce/customer/visits/{visitId}";
++ (MOZUURLComponents *)URLComponentsForGetVisitOperationWithVisitId:(NSString *)visitId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/visits/{visitId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"visitId" : visitId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -45,9 +47,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddVisitOperation {
-	NSString *template = @"/api/commerce/customer/visits/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForAddVisitOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/visits/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
@@ -59,10 +63,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateVisitOperationWithVisitId:(NSString *)visitId {
-	NSString *template = @"/api/commerce/customer/visits/{visitId}";
++ (MOZUURLComponents *)URLComponentsForUpdateVisitOperationWithVisitId:(NSString *)visitId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/visits/{visitId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"visitId" : visitId,
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -26,10 +26,13 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy {
-	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductsOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy];
++ (MOZUClient *)clientForGetProductsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode filter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductsOperationWithFilter:filter startIndex:startIndex pageSize:pageSize sortBy:sortBy responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -39,10 +42,13 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes {
-	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductInventoryOperationWithProductCode:productCode locationCodes:locationCodes];
++ (MOZUClient *)clientForGetProductInventoryOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode locationCodes:(NSString *)locationCodes responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductInventoryOperationWithProductCode:productCode locationCodes:locationCodes responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -52,10 +58,13 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck {
-	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductOperationWithProductCode:productCode variationProductCode:variationProductCode allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck];
++ (MOZUClient *)clientForGetProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductOperationWithProductCode:productCode variationProductCode:variationProductCode allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -72,8 +81,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForConfiguredProductOperationWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck {
-	id url = [MOZURuntimeProductURLComponents URLComponentsForConfiguredProductOperationWithProductCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck];
++ (MOZUClient *)clientForConfiguredProductOperationWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForConfiguredProductOperationWithProductCode:productCode includeOptionDetails:includeOptionDetails skipInventoryCheck:skipInventoryCheck responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -86,8 +95,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForValidateProductOperationWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck {
-	id url = [MOZURuntimeProductURLComponents URLComponentsForValidateProductOperationWithProductCode:productCode skipInventoryCheck:skipInventoryCheck];
++ (MOZUClient *)clientForValidateProductOperationWithBody:(MOZUProductOptionSelections *)body productCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForValidateProductOperationWithProductCode:productCode skipInventoryCheck:skipInventoryCheck responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -100,8 +109,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForValidateDiscountsOperationWithBody:(MOZUDiscountSelections *)body productCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck {
-	id url = [MOZURuntimeProductURLComponents URLComponentsForValidateDiscountsOperationWithProductCode:productCode variationProductCode:variationProductCode customerAccountId:customerAccountId allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck];
++ (MOZUClient *)clientForValidateDiscountsOperationWithBody:(MOZUDiscountSelections *)body productCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForValidateDiscountsOperationWithProductCode:productCode variationProductCode:variationProductCode customerAccountId:customerAccountId allowInactive:allowInactive skipInventoryCheck:skipInventoryCheck responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -109,6 +118,23 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUDiscountValidationSummary alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetProductInventoriesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZULocationInventoryQuery *)body responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductInventoriesOperationWithResponseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZURuntimeLocationInventoryCollection alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

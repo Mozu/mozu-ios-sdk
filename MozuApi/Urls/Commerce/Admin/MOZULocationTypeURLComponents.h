@@ -24,9 +24,10 @@ Resource Url Components for getLocationTypes
 
 /**
 Resource Url Components for getLocationType
-@param locationTypeCode 
+@param locationTypeCode The user-defined code that identifies the location type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;
++ (MOZUURLComponents *)URLComponentsForGetLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -37,8 +38,9 @@ Resource Url Components for getLocationType
 
 /**
 Resource Url Components for addLocationType
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddLocationTypeOperation;
++ (MOZUURLComponents *)URLComponentsForAddLocationTypeOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -49,9 +51,10 @@ Resource Url Components for addLocationType
 
 /**
 Resource Url Components for updateLocationType
-@param locationTypeCode 
+@param locationTypeCode The user-defined code that identifies the location type.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;
++ (MOZUURLComponents *)URLComponentsForUpdateLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -62,7 +65,7 @@ Resource Url Components for updateLocationType
 
 /**
 Resource Url Components for deleteLocationType
-@param locationTypeCode 
+@param locationTypeCode User-defined code used to identify the location type.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;
 

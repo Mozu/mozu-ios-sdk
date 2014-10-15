@@ -12,16 +12,14 @@
 #import "MOZUProductTypeResource.h"
 
 
-
 @interface MOZUProductTypeResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUProductTypeResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -42,13 +55,14 @@
 Retrieves a list of product types according to any specified filter criteria and sort options.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
 @param startIndex 
 */
 
-- (void)productTypesWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter completionHandler:(void(^)(MOZUProductTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)productTypesWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductTypeCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeClient clientForGetProductTypesOperationWithDataViewMode:dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
+	MOZUClient *client = [MOZUProductTypeClient clientForGetProductTypesOperationWithDataViewMode:self.dataViewMode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -60,11 +74,12 @@ Retrieves a list of product types according to any specified filter criteria and
 /**
 Retrieves the details of the product type specified in the request.
 @param productTypeId Identifier of the product type to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)productTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)productTypeWithProductTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeClient clientForGetProductTypeOperationWithDataViewMode:dataViewMode productTypeId:productTypeId];
+	MOZUClient *client = [MOZUProductTypeClient clientForGetProductTypeOperationWithDataViewMode:self.dataViewMode productTypeId:productTypeId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -83,11 +98,12 @@ Retrieves the details of the product type specified in the request.
 /**
 Creates a new product type based on the information supplied in the request.
 @param body Properties of the product type to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addProductTypeWithBody:(MOZUProductType *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeClient clientForAddProductTypeOperationWithDataViewMode:dataViewMode body:body];
+	MOZUClient *client = [MOZUProductTypeClient clientForAddProductTypeOperationWithDataViewMode:self.dataViewMode body:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -107,11 +123,12 @@ Creates a new product type based on the information supplied in the request.
 Updates one or more properties of a product type.
 @param body The details of the product type to update.
 @param productTypeId Identifier of the product type to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateProductTypeWithBody:(MOZUProductType *)body productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductType *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeClient clientForUpdateProductTypeOperationWithDataViewMode:dataViewMode body:body productTypeId:productTypeId];
+	MOZUClient *client = [MOZUProductTypeClient clientForUpdateProductTypeOperationWithDataViewMode:self.dataViewMode body:body productTypeId:productTypeId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -132,9 +149,9 @@ Deletes the product type by providing the product type ID.
 @param productTypeId Identifier of the product type to delete.
 */
 
-- (void)deleteProductTypeWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteProductTypeWithProductTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUProductTypeClient clientForDeleteProductTypeOperationWithDataViewMode:dataViewMode productTypeId:productTypeId];
+	MOZUClient *client = [MOZUProductTypeClient clientForDeleteProductTypeOperationWithDataViewMode:self.dataViewMode productTypeId:productTypeId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForGetInStockNotificationSubscriptionsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetInStockNotificationSubscriptionsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForGetInStockNotificationSubscriptionsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier {
-	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier];
++ (MOZUClient *)clientForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields {
+	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:identifier responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddInStockNotificationSubscriptionOperationWithBody:(MOZUInStockNotificationSubscription *)body {
-	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForAddInStockNotificationSubscriptionOperation];
++ (MOZUClient *)clientForAddInStockNotificationSubscriptionOperationWithBody:(MOZUInStockNotificationSubscription *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUInStockNotificationSubscriptionURLComponents URLComponentsForAddInStockNotificationSubscriptionOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

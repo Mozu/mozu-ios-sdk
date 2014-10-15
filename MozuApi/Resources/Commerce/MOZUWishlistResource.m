@@ -12,16 +12,13 @@
 #import "MOZUWishlistResource.h"
 
 
-
 @interface MOZUWishlistResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUWishlistResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -44,13 +46,14 @@ Retrieves a list of shopper wish lists according to any filter and sort criteria
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param q A list of search terms to use in the query when searching across wish list name. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
+@param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)wishlistsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit completionHandler:(void(^)(MOZUWishlistCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistsWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlistCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistClient clientForGetWishlistsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit];
+	MOZUClient *client = [MOZUWishlistClient clientForGetWishlistsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -61,12 +64,13 @@ Retrieves a list of shopper wish lists according to any filter and sort criteria
 
 /**
 Retrieves the details of the shopper wish list specified in the request.
+@param responseFields Use this field to include those fields which are not included by default.
 @param wishlistId Unique identifier of the shopper wish list to retrieve.
 */
 
-- (void)wishlistWithWishlistId:(NSString *)wishlistId completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistWithWishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistClient clientForGetWishlistOperationWithWishlistId:wishlistId];
+	MOZUClient *client = [MOZUWishlistClient clientForGetWishlistOperationWithWishlistId:wishlistId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -76,14 +80,15 @@ Retrieves the details of the shopper wish list specified in the request.
 }
 
 /**
-
-@param customerAccountId 
-@param wishlistName 
+Retrieves the details of a wish list by supplying the wish list name.
+@param customerAccountId The unique identifier of the customer account for which to retrieve wish lists.
+@param responseFields Use this field to include those fields which are not included by default.
+@param wishlistName The name of the wish list to retrieve.
 */
 
-- (void)wishlistByNameWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)wishlistByNameWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistClient clientForGetWishlistByNameOperationWithCustomerAccountId:customerAccountId wishlistName:wishlistName];
+	MOZUClient *client = [MOZUWishlistClient clientForGetWishlistByNameOperationWithCustomerAccountId:customerAccountId wishlistName:wishlistName responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -102,11 +107,12 @@ Retrieves the details of the shopper wish list specified in the request.
 /**
 Creates a new shopper wish list for the associated customer account. Although customer accounts are maintained at the tenant level, the system stores wish lists at the site level. Newly created wish lists do not have any items.
 @param body Properties of the wish list to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createWishlistWithBody:(MOZUWishlist *)body completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createWishlistWithBody:(MOZUWishlist *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistClient clientForCreateWishlistOperationWithBody:body];
+	MOZUClient *client = [MOZUWishlistClient clientForCreateWishlistOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -125,12 +131,13 @@ Creates a new shopper wish list for the associated customer account. Although cu
 /**
 Updates one or more properties of a shopper wish list defined for a customer account.
 @param body Properties of the shopper wish list to update.
+@param responseFields Use this field to include those fields which are not included by default.
 @param wishlistId Unique identifier of the shopper wish list to update.
 */
 
-- (void)updateWishlistWithBody:(MOZUWishlist *)body wishlistId:(NSString *)wishlistId completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateWishlistWithBody:(MOZUWishlist *)body wishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUWishlist *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUWishlistClient clientForUpdateWishlistOperationWithBody:body wishlistId:wishlistId];
+	MOZUClient *client = [MOZUWishlistClient clientForUpdateWishlistOperationWithBody:body wishlistId:wishlistId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

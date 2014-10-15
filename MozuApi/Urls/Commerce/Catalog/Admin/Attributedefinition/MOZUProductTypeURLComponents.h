@@ -23,14 +23,16 @@ Resource Url Components for getProductTypes
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductTypesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter;
++ (MOZUURLComponents *)URLComponentsForGetProductTypesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getProductType
 @param productTypeId Identifier of the product type to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForGetProductTypeOperationWithProductTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields;
 
 
 //
@@ -41,8 +43,9 @@ Resource Url Components for getProductType
 
 /**
 Resource Url Components for addProductType
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddProductTypeOperation;
++ (MOZUURLComponents *)URLComponentsForAddProductTypeOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -54,8 +57,9 @@ Resource Url Components for addProductType
 /**
 Resource Url Components for updateProductType
 @param productTypeId Identifier of the product type to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateProductTypeOperationWithProductTypeId:(NSInteger)productTypeId;
++ (MOZUURLComponents *)URLComponentsForUpdateProductTypeOperationWithProductTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields;
 
 
 //

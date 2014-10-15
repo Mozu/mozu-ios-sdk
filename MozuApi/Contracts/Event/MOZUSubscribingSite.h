@@ -20,10 +20,16 @@
 
 @interface MOZUSubscribingSite : JSONModel<MOZUSubscribingSite>
 
+/**
+This specifies if the subscription is active at the site level.
+*/
 @property(nonatomic) NSNumber * isActive;
 
 @property(nonatomic) NSNumber * siteId;
 
+/**
+Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+*/
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 @end

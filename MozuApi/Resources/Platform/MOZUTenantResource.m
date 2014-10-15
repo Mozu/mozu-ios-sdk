@@ -25,10 +25,11 @@
 
 /**
 Retrieve details about a specific tenant by providing the tenant ID.
+@param responseFields Use this field to include those fields which are not included by default.
 @param tenantId Unique identifier of the Mozu tenant.
 */
 
-- (void)tenantWithTenantId:(NSInteger)tenantId completionHandler:(void(^)(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)tenantWithTenantId:(NSInteger)tenantId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	NSString *cacheKey = [@(tenantId) stringValue];
 	id tenant = [MOZUCacheManager getCacheForKey:cacheKey];
@@ -37,7 +38,7 @@ Retrieve details about a specific tenant by providing the tenant ID.
 		return;
 	}
 
-	MOZUClient *client = [MOZUTenantClient clientForGetTenantOperationWithTenantId:tenantId];
+	MOZUClient *client = [MOZUTenantClient clientForGetTenantOperationWithTenantId:tenantId responseFields:responseFields];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		NSString *key = [@(tenantId) stringValue];
 		[MOZUCacheManager setCache:result forKey:key];

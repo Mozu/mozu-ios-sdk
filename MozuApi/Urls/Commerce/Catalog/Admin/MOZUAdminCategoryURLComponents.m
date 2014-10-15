@@ -17,31 +17,34 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId {
-	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}";
++ (MOZUURLComponents *)URLComponentsForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}/children?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetChildCategoriesOperationWithCategoryId:(NSInteger)categoryId {
-	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}/children";
++ (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -54,10 +57,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForAddCategoryOperationWithIncrementSequence:(NSNumber *)incrementSequence {
-	NSString *template = @"/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}";
++ (MOZUURLComponents *)URLComponentsForAddCategoryOperationWithIncrementSequence:(NSNumber *)incrementSequence responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"incrementSequence" : incrementSequence ? incrementSequence : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -70,11 +74,12 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility {
-	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}";
++ (MOZUURLComponents *)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"cascadeVisibility" : cascadeVisibility ? cascadeVisibility : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

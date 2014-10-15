@@ -33,9 +33,10 @@
 Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.
 @param body The action to perform for the order fulfillment.
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
+@param responseFields Updated order with a new fulfillment status resulting from the action supplied in the request.
 */
 
-+ (MOZUClient *)clientForPerformFulfillmentActionOperationWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId;
++ (MOZUClient *)clientForPerformFulfillmentActionOperationWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //

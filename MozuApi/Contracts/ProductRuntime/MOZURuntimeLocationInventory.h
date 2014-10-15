@@ -27,6 +27,8 @@ User-defined code that uniquely identifies the location.
 */
 @property(nonatomic) NSString * locationCode;
 
+@property(nonatomic) NSString * productCode;
+
 /**
 The current level of active product stock available at the specified location.
 */

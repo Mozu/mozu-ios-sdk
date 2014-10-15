@@ -25,21 +25,24 @@ Resource Url Components for getWishlists
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param q A list of search terms to use in the query when searching across wish list name. Separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit;
++ (MOZUURLComponents *)URLComponentsForGetWishlistsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getWishlist
 @param wishlistId Unique identifier of the shopper wish list to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetWishlistOperationWithWishlistId:(NSString *)wishlistId;
++ (MOZUURLComponents *)URLComponentsForGetWishlistOperationWithWishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getWishlistByName
-@param customerAccountId 
-@param wishlistName 
+@param customerAccountId The unique identifier of the customer account for which to retrieve wish lists.
+@param wishlistName The name of the wish list to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName;
++ (MOZUURLComponents *)URLComponentsForGetWishlistByNameOperationWithCustomerAccountId:(NSInteger)customerAccountId wishlistName:(NSString *)wishlistName responseFields:(NSString *)responseFields;
 
 
 //
@@ -50,8 +53,9 @@ Resource Url Components for getWishlistByName
 
 /**
 Resource Url Components for createWishlist
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreateWishlistOperation;
++ (MOZUURLComponents *)URLComponentsForCreateWishlistOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -63,8 +67,9 @@ Resource Url Components for createWishlist
 /**
 Resource Url Components for updateWishlist
 @param wishlistId Unique identifier of the shopper wish list to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateWishlistOperationWithWishlistId:(NSString *)wishlistId;
++ (MOZUURLComponents *)URLComponentsForUpdateWishlistOperationWithWishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields;
 
 
 //

@@ -12,16 +12,14 @@
 #import "MOZUDocumentListResource.h"
 
 
-
 @interface MOZUDocumentListResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUDocumentListResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -41,12 +54,13 @@
 /**
 Retrieves a collection of document lists.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+@param responseFields Use this field to include those fields which are not included by default.
 @param startIndex 
 */
 
-- (void)documentListsWithDataViewMode:(MOZUDataViewMode)dataViewMode pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex completionHandler:(void(^)(MOZUDocumentListCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentListsWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentListCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentListClient clientForGetDocumentListsOperationWithDataViewMode:dataViewMode pageSize:pageSize startIndex:startIndex];
+	MOZUClient *client = [MOZUDocumentListClient clientForGetDocumentListsOperationWithDataViewMode:self.dataViewMode pageSize:pageSize startIndex:startIndex responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -58,11 +72,12 @@ Retrieves a collection of document lists.
 /**
 Retrieve the details of a document list by providing the list name.
 @param documentListName The name of the document list.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)documentListWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName completionHandler:(void(^)(MOZUDocumentList *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentListWithDocumentListName:(NSString *)documentListName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentList *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentListClient clientForGetDocumentListOperationWithDataViewMode:dataViewMode documentListName:documentListName];
+	MOZUClient *client = [MOZUDocumentListClient clientForGetDocumentListOperationWithDataViewMode:self.dataViewMode documentListName:documentListName responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -78,6 +93,23 @@ Retrieve the details of a document list by providing the list name.
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)createDocumentListWithBody:(MOZUDocumentList *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentList *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUDocumentListClient clientForCreateDocumentListOperationWithDataViewMode:self.dataViewMode body:body responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -
@@ -85,12 +117,46 @@ Retrieve the details of a document list by providing the list name.
 #pragma mark -
 //
 
+/**
+
+@param body 
+@param documentListName 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
+- (void)updateDocumentListWithBody:(MOZUDocumentList *)body documentListName:(NSString *)documentListName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentList *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUDocumentListClient clientForUpdateDocumentListOperationWithBody:body documentListName:documentListName responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+
+@param documentListName 
+*/
+
+- (void)deleteDocumentListWithDocumentListName:(NSString *)documentListName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUDocumentListClient clientForDeleteDocumentListOperationWithDocumentListName:documentListName];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(error, response);
+		}
+	}];
+}
 
 
 

@@ -20,6 +20,7 @@
 @interface MOZUAuthTicketResource : NSObject
 
 
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -36,9 +37,10 @@
 /**
 Generate an authentication ticket for an application.
 @param body Authentication information required to generate an authentication ticket includes the application id and the shared secret.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)authenticateAppWithBody:(MOZUAppAuthInfo *)body completionHandler:(void(^)(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)authenticateAppWithBody:(MOZUAppAuthInfo *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -50,9 +52,10 @@ Generate an authentication ticket for an application.
 /**
 Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
 @param body The refresh token string required to update the application authentication ticket.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest *)body completionHandler:(void(^)(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

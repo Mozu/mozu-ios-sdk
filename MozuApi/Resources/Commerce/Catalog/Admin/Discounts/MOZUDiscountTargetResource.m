@@ -12,16 +12,14 @@
 #import "MOZUDiscountTargetResource.h"
 
 
-
 @interface MOZUDiscountTargetResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUDiscountTargetResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -41,11 +54,12 @@
 /**
 Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
 @param discountId Unique identifier of the discount. System-supplied and read only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)discountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUDiscountTarget *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)discountTargetWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDiscountTarget *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountTargetClient clientForGetDiscountTargetOperationWithDataViewMode:dataViewMode discountId:discountId];
+	MOZUClient *client = [MOZUDiscountTargetClient clientForGetDiscountTargetOperationWithDataViewMode:self.dataViewMode discountId:discountId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -72,11 +86,12 @@ Retrieves the discount target, that is which products, categories, or shipping m
 Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
 @param body Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateDiscountTargetWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget *)body discountId:(NSInteger)discountId completionHandler:(void(^)(MOZUDiscountTarget *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateDiscountTargetWithBody:(MOZUDiscountTarget *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDiscountTarget *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDiscountTargetClient clientForUpdateDiscountTargetOperationWithDataViewMode:dataViewMode body:body discountId:discountId];
+	MOZUClient *client = [MOZUDiscountTargetClient clientForUpdateDiscountTargetOperationWithBody:body discountId:discountId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

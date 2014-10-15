@@ -18,18 +18,19 @@
 //
 
 /**
-Resource Url Components for getTreeDocument
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
-*/
-+ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName;
-
-/**
 Resource Url Components for getTreeDocumentContent
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 + (MOZUURLComponents *)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName;
+
+/**
+Resource Url Components for getTreeDocument
+@param documentListName The name of the document list associated with the document.
+@param documentName The name of the document, which is unique within its folder.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields;
 
 
 //

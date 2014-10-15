@@ -22,13 +22,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId validate:(NSNumber *)validate {
-	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetOperationWithFacetId:facetId validate:validate];
++ (MOZUClient *)clientForGetFacetOperationWithFacetId:(NSInteger)facetId validate:(NSNumber *)validate responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetOperationWithFacetId:facetId validate:validate responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -38,13 +35,10 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetFacetCategoryListOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode categoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate {
-	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetCategoryListOperationWithCategoryId:categoryId includeAvailable:includeAvailable validate:validate];
++ (MOZUClient *)clientForGetFacetCategoryListOperationWithCategoryId:(NSInteger)categoryId includeAvailable:(NSNumber *)includeAvailable validate:(NSNumber *)validate responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminFacetURLComponents URLComponentsForGetFacetCategoryListOperationWithCategoryId:categoryId includeAvailable:includeAvailable validate:validate responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -61,13 +55,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body {
-	id url = [MOZUAdminFacetURLComponents URLComponentsForAddFacetOperation];
++ (MOZUClient *)clientForAddFacetOperationWithBody:(MOZUAdminFacet *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminFacetURLComponents URLComponentsForAddFacetOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 
@@ -85,13 +76,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateFacetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminFacet *)body facetId:(NSInteger)facetId {
-	id url = [MOZUAdminFacetURLComponents URLComponentsForUpdateFacetOperationWithFacetId:facetId];
++ (MOZUClient *)clientForUpdateFacetOperationWithBody:(MOZUAdminFacet *)body facetId:(NSInteger)facetId responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminFacetURLComponents URLComponentsForUpdateFacetOperationWithFacetId:facetId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 
@@ -109,13 +97,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteFacetByIdOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode facetId:(NSInteger)facetId {
++ (MOZUClient *)clientForDeleteFacetByIdOperationWithFacetId:(NSInteger)facetId {
 	id url = [MOZUAdminFacetURLComponents URLComponentsForDeleteFacetByIdOperationWithFacetId:facetId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	return client;
 }

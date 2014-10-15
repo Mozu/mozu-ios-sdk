@@ -23,27 +23,14 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetPaymentsOperationWithOrderId:(NSString *)orderId {
-	id url = [MOZUPaymentURLComponents URLComponentsForGetPaymentsOperationWithOrderId:orderId];
++ (MOZUClient *)clientForGetPaymentsOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	id url = [MOZUPaymentURLComponents URLComponentsForGetPaymentsOperationWithOrderId:orderId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUPaymentCollection alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetPaymentOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId {
-	id url = [MOZUPaymentURLComponents URLComponentsForGetPaymentOperationWithOrderId:orderId paymentId:paymentId];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUPayment alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -57,6 +44,19 @@
 	return client;
 }
 
++ (MOZUClient *)clientForGetPaymentOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields {
+	id url = [MOZUPaymentURLComponents URLComponentsForGetPaymentOperationWithOrderId:orderId paymentId:paymentId responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUPayment alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
 
 //
 #pragma mark -
@@ -64,8 +64,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForPerformPaymentActionOperationWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId {
-	id url = [MOZUPaymentURLComponents URLComponentsForPerformPaymentActionOperationWithOrderId:orderId paymentId:paymentId];
++ (MOZUClient *)clientForPerformPaymentActionOperationWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields {
+	id url = [MOZUPaymentURLComponents URLComponentsForPerformPaymentActionOperationWithOrderId:orderId paymentId:paymentId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -78,8 +78,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForCreatePaymentActionOperationWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId {
-	id url = [MOZUPaymentURLComponents URLComponentsForCreatePaymentActionOperationWithOrderId:orderId];
++ (MOZUClient *)clientForCreatePaymentActionOperationWithBody:(MOZUPaymentAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	id url = [MOZUPaymentURLComponents URLComponentsForCreatePaymentActionOperationWithOrderId:orderId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

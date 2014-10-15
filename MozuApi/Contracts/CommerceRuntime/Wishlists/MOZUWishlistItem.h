@@ -12,8 +12,8 @@
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUCommerceProduct.h"
-#import "MOZUAppliedProductDiscount.h"
-#import "MOZUShippingDiscount.h"
+#import "MOZUAppliedLineItemProductDiscount.h"
+#import "MOZUAppliedLineItemShippingDiscount.h"
 #import "MOZUCommerceUnitPrice.h"
 
 
@@ -38,7 +38,7 @@ The subtotal of the wishlist item including any applied discount calculations. T
 @property(nonatomic) NSNumber * discountedTotal;
 
 /**
-Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.                      This property value is not calculated at this time and is reserved for future functionality.
+Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.  This property value is not calculated at this time and is reserved for future functionality.
 */
 @property(nonatomic) NSNumber * discountTotal;
 
@@ -51,6 +51,8 @@ The extended total of an item in a wish list. This property value is not calcula
 The fee total of an item in a wish list. This property value is not calculated at this time and is reserved for future functionality.
 */
 @property(nonatomic) NSNumber * feeTotal;
+
+@property(nonatomic) NSNumber * handlingAmount;
 
 /**
 Unique identifier of an item in a shopper wish list.
@@ -127,17 +129,20 @@ The properties of the product associated with an item in a wish list.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 
-@property(nonatomic) MOZUAppliedProductDiscount *productDiscount;
+/**
+List of product discounts that apply to the item in the wishlist.
+*/
+@property(nonatomic) MOZUAppliedLineItemProductDiscount *productDiscount;
 
 /**
 Array of product discounts applicable to an item in a wish list. This property is not used at this time and is reserved for future functionality.
 */
-@property(nonatomic) NSArray<MOZUAppliedProductDiscount> *productDiscounts;
+@property(nonatomic) NSArray<MOZUAppliedLineItemProductDiscount> *productDiscounts;
 
 /**
 Array of shipping discounts applicable for an item in a wish list. This property is not used at this time and is reserved for future functionality.
 */
-@property(nonatomic) NSArray<MOZUShippingDiscount> *shippingDiscounts;
+@property(nonatomic) NSArray<MOZUAppliedLineItemShippingDiscount> *shippingDiscounts;
 
 /**
 The unit price of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.

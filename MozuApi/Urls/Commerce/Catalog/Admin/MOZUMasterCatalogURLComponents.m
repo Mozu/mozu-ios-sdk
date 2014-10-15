@@ -17,17 +17,20 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetMasterCatalogsOperation {
-	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetMasterCatalogsOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId {
-	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}";
++ (MOZUURLComponents *)URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"masterCatalogId" : @(masterCatalogId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -47,10 +50,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId {
-	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}";
++ (MOZUURLComponents *)URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"masterCatalogId" : @(masterCatalogId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -12,16 +12,14 @@
 #import "MOZUDocumentTreeResource.h"
 
 
-
 @interface MOZUDocumentTreeResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@property(readwrite, nonatomic) MOZUDataViewMode dataViewMode;
 @end
-
 
 @implementation MOZUDocumentTreeResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +29,21 @@
 	}
 }
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext dataViewMode:(MOZUDataViewMode) dataViewMode {
+	if (self = [super init]) {
+		self.apiContext = apiContext;
+		self.dataViewMode = dataViewMode;
+		return self;
+	}
+	else {
+		return nil;
+	}
+}
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned dataViewMode:self.dataViewMode];
+}
 
 //
 #pragma mark -
@@ -39,14 +52,14 @@
 //
 
 /**
-Retrieves a document based on its document list and folder path in the document hierarchy.
+Retrieve the content associated with the document, such as a product image or PDF specifications file.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 
-- (void)treeDocumentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)treeDocumentContentWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentTreeClient clientForGetTreeDocumentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentName:documentName];
+	MOZUClient *client = [MOZUDocumentTreeClient clientForGetTreeDocumentContentOperationWithDataViewMode:self.dataViewMode documentListName:documentListName documentName:documentName];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -56,14 +69,15 @@ Retrieves a document based on its document list and folder path in the document 
 }
 
 /**
-Retrieve the content associated with the document, such as a product image or PDF specifications file.
+Retrieves a document based on its document list and folder path in the document hierarchy.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)treeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)treeDocumentWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentTreeClient clientForGetTreeDocumentContentOperationWithDataViewMode:dataViewMode documentListName:documentListName documentName:documentName];
+	MOZUClient *client = [MOZUDocumentTreeClient clientForGetTreeDocumentOperationWithDataViewMode:self.dataViewMode documentListName:documentListName documentName:documentName responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -88,14 +102,14 @@ Retrieve the content associated with the document, such as a product image or PD
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
-@param body 
+@param body Input output stream that delivers information.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 
-- (void)updateTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateTreeDocumentContentWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentTreeClient clientForUpdateTreeDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentName:documentName];
+	MOZUClient *client = [MOZUDocumentTreeClient clientForUpdateTreeDocumentContentOperationWithBody:body documentListName:documentListName documentName:documentName];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -113,14 +127,14 @@ Updates the content associated with a document, such as a product image or PDF s
 
 /**
 Deletes the content associated with a document, such as a product image or PDF specifications file.
-@param body 
+@param body Input output stream that delivers information.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 
-- (void)deleteTreeDocumentContentWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)deleteTreeDocumentContentWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentTreeClient clientForDeleteTreeDocumentContentOperationWithDataViewMode:dataViewMode body:body documentListName:documentListName documentName:documentName];
+	MOZUClient *client = [MOZUDocumentTreeClient clientForDeleteTreeDocumentContentOperationWithBody:body documentListName:documentListName documentName:documentName];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

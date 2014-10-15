@@ -31,8 +31,9 @@ Resource Url Components for getTaxableTerritories
 
 /**
 Resource Url Components for addTaxableTerritory
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddTaxableTerritoryOperation;
++ (MOZUURLComponents *)URLComponentsForAddTaxableTerritoryOperationWithResponseFields:(NSString *)responseFields;
 
 
 //

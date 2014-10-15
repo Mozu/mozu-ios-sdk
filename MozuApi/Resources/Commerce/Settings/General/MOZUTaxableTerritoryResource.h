@@ -18,10 +18,11 @@
 @interface MOZUTaxableTerritoryResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -45,9 +46,10 @@ Retrieves a list of the taxable territories configured for the site.
 /**
 Creates a new territory for which to calculate sales tax.
 @param body Properties of the taxable territory to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)addTaxableTerritoryWithBody:(MOZUTaxableTerritory *)body completionHandler:(void(^)(MOZUTaxableTerritory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)addTaxableTerritoryWithBody:(MOZUTaxableTerritory *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTaxableTerritory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

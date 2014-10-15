@@ -12,16 +12,13 @@
 #import "MOZUFulfillmentInfoResource.h"
 
 
-
 @interface MOZUFulfillmentInfoResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUFulfillmentInfoResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -42,11 +44,12 @@
 Retrieves a list of the fulfillment information for the specified order.
 @param draft If true, retrieve the draft version of the order's fulfillment information, which might include uncommitted changes.
 @param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)fulfillmentInfoWithOrderId:(NSString *)orderId draft:(NSNumber *)draft completionHandler:(void(^)(MOZUFulfillmentInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)fulfillmentInfoWithOrderId:(NSString *)orderId draft:(NSNumber *)draft responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUFulfillmentInfoClient clientForGetFulfillmentInfoOperationWithOrderId:orderId draft:draft];
+	MOZUClient *client = [MOZUFulfillmentInfoClient clientForGetFulfillmentInfoOperationWithOrderId:orderId draft:draft responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -73,13 +76,14 @@ Retrieves a list of the fulfillment information for the specified order.
 Updates one or more properties of fulfillment information for the specified order.
 @param body Array list of fulfillment information associated with an order.
 @param orderId Unique identifier of the order.
+@param responseFields Use this field to include those fields which are not included by default.
 @param updateMode Specifies whether to set the fulfillment information by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-- (void)setFulFillmentInfoWithBody:(MOZUFulfillmentInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(MOZUFulfillmentInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)setFulFillmentInfoWithBody:(MOZUFulfillmentInfo *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentInfo *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUFulfillmentInfoClient clientForSetFulFillmentInfoOperationWithBody:body orderId:orderId updateMode:updateMode version:version];
+	MOZUClient *client = [MOZUFulfillmentInfoClient clientForSetFulFillmentInfoOperationWithBody:body orderId:orderId updateMode:updateMode version:version responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

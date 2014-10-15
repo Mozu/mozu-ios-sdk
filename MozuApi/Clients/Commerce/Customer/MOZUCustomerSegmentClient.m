@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUCustomerSegmentURLComponents URLComponentsForGetSegmentsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetSegmentsOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerSegmentURLComponents URLComponentsForGetSegmentsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetSegmentOperationWithIdentifier:(NSInteger)identifier {
-	id url = [MOZUCustomerSegmentURLComponents URLComponentsForGetSegmentOperationWithIdentifier:identifier];
++ (MOZUClient *)clientForGetSegmentOperationWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerSegmentURLComponents URLComponentsForGetSegmentOperationWithIdentifier:identifier responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddSegmentOperationWithBody:(MOZUCustomerSegment *)body {
-	id url = [MOZUCustomerSegmentURLComponents URLComponentsForAddSegmentOperation];
++ (MOZUClient *)clientForAddSegmentOperationWithBody:(MOZUCustomerSegment *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerSegmentURLComponents URLComponentsForAddSegmentOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -85,8 +85,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateSegmentOperationWithBody:(MOZUCustomerSegment *)body identifier:(NSInteger)identifier {
-	id url = [MOZUCustomerSegmentURLComponents URLComponentsForUpdateSegmentOperationWithIdentifier:identifier];
++ (MOZUClient *)clientForUpdateSegmentOperationWithBody:(MOZUCustomerSegment *)body identifier:(NSInteger)identifier responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerSegmentURLComponents URLComponentsForUpdateSegmentOperationWithIdentifier:identifier responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

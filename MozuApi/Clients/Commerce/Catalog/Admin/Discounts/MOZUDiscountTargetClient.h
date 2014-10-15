@@ -24,9 +24,10 @@
 /**
 Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
 @param discountId Unique identifier of the discount. System-supplied and read only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId;
++ (MOZUClient *)clientForGetDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode discountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -46,9 +47,10 @@ Retrieves the discount target, that is which products, categories, or shipping m
 Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
 @param body Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.
 @param discountId Unique identifier of the discount. System-supplied and read-only.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateDiscountTargetOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDiscountTarget *)body discountId:(NSInteger)discountId;
++ (MOZUClient *)clientForUpdateDiscountTargetOperationWithBody:(MOZUDiscountTarget *)body discountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 
 //

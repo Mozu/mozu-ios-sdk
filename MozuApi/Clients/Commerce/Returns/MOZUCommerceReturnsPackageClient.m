@@ -10,7 +10,7 @@
 
 #import "MOZUCommerceReturnsPackageClient.h"
 #import "MOZUCommerceReturnsPackageURLComponents.h"
-#import "MozuCommercePackage.h"
+#import "MozuPackage.h"
 
 
 @implementation MOZUCommerceReturnsPackageClient
@@ -21,23 +21,23 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
-	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForGetPackageOperationWithReturnId:returnId packageId:packageId];
++ (MOZUClient *)clientForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
+	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForGetPackageLabelOperationWithReturnId:returnId packageId:packageId];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields {
+	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForGetPackageOperationWithReturnId:returnId packageId:packageId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUCommercePackage alloc] initWithString:jsonResult error:nil];
+		return [[MOZUPackage alloc] initWithString:jsonResult error:nil];
 	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId {
-	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForGetPackageLabelOperationWithReturnId:returnId packageId:packageId];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	return client;
 }
@@ -49,15 +49,15 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUCommercePackage *)body returnId:(NSString *)returnId {
-	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForCreatePackageOperationWithReturnId:returnId];
++ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields {
+	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForCreatePackageOperationWithReturnId:returnId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUCommercePackage alloc] initWithString:jsonResult error:nil];
+		return [[MOZUPackage alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -70,15 +70,15 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUCommercePackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId {
-	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForUpdatePackageOperationWithReturnId:returnId packageId:packageId];
++ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields {
+	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForUpdatePackageOperationWithReturnId:returnId packageId:packageId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUCommercePackage alloc] initWithString:jsonResult error:nil];
+		return [[MOZUPackage alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

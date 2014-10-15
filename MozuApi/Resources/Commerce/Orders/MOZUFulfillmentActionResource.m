@@ -12,16 +12,13 @@
 #import "MOZUFulfillmentActionResource.h"
 
 
-
 @interface MOZUFulfillmentActionResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUFulfillmentActionResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -31,6 +28,11 @@
 	}
 }
 
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -49,11 +51,12 @@
 Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.
 @param body The action to perform for the order fulfillment.
 @param orderId Unique identifier of the order for which to perform the fulfillment action.
+@param responseFields Updated order with a new fulfillment status resulting from the action supplied in the request.
 */
 
-- (void)performFulfillmentActionWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)performFulfillmentActionWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUFulfillmentActionClient clientForPerformFulfillmentActionOperationWithBody:body orderId:orderId];
+	MOZUClient *client = [MOZUFulfillmentActionClient clientForPerformFulfillmentActionOperationWithBody:body orderId:orderId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

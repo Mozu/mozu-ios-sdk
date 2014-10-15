@@ -23,10 +23,21 @@
 */
 @interface MOZURuntimeProductPrice : JSONModel<MOZURuntimeProductPrice>
 
+/**
+The list price of the product in the catalog.
+*/
 @property(nonatomic) NSNumber * catalogListPrice;
 
+/**
+The sale price defined for the product in the catalog.
+*/
 @property(nonatomic) NSNumber * catalogSalePrice;
 
+@property(nonatomic) NSNumber * creditValue;
+
+/**
+The manufacturer's suggested retail price for the product.
+*/
 @property(nonatomic) NSNumber * msrp;
 
 /**
@@ -34,6 +45,9 @@ The price the merchant intends to charge for the product.
 */
 @property(nonatomic) NSNumber * price;
 
+/**
+The price type that displays on the storefront website for the Price field, which is List, MAP, or CatalogSalePrice
+*/
 @property(nonatomic) NSString * priceType;
 
 /**
@@ -41,6 +55,9 @@ The sale price defined for the product.
 */
 @property(nonatomic) NSNumber * salePrice;
 
+/**
+The price type that displays on the storefront website for the Sale Price field, which is CatalogSalePrice, DiscountedList, or DiscountedCatalogSalePrice
+*/
 @property(nonatomic) NSString * salePriceType;
 
 /**

@@ -12,16 +12,13 @@
 #import "MOZUSiteShippingHandlingFeeResource.h"
 
 
-
 @interface MOZUSiteShippingHandlingFeeResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZUSiteShippingHandlingFeeResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -40,11 +42,12 @@
 
 /**
 Retrieves the details of the order handling fee configured for the site.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)orderHandlingFeeWithCompletionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)orderHandlingFeeWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForGetOrderHandlingFeeOperation];
+	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForGetOrderHandlingFeeOperationWithResponseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -63,11 +66,12 @@ Retrieves the details of the order handling fee configured for the site.
 /**
 Creates a new order handling fee for the site.
 @param body Properties of the order handling fee to assess for order shipment.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee *)body completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForCreateOrderHandlingFeeOperationWithBody:body];
+	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForCreateOrderHandlingFeeOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -86,11 +90,12 @@ Creates a new order handling fee for the site.
 /**
 Updates the order handling fee amount for the site.
 @param body The combined price for all items in the order, including all selected options but excluding any discounts.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee *)body completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateOrderHandlingFeeWithBody:(MOZUSiteShippingHandlingFee *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteShippingHandlingFee *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForUpdateOrderHandlingFeeOperationWithBody:body];
+	MOZUClient *client = [MOZUSiteShippingHandlingFeeClient clientForUpdateOrderHandlingFeeOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

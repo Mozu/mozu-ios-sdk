@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUEventExtendedProperty.h"
 
 
 
@@ -33,9 +34,14 @@
 
 @property(nonatomic) NSNumber * siteId;
 
+/**
+Unique identifier of the Mozu tenant.
+*/
 @property(nonatomic) NSNumber * tenantId;
 
 @property(nonatomic) NSString * topic;
+
+@property(nonatomic) NSArray<MOZUEventExtendedProperty> *extendedProperties;
 
 @end
 

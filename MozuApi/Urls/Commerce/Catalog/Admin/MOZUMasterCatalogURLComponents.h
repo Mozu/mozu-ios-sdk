@@ -19,14 +19,16 @@
 
 /**
 Resource Url Components for getMasterCatalogs
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetMasterCatalogsOperation;
++ (MOZUURLComponents *)URLComponentsForGetMasterCatalogsOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getMasterCatalog
-@param masterCatalogId 
+@param masterCatalogId The unique identifier of the master catalog associated with the entity.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId;
++ (MOZUURLComponents *)URLComponentsForGetMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId responseFields:(NSString *)responseFields;
 
 
 //
@@ -45,8 +47,9 @@ Resource Url Components for getMasterCatalog
 /**
 Resource Url Components for updateMasterCatalog
 @param masterCatalogId 
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId;
++ (MOZUURLComponents *)URLComponentsForUpdateMasterCatalogOperationWithMasterCatalogId:(NSInteger)masterCatalogId responseFields:(NSString *)responseFields;
 
 
 //

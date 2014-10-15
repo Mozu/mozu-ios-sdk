@@ -18,20 +18,64 @@
 @end
 
 
+/**
+	Properties of a component product in a product bundle. A product bundle can represent either a collection of multiple products sold as a single entity, or a collection of the same product sold as a package. For example, a 10-pack of socks.
+*/
 @interface MOZUCommerceBundledProduct : JSONModel<MOZUCommerceBundledProduct>
 
+/**
+The credit value of the bundled product.
+*/
+@property(nonatomic) NSNumber * creditValue;
+
+/**
+The description defined for a component product in a product bundle. System-supplied and read only.
+*/
 @property(nonatomic) NSString * theDescription;
 
+/**
+The type of goods in a bundled product. For example: physical, digital, or digital credit.
+*/
+@property(nonatomic) NSString * goodsType;
+
+/**
+If true, this product cannot be shipped in a package with other items and must ship in a package by itself.
+*/
 @property(nonatomic) BOOL isPackagedStandAlone;
 
+/**
+The name of a component product in a product bundle. System-supplied and read only.
+*/
 @property(nonatomic) NSString * name;
 
+/**
+The fully qualified name of the attribute, which is a user defined attribute identifier.
+*/
+@property(nonatomic) NSString * optionAttributeFQN;
+
+/**
+The value of the bundled product.
+*/
+@property(nonatomic) NSObject * optionValue;
+
+/**
+Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+*/
 @property(nonatomic) NSString * productCode;
 
+/**
+Unique identifier of the product reservation associated with the component product in a product bundle. System-supplied and read only.
+*/
 @property(nonatomic) NSNumber * productReservationId;
 
+/**
+The quantity of a component product in its product bundle. System-supplied and read only.
+*/
 @property(nonatomic) NSInteger quantity;
 
+/**
+Dimensions of the packaged product.
+*/
 @property(nonatomic) MOZUPackageMeasurements *measurements;
 
 @end

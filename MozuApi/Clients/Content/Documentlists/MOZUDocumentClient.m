@@ -22,8 +22,19 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId {
-	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentOperationWithDocumentListName:documentListName documentId:documentId];
++ (MOZUClient *)clientForGetDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId {
+	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields {
+	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentOperationWithDocumentListName:documentListName documentId:documentId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -38,19 +49,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId {
-	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex {
-	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentsOperationWithDocumentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex];
++ (MOZUClient *)clientForGetDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
+	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentsOperationWithDocumentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -72,8 +72,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName {
-	id url = [MOZUDocumentURLComponents URLComponentsForCreateDocumentOperationWithDocumentListName:documentListName];
++ (MOZUClient *)clientForCreateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName responseFields:(NSString *)responseFields {
+	id url = [MOZUDocumentURLComponents URLComponentsForCreateDocumentOperationWithDocumentListName:documentListName responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -96,13 +96,19 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUDocument *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId {
-	id url = [MOZUDocumentURLComponents URLComponentsForUpdateDocumentOperationWithDocumentListName:documentListName documentId:documentId];
++ (MOZUClient *)clientForUpdateDocumentContentOperationWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId {
+	id url = [MOZUDocumentURLComponents URLComponentsForUpdateDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+	client.body = body;
+	return client;
+}
+
++ (MOZUClient *)clientForUpdateDocumentOperationWithBody:(MOZUDocument *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields {
+	id url = [MOZUDocumentURLComponents URLComponentsForUpdateDocumentOperationWithDocumentListName:documentListName documentId:documentId responseFields:responseFields];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
 
@@ -113,18 +119,6 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId {
-	id url = [MOZUDocumentURLComponents URLComponentsForUpdateDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
-	id verb = @"PUT";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
-	client.body = body;
-	return client;
-}
-
 
 //
 #pragma mark -
@@ -132,24 +126,18 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId {
++ (MOZUClient *)clientForDeleteDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId {
 	id url = [MOZUDocumentURLComponents URLComponentsForDeleteDocumentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
 	return client;
 }
 
-+ (MOZUClient *)clientForDeleteDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId {
++ (MOZUClient *)clientForDeleteDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId {
 	id url = [MOZUDocumentURLComponents URLComponentsForDeleteDocumentContentOperationWithDocumentListName:documentListName documentId:documentId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	return client;
 }

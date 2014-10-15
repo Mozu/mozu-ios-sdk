@@ -37,10 +37,13 @@ The type of discount amount, such as an amount or a percentage.
 @property(nonatomic) NSString * amountType;
 
 /**
-The most recent number of redeemed discounts.
+The number of times this discount has been redeemed.
 */
 @property(nonatomic) NSNumber * currentRedemptionCount;
 
+/**
+If true, this discount does not apply to a line item product with a defined sale price. The default is false, which applies the discount to products with and without defined sale prices.
+*/
 @property(nonatomic) NSNumber * doesNotApplyToSalePrice;
 
 /**
@@ -48,6 +51,9 @@ Unique identifier of the discount.
 */
 @property(nonatomic) NSNumber * id;
 
+/**
+The maximum number of times an individual shopper can redeem the discount.
+*/
 @property(nonatomic) NSNumber * maximumUsesPerUser;
 
 /**
@@ -65,6 +71,9 @@ Identifier and datetime stamp information recorded when a user or application cr
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
+/**
+List of conditions that must be met for the discount to apply.
+*/
 @property(nonatomic) MOZUDiscountCondition *conditions;
 
 /**

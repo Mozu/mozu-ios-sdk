@@ -12,17 +12,18 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUCommercePackage.h"
+#import "MOZUPackage.h"
 #import "MOZUShipment.h"
 
 
 @interface MOZUCommerceReturnsShipmentResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -32,11 +33,12 @@
 
 /**
 Retrieves the details of the specified return replacement shipment.
+@param responseFields Use this field to include those fields which are not included by default.
 @param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
 @param shipmentId Unique identifier of the return replacement shipment to retrieve.
 */
 
-- (void)shipmentWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId completionHandler:(void(^)(MOZUShipment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)shipmentWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUShipment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -51,7 +53,7 @@ Creates a shipment from one or more packages associated with a return replacemen
 @param returnId Unique identifier of the return for which to create replacement package shipments.
 */
 
-- (void)createPackageShipmentsWithBody:(NSArray *)body returnId:(NSString *)returnId completionHandler:(void(^)(NSArray<MOZUCommercePackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageShipmentsWithBody:(NSArray *)body returnId:(NSString *)returnId completionHandler:(void(^)(NSArray<MOZUPackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

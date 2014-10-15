@@ -22,27 +22,27 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetUserOperationWithUserId:(NSString *)userId {
-	id url = [MOZUAdminUserURLComponents URLComponentsForGetUserOperationWithUserId:userId];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUUser alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetTenantScopesForUserOperationWithUserId:(NSString *)userId {
-	id url = [MOZUAdminUserURLComponents URLComponentsForGetTenantScopesForUserOperationWithUserId:userId];
++ (MOZUClient *)clientForGetTenantScopesForUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminUserURLComponents URLComponentsForGetTenantScopesForUserOperationWithUserId:userId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUTenantCollection alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminUserURLComponents URLComponentsForGetUserOperationWithUserId:userId responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUUser alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

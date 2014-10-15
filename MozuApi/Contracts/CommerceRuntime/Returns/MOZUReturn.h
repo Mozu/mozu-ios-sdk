@@ -14,7 +14,7 @@
 #import "MOZUChangeMessage.h"
 #import "MOZUReturnItem.h"
 #import "MOZUOrderNote.h"
-#import "MOZUCommercePackage.h"
+#import "MOZUPackage.h"
 #import "MOZUPayment.h"
 
 
@@ -27,11 +27,6 @@
 	Properties of a return of one or more previously fulfilled items.
 */
 @interface MOZUReturn : JSONModel<MOZUReturn>
-
-/**
-Unique identifier of the Mozu tenant.
-*/
-@property(nonatomic) NSNumber * tenantId;
 
 /**
 The actions a user can perform for the return at this time.
@@ -134,6 +129,11 @@ Current status of the return, such as "ReturnAuthorized".
 @property(nonatomic) NSString * status;
 
 /**
+Unique identifier of the Mozu tenant.
+*/
+@property(nonatomic) NSNumber * tenantId;
+
+/**
 Unique identifier of the user responsible for the return. Read only and supplied by the original order.
 */
 @property(nonatomic) NSString * userId;
@@ -153,6 +153,9 @@ Identifier and datetime stamp information recorded when a user or application cr
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
+/**
+List of change messages associated with the return.
+*/
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**
@@ -168,7 +171,7 @@ Collection of merchant-supplied notes entered for the return.
 /**
 List of packages associated with a replacement order for a return.
 */
-@property(nonatomic) NSArray<MOZUCommercePackage> *packages;
+@property(nonatomic) NSArray<MOZUPackage> *packages;
 
 /**
 Array list of payments associated with this return, if applicable.

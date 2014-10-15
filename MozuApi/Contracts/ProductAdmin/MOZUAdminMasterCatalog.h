@@ -22,7 +22,12 @@
 */
 @interface MOZUAdminMasterCatalog : JSONModel<MOZUAdminMasterCatalog>
 
+/**
+The unique identifier of the master catalog associated with the entity.
+*/
 @property(nonatomic) NSInteger id;
+
+@property(nonatomic) BOOL isDeleted;
 
 /**
 The name of the master catalog.

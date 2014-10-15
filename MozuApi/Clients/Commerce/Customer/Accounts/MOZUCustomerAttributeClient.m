@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUCustomerAttributeURLComponents URLComponentsForGetAccountAttributeOperationWithAccountId:accountId attributeFQN:attributeFQN];
++ (MOZUClient *)clientForGetAccountAttributeOperationWithAccountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAttributeURLComponents URLComponentsForGetAccountAttributeOperationWithAccountId:accountId attributeFQN:attributeFQN responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -35,8 +35,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUCustomerAttributeURLComponents URLComponentsForGetAccountAttributesOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetAccountAttributesOperationWithAccountId:(NSInteger)accountId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAttributeURLComponents URLComponentsForGetAccountAttributesOperationWithAccountId:accountId startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -55,8 +55,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddAccountAttributeOperationWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId {
-	id url = [MOZUCustomerAttributeURLComponents URLComponentsForAddAccountAttributeOperationWithAccountId:accountId];
++ (MOZUClient *)clientForAddAccountAttributeOperationWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAttributeURLComponents URLComponentsForAddAccountAttributeOperationWithAccountId:accountId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -76,8 +76,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateAccountAttributeOperationWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUCustomerAttributeURLComponents URLComponentsForUpdateAccountAttributeOperationWithAccountId:accountId attributeFQN:attributeFQN];
++ (MOZUClient *)clientForUpdateAccountAttributeOperationWithBody:(MOZUCustomerAttribute *)body accountId:(NSInteger)accountId attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAttributeURLComponents URLComponentsForUpdateAccountAttributeOperationWithAccountId:accountId attributeFQN:attributeFQN responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

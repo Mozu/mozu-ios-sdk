@@ -22,6 +22,9 @@
 */
 @interface MOZUSite : JSONModel<MOZUSite>
 
+/**
+The unique identifier of the catalog of products used by a site.
+*/
 @property(nonatomic) NSInteger catalogId;
 
 @property(nonatomic) NSString * countryCode;

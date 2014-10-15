@@ -33,8 +33,9 @@ Resource Url Components for getTransactions
 /**
 Resource Url Components for addTransaction
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForAddTransactionOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //

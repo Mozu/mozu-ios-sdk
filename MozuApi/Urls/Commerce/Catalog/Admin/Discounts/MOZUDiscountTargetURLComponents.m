@@ -17,10 +17,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
-	NSString *template = @"/api/commerce/catalog/admin/discounts/{discountId}/target";
++ (MOZUURLComponents *)URLComponentsForGetDiscountTargetOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/discounts/{discountId}/target?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"discountId" : @(discountId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -40,10 +41,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId {
-	NSString *template = @"/api/commerce/catalog/admin/discounts/{discountId}/target";
++ (MOZUURLComponents *)URLComponentsForUpdateDiscountTargetOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/discounts/{discountId}/target?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"discountId" : @(discountId),
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

@@ -22,20 +22,21 @@
 //
 
 /**
-Retrieves a document based on its document list and folder path in the document hierarchy.
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
-*/
-
-+ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
-
-/**
 Retrieve the content associated with the document, such as a product image or PDF specifications file.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 
 + (MOZUClient *)clientForGetTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
+
+/**
+Retrieves a document based on its document list and folder path in the document hierarchy.
+@param documentListName The name of the document list associated with the document.
+@param documentName The name of the document, which is unique within its folder.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
+
++ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields;
 
 
 //
@@ -53,12 +54,12 @@ Retrieve the content associated with the document, such as a product image or PD
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
-@param body 
+@param body Input output stream that delivers information.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 
-+ (MOZUClient *)clientForUpdateTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
++ (MOZUClient *)clientForUpdateTreeDocumentContentOperationWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 
 //
@@ -69,12 +70,12 @@ Updates the content associated with a document, such as a product image or PDF s
 
 /**
 Deletes the content associated with a document, such as a product image or PDF specifications file.
-@param body 
+@param body Input output stream that delivers information.
 @param documentListName The name of the document list associated with the document.
 @param documentName The name of the document, which is unique within its folder.
 */
 
-+ (MOZUClient *)clientForDeleteTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
++ (MOZUClient *)clientForDeleteTreeDocumentContentOperationWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 
 

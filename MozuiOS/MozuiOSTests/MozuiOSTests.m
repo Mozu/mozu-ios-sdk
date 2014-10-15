@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "MOZUClient.h"
 #import "MOZUAdminProductPropertyValue.h"
+#import "MOZUAPILogger.h"
 
 @interface MozuiOSTests : XCTestCase
 

@@ -17,31 +17,35 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy {
-	NSString *template = @"/api/commerce/catalog/storefront/categories/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}";
++ (MOZUURLComponents *)URLComponentsForGetCategoriesOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/storefront/categories/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"filter" : filter ? filter : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive {
-	NSString *template = @"/api/commerce/catalog/storefront/categories/{categoryId}?allowInactive={allowInactive}";
++ (MOZUURLComponents *)URLComponentsForGetCategoryOperationWithCategoryId:(NSInteger)categoryId allowInactive:(NSNumber *)allowInactive responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/storefront/categories/{categoryId}?allowInactive={allowInactive}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"allowInactive" : allowInactive ? allowInactive : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetCategoryTreeOperation {
-	NSString *template = @"/api/commerce/catalog/storefront/categories/tree";
-	NSDictionary *params = nil;
++ (MOZUURLComponents *)URLComponentsForGetCategoryTreeOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/storefront/categories/tree?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }

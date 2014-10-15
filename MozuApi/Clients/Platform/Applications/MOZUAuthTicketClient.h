@@ -33,9 +33,10 @@
 /**
 Generate an authentication ticket for an application.
 @param body Authentication information required to generate an authentication ticket includes the application id and the shared secret.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAuthenticateAppOperationWithBody:(MOZUAppAuthInfo *)body;
++ (MOZUClient *)clientForAuthenticateAppOperationWithBody:(MOZUAppAuthInfo *)body responseFields:(NSString *)responseFields;
 
 
 //
@@ -47,9 +48,10 @@ Generate an authentication ticket for an application.
 /**
 Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
 @param body The refresh token string required to update the application authentication ticket.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForRefreshAppAuthTicketOperationWithBody:(MOZUAuthTicketRequest *)body;
++ (MOZUClient *)clientForRefreshAppAuthTicketOperationWithBody:(MOZUAuthTicketRequest *)body responseFields:(NSString *)responseFields;
 
 
 //

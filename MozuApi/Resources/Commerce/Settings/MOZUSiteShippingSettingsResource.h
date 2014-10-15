@@ -18,10 +18,11 @@
 @interface MOZUSiteShippingSettingsResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,9 +32,10 @@
 
 /**
 Retrieves a list of the shipping settings configured for a site.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)siteShippingSettingsWithCompletionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)siteShippingSettingsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSiteShippingSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

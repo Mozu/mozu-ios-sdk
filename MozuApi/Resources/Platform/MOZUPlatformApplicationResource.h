@@ -18,10 +18,11 @@
 @interface MOZUPlatformApplicationResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext *apiContext;
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext;
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -30,11 +31,12 @@
 //
 
 /**
-
-@param appId 
+Retrieves the details of the installed application specified in the request.
+@param appId The application ID that represents the application to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)applicationWithAppId:(NSString *)appId completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)applicationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -51,12 +53,13 @@
 //
 
 /**
-
-@param body 
-@param appId 
+Updates one or more properties of the application specified in the request.
+@param body Properties of the application to update.
+@param appId The application ID that represents the application to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

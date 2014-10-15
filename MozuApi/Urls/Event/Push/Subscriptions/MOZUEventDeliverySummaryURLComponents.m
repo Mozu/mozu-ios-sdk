@@ -17,24 +17,26 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier {
-	NSString *template = @"/api/event/push/subscriptions/{subscriptionId}/deliveryattempts/{identifier}";
++ (MOZUURLComponents *)URLComponentsForGetDeliveryAttemptSummaryOperationWithSubscriptionId:(NSString *)subscriptionId identifier:(NSNumber *)identifier responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/event/push/subscriptions/{subscriptionId}/deliveryattempts/{identifier}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"subscriptionId" : subscriptionId,
 		@"identifier" : identifier ? identifier : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	NSString *template = @"/api/event/push/subscriptions/{subscriptionId}/deliveryattempts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
++ (MOZUURLComponents *)URLComponentsForGetDeliveryAttemptSummariesOperationWithSubscriptionId:(NSString *)subscriptionId startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/event/push/subscriptions/{subscriptionId}/deliveryattempts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"subscriptionId" : subscriptionId,
 		@"startIndex" : startIndex ? startIndex : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"filter" : filter ? filter : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

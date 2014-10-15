@@ -12,16 +12,13 @@
 #import "MOZULocationUsageResource.h"
 
 
-
 @interface MOZULocationUsageResource()
-@property(readwrite, nonatomic) MOZUAPIContext *apiContext;
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
-
 
 @implementation MOZULocationUsageResource
 
-
-- (instancetype)initWithAPIContext:(MOZUAPIContext *)apiContext {
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
 		self.apiContext = apiContext;
 		return self;
@@ -32,6 +29,11 @@
 }
 
 
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+	return [self initWithAPIContext:cloned];
+}
+
 //
 #pragma mark -
 #pragma mark Get Operations
@@ -40,11 +42,12 @@
 
 /**
 Retrieves the configured site location usages for the location usage code specified in the request.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)locationUsagesWithCompletionHandler:(void(^)(MOZULocationUsageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationUsagesWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationUsageCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZULocationUsageClient clientForGetLocationUsagesOperation];
+	MOZUClient *client = [MOZULocationUsageClient clientForGetLocationUsagesOperationWithResponseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -56,11 +59,12 @@ Retrieves the configured site location usages for the location usage code specif
 /**
 Retrieves the location usages for the site specified in the request header.
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)locationUsageWithCode:(NSString *)code completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)locationUsageWithCode:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZULocationUsageClient clientForGetLocationUsageOperationWithCode:code];
+	MOZUClient *client = [MOZULocationUsageClient clientForGetLocationUsageOperationWithCode:code responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -87,11 +91,12 @@ Retrieves the location usages for the site specified in the request header.
 Updates the location usage for the site based on the location usage code specified in the request.
 @param body Properties of the location usage type to update.
 @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updateLocationUsageWithBody:(MOZULocationUsage *)body code:(NSString *)code completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updateLocationUsageWithBody:(MOZULocationUsage *)body code:(NSString *)code responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZULocationUsage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZULocationUsageClient clientForUpdateLocationUsageOperationWithBody:body code:code];
+	MOZUClient *client = [MOZULocationUsageClient clientForUpdateLocationUsageOperationWithBody:body code:code responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUCapability.h"
+#import "MOZUInstalledApplicationsCapability.h"
 
 
 
@@ -18,19 +18,40 @@
 @end
 
 
+/**
+	Properties of an application installed in a tenant.
+*/
 @interface MOZUInstalledApplications : JSONModel<MOZUInstalledApplications>
 
+/**
+The unique identifier of the application in Mozu Dev Center.
+*/
 @property(nonatomic) NSString * appId;
 
+/**
+If true, the application is enabled for the tenant. System-supplied and read-only.
+*/
 @property(nonatomic) NSNumber * enabled;
 
+/**
+If true, the third party application settings have been configured and the application is initialized.
+*/
 @property(nonatomic) NSNumber * initialized;
 
+/**
+If true, the application type is Extension.
+*/
 @property(nonatomic) NSNumber * isExtension;
 
+/**
+The URL defined for the application that represents the configuration website for the capability.
+*/
 @property(nonatomic) NSString * uiConfigurationUrl;
 
-@property(nonatomic) NSArray<MOZUCapability> *capabilities;
+/**
+List of capabilities installed in a tenant.
+*/
+@property(nonatomic) NSArray<MOZUInstalledApplicationsCapability> *capabilities;
 
 @end
 

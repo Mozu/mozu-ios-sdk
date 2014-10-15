@@ -18,17 +18,19 @@
 //
 
 /**
-Resource Url Components for getAccountCards
+Resource Url Components for getAccountCard
 @param accountId Unique identifier of the customer account.
+@param cardId Unique identifier of the card associated with the customer account billing contact.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAccountCardsOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId responseFields:(NSString *)responseFields;
 
 /**
-Resource Url Components for getAccountCard
-@param accountId 
-@param cardId 
+Resource Url Components for getAccountCards
+@param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId;
++ (MOZUURLComponents *)URLComponentsForGetAccountCardsOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -40,8 +42,9 @@ Resource Url Components for getAccountCard
 /**
 Resource Url Components for addAccountCard
 @param accountId Unique identifier of the customer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddAccountCardOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForAddAccountCardOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -53,9 +56,10 @@ Resource Url Components for addAccountCard
 /**
 Resource Url Components for updateAccountCard
 @param accountId Unique identifier of the customer account.
-@param cardId 
+@param cardId Unique identifier of the credit card.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId;
++ (MOZUURLComponents *)URLComponentsForUpdateAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId responseFields:(NSString *)responseFields;
 
 
 //

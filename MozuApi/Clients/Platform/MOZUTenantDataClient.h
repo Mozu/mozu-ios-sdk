@@ -23,9 +23,10 @@
 /**
 Retrieves the value of a record in the Mozu database.
 @param dbEntryQuery The database entry query string used to retrieve the record information.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
++ (MOZUClient *)clientForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery responseFields:(NSString *)responseFields;
 
 
 //

@@ -22,8 +22,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetProductTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUProductTypeURLComponents URLComponentsForGetProductTypesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetProductTypesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUProductTypeURLComponents URLComponentsForGetProductTypesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -38,8 +38,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId {
-	id url = [MOZUProductTypeURLComponents URLComponentsForGetProductTypeOperationWithProductTypeId:productTypeId];
++ (MOZUClient *)clientForGetProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields {
+	id url = [MOZUProductTypeURLComponents URLComponentsForGetProductTypeOperationWithProductTypeId:productTypeId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -61,8 +61,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body {
-	id url = [MOZUProductTypeURLComponents URLComponentsForAddProductTypeOperation];
++ (MOZUClient *)clientForAddProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUProductTypeURLComponents URLComponentsForAddProductTypeOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -85,8 +85,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body productTypeId:(NSInteger)productTypeId {
-	id url = [MOZUProductTypeURLComponents URLComponentsForUpdateProductTypeOperationWithProductTypeId:productTypeId];
++ (MOZUClient *)clientForUpdateProductTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductType *)body productTypeId:(NSInteger)productTypeId responseFields:(NSString *)responseFields {
+	id url = [MOZUProductTypeURLComponents URLComponentsForUpdateProductTypeOperationWithProductTypeId:productTypeId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

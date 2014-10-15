@@ -22,11 +22,12 @@
 //
 
 /**
-
-@param appId 
+Retrieves the details of the installed application specified in the request.
+@param appId The application ID that represents the application to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetApplicationOperationWithAppId:(NSString *)appId;
++ (MOZUClient *)clientForGetApplicationOperationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields;
 
 
 //
@@ -43,12 +44,13 @@
 //
 
 /**
-
-@param body 
-@param appId 
+Updates one or more properties of the application specified in the request.
+@param body Properties of the application to update.
+@param appId The application ID that represents the application to update.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId;
++ (MOZUClient *)clientForUpdateApplicationOperationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId responseFields:(NSString *)responseFields;
 
 
 //

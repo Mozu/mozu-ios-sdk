@@ -27,8 +27,9 @@ Resource Url Components for getOrderNotes
 Resource Url Components for getOrderNote
 @param orderId Unique identifier of the order associated with the note.
 @param noteId Unique identifier of the order note to retrieve.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
++ (MOZUURLComponents *)URLComponentsForGetOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields;
 
 
 //
@@ -40,8 +41,9 @@ Resource Url Components for getOrderNote
 /**
 Resource Url Components for createOrderNote
 @param orderId Unique identifier of the order for which to add a note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString *)orderId;
++ (MOZUURLComponents *)URLComponentsForCreateOrderNoteOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //
@@ -54,8 +56,9 @@ Resource Url Components for createOrderNote
 Resource Url Components for updateOrderNote
 @param orderId Unique identifier of the order.
 @param noteId Unique identifier of the order note.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId;
++ (MOZUURLComponents *)URLComponentsForUpdateOrderNoteOperationWithOrderId:(NSString *)orderId noteId:(NSString *)noteId responseFields:(NSString *)responseFields;
 
 
 //

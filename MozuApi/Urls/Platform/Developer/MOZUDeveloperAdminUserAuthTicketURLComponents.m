@@ -24,10 +24,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId {
-	NSString *template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
++ (MOZUURLComponents *)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"developerAccountId" : developerAccountId ? developerAccountId : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
@@ -40,10 +41,11 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId {
-	NSString *template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
++ (MOZUURLComponents *)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/developer/authtickets/?developerAccountId={developerAccountId}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"developerAccountId" : developerAccountId ? developerAccountId : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];

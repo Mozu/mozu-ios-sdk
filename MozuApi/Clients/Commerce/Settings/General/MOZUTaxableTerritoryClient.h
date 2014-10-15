@@ -37,9 +37,10 @@ Retrieves a list of the taxable territories configured for the site.
 /**
 Creates a new territory for which to calculate sales tax.
 @param body Properties of the taxable territory to create.
+@param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory *)body;
++ (MOZUClient *)clientForAddTaxableTerritoryOperationWithBody:(MOZUTaxableTerritory *)body responseFields:(NSString *)responseFields;
 
 
 //

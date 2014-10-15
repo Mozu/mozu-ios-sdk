@@ -27,8 +27,9 @@
 /**
 Resource Url Components for createDeveloperUserAuthTicket
 @param developerAccountId Unique identifier of the developer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId;
++ (MOZUURLComponents *)URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId responseFields:(NSString *)responseFields;
 
 
 //
@@ -40,8 +41,9 @@ Resource Url Components for createDeveloperUserAuthTicket
 /**
 Resource Url Components for refreshDeveloperAuthTicket
 @param developerAccountId Unique identifier of the developer account.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId;
++ (MOZUURLComponents *)URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:(NSNumber *)developerAccountId responseFields:(NSString *)responseFields;
 
 
 //

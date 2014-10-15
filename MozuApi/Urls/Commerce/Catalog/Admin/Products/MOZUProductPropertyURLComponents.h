@@ -24,11 +24,30 @@ Resource Url Components for getProperties
 + (MOZUURLComponents *)URLComponentsForGetPropertiesOperationWithProductCode:(NSString *)productCode;
 
 /**
-Resource Url Components for getProperty
+Resource Url Components for getPropertyValueLocalizedContents
 @param productCode 
-@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param attributeFQN 
+@param value 
 */
-+ (MOZUURLComponents *)URLComponentsForGetPropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForGetPropertyValueLocalizedContentsOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
+
+/**
+Resource Url Components for getPropertyValueLocalizedContent
+@param productCode 
+@param attributeFQN 
+@param value 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetPropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getProperty
+@param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+@param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForGetPropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -38,10 +57,20 @@ Resource Url Components for getProperty
 //
 
 /**
+Resource Url Components for addPropertyValueLocalizedContent
+@param productCode 
+@param attributeFQN 
+@param value 
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForAddPropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
+
+/**
 Resource Url Components for addProperty
 @param productCode 
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForAddPropertyOperationWithProductCode:(NSString *)productCode;
++ (MOZUURLComponents *)URLComponentsForAddPropertyOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 
 //
@@ -51,11 +80,30 @@ Resource Url Components for addProperty
 //
 
 /**
+Resource Url Components for updatePropertyValueLocalizedContents
+@param productCode 
+@param attributeFQN 
+@param value 
+*/
++ (MOZUURLComponents *)URLComponentsForUpdatePropertyValueLocalizedContentsOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
+
+/**
+Resource Url Components for updatePropertyValueLocalizedContent
+@param productCode 
+@param attributeFQN 
+@param value 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+@param responseFields Use this field to include those fields which are not included by default.
+*/
++ (MOZUURLComponents *)URLComponentsForUpdatePropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields;
+
+/**
 Resource Url Components for updateProperty
 @param productCode 
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+@param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForUpdatePropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
++ (MOZUURLComponents *)URLComponentsForUpdatePropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
 
 
 //
@@ -70,6 +118,15 @@ Resource Url Components for deleteProperty
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
+
+/**
+Resource Url Components for deletePropertyValueLocalizedContent
+@param productCode 
+@param attributeFQN 
+@param value 
+@param localeCode Language used for the entity. Currently, only "en-US" is supported.
+*/
++ (MOZUURLComponents *)URLComponentsForDeletePropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode;
 
 
 

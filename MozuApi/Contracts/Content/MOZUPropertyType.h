@@ -10,8 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZULocalizedString.h"
-#import "MOZUPropertyValueType.h"
 
 
 
@@ -24,25 +22,11 @@
 */
 @interface MOZUPropertyType : JSONModel<MOZUPropertyType>
 
-/**
-Description of the content property type.
-*/
-@property(nonatomic) NSString * theDescription;
+@property(nonatomic) NSString * adminName;
 
-/**
-The display name of the content property type.
-*/
-@property(nonatomic) NSString * displayName;
+@property(nonatomic) NSString * dataType;
 
-/**
-The template display details of the property type.
-*/
-@property(nonatomic) NSString * displayTemplate;
-
-/**
-The template edit details of the property type.
-*/
-@property(nonatomic) NSString * editTemplate;
+@property(nonatomic) NSString * installationPackage;
 
 /**
 If true, this entity can be grouped.
@@ -50,19 +34,9 @@ If true, this entity can be grouped.
 @property(nonatomic) NSNumber * isAggregatable;
 
 /**
-If true, the property type has several values. If false, the property type can only have one value.
-*/
-@property(nonatomic) NSNumber * isMultiValued;
-
-/**
 If true, the entity can be searched. If false, the entity cannot be searched.
 */
 @property(nonatomic) NSNumber * isQueryable;
-
-/**
-If true, the entity is required for the request to return a valid response.
-*/
-@property(nonatomic) BOOL isRequired;
 
 /**
 If true, the property type results are sortable. If false, the property type results cannot be sorted by any options.
@@ -74,25 +48,11 @@ The name of the content property type.
 */
 @property(nonatomic) NSString * name;
 
-/**
-Regular expression used for data validation.
-*/
-@property(nonatomic) NSString * regex;
+@property(nonatomic) NSString * namespace;
 
-/**
-List of content entity descriptions localized to the site or site group's default language.
-*/
-@property(nonatomic) NSArray<MOZULocalizedString> *localizedDescriptions;
+@property(nonatomic) NSString * propertyTypeFQN;
 
-/**
-List of content entity display names localized to the site or site group's default language.
-*/
-@property(nonatomic) NSArray<MOZULocalizedString> *localizedDisplayNames;
-
-/**
-Wrapper for property value type.
-*/
-@property(nonatomic) MOZUPropertyValueType *propertyValueType;
+@property(nonatomic) NSString * version;
 
 @end
 

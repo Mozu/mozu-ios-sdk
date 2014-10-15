@@ -23,8 +23,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetProductsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount {
-	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit noCount:noCount];
++ (MOZUClient *)clientForGetProductsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter q:(NSString *)q qLimit:(NSNumber *)qLimit noCount:(NSNumber *)noCount responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductsOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter q:q qLimit:qLimit noCount:noCount responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -34,22 +34,6 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminProductCollection alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
-+ (MOZUClient *)clientForGetProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode {
-	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductOperationWithProductCode:productCode];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAdminProduct alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -72,8 +56,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode catalogId:(NSInteger)catalogId {
-	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
++ (MOZUClient *)clientForGetProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode catalogId:(NSInteger)catalogId responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductInCatalogOperationWithProductCode:productCode catalogId:catalogId responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -88,6 +72,22 @@
 	return client;
 }
 
++ (MOZUClient *)clientForGetProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminProductURLComponents URLComponentsForGetProductOperationWithProductCode:productCode responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUAdminProduct alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
 
 //
 #pragma mark -
@@ -95,8 +95,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body {
-	id url = [MOZUAdminProductURLComponents URLComponentsForAddProductOperation];
++ (MOZUClient *)clientForAddProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminProductURLComponents URLComponentsForAddProductOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -112,8 +112,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForAddProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode {
-	id url = [MOZUAdminProductURLComponents URLComponentsForAddProductInCatalogOperationWithProductCode:productCode];
++ (MOZUClient *)clientForAddProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminProductURLComponents URLComponentsForAddProductInCatalogOperationWithProductCode:productCode responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -136,23 +136,6 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body productCode:(NSString *)productCode {
-	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductOperationWithProductCode:productCode];
-	id verb = @"PUT";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
-
-	client.body = body;
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUAdminProduct alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
 + (MOZUClient *)clientForUpdateProductInCatalogsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(NSArray<MOZUProductInCatalogInfo> *)body productCode:(NSString *)productCode {
 	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductInCatalogsOperationWithProductCode:productCode];
 	id verb = @"PUT";
@@ -171,8 +154,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode catalogId:(NSInteger)catalogId {
-	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductInCatalogOperationWithProductCode:productCode catalogId:catalogId];
++ (MOZUClient *)clientForUpdateProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode catalogId:(NSInteger)catalogId responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductInCatalogOperationWithProductCode:productCode catalogId:catalogId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -183,6 +166,23 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUProductInCatalogInfo alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForUpdateProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminProduct *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminProductURLComponents URLComponentsForUpdateProductOperationWithProductCode:productCode responseFields:responseFields];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUAdminProduct alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

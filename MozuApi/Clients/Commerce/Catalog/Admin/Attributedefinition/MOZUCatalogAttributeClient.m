@@ -22,13 +22,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetAttributesOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter {
-	id url = [MOZUCatalogAttributeURLComponents URLComponentsForGetAttributesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter];
++ (MOZUClient *)clientForGetAttributesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForGetAttributesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -38,13 +35,10 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUCatalogAttributeURLComponents URLComponentsForGetAttributeOperationWithAttributeFQN:attributeFQN];
++ (MOZUClient *)clientForGetAttributeOperationWithAttributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForGetAttributeOperationWithAttributeFQN:attributeFQN responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
@@ -61,13 +55,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body {
-	id url = [MOZUCatalogAttributeURLComponents URLComponentsForAddAttributeOperation];
++ (MOZUClient *)clientForAddAttributeOperationWithBody:(MOZUAdminAttribute *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForAddAttributeOperationWithResponseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 
@@ -85,13 +76,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN {
-	id url = [MOZUCatalogAttributeURLComponents URLComponentsForUpdateAttributeOperationWithAttributeFQN:attributeFQN];
++ (MOZUClient *)clientForUpdateAttributeOperationWithBody:(MOZUAdminAttribute *)body attributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields {
+	id url = [MOZUCatalogAttributeURLComponents URLComponentsForUpdateAttributeOperationWithAttributeFQN:attributeFQN responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	client.body = body;
 
@@ -109,13 +97,10 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteAttributeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode attributeFQN:(NSString *)attributeFQN {
++ (MOZUClient *)clientForDeleteAttributeOperationWithAttributeFQN:(NSString *)attributeFQN {
 	id url = [MOZUCatalogAttributeURLComponents URLComponentsForDeleteAttributeOperationWithAttributeFQN:attributeFQN];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	NSString *dataViewModeString = [@(dataViewMode) stringValue];
-	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
 
 	return client;
 }
