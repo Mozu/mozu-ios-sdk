@@ -27,6 +27,11 @@
 @interface MOZUShippingRate : JSONModel<MOZUShippingRate>
 
 /**
+The number of days the shipment will spend between the origin address and the destination address.
+*/
+@property(nonatomic) NSNumber * daysInTransit;
+
+/**
 The total calculated shipping amount requested for the package or shipment.
 */
 @property(nonatomic) NSNumber * amount;
@@ -35,11 +40,6 @@ The total calculated shipping amount requested for the package or shipment.
 The carrier-defined alphanumeric code associated with this shipping rate.
 */
 @property(nonatomic) NSString * code;
-
-/**
-The number of days the shipment will spend between the origin address and the destination address.
-*/
-@property(nonatomic) NSNumber * daysInTransit;
 
 /**
 Localized content for a shipping rate based on the defined locale code.

@@ -81,10 +81,11 @@ Resource Url Components for deleteSegment
 + (MOZUURLComponents *)URLComponentsForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 /**
-Resource Url Components for deleteSegmentAccounts
-@param identifier Unique identifier of the segment from which to remove the customer accounts.
+Resource Url Components for removeSegmentAccount
+@param identifier 
+@param accountId 
 */
-+ (MOZUURLComponents *)URLComponentsForDeleteSegmentAccountsOperationWithIdentifier:(NSInteger)identifier;
++ (MOZUURLComponents *)URLComponentsForRemoveSegmentAccountOperationWithIdentifier:(NSInteger)identifier accountId:(NSInteger)accountId;
 
 
 

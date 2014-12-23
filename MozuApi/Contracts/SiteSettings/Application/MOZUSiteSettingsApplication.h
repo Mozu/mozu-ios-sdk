@@ -28,6 +28,8 @@ The unique identifier of the application in Mozu Dev Center.
 */
 @property(nonatomic) NSString * appId;
 
+@property(nonatomic) NSString * appKey;
+
 /**
 If true, the application is enabled for the tenant. System-supplied and read-only.
 */

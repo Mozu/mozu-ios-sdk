@@ -23,6 +23,11 @@
 @interface MOZUValidationMessage : JSONModel<MOZUValidationMessage>
 
 /**
+Unique identifier of the entity that triggered the validation.
+*/
+@property(nonatomic) NSString * sourceId;
+
+/**
 The contents of the message displayed to the user when the product validation failure occurs.
 */
 @property(nonatomic) NSString * message;
@@ -36,11 +41,6 @@ The severity level of the product validation failure.
 The entity that triggered the product validation.
 */
 @property(nonatomic) NSString * source;
-
-/**
-Unique identifier of the entity that triggered the validation.
-*/
-@property(nonatomic) NSString * sourceId;
 
 @property(nonatomic) NSString * validationType;
 

@@ -12,6 +12,7 @@
 #import "MOZUClient.h"
 #import "MOZUProductInCatalogInfo.h"
 #import "MOZUAdminProduct.h"
+#import "MOZUProductCodeRename.h"
 #import "MOZUAdminProductCollection.h"
 
 
@@ -84,6 +85,13 @@ Associates a new product defined in the master catalog with a specific catalog.
 */
 
 + (MOZUClient *)clientForAddProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields;
+
+/**
+
+@param body 
+*/
+
++ (MOZUClient *)clientForRenameProductCodesOperationWithBody:(NSArray<MOZUProductCodeRename> *)body;
 
 
 //

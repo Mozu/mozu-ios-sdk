@@ -13,15 +13,15 @@
 
 
 
-@protocol MOZUViewField
+@protocol MOZUProductCodeRename
 @end
 
 
-@interface MOZUViewField : JSONModel<MOZUViewField>
+@interface MOZUProductCodeRename : JSONModel<MOZUProductCodeRename>
 
-@property(nonatomic) NSString * name;
+@property(nonatomic) NSString * existingProductCode;
 
-@property(nonatomic) NSString * target;
+@property(nonatomic) NSString * newProductCode;
 
 @end
 

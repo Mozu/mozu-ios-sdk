@@ -114,12 +114,11 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithBody:(NSArray *)body identifier:(NSInteger)identifier {
-	id url = [MOZUCustomerSegmentURLComponents URLComponentsForDeleteSegmentAccountsOperationWithIdentifier:identifier];
++ (MOZUClient *)clientForRemoveSegmentAccountOperationWithIdentifier:(NSInteger)identifier accountId:(NSInteger)accountId {
+	id url = [MOZUCustomerSegmentURLComponents URLComponentsForRemoveSegmentAccountOperationWithIdentifier:identifier accountId:accountId];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
-	client.body = body;
 	return client;
 }
 

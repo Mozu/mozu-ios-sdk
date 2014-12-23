@@ -167,14 +167,14 @@ Deletes a customer segment specified by its unique identifier. Deleting a segmen
 }
 
 /**
-Removes the specified customer accounts from a defined customer segment. You must create the request body to perform this operation.
-@param body List of customer account identifiers to remove from the specified customer segments.
-@param identifier Unique identifier of the segment from which to remove the customer accounts.
+
+@param accountId 
+@param identifier 
 */
 
-- (void)deleteSegmentAccountsWithBody:(NSArray *)body identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeSegmentAccountWithIdentifier:(NSInteger)identifier accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerSegmentClient clientForDeleteSegmentAccountsOperationWithBody:body identifier:identifier];
+	MOZUClient *client = [MOZUCustomerSegmentClient clientForRemoveSegmentAccountOperationWithIdentifier:identifier accountId:accountId];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

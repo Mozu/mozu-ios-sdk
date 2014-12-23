@@ -29,15 +29,11 @@
 
 @property(nonatomic) NSString * installationPackage;
 
-@property(nonatomic) NSString * localizationType;
-
 @property(nonatomic) NSString * name;
 
 @property(nonatomic) NSString * namespace;
 
 @property(nonatomic) NSString * scopeType;
-
-@property(nonatomic) NSString * security;
 
 @property(nonatomic) BOOL supportsPublishing;
 

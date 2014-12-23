@@ -129,6 +129,15 @@
 	return client;
 }
 
++ (MOZUClient *)clientForRenameProductCodesOperationWithBody:(NSArray<MOZUProductCodeRename> *)body {
+	id url = [MOZUAdminProductURLComponents URLComponentsForRenameProductCodesOperation];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+	return client;
+}
+
 
 //
 #pragma mark -

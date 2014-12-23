@@ -28,6 +28,41 @@
 @interface MOZUWishlistItem : JSONModel<MOZUWishlistItem>
 
 /**
+The status of the item that indicates whether an item in a wish list can be purchased. Possible values are "Purchasable" which indicates the item can be purchased, "NotPurchasable" which indicates the item is out of stock or otherwise unavailable, or "Missing" which indicates the item has been deleted from the catalog since it was added to the wish list.
+*/
+@property(nonatomic) NSString * purchasableStatusType;
+
+/**
+The quantity of an item in a shopper wish list.
+*/
+@property(nonatomic) NSInteger quantity;
+
+/**
+The total amount of tax levied against shipping charges for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+*/
+@property(nonatomic) NSNumber * shippingTaxTotal;
+
+/**
+The total amount of shipping for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+*/
+@property(nonatomic) NSNumber * shippingTotal;
+
+/**
+The subtotal of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+*/
+@property(nonatomic) NSNumber * subtotal;
+
+/**
+The taxable total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+*/
+@property(nonatomic) NSNumber * taxableTotal;
+
+/**
+The total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+*/
+@property(nonatomic) NSNumber * total;
+
+/**
 Shopper-entered comments for an item in a wish list.
 */
 @property(nonatomic) NSString * comments;
@@ -83,41 +118,6 @@ Language used for the entity. Currently, only "en-US" is supported.
 User-defined string that indicates the priority of an item in a wish list. Possible values are Lowest, Low, Medium, High, and Highest.
 */
 @property(nonatomic) NSString * priorityType;
-
-/**
-The status of the item that indicates whether an item in a wish list can be purchased. Possible values are "Purchasable" which indicates the item can be purchased, "NotPurchasable" which indicates the item is out of stock or otherwise unavailable, or "Missing" which indicates the item has been deleted from the catalog since it was added to the wish list.
-*/
-@property(nonatomic) NSString * purchasableStatusType;
-
-/**
-The quantity of an item in a shopper wish list.
-*/
-@property(nonatomic) NSInteger quantity;
-
-/**
-The total amount of tax levied against shipping charges for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-*/
-@property(nonatomic) NSNumber * shippingTaxTotal;
-
-/**
-The total amount of shipping for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-*/
-@property(nonatomic) NSNumber * shippingTotal;
-
-/**
-The subtotal of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-*/
-@property(nonatomic) NSNumber * subtotal;
-
-/**
-The taxable total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-*/
-@property(nonatomic) NSNumber * taxableTotal;
-
-/**
-The total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-*/
-@property(nonatomic) NSNumber * total;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

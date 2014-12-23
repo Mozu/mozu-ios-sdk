@@ -104,12 +104,12 @@ Deletes a customer segment specified by its unique identifier. Deleting a segmen
 - (void)deleteSegmentWithIdentifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-Removes the specified customer accounts from a defined customer segment. You must create the request body to perform this operation.
-@param body List of customer account identifiers to remove from the specified customer segments.
-@param identifier Unique identifier of the segment from which to remove the customer accounts.
+
+@param accountId 
+@param identifier 
 */
 
-- (void)deleteSegmentAccountsWithBody:(NSArray *)body identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)removeSegmentAccountWithIdentifier:(NSInteger)identifier accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 

@@ -24,16 +24,6 @@
 @interface MOZUVisit : JSONModel<MOZUVisit>
 
 /**
-Unique identifier of the customer account associated with the visit.
-*/
-@property(nonatomic) NSNumber * accountId;
-
-/**
-If the customer visit is made online, the location code associated with the website visited.
-*/
-@property(nonatomic) NSString * browserLocationCode;
-
-/**
 The date and time of the customer visit.
 */
 @property(nonatomic) NSDate * date;
@@ -77,6 +67,16 @@ Unique identifier of the site.
 The user agent string for the browser.
 */
 @property(nonatomic) NSString * webUserAgent;
+
+/**
+Unique identifier of the customer account associated with the visit.
+*/
+@property(nonatomic) NSNumber * accountId;
+
+/**
+If the customer visit is made online, the location code associated with the website visited.
+*/
+@property(nonatomic) NSString * browserLocationCode;
 
 /**
 Array list of transactions the customer performed during the visit. A customer can perform multiple transactions in a single visit, or the visit can have no associated transactions.

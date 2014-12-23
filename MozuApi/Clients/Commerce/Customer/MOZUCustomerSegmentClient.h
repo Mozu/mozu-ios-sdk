@@ -95,12 +95,12 @@ Deletes a customer segment specified by its unique identifier. Deleting a segmen
 + (MOZUClient *)clientForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 /**
-Removes the specified customer accounts from a defined customer segment. You must create the request body to perform this operation.
-@param body List of customer account identifiers to remove from the specified customer segments.
-@param identifier Unique identifier of the segment from which to remove the customer accounts.
+
+@param accountId 
+@param identifier 
 */
 
-+ (MOZUClient *)clientForDeleteSegmentAccountsOperationWithBody:(NSArray *)body identifier:(NSInteger)identifier;
++ (MOZUClient *)clientForRemoveSegmentAccountOperationWithIdentifier:(NSInteger)identifier accountId:(NSInteger)accountId;
 
 
 

@@ -10,10 +10,10 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUProductContent.h"
 #import "MOZURuntimeDiscount.h"
 #import "MOZURuntimeBundledProduct.h"
 #import "MOZURuntimeCategory.h"
-#import "MOZUProductContent.h"
 #import "MOZURuntimeProductInventoryInfo.h"
 #import "MOZURuntimePackageMeasurements.h"
 #import "MOZURuntimeProductOption.h"
@@ -117,6 +117,11 @@ Product code that represents the product variation selected based on the option 
 @property(nonatomic) NSString * variationProductCode;
 
 /**
+Complex type that contains content for a language specified by LocaleCode.
+*/
+@property(nonatomic) MOZUProductContent *content;
+
+/**
 List of shipping discounts that can be applied to the product.
 */
 @property(nonatomic) NSArray<MOZURuntimeDiscount> *availableShippingDiscounts;
@@ -130,11 +135,6 @@ Properties of a collection of component products that make up a single product b
 List of categories associated with the product.
 */
 @property(nonatomic) NSArray<MOZURuntimeCategory> *categories;
-
-/**
-Complex type that contains content for a language specified by LocaleCode.
-*/
-@property(nonatomic) MOZUProductContent *content;
 
 /**
 Array of active inventory level information associated with the product.

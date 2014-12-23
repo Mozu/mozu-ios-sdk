@@ -29,7 +29,7 @@
 }
 
 + (MOZUURLComponents *)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	NSString *template = @"/api/commerce/orders/{orderId}/shipments/methods";
+	NSString *template = @"/api/commerce/orders/{orderId}/shipments/methods?draft={draft}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"draft" : draft ? draft : @"",

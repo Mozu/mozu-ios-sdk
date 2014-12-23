@@ -71,6 +71,11 @@ Resource Url Components for addProductInCatalog
 */
 + (MOZUURLComponents *)URLComponentsForAddProductInCatalogOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
+/**
+Resource Url Components for renameProductCodes
+*/
++ (MOZUURLComponents *)URLComponentsForRenameProductCodesOperation;
+
 
 //
 #pragma mark -

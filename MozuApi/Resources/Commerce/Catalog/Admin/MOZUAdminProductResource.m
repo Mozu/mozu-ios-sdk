@@ -167,6 +167,22 @@ Associates a new product defined in the master catalog with a specific catalog.
 	}];
 }
 
+/**
+
+@param body 
+*/
+
+- (void)renameProductCodesWithBody:(NSArray<MOZUProductCodeRename> *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUAdminProductClient clientForRenameProductCodesOperationWithBody:body];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -

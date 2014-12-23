@@ -89,6 +89,13 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
++ (MOZUURLComponents *)URLComponentsForRenameProductCodesOperation {
+	NSString *template = @"/api/commerce/catalog/admin/products/Actions/RenameProductCodes";
+	NSDictionary *params = nil;
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
