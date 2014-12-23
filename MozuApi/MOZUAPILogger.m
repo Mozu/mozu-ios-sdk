@@ -8,4 +8,4 @@
 
 #import "MOZUAPILogger.h"
 
-const int ddLogLevel = DDLogLevelVerbose;
+const int ddLogLevel = LOG_FLAG_VERBOSE;
