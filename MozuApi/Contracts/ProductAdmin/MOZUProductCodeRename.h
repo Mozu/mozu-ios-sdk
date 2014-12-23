@@ -21,7 +21,7 @@
 
 @property(nonatomic) NSString * existingProductCode;
 
-@property(nonatomic) NSString * newProductCode;
+@property(nonatomic) NSString * theNewProductCode;
 
 @end
 
