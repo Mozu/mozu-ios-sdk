@@ -138,7 +138,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                                                           completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error)
      {
          
-         NSInteger tenantId = 6417;
+         NSInteger tenantId = 10257;
          MOZUTenantResource *tenantResource = [[MOZUTenantResource alloc] init];
          [tenantResource tenantWithTenantId:tenantId responseFields:nil
                           completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
@@ -160,8 +160,8 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
      {
          
          XCTAssertNil(error, @"Result not nil but had error.");
-         NSInteger tenantId = 6417;
-         NSNumber *siteId = @(8168);
+         NSInteger tenantId = 10257;
+         NSNumber *siteId = @(12866);
          MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:nil catalogId:nil];
          MOZUAdminLocationResource *locationResource = [[MOZUAdminLocationResource alloc] initWithAPIContext:context];
          [locationResource locationsWithStartIndex:@(0) pageSize:@(20) sortBy:nil filter:nil responseFields:nil completionHandler:^(MOZULocationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response)
@@ -192,8 +192,8 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                                                                      completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
           {
               XCTAssertNil(error, @"Result not nil but had error.");
-              NSInteger tenantId = 6417;
-              NSNumber *siteId = @(8168);
+              NSInteger tenantId = 10257;
+              NSNumber *siteId = @(12866);
               MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:nil catalogId:nil];
               MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:context];
               [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
@@ -223,9 +223,9 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                                                                      completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
           {
               XCTAssertNil(error, @"Result not nil but had error.");
-              NSInteger tenantId = 6417;
-              NSNumber *siteId = @(8168);
-              NSNumber *categoryId = @(16);
+              NSInteger tenantId = 10257;
+              NSNumber *siteId = @(12866);
+              NSNumber *categoryId = @(1);
               MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:nil catalogId:nil];
               
               
@@ -264,8 +264,8 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                                                                      completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
           {
               XCTAssertNil(error, @"Result not nil but had error.");
-              NSInteger tenantId = 6417;
-              NSNumber *siteId = @(8168);
+              NSInteger tenantId = 10257;
+              NSNumber *siteId = @(12866);
               NSString *productCode = @"MS-CYC-SDL-003";
               MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantId siteId:siteId masterCatalogId:nil catalogId:nil];
               
@@ -726,7 +726,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                 // Setup authTicket for selected tenant/scope.
                 //                MOZUScope *scope = profile.authorizedScopes[1]; //2442
                 MOZUScope *scope = [MOZUScope new];
-                scope.id = 6417;//2442;
+                scope.id = 10257;//2442;
                 scope.name = @"NoelTenant";
                 [[MOZUUserAuthenticator sharedUserAuthenticator] setActiveScopeWithUserAuthTicket:profile.authTicket scope:scope completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
                     completion(scope, profile, response, error);

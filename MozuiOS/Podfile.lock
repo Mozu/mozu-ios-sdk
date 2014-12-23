@@ -1,23 +1,20 @@
 PODS:
-  - CocoaLumberjack (2.0.0-beta4):
-    - CocoaLumberjack/Default
-    - CocoaLumberjack/Extensions
-  - CocoaLumberjack/Core (2.0.0-beta4)
-  - CocoaLumberjack/Default (2.0.0-beta4):
+  - CocoaLumberjack (1.9.2):
+    - CocoaLumberjack/Extensions (= 1.9.2)
+  - CocoaLumberjack/Core (1.9.2)
+  - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.0-beta4):
-    - CocoaLumberjack/Default
   - JSONModel (1.0.1)
   - mozu-ios-sdk (1.7.0):
     - CocoaLumberjack
     - JSONModel
-    - mozu-ios-sdk/Cache
-    - mozu-ios-sdk/Clients
-    - mozu-ios-sdk/Contracts
-    - mozu-ios-sdk/Resources
-    - mozu-ios-sdk/Security
-    - mozu-ios-sdk/Urls
-    - mozu-ios-sdk/Utilities
+    - mozu-ios-sdk/Cache (= 1.7.0)
+    - mozu-ios-sdk/Clients (= 1.7.0)
+    - mozu-ios-sdk/Contracts (= 1.7.0)
+    - mozu-ios-sdk/Resources (= 1.7.0)
+    - mozu-ios-sdk/Security (= 1.7.0)
+    - mozu-ios-sdk/Urls (= 1.7.0)
+    - mozu-ios-sdk/Utilities (= 1.7.0)
   - mozu-ios-sdk/Cache (1.7.0):
     - CocoaLumberjack
     - JSONModel
@@ -41,15 +38,21 @@ PODS:
     - JSONModel
 
 DEPENDENCIES:
-  - mozu-ios-sdk (from `../`)
+  - mozu-ios-sdk (from `https://github.com/Mozu/mozu-ios-sdk.git`, branch `development`)
 
 EXTERNAL SOURCES:
   mozu-ios-sdk:
-    :path: ../
+    :branch: development
+    :git: https://github.com/Mozu/mozu-ios-sdk.git
+
+CHECKOUT OPTIONS:
+  mozu-ios-sdk:
+    :commit: 721dbfd1cf0715b166ffe16bd879c239896a03e3
+    :git: https://github.com/Mozu/mozu-ios-sdk.git
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 24153b24b17d853d7182b22b128971fb98e8cb18
+  CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
   JSONModel: 634100aaacbd89811bc8a03da209356e5989c569
   mozu-ios-sdk: 51ce4f44eef7928d1977dd523c9b79f79daaba71
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0
