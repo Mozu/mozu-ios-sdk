@@ -38,16 +38,15 @@ PODS:
     - JSONModel
 
 DEPENDENCIES:
-  - mozu-ios-sdk (from `https://github.com/Mozu/mozu-ios-sdk.git`, branch `development`)
+  - mozu-ios-sdk (from `https://github.com/Mozu/mozu-ios-sdk.git`)
 
 EXTERNAL SOURCES:
   mozu-ios-sdk:
-    :branch: development
     :git: https://github.com/Mozu/mozu-ios-sdk.git
 
 CHECKOUT OPTIONS:
   mozu-ios-sdk:
-    :commit: 721dbfd1cf0715b166ffe16bd879c239896a03e3
+    :commit: 05103aed68ba22131d722e238af0ea34df6ba0fc
     :git: https://github.com/Mozu/mozu-ios-sdk.git
 
 SPEC CHECKSUMS:

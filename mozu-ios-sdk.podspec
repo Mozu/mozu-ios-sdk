@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "mozu-ios-sdk"
-  s.version          = "1.7.0"
+  s.version          = "1.13.14325.0"
   s.summary          = "A short description of mozu-ios-sdk."
   s.description      = <<-DESC
                        An optional longer description of mozu-ios-sdk
