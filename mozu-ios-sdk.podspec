@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Noel Artiles" => "noel_artiles@volusion.com" }
   s.public_header_files = "MozuApi/*.h"
-  s.source           = { :git => "https://github.com/Mozu/mozu-ios-sdk.git", :branch => "rabin" }
+  s.source           = { :git => "https://github.com/Mozu/mozu-ios-sdk.git" }
   # s.source           = { :path => '~/Documents/mozu-ios-sdk' }
   s.social_media_url = 'https://twitter.com/NAME'
 
