@@ -25,17 +25,12 @@
 @interface MOZUProductType : JSONModel<MOZUProductType>
 
 /**
-List of product usages that describe how products of this type are used. Products of this type can be Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle). Product type usages cannot be both Bundle and Configurable.
-*/
-@property(nonatomic) NSArray *productUsages;
-
-/**
-The type of goods for this product.
+The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include “Physical” and “DigitalCredit”. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
 */
 @property(nonatomic) NSString * goodsType;
 
 /**
-Unique identifier of the product type.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSNumber * id;
 
@@ -50,14 +45,19 @@ The unique identifier of the master catalog associated with the entity.
 @property(nonatomic) NSNumber * masterCatalogId;
 
 /**
-Name of the product type, such as "Shoes" or "TVs."
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 
 /**
-The number of products associated with this product type.
+The total number of products. This total may indicate the total products associate with a product type or number of products in a list.
 */
 @property(nonatomic) NSNumber * productCount;
+
+/**
+List of product usages that describe how products of this type are used. Products of this type can be Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle). Product type usages cannot be both Bundle and Configurable.
+*/
+@property(nonatomic) NSArray *productUsages;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
@@ -65,17 +65,17 @@ Identifier and datetime stamp information recorded when a user or application cr
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
-The list of product type attributes which exist as extras. Example: monogram
+List of extra product attributes defined for this product. For example, monogram could be a possible extra for a shirt product.
 */
 @property(nonatomic) NSArray<MOZUAttributeInProductType> *extras;
 
 /**
-The list of product type attributes which exist as options.
+List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.
 */
 @property(nonatomic) NSArray<MOZUAttributeInProductType> *options;
 
 /**
-The list of product type attributes which exist as properties, such as color.
+Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
 */
 @property(nonatomic) NSArray<MOZUAttributeInProductType> *properties;
 

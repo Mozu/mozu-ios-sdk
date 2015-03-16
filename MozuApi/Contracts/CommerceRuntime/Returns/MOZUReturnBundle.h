@@ -28,7 +28,7 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 @property(nonatomic) NSString * productCode;
 
 /**
-The number of returned product bundles in the return.
+The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
 */
 @property(nonatomic) NSInteger quantity;
 

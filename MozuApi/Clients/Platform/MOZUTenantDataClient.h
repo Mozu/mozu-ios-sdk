@@ -22,7 +22,7 @@
 
 /**
 Retrieves the value of a record in the Mozu database.
-@param dbEntryQuery The database entry query string used to retrieve the record information.
+@param dbEntryQuery The database entry string to create.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -52,8 +52,8 @@ Creates a new record in the Mozu database based on the information supplied in t
 
 /**
 Updates a record in the Mozu database based on the information supplied in the request.
-@param body The database value to update.
-@param dbEntryQuery The database entry query string used to update the record information.
+@param body The value string to create.
+@param dbEntryQuery The database entry string to create.
 */
 
 + (MOZUClient *)clientForUpdateDBValueOperationWithBody:(NSString *)body dbEntryQuery:(NSString *)dbEntryQuery;
@@ -67,7 +67,7 @@ Updates a record in the Mozu database based on the information supplied in the r
 
 /**
 Removes a previously defined record in the Mozu database.
-@param dbEntryQuery The database entry string to delete.
+@param dbEntryQuery The database entry string to create.
 */
 
 + (MOZUClient *)clientForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;

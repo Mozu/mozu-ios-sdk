@@ -25,7 +25,7 @@
 @interface MOZUAdminBundledProduct : JSONModel<MOZUAdminBundledProduct>
 
 /**
-Indicates the fulfillment types that the product supports.
+List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
 */
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
 
@@ -35,32 +35,32 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 @property(nonatomic) NSString * productCode;
 
 /**
-The read-only name of the component in a bundled product.
+The name of the product that represents a line item in a taxable order or product bundle.
 */
 @property(nonatomic) NSString * productName;
 
 /**
-The quantity of an individual component product in a bundle. For example, if a product bundle represents a 10-pack of socks, the quantity value for the bundled product would be 10.
+The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
 */
 @property(nonatomic) NSInteger quantity;
 
 /**
-Height of the bundle package in imperial units of feet and inches.
+Height of a package or bundle package in imperial units of feet and inches.
 */
 @property(nonatomic) MOZUMeasurement *packageHeight;
 
 /**
-Length of the bundle package in imperial units of feet and inches.
+Length of a package or bundle package in imperial units of feet and inches.
 */
 @property(nonatomic) MOZUMeasurement *packageLength;
 
 /**
-Weight of the bundle package in imperial units of pounds and ounces.
+Weight of a package or bundle package in imperial units of pounds and ounces.
 */
 @property(nonatomic) MOZUMeasurement *packageWeight;
 
 /**
-Width of the bundle package in imperial units of feet and inches.
+Width of a package or bundle package in imperial units of feet and inches.
 */
 @property(nonatomic) MOZUMeasurement *packageWidth;
 

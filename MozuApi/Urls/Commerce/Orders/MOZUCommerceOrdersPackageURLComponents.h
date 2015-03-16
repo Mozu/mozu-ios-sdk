@@ -19,22 +19,22 @@
 
 /**
 Resource Url Components for getAvailablePackageFulfillmentActions
-@param orderId Unique identifier of the order associated with the package fulfillment.
-@param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
+@param orderId Unique identifier of the order.
+@param packageId Unique identifier of the package for which to retrieve the label.
 */
 + (MOZUURLComponents *)URLComponentsForGetAvailablePackageFulfillmentActionsOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
 /**
 Resource Url Components for getPackageLabel
-@param orderId Unique identifier of the order associated with the package label to retrieve.
+@param orderId Unique identifier of the order.
 @param packageId Unique identifier of the package for which to retrieve the label.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageLabelOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 
 /**
 Resource Url Components for getPackage
-@param orderId Unique identifier of the order associated with the package to retrieve.
-@param packageId Unique identifier of the package to retrieve.
+@param orderId Unique identifier of the order.
+@param packageId Unique identifier of the package for which to retrieve the label.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
@@ -48,7 +48,7 @@ Resource Url Components for getPackage
 
 /**
 Resource Url Components for createPackage
-@param orderId Unique identifier of the order associated with this package.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForCreatePackageOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields;
@@ -62,8 +62,8 @@ Resource Url Components for createPackage
 
 /**
 Resource Url Components for updatePackage
-@param orderId Unique identifier of the order associated with the package to update.
-@param packageId Unique identifier of the package of order items to update.
+@param orderId Unique identifier of the order.
+@param packageId Unique identifier of the package for which to retrieve the label.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdatePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
@@ -77,8 +77,8 @@ Resource Url Components for updatePackage
 
 /**
 Resource Url Components for deletePackage
-@param orderId Unique identifier of the order associated with the package to delete.
-@param packageId Unique identifier of the package to delete.
+@param orderId Unique identifier of the order.
+@param packageId Unique identifier of the package for which to retrieve the label.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePackageOperationWithOrderId:(NSString *)orderId packageId:(NSString *)packageId;
 

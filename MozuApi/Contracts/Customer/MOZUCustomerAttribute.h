@@ -34,7 +34,7 @@ The fully qualified name of the attribute, which is a user defined attribute ide
 @property(nonatomic) NSString * fullyQualifiedName;
 
 /**
-List of values for the attribute.
+List of value data for objects.
 */
 @property(nonatomic) NSArray *values;
 

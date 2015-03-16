@@ -24,7 +24,7 @@
 
 /**
 Retrieves the details of the location specified in the request.
-@param code User-defined code that identifies the location.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -32,7 +32,7 @@ Retrieves the details of the location specified in the request.
 
 /**
 Retrieves the details of a location associated with a defined location usage type for the site specified in the request.
-@param code Retrieves the details of a location associated with a defined location usage type for the site specified in the request.
+@param code User-defined code that uniqely identifies the channel group.
 @param locationUsageType System-defined location usage type code, which is DS for direct ship, SP for in-store pickup, or storeFinder.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -60,7 +60,7 @@ Retrieves the details of the location configured for the direct shipping (DS) lo
 
 /**
 Retrieves the details of the location configured for the in-store pickup (SP) location usage type for the site specified in the request. If the location is not associated with a location type configured for the in-store pickup location usage type (SP), the operation returns an error.
-@param code The user-defined code that identifies the location to retrieve.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

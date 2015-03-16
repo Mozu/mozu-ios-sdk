@@ -34,7 +34,7 @@
 
 /**
 Retrieves a particular cart item by providing the cart item ID.
-@param cartItemId Identifier of the cart item to retrieve.
+@param cartItemId Identifier of the cart item to delete.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -56,7 +56,7 @@ Retrieves a list of cart items including the total number of items in the cart.
 
 /**
 Adds a product to the current shopper's cart.
-@param body All properties of the new cart item. The product code is required.
+@param body Properties of an item added to an active shopping cart.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -71,7 +71,7 @@ Adds a product to the current shopper's cart.
 
 /**
 Update the quantity of an individual cart item in the cart of the current shopper.
-@param cartItemId Identifier of the cart item to update quantity.
+@param cartItemId Identifier of the cart item to delete.
 @param quantity The number of cart items in the shopper's active cart.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -80,8 +80,8 @@ Update the quantity of an individual cart item in the cart of the current shoppe
 ;
 /**
 Update the product or product quantity of an item in the current shopper's cart.
-@param body The properties of the cart item to update.
-@param cartItemId Identifier of the cart item to update.
+@param body Properties of an item added to an active shopping cart.
+@param cartItemId Identifier of the cart item to delete.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

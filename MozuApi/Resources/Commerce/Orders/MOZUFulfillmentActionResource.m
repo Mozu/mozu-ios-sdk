@@ -49,14 +49,32 @@
 
 /**
 Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.
-@param body The action to perform for the order fulfillment.
-@param orderId Unique identifier of the order for which to perform the fulfillment action.
-@param responseFields Updated order with a new fulfillment status resulting from the action supplied in the request.
+@param body Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.
+@param orderId Unique identifier of the order.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
 - (void)performFulfillmentActionWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUFulfillmentActionClient clientForPerformFulfillmentActionOperationWithBody:body orderId:orderId responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+orders-fulfillment Post ResendPackageFulfillmentEmail description DOCUMENT_HERE 
+@param body Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.
+@param orderId Unique identifier of the order.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)resendPackageFulfillmentEmailWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUFulfillmentActionClient clientForResendPackageFulfillmentEmailOperationWithBody:body orderId:orderId responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

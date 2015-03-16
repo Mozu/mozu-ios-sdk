@@ -29,7 +29,7 @@ The fully qualified name of the attribute, which is a user defined attribute ide
 @property(nonatomic) NSString * attributeFQN;
 
 /**
-List of values for the product option. Each value includes an attribute vocabulary value detail and value object.
+List of value data for objects.
 */
 @property(nonatomic) NSArray<MOZUAdminProductOptionValue> *values;
 

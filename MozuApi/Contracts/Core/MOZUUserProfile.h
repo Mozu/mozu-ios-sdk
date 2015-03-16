@@ -38,12 +38,12 @@ The last name or surname of the contact. The maximum character length is 200.
 @property(nonatomic) NSString * lastName;
 
 /**
-Identifier of the user.
+Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 */
 @property(nonatomic) NSString * userId;
 
 /**
-The user name associated with the user profile.
+The user name associated with the user profile. The customer uses the user name to access the account.
 */
 @property(nonatomic) NSString * userName;
 

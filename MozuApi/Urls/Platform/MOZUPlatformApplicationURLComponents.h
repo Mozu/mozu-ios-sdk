@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getApplication
-@param appId The application ID that represents the application to retrieve.
+@param appId 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields;
@@ -40,7 +40,7 @@ Resource Url Components for getApplication
 
 /**
 Resource Url Components for updateApplication
-@param appId The application ID that represents the application to update.
+@param appId 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields;

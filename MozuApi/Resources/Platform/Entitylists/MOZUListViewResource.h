@@ -35,61 +35,61 @@
 //
 
 /**
-
-@param entityId 
-@param entityListFullName 
+Retrieves a view for associated entities. A view provides display context levels (site, tenant, catalog, master catalog) and settings.
+@param entityId Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param responseFields Use this field to include those fields which are not included by default.
-@param viewName 
+@param viewName The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 */
 
 - (void)viewEntityWithEntityListFullName:(NSString *)entityListFullName viewName:(NSString *)viewName entityId:(NSString *)entityId responseFields:(NSString *)responseFields completionHandler:(void(^)(NSObject *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param entityListFullName 
+Retrieves a collection of views for associated entities. Each view provides display context levels (site, tenant, catalog, master catalog) and settings.
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param pageSize 
+@param pageSize The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.
 @param responseFields Use this field to include those fields which are not included by default.
-@param startIndex 
-@param viewName 
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.
+@param viewName The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 */
 
 - (void)viewEntitiesWithEntityListFullName:(NSString *)entityListFullName viewName:(NSString *)viewName pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUEntityCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param entityId 
-@param entityListFullName 
+Retrieves a collection of container data for creating and displaying a view of entities. 
+@param entityId Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param responseFields Use this field to include those fields which are not included by default.
-@param viewName 
+@param viewName The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 */
 
 - (void)viewEntityContainerWithEntityListFullName:(NSString *)entityListFullName viewName:(NSString *)viewName entityId:(NSString *)entityId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUEntityContainer *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param entityListFullName 
+Retrieves a collection of container data for creating and displaying a view of entities. 
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param pageSize 
+@param pageSize The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.
 @param responseFields Use this field to include those fields which are not included by default.
-@param startIndex 
-@param viewName 
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.
+@param viewName The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 */
 
 - (void)viewEntityContainersWithEntityListFullName:(NSString *)entityListFullName viewName:(NSString *)viewName pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUEntityContainerCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param entityListFullName 
+Retrieves a specific `EntityListView`. These views provide schema, rules, and formatting for all associated entities. 
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param responseFields Use this field to include those fields which are not included by default.
-@param viewName 
+@param viewName The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 */
 
 - (void)entityListViewWithEntityListFullName:(NSString *)entityListFullName viewName:(NSString *)viewName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUListView *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param entityListFullName 
+Retrieves a collection of `EntityListViews`. These views provide schema, rules, and formatting for all associated entities. 
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -103,9 +103,9 @@
 //
 
 /**
-
-@param body 
-@param entityListFullName 
+Creates an entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
+@param body Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -119,11 +119,11 @@
 //
 
 /**
-
-@param body 
-@param entityListFullName 
+Updates an existing entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
+@param body Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param responseFields Use this field to include those fields which are not included by default.
-@param viewName 
+@param viewName The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 */
 
 - (void)updateEntityListViewWithBody:(MOZUListView *)body entityListFullName:(NSString *)entityListFullName viewName:(NSString *)viewName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUListView *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -136,9 +136,9 @@
 //
 
 /**
-
-@param entityListFullName 
-@param viewName 
+Deletes an entity list view. Any associated entities have the association removed.
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
+@param viewName The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 */
 
 - (void)deleteEntityListViewWithEntityListFullName:(NSString *)entityListFullName viewName:(NSString *)viewName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

@@ -35,8 +35,8 @@ Retrieves a list of all locations associated with a tenant, according to any fil
 
 /**
 Retrieves the details of the location specified in the request by location code.
-@param locationCode The merchant-defined code of the location to retrieve.
-@param responseFields 
+@param locationCode The unique, user-defined code that identifies a location. 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
 + (MOZUClient *)clientForGetLocationOperationWithLocationCode:(NSString *)locationCode responseFields:(NSString *)responseFields;
@@ -50,8 +50,8 @@ Retrieves the details of the location specified in the request by location code.
 
 /**
 Creates a new physical location for the tenant specified in the request header.
-@param body Properties of the location to create.
-@param responseFields 
+@param body Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
 + (MOZUClient *)clientForAddLocationOperationWithBody:(MOZULocation *)body responseFields:(NSString *)responseFields;
@@ -65,8 +65,8 @@ Creates a new physical location for the tenant specified in the request header.
 
 /**
 Updates one or more details of a the location specified in the request by location code.
-@param body Properties of the location to update.
-@param locationCode The merchant-defined code associated with the location to update.
+@param body Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -81,7 +81,7 @@ Updates one or more details of a the location specified in the request by locati
 
 /**
 Deletes the location specified in the request.
-@param locationCode The merchant-defined code of the location to delete.
+@param locationCode The unique, user-defined code that identifies a location. 
 */
 
 + (MOZUClient *)clientForDeleteLocationOperationWithLocationCode:(NSString *)locationCode;

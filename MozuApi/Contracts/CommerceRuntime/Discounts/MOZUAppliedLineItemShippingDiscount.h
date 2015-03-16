@@ -24,19 +24,22 @@
 @interface MOZUAppliedLineItemShippingDiscount : JSONModel<MOZUAppliedLineItemShippingDiscount>
 
 /**
-The number of the line item that is used for this particular discount.
+The number of the line items that are used for this particular discount.
 */
 @property(nonatomic) NSInteger discountQuantity;
 
 /**
-The impact of this discount for each discount quantity.
+The impact of a discount for each discount quantity. 
 */
 @property(nonatomic) NSNumber * impactPerUnit;
 
+/**
+Carrier-supplied, unique code that represents the shipping method service type associated with the shipping discount.
+*/
 @property(nonatomic) NSString * methodCode;
 
 /**
-This describes shipping discounts that apply to a line item in the order, if any.
+Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
 */
 @property(nonatomic) MOZUAppliedDiscount *discount;
 

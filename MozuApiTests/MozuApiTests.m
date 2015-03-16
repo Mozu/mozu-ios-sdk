@@ -877,7 +877,6 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
     [self waitForBlock];
 }
 
-//
 - (void)testGettingProductDetails
 {
     [self authenticateAndSelectTenantWithCompletionHandler:^(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
@@ -886,18 +885,26 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
             //context.userAuthTicket = profile.authTicket;
             
             MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
-            [runtimeProductResource productWithProductCode:productCode variationProductCode:nil allowInactive:@NO skipInventoryCheck:@YES responseFields:nil completionHandler:^(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-                if (result) {
-                    XCTAssertNil(error, @"Result with error.");
-                    //DDLogDebug(@"%@", result);
-                    self.waitingForBlock = NO;
-                } else {
-                    DDLogError(@"%@", error);
-                    XCTAssertNotNil(error, @"Result nil but had no error.");
-                    XCTFail(@"%@", error);
-                    self.waitingForBlock = NO;
-                }
-            }];
+            [runtimeProductResource productWithProductCode:productCode
+                                      variationProductCode:nil
+                                             allowInactive:@NO
+                                        skipInventoryCheck:@YES
+                                      supressOutOfStock404:@YES
+                                            responseFields:nil
+                                         completionHandler:^(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                                             
+                                             if (result) {
+                                                 XCTAssertNil(error, @"Result with error.");
+                                                 //DDLogDebug(@"%@", result);
+                                                 self.waitingForBlock = NO;
+                                             } else {
+                                                 DDLogError(@"%@", error);
+                                                 XCTAssertNotNil(error, @"Result nil but had no error.");
+                                                 XCTFail(@"%@", error);
+                                                 self.waitingForBlock = NO;
+                                             }
+                                             
+                                         }];
         } else {
             XCTFail(@"No user auth ticket.");
             self.waitingForBlock = NO;

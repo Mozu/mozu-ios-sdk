@@ -62,7 +62,7 @@ Retrieves a list of in-stock notification subscriptions.
 
 /**
 Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
-@param identifier Unique identifier of the in-stock notification subscription to retrieve.
+@param identifier Unique identifier of the customer segment to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -86,7 +86,7 @@ Retrieves the details of a subscription that sends a push notification when a pr
 
 /**
 Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
-@param body Properties of a subscription that sends the customer a notification when a product is available in a site's active stock.
+@param body Properties of a push notification to which the shopper subscribes. This notification sends the shopper an alert when a new product or a product previously out of stock becomes available in the specified location's active product inventory.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -117,7 +117,7 @@ Creates a new subscription that notifies the customer when the product specified
 
 /**
 Deletes a subscription for a customer in-stock notification.
-@param identifier Unique identifier of the customer in-stock notification subscription to delete.
+@param identifier Unique identifier of the customer segment to retrieve.
 */
 
 - (void)deleteInStockNotificationSubscriptionWithIdentifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

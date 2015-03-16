@@ -18,10 +18,19 @@
 @end
 
 
+/**
+	A group of product search terms to suggest to a customer based on defined queries.
+*/
 @interface MOZUSearchSuggestionGroup : JSONModel<MOZUSearchSuggestionGroup>
 
+/**
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+*/
 @property(nonatomic) NSString * name;
 
+/**
+List of related SearchSuggestions
+*/
 @property(nonatomic) NSArray<MOZUSearchSuggestion> *suggestions;
 
 @end

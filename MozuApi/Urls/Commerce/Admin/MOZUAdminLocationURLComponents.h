@@ -29,8 +29,8 @@ Resource Url Components for getLocations
 
 /**
 Resource Url Components for getLocation
-@param locationCode The merchant-defined code of the location to retrieve.
-@param responseFields 
+@param locationCode The unique, user-defined code that identifies a location. 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForGetLocationOperationWithLocationCode:(NSString *)locationCode responseFields:(NSString *)responseFields;
 
@@ -43,7 +43,7 @@ Resource Url Components for getLocation
 
 /**
 Resource Url Components for addLocation
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForAddLocationOperationWithResponseFields:(NSString *)responseFields;
 
@@ -56,7 +56,7 @@ Resource Url Components for addLocation
 
 /**
 Resource Url Components for updateLocation
-@param locationCode The merchant-defined code associated with the location to update.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateLocationOperationWithLocationCode:(NSString *)locationCode responseFields:(NSString *)responseFields;
@@ -70,7 +70,7 @@ Resource Url Components for updateLocation
 
 /**
 Resource Url Components for deleteLocation
-@param locationCode The merchant-defined code of the location to delete.
+@param locationCode The unique, user-defined code that identifies a location. 
 */
 + (MOZUURLComponents *)URLComponentsForDeleteLocationOperationWithLocationCode:(NSString *)locationCode;
 

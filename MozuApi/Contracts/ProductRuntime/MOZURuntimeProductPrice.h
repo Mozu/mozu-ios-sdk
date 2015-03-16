@@ -19,7 +19,7 @@
 
 
 /**
-	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchant intends to sell the product.
+	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchang intends to sell the product.
 */
 @interface MOZURuntimeProductPrice : JSONModel<MOZURuntimeProductPrice>
 
@@ -33,10 +33,13 @@ The sale price defined for the product in the catalog.
 */
 @property(nonatomic) NSNumber * catalogSalePrice;
 
+/**
+The credit value of the product or bundled product. When the `goodsType `is `DigitalCredit`, this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
+*/
 @property(nonatomic) NSNumber * creditValue;
 
 /**
-The manufacturer's suggested retail price for the product.
+The manufacturer's suggested retail price for the product. This content may be defined by the supplier.
 */
 @property(nonatomic) NSNumber * msrp;
 
@@ -51,7 +54,7 @@ The price type that displays on the storefront website for the Price field, whic
 @property(nonatomic) NSString * priceType;
 
 /**
-The sale price defined for the product.
+The set sale price for a product consisting of a price with a discount already applied.
 */
 @property(nonatomic) NSNumber * salePrice;
 
@@ -61,7 +64,7 @@ The price type that displays on the storefront website for the Sale Price field,
 @property(nonatomic) NSString * salePriceType;
 
 /**
-The discount applied to the product price.
+Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
 */
 @property(nonatomic) MOZURuntimeAppliedDiscount *discount;
 

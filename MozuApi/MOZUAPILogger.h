@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DDLegacyMacros.h"
 #import "DDLog.h"
 
 #ifndef MOZUiOS_MOZUAPILogger_h

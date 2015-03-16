@@ -19,15 +19,15 @@
 
 /**
 Resource Url Components for getPackageLabel
-@param returnId Unique identifier of the return associated with the replacement package label to retrieve.
-@param packageId Unique identifier of the return replacement package for which to retrieve the label.
+@param returnId Unique identifier of the return whose items you want to get.
+@param packageId Unique identifier of the package for which to retrieve the label.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageLabelOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId;
 
 /**
 Resource Url Components for getPackage
-@param returnId Unique identifier of the return associated with the replacement package to retrieve.
-@param packageId Unique identifier of the return replacement package to retrieve.
+@param returnId Unique identifier of the return whose items you want to get.
+@param packageId Unique identifier of the package for which to retrieve the label.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetPackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
@@ -41,7 +41,7 @@ Resource Url Components for getPackage
 
 /**
 Resource Url Components for createPackage
-@param returnId Unique identifier of the return for which to create a replacement package.
+@param returnId Unique identifier of the return whose items you want to get.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForCreatePackageOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
@@ -55,8 +55,8 @@ Resource Url Components for createPackage
 
 /**
 Resource Url Components for updatePackage
-@param returnId Unique identifier of the return associated with the replacement package to update.
-@param packageId Unique identifier of the return replacement package to update.
+@param returnId Unique identifier of the return whose items you want to get.
+@param packageId Unique identifier of the package for which to retrieve the label.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdatePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
@@ -70,8 +70,8 @@ Resource Url Components for updatePackage
 
 /**
 Resource Url Components for deletePackage
-@param returnId Unique identifier of the return associated with the replacement package to delete.
-@param packageId Unique identifier of the return replacement package to delete.
+@param returnId Unique identifier of the return whose items you want to get.
+@param packageId Unique identifier of the package for which to retrieve the label.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePackageOperationWithReturnId:(NSString *)returnId packageId:(NSString *)packageId;
 

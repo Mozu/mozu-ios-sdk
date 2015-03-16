@@ -27,7 +27,7 @@ Resource Url Components for getDocumentLists
 
 /**
 Resource Url Components for getDocumentList
-@param documentListName The name of the document list.
+@param documentListName Name of content documentListName to delete
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetDocumentListOperationWithDocumentListName:(NSString *)documentListName responseFields:(NSString *)responseFields;
@@ -54,7 +54,7 @@ Resource Url Components for createDocumentList
 
 /**
 Resource Url Components for updateDocumentList
-@param documentListName 
+@param documentListName Name of content documentListName to delete
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateDocumentListOperationWithDocumentListName:(NSString *)documentListName responseFields:(NSString *)responseFields;
@@ -68,7 +68,7 @@ Resource Url Components for updateDocumentList
 
 /**
 Resource Url Components for deleteDocumentList
-@param documentListName 
+@param documentListName Name of content documentListName to delete
 */
 + (MOZUURLComponents *)URLComponentsForDeleteDocumentListOperationWithDocumentListName:(NSString *)documentListName;
 

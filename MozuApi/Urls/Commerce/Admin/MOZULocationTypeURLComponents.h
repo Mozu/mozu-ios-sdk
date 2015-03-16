@@ -65,7 +65,7 @@ Resource Url Components for updateLocationType
 
 /**
 Resource Url Components for deleteLocationType
-@param locationTypeCode User-defined code used to identify the location type.
+@param locationTypeCode The user-defined code that identifies the location type.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteLocationTypeOperationWithLocationTypeCode:(NSString *)locationTypeCode;
 

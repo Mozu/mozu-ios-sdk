@@ -28,7 +28,7 @@ The amount of the order-level adjustment, which can be a positive or negative am
 @property(nonatomic) NSNumber * amount;
 
 /**
-The shopper-facing description of the order-level adjustment.
+The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
 */
 @property(nonatomic) NSString * theDescription;
 

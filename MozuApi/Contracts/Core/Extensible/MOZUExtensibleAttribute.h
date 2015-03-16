@@ -28,19 +28,22 @@
 @interface MOZUExtensibleAttribute : JSONModel<MOZUExtensibleAttribute>
 
 /**
-Name of this extensible attribute defined in Mozu Admin.
+The administrator name associated with the object/data.
 */
 @property(nonatomic) NSString * adminName;
 
 /**
-Merchant-defined code for an extensible attribute.
+Merchant-defined code for an extensible attribute. This code may be used to generate an object's fully qualified name, such as for products.
 */
 @property(nonatomic) NSString * attributeCode;
 
+/**
+The fully qualified name of the attribute. The attributeDefiniteId may be used to generate this name.
+*/
 @property(nonatomic) NSString * attributeFQN;
 
 /**
-The data type of the customer or order attribute, which is Bool, DateTime, Number, or String.
+The data type of the source product property, typically of type Bool, DateTime, Number, or String.
 */
 @property(nonatomic) NSString * dataType;
 
@@ -49,15 +52,18 @@ Whether the customer or order attribute appears in Mozu Admin only, or in both M
 */
 @property(nonatomic) NSString * displayGroup;
 
+/**
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+*/
 @property(nonatomic) NSNumber * id;
 
 /**
-The type of input selection used to define a value for the attribute, which is YesNo, Date, DateTime, List, TextBox, or TextArea.
+The type of input selection used to define a value for the attribute, including Yes/No, Date, DateTime, List, TextBox, or TextArea.
 */
 @property(nonatomic) NSString * inputType;
 
 /**
-If true, the customer or order attribute is active.
+Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
 */
 @property(nonatomic) NSNumber * isActive;
 
@@ -67,7 +73,12 @@ If true, the attribute can have more than one value.
 @property(nonatomic) NSNumber * isMultiValued;
 
 /**
-If true, the attribute must have a defined value.
+Flag used to indicate if this attribute definition is read-only. Once an attribute definition is set to read-only this action cannot be undone. 
+*/
+@property(nonatomic) BOOL isReadOnly;
+
+/**
+Indicates if the property, attribute, product option, or product extra is required. If true, the object must have a defined value.
 */
 @property(nonatomic) NSNumber * isRequired;
 
@@ -77,17 +88,17 @@ If true, the attribute is visible in its defined display group.
 @property(nonatomic) NSNumber * isVisible;
 
 /**
-Namespace associated with this extensible attribute.
+If applicable, the registered namespace associated with objects, used to generate the fully qualified name. If no namespace is defined, the namespace associated with the tenant is automatically assigned.
 */
 @property(nonatomic) NSString * namespace;
 
 /**
-Integer that represents the sequence of the attribute.
+Integer that represents the sequence order of the attribute.
 */
 @property(nonatomic) NSNumber * order;
 
 /**
-An attribute value type is either predefined vocabulary by the admin during attribute set up or it can be "AdminEntered" or "ShopperEntered". The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
+An attribute value type is either predefined vocabulary by the admin during attribute set up or user-defined with an appropriate type (AdminEntered or ShopperEntered depending on the user). These types are used by products and attributes. The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
 */
 @property(nonatomic) NSString * valueType;
 
@@ -96,15 +107,18 @@ List of metadata key-value pairs defined for an extensible attribute.
 */
 @property(nonatomic) NSArray<MOZUExtensibleAttributeMetadataItem> *attributeMetadata;
 
+/**
+Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+*/
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
-The localized name and description of the attribute, displayed in the locale code specified for the master catalog.
+Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
 */
 @property(nonatomic) MOZUExtensibleAttributeLocalizedContent *content;
 
 /**
-Properties used when validating a value entered for an extensible attribute.
+Properties used when validating a value entered for an object, including extensible attributes, products attributes, and database entries.
 */
 @property(nonatomic) MOZUExtensibleAttributeValidation *validation;
 

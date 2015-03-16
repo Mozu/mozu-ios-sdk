@@ -95,6 +95,11 @@ Email address to set up so that shoppers and users browsing the site can use to 
 @property(nonatomic) NSString * senderEmailAddress;
 
 /**
+Email alias used in emails sent to your shoppers.
+*/
+@property(nonatomic) NSString * senderEmailAlias;
+
+/**
 Choose a format to use on the site: 12-hour (hh:mm:ss tt) or 24-hour format (HH:mm:ss).
 */
 @property(nonatomic) NSString * siteTimeFormat;

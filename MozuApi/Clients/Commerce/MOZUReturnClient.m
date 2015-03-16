@@ -218,6 +218,15 @@
 	return client;
 }
 
++ (MOZUClient *)clientForResendReturnEmailOperationWithBody:(MOZUReturnAction *)body {
+	id url = [MOZUReturnURLComponents URLComponentsForResendReturnEmailOperation];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+	return client;
+}
+
 
 //
 #pragma mark -

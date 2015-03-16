@@ -54,7 +54,7 @@ Resource Url Components for refreshAuthTicket
 
 /**
 Resource Url Components for deleteUserAuthTicket
-@param refreshToken Refresh token string associated with the user authentication ticket.
+@param refreshToken Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;
 

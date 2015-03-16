@@ -29,7 +29,7 @@ Date and time when the entity was created, represented in UTC Date/Time.
 @property(nonatomic) NSDate * createdDate;
 
 /**
-The status returned from the order validation capability for the order specified in the request, which is Pass, Fail, Error, or Review.
+The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
 */
 @property(nonatomic) NSString * status;
 
@@ -49,7 +49,7 @@ The type of order validator supplied by the capability. At this time, the only s
 @property(nonatomic) NSString * validatorType;
 
 /**
-Collection of messages returned by the order validation capability.
+Array list of validation and status messages associated with shipping rates, orders, and product purchasable state.
 */
 @property(nonatomic) NSArray<MOZUOrderValidationMessage> *messages;
 

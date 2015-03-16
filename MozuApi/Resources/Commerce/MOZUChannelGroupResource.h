@@ -44,7 +44,7 @@ Retrieves a list of defined channel groups according to any filter and sort crit
 ;
 /**
 Retrieves the details of a defined channel group.
-@param code The code that uniquely identifies the channel group.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -59,7 +59,7 @@ Retrieves the details of a defined channel group.
 
 /**
 Creates a new group of channels with common information.
-@param body Properties of the channel group to create.
+@param body Properties of a group of channels that share common information.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -74,8 +74,8 @@ Creates a new group of channels with common information.
 
 /**
 Updates one or more properties of a defined channel group.
-@param body Properties of the channel group to update.
-@param code Code that identifies the channel group.
+@param body Properties of a group of channels that share common information.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

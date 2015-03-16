@@ -23,7 +23,7 @@
 @interface MOZUItemTaxContext : JSONModel<MOZUItemTaxContext>
 
 /**
-Unique identifier of the line item in the order.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
@@ -33,12 +33,12 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 @property(nonatomic) NSString * productCode;
 
 /**
-Quantity of the line item in the order.
+The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
 */
 @property(nonatomic) NSInteger quantity;
 
 /**
-Amount of tax applied to shipping costs for the line item in the order.
+Amount of tax applied to shipping costs for line items in and entire orders.
 */
 @property(nonatomic) NSNumber * shippingTax;
 

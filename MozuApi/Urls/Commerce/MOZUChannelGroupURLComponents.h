@@ -29,7 +29,7 @@ Resource Url Components for getChannelGroups
 
 /**
 Resource Url Components for getChannelGroup
-@param code The code that uniquely identifies the channel group.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetChannelGroupOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields;
@@ -56,7 +56,7 @@ Resource Url Components for createChannelGroup
 
 /**
 Resource Url Components for updateChannelGroup
-@param code Code that identifies the channel group.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateChannelGroupOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields;

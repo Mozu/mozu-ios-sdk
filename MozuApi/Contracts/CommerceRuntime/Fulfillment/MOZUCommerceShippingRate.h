@@ -28,12 +28,12 @@
 @property(nonatomic) NSString * currencyCode;
 
 /**
-If true, the estimated shipping rate is valid.
+Indicates if the facet is currently valid.
 */
 @property(nonatomic) NSNumber * isValid;
 
 /**
-Array list of validation messages associated with the shipping rate.
+Array list of validation and status messages associated with shipping rates, orders, and product purchasable state.
 */
 @property(nonatomic) NSArray *messages;
 
@@ -43,15 +43,18 @@ The amount the company and the shopper pay for shipping based on the current rat
 @property(nonatomic) NSNumber * price;
 
 /**
-The code that identifies the service type shipping method, such as FED_EX_INTERNATIONAL.
+The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.
 */
 @property(nonatomic) NSString * shippingMethodCode;
 
 /**
-The name of the shipping method associated with the estimated rate, such as "UPS Ground".
+The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".
 */
 @property(nonatomic) NSString * shippingMethodName;
 
+/**
+The shipping zone to which this rate applies.
+*/
 @property(nonatomic) NSString * shippingZoneCode;
 
 @end

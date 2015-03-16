@@ -34,7 +34,7 @@ Tax amount applied to the order.
 @property(nonatomic) NSNumber * orderTax;
 
 /**
-Tax amount applied to the shipping costs on the order.
+Amount of tax applied to shipping costs for line items in and entire orders.
 */
 @property(nonatomic) NSNumber * shippingTax;
 

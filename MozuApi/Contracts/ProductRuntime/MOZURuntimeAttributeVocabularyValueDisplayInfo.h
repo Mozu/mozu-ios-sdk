@@ -17,12 +17,24 @@
 @end
 
 
+/**
+	Provides the display information for attribute vocabulary values. 
+*/
 @interface MOZURuntimeAttributeVocabularyValueDisplayInfo : JSONModel<MOZURuntimeAttributeVocabularyValueDisplayInfo>
 
+/**
+The identifier of the image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
+*/
 @property(nonatomic) NSString * cmsId;
 
+/**
+Hex value for a color to display in a color picker. This is an HTML supported code for color.
+*/
 @property(nonatomic) NSString * colorValue;
 
+/**
+The URL link for the image file associated with a product or category.
+*/
 @property(nonatomic) NSString * imageUrl;
 
 @end

@@ -29,12 +29,12 @@
 @interface MOZUCart : JSONModel<MOZUCart>
 
 /**
-Code that identifies the channel associated with the site where the shopping cart was created.
+Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
 */
 @property(nonatomic) NSString * channelCode;
 
 /**
-The coupon codes applied to the cart. When the customer proceeds to checkout, the coupons applied to the cart apply to the order.
+Array list of coupon codes associated with a shopping cart and the associated order. These codes are entered by a shopper when proceeding to checkout. 
 */
 @property(nonatomic) NSArray *couponCodes;
 
@@ -54,37 +54,37 @@ The aggregate total for all items in the cart, including costs associated with s
 @property(nonatomic) NSNumber * discountedSubtotal;
 
 /**
-The subtotal of the cart including any applied discount calculations.
+The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
 */
 @property(nonatomic) NSNumber * discountedTotal;
 
 /**
-Estimated amount of discounts applied to all items in the cart, which is system-supplied and read-only.
+Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
 */
 @property(nonatomic) NSNumber * discountTotal;
 
 /**
-Date in UTC Date/Time when the cart becomes inactive based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
+Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * expirationDate;
 
 /**
-The monetary sum of all fees incurred in the cart.
+The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.
 */
 @property(nonatomic) NSNumber * feeTotal;
 
 /**
-If the handling fee for the cart is subject to sales tax, the total tax amount.
+Calculated total tax amount for handling costs if the cart/order is subject to sales tax. 
 */
 @property(nonatomic) NSNumber * handlingTaxTotal;
 
 /**
-Unique identifier of the shopping cart.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
 /**
-The total amount of tax for items in the cart.
+The total amount of calculated tax for items, used by carts, orders, and wish lists.
 */
 @property(nonatomic) NSNumber * itemTaxTotal;
 
@@ -94,17 +94,17 @@ The date in UTC Date/Time when the items in the cart were last validated against
 @property(nonatomic) NSDate * lastValidationDate;
 
 /**
-The shipping subtotal amount calculated without any applied discounts.
+The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.
 */
 @property(nonatomic) NSNumber * shippingSubTotal;
 
 /**
-The total amount of tax incurred on the shipping charges in the cart.
+The total amount of tax incurred on the shipping charges in the cart and order. This property is not calculated at this time for wish lists.
 */
 @property(nonatomic) NSNumber * shippingTaxTotal;
 
 /**
-The total shipping amount estimated for the cart, including tax.
+The calculated total shipping amount estimated for carts or orders, including tax. This amount is not calculated for wish lists at this time.
 */
 @property(nonatomic) NSNumber * shippingTotal;
 
@@ -114,12 +114,12 @@ Unique identifier of the site.
 @property(nonatomic) NSNumber * siteId;
 
 /**
-Estimated amount of the cart without sales tax, shipping costs, and other fees.
+Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
 */
 @property(nonatomic) NSNumber * subtotal;
 
 /**
-The total sum of sales tax estimated for a cart.
+The total monetary sum of sales tax estimated for a cart or order.
 */
 @property(nonatomic) NSNumber * taxTotal;
 
@@ -129,12 +129,12 @@ Unique identifier of the Mozu tenant.
 @property(nonatomic) NSNumber * tenantId;
 
 /**
-Estimated total amount of the cart, including items, sales tax, shipping costs, and other fees.
+Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
 */
 @property(nonatomic) NSNumber * total;
 
 /**
-Unique identifier of the user associated with the shopping cart.
+Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 */
 @property(nonatomic) NSString * userId;
 
@@ -144,7 +144,7 @@ Unique identifier of the customer visit in which the cart was created or last mo
 @property(nonatomic) NSString * visitId;
 
 /**
-Unique identifier of the web session in which the cart was created or last modified.
+Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
 */
 @property(nonatomic) NSString * webSessionId;
 
@@ -154,17 +154,17 @@ Identifier and datetime stamp information recorded when a user or application cr
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
-Messages logged or created each time the cart was modified.
+Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
 */
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
 /**
-Properties of the information required to fulfill this cart.
+Properties of the information required to fulfill the cart, order, or wish list. Shoppers can fulfill ordered items by using in-store pickup or direct shipping.
 */
 @property(nonatomic) MOZUFulfillmentInfo *fulfillmentInfo;
 
 /**
-The list of invalid coupons the shopper attempted to enter for the cart.
+The list of invalid coupons the shopper attempted to enter for the cart or order. These coupons may no longer be valid or incorrectly entered.
 */
 @property(nonatomic) NSArray<MOZUInvalidCoupon> *invalidCoupons;
 
@@ -174,7 +174,7 @@ An array list of objects in the returned collection.
 @property(nonatomic) NSArray<MOZUCartItem> *items;
 
 /**
-List of order-level discounts projected to apply to the cart at checkout.
+List of order-level discounts projected to apply to the cart at checkout or order.
 */
 @property(nonatomic) NSArray<MOZUAppliedDiscount> *orderDiscounts;
 

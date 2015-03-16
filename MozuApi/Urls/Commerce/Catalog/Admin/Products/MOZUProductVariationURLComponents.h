@@ -19,16 +19,16 @@
 
 /**
 Resource Url Components for getProductVariationLocalizedDeltaPrices
-@param productCode 
-@param variationKey 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 + (MOZUURLComponents *)URLComponentsForGetProductVariationLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
 
 /**
 Resource Url Components for getProductVariationLocalizedDeltaPrice
-@param productCode 
-@param variationKey 
-@param currencyCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
@@ -61,8 +61,8 @@ Resource Url Components for getProductVariations
 
 /**
 Resource Url Components for addProductVariationLocalizedDeltaPrice
-@param productCode 
-@param variationKey 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields;
@@ -76,16 +76,16 @@ Resource Url Components for addProductVariationLocalizedDeltaPrice
 
 /**
 Resource Url Components for updateProductVariationLocalizedDeltaPrices
-@param productCode 
-@param variationKey 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateProductVariationLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey;
 
 /**
 Resource Url Components for updateProductVariationLocalizedDeltaPrice
-@param productCode 
-@param variationKey 
-@param currencyCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
@@ -101,7 +101,7 @@ Resource Url Components for updateProductVariation
 /**
 Resource Url Components for updateProductVariations
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateProductVariationsOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
@@ -121,9 +121,9 @@ Resource Url Components for deleteProductVariation
 
 /**
 Resource Url Components for deleteProductVariationLocalizedDeltaPrice
-@param productCode 
-@param variationKey 
-@param currencyCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteProductVariationLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode;
 

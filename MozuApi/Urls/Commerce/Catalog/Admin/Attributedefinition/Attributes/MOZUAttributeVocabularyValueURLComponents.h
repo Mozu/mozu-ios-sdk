@@ -25,15 +25,15 @@ Resource Url Components for getAttributeVocabularyValues
 
 /**
 Resource Url Components for getAttributeVocabularyValueLocalizedContents
-@param attributeFQN 
-@param value 
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 */
 + (MOZUURLComponents *)URLComponentsForGetAttributeVocabularyValueLocalizedContentsOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value;
 
 /**
 Resource Url Components for getAttributeVocabularyValueLocalizedContent
-@param attributeFQN 
-@param value 
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -42,7 +42,7 @@ Resource Url Components for getAttributeVocabularyValueLocalizedContent
 /**
 Resource Url Components for getAttributeVocabularyValue
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
+@param value The value string to create.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
@@ -56,8 +56,8 @@ Resource Url Components for getAttributeVocabularyValue
 
 /**
 Resource Url Components for addAttributeVocabularyValueLocalizedContent
-@param attributeFQN 
-@param value 
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddAttributeVocabularyValueLocalizedContentOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
@@ -84,16 +84,16 @@ Resource Url Components for updateAttributeVocabularyValues
 
 /**
 Resource Url Components for updateAttributeVocabularyValueLocalizedContents
-@param attributeFQN 
-@param value 
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateAttributeVocabularyValueLocalizedContentsOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value;
 
 /**
 Resource Url Components for updateAttributeVocabularyValueLocalizedContent
-@param attributeFQN 
-@param value 
-@param localeCode 
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
+@param localeCode The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateAttributeVocabularyValueLocalizedContentOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields;
@@ -101,7 +101,7 @@ Resource Url Components for updateAttributeVocabularyValueLocalizedContent
 /**
 Resource Url Components for updateAttributeVocabularyValue
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
+@param value The value string to create.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
@@ -116,14 +116,14 @@ Resource Url Components for updateAttributeVocabularyValue
 /**
 Resource Url Components for deleteAttributeVocabularyValue
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param value The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
+@param value The value string to create.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteAttributeVocabularyValueOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value;
 
 /**
 Resource Url Components for deleteAttributeVocabularyValueLocalizedContent
-@param attributeFQN 
-@param value 
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteAttributeVocabularyValueLocalizedContentOperationWithAttributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode;

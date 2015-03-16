@@ -89,6 +89,14 @@
 	return client;
 }
 
++ (MOZUClient *)clientForResendCreditCreatedEmailOperationWithCode:(NSString *)code {
+	id url = [MOZUCreditURLComponents URLComponentsForResendCreditCreatedEmailOperationWithCode:code];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
+
 + (MOZUClient *)clientForUpdateCreditOperationWithBody:(MOZUCredit *)body code:(NSString *)code responseFields:(NSString *)responseFields {
 	id url = [MOZUCreditURLComponents URLComponentsForUpdateCreditOperationWithCode:code responseFields:responseFields];
 	id verb = @"PUT";

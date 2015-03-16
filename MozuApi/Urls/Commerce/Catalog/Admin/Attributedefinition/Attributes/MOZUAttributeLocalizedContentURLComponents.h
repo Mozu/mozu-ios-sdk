@@ -19,13 +19,13 @@
 
 /**
 Resource Url Components for getAttributeLocalizedContents
-@param attributeFQN 
+@param attributeFQN Fully qualified name for an attribute.
 */
 + (MOZUURLComponents *)URLComponentsForGetAttributeLocalizedContentsOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 /**
 Resource Url Components for getAttributeLocalizedContent
-@param attributeFQN 
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -40,7 +40,7 @@ Resource Url Components for getAttributeLocalizedContent
 
 /**
 Resource Url Components for addLocalizedContent
-@param attributeFQN 
+@param attributeFQN Fully qualified name for an attribute.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddLocalizedContentOperationWithAttributeFQN:(NSString *)attributeFQN responseFields:(NSString *)responseFields;
@@ -54,13 +54,13 @@ Resource Url Components for addLocalizedContent
 
 /**
 Resource Url Components for updateLocalizedContents
-@param attributeFQN 
+@param attributeFQN Fully qualified name for an attribute.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateLocalizedContentsOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 /**
 Resource Url Components for updateLocalizedContent
-@param attributeFQN 
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -75,7 +75,7 @@ Resource Url Components for updateLocalizedContent
 
 /**
 Resource Url Components for deleteLocalizedContent
-@param attributeFQN 
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteLocalizedContentOperationWithAttributeFQN:(NSString *)attributeFQN localeCode:(NSString *)localeCode;

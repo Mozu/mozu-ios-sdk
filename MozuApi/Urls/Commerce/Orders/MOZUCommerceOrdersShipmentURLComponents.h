@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getShipment
-@param orderId Unique identifier of the order associated with the shipment to retrieve.
+@param orderId Unique identifier of the order.
 @param shipmentId Unique identifier of the shipment to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -27,8 +27,8 @@ Resource Url Components for getShipment
 
 /**
 Resource Url Components for getAvailableShipmentMethods
-@param orderId Unique identifier of the order for the available shipment methods being retrieved.
-@param draft 
+@param orderId Unique identifier of the order.
+@param draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
 */
 + (MOZUURLComponents *)URLComponentsForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft;
 
@@ -41,7 +41,7 @@ Resource Url Components for getAvailableShipmentMethods
 
 /**
 Resource Url Components for createPackageShipments
-@param orderId Unique identifier of the order for this shipment.
+@param orderId Unique identifier of the order.
 */
 + (MOZUURLComponents *)URLComponentsForCreatePackageShipmentsOperationWithOrderId:(NSString *)orderId;
 
@@ -61,8 +61,8 @@ Resource Url Components for createPackageShipments
 
 /**
 Resource Url Components for deleteShipment
-@param orderId Unique identifier of the order to cancel shipment.
-@param shipmentId Unique identifier of the shipment to cancel.
+@param orderId Unique identifier of the order.
+@param shipmentId Unique identifier of the shipment to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;
 

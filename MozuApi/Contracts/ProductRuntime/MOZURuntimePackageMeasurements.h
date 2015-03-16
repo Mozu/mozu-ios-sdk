@@ -24,22 +24,22 @@
 @interface MOZURuntimePackageMeasurements : JSONModel<MOZURuntimePackageMeasurements>
 
 /**
-Height of the package in imperial units of feet and inches.
+Height of a package or bundle package in imperial units of feet and inches.
 */
 @property(nonatomic) MOZUMeasurement *packageHeight;
 
 /**
-Length of the package in imperial units of feet and inches.
+Length of a package or bundle package in imperial units of feet and inches.
 */
 @property(nonatomic) MOZUMeasurement *packageLength;
 
 /**
-Weight of the package in imperial units of pounds and ounces.
+Weight of a package or bundle package in imperial units of pounds and ounces.
 */
 @property(nonatomic) MOZUMeasurement *packageWeight;
 
 /**
-Width of the package in imperial units of feet and inches.
+Width of a package or bundle package in imperial units of feet and inches.
 */
 @property(nonatomic) MOZUMeasurement *packageWidth;
 

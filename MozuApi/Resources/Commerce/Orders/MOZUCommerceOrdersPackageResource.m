@@ -42,8 +42,8 @@
 
 /**
 Retrieves a list of the actions available to perform for a package associated with order fulfillment.
-@param orderId Unique identifier of the order associated with the package fulfillment.
-@param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
+@param orderId Unique identifier of the order.
+@param packageId Unique identifier of the package for which to retrieve the label.
 */
 
 - (void)availablePackageFulfillmentActionsWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -59,7 +59,7 @@ Retrieves a list of the actions available to perform for a package associated wi
 
 /**
 Retrieves the package label image supplied by the carrier.
-@param orderId Unique identifier of the order associated with the package label to retrieve.
+@param orderId Unique identifier of the order.
 @param packageId Unique identifier of the package for which to retrieve the label.
 */
 
@@ -76,8 +76,8 @@ Retrieves the package label image supplied by the carrier.
 
 /**
 Retrieves the details of a package of order items.
-@param orderId Unique identifier of the order associated with the package to retrieve.
-@param packageId Unique identifier of the package to retrieve.
+@param orderId Unique identifier of the order.
+@param packageId Unique identifier of the package for which to retrieve the label.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -101,8 +101,8 @@ Retrieves the details of a package of order items.
 
 /**
 Creates a new physical package of order items.
-@param body Properties of the physical package of order items.
-@param orderId Unique identifier of the order associated with this package.
+@param body Properties of a physical package shipped for an order.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -126,9 +126,9 @@ Creates a new physical package of order items.
 
 /**
 Updates one or more properties of a physical package of order items.
-@param body Wrapper of properties for the package of order items to update.
-@param orderId Unique identifier of the order associated with the package to update.
-@param packageId Unique identifier of the package of order items to update.
+@param body Properties of a physical package shipped for an order.
+@param orderId Unique identifier of the order.
+@param packageId Unique identifier of the package for which to retrieve the label.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -152,8 +152,8 @@ Updates one or more properties of a physical package of order items.
 
 /**
 Removes a physical package of items from the specified order.
-@param orderId Unique identifier of the order associated with the package to delete.
-@param packageId Unique identifier of the package to delete.
+@param orderId Unique identifier of the order.
+@param packageId Unique identifier of the package for which to retrieve the label.
 */
 
 - (void)deletePackageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

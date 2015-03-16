@@ -22,21 +22,33 @@
 */
 @interface MOZUDocumentDraftSummary : JSONModel<MOZUDocumentDraftSummary>
 
+/**
+Detailed information of the date and time for the active update date for the document draft summary. This data is associated to document and content data.
+*/
 @property(nonatomic) NSDate * activeUpdateDate;
 
+/**
+Fully qualified name of the document type. 
+*/
 @property(nonatomic) NSString * documentTypeFQN;
 
+/**
+Detailed information of the date and time for the draft update date for the document draft summary. This data is associated to document and content data.
+*/
 @property(nonatomic) NSDate * draftUpdateDate;
 
 /**
-Identifier of document draft.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
+/**
+The fully qualified name of the document list.
+*/
 @property(nonatomic) NSString * listFQN;
 
 /**
-Name of the document draft.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

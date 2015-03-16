@@ -24,7 +24,7 @@
 @interface MOZUPricingTaxContext : JSONModel<MOZUPricingTaxContext>
 
 /**
-Unique identifier of the customer.
+Unique identifier of the customer in Mozu, used to associate customers with data, orders, returns, and in-store credit.
 */
 @property(nonatomic) NSString * customerId;
 
@@ -39,12 +39,12 @@ If the order is exempt from sales tax, the unique identifier of the tax exempt e
 @property(nonatomic) NSString * taxExemptId;
 
 /**
-The address to which the order ships.
+The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.
 */
 @property(nonatomic) MOZUAddress *destinationAddress;
 
 /**
-The address from which the order ships.
+The physical address from which the order or shipment will ship.
 */
 @property(nonatomic) MOZUAddress *originAddress;
 

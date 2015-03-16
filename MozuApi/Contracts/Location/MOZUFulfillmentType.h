@@ -28,7 +28,7 @@ The system-supplied code that identifies the fulfillment type, which is "DS" for
 @property(nonatomic) NSString * code;
 
 /**
-The system-supplied name of the fulfillment type, which is "Direct Ship" or "In Store Pickup".
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

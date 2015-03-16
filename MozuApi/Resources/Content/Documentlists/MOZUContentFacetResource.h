@@ -32,7 +32,7 @@
 
 /**
 Retrieves the properties of facets that aid in indexing and searching.
-@param documentListName The document list associated with the facets to retrieve.
+@param documentListName Name of content documentListName to delete
 @param propertyName The property name associated with the facets to retrieve.
 */
 

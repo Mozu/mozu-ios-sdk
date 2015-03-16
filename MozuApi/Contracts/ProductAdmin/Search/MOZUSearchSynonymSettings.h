@@ -17,12 +17,24 @@
 @end
 
 
+/**
+	Settings for search synonyms for search results.
+*/
 @interface MOZUSearchSynonymSettings : JSONModel<MOZUSearchSynonymSettings>
 
+/**
+Indicates if synonyms should be expanded.
+*/
 @property(nonatomic) BOOL expandSynonyms;
 
+/**
+Sets the boost for the words actually sent in the query.
+*/
 @property(nonatomic) NSNumber * mainPartBoost;
 
+/**
+Boosts the synonyms to affect rankings for search results.
+*/
 @property(nonatomic) NSNumber * synonymPartBoost;
 
 @end

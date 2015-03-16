@@ -24,12 +24,12 @@
 @interface MOZUCreditTransaction : JSONModel<MOZUCreditTransaction>
 
 /**
-Comments entered for a transaction. Depending on the interface, these comments might be visible to authorized shoppers and users.
+Notes entered and saved with an order. These notes may be entered by a shopper on a wishlist or for an order. Comments may also be entered by Mozu Admins on an order that may be visible only to authorized shoppers and users.
 */
 @property(nonatomic) NSString * comments;
 
 /**
-Unique identifier of the customer credit transaction.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSNumber * id;
 
@@ -39,7 +39,7 @@ The amount to apply to the credit balance. The defined transaction type determin
 @property(nonatomic) NSNumber * impactAmount;
 
 /**
-The type of transaction to perform for the customer credit. To decrease the balance, set this parameter to "Debit". To increase the balance, set this parameter to "Credit".
+The type of transaction, pertaining to the transaction a customer performed or the type of customer credit. For customer credit, you will set the data to Debit to decrease or Credit to update. For the type of transaction, the type includes Order, Return, OrderPickup, or Wishlist.
 */
 @property(nonatomic) NSString * transactionType;
 

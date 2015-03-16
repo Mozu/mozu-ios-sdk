@@ -24,7 +24,7 @@
 
 /**
 Retrieves the cart specified in the request.
-@param cartId Identifier of the cart to retrieve.
+@param cartId Identifier of the cart to delete.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -47,7 +47,7 @@ Retrieves summary information associated with the cart of the current shopper, i
 /**
 Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 @param responseFields Use this field to include those fields which are not included by default.
-@param userId Unique identifier of the user whose cart details you want to retrieve.
+@param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 */
 
 + (MOZUClient *)clientForGetUserCartSummaryOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
@@ -55,7 +55,7 @@ Retrieves summary information associated with the cart of user specified in the 
 /**
 Retrieves the cart of the user specified in the request.
 @param responseFields Use this field to include those fields which are not included by default.
-@param userId Unique identifier of the user whose cart you want to retrieve.
+@param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 */
 
 + (MOZUClient *)clientForGetUserCartOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
@@ -76,7 +76,7 @@ Retrieves the cart of the user specified in the request.
 
 /**
 Update the current shopper's cart.
-@param body All of the properties of the cart to update. The product code is required.
+@param body Properties of a shopping cart.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

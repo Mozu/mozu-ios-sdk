@@ -81,7 +81,7 @@ Retrieves the details of the location type specified in the request.
 
 /**
 Creates a new location type based on the information specified in the request.
-@param body Properties of the location type to create.
+@param body Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -105,7 +105,7 @@ Creates a new location type based on the information specified in the request.
 
 /**
 Updates the name of a defined location type.
-@param body Properties of the location type to update.
+@param body Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
 @param locationTypeCode The user-defined code that identifies the location type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -130,7 +130,7 @@ Updates the name of a defined location type.
 
 /**
 Deletes the location type specified in the request.
-@param locationTypeCode User-defined code used to identify the location type.
+@param locationTypeCode The user-defined code that identifies the location type.
 */
 
 - (void)deleteLocationTypeWithLocationTypeCode:(NSString *)locationTypeCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

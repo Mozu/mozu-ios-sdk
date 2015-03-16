@@ -24,16 +24,16 @@
 
 /**
 Retrieve the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
-@param documentId Unique identifier of the document.
-@param documentListName The name of the document list associated with the document.
+@param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param documentListName Name of content documentListName to delete
 */
 
 + (MOZUClient *)clientForGetDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 /**
 Retrieves a document within the specified document list.
-@param documentId Identifier of the document being retrieved.
-@param documentListName The name of the document list associated with the document to retrieve.
+@param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param documentListName Name of content documentListName to delete
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -41,8 +41,8 @@ Retrieves a document within the specified document list.
 
 /**
 Retrieves a collection of documents according to any filter and sort criteria.
-@param documentListName The name of the document list.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"
+@param documentListName Name of content documentListName to delete
+@param filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
@@ -60,8 +60,8 @@ Retrieves a collection of documents according to any filter and sort criteria.
 
 /**
 Creates a new document in an defined document list.
-@param body The descriptive name of the newly created document.
-@param documentListName The descriptive alphanumeric document list name being created.
+@param body The document properties that define the content used by the content management system (CMS).
+@param documentListName Name of content documentListName to delete
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -76,18 +76,18 @@ Creates a new document in an defined document list.
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
-@param body Input output stream that delivers information.
-@param documentId Unique identifier of the document.
-@param documentListName The name of the document list associated with the document.
+@param body Data stream that delivers information. Used to input and output data.
+@param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param documentListName Name of content documentListName to delete
 */
 
 + (MOZUClient *)clientForUpdateDocumentContentOperationWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 /**
 Updates a document in a document list.
-@param body Properties of the document to update.
-@param documentId Unique identifier of the document to update.
-@param documentListName Name of the document list associated with the document.
+@param body The document properties that define the content used by the content management system (CMS).
+@param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param documentListName Name of content documentListName to delete
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -102,16 +102,16 @@ Updates a document in a document list.
 
 /**
 Deletes a specific document based on the specified document ID.
-@param documentId Identifier of the document being deleted.
-@param documentListName The name of the document list associated with the document list being deleted.
+@param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param documentListName Name of content documentListName to delete
 */
 
 + (MOZUClient *)clientForDeleteDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 /**
 Deletes the content associated with a document, such as a product image or PDF specification, by supplying the document ID.
-@param documentId Unique identifier of the document.
-@param documentListName The name of the document list associated with the document.
+@param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param documentListName Name of content documentListName to delete
 */
 
 + (MOZUClient *)clientForDeleteDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;

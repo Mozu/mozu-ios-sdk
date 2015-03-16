@@ -19,7 +19,7 @@
 
 
 /**
-	Properties of the product property to create such as attribute detail, fully qualified name, and list of product property values.
+	Details of a property defined for a product.
 */
 @interface MOZUAdminProductProperty : JSONModel<MOZUAdminProductProperty>
 
@@ -29,7 +29,7 @@ The fully qualified name of the attribute, which is a user defined attribute ide
 @property(nonatomic) NSString * attributeFQN;
 
 /**
-The actual values that populate a product property to set in the Admin to appear on the Storefront.
+List of value data for objects.
 */
 @property(nonatomic) NSArray<MOZUAdminProductPropertyValue> *values;
 

@@ -148,6 +148,15 @@
 	return client;
 }
 
++ (MOZUClient *)clientForResendOrderConfirmationEmailOperationWithBody:(MOZUOrderAction *)body orderId:(NSString *)orderId {
+	id url = [MOZUOrderURLComponents URLComponentsForResendOrderConfirmationEmailOperationWithOrderId:orderId];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+	return client;
+}
+
 + (MOZUClient *)clientForChangeOrderUserIdOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields {
 	id url = [MOZUOrderURLComponents URLComponentsForChangeOrderUserIdOperationWithOrderId:orderId responseFields:responseFields];
 	id verb = @"PUT";

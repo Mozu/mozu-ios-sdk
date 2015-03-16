@@ -27,7 +27,7 @@ Resource Url Components for getPropertyTypes
 
 /**
 Resource Url Components for getPropertyType
-@param propertyTypeName The name of the content property type.
+@param propertyTypeName The name of the property type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetPropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields;
@@ -54,7 +54,7 @@ Resource Url Components for createPropertyType
 
 /**
 Resource Url Components for updatePropertyType
-@param propertyTypeName 
+@param propertyTypeName The name of the property type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdatePropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName responseFields:(NSString *)responseFields;
@@ -68,7 +68,7 @@ Resource Url Components for updatePropertyType
 
 /**
 Resource Url Components for deletePropertyType
-@param propertyTypeName 
+@param propertyTypeName The name of the property type.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePropertyTypeOperationWithPropertyTypeName:(NSString *)propertyTypeName;
 

@@ -59,8 +59,8 @@
 //
 
 /**
-
-@param body 
+Creates a new documentListType
+@param body Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -83,8 +83,8 @@
 //
 
 /**
-
-@param body 
+Updates a DocumentListType
+@param body Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
 @param documentListTypeFQN 
 @param responseFields Use this field to include those fields which are not included by default.
 */

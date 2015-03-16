@@ -23,7 +23,7 @@
 
 /**
 Retrieves a list of transactions associated with the customer account specified in the request.
-@param accountId Unique identifier of the customer account for which to retrieve transactions.
+@param accountId Unique identifier of the customer account.
 */
 
 + (MOZUClient *)clientForGetTransactionsOperationWithAccountId:(NSInteger)accountId;
@@ -37,7 +37,7 @@ Retrieves a list of transactions associated with the customer account specified 
 
 /**
 Creates a new transaction for the customer account specified in the request.
-@param body Properties of the transaction to create for the customer account.
+@param body Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.
 @param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -60,7 +60,7 @@ Creates a new transaction for the customer account specified in the request.
 
 /**
 Deletes a transaction from the customer account specified in the request.
-@param accountId Unique identifier of the customer account from which to delete the transaction.
+@param accountId Unique identifier of the customer account.
 @param transactionId Unique identifier of the transaction to delete.
 */
 

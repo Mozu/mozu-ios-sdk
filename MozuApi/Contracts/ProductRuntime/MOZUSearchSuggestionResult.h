@@ -18,10 +18,19 @@
 @end
 
 
+/**
+	The results of the suggested search terms made to the customer based on queries.
+*/
 @interface MOZUSearchSuggestionResult : JSONModel<MOZUSearchSuggestionResult>
 
+/**
+Text that the shopper types in a search query.
+*/
 @property(nonatomic) NSString * query;
 
+/**
+List of SearchSuggestionGroups
+*/
 @property(nonatomic) NSArray<MOZUSearchSuggestionGroup> *suggestionGroups;
 
 @end

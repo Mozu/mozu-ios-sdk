@@ -23,7 +23,7 @@
 
 /**
 Retrieves the details of the installed application specified in the request.
-@param appId The application ID that represents the application to retrieve.
+@param appId 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -45,8 +45,8 @@ Retrieves the details of the installed application specified in the request.
 
 /**
 Updates one or more properties of the application specified in the request.
-@param body Properties of the application to update.
-@param appId The application ID that represents the application to update.
+@param body Properties of an app installed in a tenant.
+@param appId 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

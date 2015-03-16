@@ -23,7 +23,7 @@
 @interface MOZUPasswordInfo : JSONModel<MOZUPasswordInfo>
 
 /**
-The new account password value.
+The new password entered and saved by the user of the account. 
 */
 @property(nonatomic) NSString * theNewPassword;
 

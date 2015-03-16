@@ -26,7 +26,7 @@
 
 /**
 Resource Url Components for generateProductVariations
-@param productTypeId Unique identifier of the product type.
+@param productTypeId Identifier of the product type.
 @param productCode 
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.

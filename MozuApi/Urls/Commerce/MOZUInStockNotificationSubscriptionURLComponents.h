@@ -29,7 +29,7 @@ Resource Url Components for getInStockNotificationSubscriptions
 
 /**
 Resource Url Components for getInStockNotificationSubscription
-@param identifier Unique identifier of the in-stock notification subscription to retrieve.
+@param identifier Unique identifier of the customer segment to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields;
@@ -63,7 +63,7 @@ Resource Url Components for addInStockNotificationSubscription
 
 /**
 Resource Url Components for deleteInStockNotificationSubscription
-@param identifier Unique identifier of the customer in-stock notification subscription to delete.
+@param identifier Unique identifier of the customer segment to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteInStockNotificationSubscriptionOperationWithIdentifier:(NSInteger)identifier;
 

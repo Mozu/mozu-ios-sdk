@@ -72,7 +72,7 @@ Retrieves all checkout settings defined for the site: Payment settings, such as 
 
 /**
 Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
-@param body All the properties to update in the checkout settings.
+@param body The properties of the customer checkout settings such as whether shoppers must be logged in.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

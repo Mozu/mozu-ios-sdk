@@ -30,12 +30,12 @@
 @interface MOZUConfiguredProduct : JSONModel<MOZUConfiguredProduct>
 
 /**
-The list of fulfillment types the product supports.
+List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
 */
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
 
 /**
-The manufacturer part number supplied for the product.
+The manufacturer's part number for the product.
 */
 @property(nonatomic) NSString * mfgPartNumber;
 
@@ -45,7 +45,7 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 @property(nonatomic) NSString * productCode;
 
 /**
-The universal product code defined for the product.
+The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
 */
 @property(nonatomic) NSString * upc;
 
@@ -55,12 +55,12 @@ Merchant-created code associated with a specific product variation. Variation pr
 @property(nonatomic) NSString * variationProductCode;
 
 /**
-List of shipping discounts that can be applied to the configured product.
+List of shipping discounts that can be applied to the configured product. These discounts are calculated and updated as shoppers add content to their cart and continue checkout steps to order submission.
 */
 @property(nonatomic) NSArray<MOZURuntimeDiscount> *availableShippingDiscounts;
 
 /**
-Properties of the inventory of the configured product, including the number of items in stock, whether the item appears on the storefront, and whether the item is out of stock or can be back ordered.
+Properties and data of inventory information for configured and bundled products. If product stock is managed, the data specifies out of stock behavior.
 */
 @property(nonatomic) MOZURuntimeProductInventoryInfo *inventoryInfo;
 
@@ -70,7 +70,7 @@ Dimensions of the packaged product.
 @property(nonatomic) MOZURuntimePackageMeasurements *measurements;
 
 /**
-The list of options set up in product admin.
+List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.
 */
 @property(nonatomic) NSArray<MOZURuntimeProductOption> *options;
 

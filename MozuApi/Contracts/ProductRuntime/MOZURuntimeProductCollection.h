@@ -19,7 +19,7 @@
 
 
 /**
-	Collection of products and their related properties.
+	The container for a set of products.
 */
 @interface MOZURuntimeProductCollection : JSONModel<MOZURuntimeProductCollection>
 

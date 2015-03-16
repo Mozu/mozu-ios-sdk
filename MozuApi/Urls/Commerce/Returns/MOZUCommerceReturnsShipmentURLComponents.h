@@ -19,8 +19,8 @@
 
 /**
 Resource Url Components for getShipment
-@param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
-@param shipmentId Unique identifier of the return replacement shipment to retrieve.
+@param returnId Unique identifier of the return whose items you want to get.
+@param shipmentId Unique identifier of the shipment to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields;
@@ -34,7 +34,7 @@ Resource Url Components for getShipment
 
 /**
 Resource Url Components for createPackageShipments
-@param returnId Unique identifier of the return for which to create replacement package shipments.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 + (MOZUURLComponents *)URLComponentsForCreatePackageShipmentsOperationWithReturnId:(NSString *)returnId;
 
@@ -54,8 +54,8 @@ Resource Url Components for createPackageShipments
 
 /**
 Resource Url Components for deleteShipment
-@param returnId Unique identifier of the return associated with the replacement shipment to delete.
-@param shipmentId Unique identifier of the return replacement shipment to delete.
+@param returnId Unique identifier of the return whose items you want to get.
+@param shipmentId Unique identifier of the shipment to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteShipmentOperationWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId;
 

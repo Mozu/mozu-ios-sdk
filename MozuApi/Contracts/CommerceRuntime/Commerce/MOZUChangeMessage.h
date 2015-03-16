@@ -33,7 +33,7 @@ Date and time when the entity was created, represented in UTC Date/Time.
 @property(nonatomic) NSDate * createDate;
 
 /**
-Unique identifier of the change message. System-supplied and read-only.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
@@ -43,7 +43,7 @@ Identifier for the object associated with the change message, which can represen
 @property(nonatomic) NSString * identifier;
 
 /**
-The text of the change message, such as "This product is no longer available". System-supplied and read-only.
+The text of the change message, such as "This product is no longer available." System-supplied and read-only.
 */
 @property(nonatomic) NSString * message;
 
@@ -73,7 +73,7 @@ If true, the change associated with the message executed successfully.
 @property(nonatomic) NSNumber * success;
 
 /**
-The unique identifier of the user who initiated the change.
+Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 */
 @property(nonatomic) NSString * userId;
 

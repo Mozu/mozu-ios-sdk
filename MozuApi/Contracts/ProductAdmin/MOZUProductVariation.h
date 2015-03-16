@@ -26,17 +26,17 @@
 @interface MOZUProductVariation : JSONModel<MOZUProductVariation>
 
 /**
-The difference between the base weight for a product and this variation of the product, which can be a positive or negative decimal value.
+The difference between the weight associated with this product, variation option, or extra and the base product. For example, if a product with a monogram weighs an extra 1/4 lb, the DeltaWeight value is "0.25". The amount of the delta is set by the weight type for the storefront.
 */
 @property(nonatomic) NSNumber * deltaWeight;
 
 /**
-Describes the types of fulfillment that are supported for this product variation. A variation can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
+List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
 */
 @property(nonatomic) NSArray *fulfillmentTypesSupported;
 
 /**
-If true, this variation of this product is marked available for sale.
+Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
 */
 @property(nonatomic) NSNumber * isActive;
 
@@ -46,7 +46,7 @@ If true, the production variation is no longer available for sale. For example, 
 @property(nonatomic) NSNumber * isOrphan;
 
 /**
-The universal product code associated with the product variation. The UPC of a product is unique across all sales channels.
+The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
 */
 @property(nonatomic) NSString * upc;
 
@@ -66,19 +66,22 @@ Merchant-created code associated with a specific product variation. Variation pr
 @property(nonatomic) NSString * variationProductCode;
 
 /**
-The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+The difference between associated prices for a product, variation option, or extra. The difference is calculated by subtracting the base price from the associated price with this product, option, and/or extra. For example, if a product with a defined monogram extra costs an additional $10, the `deltaPrice `value is "10". Between options, a price for a medium may be $10 and a large $12 giving a `deltaPrice `value of "2".
 */
 @property(nonatomic) MOZUProductVariationDeltaPrice *deltaPrice;
 
+/**
+The difference between associated prices for a product, variation option, or extra that is localized per the `localeCode`. The difference is calculated by subtracting the base price from the associated price with this product, option, and/or extra. Depending on the localeCode, the price may be converted such as from USD (US Dollar) to EUR (euro).
+*/
 @property(nonatomic) NSArray<MOZUProductVariationDeltaPrice> *localizedDeltaPrice;
 
 /**
-Wrapper for the list of option attributes configured for the product variation.
+List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.
 */
 @property(nonatomic) NSArray<MOZUProductVariationOption> *options;
 
 /**
-Supplier-defined properties assigned for the product variation.
+Supplier-defined properties assigned for the product.
 */
 @property(nonatomic) MOZUProductSupplierInfo *supplierInfo;
 

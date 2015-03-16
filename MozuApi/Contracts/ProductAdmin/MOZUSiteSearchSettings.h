@@ -20,18 +20,39 @@
 @end
 
 
+/**
+	Properties for the site search settings.
+*/
 @interface MOZUSiteSearchSettings : JSONModel<MOZUSiteSearchSettings>
 
+/**
+Custom boost value for searches.
+*/
 @property(nonatomic) NSArray *customBoosts;
 
+/**
+Indicates if the object is default. This indicator is used for product variations and site search settings. If true, the value/object is the default option. 
+*/
 @property(nonatomic) BOOL isDefault;
 
+/**
+The name for the search settings.
+*/
 @property(nonatomic) NSString * settingsName;
 
+/**
+Custom field for searches.
+*/
 @property(nonatomic) NSArray<MOZUSiteSearchRelevancyCustomField> *customFields;
 
+/**
+The site keyword relevancy settings.
+*/
 @property(nonatomic) MOZUSiteSearchKeywordRelevancySettings *siteKeywordRelevancy;
 
+/**
+The site phrase relevancy settings.
+*/
 @property(nonatomic) MOZUSiteSearchPhraseRelevancySettings *sitePhraseRelevancy;
 
 @end

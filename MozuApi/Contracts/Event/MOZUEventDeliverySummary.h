@@ -19,26 +19,59 @@
 @end
 
 
+/**
+	Data for event deliveries. Returned content details a summary of actions, events, and results for a delivery event.
+*/
 @interface MOZUEventDeliverySummary : JSONModel<MOZUEventDeliverySummary>
 
+/**
+The date time in UTC format set when the object was created. 
+*/
 @property(nonatomic) NSDate * createDate;
 
+/**
+Status of the delivery process `EventDeliveryStatusType`. System-supplied and read-only.
+*/
 @property(nonatomic) NSString * deliveryStatus;
 
+/**
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+*/
 @property(nonatomic) NSNumber * id;
 
+/**
+Indicates whether delivery of the event is currently being attempted at this moment in time
+*/
 @property(nonatomic) BOOL isRunning;
 
+/**
+The date that the delivery was last attempted (either successfully or not)
+*/
 @property(nonatomic) NSDate * lastExecutionDate;
 
+/**
+The date that the delivery will next be attempted, if the event has not been successfully delivered yet and there are still retries remaining
+*/
 @property(nonatomic) NSDate * nextExecutionDate;
 
+/**
+Number of delivery attempts remaining
+*/
 @property(nonatomic) NSNumber * retriesRemaining;
 
+/**
+The date and time the object was updated most recently. The date is in UTC format.
+*/
 @property(nonatomic) NSDate * updateDate;
 
+/**
+Details about each attempted delivery of the event to the endpoint
+*/
 @property(nonatomic) NSArray<MOZUEventDeliveryAttempt> *deliveryAttempts;
 
+/**
+Event Summary
+*/
 @property(nonatomic) MOZUEventSummary *eventSummary;
 
 @end

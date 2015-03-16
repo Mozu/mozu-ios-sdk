@@ -49,7 +49,7 @@ Resource Url Components for addSegment
 
 /**
 Resource Url Components for addSegmentAccounts
-@param identifier Unique identifier of the customer segment for which to add the associated customer accounts.
+@param identifier Unique identifier of the customer segment to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForAddSegmentAccountsOperationWithIdentifier:(NSInteger)identifier;
 
@@ -62,7 +62,7 @@ Resource Url Components for addSegmentAccounts
 
 /**
 Resource Url Components for updateSegment
-@param identifier Unique identifier of the customer segment.
+@param identifier Unique identifier of the customer segment to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateSegmentOperationWithIdentifier:(NSInteger)identifier responseFields:(NSString *)responseFields;
@@ -76,14 +76,14 @@ Resource Url Components for updateSegment
 
 /**
 Resource Url Components for deleteSegment
-@param identifier Unique identifier of the customer segment to delete.
+@param identifier Unique identifier of the customer segment to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteSegmentOperationWithIdentifier:(NSInteger)identifier;
 
 /**
 Resource Url Components for removeSegmentAccount
-@param identifier 
-@param accountId 
+@param identifier Unique identifier of the customer segment to retrieve.
+@param accountId Unique identifier of the customer account.
 */
 + (MOZUURLComponents *)URLComponentsForRemoveSegmentAccountOperationWithIdentifier:(NSInteger)identifier accountId:(NSInteger)accountId;
 

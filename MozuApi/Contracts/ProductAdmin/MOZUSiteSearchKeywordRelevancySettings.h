@@ -17,24 +17,54 @@
 @end
 
 
+/**
+	Properties for the site search keyword relevancy settings. Relevancy determines the calculated matched of entered search strings against keywords. The relevancy weight can determine the order of importance for matching a search term such as categories before or after product names.
+*/
 @interface MOZUSiteSearchKeywordRelevancySettings : JSONModel<MOZUSiteSearchKeywordRelevancySettings>
 
+/**
+The considered relevancy weight for the attributes.
+*/
 @property(nonatomic) NSInteger attributesWeight;
 
+/**
+The considered relevancy weight for category names.
+*/
 @property(nonatomic) NSInteger categoryNamesWeight;
 
+/**
+The considered relevancy weight for descriptions.
+*/
 @property(nonatomic) NSInteger descriptionWeight;
 
+/**
+The considered relevancy weight for keywords.
+*/
 @property(nonatomic) NSInteger keywordsWeight;
 
+/**
+The considered relevancy weight for mpn provider.
+*/
 @property(nonatomic) NSInteger mpnWeight;
 
+/**
+The weight for the name used in ranking search results.
+*/
 @property(nonatomic) NSInteger nameWeight;
 
+/**
+The considered relevancy weight for product code, as loose.
+*/
 @property(nonatomic) NSInteger productCodeLooseWeight;
 
+/**
+The considered relevancy weight for product code.
+*/
 @property(nonatomic) NSInteger productCodeWeight;
 
+/**
+The considered relevancy weight for UPCs.
+*/
 @property(nonatomic) NSInteger upcWeight;
 
 @end

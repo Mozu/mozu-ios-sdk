@@ -17,11 +17,20 @@
 @end
 
 
+/**
+	Properties for a product code current and changed content.
+*/
 @interface MOZUProductCodeRename : JSONModel<MOZUProductCodeRename>
 
+/**
+The existing product code to be changed.
+*/
 @property(nonatomic) NSString * existingProductCode;
 
-@property(nonatomic) NSString * theNewProductCode;
+/**
+The new product code for the product. This code must be unique across all catalogs.
+*/
+@property(nonatomic) NSString * newproductCode;
 
 @end
 

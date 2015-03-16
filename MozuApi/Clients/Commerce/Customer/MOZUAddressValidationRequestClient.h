@@ -31,7 +31,7 @@
 
 /**
 Validates the customer address supplied in the request.
-@param body Properties of the address to validate.
+@param body Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

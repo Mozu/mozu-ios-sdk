@@ -35,27 +35,27 @@
 
 /**
 Retrieves a list of the property attributes configured for the product specified in the request.
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 */
 
 - (void)propertiesWithProductCode:(NSString *)productCode completionHandler:(void(^)(NSArray<MOZUAdminProductProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param attributeFQN 
-@param productCode 
-@param value 
+Retrieves a collection of property values for localized content. This content is set by the locale code. 
+@param attributeFQN Fully qualified name for an attribute.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param value The value string to create.
 */
 
 - (void)propertyValueLocalizedContentsWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(NSArray<MOZUProductPropertyValueLocalizedContent> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param attributeFQN 
+Retrieves the property value for localized content. This content is set by the locale code. 
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
-@param value 
+@param value The value string to create.
 */
 
 - (void)propertyValueLocalizedContentWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductPropertyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -77,20 +77,20 @@ Retrieves the details of a property attribute configuration for the product spec
 //
 
 /**
-
+Adds a property value for localized content. This content is set by the locale code. 
 @param body Use this field to include those fields which are not included by default.
-@param attributeFQN 
-@param productCode 
+@param attributeFQN Fully qualified name for an attribute.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
-@param value 
+@param value The value string to create.
 */
 
 - (void)addPropertyValueLocalizedContentWithBody:(MOZUProductPropertyValueLocalizedContent *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductPropertyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Configures a property attribute for the product specified in the request.
-@param body Properties of the property attribute to configure for a product.
-@param productCode 
+@param body Details of a property defined for a product.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -104,32 +104,32 @@ Configures a property attribute for the product specified in the request.
 //
 
 /**
-
-@param body 
-@param attributeFQN 
-@param productCode 
-@param value 
+Updates all property values for localized content. This content is set by the locale code. 
+@param body Content of the product property value in the language defined for the locale code.
+@param attributeFQN Fully qualified name for an attribute.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param value The value string to create.
 */
 
 - (void)updatePropertyValueLocalizedContentsWithBody:(NSArray<MOZUProductPropertyValueLocalizedContent> *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value completionHandler:(void(^)(NSArray<MOZUProductPropertyValueLocalizedContent> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param body 
-@param attributeFQN 
+Updates the property value for localized content. This content is set by the locale code. 
+@param body Content of the product property value in the language defined for the locale code.
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
-@param value 
+@param value The value string to create.
 */
 
 - (void)updatePropertyValueLocalizedContentWithBody:(MOZUProductPropertyValueLocalizedContent *)body productCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductPropertyValueLocalizedContent *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Update one or more details of a property attribute configuration for the product specified in the request.
-@param body Details of the property attribute to update for the product configuration.
+@param body Details of a property defined for a product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -145,17 +145,17 @@ Update one or more details of a property attribute configuration for the product
 /**
 Deletes the configuration of a property attribute for the product specified in the request.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 */
 
 - (void)deletePropertyWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param attributeFQN 
+Deletes the property value for localized content. This content is set by the locale code. 
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
-@param productCode 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param value The value string to create.
 */
 
 - (void)deletePropertyValueLocalizedContentWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

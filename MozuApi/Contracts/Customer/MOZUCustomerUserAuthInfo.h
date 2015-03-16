@@ -23,12 +23,12 @@
 @interface MOZUCustomerUserAuthInfo : JSONModel<MOZUCustomerUserAuthInfo>
 
 /**
-The password of the user associated with the customer account.
+The saved password for the customer account. 
 */
 @property(nonatomic) NSString * password;
 
 /**
-The user name of the user associated with the customer account.
+The user name associated with the user profile. The customer uses the user name to access the account.
 */
 @property(nonatomic) NSString * username;
 

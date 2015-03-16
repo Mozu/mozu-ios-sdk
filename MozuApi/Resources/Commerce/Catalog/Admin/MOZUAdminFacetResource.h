@@ -42,7 +42,7 @@ Retrieves a facet specified by its unique identifier and displays its properties
 ;
 /**
 Retrieves a list of the facets defined for the specified category.
-@param categoryId Unique identifier of the category associated with the facets to retrieve.
+@param categoryId Unique identifier of the category to modify.
 @param includeAvailable If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
 @param responseFields Use this field to include those fields which are not included by default.
 @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
@@ -59,7 +59,7 @@ Retrieves a list of the facets defined for the specified category.
 
 /**
 Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
-@param body Properties of the new facet to create. You must specify the source, type, and category.
+@param body Properties of the facet used to retrieve documents.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -74,8 +74,8 @@ Creates a new category, price, or attribute facet. Define the category or attrib
 
 /**
 Modifies one or more properties of a defined facet.
-@param body Properties of the defined facet to modify.
-@param facetId Unique identifier of the facet to modify.
+@param body Properties of the facet used to retrieve documents.
+@param facetId Unique identifier of the facet to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -90,7 +90,7 @@ Modifies one or more properties of a defined facet.
 
 /**
 Deletes the facet specified by its unique identifier.
-@param facetId Unique identifier of the facet to delete.
+@param facetId Unique identifier of the facet to retrieve.
 */
 
 - (void)deleteFacetByIdWithFacetId:(NSInteger)facetId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

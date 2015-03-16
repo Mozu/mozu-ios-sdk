@@ -25,18 +25,18 @@ Resource Url Components for getExtras
 
 /**
 Resource Url Components for getExtraValueLocalizedDeltaPrices
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 */
 + (MOZUURLComponents *)URLComponentsForGetExtraValueLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
 
 /**
 Resource Url Components for getExtraValueLocalizedDeltaPrice
-@param productCode 
-@param attributeFQN 
-@param value 
-@param currencyCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetExtraValueLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
@@ -58,9 +58,9 @@ Resource Url Components for getExtra
 
 /**
 Resource Url Components for addExtraValueLocalizedDeltaPrice
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddExtraValueLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
@@ -81,18 +81,18 @@ Resource Url Components for addExtra
 
 /**
 Resource Url Components for updateExtraValueLocalizedDeltaPrices
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateExtraValueLocalizedDeltaPricesOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
 
 /**
 Resource Url Components for updateExtraValueLocalizedDeltaPrice
-@param productCode 
-@param attributeFQN 
-@param value 
-@param currencyCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateExtraValueLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields;
@@ -121,10 +121,10 @@ Resource Url Components for deleteExtra
 
 /**
 Resource Url Components for deleteExtraValueLocalizedDeltaPrice
-@param productCode 
-@param attributeFQN 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
 @param value Use this field to include those fields which are not included by default.
-@param currencyCode 
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteExtraValueLocalizedDeltaPriceOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value currencyCode:(NSString *)currencyCode;
 

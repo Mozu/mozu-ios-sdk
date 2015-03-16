@@ -34,12 +34,12 @@ Identifier of the payment gateway.
 @property(nonatomic) NSString * gatewayDefinitionId;
 
 /**
-Identifier of the entity.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
 /**
-If true, the product is marked as available for sale. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
+Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
 */
 @property(nonatomic) BOOL isActive;
 

@@ -29,7 +29,7 @@ Alphanumeric code associated with the coupon or promotion that results in a disc
 @property(nonatomic) NSString * couponCode;
 
 /**
-If true, the system ignores this discount when pricing the order.
+Indicates if a discount is not used for the product or product line item in an order. If true, the system ignores this discount when pricing the order.
 */
 @property(nonatomic) NSNumber * excluded;
 
@@ -39,7 +39,7 @@ The value of the discount applied to the cart or order, represented as a negativ
 @property(nonatomic) NSNumber * impact;
 
 /**
-Discount currently applied to the cart or order.
+Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
 */
 @property(nonatomic) MOZUCommerceDiscount *discount;
 

@@ -53,8 +53,8 @@
 
 /**
 Retrieve the content associated with the document, such as a product image or PDF specifications file.
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
 */
 
 - (void)treeDocumentContentWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -70,8 +70,8 @@ Retrieve the content associated with the document, such as a product image or PD
 
 /**
 Retrieves a document based on its document list and folder path in the document hierarchy.
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -102,9 +102,9 @@ Retrieves a document based on its document list and folder path in the document 
 
 /**
 Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
-@param body Input output stream that delivers information.
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
+@param body Data stream that delivers information. Used to input and output data.
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
 */
 
 - (void)updateTreeDocumentContentWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -127,9 +127,9 @@ Updates the content associated with a document, such as a product image or PDF s
 
 /**
 Deletes the content associated with a document, such as a product image or PDF specifications file.
-@param body Input output stream that delivers information.
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
+@param body Data stream that delivers information. Used to input and output data.
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
 */
 
 - (void)deleteTreeDocumentContentWithBody:(NSInputStream *)body documentListName:(NSString *)documentListName documentName:(NSString *)documentName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

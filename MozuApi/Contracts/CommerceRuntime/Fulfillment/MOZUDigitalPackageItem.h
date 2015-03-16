@@ -30,12 +30,12 @@ Specifies the gift card code for the digital package item.
 @property(nonatomic) NSString * giftCardCode;
 
 /**
-The product code is the code of the digital product to be fulfilled.
+The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
 */
 @property(nonatomic) NSString * productCode;
 
 /**
-This specifies the quantity of the digital order item.
+The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
 */
 @property(nonatomic) NSInteger quantity;
 

@@ -23,7 +23,7 @@
 @interface MOZUFulfillmentAction : JSONModel<MOZUFulfillmentAction>
 
 /**
-The name of the fulfillment action to perform, which is "Ship" or "PickUp".
+The name of the fulfillment action to perform for the purchased product. Options include "Ship" or "PickUp" (in-store pick-up).
 */
 @property(nonatomic) NSString * actionName;
 
@@ -33,7 +33,7 @@ The digital package ID identifies the package to update on the order.
 @property(nonatomic) NSArray *digitalPackageIds;
 
 /**
-Array list of packages for which to perform the fulfillment action.
+Array list of unique IDs of packages in a shipment planned for or finished a shipping fulfillment action. 
 */
 @property(nonatomic) NSArray *packageIds;
 

@@ -23,7 +23,7 @@
 @interface MOZUReturnAction : JSONModel<MOZUReturnAction>
 
 /**
-The name of the action to perform for the return.
+The name of the fulfillment action to perform for the purchased product. Options include "Ship" or "PickUp" (in-store pick-up).
 */
 @property(nonatomic) NSString * actionName;
 

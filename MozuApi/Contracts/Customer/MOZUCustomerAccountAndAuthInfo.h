@@ -19,17 +19,17 @@
 
 
 /**
-	The authentication information associated with a customer account.
+	The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
 */
 @interface MOZUCustomerAccountAndAuthInfo : JSONModel<MOZUCustomerAccountAndAuthInfo>
 
 /**
-If true, this customer account and its associated data was imported from an external source.
+Indicates if this object/data was imported from an outside source such as a data import or synchronization via an app or service. If true, this data was originally imported into Mozu and accessible through your store database. Examples of imported objects/data include orders and customer accounts.
 */
 @property(nonatomic) BOOL isImport;
 
 /**
-The password required to authenticate this customer account.
+The saved password for the customer account. 
 */
 @property(nonatomic) NSString * password;
 

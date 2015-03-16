@@ -30,7 +30,7 @@ If true, the shipping destination for a shipment is a commercial address.
 @property(nonatomic) NSNumber * isDestinationCommercial;
 
 /**
-The code associated with the carrier's shipping method service type. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD
+The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.
 */
 @property(nonatomic) NSString * shippingMethodCode;
 
