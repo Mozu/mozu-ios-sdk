@@ -49,7 +49,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   mozu-ios-sdk:
-    :commit: f0f0812f82747eb0630a8c8af8fecfe2fb0af8ff
+    :commit: 82f5d5be21682df228a4a72184bc07723c155740
     :git: https://github.com/Mozu/mozu-ios-sdk.git
 
 SPEC CHECKSUMS:
