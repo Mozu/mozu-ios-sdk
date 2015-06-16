@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getAccountAttribute
-@param accountId Identifier of the customer account associated with the attribute to retrieve.
+@param accountId Unique identifier of the customer account.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -27,7 +27,7 @@ Resource Url Components for getAccountAttribute
 
 /**
 Resource Url Components for getAccountAttributes
-@param accountId Identifier of the customer account associated with the attributes to retrieve.
+@param accountId Unique identifier of the customer account.
 @param startIndex 
 @param pageSize 
 @param sortBy 
@@ -59,7 +59,7 @@ Resource Url Components for addAccountAttribute
 
 /**
 Resource Url Components for updateAccountAttribute
-@param accountId Identifier of the customer account associated with the attribute.
+@param accountId Unique identifier of the customer account.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param responseFields Use this field to include those fields which are not included by default.
 */

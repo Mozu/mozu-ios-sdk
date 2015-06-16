@@ -17,6 +17,18 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForGetOrderItemViaLineIdOperationWithOrderId:(NSString *)orderId lineId:(NSInteger)lineId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items/{lineId}?draft={draft}&responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"orderId" : orderId,
+		@"lineId" : @(lineId),
+		@"draft" : draft ? draft : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 + (MOZUURLComponents *)URLComponentsForGetOrderItemOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
 	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}?draft={draft}&responseFields={responseFields}";
 	NSDictionary *params = @{
@@ -73,6 +85,20 @@
 		@"orderId" : orderId,
 		@"orderItemId" : orderItemId,
 		@"discountId" : @(discountId),
+		@"updateMode" : updateMode ? updateMode : @"",
+		@"version" : version ? version : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForUpdateItemDutyOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId dutyAmount:(NSNumber *)dutyAmount updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/items/{orderItemId}/dutyAmount/{dutyAmount}?updatemode={updateMode}&version={version}&responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"orderId" : orderId,
+		@"orderItemId" : orderItemId,
+		@"dutyAmount" : dutyAmount,
 		@"updateMode" : updateMode ? updateMode : @"",
 		@"version" : version ? version : @"",
 		@"responseFields" : responseFields ? responseFields : @"",

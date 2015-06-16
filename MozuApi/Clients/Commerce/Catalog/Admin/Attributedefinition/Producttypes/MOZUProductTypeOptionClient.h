@@ -23,7 +23,7 @@
 
 /**
 Retrieves a list of option product attributes defined for the specified product type.
-@param productTypeId Identifier of the product type to retrieve.
+@param productTypeId Identifier of the product type.
 */
 
 + (MOZUClient *)clientForGetOptionsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productTypeId:(NSInteger)productTypeId;
@@ -31,7 +31,7 @@ Retrieves a list of option product attributes defined for the specified product 
 /**
 Retrieves the details of an option attribute defined for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId The identifier of the product type.
+@param productTypeId Identifier of the product type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -46,7 +46,7 @@ Retrieves the details of an option attribute defined for the specified product t
 
 /**
 Assigns an option attribute to the product type based on the information supplied in the request.
-@param body Properties of the option attribute to define for the specified product type.
+@param body Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
 @param productTypeId Identifier of the product type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -62,7 +62,7 @@ Assigns an option attribute to the product type based on the information supplie
 
 /**
 Updates an option attribute definition for the specified product type.
-@param body Properties of the option product attribute to define for the specified product type.
+@param body Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type.
 @param responseFields Use this field to include those fields which are not included by default.

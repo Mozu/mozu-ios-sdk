@@ -25,7 +25,7 @@ Resource Url Components for getExtras
 
 /**
 Resource Url Components for getExtra
-@param productTypeId Identifier of the product type whose extra is being retrieved.
+@param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param responseFields Use this field to include those fields which are not included by default.
 */

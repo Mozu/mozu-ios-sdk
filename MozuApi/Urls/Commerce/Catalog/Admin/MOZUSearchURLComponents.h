@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getSettings
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForGetSettingsOperationWithResponseFields:(NSString *)responseFields;
 
@@ -39,7 +39,7 @@ Resource Url Components for getSettings
 
 /**
 Resource Url Components for updateSettings
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateSettingsOperationWithResponseFields:(NSString *)responseFields;
 

@@ -38,22 +38,22 @@ Unique identifier of the customer account contact associated with the credit car
 @property(nonatomic) NSInteger contactId;
 
 /**
-The two-digit month the credit card expires.
+The two-digit month a credit card expires for a payment method.
 */
 @property(nonatomic) short expireMonth;
 
 /**
-The four-digit year the credit card expires.
+The four-digit year the credit card expires for a payment method.
 */
 @property(nonatomic) short expireYear;
 
 /**
-Unique ID of the credit card for the customer account. This identifier is separate from the credit card number.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
 /**
-The name printed on the credit card.
+The full name printed on a credit card. The name should match what is printed on the card exactly, used in validation during a payment.
 */
 @property(nonatomic) NSString * nameOnCard;
 

@@ -38,7 +38,7 @@ The total number of line items in the cart. Each line item can have multiple qua
 @property(nonatomic) NSNumber * itemCount;
 
 /**
-Estimated total amount of the cart, including items, sales tax, shipping costs, and other fees.
+Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
 */
 @property(nonatomic) NSNumber * total;
 

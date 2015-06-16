@@ -17,12 +17,24 @@
 @end
 
 
+/**
+	Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.
+*/
 @interface MOZUShippingProductOption : JSONModel<MOZUShippingProductOption>
 
+/**
+The fully qualified name of the attribute. The attributeDefiniteId may be used to generate this name.
+*/
 @property(nonatomic) NSString * attributeFQN;
 
+/**
+The data type of the source product property, typically of type Bool, DateTime, Number, or String.
+*/
 @property(nonatomic) NSString * dataType;
 
+/**
+The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
+*/
 @property(nonatomic) NSObject * value;
 
 @end

@@ -24,7 +24,7 @@
 @interface MOZUOrderAttribute : JSONModel<MOZUOrderAttribute>
 
 /**
-Unique identifier of the order attribute definition.
+Unique identifier of the attribute definition.
 */
 @property(nonatomic) NSNumber * attributeDefinitionId;
 
@@ -34,7 +34,7 @@ The fully qualified name of the attribute, which is a user defined attribute ide
 @property(nonatomic) NSString * fullyQualifiedName;
 
 /**
-The values defined for the order attribute.
+List of value data for objects.
 */
 @property(nonatomic) NSArray *values;
 

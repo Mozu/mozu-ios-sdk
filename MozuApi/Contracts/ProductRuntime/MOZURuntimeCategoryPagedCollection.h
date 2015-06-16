@@ -19,7 +19,7 @@
 
 
 /**
-	Paged collection of categories and related properties.
+	The container for paged lists of related site-specific product category properties.
 */
 @interface MOZURuntimeCategoryPagedCollection : JSONModel<MOZURuntimeCategoryPagedCollection>
 

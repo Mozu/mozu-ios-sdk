@@ -23,19 +23,19 @@
 //
 
 /**
-
+Get a filtered list of EntityLists for a specific tenant.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param pageSize 
+@param pageSize The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.
 @param responseFields Use this field to include those fields which are not included by default.
-@param sortBy 
-@param startIndex 
+@param sortBy The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.
 */
 
 + (MOZUClient *)clientForGetEntityListsOperationWithPageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex filter:(NSString *)filter sortBy:(NSString *)sortBy responseFields:(NSString *)responseFields;
 
 /**
-
-@param entityListFullName 
+Get an existing EntityList definition for a specific tenant
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -49,8 +49,8 @@
 //
 
 /**
-
-@param body 
+Create a new EntityList for a specific tenant.
+@param body The definition of an MZDB EntityList which describes the characteristics of the EntityList on a per tenant basis. EntityLists are created at the tenant level, but instances of the EntityLists are implicitly created at the appropriate context level as entities are added or removed from the EntityList.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -64,9 +64,9 @@
 //
 
 /**
-
-@param body 
-@param entityListFullName 
+Update an existing Entitylist for a specific tenant.
+@param body The definition of an MZDB EntityList which describes the characteristics of the EntityList on a per tenant basis. EntityLists are created at the tenant level, but instances of the EntityLists are implicitly created at the appropriate context level as entities are added or removed from the EntityList.
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -80,8 +80,8 @@
 //
 
 /**
-
-@param entityListFullName 
+Delete an existing EntityList for a specific tenant. This will also delete all Entities in all instances of this EntityList for the tenant.
+@param entityListFullName The full name of the EntityList including namespace in name@nameSpace format
 */
 
 + (MOZUClient *)clientForDeleteEntityListOperationWithEntityListFullName:(NSString *)entityListFullName;

@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Mozu.SiteSettings.General.Contracts.General.ViewAuthorizations ApiType DOCUMENT_HERE 
+*/
 @interface MOZUViewAuthorizations : JSONModel<MOZUViewAuthorizations>
 
+/**
+Mozu.SiteSettings.General.Contracts.General.ViewAuthorizations requireAuthForLive ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) BOOL requireAuthForLive;
 
+/**
+Mozu.SiteSettings.General.Contracts.General.ViewAuthorizations requireAuthForPending ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) BOOL requireAuthForPending;
 
 @end

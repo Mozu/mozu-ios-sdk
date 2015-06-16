@@ -1,3 +1,4 @@
 platform :ios, '7.1'
 link_with 'MozuiOSTests'
 pod 'mozu-ios-sdk', :git => 'https://github.com/Mozu/mozu-ios-sdk.git'
+#pod 'mozu-ios-sdk', :path => '~/projects/git/mozu-ios-sdk'

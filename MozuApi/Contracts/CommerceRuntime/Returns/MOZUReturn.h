@@ -29,12 +29,12 @@
 @interface MOZUReturn : JSONModel<MOZUReturn>
 
 /**
-The actions a user can perform for the return at this time.
+Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
 */
 @property(nonatomic) NSArray *availableActions;
 
 /**
-The code that identifies the channel associated with the return, which is typically the same channel associated with the order.
+Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
 */
 @property(nonatomic) NSString * channelCode;
 
@@ -44,22 +44,22 @@ The code that identifies the channel associated with the return, which is typica
 @property(nonatomic) NSString * currencyCode;
 
 /**
-Unique identifier of the customer account associated with the return.
+Unique identifer of the customer account. This ID is used to associate numerous types of data and object with the customer account, including orders, returns, wish lists, and in-store credit.
 */
 @property(nonatomic) NSNumber * customerAccountId;
 
 /**
-String that describes the customer interaction used to return an item. Possible values are Website, Store, Call, and Unknown.
+The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
 */
 @property(nonatomic) NSString * customerInteractionType;
 
 /**
-Unique identifier of the return.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
 /**
-The code that uniquely identifies the location where items were returned.
+The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
 */
 @property(nonatomic) NSString * locationCode;
 
@@ -124,7 +124,7 @@ Unique identifier of the site.
 @property(nonatomic) NSNumber * siteId;
 
 /**
-Current status of the return, such as "ReturnAuthorized".
+The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
 */
 @property(nonatomic) NSString * status;
 
@@ -134,17 +134,17 @@ Unique identifier of the Mozu tenant.
 @property(nonatomic) NSNumber * tenantId;
 
 /**
-Unique identifier of the user responsible for the return. Read only and supplied by the original order.
+Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 */
 @property(nonatomic) NSString * userId;
 
 /**
-The unique identifier of the customer visit associated with the return transaction.
+Unique identifier of the customer visit in which the cart was created or last modified.
 */
 @property(nonatomic) NSString * visitId;
 
 /**
-Unique identifier of the web session in which the return was created or last modified, which is system-supplied and read only.
+Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
 */
 @property(nonatomic) NSString * webSessionId;
 
@@ -154,7 +154,7 @@ Identifier and datetime stamp information recorded when a user or application cr
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
-List of change messages associated with the return.
+Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
 */
 @property(nonatomic) NSArray<MOZUChangeMessage> *changeMessages;
 
@@ -164,17 +164,17 @@ An array list of objects in the returned collection.
 @property(nonatomic) NSArray<MOZUReturnItem> *items;
 
 /**
-Collection of merchant-supplied notes entered for the return.
+Paged list collection of note content for objects including customers, orders, and returns. 
 */
 @property(nonatomic) NSArray<MOZUOrderNote> *notes;
 
 /**
-List of packages associated with a replacement order for a return.
+Array list of physical packages shipped for a specified order.
 */
 @property(nonatomic) NSArray<MOZUPackage> *packages;
 
 /**
-Array list of payments associated with this return, if applicable.
+Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 
 */
 @property(nonatomic) NSArray<MOZUPayment> *payments;
 

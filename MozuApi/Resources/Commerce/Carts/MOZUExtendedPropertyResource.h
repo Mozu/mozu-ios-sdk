@@ -15,7 +15,7 @@
 #import "MOZUExtendedProperty.h"
 
 
-@interface MOZUExtendedPropertyResourceCarts : NSObject
+@interface MOZUExtendedPropertyResource : NSObject
 
 
 @property(readonly, nonatomic) MOZUAPIContext * apiContext;
@@ -31,7 +31,7 @@
 //
 
 /**
-
+carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
 */
 
 - (void)extendedPropertiesWithCompletionHandler:(void(^)(NSArray<MOZUExtendedProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -44,8 +44,8 @@
 //
 
 /**
-
-@param body 
+carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 */
 
 - (void)addExtendedPropertiesWithBody:(NSArray<MOZUExtendedProperty> *)body completionHandler:(void(^)(NSArray<MOZUExtendedProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -58,18 +58,18 @@
 //
 
 /**
-
-@param body 
+carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param key 
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 @param upsert 
 */
 
 - (void)updateExtendedPropertyWithBody:(MOZUExtendedProperty *)body key:(NSString *)key upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUExtendedProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param body 
+carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param upsert 
 */
 
@@ -83,14 +83,14 @@
 //
 
 /**
-
+carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
 @param body 
 */
 
 - (void)deleteExtendedPropertiesWithBody:(NSArray *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
+carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
 @param key 
 */
 

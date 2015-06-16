@@ -27,6 +27,16 @@
 @interface MOZUDiscountTarget : JSONModel<MOZUDiscountTarget>
 
 /**
+Prevents order scoped discounts from layering over items that already have a product discount with the same type.
+*/
+@property(nonatomic) NSNumber * excludeItemsWithExistingProductDiscounts;
+
+/**
+Prevents order scoped discounts from layering over items that already have a shipping discount with the same type.
+*/
+@property(nonatomic) NSNumber * excludeItemsWithExistingShippingDiscounts;
+
+/**
 If true, the target discount applies to all products sold on the site, regardless of product category.
 */
 @property(nonatomic) NSNumber * includeAllProducts;
@@ -42,17 +52,17 @@ Properties of the object to which this discount is targeted, which can be Produc
 @property(nonatomic) NSString * type;
 
 /**
-The product categories to which the discount can apply. When a discount applies to a category, all products in the category are eligible for the discount.
+The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
 */
 @property(nonatomic) NSArray<MOZUTargetedCategory> *categories;
 
 /**
-Array list of categories to exclude for this discount.
+List of the product categories that are not eligible for the discount.
 */
 @property(nonatomic) NSArray<MOZUTargetedCategory> *excludedCategories;
 
 /**
-Array list of products to exclude for this discount.
+List of products that are not eligible for the discount.
 */
 @property(nonatomic) NSArray<MOZUTargetedProduct> *excludedProducts;
 
@@ -66,6 +76,9 @@ The list of shipping method codes that represents the shipping service types to 
 */
 @property(nonatomic) NSArray<MOZUTargetedShippingMethod> *shippingMethods;
 
+/**
+Shipping Zones that are applicable for this discount
+*/
 @property(nonatomic) NSArray<MOZUTargetedShippingZone> *shippingZones;
 
 @end

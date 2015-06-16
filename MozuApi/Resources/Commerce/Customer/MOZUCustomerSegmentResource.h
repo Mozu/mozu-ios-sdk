@@ -59,7 +59,7 @@ Retrieves the details of the customer segment specified in the request. This ope
 
 /**
 Creates a new customer segments. New customer segments do not have any associated customer accounts.
-@param body Properties of the customer segment to add.
+@param body The Customer Segment object includes properties of a defined customer segment used to group customer accounts.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -68,7 +68,7 @@ Creates a new customer segments. New customer segments do not have any associate
 /**
 Adds one or more customer accounts to a defined customer segment.
 @param body List of customer account IDs to add to the customer segment specified in the request.
-@param identifier Unique identifier of the customer segment for which to add the associated customer accounts.
+@param identifier Unique identifier of the customer segment to retrieve.
 */
 
 - (void)addSegmentAccountsWithBody:(NSArray *)body identifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -82,8 +82,8 @@ Adds one or more customer accounts to a defined customer segment.
 
 /**
 Updates the details of the customer segment specified in the request.
-@param body Properties of the customer segment to update.
-@param identifier Unique identifier of the customer segment.
+@param body The Customer Segment object includes properties of a defined customer segment used to group customer accounts.
+@param identifier Unique identifier of the customer segment to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -98,15 +98,15 @@ Updates the details of the customer segment specified in the request.
 
 /**
 Deletes a customer segment specified by its unique identifier. Deleting a segment removes any customer account associations, but does not delete the customer account itself.
-@param identifier Unique identifier of the customer segment to delete.
+@param identifier Unique identifier of the customer segment to retrieve.
 */
 
 - (void)deleteSegmentWithIdentifier:(NSInteger)identifier completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
-
-@param accountId 
-@param identifier 
+Removes single account from a segment.
+@param accountId Unique identifier of the customer account.
+@param identifier Unique identifier of the customer segment to retrieve.
 */
 
 - (void)removeSegmentAccountWithIdentifier:(NSInteger)identifier accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

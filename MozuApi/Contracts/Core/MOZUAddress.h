@@ -58,7 +58,7 @@ The 2-letter geographic code representing the country for the physical or mailin
 @property(nonatomic) NSString * countryCode;
 
 /**
-If true, the address has been verified by an address validation service.
+Indicates if the address has been validated. If true, the address has been verified by an address validation service.
 */
 @property(nonatomic) NSNumber * isValidated;
 

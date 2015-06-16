@@ -17,12 +17,24 @@
 @end
 
 
+/**
+	Details of a property defined for a product.
+*/
 @interface MOZUShippingProductProperty : JSONModel<MOZUShippingProductProperty>
 
+/**
+The fully qualified name of the attribute. The attributeDefiniteId may be used to generate this name.
+*/
 @property(nonatomic) NSString * attributeFQN;
 
+/**
+The data type of the source product property, typically of type Bool, DateTime, Number, or String.
+*/
 @property(nonatomic) NSString * dataType;
 
+/**
+List of value data for objects.
+*/
 @property(nonatomic) NSArray *values;
 
 @end

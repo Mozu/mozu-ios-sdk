@@ -61,7 +61,7 @@ Resource Url Components for commitReservations
 
 /**
 Resource Url Components for updateProductReservations
-@param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
+@param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateProductReservationsOperationWithSkipInventoryCheck:(NSNumber *)skipInventoryCheck;
 
@@ -74,7 +74,7 @@ Resource Url Components for updateProductReservations
 
 /**
 Resource Url Components for deleteProductReservation
-@param productReservationId Unique identifier of the reservation.
+@param productReservationId Unique identifier of the product reservation.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteProductReservationOperationWithProductReservationId:(NSInteger)productReservationId;
 

@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getAuditEntries
-@param code User-defined code of the credit for which to retrieve audit entries.
+@param code User-defined code that uniqely identifies the channel group.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"

@@ -24,7 +24,7 @@
 @interface MOZUDiscountLocalizedContent : JSONModel<MOZUDiscountLocalizedContent>
 
 /**
-The localizable, shopper-facing description defined for the discount.
+The localizable, shopper-facing description defined for a discount or a storefront message. 
 */
 @property(nonatomic) NSString * friendlyDescription;
 
@@ -34,7 +34,7 @@ Language used for the entity. Currently, only "en-US" is supported.
 @property(nonatomic) NSString * localeCode;
 
 /**
-The localizable name of the discount.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

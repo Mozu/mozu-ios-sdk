@@ -43,8 +43,8 @@
 /**
 Retrieves the details of the specified return replacement shipment.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
-@param shipmentId Unique identifier of the return replacement shipment to retrieve.
+@param returnId Unique identifier of the return whose items you want to get.
+@param shipmentId Unique identifier of the shipment to retrieve.
 */
 
 - (void)shipmentWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUShipment *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -67,8 +67,8 @@ Retrieves the details of the specified return replacement shipment.
 
 /**
 Creates a shipment from one or more packages associated with a return replacement.
-@param body List of packages in the return replacement shipment.
-@param returnId Unique identifier of the return for which to create replacement package shipments.
+@param body List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 - (void)createPackageShipmentsWithBody:(NSArray *)body returnId:(NSString *)returnId completionHandler:(void(^)(NSArray<MOZUPackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -98,8 +98,8 @@ Creates a shipment from one or more packages associated with a return replacemen
 
 /**
 Deletes a shipment for a return replacement.
-@param returnId Unique identifier of the return associated with the replacement shipment to delete.
-@param shipmentId Unique identifier of the return replacement shipment to delete.
+@param returnId Unique identifier of the return whose items you want to get.
+@param shipmentId Unique identifier of the shipment to retrieve.
 */
 
 - (void)deleteShipmentWithReturnId:(NSString *)returnId shipmentId:(NSString *)shipmentId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

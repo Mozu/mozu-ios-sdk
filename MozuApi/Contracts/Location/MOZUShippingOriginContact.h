@@ -33,17 +33,17 @@ The email address of the specified user or the email address associated with the
 @property(nonatomic) NSString * email;
 
 /**
-The first name of the shipping origin contact.
+The full first name of a customer or contact name.
 */
 @property(nonatomic) NSString * firstName;
 
 /**
-The last name of the shipping origin contact.
+The full last name or surname of a customer or contact name.
 */
 @property(nonatomic) NSString * lastNameOrSurname;
 
 /**
-The middle name or middle initial of the shipping origin contact.
+Character string of the middle name or initial for the customer.
 */
 @property(nonatomic) NSString * middleNameOrInitial;
 

@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getCartItem
-@param cartItemId Identifier of the cart item to retrieve.
+@param cartItemId Identifier of the cart item to delete.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetCartItemOperationWithCartItemId:(NSString *)cartItemId responseFields:(NSString *)responseFields;
@@ -52,7 +52,7 @@ Resource Url Components for addItemToCart
 
 /**
 Resource Url Components for updateCartItemQuantity
-@param cartItemId Identifier of the cart item to update quantity.
+@param cartItemId Identifier of the cart item to delete.
 @param quantity The number of cart items in the shopper's active cart.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -60,7 +60,7 @@ Resource Url Components for updateCartItemQuantity
 
 /**
 Resource Url Components for updateCartItem
-@param cartItemId Identifier of the cart item to update.
+@param cartItemId Identifier of the cart item to delete.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateCartItemOperationWithCartItemId:(NSString *)cartItemId responseFields:(NSString *)responseFields;

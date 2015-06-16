@@ -20,7 +20,7 @@
 
 
 /**
-	Represents configurable options that a shopper can choose when ordering a product, such as a t-shirt color and size.
+	Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.
 */
 @interface MOZURuntimeProductOption : JSONModel<MOZURuntimeProductOption>
 
@@ -30,22 +30,22 @@ The fully qualified name of the attribute, which is a user defined attribute ide
 @property(nonatomic) NSString * attributeFQN;
 
 /**
-If true, the product attribute or option has multiple values.
+Indicates if the object has or can have multiple properties or values. If true, the object can have more than one value, selectable by shoppers through the storefront or configurable through the catalogs. 
 */
 @property(nonatomic) NSNumber * isMultiValue;
 
 /**
-If true, the entity is required for the request to return a valid response.
+Indicates if the property, attribute, product option, or product extra is required. If true, the object must have a defined value.
 */
 @property(nonatomic) NSNumber * isRequired;
 
 /**
-Details of the product option attribute.
+Detail data for a product or product options attribute. This acts as a wrapper for the properties to configure or generate from the system in the product Admin. Properties may include namespace, attribute code, attribute sequence, site group ID, input type, and value.
 */
 @property(nonatomic) MOZUAttributeDetail *attributeDetail;
 
 /**
-List of possible values for a product option attribute.
+List of value data for objects.
 */
 @property(nonatomic) NSArray<MOZURuntimeProductOptionValue> *values;
 

@@ -29,7 +29,7 @@ Resource Url Components for getCredits
 
 /**
 Resource Url Components for getCredit
-@param code User-defined code that identifies the store credit to retrieve.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetCreditOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields;
@@ -56,14 +56,20 @@ Resource Url Components for addCredit
 
 /**
 Resource Url Components for associateCreditToShopper
-@param code The code that represents the credit to claim for the shopper.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAssociateCreditToShopperOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields;
 
 /**
+Resource Url Components for resendCreditCreatedEmail
+@param code User-defined code that uniqely identifies the channel group.
+*/
++ (MOZUURLComponents *)URLComponentsForResendCreditCreatedEmailOperationWithCode:(NSString *)code;
+
+/**
 Resource Url Components for updateCredit
-@param code User-defined code of the store credit to update.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateCreditOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields;
@@ -77,7 +83,7 @@ Resource Url Components for updateCredit
 
 /**
 Resource Url Components for deleteCredit
-@param code User-defined code of the store credit to delete.
+@param code User-defined code that uniqely identifies the channel group.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteCreditOperationWithCode:(NSString *)code;
 

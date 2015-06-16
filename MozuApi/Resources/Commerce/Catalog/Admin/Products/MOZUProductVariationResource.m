@@ -52,9 +52,9 @@
 //
 
 /**
-
-@param productCode 
-@param variationKey 
+Retrieves a collection of the localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
 - (void)productVariationLocalizedDeltaPricesWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey completionHandler:(void(^)(NSArray<MOZUProductVariationDeltaPrice> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -69,11 +69,11 @@
 }
 
 /**
-
-@param currencyCode 
-@param productCode 
+Retrieves the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
-@param variationKey 
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
 - (void)productVariationLocalizedDeltaPriceWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductVariationDeltaPrice *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -134,11 +134,11 @@ Retrieves a list of the product variations configured for the specified product 
 //
 
 /**
-
-@param body 
-@param productCode 
+Adds the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+@param body The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
-@param variationKey 
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
 - (void)addProductVariationLocalizedDeltaPriceWithBody:(MOZUProductVariationDeltaPrice *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductVariationDeltaPrice *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -160,10 +160,10 @@ Retrieves a list of the product variations configured for the specified product 
 //
 
 /**
-
-@param body 
-@param productCode 
-@param variationKey 
+Updates all localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+@param body The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
 - (void)updateProductVariationLocalizedDeltaPricesWithBody:(NSArray<MOZUProductVariationDeltaPrice> *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey completionHandler:(void(^)(NSArray<MOZUProductVariationDeltaPrice> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -178,12 +178,12 @@ Retrieves a list of the product variations configured for the specified product 
 }
 
 /**
-
-@param body 
-@param currencyCode 
-@param productCode 
+Updatesthe localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+@param body The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
-@param variationKey 
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
 - (void)updateProductVariationLocalizedDeltaPriceWithBody:(MOZUProductVariationDeltaPrice *)body productCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductVariationDeltaPrice *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -199,7 +199,7 @@ Retrieves a list of the product variations configured for the specified product 
 
 /**
 Modifies the details of a variation, based on the supplied variation key, for the specified product code.
-@param body Wrapper for the properties of the specified product variation.
+@param body Properties of a specific product variation.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param responseFields Use this field to include those fields which are not included by default.
 @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
@@ -218,9 +218,9 @@ Modifies the details of a variation, based on the supplied variation key, for th
 
 /**
 Modifies the collection of variations for the specified product code. Because this PUT replaces the existing resource, supply all information necessary to maintain for the product variation.
-@param body Wrapper for the collection of variations configured for the specified product code.
+@param body Collection of variations configured for a product.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
 - (void)updateProductVariationsWithBody:(MOZUProductVariationCollection *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUProductVariationCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -259,10 +259,10 @@ Deletes a variation, based on the supplied variation key, for the specified prod
 }
 
 /**
-
-@param currencyCode 
-@param productCode 
-@param variationKey 
+Deletes the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+@param currencyCode The three character ISO currency code, such as USD for US Dollars.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 */
 
 - (void)deleteProductVariationLocalizedDeltaPriceWithProductCode:(NSString *)productCode variationKey:(NSString *)variationKey currencyCode:(NSString *)currencyCode completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

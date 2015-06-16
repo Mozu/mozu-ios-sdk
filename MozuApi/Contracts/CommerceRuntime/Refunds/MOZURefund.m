@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUKeyValue.h"
+#import "MOZURefund.h"
 
-@implementation MOZUKeyValue
+@implementation MOZURefund
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;

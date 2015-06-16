@@ -12,17 +12,16 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUInstalledApplications.h"
+#import "MOZUApplicationVersionsCollection.h"
+#import "MOZURenameInfo.h"
+#import "MOZUFileMetadata.h"
+#import "MOZUFolderMetadata.h"
+#import "MOZUPackageNamesCollection.h"
 
 
 @interface MOZUPlatformApplicationResource : NSObject
 
 
-@property(readonly, nonatomic) MOZUAPIContext * apiContext;
-
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
-
--(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -31,12 +30,37 @@
 //
 
 /**
-Retrieves the details of the installed application specified in the request.
-@param appId The application ID that represents the application to retrieve.
-@param responseFields Use this field to include those fields which are not included by default.
+platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
+@param applicationKey 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
-- (void)applicationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)appPackageNamesWithApplicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackageNamesCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+platform-developer Get GetAppVersions description DOCUMENT_HERE 
+@param nsAndAppId 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)appVersionsWithNsAndAppId:(NSString *)nsAndAppId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUApplicationVersionsCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
+@param applicationKey 
+@param filepath 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)packageFileMetadataWithApplicationKey:(NSString *)applicationKey filepath:(NSString *)filepath responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
+@param applicationKey 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)packageMetadataWithApplicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFolderMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -45,6 +69,26 @@ Retrieves the details of the installed application specified in the request.
 #pragma mark -
 //
 
+/**
+platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
+@param body Data stream that delivers information. Used to input and output data.
+@param applicationKey 
+@param filepath 
+@param lastModifiedTime 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)upsertPackageFileWithBody:(NSInputStream *)body applicationKey:(NSString *)applicationKey filepath:(NSString *)filepath lastModifiedTime:(NSString *)lastModifiedTime responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
+platform-developer Post RenamePackageFile description DOCUMENT_HERE 
+@param body Information required to update the name of a file in a package, which consists of the original name and the new name.
+@param applicationKey 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)renamePackageFileWithBody:(MOZURenameInfo *)body applicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 //
 #pragma mark -
@@ -52,15 +96,6 @@ Retrieves the details of the installed application specified in the request.
 #pragma mark -
 //
 
-/**
-Updates one or more properties of the application specified in the request.
-@param body Properties of the application to update.
-@param appId The application ID that represents the application to update.
-@param responseFields Use this field to include those fields which are not included by default.
-*/
-
-- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
-;
 
 //
 #pragma mark -
@@ -68,6 +103,14 @@ Updates one or more properties of the application specified in the request.
 #pragma mark -
 //
 
+/**
+platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
+@param applicationKey 
+@param filepath 
+*/
+
+- (void)deletePackageFileWithApplicationKey:(NSString *)applicationKey filepath:(NSString *)filepath completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
 
 
 @end

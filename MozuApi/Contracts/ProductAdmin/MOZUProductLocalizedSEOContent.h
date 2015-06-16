@@ -28,22 +28,22 @@ Language used for the entity. Currently, only "en-US" is supported.
 @property(nonatomic) NSString * localeCode;
 
 /**
-The description of the metatag used for the product SEO content set to the locale code language. The metadata description is used to manage information internally.
+Description defined for metadata, used to interally manage data, in the language specified by the `localeCode`. This content is used by categories, products, localized content, and SEO content.
 */
 @property(nonatomic) NSString * metaTagDescription;
 
 /**
-The metatag keywords for the product SEO content set in the locale code language. The metatag keywords are used to manage information internally.
+Keywords defined for  metadata, used to internally manage data, in the language specified by the `localeCode`. Keywords are used by content for categories, products, localized content, and SEO content.
 */
 @property(nonatomic) NSString * metaTagKeywords;
 
 /**
-The metatag title for the product SEO content set in the locale code language. The metatag title is used to manage information internally.
+Title defined for  metadata, used to internally manage data, in the language specified by the `localeCode`. Titles are used by content for categories, products, localized content, and SEO content.
 */
 @property(nonatomic) NSString * metaTagTitle;
 
 /**
-The search engine optimized human-readable portion of the URL in the language of the product's locale code.
+The search engine optimized, human-readable portion of the URL. The content is localized according to the product's `localeCode`.
 */
 @property(nonatomic) NSString * seoFriendlyUrl;
 

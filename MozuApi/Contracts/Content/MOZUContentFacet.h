@@ -23,12 +23,12 @@
 @interface MOZUContentFacet : JSONModel<MOZUContentFacet>
 
 /**
-The number of facet results.
+The number of facet results for a product search.
 */
 @property(nonatomic) NSInteger count;
 
 /**
-The name of the facet.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

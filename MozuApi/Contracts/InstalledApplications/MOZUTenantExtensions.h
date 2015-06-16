@@ -19,10 +19,24 @@
 @end
 
 
+/**
+	Mozu.InstalledApplications.Contracts.TenantExtensions ApiType DOCUMENT_HERE 
+*/
 @interface MOZUTenantExtensions : JSONModel<MOZUTenantExtensions>
 
+/**
+Mozu.InstalledApplications.Contracts.TenantExtensions defaultLogLevel ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSString * defaultLogLevel;
+
+/**
+Mozu.InstalledApplications.Contracts.TenantExtensions actions ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) NSArray<MOZUCustomFunctionsForAction> *actions;
 
+/**
+Mozu.InstalledApplications.Contracts.TenantExtensions configurations ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) NSArray<MOZUExtensionConfiguration> *configurations;
 
 @end

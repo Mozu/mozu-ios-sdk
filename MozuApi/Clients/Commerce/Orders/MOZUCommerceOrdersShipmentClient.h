@@ -25,7 +25,7 @@
 
 /**
 Retrieves the details of the order shipment specified in the request.
-@param orderId Unique identifier of the order associated with the shipment to retrieve.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 @param shipmentId Unique identifier of the shipment to retrieve.
 */
@@ -34,8 +34,8 @@ Retrieves the details of the order shipment specified in the request.
 
 /**
 Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
-@param draft 
-@param orderId Unique identifier of the order for the available shipment methods being retrieved.
+@param draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+@param orderId Unique identifier of the order.
 */
 
 + (MOZUClient *)clientForGetAvailableShipmentMethodsOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft;
@@ -50,7 +50,7 @@ Retrieves the available shipping methods applicable to the order. Typically used
 /**
 Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
 @param body List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
-@param orderId Unique identifier of the order for this shipment.
+@param orderId Unique identifier of the order.
 */
 
 + (MOZUClient *)clientForCreatePackageShipmentsOperationWithBody:(NSArray *)body orderId:(NSString *)orderId;
@@ -71,8 +71,8 @@ Creates a shipment from one or more package associated with an order and assign 
 
 /**
 Deletes the shipment specified in the request.
-@param orderId Unique identifier of the order to cancel shipment.
-@param shipmentId Unique identifier of the shipment to cancel.
+@param orderId Unique identifier of the order.
+@param shipmentId Unique identifier of the shipment to retrieve.
 */
 
 + (MOZUClient *)clientForDeleteShipmentOperationWithOrderId:(NSString *)orderId shipmentId:(NSString *)shipmentId;

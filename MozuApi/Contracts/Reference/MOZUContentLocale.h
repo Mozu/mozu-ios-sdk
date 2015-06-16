@@ -28,7 +28,7 @@ Language used for the entity. Currently, only "en-US" is supported.
 @property(nonatomic) NSString * code;
 
 /**
-The name of the content locale.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

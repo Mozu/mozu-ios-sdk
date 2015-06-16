@@ -33,7 +33,7 @@
 
 /**
 Retrieves the contents of an attribute associated with the specified customer account.
-@param accountId Identifier of the customer account associated with the attribute to retrieve.
+@param accountId Unique identifier of the customer account.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -42,7 +42,7 @@ Retrieves the contents of an attribute associated with the specified customer ac
 ;
 /**
 Retrieves the list of customer account attributes.
-@param accountId Identifier of the customer account associated with the attributes to retrieve.
+@param accountId Unique identifier of the customer account.
 @param filter 
 @param pageSize 
 @param responseFields Use this field to include those fields which are not included by default.
@@ -61,7 +61,7 @@ Retrieves the list of customer account attributes.
 
 /**
 Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
-@param body The attribute to add to the customer account.
+@param body Properties of an attribute associated with a customer account.
 @param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -77,8 +77,8 @@ Applies a defined attribute to the customer account specified in the request and
 
 /**
 Updates one or more details of a customer account attribute.
-@param body Properties of the customer account attribute to update.
-@param accountId Identifier of the customer account associated with the attribute.
+@param body Properties of an attribute associated with a customer account.
+@param accountId Unique identifier of the customer account.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param responseFields Use this field to include those fields which are not included by default.
 */

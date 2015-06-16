@@ -53,14 +53,14 @@
 
 /**
 Retrieves the details of a product's active inventory at the location specified in the request.
-@param locationCode User-defined code that uniquely identifies the location.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
 - (void)locationInventoryWithLocationCode:(NSString *)locationCode productCode:(NSString *)productCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminLocationInventory *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForGetLocationInventoryOperationWithLocationCode:locationCode productCode:productCode responseFields:responseFields];
+	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForGetLocationInventoryOperationWithDataViewMode:self.dataViewMode locationCode:locationCode productCode:productCode responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -72,7 +72,7 @@ Retrieves the details of a product's active inventory at the location specified 
 /**
 Retrieves a list of all product inventory definitions for the location code specified in the request.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-@param locationCode User-defined code that uniquely identifies the location.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
@@ -81,7 +81,7 @@ Retrieves a list of all product inventory definitions for the location code spec
 
 - (void)locationInventoriesWithLocationCode:(NSString *)locationCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAdminLocationInventoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForGetLocationInventoriesOperationWithLocationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
+	MOZUClient *client = [MOZUAdminLocationInventoryClient clientForGetLocationInventoriesOperationWithDataViewMode:self.dataViewMode locationCode:locationCode startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -99,9 +99,9 @@ Retrieves a list of all product inventory definitions for the location code spec
 
 /**
 Creates an array of product inventory definitions for the location specified in the request. When adding a new inventory definition, you must specify the productCode and stockOnHand value in each array you define. All other properties are system-supplied and read only.
-@param body Array list of product inventory definitions for all associated locations. For each location inventory in the list, define the productCode and stockOnHand values.
-@param locationCode User-defined code that uniquely identifies the location.
-@param performUpserts 
+@param body Properties of an inventory definition that defines the level of inventory for a specific product at a given location.
+@param locationCode The unique, user-defined code that identifies a location. 
+@param performUpserts Query string parameter lets the service perform an update for a new or existing record. When run, the update occurs without throwing a conflict exception that the record exists. If true, the updates completes regardless of the record currently existing. By default, if no value is specified, the service assumes this value is false.
 */
 
 - (void)addLocationInventoryWithBody:(NSArray<MOZUAdminLocationInventory> *)body locationCode:(NSString *)locationCode performUpserts:(NSNumber *)performUpserts completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -124,8 +124,8 @@ Creates an array of product inventory definitions for the location specified in 
 
 /**
 Updates the active stock on hand inventory of products for the location code specified in the request.
-@param body Properties of the inventory adjustments to perform for the specified location.
-@param locationCode User-defined code that uniquely identifies the location.
+@param body Properties of an adjustment to the active product inventory of a specific location.
+@param locationCode The unique, user-defined code that identifies a location. 
 */
 
 - (void)updateLocationInventoryWithBody:(NSArray<MOZULocationInventoryAdjustment> *)body locationCode:(NSString *)locationCode completionHandler:(void(^)(NSArray<MOZUAdminLocationInventory> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -148,7 +148,7 @@ Updates the active stock on hand inventory of products for the location code spe
 
 /**
 Deletes the product code inventory definition for the location specified in the request.
-@param locationCode User-defined code that uniquely identifies the location.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 

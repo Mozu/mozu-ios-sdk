@@ -17,8 +17,14 @@
 @end
 
 
+/**
+	Properties for the intended view of the product attribute in the storefront.
+*/
 @interface MOZUAttributeInProductTypeDisplayInfo : JSONModel<MOZUAttributeInProductTypeDisplayInfo>
 
+/**
+Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
+*/
 @property(nonatomic) NSString * displayIntention;
 
 @end

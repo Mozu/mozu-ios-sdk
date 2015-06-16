@@ -73,6 +73,15 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
++ (MOZUURLComponents *)URLComponentsForResendCreditCreatedEmailOperationWithCode:(NSString *)code {
+	NSString *template = @"/api/commerce/customer/credits/{code}/Resend-Email";
+	NSDictionary *params = @{
+		@"code" : code,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 + (MOZUURLComponents *)URLComponentsForUpdateCreditOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields {
 	NSString *template = @"/api/commerce/customer/credits/{code}?responseFields={responseFields}";
 	NSDictionary *params = @{

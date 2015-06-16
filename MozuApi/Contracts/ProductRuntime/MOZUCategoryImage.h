@@ -23,37 +23,37 @@
 @interface MOZUCategoryImage : JSONModel<MOZUCategoryImage>
 
 /**
-Descriptive text associated with the image or video that appears on the web storefront.
+Descriptive text associated with the image or video that appears on the web storefront. This text displays on a hover-over in the browser, providing further information on the content displayed. The alternate text should be plain alphanumeric text without special characters or HTML coding.
 */
 @property(nonatomic) NSString * altText;
 
 /**
-The identifier of the category image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
+The identifier of the image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
 */
 @property(nonatomic) NSString * cmsId;
 
 /**
-Image title that appears on the web storefront, set to the language specified by the site's LocaleCode.
+The localized title for an image that displays on the storefront. If localized, the displayed content is set per the locale code for the site.
 */
 @property(nonatomic) NSString * imageLabel;
 
 /**
-URL of the product category image.
+The URL link for the image file associated with a product or category.
 */
 @property(nonatomic) NSString * imageUrl;
 
 /**
-Type of media specification required to successfully render the image, video, or other category content.
+Type of media specification required to successfully render the image, video, or other media content for products and categories.
 */
 @property(nonatomic) NSString * mediaType;
 
 /**
-Integer that represents the sequential order of the category image in the collection.
+The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
 */
 @property(nonatomic) NSNumber * sequence;
 
 /**
-The link or URL of the product category video. The file path name is set in the language specified by the LocaleCode.
+The URL of a video files for a product or category. The path name is set in the language specified by the LocaleCode.
 */
 @property(nonatomic) NSString * videoUrl;
 

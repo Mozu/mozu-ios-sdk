@@ -12,27 +12,9 @@
 #import "MOZUPlatformApplicationResource.h"
 
 
-@interface MOZUPlatformApplicationResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
-@end
 
 @implementation MOZUPlatformApplicationResource
 
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
-	if (self = [super init]) {
-		self.apiContext = apiContext;
-		return self;
-	}
-	else {
-		return nil;
-	}
-}
-
-
--(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
-	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
-	return [self initWithAPIContext:cloned];
-}
 
 //
 #pragma mark -
@@ -41,15 +23,63 @@
 //
 
 /**
-Retrieves the details of the installed application specified in the request.
-@param appId The application ID that represents the application to retrieve.
-@param responseFields Use this field to include those fields which are not included by default.
+platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
+@param applicationKey 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
-- (void)applicationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)appPackageNamesWithApplicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackageNamesCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetApplicationOperationWithAppId:appId responseFields:responseFields];
-	client.context = self.apiContext;
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetAppPackageNamesOperationWithApplicationKey:applicationKey responseFields:responseFields];
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+platform-developer Get GetAppVersions description DOCUMENT_HERE 
+@param nsAndAppId 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)appVersionsWithNsAndAppId:(NSString *)nsAndAppId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUApplicationVersionsCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetAppVersionsOperationWithNsAndAppId:nsAndAppId responseFields:responseFields];
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
+@param applicationKey 
+@param filepath 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)packageFileMetadataWithApplicationKey:(NSString *)applicationKey filepath:(NSString *)filepath responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetPackageFileMetadataOperationWithApplicationKey:applicationKey filepath:filepath responseFields:responseFields];
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
+@param applicationKey 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)packageMetadataWithApplicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFolderMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForGetPackageMetadataOperationWithApplicationKey:applicationKey responseFields:responseFields];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -64,24 +94,35 @@ Retrieves the details of the installed application specified in the request.
 #pragma mark -
 //
 
-
-//
-#pragma mark -
-#pragma mark Put Operations
-#pragma mark -
-//
-
 /**
-Updates one or more properties of the application specified in the request.
-@param body Properties of the application to update.
-@param appId The application ID that represents the application to update.
-@param responseFields Use this field to include those fields which are not included by default.
+platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
+@param body Data stream that delivers information. Used to input and output data.
+@param applicationKey 
+@param filepath 
+@param lastModifiedTime 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
-- (void)updateApplicationWithBody:(MOZUInstalledApplications *)body appId:(NSString *)appId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUInstalledApplications *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)upsertPackageFileWithBody:(NSInputStream *)body applicationKey:(NSString *)applicationKey filepath:(NSString *)filepath lastModifiedTime:(NSString *)lastModifiedTime responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUPlatformApplicationClient clientForUpdateApplicationOperationWithBody:body appId:appId responseFields:responseFields];
-	client.context = self.apiContext;
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForUpsertPackageFileOperationWithBody:body applicationKey:applicationKey filepath:filepath lastModifiedTime:lastModifiedTime responseFields:responseFields];
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+platform-developer Post RenamePackageFile description DOCUMENT_HERE 
+@param body Information required to update the name of a file in a package, which consists of the original name and the new name.
+@param applicationKey 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)renamePackageFileWithBody:(MOZURenameInfo *)body applicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFileMetadata *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForRenamePackageFileOperationWithBody:body applicationKey:applicationKey responseFields:responseFields];
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
@@ -92,9 +133,32 @@ Updates one or more properties of the application specified in the request.
 
 //
 #pragma mark -
+#pragma mark Put Operations
+#pragma mark -
+//
+
+
+//
+#pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
+@param applicationKey 
+@param filepath 
+*/
+
+- (void)deletePackageFileWithApplicationKey:(NSString *)applicationKey filepath:(NSString *)filepath completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUPlatformApplicationClient clientForDeletePackageFileOperationWithApplicationKey:applicationKey filepath:filepath];
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(error, response);
+		}
+	}];
+}
 
 
 

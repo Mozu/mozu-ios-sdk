@@ -24,7 +24,7 @@
 @interface MOZUInStockNotificationSubscription : JSONModel<MOZUInStockNotificationSubscription>
 
 /**
-Unique identifier of the customer associated with the in-stock notification subscription.
+Unique identifier of the customer in Mozu, used to associate customers with data, orders, returns, and in-store credit.
 */
 @property(nonatomic) NSNumber * customerId;
 
@@ -34,12 +34,12 @@ The email address of the specified user or the email address associated with the
 @property(nonatomic) NSString * email;
 
 /**
-Unique identifier of the customer in-stock notification subscription.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSNumber * id;
 
 /**
-Tenant-defined code that identifies the customer in-stock notification subscription.
+The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
 */
 @property(nonatomic) NSString * locationCode;
 

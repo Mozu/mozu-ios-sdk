@@ -26,15 +26,15 @@ Resource Url Components for getPayments
 
 /**
 Resource Url Components for getAvailablePaymentActions
-@param orderId Unique identifier of the order associated with the payment.
-@param paymentId Unique identifer of the payment for which to retrieve available actions.
+@param orderId Unique identifier of the order.
+@param paymentId Unique identifier of the payment for which to perform the action.
 */
 + (MOZUURLComponents *)URLComponentsForGetAvailablePaymentActionsOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId;
 
 /**
 Resource Url Components for getPayment
-@param orderId Unique identifier of the order associated with the payment transaction.
-@param paymentId Unique identifier of the payment transaction submitted for the order.
+@param orderId Unique identifier of the order.
+@param paymentId Unique identifier of the payment for which to perform the action.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetPaymentOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields;
@@ -48,15 +48,15 @@ Resource Url Components for getPayment
 
 /**
 Resource Url Components for performPaymentAction
-@param orderId Unique identifier of the order associated with the payment.
-@param paymentId Unique identifer of the payment for which to perform the action.
+@param orderId Unique identifier of the order.
+@param paymentId Unique identifier of the payment for which to perform the action.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForPerformPaymentActionOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for createPaymentAction
-@param orderId Unique identifier of the order for which to apply the payment.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForCreatePaymentActionOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields;

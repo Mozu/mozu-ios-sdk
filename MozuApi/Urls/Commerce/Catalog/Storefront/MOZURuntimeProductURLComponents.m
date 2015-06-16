@@ -41,13 +41,14 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}";
++ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck supressOutOfStock404:(NSNumber *)supressOutOfStock404 responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}&supressOutOfStock404={supressOutOfStock404}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"variationProductCode" : variationProductCode ? variationProductCode : @"",
 		@"allowInactive" : allowInactive ? allowInactive : @"",
 		@"skipInventoryCheck" : skipInventoryCheck ? skipInventoryCheck : @"",
+		@"supressOutOfStock404" : supressOutOfStock404 ? supressOutOfStock404 : @"",
 		@"responseFields" : responseFields ? responseFields : @"",
 	};
 

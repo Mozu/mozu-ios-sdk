@@ -28,12 +28,32 @@ The order or item amount changed, if applicable.
 @property(nonatomic) NSNumber * amount;
 
 /**
+Unique identifier of an app available in your Mozu tenant or within Mozu Dev Center. This ID is unique across all apps installed, initialized, and enabled in the Mozu Admin and those in development through the Dev Center Console.
+*/
+@property(nonatomic) NSString * appId;
+
+/**
+App Key
+*/
+@property(nonatomic) NSString * appKey;
+
+/**
+App Name
+*/
+@property(nonatomic) NSString * appName;
+
+/**
+The unique identifier of the API request associated with the event action, which might contain multiple actions.
+*/
+@property(nonatomic) NSString * correlationId;
+
+/**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * createDate;
 
 /**
-Unique identifier of the change message. System-supplied and read-only.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
@@ -43,9 +63,14 @@ Identifier for the object associated with the change message, which can represen
 @property(nonatomic) NSString * identifier;
 
 /**
-The text of the change message, such as "This product is no longer available". System-supplied and read-only.
+The text of the change message, such as "This product is no longer available." System-supplied and read-only.
 */
 @property(nonatomic) NSString * message;
+
+/**
+Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
+*/
+@property(nonatomic) NSObject * metadata;
 
 /**
 The new value of the object affected by the change, such as the new price of the product. System-supplied and read-only.
@@ -73,9 +98,24 @@ If true, the change associated with the message executed successfully.
 @property(nonatomic) NSNumber * success;
 
 /**
-The unique identifier of the user who initiated the change.
+User First Name
+*/
+@property(nonatomic) NSString * userFirstName;
+
+/**
+Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 */
 @property(nonatomic) NSString * userId;
+
+/**
+User Last Name
+*/
+@property(nonatomic) NSString * userLastName;
+
+/**
+User Type (e.g. Shopper, Admin, etc.)
+*/
+@property(nonatomic) NSString * userScopeType;
 
 /**
 The action associated with this message. For example, if the price of a product changes, the verb could be "Increased" or "Decreased". If the product is no longer available, the verb could be "Invalidated". System-supplied and read-only.

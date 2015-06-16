@@ -72,7 +72,7 @@ Retrieves a list of the validation results associated with the order.
 
 /**
 Add a new order validation result to a submitted order.
-@param body Properties of the validation result to add for the order.
+@param body Properties of the resulting order validation performed by an order validation capability.
 @param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */

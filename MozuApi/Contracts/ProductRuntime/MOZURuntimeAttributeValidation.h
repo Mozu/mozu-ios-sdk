@@ -18,42 +18,42 @@
 
 
 /**
-	Validates the attribute configured for the product in the storefront against the attribute configured in product admin.
+	Validates the attribute configured for the customer in the storefront against the attribute configured in Mozu admin.
 */
 @interface MOZURuntimeAttributeValidation : JSONModel<MOZURuntimeAttributeValidation>
 
 /**
-System-supplied and read-only.
+The maximum date allowed including month, day, and year. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * maxDateValue;
 
 /**
-The maximum number of characters for the numeric length.
+The maximum number that can be entered as a value for an extensible attribute.
 */
 @property(nonatomic) double maxNumericValue;
 
 /**
-The maximum number of characters for the string length.
+The maximum character length possible for a string value entered for an extensible attribute.
 */
 @property(nonatomic) NSNumber * maxStringLength;
 
 /**
-System-supplied and read-only.
+The minimum date allowed including month, day, and year. System-supplied and read-only.
 */
 @property(nonatomic) NSDate * minDateValue;
 
 /**
-The minimum number of characters for the numeric length.
+The minimum numeric value required to validate an extensible attribute.
 */
 @property(nonatomic) double minNumericValue;
 
 /**
-The minimum character length of the string.
+The minimum character length possible for a string value entered for an extensible attribute.
 */
 @property(nonatomic) NSNumber * minStringLength;
 
 /**
-Regular expression used to process attribute values that require special formatting such as phone numbers.
+Regular expression used to process and validate an extensible attribute value that require special formatting, such as phone numbers.
 */
 @property(nonatomic) NSString * regularExpression;
 

@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getAccountNote
-@param accountId Unique identifier of the customer account that contains the note being retrieved.
+@param accountId Unique identifier of the customer account.
 @param noteId Unique identifier of a particular note to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -45,7 +45,7 @@ Resource Url Components for getAccountNotes
 
 /**
 Resource Url Components for addAccountNote
-@param accountId Unique identifier of the customer account for which to create the note.
+@param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddAccountNoteOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
@@ -59,8 +59,8 @@ Resource Url Components for addAccountNote
 
 /**
 Resource Url Components for updateAccountNote
-@param accountId Unique identifier of the customer account note to modify.
-@param noteId Unique identifier of the note to update.
+@param accountId Unique identifier of the customer account.
+@param noteId Unique identifier of a particular note to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId responseFields:(NSString *)responseFields;
@@ -74,8 +74,8 @@ Resource Url Components for updateAccountNote
 
 /**
 Resource Url Components for deleteAccountNote
-@param accountId Unique identifier of the customer account that contains the note being deleted.
-@param noteId Unique identifier of the customer account note being deleted.
+@param accountId Unique identifier of the customer account.
+@param noteId Unique identifier of a particular note to retrieve.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteAccountNoteOperationWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId;
 

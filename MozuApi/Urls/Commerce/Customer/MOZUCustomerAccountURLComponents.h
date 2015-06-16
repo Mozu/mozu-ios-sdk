@@ -24,7 +24,7 @@ Resource Url Components for getAccounts
 @param sortBy 
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param fields The fields to include in the response.
-@param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
+@param q A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param isAnonymous If true, retrieve anonymous shopper accounts in the response.
 @param responseFields Use this field to include those fields which are not included by default.
@@ -40,7 +40,7 @@ Resource Url Components for getLoginState
 
 /**
 Resource Url Components for getAccount
-@param accountId Unique identifier of the customer account to retrieve.
+@param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetAccountOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
@@ -60,9 +60,10 @@ Resource Url Components for addAccount
 
 /**
 Resource Url Components for changePassword
-@param accountId The customer account information required to change the userpassword.
+@param accountId Unique identifier of the customer account.
+@param unlockAccount 
 */
-+ (MOZUURLComponents *)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId;
++ (MOZUURLComponents *)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId unlockAccount:(NSNumber *)unlockAccount;
 
 /**
 Resource Url Components for addLoginToExistingCustomer
@@ -73,13 +74,13 @@ Resource Url Components for addLoginToExistingCustomer
 
 /**
 Resource Url Components for recomputeCustomerLifetimeValue
-@param accountId The unique identifier of the customer account for which to calculate customer lifetime value.
+@param accountId Unique identifier of the customer account.
 */
 + (MOZUURLComponents *)URLComponentsForRecomputeCustomerLifetimeValueOperationWithAccountId:(NSInteger)accountId;
 
 /**
 Resource Url Components for setLoginLocked
-@param accountId The unique identifier of the customer account.
+@param accountId Unique identifier of the customer account.
 */
 + (MOZUURLComponents *)URLComponentsForSetLoginLockedOperationWithAccountId:(NSInteger)accountId;
 
@@ -100,6 +101,12 @@ Resource Url Components for addAccounts
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddAccountsOperationWithResponseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for changePasswords
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForChangePasswordsOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getLoginStateByEmailAddress
@@ -143,7 +150,7 @@ Resource Url Components for updateAccount
 
 /**
 Resource Url Components for deleteAccount
-@param accountId Unique identifier of the customer account to delete.
+@param accountId Unique identifier of the customer account.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteAccountOperationWithAccountId:(NSInteger)accountId;
 

@@ -61,6 +61,13 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
++ (MOZUURLComponents *)URLComponentsForRenewSoftAllocationsOperation {
+	NSString *template = @"/api/commerce/catalog/admin/softallocations/renew";
+	NSDictionary *params = nil;
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -

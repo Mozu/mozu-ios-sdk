@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getOrderAttributes
-@param orderId Unique identifier of the order for which to retrieve a list of defined attributes.
+@param orderId Unique identifier of the order.
 */
 + (MOZUURLComponents *)URLComponentsForGetOrderAttributesOperationWithOrderId:(NSString *)orderId;
 
@@ -32,7 +32,7 @@ Resource Url Components for getOrderAttributes
 
 /**
 Resource Url Components for createOrderAttributes
-@param orderId Unique identifier of the order for which to assign the attributes.
+@param orderId Unique identifier of the order.
 */
 + (MOZUURLComponents *)URLComponentsForCreateOrderAttributesOperationWithOrderId:(NSString *)orderId;
 
@@ -45,7 +45,7 @@ Resource Url Components for createOrderAttributes
 
 /**
 Resource Url Components for updateOrderAttributes
-@param orderId Identifier of the order for which to update attributes.
+@param orderId Unique identifier of the order.
 @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateOrderAttributesOperationWithOrderId:(NSString *)orderId removeMissing:(NSNumber *)removeMissing;

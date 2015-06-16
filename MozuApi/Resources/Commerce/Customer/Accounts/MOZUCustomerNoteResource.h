@@ -33,7 +33,7 @@
 
 /**
 Retrieves the contents of a particular note attached to a specified customer account.
-@param accountId Unique identifier of the customer account that contains the note being retrieved.
+@param accountId Unique identifier of the customer account.
 @param noteId Unique identifier of a particular note to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -61,8 +61,8 @@ Retrieves a list of notes added to a customer account according to any specified
 
 /**
 Adds a new note to the specified customer account.
-@param body Properties of the customer account note to create.
-@param accountId Unique identifier of the customer account for which to create the note.
+@param body Properties of a note configured for a customer account.
+@param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -77,9 +77,9 @@ Adds a new note to the specified customer account.
 
 /**
 Modifies an existing note for a customer account.
-@param body The new content to replace the existing note.
-@param accountId Unique identifier of the customer account note to modify.
-@param noteId Unique identifier of the note to update.
+@param body Properties of a note configured for a customer account.
+@param accountId Unique identifier of the customer account.
+@param noteId Unique identifier of a particular note to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -94,8 +94,8 @@ Modifies an existing note for a customer account.
 
 /**
 Removes a note from the specified customer account.
-@param accountId Unique identifier of the customer account that contains the note being deleted.
-@param noteId Unique identifier of the customer account note being deleted.
+@param accountId Unique identifier of the customer account.
+@param noteId Unique identifier of a particular note to retrieve.
 */
 
 - (void)deleteAccountNoteWithAccountId:(NSInteger)accountId noteId:(NSInteger)noteId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

@@ -28,7 +28,7 @@ Language used for the entity. Currently, only "en-US" is supported.
 @property(nonatomic) NSString * localeCode;
 
 /**
-The string value of the product property set in the language specified the locale code.
+If the object value is a String, this value provides that string value, used by vocabulary property values, products, and options.
 */
 @property(nonatomic) NSString * stringValue;
 

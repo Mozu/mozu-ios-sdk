@@ -17,14 +17,45 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetApplicationOperationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/platform/applications/{appId}?responseFields={responseFields}";
++ (MOZUURLComponents *)URLComponentsForGetAppPackageNamesOperationWithApplicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/developer/applications/{applicationKey}/packagenames?responseFields={responseFields}";
 	NSDictionary *params = @{
-		@"appId" : appId,
+		@"applicationKey" : applicationKey,
 		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetAppVersionsOperationWithNsAndAppId:(NSString *)nsAndAppId responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/developer/applications/versions/{nsAndAppId}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"nsAndAppId" : nsAndAppId,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetPackageFileMetadataOperationWithApplicationKey:(NSString *)applicationKey filepath:(NSString *)filepath responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/developer/packages/{applicationKey}/filemetadata/{filepath}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"applicationKey" : applicationKey,
+		@"filepath" : filepath,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetPackageMetadataOperationWithApplicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/developer/packages/{applicationKey}/metadata?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"applicationKey" : applicationKey,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
 
@@ -34,6 +65,28 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForUpsertPackageFileOperationWithApplicationKey:(NSString *)applicationKey filepath:(NSString *)filepath lastModifiedTime:(NSString *)lastModifiedTime responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/developer/packages/{applicationKey}/files/{filepath}?lastModifiedTime={lastModifiedTime}&responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"applicationKey" : applicationKey,
+		@"filepath" : filepath,
+		@"lastModifiedTime" : lastModifiedTime ? lastModifiedTime : @"",
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForRenamePackageFileOperationWithApplicationKey:(NSString *)applicationKey responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/developer/packages/{applicationKey}/files_rename?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"applicationKey" : applicationKey,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+}
+
 
 //
 #pragma mark -
@@ -41,22 +94,22 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForUpdateApplicationOperationWithAppId:(NSString *)appId responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/platform/applications/{appId}?responseFields={responseFields}";
-	NSDictionary *params = @{
-		@"appId" : appId,
-		@"responseFields" : responseFields ? responseFields : @"",
-	};
-
-	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
-}
-
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUURLComponents *)URLComponentsForDeletePackageFileOperationWithApplicationKey:(NSString *)applicationKey filepath:(NSString *)filepath {
+	NSString *template = @"/api/platform/developer/packages/{applicationKey}/files/{filepath}";
+	NSDictionary *params = @{
+		@"applicationKey" : applicationKey,
+		@"filepath" : filepath,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+}
 
 
 

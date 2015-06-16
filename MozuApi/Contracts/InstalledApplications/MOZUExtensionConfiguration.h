@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Mozu.InstalledApplications.Contracts.ExtensionConfiguration ApiType DOCUMENT_HERE 
+*/
 @interface MOZUExtensionConfiguration : JSONModel<MOZUExtensionConfiguration>
 
+/**
+Mozu.InstalledApplications.Contracts.ExtensionConfiguration applicationKey ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) NSString * applicationKey;
 
+/**
+Mozu.InstalledApplications.Contracts.ExtensionConfiguration configuration ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) NSObject * configuration;
 
 @end

@@ -17,8 +17,14 @@
 @end
 
 
+/**
+	The targeted shipping zone for the product.
+*/
 @interface MOZUTargetedShippingZone : JSONModel<MOZUTargetedShippingZone>
 
+/**
+The zone string for the tenant domain.
+*/
 @property(nonatomic) NSString * zone;
 
 @end

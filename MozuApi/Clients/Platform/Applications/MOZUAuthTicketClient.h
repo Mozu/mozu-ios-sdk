@@ -32,7 +32,7 @@
 
 /**
 Generate an authentication ticket for an application.
-@param body Authentication information required to generate an authentication ticket includes the application id and the shared secret.
+@param body The information required to authenticate third party applications against the Mozu API.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -47,7 +47,7 @@ Generate an authentication ticket for an application.
 
 /**
 Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
-@param body The refresh token string required to update the application authentication ticket.
+@param body Properties of the authentication ticket refresh requests, which includes the refresh token string.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -62,7 +62,7 @@ Refreshes the application's authentication ticket and generates a new access tok
 
 /**
 Deletes an authentication for an application based on the specified refresh token.
-@param refreshToken The refresh token string from the application's authentication ticket.
+@param refreshToken Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
 */
 
 + (MOZUClient *)clientForDeleteAppAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;

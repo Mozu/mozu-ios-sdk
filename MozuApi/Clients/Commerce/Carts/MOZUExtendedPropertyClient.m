@@ -8,12 +8,12 @@
 * </auto-generated>
 */
 
-#import "MOZUExtendedPropertyClientOrders.h"
-#import "MOZUExtendedPropertyURLComponentsOrders.h"
+#import "MOZUExtendedPropertyClient.h"
+#import "MOZUExtendedPropertyURLComponents.h"
 #import "MozuExtendedProperty.h"
 
 
-@implementation MOZUExtendedPropertyClientOrders
+@implementation MOZUExtendedPropertyClient
 
 //
 #pragma mark -
@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetExtendedPropertiesOperationWithOrderId:(NSString *)orderId draft:(NSNumber *)draft {
-	id url = [MOZUExtendedPropertyURLComponentsOrders URLComponentsForGetExtendedPropertiesOperationWithOrderId:orderId draft:draft];
++ (MOZUClient *)clientForGetExtendedPropertiesOperation {
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForGetExtendedPropertiesOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -42,8 +42,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForAddExtendedPropertiesOperationWithBody:(NSArray<MOZUExtendedProperty> *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUExtendedPropertyURLComponentsOrders URLComponentsForAddExtendedPropertiesOperationWithOrderId:orderId updateMode:updateMode version:version];
++ (MOZUClient *)clientForAddExtendedPropertiesOperationWithBody:(NSArray<MOZUExtendedProperty> *)body {
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForAddExtendedPropertiesOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -64,8 +64,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdateExtendedPropertyOperationWithBody:(MOZUExtendedProperty *)body orderId:(NSString *)orderId key:(NSString *)key updateMode:(NSString *)updateMode version:(NSString *)version upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields {
-	id url = [MOZUExtendedPropertyURLComponentsOrders URLComponentsForUpdateExtendedPropertyOperationWithOrderId:orderId key:key updateMode:updateMode version:version upsert:upsert responseFields:responseFields];
++ (MOZUClient *)clientForUpdateExtendedPropertyOperationWithBody:(MOZUExtendedProperty *)body key:(NSString *)key upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields {
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForUpdateExtendedPropertyOperationWithKey:key upsert:upsert responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -78,8 +78,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateExtendedPropertiesOperationWithBody:(NSArray<MOZUExtendedProperty> *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version upsert:(NSNumber *)upsert {
-	id url = [MOZUExtendedPropertyURLComponentsOrders URLComponentsForUpdateExtendedPropertiesOperationWithOrderId:orderId updateMode:updateMode version:version upsert:upsert];
++ (MOZUClient *)clientForUpdateExtendedPropertiesOperationWithBody:(NSArray<MOZUExtendedProperty> *)body upsert:(NSNumber *)upsert {
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForUpdateExtendedPropertiesOperationWithUpsert:upsert];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -100,20 +100,20 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteExtendedPropertyOperationWithOrderId:(NSString *)orderId key:(NSString *)key updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUExtendedPropertyURLComponentsOrders URLComponentsForDeleteExtendedPropertyOperationWithOrderId:orderId key:key updateMode:updateMode version:version];
-	id verb = @"DELETE";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-	return client;
-}
-
-+ (MOZUClient *)clientForDeleteExtendedPropertiesOperationWithBody:(NSArray *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version {
-	id url = [MOZUExtendedPropertyURLComponentsOrders URLComponentsForDeleteExtendedPropertiesOperationWithOrderId:orderId updateMode:updateMode version:version];
++ (MOZUClient *)clientForDeleteExtendedPropertiesOperationWithBody:(NSArray *)body {
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForDeleteExtendedPropertiesOperation];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
+	return client;
+}
+
++ (MOZUClient *)clientForDeleteExtendedPropertyOperationWithKey:(NSString *)key {
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForDeleteExtendedPropertyOperationWithKey:key];
+	id verb = @"DELETE";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
 	return client;
 }
 

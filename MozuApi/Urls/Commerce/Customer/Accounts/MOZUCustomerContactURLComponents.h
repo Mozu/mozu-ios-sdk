@@ -19,15 +19,15 @@
 
 /**
 Resource Url Components for getAccountContact
-@param accountId Unique identifier of the customer account whose contact information is being retrieved.
-@param contactId Unique identifier of the customer account contact to retrieve.
+@param accountId Unique identifier of the customer account.
+@param contactId Unique identifer of the customer account contact being updated.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getAccountContacts
-@param accountId Unique identifier of the customer account associated with the contact information to retrieve.
+@param accountId Unique identifier of the customer account.
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
@@ -45,7 +45,7 @@ Resource Url Components for getAccountContacts
 
 /**
 Resource Url Components for addAccountContact
-@param accountId Unique identifier of the customer account containing the new contact.
+@param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddAccountContactOperationWithAccountId:(NSInteger)accountId responseFields:(NSString *)responseFields;
@@ -59,7 +59,7 @@ Resource Url Components for addAccountContact
 
 /**
 Resource Url Components for updateAccountContact
-@param accountId Unique identifier of the customer account whose contact information is being updated.
+@param accountId Unique identifier of the customer account.
 @param contactId Unique identifer of the customer account contact being updated.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -75,7 +75,7 @@ Resource Url Components for updateAccountContact
 /**
 Resource Url Components for deleteAccountContact
 @param accountId Unique identifier of the customer account.
-@param contactId Unique identifier of the customer account contact to delete.
+@param contactId Unique identifer of the customer account contact being updated.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteAccountContactOperationWithAccountId:(NSInteger)accountId contactId:(NSInteger)contactId;
 

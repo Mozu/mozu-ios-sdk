@@ -23,7 +23,7 @@
 @interface MOZUOrderValidationMessage : JSONModel<MOZUOrderValidationMessage>
 
 /**
-The body of the message returned by the order validation capability.
+The text of the change message, such as "This product is no longer available." System-supplied and read-only.
 */
 @property(nonatomic) NSString * message;
 
@@ -33,7 +33,7 @@ The type of message returned by the order validation capability, such as "Fraud 
 @property(nonatomic) NSString * messageType;
 
 /**
-Unique identifier of the order item associated with the validation message.
+Unique identifier of the order item associated with a validation message, order, or return.
 */
 @property(nonatomic) NSString * orderItemId;
 

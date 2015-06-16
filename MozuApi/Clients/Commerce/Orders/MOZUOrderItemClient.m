@@ -23,6 +23,19 @@
 #pragma mark -
 //
 
++ (MOZUClient *)clientForGetOrderItemViaLineIdOperationWithOrderId:(NSString *)orderId lineId:(NSInteger)lineId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForGetOrderItemViaLineIdOperationWithOrderId:orderId lineId:lineId draft:draft responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUOrderItem alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
 + (MOZUClient *)clientForGetOrderItemOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId draft:(NSNumber *)draft responseFields:(NSString *)responseFields {
 	id url = [MOZUOrderItemURLComponents URLComponentsForGetOrderItemOperationWithOrderId:orderId orderItemId:orderItemId draft:draft responseFields:responseFields];
 	id verb = @"GET";
@@ -83,6 +96,19 @@
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
 	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForUpdateItemDutyOperationWithOrderId:(NSString *)orderId orderItemId:(NSString *)orderItemId dutyAmount:(NSNumber *)dutyAmount updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateItemDutyOperationWithOrderId:orderId orderItemId:orderItemId dutyAmount:dutyAmount updateMode:updateMode version:version responseFields:responseFields];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];

@@ -35,7 +35,7 @@ Retrieves a list of store credits applied to customer accounts, according any fi
 
 /**
 Retrieves the details of a store credit applied to a customer account.
-@param code User-defined code that identifies the store credit to retrieve.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -50,7 +50,7 @@ Retrieves the details of a store credit applied to a customer account.
 
 /**
 Creates a new store credit for the customer account specified in the request.
-@param body Properties of the store credit to create.
+@param body Properties of the store credit of gift card applied to a customer account. At this time, gift card functionality is reserved for future use.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -65,16 +65,23 @@ Creates a new store credit for the customer account specified in the request.
 
 /**
 Associates an unclaimed customer credit with the shopper user authenticated in the request header.
-@param code The code that represents the credit to claim for the shopper.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
 + (MOZUClient *)clientForAssociateCreditToShopperOperationWithCode:(NSString *)code responseFields:(NSString *)responseFields;
 
 /**
+customer-credits Put ResendCreditCreatedEmail description DOCUMENT_HERE 
+@param code User-defined code that uniqely identifies the channel group.
+*/
+
++ (MOZUClient *)clientForResendCreditCreatedEmailOperationWithCode:(NSString *)code;
+
+/**
 Updates one or more properties of a defined store credit applied to a customer account.
-@param body Properties of the store credit to update.
-@param code User-defined code of the store credit to update.
+@param body Properties of the store credit of gift card applied to a customer account. At this time, gift card functionality is reserved for future use.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -89,7 +96,7 @@ Updates one or more properties of a defined store credit applied to a customer a
 
 /**
 Deletes a store credit previously applied to a customer account.
-@param code User-defined code of the store credit to delete.
+@param code User-defined code that uniqely identifies the channel group.
 */
 
 + (MOZUClient *)clientForDeleteCreditOperationWithCode:(NSString *)code;

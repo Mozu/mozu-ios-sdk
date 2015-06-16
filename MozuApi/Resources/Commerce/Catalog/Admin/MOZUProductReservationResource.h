@@ -61,7 +61,7 @@ Retrieves the details of a product reservation.
 
 /**
 Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
-@param body Details of the product reservations to add.
+@param body A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.
 @param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 
@@ -69,7 +69,7 @@ Creates a new product reservation for a product. This action places a hold on th
 ;
 /**
 Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
-@param body List of unique identifiers of the reservations to commit.
+@param body A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.
 */
 
 - (void)commitReservationsWithBody:(NSArray<MOZUProductReservation> *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -83,8 +83,8 @@ Commits a product reservation to decrement the product's inventory by the quanti
 
 /**
 Updates an existing product reservation for a product.
-@param body Properties of the product reservations to update.
-@param skipInventoryCheck If true, skip the inventory validation process when updating this product reservation.
+@param body A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.
+@param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 */
 
 - (void)updateProductReservationsWithBody:(NSArray<MOZUProductReservation> *)body skipInventoryCheck:(NSNumber *)skipInventoryCheck completionHandler:(void(^)(NSArray<MOZUProductReservation> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -98,7 +98,7 @@ Updates an existing product reservation for a product.
 
 /**
 Deletes a product reservation. For example, delete a reservation when an order is not processed to return the product quantity back to inventory.
-@param productReservationId Unique identifier of the reservation.
+@param productReservationId Unique identifier of the product reservation.
 */
 
 - (void)deleteProductReservationWithProductReservationId:(NSInteger)productReservationId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

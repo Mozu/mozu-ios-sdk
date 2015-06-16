@@ -18,10 +18,19 @@
 @end
 
 
+/**
+	Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE 
+*/
 @interface MOZUAccountPasswordInfoCollection : JSONModel<MOZUAccountPasswordInfoCollection>
 
+/**
+Total number of objects in am item collection. Total counts are calculated for numerous objects in Mozu, including location inventory, products, options, product types, product reservations, categories, addresses, carriers, tax rates, time zones, and much more.
+*/
 @property(nonatomic) NSInteger totalCount;
 
+/**
+Collection list of items. All returned data is provided in an items array. For a failed request, the returned response may be success with an empty item collection. Items are used throughout APIs for carts, wish lists, documents, payments, returns, properties, and more.
+*/
 @property(nonatomic) NSArray<MOZUAccountPasswordInfo> *items;
 
 @end

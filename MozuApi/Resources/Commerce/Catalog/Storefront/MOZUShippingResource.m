@@ -49,7 +49,7 @@
 
 /**
 Retrieves the shipping rates applicable for the site.
-@param body Properties of the shipping rate request sent on behalf of the storefront website.
+@param body Properties required to request a shipping rate calculation.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

@@ -28,12 +28,12 @@ Indicates whether the attribute value is searchable in the merchant catalog admi
 @property(nonatomic) BOOL searchableInAdmin;
 
 /**
-Indicates whether the attribute value is searchable on the public storefront.
+Indicates if the attribute value is searchable on the public storefront.
 */
 @property(nonatomic) BOOL searchableInStorefront;
 
 /**
-If true, the system indexs the display value of string attributes instead of the canonical value for searching. Always use the canonical value for filtering. This does not apply for for non-string attributes.
+Indicates what kind of values search queries and returns. If true, the system indexes the display value of string attributes instead of the canonical value for searching. Always use the canonical value for filtering. This does not apply for non-string attributes.
 */
 @property(nonatomic) BOOL searchDisplayValue;
 

@@ -26,7 +26,7 @@ Resource Url Components for getTenantScopesForUser
 
 /**
 Resource Url Components for getUser
-@param userId Unique identifier of the administrator account to retrieve.
+@param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;

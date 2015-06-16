@@ -19,15 +19,15 @@
 
 /**
 Resource Url Components for getAvailableDigitalPackageFulfillmentActions
-@param orderId This parameter provides the unique identifier of the order on which to get a list of available actions.
+@param orderId Unique identifier of the order.
 @param digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
 */
 + (MOZUURLComponents *)URLComponentsForGetAvailableDigitalPackageFulfillmentActionsOperationWithOrderId:(NSString *)orderId digitalPackageId:(NSString *)digitalPackageId;
 
 /**
 Resource Url Components for getDigitalPackage
-@param orderId This parameter provides the unique identifier of the order with which to associate the digital package.
-@param digitalPackageId This parameter provides the digital package Id.
+@param orderId Unique identifier of the order.
+@param digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetDigitalPackageOperationWithOrderId:(NSString *)orderId digitalPackageId:(NSString *)digitalPackageId responseFields:(NSString *)responseFields;
@@ -41,7 +41,7 @@ Resource Url Components for getDigitalPackage
 
 /**
 Resource Url Components for createDigitalPackage
-@param orderId The orderID is a required paramter for the digitalpackages operation. The orderId is a unique identifier of the order with which to associate the digital package.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForCreateDigitalPackageOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields;
@@ -55,8 +55,8 @@ Resource Url Components for createDigitalPackage
 
 /**
 Resource Url Components for updateDigitalPackage
-@param orderId This parameter provides the unique identifier of the order with which to associate the digital package.
-@param digitalPackageId This parameter specifies the digital package to update in the order.
+@param orderId Unique identifier of the order.
+@param digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateDigitalPackageOperationWithOrderId:(NSString *)orderId digitalPackageId:(NSString *)digitalPackageId responseFields:(NSString *)responseFields;
@@ -70,8 +70,8 @@ Resource Url Components for updateDigitalPackage
 
 /**
 Resource Url Components for deleteDigitalPackage
-@param orderId The orderId is unique identifier of the order with which to associate the package.
-@param digitalPackageId The digitalPackage ID is unique package ID to update on the order.
+@param orderId Unique identifier of the order.
+@param digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteDigitalPackageOperationWithOrderId:(NSString *)orderId digitalPackageId:(NSString *)digitalPackageId;
 

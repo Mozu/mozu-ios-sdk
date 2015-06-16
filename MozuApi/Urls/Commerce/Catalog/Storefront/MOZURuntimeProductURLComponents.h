@@ -23,7 +23,7 @@ Resource Url Components for getProducts
 @param startIndex 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy 
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForGetProductsOperationWithFilter:(NSString *)filter startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy responseFields:(NSString *)responseFields;
 
@@ -31,7 +31,7 @@ Resource Url Components for getProducts
 Resource Url Components for getProductInventory
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param locationCodes Array of location codes for which to retrieve product inventory information.
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForGetProductInventoryOperationWithProductCode:(NSString *)productCode locationCodes:(NSString *)locationCodes responseFields:(NSString *)responseFields;
 
@@ -39,11 +39,12 @@ Resource Url Components for getProductInventory
 Resource Url Components for getProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-@param allowInactive If true, returns an inactive product as part of the query.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
-@param responseFields 
+@param allowInactive If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
+@param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
+@param supressOutOfStock404 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
-+ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
++ (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck supressOutOfStock404:(NSNumber *)supressOutOfStock404 responseFields:(NSString *)responseFields;
 
 
 //
@@ -56,15 +57,15 @@ Resource Url Components for getProduct
 Resource Url Components for configuredProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param includeOptionDetails If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
-@param responseFields 
+@param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForConfiguredProductOperationWithProductCode:(NSString *)productCode includeOptionDetails:(NSNumber *)includeOptionDetails skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for validateProduct
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param skipInventoryCheck If true, skip the inventory validation process for the specified product.
+@param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForValidateProductOperationWithProductCode:(NSString *)productCode skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
@@ -73,16 +74,16 @@ Resource Url Components for validateProduct
 Resource Url Components for validateDiscounts
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-@param customerAccountId Unique ID of the customer account associated with the shopper requesting the discount.
-@param allowInactive If true, this operation returns inactive product discounts as part of the POST.
-@param skipInventoryCheck If true, do not validate the product inventory when evaluating the list of discounts.
-@param responseFields 
+@param customerAccountId The unique identifier of the customer account for which to retrieve wish lists.
+@param allowInactive If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
+@param skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForValidateDiscountsOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode customerAccountId:(NSNumber *)customerAccountId allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getProductInventories
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForGetProductInventoriesOperationWithResponseFields:(NSString *)responseFields;
 

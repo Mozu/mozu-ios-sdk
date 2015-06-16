@@ -36,7 +36,7 @@ Retrieves a list of customer visits according to any filter or sort criteria spe
 /**
 Retrieves the details of the customer visit specified in the request.
 @param responseFields Use this field to include those fields which are not included by default.
-@param visitId Unique identifier of the customer visit to retrieve.
+@param visitId Unique identifier of the customer visit to update.
 */
 
 + (MOZUClient *)clientForGetVisitOperationWithVisitId:(NSString *)visitId responseFields:(NSString *)responseFields;
@@ -50,7 +50,7 @@ Retrieves the details of the customer visit specified in the request.
 
 /**
 Creates a new visit for the customer account specified in the request.
-@param body Properties of the visit to add to the customer account.
+@param body Properties of a customer visit to one of a company's sites.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -65,7 +65,7 @@ Creates a new visit for the customer account specified in the request.
 
 /**
 Updates one or more properties of a defined customer visit.
-@param body Properties of the customer visit to update.
+@param body Properties of a customer visit to one of a company's sites.
 @param responseFields Use this field to include those fields which are not included by default.
 @param visitId Unique identifier of the customer visit to update.
 */

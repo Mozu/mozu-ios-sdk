@@ -24,8 +24,14 @@
 */
 @interface MOZUSearchSettings : JSONModel<MOZUSearchSettings>
 
+/**
+Settings of keys and values for synonyms in search results.
+*/
 @property(nonatomic) MOZUSearchSynonymSettings *searchSynonymSettings;
 
+/**
+Settings for searches performed at the site level.
+*/
 @property(nonatomic) NSArray<MOZUSiteSearchSettings> *siteSearchSettings;
 
 @end

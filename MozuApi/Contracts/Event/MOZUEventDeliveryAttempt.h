@@ -18,16 +18,34 @@
 @end
 
 
+/**
+	Properties and information captured for an attempted delivery that failed.
+*/
 @interface MOZUEventDeliveryAttempt : JSONModel<MOZUEventDeliveryAttempt>
 
+/**
+Status of the delivery process `EventDeliveryStatusType`. System-supplied and read-only.
+*/
 @property(nonatomic) NSString * deliveryStatus;
 
+/**
+Type of error that occurred, if the delivery was unsuccessful
+*/
 @property(nonatomic) NSString * errorType;
 
+/**
+The date that the delivery was attempted
+*/
 @property(nonatomic) NSDate * executionDate;
 
+/**
+The text of the change message, such as "This product is no longer available." System-supplied and read-only.
+*/
 @property(nonatomic) NSString * message;
 
+/**
+The HTTP Status (code and name) returned by the remote endpoint
+*/
 @property(nonatomic) MOZUHttpStatus *httpStatus;
 
 @end

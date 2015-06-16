@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getLocationInventory
-@param locationCode User-defined code that uniquely identifies the location.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -27,7 +27,7 @@ Resource Url Components for getLocationInventory
 
 /**
 Resource Url Components for getLocationInventories
-@param locationCode User-defined code that uniquely identifies the location.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
@@ -45,8 +45,8 @@ Resource Url Components for getLocationInventories
 
 /**
 Resource Url Components for addLocationInventory
-@param locationCode User-defined code that uniquely identifies the location.
-@param performUpserts 
+@param locationCode The unique, user-defined code that identifies a location. 
+@param performUpserts Query string parameter lets the service perform an update for a new or existing record. When run, the update occurs without throwing a conflict exception that the record exists. If true, the updates completes regardless of the record currently existing. By default, if no value is specified, the service assumes this value is false.
 */
 + (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithLocationCode:(NSString *)locationCode performUpserts:(NSNumber *)performUpserts;
 
@@ -59,7 +59,7 @@ Resource Url Components for addLocationInventory
 
 /**
 Resource Url Components for updateLocationInventory
-@param locationCode User-defined code that uniquely identifies the location.
+@param locationCode The unique, user-defined code that identifies a location. 
 */
 + (MOZUURLComponents *)URLComponentsForUpdateLocationInventoryOperationWithLocationCode:(NSString *)locationCode;
 
@@ -72,7 +72,7 @@ Resource Url Components for updateLocationInventory
 
 /**
 Resource Url Components for deleteLocationInventory
-@param locationCode User-defined code that uniquely identifies the location.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteLocationInventoryOperationWithLocationCode:(NSString *)locationCode productCode:(NSString *)productCode;

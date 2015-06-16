@@ -34,12 +34,12 @@ The label associated with this country.
 @property(nonatomic) NSString * countryLabel;
 
 /**
-The unique identifier of this postal address schema.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSInteger id;
 
 /**
-The fields to display for postal addresses associated with this country.
+The list of fields to display for a view or an associated schema. For example, the address schema would display fields for postal addresses.
 */
 @property(nonatomic) NSArray<MOZUField> *fields;
 

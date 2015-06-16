@@ -23,9 +23,14 @@
 @interface MOZUPackageItem : JSONModel<MOZUPackageItem>
 
 /**
-This specifies the type of fulfillment item.
+This specifies the fulfillment type of digital package item.
 */
 @property(nonatomic) NSString * fulfillmentItemType;
+
+/**
+The line id associated with the fulfillment.
+*/
+@property(nonatomic) NSNumber * lineId;
 
 /**
 Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
@@ -33,7 +38,7 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 @property(nonatomic) NSString * productCode;
 
 /**
-The quantity of an item shipped in the specified package.
+The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
 */
 @property(nonatomic) NSInteger quantity;
 
