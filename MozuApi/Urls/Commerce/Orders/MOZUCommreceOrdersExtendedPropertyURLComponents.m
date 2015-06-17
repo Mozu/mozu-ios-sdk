@@ -7,9 +7,9 @@
 * </auto-generated>
 */
 
-#import "MOZUExtendedPropertyURLComponents.h"
+#import "MOZUCommreceOrdersExtendedPropertyURLComponents.h"
 
-@implementation MOZUExtendedPropertyURLComponents
+@implementation MOZUCommreceOrdersExtendedPropertyURLComponents
 
 //
 #pragma mark -

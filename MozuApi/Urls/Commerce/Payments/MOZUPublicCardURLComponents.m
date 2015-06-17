@@ -25,7 +25,7 @@
 //
 
 + (MOZUURLComponents *)URLComponentsForCreateOperation {
-	NSString *template = @"/api/commerce/payments/cards/";
+	NSString *template = @"/payment/commerce/payments/cards/";
 	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUPCIPod useSSL:NO];
@@ -39,7 +39,7 @@
 //
 
 + (MOZUURLComponents *)URLComponentsForUpdateOperationWithCardId:(NSString *)cardId {
-	NSString *template = @"/api/commerce/payments/cards/{cardId}";
+	NSString *template = @"/payment/commerce/payments/cards/{cardId}";
 	NSDictionary *params = @{
 		@"cardId" : cardId,
 	};
@@ -55,7 +55,7 @@
 //
 
 + (MOZUURLComponents *)URLComponentsForDeleteOperationWithCardId:(NSString *)cardId {
-	NSString *template = @"/api/commerce/payments/cards/{cardId}";
+	NSString *template = @"/payment/commerce/payments/cards/{cardId}";
 	NSDictionary *params = @{
 		@"cardId" : cardId,
 	};

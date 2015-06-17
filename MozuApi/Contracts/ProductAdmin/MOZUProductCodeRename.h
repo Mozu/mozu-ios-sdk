@@ -30,7 +30,7 @@ The existing product code to be changed.
 /**
 The new product code for the product. This code must be unique across all catalogs.
 */
-@property(nonatomic) NSString * newProductCode;
+@property(nonatomic) NSString * theNewProductCode;
 
 @end
 

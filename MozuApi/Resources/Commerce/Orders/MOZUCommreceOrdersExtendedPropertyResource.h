@@ -8,31 +8,21 @@
 * </auto-generated>
 */
 
-#import "MOZUExtendedPropertyClient.h"
-#import "MOZUExtendedPropertyResource.h"
+#import <Foundation/Foundation.h>
+#import "MOZUClient.h"
+#import "MOZUAPIContext.h"
+
+#import "MOZUExtendedProperty.h"
 
 
-@interface MOZUExtendedPropertyResource()
-@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
-@end
-
-@implementation MOZUExtendedPropertyResource
-
--(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
-	if (self = [super init]) {
-		self.apiContext = apiContext;
-		return self;
-	}
-	else {
-		return nil;
-	}
-}
+@interface MOZUCommreceOrdersExtendedPropertyResource : NSObject
 
 
--(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
-	MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
-	return [self initWithAPIContext:cloned];
-}
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
+
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
@@ -47,16 +37,7 @@ orders-extendedproperties Get GetExtendedProperties description DOCUMENT_HERE
 */
 
 - (void)extendedPropertiesWithOrderId:(NSString *)orderId draft:(NSNumber *)draft completionHandler:(void(^)(NSArray<MOZUExtendedProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUExtendedPropertyClient clientForGetExtendedPropertiesOperationWithOrderId:orderId draft:draft];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
+;
 
 //
 #pragma mark -
@@ -73,16 +54,7 @@ orders-extendedproperties Post AddExtendedProperties description DOCUMENT_HERE
 */
 
 - (void)addExtendedPropertiesWithBody:(NSArray<MOZUExtendedProperty> *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(NSArray<MOZUExtendedProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUExtendedPropertyClient clientForAddExtendedPropertiesOperationWithBody:body orderId:orderId updateMode:updateMode version:version];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
+;
 
 //
 #pragma mark -
@@ -102,16 +74,7 @@ orders-extendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE
 */
 
 - (void)updateExtendedPropertyWithBody:(MOZUExtendedProperty *)body orderId:(NSString *)orderId key:(NSString *)key updateMode:(NSString *)updateMode version:(NSString *)version upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUExtendedProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUExtendedPropertyClient clientForUpdateExtendedPropertyOperationWithBody:body orderId:orderId key:key updateMode:updateMode version:version upsert:upsert responseFields:responseFields];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
+;
 /**
 orders-extendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
 @param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
@@ -122,16 +85,7 @@ orders-extendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE
 */
 
 - (void)updateExtendedPropertiesWithBody:(NSArray<MOZUExtendedProperty> *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version upsert:(NSNumber *)upsert completionHandler:(void(^)(NSArray<MOZUExtendedProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUExtendedPropertyClient clientForUpdateExtendedPropertiesOperationWithBody:body orderId:orderId updateMode:updateMode version:version upsert:upsert];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
-}
-
+;
 
 //
 #pragma mark -
@@ -148,16 +102,7 @@ orders-extendedproperties Delete DeleteExtendedProperty description DOCUMENT_HER
 */
 
 - (void)deleteExtendedPropertyWithOrderId:(NSString *)orderId key:(NSString *)key updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUExtendedPropertyClient clientForDeleteExtendedPropertyOperationWithOrderId:orderId key:key updateMode:updateMode version:version];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(error, response);
-		}
-	}];
-}
-
+;
 /**
 orders-extendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
 @param body 
@@ -167,16 +112,7 @@ orders-extendedproperties Delete DeleteExtendedProperties description DOCUMENT_H
 */
 
 - (void)deleteExtendedPropertiesWithBody:(NSArray *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUExtendedPropertyClient clientForDeleteExtendedPropertiesOperationWithBody:body orderId:orderId updateMode:updateMode version:version];
-	client.context = self.apiContext;
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(error, response);
-		}
-	}];
-}
-
+;
 
 
 @end
