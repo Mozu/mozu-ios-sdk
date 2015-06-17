@@ -41,9 +41,9 @@
 //
 
 /**
-
+Retrieves a collection of fulfillment options for digital packages. Options may include emailed files/links or provided links. 
 @param digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
-@param orderId This parameter provides the unique identifier of the order on which to get a list of available actions.
+@param orderId Unique identifier of the order.
 */
 
 - (void)availableDigitalPackageFulfillmentActionsWithOrderId:(NSString *)orderId digitalPackageId:(NSString *)digitalPackageId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -59,8 +59,8 @@
 
 /**
 This operation retreives a digital package within an order and it requires two parameters: orderId and digitalPackageId.
-@param digitalPackageId This parameter provides the digital package Id.
-@param orderId This parameter provides the unique identifier of the order with which to associate the digital package.
+@param digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -84,8 +84,8 @@ This operation retreives a digital package within an order and it requires two p
 
 /**
 Lets you apply a digital package to the order using the orderId and digitalPackage parameters.
-@param body The digitalPackage parameter is a required parameter for the CreateDigitalPackages operation. The digitalPackage is the digital package to create and add to the order.
-@param orderId The orderID is a required paramter for the digitalpackages operation. The orderId is a unique identifier of the order with which to associate the digital package.
+@param body Lets you manage an order's digital packages, by applying a digital package to the order.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -109,9 +109,9 @@ Lets you apply a digital package to the order using the orderId and digitalPacka
 
 /**
 This method operates on one digital package, specified by the id given. This method ensures that the digital package ID provided is in the order with the id given, and then updates the properties of that package with the properties of the one passed in using the ‘digitalpackage’ parameter.
-@param body This parameter provides the package content to update in the order.
-@param digitalPackageId This parameter specifies the digital package to update in the order.
-@param orderId This parameter provides the unique identifier of the order with which to associate the digital package.
+@param body Lets you manage an order's digital packages, by applying a digital package to the order.
+@param digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -135,8 +135,8 @@ This method operates on one digital package, specified by the id given. This met
 
 /**
 This operation deletes a digital package from an order. This operation requires three parameters: orderId, digitalPackageId, and digitalPackage.
-@param digitalPackageId The digitalPackage ID is unique package ID to update on the order.
-@param orderId The orderId is unique identifier of the order with which to associate the package.
+@param digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
+@param orderId Unique identifier of the order.
 */
 
 - (void)deleteDigitalPackageWithOrderId:(NSString *)orderId digitalPackageId:(NSString *)digitalPackageId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

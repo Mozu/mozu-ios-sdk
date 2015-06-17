@@ -42,6 +42,20 @@
 	return client;
 }
 
++ (MOZUClient *)clientForResendPackageFulfillmentEmailOperationWithBody:(MOZUFulfillmentAction *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields {
+	id url = [MOZUFulfillmentActionURLComponents URLComponentsForResendPackageFulfillmentEmailOperationWithOrderId:orderId responseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
 
 //
 #pragma mark -

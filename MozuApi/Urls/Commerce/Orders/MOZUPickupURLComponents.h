@@ -19,15 +19,15 @@
 
 /**
 Resource Url Components for getAvailablePickupFulfillmentActions
-@param orderId Unique identifier of the order associated with the pickup.
-@param pickupId Unique identifier of the pickup for which to retrieve available actions.
+@param orderId Unique identifier of the order.
+@param pickupId Unique identifier of the pickup to remove.
 */
 + (MOZUURLComponents *)URLComponentsForGetAvailablePickupFulfillmentActionsOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId;
 
 /**
 Resource Url Components for getPickup
-@param orderId Unique identifier of the order associated with the pickup.
-@param pickupId Unique identifier of the pickup to retrieve.
+@param orderId Unique identifier of the order.
+@param pickupId Unique identifier of the pickup to remove.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetPickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId responseFields:(NSString *)responseFields;
@@ -55,8 +55,8 @@ Resource Url Components for createPickup
 
 /**
 Resource Url Components for updatePickup
-@param orderId Unique identifier of the order associated with the in-store pickup.
-@param pickupId Unique identifier of the pickup to update.
+@param orderId Unique identifier of the order.
+@param pickupId Unique identifier of the pickup to remove.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdatePickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId responseFields:(NSString *)responseFields;
@@ -70,7 +70,7 @@ Resource Url Components for updatePickup
 
 /**
 Resource Url Components for deletePickup
-@param orderId Unique identifier of the order associated with the pickup.
+@param orderId Unique identifier of the order.
 @param pickupId Unique identifier of the pickup to remove.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePickupOperationWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId;

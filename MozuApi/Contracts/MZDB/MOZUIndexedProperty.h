@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Data for indexed properties within the database.
+*/
 @interface MOZUIndexedProperty : JSONModel<MOZUIndexedProperty>
 
+/**
+The data type of the source product property, typically of type Bool, DateTime, Number, or String.
+*/
 @property(nonatomic) NSString * dataType;
 
+/**
+A JPath query indicating the property that should be indexed to enable querying and sorting.  Non-indexed properties may be used in queries as long as at least one indexed property is also provided in the query.
+*/
 @property(nonatomic) NSString * propertyName;
 
 @end

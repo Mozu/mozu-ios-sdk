@@ -19,20 +19,23 @@
 
 
 /**
-	Values of a product property attribute.
+	Properties of a value for a product property.
 */
 @interface MOZURuntimeProductPropertyValue : JSONModel<MOZURuntimeProductPropertyValue>
 
 /**
-Property string value in the language specified in the locale code for the product storefront.
+If the object value is a String, this value provides that string value, used by vocabulary property values, products, and options.
 */
 @property(nonatomic) NSString * stringValue;
 
 /**
-Value of the product property.
+The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
 */
 @property(nonatomic) NSObject * value;
 
+/**
+Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
+*/
 @property(nonatomic) MOZURuntimeAttributeVocabularyValueDisplayInfo *displayInfo;
 
 @end

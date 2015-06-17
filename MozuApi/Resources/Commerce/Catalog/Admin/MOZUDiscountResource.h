@@ -47,7 +47,7 @@ Retrieves a list of discounts according to any specified filter criteria and sor
 ;
 /**
 Retrieves the localized content specified for the specified discount.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -55,7 +55,7 @@ Retrieves the localized content specified for the specified discount.
 ;
 /**
 Retrieves the details of a single discount.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -77,7 +77,7 @@ Generates a random code for a coupon.
 
 /**
 Creates a new discount or coupon to apply to a product, category, order, or shipping.
-@param body Properties of the discount to create. You must specify the discount name, amount type, start date, and target.
+@param body Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -92,8 +92,8 @@ Creates a new discount or coupon to apply to a product, category, order, or ship
 
 /**
 Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
-@param body The discount content to update, including the discount name.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param body The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -101,8 +101,8 @@ Updates the localizable content for the specified discount or rename the discoun
 ;
 /**
 Updates one or more properties of a defined discount.
-@param body Properties of the discount to update.
-@param discountId Unique identifier of the discount to update.
+@param body Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+@param discountId Unique identifier of the discount. System-supplied and read only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -117,7 +117,7 @@ Updates one or more properties of a defined discount.
 
 /**
 Deletes a discount specified by its discount ID.
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 */
 
 - (void)deleteDiscountWithDiscountId:(NSInteger)discountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

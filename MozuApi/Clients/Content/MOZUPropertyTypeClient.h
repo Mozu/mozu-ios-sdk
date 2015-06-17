@@ -33,7 +33,7 @@ Retrieves a list of the content property types.
 
 /**
 Retrieves the details of the content property type.
-@param propertyTypeName The name of the content property type.
+@param propertyTypeName The name of the property type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -47,8 +47,8 @@ Retrieves the details of the content property type.
 //
 
 /**
-
-@param body 
+Creates a new
+@param body Property type available for content. Property types are like templates that can be reused.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -62,9 +62,9 @@ Retrieves the details of the content property type.
 //
 
 /**
-
-@param body 
-@param propertyTypeName 
+Updates a
+@param body Property type available for content. Property types are like templates that can be reused.
+@param propertyTypeName The name of the property type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -78,8 +78,8 @@ Retrieves the details of the content property type.
 //
 
 /**
-
-@param propertyTypeName 
+Delete a specific
+@param propertyTypeName The name of the property type.
 */
 
 + (MOZUClient *)clientForDeletePropertyTypeOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode propertyTypeName:(NSString *)propertyTypeName;

@@ -8,12 +8,12 @@
 * </auto-generated>
 */
 
-#import "MOZUExtendedPropertyClientCarts.h"
-#import "MOZUExtendedPropertyURLComponentsCarts.h"
+#import "MOZUExtendedPropertyClient.h"
+#import "MOZUExtendedPropertyURLComponents.h"
 #import "MozuExtendedProperty.h"
 
 
-@implementation MOZUExtendedPropertyClientCarts
+@implementation MOZUExtendedPropertyClient
 
 //
 #pragma mark -
@@ -22,7 +22,7 @@
 //
 
 + (MOZUClient *)clientForGetExtendedPropertiesOperation {
-	id url = [MOZUExtendedPropertyURLComponentsCarts URLComponentsForGetExtendedPropertiesOperation];
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForGetExtendedPropertiesOperation];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -43,7 +43,7 @@
 //
 
 + (MOZUClient *)clientForAddExtendedPropertiesOperationWithBody:(NSArray<MOZUExtendedProperty> *)body {
-	id url = [MOZUExtendedPropertyURLComponentsCarts URLComponentsForAddExtendedPropertiesOperation];
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForAddExtendedPropertiesOperation];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -65,7 +65,7 @@
 //
 
 + (MOZUClient *)clientForUpdateExtendedPropertyOperationWithBody:(MOZUExtendedProperty *)body key:(NSString *)key upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields {
-	id url = [MOZUExtendedPropertyURLComponentsCarts URLComponentsForUpdateExtendedPropertyOperationWithKey:key upsert:upsert responseFields:responseFields];
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForUpdateExtendedPropertyOperationWithKey:key upsert:upsert responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -79,7 +79,7 @@
 }
 
 + (MOZUClient *)clientForUpdateExtendedPropertiesOperationWithBody:(NSArray<MOZUExtendedProperty> *)body upsert:(NSNumber *)upsert {
-	id url = [MOZUExtendedPropertyURLComponentsCarts URLComponentsForUpdateExtendedPropertiesOperationWithUpsert:upsert];
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForUpdateExtendedPropertiesOperationWithUpsert:upsert];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -101,7 +101,7 @@
 //
 
 + (MOZUClient *)clientForDeleteExtendedPropertiesOperationWithBody:(NSArray *)body {
-	id url = [MOZUExtendedPropertyURLComponentsCarts URLComponentsForDeleteExtendedPropertiesOperation];
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForDeleteExtendedPropertiesOperation];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -110,7 +110,7 @@
 }
 
 + (MOZUClient *)clientForDeleteExtendedPropertyOperationWithKey:(NSString *)key {
-	id url = [MOZUExtendedPropertyURLComponentsCarts URLComponentsForDeleteExtendedPropertyOperationWithKey:key];
+	id url = [MOZUExtendedPropertyURLComponents URLComponentsForDeleteExtendedPropertyOperationWithKey:key];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

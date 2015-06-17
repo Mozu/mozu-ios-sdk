@@ -31,7 +31,7 @@
 
 /**
 Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
-@param body The user authentication information required to generate the user authentication ticket, which consists of a user name and password.
+@param body Information required to authenticate a user.
 @param responseFields Use this field to include those fields which are not included by default.
 @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 */
@@ -55,7 +55,7 @@ Creates an authentication ticket for the supplied user to specify in API request
 
 /**
 Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
-@param body Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
+@param body Properties of the authentication ticket to be used in user claims with the Mozu API.
 @param responseFields Use this field to include those fields which are not included by default.
 @param tenantId 
 */
@@ -79,7 +79,7 @@ Generates a new user authentication ticket for the specified tenant by supplying
 
 /**
 Deletes the authentication ticket for the user by supplying the refresh token.
-@param refreshToken Refresh token string associated with the user authentication ticket.
+@param refreshToken Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
 */
 
 - (void)deleteUserAuthTicketWithRefreshToken:(NSString *)refreshToken completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

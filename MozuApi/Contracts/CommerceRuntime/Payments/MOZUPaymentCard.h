@@ -28,12 +28,12 @@ The masked credit card number part returned from the payment gateway.
 @property(nonatomic) NSString * cardNumberPartOrMask;
 
 /**
-The two-digit month the credit card expires.
+The two-digit month a credit card expires for a payment method.
 */
 @property(nonatomic) short expireMonth;
 
 /**
-The four-digit year the credit card expires.
+The four-digit year the credit card expires for a payment method.
 */
 @property(nonatomic) short expireYear;
 
@@ -48,7 +48,7 @@ If true, the credit card is used for a recurring order payment.
 @property(nonatomic) NSNumber * isUsedRecurring;
 
 /**
-The name printed on the credit card.
+The full name printed on a credit card. The name should match what is printed on the card exactly, used in validation during a payment.
 */
 @property(nonatomic) NSString * nameOnCard;
 

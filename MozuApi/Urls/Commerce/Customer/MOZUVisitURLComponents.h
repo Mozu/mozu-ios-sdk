@@ -29,7 +29,7 @@ Resource Url Components for getVisits
 
 /**
 Resource Url Components for getVisit
-@param visitId Unique identifier of the customer visit to retrieve.
+@param visitId Unique identifier of the customer visit to update.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetVisitOperationWithVisitId:(NSString *)visitId responseFields:(NSString *)responseFields;

@@ -86,6 +86,21 @@
 	return client;
 }
 
++ (MOZUClient *)clientForRenewSoftAllocationsOperationWithBody:(MOZUSoftAllocationRenew *)body {
+	id url = [MOZUSoftAllocationURLComponents URLComponentsForRenewSoftAllocationsOperation];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+		return [MOZUSoftAllocation arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+	};
+
+	return client;
+}
+
 
 //
 #pragma mark -

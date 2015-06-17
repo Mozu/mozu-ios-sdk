@@ -28,12 +28,12 @@ If required by the payment gateway, the authorization code of the transaction.
 @property(nonatomic) NSString * gatewayAuthCode;
 
 /**
-AVS codes supplied by the payment gateway.
+AVS (Address Verification Service) codes supplied by the payment gateway. The codes indicate partial to complete or failed matches against the billing address for the shopper against the financial institute data through the gateway.
 */
 @property(nonatomic) NSString * gatewayAVSCodes;
 
 /**
-CVV2 codes supplied by the payment gateway.
+CVV2 (Card Verification Value) codes supplied by the payment gateway. The codes indicate a verified or failed match of the encrypted code entered against the financial institution data through the gateway.
 */
 @property(nonatomic) NSString * gatewayCVV2Codes;
 
@@ -48,7 +48,7 @@ Response code from the gateway associated with the payment interaction. For exam
 @property(nonatomic) NSString * gatewayResponseCode;
 
 /**
-Textual message returned by the payment gateway.
+Textual message returned by the payment gateway for the associated success or failure code.
 */
 @property(nonatomic) NSString * gatewayResponseText;
 

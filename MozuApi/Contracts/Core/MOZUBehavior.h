@@ -18,17 +18,17 @@
 
 
 /**
-	Properties of an application behavior.
+	Properties of an application's behavior.
 */
 @interface MOZUBehavior : JSONModel<MOZUBehavior>
 
 /**
-Unique identifier of the behavior category.
+Unique identifier of a category. 
 */
 @property(nonatomic) NSInteger categoryId;
 
 /**
-Unique identifier of the behavior.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSInteger id;
 
@@ -38,7 +38,7 @@ If true, this application behavior is not part of the public Mozu API.
 @property(nonatomic) BOOL isPrivate;
 
 /**
-The name of the behavior.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

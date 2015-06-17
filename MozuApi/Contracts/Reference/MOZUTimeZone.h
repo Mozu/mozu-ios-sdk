@@ -23,7 +23,7 @@
 @interface MOZUTimeZone : JSONModel<MOZUTimeZone>
 
 /**
-Identifier of the time zone.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 

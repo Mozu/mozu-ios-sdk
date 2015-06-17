@@ -93,6 +93,15 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
 }
 
++ (MOZUURLComponents *)URLComponentsForGetCountriesWithStatesOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/platform/reference/countrieswithstates?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUHomePod useSSL:NO];
+}
+
 + (MOZUURLComponents *)URLComponentsForGetCurrenciesOperationWithResponseFields:(NSString *)responseFields {
 	NSString *template = @"/api/platform/reference/currencies?responseFields={responseFields}";
 	NSDictionary *params = @{

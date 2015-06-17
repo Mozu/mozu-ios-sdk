@@ -23,7 +23,12 @@
 @interface MOZUPasswordInfo : JSONModel<MOZUPasswordInfo>
 
 /**
-The new account password value.
+The External Password, typically used for imports in conjunction with a custom action
+*/
+@property(nonatomic) NSString * externalPassword;
+
+/**
+The new password entered and saved by the user of the account. 
 */
 @property(nonatomic) NSString * theNewPassword;
 

@@ -23,7 +23,7 @@
 @interface MOZUCategoryDiscountCondition : JSONModel<MOZUCategoryDiscountCondition>
 
 /**
-The unique identifier of the product category associated with the discount.
+Unique identifier of a category. 
 */
 @property(nonatomic) NSInteger categoryId;
 

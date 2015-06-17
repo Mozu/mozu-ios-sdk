@@ -29,50 +29,50 @@ Resource Url Components for getReturns
 
 /**
 Resource Url Components for getAvailableReturnActions
-@param returnId Unique identifier of the return for which to retrieve available actions.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 + (MOZUURLComponents *)URLComponentsForGetAvailableReturnActionsOperationWithReturnId:(NSString *)returnId;
 
 /**
 Resource Url Components for getReturnItem
-@param returnId 
-@param returnItemId 
+@param returnId Unique identifier of the return whose items you want to get.
+@param returnItemId Unique identifier of the return item whose details you want to get.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetReturnItemOperationWithReturnId:(NSString *)returnId returnItemId:(NSString *)returnItemId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getReturnItems
-@param returnId 
+@param returnId Unique identifier of the return whose items you want to get.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetReturnItemsOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getAvailablePaymentActionsForReturn
-@param returnId Unique identifier of the return associated with the payment.
+@param returnId Unique identifier of the return whose items you want to get.
 @param paymentId Unique identifier of the payment for which to perform the action.
 */
 + (MOZUURLComponents *)URLComponentsForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId;
 
 /**
 Resource Url Components for getPayment
-@param returnId Unique identifier of the return associated with the payment.
-@param paymentId Unique identifier of the return payment to retrieve.
+@param returnId Unique identifier of the return whose items you want to get.
+@param paymentId Unique identifier of the payment for which to perform the action.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetPaymentOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getPayments
-@param returnId Returns the details of the refund payment associated with the return specified in the request.
+@param returnId Unique identifier of the return whose items you want to get.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetPaymentsOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getReturn
-@param returnId Returns the properties of the return specified in the request as well as system-supplied information.
+@param returnId Unique identifier of the return whose items you want to get.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetReturnOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
@@ -92,22 +92,22 @@ Resource Url Components for createReturn
 
 /**
 Resource Url Components for createReturnItem
-@param returnId 
+@param returnId Unique identifier of the return whose items you want to get.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForCreateReturnItemOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for performPaymentActionForReturn
-@param returnId Unique identifier of the return associated with the refund payment.
-@param paymentId Unique identifier of the return payment to update.
+@param returnId Unique identifier of the return whose items you want to get.
+@param paymentId Unique identifier of the payment for which to perform the action.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForPerformPaymentActionForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for createPaymentActionForReturn
-@param returnId Unique identifier of the return associated with the payment action.
+@param returnId Unique identifier of the return whose items you want to get.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForCreatePaymentActionForReturnOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
@@ -127,10 +127,15 @@ Resource Url Components for performReturnActions
 
 /**
 Resource Url Components for updateReturn
-@param returnId Unique identifier of the return.
+@param returnId Unique identifier of the return whose items you want to get.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateReturnOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for resendReturnEmail
+*/
++ (MOZUURLComponents *)URLComponentsForResendReturnEmailOperation;
 
 
 //
@@ -141,14 +146,14 @@ Resource Url Components for updateReturn
 
 /**
 Resource Url Components for deleteOrderItem
-@param returnId 
-@param returnItemId 
+@param returnId Unique identifier of the return whose items you want to get.
+@param returnItemId Unique identifier of the return item whose details you want to get.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteOrderItemOperationWithReturnId:(NSString *)returnId returnItemId:(NSString *)returnItemId;
 
 /**
 Resource Url Components for deleteReturn
-@param returnId Unique identifier of the return to delete.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteReturnOperationWithReturnId:(NSString *)returnId;
 

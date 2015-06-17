@@ -33,7 +33,7 @@ The maximum number that can be entered as a value for an extensible attribute.
 @property(nonatomic) NSNumber * maxNumericValue;
 
 /**
-The maximum length possible for a string value entered for an extensible attribute.
+The maximum character length possible for a string value entered for an extensible attribute.
 */
 @property(nonatomic) NSNumber * maxStringLength;
 
@@ -48,12 +48,12 @@ The minimum numeric value required to validate an extensible attribute.
 @property(nonatomic) NSNumber * minNumericValue;
 
 /**
-The maximum length possible for a string value entered for an extensible attribute.
+The minimum character length possible for a string value entered for an extensible attribute.
 */
 @property(nonatomic) NSNumber * minStringLength;
 
 /**
-Regular expression used to validate the extensible attribute value.
+Regular expression used to process and validate an extensible attribute value that require special formatting, such as phone numbers.
 */
 @property(nonatomic) NSString * regularExpression;
 

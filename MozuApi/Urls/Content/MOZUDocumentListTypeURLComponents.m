@@ -41,7 +41,7 @@
 //
 
 + (MOZUURLComponents *)URLComponentsForUpdateDocumentListTypeOperationWithDocumentListTypeFQN:(NSString *)documentListTypeFQN responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/content/documentlistTypes/{documentListTypeName}?responseFields={responseFields}";
+	NSString *template = @"/api/content/documentlistTypes/{documentListTypeFQN}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"documentListTypeFQN" : documentListTypeFQN,
 		@"responseFields" : responseFields ? responseFields : @"",

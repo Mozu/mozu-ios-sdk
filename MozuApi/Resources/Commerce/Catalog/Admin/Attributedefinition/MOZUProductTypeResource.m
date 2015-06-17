@@ -53,7 +53,7 @@
 
 /**
 Retrieves a list of product types according to any specified filter criteria and sort options.
-@param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
+@param filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
@@ -73,7 +73,7 @@ Retrieves a list of product types according to any specified filter criteria and
 
 /**
 Retrieves the details of the product type specified in the request.
-@param productTypeId Identifier of the product type to retrieve.
+@param productTypeId Identifier of the product type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -97,7 +97,7 @@ Retrieves the details of the product type specified in the request.
 
 /**
 Creates a new product type based on the information supplied in the request.
-@param body Properties of the product type to create.
+@param body A product type is like a product template.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -121,8 +121,8 @@ Creates a new product type based on the information supplied in the request.
 
 /**
 Updates one or more properties of a product type.
-@param body The details of the product type to update.
-@param productTypeId Identifier of the product type to update.
+@param body A product type is like a product template.
+@param productTypeId Identifier of the product type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -146,7 +146,7 @@ Updates one or more properties of a product type.
 
 /**
 Deletes the product type by providing the product type ID.
-@param productTypeId Identifier of the product type to delete.
+@param productTypeId Identifier of the product type.
 */
 
 - (void)deleteProductTypeWithProductTypeId:(NSInteger)productTypeId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

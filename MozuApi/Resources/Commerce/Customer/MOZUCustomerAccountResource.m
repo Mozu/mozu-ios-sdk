@@ -46,7 +46,7 @@ Retrieves a list of customer accounts.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param isAnonymous If true, retrieve anonymous shopper accounts in the response.
 @param pageSize 
-@param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
+@param q A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
@@ -83,7 +83,7 @@ Retrieves the current login state of the customer account specified in the reque
 
 /**
 Retrieve details of a customer account.
-@param accountId Unique identifier of the customer account to retrieve.
+@param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -107,7 +107,7 @@ Retrieve details of a customer account.
 
 /**
 Creates a new customer account based on the information specified in the request.
-@param body Properties of the customer account to update.
+@param body Properties of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -124,13 +124,14 @@ Creates a new customer account based on the information specified in the request
 
 /**
 Modify the password associated with a customer account.
-@param body The password information required to change the user password.
-@param accountId The customer account information required to change the userpassword.
+@param body The information required to modify a shopper account password.
+@param accountId Unique identifier of the customer account.
+@param unlockAccount 
 */
 
-- (void)changePasswordWithBody:(MOZUPasswordInfo *)body accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)changePasswordWithBody:(MOZUPasswordInfo *)body accountId:(NSInteger)accountId unlockAccount:(NSNumber *)unlockAccount completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUCustomerAccountClient clientForChangePasswordOperationWithBody:body accountId:accountId];
+	MOZUClient *client = [MOZUCustomerAccountClient clientForChangePasswordOperationWithBody:body accountId:accountId unlockAccount:unlockAccount];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -141,7 +142,7 @@ Modify the password associated with a customer account.
 
 /**
 Adds a new user login to a defined customer account.
-@param body The authentication information for the customer account.
+@param body The login information for a customer account.
 @param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -159,7 +160,7 @@ Adds a new user login to a defined customer account.
 
 /**
 Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
-@param accountId The unique identifier of the customer account for which to calculate customer lifetime value.
+@param accountId Unique identifier of the customer account.
 */
 
 - (void)recomputeCustomerLifetimeValueWithAccountId:(NSInteger)accountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -176,7 +177,7 @@ Updates the customer lifetime value of the specified customer account in the eve
 /**
 Lock or unlock a customer account.
 @param body If true, the customer account is locked from logging in.
-@param accountId The unique identifier of the customer account.
+@param accountId Unique identifier of the customer account.
 */
 
 - (void)setLoginLockedWithBody:(BOOL)body accountId:(NSInteger)accountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -209,7 +210,7 @@ Requires the password for the customer account to be changed.
 
 /**
 Creates a new customer account and logs the user associated with the customer account into the site.
-@param body Properties of the customer account to create, including the user authentication information.
+@param body The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -226,13 +227,30 @@ Creates a new customer account and logs the user associated with the customer ac
 
 /**
 Creates multiple customer accounts based on the information specified in the request.
-@param body Properties of the customer accounts to create.
+@param body The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
 - (void)addAccountsWithBody:(NSArray<MOZUCustomerAccountAndAuthInfo> *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUCustomerAccountCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCustomerAccountClient clientForAddAccountsOperationWithBody:body responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
+Changes a collection of shopper passwords
+@param body Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)changePasswordsWithBody:(MOZUAccountPasswordInfoCollection *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUChangePasswordResultCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUCustomerAccountClient clientForChangePasswordsOperationWithBody:body responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -300,7 +318,7 @@ Resets the password for a customer account.
 
 /**
 Updates a customer account.
-@param body Properties of the customer account to update.
+@param body Properties of the customer account.
 @param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -325,7 +343,7 @@ Updates a customer account.
 
 /**
 Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
-@param accountId Unique identifier of the customer account to delete.
+@param accountId Unique identifier of the customer account.
 */
 
 - (void)deleteAccountWithAccountId:(NSInteger)accountId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

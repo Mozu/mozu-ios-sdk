@@ -19,12 +19,12 @@
 
 
 /**
-	Properties of the address to validate.
+	Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.
 */
 @interface MOZUAddressValidationRequest : JSONModel<MOZUAddressValidationRequest>
 
 /**
-Properties of the address to validate.
+All address information for the contact. This data is used to validate the address for the customer account and includes the full address.
 */
 @property(nonatomic) MOZUAddress *address;
 

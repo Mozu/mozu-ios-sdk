@@ -111,8 +111,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete {
-	id url = [MOZUAdminCategoryURLComponents URLComponentsForDeleteCategoryByIdOperationWithCategoryId:categoryId cascadeDelete:cascadeDelete];
++ (MOZUClient *)clientForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete forceDelete:(NSNumber *)forceDelete reassignToParent:(NSNumber *)reassignToParent {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForDeleteCategoryByIdOperationWithCategoryId:categoryId cascadeDelete:cascadeDelete forceDelete:forceDelete reassignToParent:reassignToParent];
 	id verb = @"DELETE";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

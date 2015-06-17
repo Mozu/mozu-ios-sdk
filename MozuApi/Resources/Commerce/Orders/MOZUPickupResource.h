@@ -32,16 +32,16 @@
 
 /**
 Retrieves a list of the actions available to perform for the pickup specified in the request.
-@param orderId Unique identifier of the order associated with the pickup.
-@param pickupId Unique identifier of the pickup for which to retrieve available actions.
+@param orderId Unique identifier of the order.
+@param pickupId Unique identifier of the pickup to remove.
 */
 
 - (void)availablePickupFulfillmentActionsWithOrderId:(NSString *)orderId pickupId:(NSString *)pickupId completionHandler:(void(^)(NSArray *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves the details of the in-store pickup specified in the request.
-@param orderId Unique identifier of the order associated with the pickup.
-@param pickupId Unique identifier of the pickup to retrieve.
+@param orderId Unique identifier of the order.
+@param pickupId Unique identifier of the pickup to remove.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -56,7 +56,7 @@ Retrieves the details of the in-store pickup specified in the request.
 
 /**
 Create a new pickup for the order specified in the request for in-store fufillment.
-@param body Properties of the in-store pickup to create.
+@param body Properties of an in-store pickup defined to fulfill items in an order.
 @param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -72,9 +72,9 @@ Create a new pickup for the order specified in the request for in-store fufillme
 
 /**
 Updates one or more details of a defined in-store pickup.
-@param body Properties of the in-store pickup to update.
-@param orderId Unique identifier of the order associated with the in-store pickup.
-@param pickupId Unique identifier of the pickup to update.
+@param body Properties of an in-store pickup defined to fulfill items in an order.
+@param orderId Unique identifier of the order.
+@param pickupId Unique identifier of the pickup to remove.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -89,7 +89,7 @@ Updates one or more details of a defined in-store pickup.
 
 /**
 Removes a pickup previously defined for order item in-store pickup fulfillment.
-@param orderId Unique identifier of the order associated with the pickup.
+@param orderId Unique identifier of the order.
 @param pickupId Unique identifier of the pickup to remove.
 */
 

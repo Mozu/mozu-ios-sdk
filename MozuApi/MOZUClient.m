@@ -14,6 +14,7 @@
 #import "MOZUTenantResource.h"
 #import "MOZUAPIVersion.h"
 #import "MOZUAPILogger.h"
+#import "MOZUConfig.h"
 
 @interface MOZUClient()
 
@@ -169,7 +170,14 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         } else {
             completion(APIContext.tenantHost, nil);
         }
-    } else {
+    }
+    else if (self.resourceURLComponents.location == MOZUPCIPod){
+        NSParameterAssert(APIContext);
+        NSParameterAssert(APIContext.tenantId >=0);
+        completion(PCIUrl, nil);
+
+    }
+    else {
         NSString *host = [MOZUAppAuthenticator sharedAppAuthenticator].host;
         if (!host || [host isEqualToString:@""]) {
             NSError *error = [NSError errorWithDomain:MOZUAPIClientErrorDomain code:MOZUClientErrorMissingHost userInfo:@{NSLocalizedDescriptionKey: @"MOZUAppAuthenticator host is missing"}];

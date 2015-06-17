@@ -23,7 +23,7 @@
 @interface MOZUAdminProductPrice : JSONModel<MOZUAdminProductPrice>
 
 /**
-The credit amount of the product.
+The credit value of the product or bundled product. When the `goodsType `is `DigitalCredit`, this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
 */
 @property(nonatomic) NSNumber * creditValue;
 
@@ -48,7 +48,7 @@ If the product has a supplier-defined minimum advertised price, the date and tim
 @property(nonatomic) NSDate * mapStartDate;
 
 /**
-The manufacturer's suggested retail price, as defined by the supplier.
+The manufacturer's suggested retail price for the product. This content may be defined by the supplier.
 */
 @property(nonatomic) NSNumber * msrp;
 
@@ -58,7 +58,7 @@ Price that the merchant intends to sell the product which is not necessarily the
 @property(nonatomic) NSNumber * price;
 
 /**
-Price of the product with a discount already applied which the merchant intends to sell the product.
+The set sale price for a product consisting of a price with a discount already applied.
 */
 @property(nonatomic) NSNumber * salePrice;
 

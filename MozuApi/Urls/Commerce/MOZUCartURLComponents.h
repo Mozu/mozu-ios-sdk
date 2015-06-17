@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getCart
-@param cartId Identifier of the cart to retrieve.
+@param cartId Identifier of the cart to delete.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetCartOperationWithCartId:(NSString *)cartId responseFields:(NSString *)responseFields;
@@ -38,14 +38,14 @@ Resource Url Components for getCartSummary
 
 /**
 Resource Url Components for getUserCartSummary
-@param userId Unique identifier of the user whose cart details you want to retrieve.
+@param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetUserCartSummaryOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getUserCart
-@param userId Unique identifier of the user whose cart you want to retrieve.
+@param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetUserCartOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;

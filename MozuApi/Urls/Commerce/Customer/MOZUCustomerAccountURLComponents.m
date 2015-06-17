@@ -70,10 +70,11 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId {
-	NSString *template = @"/api/commerce/customer/accounts/{accountId}/Change-Password";
++ (MOZUURLComponents *)URLComponentsForChangePasswordOperationWithAccountId:(NSInteger)accountId unlockAccount:(NSNumber *)unlockAccount {
+	NSString *template = @"/api/commerce/customer/accounts/{accountId}/Change-Password?unlockAccount={unlockAccount}";
 	NSDictionary *params = @{
 		@"accountId" : @(accountId),
+		@"unlockAccount" : unlockAccount ? unlockAccount : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
@@ -127,6 +128,15 @@
 
 + (MOZUURLComponents *)URLComponentsForAddAccountsOperationWithResponseFields:(NSString *)responseFields {
 	NSString *template = @"/api/commerce/customer/accounts/Bulk?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForChangePasswordsOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/customer/accounts/Change-Passwords?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"responseFields" : responseFields ? responseFields : @"",
 	};

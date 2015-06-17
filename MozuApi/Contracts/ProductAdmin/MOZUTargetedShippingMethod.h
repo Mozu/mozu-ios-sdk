@@ -28,7 +28,7 @@ The code associated with the carrier's shipping method service type. Service typ
 @property(nonatomic) NSString * code;
 
 /**
-Name of the shipping method service type associated with the targeted discount.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

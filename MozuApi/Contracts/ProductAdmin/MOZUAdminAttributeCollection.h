@@ -19,7 +19,7 @@
 
 
 /**
-	Paged list of defined product attributes.
+	Array list of customer or order attributes.
 */
 @interface MOZUAdminAttributeCollection : JSONModel<MOZUAdminAttributeCollection>
 

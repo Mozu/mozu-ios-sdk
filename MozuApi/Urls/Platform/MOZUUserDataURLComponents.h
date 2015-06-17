@@ -19,7 +19,7 @@
 
 /**
 Resource Url Components for getDBValue
-@param dbEntryQuery The database entry query string used to retrieve the record information.
+@param dbEntryQuery The database entry string to create.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery responseFields:(NSString *)responseFields;
@@ -46,7 +46,7 @@ Resource Url Components for createDBValue
 
 /**
 Resource Url Components for updateDBValue
-@param dbEntryQuery The database entry query string used to update the record information.
+@param dbEntryQuery The database entry string to create.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
 
@@ -59,7 +59,7 @@ Resource Url Components for updateDBValue
 
 /**
 Resource Url Components for deleteDBValue
-@param dbEntryQuery The database entry string to delete.
+@param dbEntryQuery The database entry string to create.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteDBValueOperationWithDbEntryQuery:(NSString *)dbEntryQuery;
 

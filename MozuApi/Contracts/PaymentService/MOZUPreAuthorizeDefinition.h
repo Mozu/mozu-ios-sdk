@@ -24,7 +24,7 @@
 @interface MOZUPreAuthorizeDefinition : JSONModel<MOZUPreAuthorizeDefinition>
 
 /**
-Identifier of the entity.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSInteger id;
 

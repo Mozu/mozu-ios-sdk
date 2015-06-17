@@ -34,16 +34,16 @@ Retrieves information about all payment transactions submitted for the specified
 
 /**
 Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
-@param orderId Unique identifier of the order associated with the payment.
-@param paymentId Unique identifer of the payment for which to retrieve available actions.
+@param orderId Unique identifier of the order.
+@param paymentId Unique identifier of the payment for which to perform the action.
 */
 
 + (MOZUClient *)clientForGetAvailablePaymentActionsOperationWithOrderId:(NSString *)orderId paymentId:(NSString *)paymentId;
 
 /**
 Retrieves information about a specific payment transaction submitted for the specified order.
-@param orderId Unique identifier of the order associated with the payment transaction.
-@param paymentId Unique identifier of the payment transaction submitted for the order.
+@param orderId Unique identifier of the order.
+@param paymentId Unique identifier of the payment for which to perform the action.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -58,9 +58,9 @@ Retrieves information about a specific payment transaction submitted for the spe
 
 /**
 Performs the specified action for an individual order payment transaction.
-@param body The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
-@param orderId Unique identifier of the order associated with the payment.
-@param paymentId Unique identifer of the payment for which to perform the action.
+@param body Properties of the payment action performed for an order.
+@param orderId Unique identifier of the order.
+@param paymentId Unique identifier of the payment for which to perform the action.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -68,8 +68,8 @@ Performs the specified action for an individual order payment transaction.
 
 /**
 Creates a new payment transaction for the specified order and performs the specified action.
-@param body To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
-@param orderId Unique identifier of the order for which to apply the payment.
+@param body Properties of the payment action performed for an order.
+@param orderId Unique identifier of the order.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

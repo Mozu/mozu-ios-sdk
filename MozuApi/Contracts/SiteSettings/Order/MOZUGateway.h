@@ -30,7 +30,7 @@ If true, the credential fields for the gateway are configured with valid values.
 @property(nonatomic) BOOL areGatewayCredentialFieldsSet;
 
 /**
-The types of credit cards the merchant supports using this payment gateway.
+The types of credit cards supported by the payment gateway.
 */
 @property(nonatomic) NSArray *supportedCards;
 

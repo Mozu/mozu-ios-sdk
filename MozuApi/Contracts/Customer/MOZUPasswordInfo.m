@@ -23,6 +23,7 @@
 		@"newFullPath" : @"theNewFullPath",
 		@"newPassword" : @"theNewPassword",
 		@"description" : @"theDescription",
+		@"newProductCode" : @"theNewProductCode",
 	};
 
 	return [[JSONKeyMapper alloc] initWithDictionary:dict];

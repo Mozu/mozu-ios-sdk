@@ -19,15 +19,15 @@
 
 /**
 Resource Url Components for getWishlistItem
-@param wishlistId Unique identifier of the wish list item to retrieve.
-@param wishlistItemId Unique identifier of the wish list associated with the item to retrieve.
+@param wishlistId Unique identifier of the wish list.
+@param wishlistItemId Unique identifier of the item to remove from the shopper wish list.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getWishlistItems
-@param wishlistId Unique identifier of the wish list associated with the items to retrieve.
+@param wishlistId Unique identifier of the wish list.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
@@ -38,8 +38,8 @@ Resource Url Components for getWishlistItems
 
 /**
 Resource Url Components for getWishlistItemsByWishlistName
-@param customerAccountId The unique identifier of the customer account associated with the wish list.
-@param wishlistName The name of the wish list that contains the items to retrieve.
+@param customerAccountId The unique identifier of the customer account for which to retrieve wish lists.
+@param wishlistName The name of the wish list to retrieve.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
@@ -57,7 +57,7 @@ Resource Url Components for getWishlistItemsByWishlistName
 
 /**
 Resource Url Components for addItemToWishlist
-@param wishlistId Unique identifier of the wish list associated with the item to add.
+@param wishlistId Unique identifier of the wish list.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddItemToWishlistOperationWithWishlistId:(NSString *)wishlistId responseFields:(NSString *)responseFields;
@@ -71,17 +71,17 @@ Resource Url Components for addItemToWishlist
 
 /**
 Resource Url Components for updateWishlistItemQuantity
-@param wishlistId Unique identifier of the wish list associated with the item quantity to update.
-@param wishlistItemId Unique identifier of the item in the wish list to update quantity.
-@param quantity The quantity of the item in the wish list.
+@param wishlistId Unique identifier of the wish list.
+@param wishlistItemId Unique identifier of the item to remove from the shopper wish list.
+@param quantity The number of cart items in the shopper's active cart.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateWishlistItemQuantityOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId quantity:(NSInteger)quantity responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for updateWishlistItem
-@param wishlistId Unique identifier of the wish list associated with the item to update.
-@param wishlistItemId Unique identifier of the item in the shopper wish list to update.
+@param wishlistId Unique identifier of the wish list.
+@param wishlistItemId Unique identifier of the item to remove from the shopper wish list.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId responseFields:(NSString *)responseFields;
@@ -95,13 +95,13 @@ Resource Url Components for updateWishlistItem
 
 /**
 Resource Url Components for removeAllWishlistItems
-@param wishlistId Unique identifier of the wish list associated with the items to remove.
+@param wishlistId Unique identifier of the wish list.
 */
 + (MOZUURLComponents *)URLComponentsForRemoveAllWishlistItemsOperationWithWishlistId:(NSString *)wishlistId;
 
 /**
 Resource Url Components for deleteWishlistItem
-@param wishlistId Unique identifier of the wish list associated with the item to remove.
+@param wishlistId Unique identifier of the wish list.
 @param wishlistItemId Unique identifier of the item to remove from the shopper wish list.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteWishlistItemOperationWithWishlistId:(NSString *)wishlistId wishlistItemId:(NSString *)wishlistItemId;

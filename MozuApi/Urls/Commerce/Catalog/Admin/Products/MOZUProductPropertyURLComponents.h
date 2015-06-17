@@ -19,23 +19,23 @@
 
 /**
 Resource Url Components for getProperties
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 */
 + (MOZUURLComponents *)URLComponentsForGetPropertiesOperationWithProductCode:(NSString *)productCode;
 
 /**
 Resource Url Components for getPropertyValueLocalizedContents
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 */
 + (MOZUURLComponents *)URLComponentsForGetPropertyValueLocalizedContentsOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
 
 /**
 Resource Url Components for getPropertyValueLocalizedContent
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -58,16 +58,16 @@ Resource Url Components for getProperty
 
 /**
 Resource Url Components for addPropertyValueLocalizedContent
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddPropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for addProperty
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForAddPropertyOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
@@ -81,17 +81,17 @@ Resource Url Components for addProperty
 
 /**
 Resource Url Components for updatePropertyValueLocalizedContents
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 */
 + (MOZUURLComponents *)URLComponentsForUpdatePropertyValueLocalizedContentsOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value;
 
 /**
 Resource Url Components for updatePropertyValueLocalizedContent
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -99,7 +99,7 @@ Resource Url Components for updatePropertyValueLocalizedContent
 
 /**
 Resource Url Components for updateProperty
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -114,16 +114,16 @@ Resource Url Components for updateProperty
 
 /**
 Resource Url Components for deleteProperty
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePropertyOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN;
 
 /**
 Resource Url Components for deletePropertyValueLocalizedContent
-@param productCode 
-@param attributeFQN 
-@param value 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param attributeFQN Fully qualified name for an attribute.
+@param value The value string to create.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 */
 + (MOZUURLComponents *)URLComponentsForDeletePropertyValueLocalizedContentOperationWithProductCode:(NSString *)productCode attributeFQN:(NSString *)attributeFQN value:(NSString *)value localeCode:(NSString *)localeCode;

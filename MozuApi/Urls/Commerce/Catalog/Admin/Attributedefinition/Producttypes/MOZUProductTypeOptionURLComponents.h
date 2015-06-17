@@ -19,13 +19,13 @@
 
 /**
 Resource Url Components for getOptions
-@param productTypeId Identifier of the product type to retrieve.
+@param productTypeId Identifier of the product type.
 */
 + (MOZUURLComponents *)URLComponentsForGetOptionsOperationWithProductTypeId:(NSInteger)productTypeId;
 
 /**
 Resource Url Components for getOption
-@param productTypeId The identifier of the product type.
+@param productTypeId Identifier of the product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param responseFields Use this field to include those fields which are not included by default.
 */

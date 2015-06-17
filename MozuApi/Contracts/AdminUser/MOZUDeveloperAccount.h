@@ -23,12 +23,12 @@
 @interface MOZUDeveloperAccount : JSONModel<MOZUDeveloperAccount>
 
 /**
-Unique identifier of the developer account.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSInteger id;
 
 /**
-The name of the developer account.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

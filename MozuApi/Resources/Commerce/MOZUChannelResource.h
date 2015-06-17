@@ -44,7 +44,7 @@ Retrieves a list of channels defined for a tenant according to any filter or sor
 ;
 /**
 Retrieves the details of the channel specified in the request.
-@param code User-defined code that identifies the channel to retrieve.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -59,7 +59,7 @@ Retrieves the details of the channel specified in the request.
 
 /**
 Creates a new channel that defines a new logical business division to use for financial reporting.
-@param body Properties of the channel to create.
+@param body Properties of a channel used to divide a company into logical business divisions, such as "US Retail," "US Online," or "Amazon." All sites and orders are associated with a channel.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -74,8 +74,8 @@ Creates a new channel that defines a new logical business division to use for fi
 
 /**
 Updates one or more details of a defined channel, including the associated sites.
-@param body Properties of a the channel to update.
-@param code User-defined code that identifies the channel to update.
+@param body Properties of a channel used to divide a company into logical business divisions, such as "US Retail," "US Online," or "Amazon." All sites and orders are associated with a channel.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -90,7 +90,7 @@ Updates one or more details of a defined channel, including the associated sites
 
 /**
 Deletes a defined channel for the tenant and removes the defined site associations. After deleting this channel, assign its associated sites to another channel.
-@param code User-defined code that identifies the channel to delete.
+@param code User-defined code that uniqely identifies the channel group.
 */
 
 - (void)deleteChannelWithCode:(NSString *)code completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties for the product location inventory provided for queries to locate products by their location.
+*/
 @interface MOZULocationInventoryQuery : JSONModel<MOZULocationInventoryQuery>
 
+/**
+List of location codes to associate with the location usage. At this time, you can only specify one location code in the request for the direct ship location usage type.
+*/
 @property(nonatomic) NSArray *locationCodes;
 
+/**
+List of product codes of associated products, used for pending product changes to publish or delete and returned in a product inventory location query.
+*/
 @property(nonatomic) NSArray *productCodes;
 
 @end

@@ -19,12 +19,12 @@
 
 
 /**
-	Properties of the facet used to index product searches on a storefront.
+	Properties of the facet used to retrieve documents.
 */
 @interface MOZURuntimeFacet : JSONModel<MOZURuntimeFacet>
 
 /**
-The type of facet. Valid values are "range," which enables creation of a range of values, or "value," which populates the facet values based on the associated attribute or category.
+The type of facet. Valid values are "range" (enables creation of a range of values) or "value" (populates the facet values based on the associated attribute or category).
 */
 @property(nonatomic) NSString * facetType;
 
@@ -34,12 +34,12 @@ The field name associated with the facet.
 @property(nonatomic) NSString * field;
 
 /**
-The descriptive label for the facet.
+Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
 */
 @property(nonatomic) NSString * label;
 
 /**
-The values associated with the facet.
+List of value data for objects.
 */
 @property(nonatomic) NSArray<MOZUFacetValue> *values;
 

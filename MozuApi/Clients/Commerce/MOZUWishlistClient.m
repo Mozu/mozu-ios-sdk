@@ -10,8 +10,8 @@
 
 #import "MOZUWishlistClient.h"
 #import "MOZUWishlistURLComponents.h"
-#import "MozuWishlist.h"
 #import "MozuWishlistCollection.h"
+#import "MozuWishlist.h"
 
 
 @implementation MOZUWishlistClient

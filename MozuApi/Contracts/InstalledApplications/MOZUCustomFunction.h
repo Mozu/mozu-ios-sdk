@@ -17,14 +17,44 @@
 @end
 
 
+/**
+	Mozu.InstalledApplications.Contracts.CustomFunction ApiType DOCUMENT_HERE 
+*/
 @interface MOZUCustomFunction : JSONModel<MOZUCustomFunction>
 
+/**
+Mozu.InstalledApplications.Contracts.CustomFunction applicationKey ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) NSString * applicationKey;
 
-@property(nonatomic) NSString * customFunctionName;
-
+/**
+Indicates if the capability or app is enabled for the tenant/site. If true, the capability/application is enabled for the tenant. System-supplied and read-only.
+*/
 @property(nonatomic) NSNumber * enabled;
 
+/**
+Mozu.InstalledApplications.Contracts.CustomFunction exceptionBehavior ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSString * exceptionBehavior;
+
+/**
+Mozu.InstalledApplications.Contracts.CustomFunction functionId ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSString * functionId;
+
+/**
+Mozu.InstalledApplications.Contracts.CustomFunction logLevel ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSString * logLevel;
+
+/**
+Mozu.InstalledApplications.Contracts.CustomFunction timeoutMilliseconds ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSNumber * timeoutMilliseconds;
+
+/**
+Mozu.InstalledApplications.Contracts.CustomFunction configuration ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) NSObject * configuration;
 
 @end

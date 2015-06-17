@@ -35,19 +35,6 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetLocationInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType code:(NSString *)code responseFields:(NSString *)responseFields {
-	id url = [MOZULocationURLComponents URLComponentsForGetLocationInUsageTypeOperationWithLocationUsageType:locationUsageType code:code responseFields:responseFields];
-	id verb = @"GET";
-	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
-
-
-	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZULocation alloc] initWithString:jsonResult error:nil];
-	};
-
-	return client;
-}
-
 + (MOZUClient *)clientForGetLocationsInUsageTypeOperationWithLocationUsageType:(NSString *)locationUsageType startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
 	id url = [MOZULocationURLComponents URLComponentsForGetLocationsInUsageTypeOperationWithLocationUsageType:locationUsageType startIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
 	id verb = @"GET";

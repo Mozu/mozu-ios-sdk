@@ -86,7 +86,7 @@ Retrieves the details of the specified product attribute.
 
 /**
 Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
-@param body Properties of the new product attribute to create.
+@param body Properties of an attribute used to describe customers or orders.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -110,7 +110,7 @@ Creates a new attribute to describe one aspect of a product such as color or siz
 
 /**
 Updates an existing attribute with attribute properties to set.
-@param body Any properties of the attribute that to update.
+@param body Properties of an attribute used to describe customers or orders.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param responseFields Use this field to include those fields which are not included by default.
 */

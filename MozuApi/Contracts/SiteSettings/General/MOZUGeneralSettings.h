@@ -11,7 +11,9 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
+#import "MOZUEmailTransactionSettings.h"
 #import "MOZUTaxableTerritory.h"
+#import "MOZUViewAuthorizations.h"
 
 
 
@@ -95,6 +97,11 @@ Email address to set up so that shoppers and users browsing the site can use to 
 @property(nonatomic) NSString * senderEmailAddress;
 
 /**
+Email alias used in emails sent to your shoppers.
+*/
+@property(nonatomic) NSString * senderEmailAlias;
+
+/**
 Choose a format to use on the site: 12-hour (hh:mm:ss tt) or 24-hour format (HH:mm:ss).
 */
 @property(nonatomic) NSString * siteTimeFormat;
@@ -130,9 +137,19 @@ Identifier and datetime stamp information recorded when a user or application cr
 @property(nonatomic) MOZUAuditInfo *auditInfo;
 
 /**
+Supressed emails. Setting any of these to 'true' will block Mozu from sending that email and an event will be published instead.
+*/
+@property(nonatomic) MOZUEmailTransactionSettings *supressedEmailTransactions;
+
+/**
 The territories configured for the site that are subject to sales tax.
 */
 @property(nonatomic) NSArray<MOZUTaxableTerritory> *taxableTerritories;
+
+/**
+Mozu.SiteSettings.General.Contracts.GeneralSettings viewAuthorizations ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) MOZUViewAuthorizations *viewAuthorizations;
 
 @end
 

@@ -40,7 +40,7 @@ The first name of the contact. The maximum character length is 200.
 @property(nonatomic) NSString * firstName;
 
 /**
-Identifier of the contact.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSInteger id;
 
@@ -55,12 +55,12 @@ The middle name or the first initial of the middle name of the contact. The maxi
 @property(nonatomic) NSString * middleNameOrInitial;
 
 /**
-Address information for the contact.
+All address information for the contact. This data is used to validate the address for the customer account and includes the full address.
 */
 @property(nonatomic) MOZUAddress *address;
 
 /**
-List of phone numbers associated with the customer account contact.
+List of phone numbers associated with the customer account contact. The phone numbers include area codes.
 */
 @property(nonatomic) MOZUPhone *phoneNumbers;
 

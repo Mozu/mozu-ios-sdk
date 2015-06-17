@@ -33,8 +33,8 @@
 
 /**
 Resource Url Components for applyCoupon
-@param cartId Unique identifier of the cart to which to apply the coupon.
-@param couponCode Code associated with the coupon to apply to the cart.
+@param cartId Identifier of the cart to delete.
+@param couponCode Code associated with the coupon to remove from the cart.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForApplyCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode responseFields:(NSString *)responseFields;
@@ -48,13 +48,13 @@ Resource Url Components for applyCoupon
 
 /**
 Resource Url Components for removeCoupons
-@param cartId Unique identifier of the cart.
+@param cartId Identifier of the cart to delete.
 */
 + (MOZUURLComponents *)URLComponentsForRemoveCouponsOperationWithCartId:(NSString *)cartId;
 
 /**
 Resource Url Components for removeCoupon
-@param cartId Unique identifier of the cart.
+@param cartId Identifier of the cart to delete.
 @param couponCode Code associated with the coupon to remove from the cart.
 */
 + (MOZUURLComponents *)URLComponentsForRemoveCouponOperationWithCartId:(NSString *)cartId couponCode:(NSString *)couponCode;

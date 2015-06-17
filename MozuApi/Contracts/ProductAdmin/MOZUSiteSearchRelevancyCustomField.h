@@ -17,10 +17,19 @@
 @end
 
 
+/**
+	Properties for setting custom field site search keyword relevancy settings. Relevancy determines the calculated matched of entered search strings against keywords. The relevancy weight can determine the order of importance for matching a search term such as categories before or after product names.
+*/
 @interface MOZUSiteSearchRelevancyCustomField : JSONModel<MOZUSiteSearchRelevancyCustomField>
 
+/**
+Name of the field.
+*/
 @property(nonatomic) NSString * fieldName;
 
+/**
+Relative weight of the field for relevancy purposes.
+*/
 @property(nonatomic) NSInteger fieldWeight;
 
 @end

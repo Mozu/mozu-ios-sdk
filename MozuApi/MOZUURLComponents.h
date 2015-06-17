@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSUInteger, MOZUURLLocation) {
     MOZUHomePod,
-    MOZUTenantPod
+    MOZUTenantPod,
+    MOZUPCIPod
 };
 
 @interface MOZUURLComponents : NSObject

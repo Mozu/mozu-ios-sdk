@@ -57,7 +57,7 @@ Retrieves all stored credit cards for the customer account.
 
 /**
 Creates a new credit card record and stores it for the customer account.
-@param body Properties of the customer credit card to add to the account.
+@param body Properties of a credit card used to submit payment for an order.
 @param accountId Unique identifier of the customer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -73,9 +73,9 @@ Creates a new credit card record and stores it for the customer account.
 
 /**
 Update one or more properties of a credit card defined for a customer account.
-@param body Properties of the customer account credit card to update.
+@param body Properties of a credit card used to submit payment for an order.
 @param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the credit card.
+@param cardId Unique identifier of the card associated with the customer account billing contact.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -91,7 +91,7 @@ Update one or more properties of a credit card defined for a customer account.
 /**
 Removes a stored credit card from a customer account.
 @param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the credit card to delete.
+@param cardId Unique identifier of the card associated with the customer account billing contact.
 */
 
 - (void)deleteAccountCardWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

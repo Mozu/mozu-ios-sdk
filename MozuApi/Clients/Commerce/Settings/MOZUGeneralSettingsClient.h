@@ -44,7 +44,7 @@ Retrieve a site's general global settings.
 
 /**
 Updates a site's general global settings.
-@param body The properties of the site's general settings to update.
+@param body General settings used on the storefront site.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

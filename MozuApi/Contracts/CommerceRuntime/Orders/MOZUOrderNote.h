@@ -24,7 +24,7 @@
 @interface MOZUOrderNote : JSONModel<MOZUOrderNote>
 
 /**
-Unique identifier of the order note.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 

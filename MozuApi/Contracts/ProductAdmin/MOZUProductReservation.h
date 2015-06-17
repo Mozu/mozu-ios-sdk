@@ -24,22 +24,22 @@
 @interface MOZUProductReservation : JSONModel<MOZUProductReservation>
 
 /**
-Identifier of the entity.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSNumber * id;
 
 /**
-Code that identifies the location associated with this product reservation.
+The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
 */
 @property(nonatomic) NSString * locationCode;
 
 /**
-Unique identifier of the order.
+Unique identifier of the order associated with the payment.
 */
 @property(nonatomic) NSString * orderId;
 
 /**
-The unique identifier of the item in the order.
+Unique identifier of the order item associated with a validation message, order, or return.
 */
 @property(nonatomic) NSString * orderItemId;
 
@@ -49,7 +49,7 @@ Merchant-created code that uniquely identifies the product such as a SKU or item
 @property(nonatomic) NSString * productCode;
 
 /**
-The quantity of items associated with the product reservation.
+The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
 */
 @property(nonatomic) NSInteger quantity;
 

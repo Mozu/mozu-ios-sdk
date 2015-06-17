@@ -31,7 +31,7 @@
 
 /**
 Generate an authentication ticket for a developer account.
-@param body The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.
+@param body Information required to authenticate a user.
 @param developerAccountId Unique identifier of the developer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -47,7 +47,7 @@ Generate an authentication ticket for a developer account.
 
 /**
 Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
-@param body Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
+@param body Properties of the authentication ticket to be used in developer account claims with the Mozu API.
 @param developerAccountId Unique identifier of the developer account.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -63,7 +63,7 @@ Generates a new developer account authentication ticket for the specified tenant
 
 /**
 Deletes the authentication ticket for the developer account by supplying the refresh token.
-@param refreshToken Refresh token string associated with the developer account authentication ticket.
+@param refreshToken Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
 */
 
 + (MOZUClient *)clientForDeleteUserAuthTicketOperationWithRefreshToken:(NSString *)refreshToken;

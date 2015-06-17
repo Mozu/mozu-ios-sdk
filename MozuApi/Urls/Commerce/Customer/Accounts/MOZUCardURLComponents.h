@@ -56,7 +56,7 @@ Resource Url Components for addAccountCard
 /**
 Resource Url Components for updateAccountCard
 @param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the credit card.
+@param cardId Unique identifier of the card associated with the customer account billing contact.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId responseFields:(NSString *)responseFields;
@@ -71,7 +71,7 @@ Resource Url Components for updateAccountCard
 /**
 Resource Url Components for deleteAccountCard
 @param accountId Unique identifier of the customer account.
-@param cardId Unique identifier of the credit card to delete.
+@param cardId Unique identifier of the card associated with the customer account billing contact.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteAccountCardOperationWithAccountId:(NSInteger)accountId cardId:(NSString *)cardId;
 

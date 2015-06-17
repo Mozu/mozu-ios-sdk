@@ -11,6 +11,7 @@
 #import "MOZUCustomerAccountClient.h"
 #import "MOZUCustomerAccountURLComponents.h"
 #import "MozuCustomerAccountCollection.h"
+#import "MozuChangePasswordResultCollection.h"
 #import "MozuCustomerAccount.h"
 #import "MozuLoginState.h"
 #import "MozuCustomerAuthTicket.h"
@@ -84,8 +85,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForChangePasswordOperationWithBody:(MOZUPasswordInfo *)body accountId:(NSInteger)accountId {
-	id url = [MOZUCustomerAccountURLComponents URLComponentsForChangePasswordOperationWithAccountId:accountId];
++ (MOZUClient *)clientForChangePasswordOperationWithBody:(MOZUPasswordInfo *)body accountId:(NSInteger)accountId unlockAccount:(NSNumber *)unlockAccount {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForChangePasswordOperationWithAccountId:accountId unlockAccount:unlockAccount];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -156,6 +157,20 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCustomerAccountCollection alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForChangePasswordsOperationWithBody:(MOZUAccountPasswordInfoCollection *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUCustomerAccountURLComponents URLComponentsForChangePasswordsOperationWithResponseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUChangePasswordResultCollection alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

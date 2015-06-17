@@ -9,7 +9,7 @@
 
 #import "MOZUURLComponents.h"
 
-@interface MOZUExtendedPropertyURLComponentsCarts : NSObject
+@interface MOZUExtendedPropertyURLComponents : NSObject
 
 //
 #pragma mark -
@@ -45,7 +45,7 @@ Resource Url Components for addExtendedProperties
 Resource Url Components for updateExtendedProperty
 @param key 
 @param upsert 
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateExtendedPropertyOperationWithKey:(NSString *)key upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields;
 

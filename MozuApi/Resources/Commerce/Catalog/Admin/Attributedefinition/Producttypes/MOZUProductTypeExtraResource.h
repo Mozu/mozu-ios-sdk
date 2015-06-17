@@ -42,7 +42,7 @@ Retrieves a list of extra attributes defined for the specified product type.
 /**
 Retrieves the details of an extra attribute definition for the specified product type.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-@param productTypeId Identifier of the product type whose extra is being retrieved.
+@param productTypeId Identifier of the product type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -57,7 +57,7 @@ Retrieves the details of an extra attribute definition for the specified product
 
 /**
 Assigns a defined extra attribute to the product type based on the information supplied in the request.
-@param body The properties of the extra attribute definition for this product type assignment.
+@param body Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
 @param productTypeId Identifier of the product type.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -73,7 +73,7 @@ Assigns a defined extra attribute to the product type based on the information s
 
 /**
 Update the definition of an extra attribute for the specified product type.
-@param body The properties of the extra attribute definition to update for the product type.
+@param body Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
 @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 @param productTypeId Identifier of the product type.
 @param responseFields Use this field to include those fields which are not included by default.

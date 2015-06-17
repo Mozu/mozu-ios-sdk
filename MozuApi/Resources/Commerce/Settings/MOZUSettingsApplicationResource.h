@@ -53,7 +53,7 @@ Retrieve the settings of a third-party application.
 
 /**
 Initializes an application with the necessary configured settings.
-@param body Properties of the application to update.
+@param body Properties of an application installed in a tenant.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

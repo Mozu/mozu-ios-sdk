@@ -41,24 +41,24 @@ Retrieves a list of all returns according to any filter and sort criteria.
 
 /**
 Retrieves a list of the actions available to perform for the specified return based on its current state.
-@param returnId Unique identifier of the return for which to retrieve available actions.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForGetAvailableReturnActionsOperationWithReturnId:(NSString *)returnId;
 
 /**
-
+Retrieves the details of a single return item.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId 
-@param returnItemId 
+@param returnId Unique identifier of the return whose items you want to get.
+@param returnItemId Unique identifier of the return item whose details you want to get.
 */
 
 + (MOZUClient *)clientForGetReturnItemOperationWithReturnId:(NSString *)returnId returnItemId:(NSString *)returnItemId responseFields:(NSString *)responseFields;
 
 /**
-
+Retrieves the details of all return items in an order.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId 
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForGetReturnItemsOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
@@ -66,16 +66,16 @@ Retrieves a list of the actions available to perform for the specified return ba
 /**
 Retrieves a list of the payment actions available to perform for the specified return when a return results in a refund to the customer.
 @param paymentId Unique identifier of the payment for which to perform the action.
-@param returnId Unique identifier of the return associated with the payment.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForGetAvailablePaymentActionsForReturnOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId;
 
 /**
 Retrieves the details of a payment submitted as part of a refund associated with a customer return.
-@param paymentId Unique identifier of the return payment to retrieve.
+@param paymentId Unique identifier of the payment for which to perform the action.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId Unique identifier of the return associated with the payment.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForGetPaymentOperationWithReturnId:(NSString *)returnId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields;
@@ -83,7 +83,7 @@ Retrieves the details of a payment submitted as part of a refund associated with
 /**
 Retrieves a list of all payments submitted as part of a refund associated with a customer return.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId Returns the details of the refund payment associated with the return specified in the request.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForGetPaymentsOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
@@ -91,7 +91,7 @@ Retrieves a list of all payments submitted as part of a refund associated with a
 /**
 Retrieves a list of properties for the specified return.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId Returns the properties of the return specified in the request as well as system-supplied information.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForGetReturnOperationWithReturnId:(NSString *)returnId responseFields:(NSString *)responseFields;
@@ -105,43 +105,43 @@ Retrieves a list of properties for the specified return.
 
 /**
 Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
-@param body Wrapper for the properties of the return to create.
+@param body Properties of a return of one or more previously fulfilled items.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
 + (MOZUClient *)clientForCreateReturnOperationWithBody:(MOZUReturn *)body responseFields:(NSString *)responseFields;
 
 /**
-
-@param body 
+Adds a return item to the return.
+@param body Properties of a previously fulfilled item associated with a return.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId 
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForCreateReturnItemOperationWithBody:(MOZUReturnItem *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields;
 
 /**
 Updates a refund payment associated with a customer return by performing the specified action.
-@param body The payment action to perform for the refund payment.
-@param paymentId Unique identifier of the return payment to update.
+@param body Properties of the payment action performed for an order.
+@param paymentId Unique identifier of the payment for which to perform the action.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId Unique identifier of the return associated with the refund payment.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForPerformPaymentActionForReturnOperationWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId paymentId:(NSString *)paymentId responseFields:(NSString *)responseFields;
 
 /**
 Creates a new payment for a return that results in a refund to the customer.
-@param body The payment action to perform for the customer return.
+@param body Properties of the payment action performed for an order.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId Unique identifier of the return associated with the payment action.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForCreatePaymentActionForReturnOperationWithBody:(MOZUPaymentAction *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields;
 
 /**
 Updates the return by performing the action specified in the request.
-@param body The name of the return action to perform, such as "Reject" or "Authorize".
+@param body Properties of an action a user can perform for a return.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -156,12 +156,19 @@ Updates the return by performing the action specified in the request.
 
 /**
 Updates one or more properties of a return for items previously shipped in a completed order.
-@param body Wrapper for the array of properties to update for the return.
+@param body Properties of a return of one or more previously fulfilled items.
 @param responseFields Use this field to include those fields which are not included by default.
-@param returnId Unique identifier of the return.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForUpdateReturnOperationWithBody:(MOZUReturn *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields;
+
+/**
+commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+@param body Properties of an action a user can perform for a return.
+*/
+
++ (MOZUClient *)clientForResendReturnEmailOperationWithBody:(MOZUReturnAction *)body;
 
 
 //
@@ -171,16 +178,16 @@ Updates one or more properties of a return for items previously shipped in a com
 //
 
 /**
-
-@param returnId 
-@param returnItemId 
+Removes a particular order item from the order of the current shopper.
+@param returnId Unique identifier of the return whose items you want to get.
+@param returnItemId Unique identifier of the return item whose details you want to get.
 */
 
 + (MOZUClient *)clientForDeleteOrderItemOperationWithReturnId:(NSString *)returnId returnItemId:(NSString *)returnItemId;
 
 /**
 Deletes the return specified in the request.
-@param returnId Unique identifier of the return to delete.
+@param returnId Unique identifier of the return whose items you want to get.
 */
 
 + (MOZUClient *)clientForDeleteReturnOperationWithReturnId:(NSString *)returnId;

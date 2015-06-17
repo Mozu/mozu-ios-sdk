@@ -127,6 +127,15 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
++ (MOZUURLComponents *)URLComponentsForResendOrderConfirmationEmailOperationWithOrderId:(NSString *)orderId {
+	NSString *template = @"/api/commerce/orders/{orderId}/email/resend";
+	NSDictionary *params = @{
+		@"orderId" : orderId,
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 + (MOZUURLComponents *)URLComponentsForChangeOrderUserIdOperationWithOrderId:(NSString *)orderId responseFields:(NSString *)responseFields {
 	NSString *template = @"/api/commerce/orders/{orderId}/users?responseFields={responseFields}";
 	NSDictionary *params = @{

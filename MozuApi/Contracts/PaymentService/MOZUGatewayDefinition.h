@@ -31,7 +31,7 @@ The 2-letter geographic code representing the country for the physical or mailin
 @property(nonatomic) NSString * countryCode;
 
 /**
-Unique identifier of the payment gateway definition.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
@@ -41,7 +41,7 @@ The implementing type name of the integration with the payment gateway.
 @property(nonatomic) NSString * integrationImplTypeName;
 
 /**
-Name of the payment gateway.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 
@@ -66,7 +66,7 @@ Definition of the preauthorization gateway.
 @property(nonatomic) MOZUPreAuthorizeDefinition *preAuthorizeDefinition;
 
 /**
-The types of credit cards supported by this payment gateway.
+The types of credit cards supported by the payment gateway.
 */
 @property(nonatomic) NSArray<MOZUSupportedCard> *supportedCards;
 

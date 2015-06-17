@@ -39,7 +39,7 @@ Resource Url Components for getBehavior
 
 /**
 Resource Url Components for getBehaviorCategory
-@param categoryId Unique identifier of the behavior category.
+@param categoryId Unique identifier of the category to modify.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetBehaviorCategoryOperationWithCategoryId:(NSInteger)categoryId responseFields:(NSString *)responseFields;
@@ -68,6 +68,12 @@ Resource Url Components for getCountries
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetCountriesOperationWithResponseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getCountriesWithStates
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForGetCountriesWithStatesOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getCurrencies

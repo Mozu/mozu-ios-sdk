@@ -8,20 +8,16 @@
 * </auto-generated>
 */
 
-#import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "MOZUSyncResponse.h"
+
+@implementation MOZUSyncResponse
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+	return YES;
+}
 
 
 
-@protocol MOZUKeyValue
 @end
 
-
-@interface MOZUKeyValue : JSONModel<MOZUKeyValue>
-
-@property(nonatomic) NSString * key;
-
-@property(nonatomic) NSObject * value;
-
-@end
 

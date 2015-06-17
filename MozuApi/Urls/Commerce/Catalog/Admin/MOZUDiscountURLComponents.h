@@ -29,14 +29,14 @@ Resource Url Components for getDiscounts
 
 /**
 Resource Url Components for getDiscountContent
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetDiscountContentOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getDiscount
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetDiscountOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
@@ -69,14 +69,14 @@ Resource Url Components for createDiscount
 
 /**
 Resource Url Components for updateDiscountContent
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateDiscountContentOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for updateDiscount
-@param discountId Unique identifier of the discount to update.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateDiscountOperationWithDiscountId:(NSInteger)discountId responseFields:(NSString *)responseFields;
@@ -90,7 +90,7 @@ Resource Url Components for updateDiscount
 
 /**
 Resource Url Components for deleteDiscount
-@param discountId Unique identifier of the discount. System-supplied and read-only.
+@param discountId Unique identifier of the discount. System-supplied and read only.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteDiscountOperationWithDiscountId:(NSInteger)discountId;
 

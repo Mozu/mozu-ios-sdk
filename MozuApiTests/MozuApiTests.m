@@ -26,8 +26,8 @@
 #import "MOZURuntimeProductResource.h"
 #import "MOZUCustomerAccountResource.h"
 #import "MOZUOrderResource.h"
-
 #import "MOZUAPILogger.h"
+#import "MOZUConfig.h"
 
 //Models
 #import "MOZUTenant.h"
@@ -55,7 +55,7 @@
 //static NSString * const productCode = @"NPS-12";
 static NSString * const productCode = @"MS-CMP-TNT-021";
 //static const NSUInteger MOZUDeveloperIdentifier;
-static const BOOL useSSL = YES;
+//static const BOOL useSSL = YES;
 
 
 typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error);
@@ -77,14 +77,14 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
 - (void)loadSecureKeys
 {
     // App authentication
-    _appID = @"APP_ID";
-    _sharedSecret = @"SHARED_SECRET";
-    _authenticationHost = @"home.mozu.com";
+    _appID = @"mzint.sdk.1.0.0.release";
+    _sharedSecret = @"32223d1c8c694c9196e95a032bb100b5";
+    _authenticationHost = AuthUrl;
     
     // User authentication
     _emailAddress = @"EMAIL";
     _password = @"PASSWORD";
-    _tenantHost = @"home.mozu.com";
+    _tenantHost = AuthUrl;
     
     // Other
     _tenantID = 6417;
@@ -886,7 +886,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
             //context.userAuthTicket = profile.authTicket;
             
             MOZURuntimeProductResource *runtimeProductResource = [[MOZURuntimeProductResource alloc] initWithAPIContext:context];
-            [runtimeProductResource productWithProductCode:productCode variationProductCode:nil allowInactive:@NO skipInventoryCheck:@YES responseFields:nil completionHandler:^(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+            [runtimeProductResource productWithProductCode:productCode variationProductCode:nil allowInactive:@NO skipInventoryCheck:@YES supressOutOfStock404:@YES responseFields:nil completionHandler:^(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                 if (result) {
                     XCTAssertNil(error, @"Result with error.");
                     //DDLogDebug(@"%@", result);

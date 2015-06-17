@@ -8,15 +8,15 @@
 * </auto-generated>
 */
 
-#import "MOZUExtendedPropertyClientCarts.h"
-#import "MOZUExtendedPropertyResourceCarts.h"
+#import "MOZUExtendedPropertyClient.h"
+#import "MOZUExtendedPropertyResource.h"
 
 
-@interface MOZUExtendedPropertyResourceCarts()
+@interface MOZUExtendedPropertyResource()
 @property(readwrite, nonatomic) MOZUAPIContext * apiContext;
 @end
 
-@implementation MOZUExtendedPropertyResourceCarts
+@implementation MOZUExtendedPropertyResource
 
 -(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
 	if (self = [super init]) {
@@ -41,12 +41,12 @@
 //
 
 /**
-
+carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
 */
 
 - (void)extendedPropertiesWithCompletionHandler:(void(^)(NSArray<MOZUExtendedProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUExtendedPropertyClientCarts clientForGetExtendedPropertiesOperation];
+	MOZUClient *client = [MOZUExtendedPropertyClient clientForGetExtendedPropertiesOperation];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -63,13 +63,13 @@
 //
 
 /**
-
-@param body 
+carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 */
 
 - (void)addExtendedPropertiesWithBody:(NSArray<MOZUExtendedProperty> *)body completionHandler:(void(^)(NSArray<MOZUExtendedProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUExtendedPropertyClientCarts clientForAddExtendedPropertiesOperationWithBody:body];
+	MOZUClient *client = [MOZUExtendedPropertyClient clientForAddExtendedPropertiesOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -86,16 +86,16 @@
 //
 
 /**
-
-@param body 
+carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param key 
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 @param upsert 
 */
 
 - (void)updateExtendedPropertyWithBody:(MOZUExtendedProperty *)body key:(NSString *)key upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUExtendedProperty *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUExtendedPropertyClientCarts clientForUpdateExtendedPropertyOperationWithBody:body key:key upsert:upsert responseFields:responseFields];
+	MOZUClient *client = [MOZUExtendedPropertyClient clientForUpdateExtendedPropertyOperationWithBody:body key:key upsert:upsert responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -105,14 +105,14 @@
 }
 
 /**
-
-@param body 
+carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param upsert 
 */
 
 - (void)updateExtendedPropertiesWithBody:(NSArray<MOZUExtendedProperty> *)body upsert:(NSNumber *)upsert completionHandler:(void(^)(NSArray<MOZUExtendedProperty> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUExtendedPropertyClientCarts clientForUpdateExtendedPropertiesOperationWithBody:body upsert:upsert];
+	MOZUClient *client = [MOZUExtendedPropertyClient clientForUpdateExtendedPropertiesOperationWithBody:body upsert:upsert];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -129,13 +129,13 @@
 //
 
 /**
-
+carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
 @param body 
 */
 
 - (void)deleteExtendedPropertiesWithBody:(NSArray *)body completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUExtendedPropertyClientCarts clientForDeleteExtendedPropertiesOperationWithBody:body];
+	MOZUClient *client = [MOZUExtendedPropertyClient clientForDeleteExtendedPropertiesOperationWithBody:body];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
@@ -145,13 +145,13 @@
 }
 
 /**
-
+carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
 @param key 
 */
 
 - (void)deleteExtendedPropertyWithKey:(NSString *)key completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUExtendedPropertyClientCarts clientForDeleteExtendedPropertyOperationWithKey:key];
+	MOZUClient *client = [MOZUExtendedPropertyClient clientForDeleteExtendedPropertyOperationWithKey:key];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

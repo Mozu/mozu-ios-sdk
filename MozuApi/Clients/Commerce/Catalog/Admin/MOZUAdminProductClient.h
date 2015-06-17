@@ -29,7 +29,7 @@ Retrieves a list of products according to any specified facets, filter criteria,
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param noCount If true, the operation does not return the TotalCount number of results.
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-@param q A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.
+@param q A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
 @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 @param responseFields Use this field to include those fields which are not included by default.
 @param sortBy 
@@ -71,7 +71,7 @@ Retrieves the details of a product definition.
 
 /**
 Creates a new product definition in the specified master catalog.
-@param body Properties of the new product. You must supply values for the product code, product name, and price.
+@param body The properties of a product, referenced and used by carts, orders, wish lists, and returns.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -79,7 +79,7 @@ Creates a new product definition in the specified master catalog.
 
 /**
 Associates a new product defined in the master catalog with a specific catalog.
-@param body Properties of the product to define for the specific catalog association.
+@param body Properties of a product associated with a specific catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -87,8 +87,8 @@ Associates a new product defined in the master catalog with a specific catalog.
 + (MOZUClient *)clientForAddProductInCatalogOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUProductInCatalogInfo *)body productCode:(NSString *)productCode responseFields:(NSString *)responseFields;
 
 /**
-
-@param body 
+Performs an update to a product code by renaming or replacing the current product code with a new one.
+@param body Properties for a product code current and changed content.
 */
 
 + (MOZUClient *)clientForRenameProductCodesOperationWithBody:(NSArray<MOZUProductCodeRename> *)body;
@@ -102,7 +102,7 @@ Associates a new product defined in the master catalog with a specific catalog.
 
 /**
 Updates the properties of a product specific to each catalog associated with the product.
-@param body Properties of the product to update for each associated catalog.
+@param body Properties of a product associated with a specific catalog.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 */
 
@@ -110,7 +110,7 @@ Updates the properties of a product specific to each catalog associated with the
 
 /**
 Updates one or more properties of a product associated with a specific catalog.
-@param body Properties of the product associated with the catalog specified in the request.
+@param body Properties of a product associated with a specific catalog.
 @param catalogId The unique identifier of the catalog of products used by a site.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param responseFields Use this field to include those fields which are not included by default.
@@ -120,7 +120,7 @@ Updates one or more properties of a product associated with a specific catalog.
 
 /**
 Updates one or more properties of a product definition in a master catalog.
-@param body Properties of the product definition to update in the master catalog.
+@param body The properties of a product, referenced and used by carts, orders, wish lists, and returns.
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -136,7 +136,7 @@ Updates one or more properties of a product definition in a master catalog.
 
 /**
 Deletes the specified product from a master catalog.
-@param productCode 
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 */
 
 + (MOZUClient *)clientForDeleteProductOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode;

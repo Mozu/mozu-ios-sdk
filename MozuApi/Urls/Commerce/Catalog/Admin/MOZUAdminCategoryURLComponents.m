@@ -92,11 +92,13 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete {
-	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}";
++ (MOZUURLComponents *)URLComponentsForDeleteCategoryByIdOperationWithCategoryId:(NSInteger)categoryId cascadeDelete:(NSNumber *)cascadeDelete forceDelete:(NSNumber *)forceDelete reassignToParent:(NSNumber *)reassignToParent {
+	NSString *template = @"/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}&forceDelete={forceDelete}&reassignToParent={reassignToParent}";
 	NSDictionary *params = @{
 		@"categoryId" : @(categoryId),
 		@"cascadeDelete" : cascadeDelete ? cascadeDelete : @"",
+		@"forceDelete" : forceDelete ? forceDelete : @"",
+		@"reassignToParent" : reassignToParent ? reassignToParent : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];

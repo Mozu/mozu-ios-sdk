@@ -31,7 +31,7 @@ Resource Url Components for getLocationInventories
 /**
 Resource Url Components for getLocationInventory
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param locationCode User-defined code that identifies the location.
+@param locationCode The unique, user-defined code that identifies a location. 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetLocationInventoryOperationWithProductCode:(NSString *)productCode locationCode:(NSString *)locationCode responseFields:(NSString *)responseFields;
@@ -46,7 +46,7 @@ Resource Url Components for getLocationInventory
 /**
 Resource Url Components for addLocationInventory
 @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-@param performUpserts The performUpserts query string parameter lets the service perform an update if the record already exists instead of throwing an already exists conflict exception. PerformUpserts=true means it updates if the record already exists. By default, no value specified means that the service assumes PerformUpserts=false.
+@param performUpserts Query string parameter lets the service perform an update for a new or existing record. When run, the update occurs without throwing a conflict exception that the record exists. If true, the updates completes regardless of the record currently existing. By default, if no value is specified, the service assumes this value is false.
 */
 + (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithProductCode:(NSString *)productCode performUpserts:(NSNumber *)performUpserts;
 
@@ -59,7 +59,7 @@ Resource Url Components for addLocationInventory
 
 /**
 Resource Url Components for updateLocationInventory
-@param productCode The product code of the product for which to update active stock on hand inventory at a specified location.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateLocationInventoryOperationWithProductCode:(NSString *)productCode;
 
@@ -72,8 +72,8 @@ Resource Url Components for updateLocationInventory
 
 /**
 Resource Url Components for deleteLocationInventory
-@param productCode The product code for which to delete a location's inventory.
-@param locationCode The code that identifies the location for which to delete product inventory.
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param locationCode The unique, user-defined code that identifies a location. 
 */
 + (MOZUURLComponents *)URLComponentsForDeleteLocationInventoryOperationWithProductCode:(NSString *)productCode locationCode:(NSString *)locationCode;
 

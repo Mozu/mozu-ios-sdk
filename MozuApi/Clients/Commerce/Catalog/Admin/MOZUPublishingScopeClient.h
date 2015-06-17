@@ -30,14 +30,14 @@
 
 /**
 Deletes the draft version of product changes for each product code specified in the request.
-@param body Properties of the pending product changes to include in this operation.
+@param body Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
 */
 
 + (MOZUClient *)clientForDiscardDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body;
 
 /**
 Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
-@param body Properties of the pending product changes to include in this operation.
+@param body Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
 */
 
 + (MOZUClient *)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body;

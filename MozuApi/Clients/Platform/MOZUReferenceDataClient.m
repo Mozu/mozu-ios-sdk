@@ -22,6 +22,7 @@
 #import "MozuBehavior.h"
 #import "MozuUnitOfMeasureCollection.h"
 #import "MozuAddressSchema.h"
+#import "MozuCountryWithStatesCollection.h"
 
 
 @implementation MOZUReferenceDataClient
@@ -131,6 +132,19 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUCountryCollection alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetCountriesWithStatesOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReferenceDataURLComponents URLComponentsForGetCountriesWithStatesOperationWithResponseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUCountryWithStatesCollection alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

@@ -30,22 +30,22 @@ The fully qualified name of the attribute, which is a user defined attribute ide
 @property(nonatomic) NSString * attributeFQN;
 
 /**
-If true, this product property does not appear on the storefront.
+Indicates if the object is hidden or breaks inheritance, primarily used by facets, products, and attribute vocabulary values. For example, if true, the attribute vocabulary value does not appear in the list when defining a value for an attribute.
 */
 @property(nonatomic) NSNumber * isHidden;
 
 /**
-If true, the product property has multiple values.
+Indicates if the object has or can have multiple properties or values. If true, the object can have more than one value, selectable by shoppers through the storefront or configurable through the catalogs. 
 */
 @property(nonatomic) NSNumber * isMultiValue;
 
 /**
-Details of a product attribute.
+Detail data for a product or product options attribute. This acts as a wrapper for the properties to configure or generate from the system in the product Admin. Properties may include namespace, attribute code, attribute sequence, site group ID, input type, and value.
 */
 @property(nonatomic) MOZUProductAttribute *attributeDetail;
 
 /**
-List of values predefined for the product property attribute.
+List of value data for objects.
 */
 @property(nonatomic) NSArray<MOZUPricingProductPropertyValue> *values;
 

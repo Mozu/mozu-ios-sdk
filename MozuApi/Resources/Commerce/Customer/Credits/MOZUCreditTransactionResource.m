@@ -42,7 +42,7 @@
 
 /**
 Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.
-@param code User-defined code that identifies the customer credit.
+@param code User-defined code that uniqely identifies the channel group.
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param responseFields Use this field to include those fields which are not included by default.
@@ -70,8 +70,8 @@ Retrieves a list of the transactions performed using a customer credit that upda
 
 /**
 Creates a new transaction and updates the amount of a store credit or gift card.
-@param body Properties of the transaction to create for the customer credit.
-@param code User-defined code that identifies the customer credit to update.
+@param body Properties of a transaction performed for a customer credit that update the remaining balance of the credit.
+@param code User-defined code that uniqely identifies the channel group.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

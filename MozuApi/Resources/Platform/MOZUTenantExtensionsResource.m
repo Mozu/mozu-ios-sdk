@@ -41,8 +41,8 @@
 //
 
 /**
-
-@param responseFields 
+platform-extensions Get GetExtensions description DOCUMENT_HERE 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
 - (void)extensionsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenantExtensions *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -71,9 +71,9 @@
 //
 
 /**
-
-@param body 
-@param responseFields 
+platform-extensions Put UpdateExtensions description DOCUMENT_HERE 
+@param body Mozu.InstalledApplications.Contracts.TenantExtensions ApiType DOCUMENT_HERE 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
 - (void)updateExtensionsWithBody:(MOZUTenantExtensions *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenantExtensions *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

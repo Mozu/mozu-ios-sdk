@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "mozu-ios-sdk"
-  s.version          = "1.17.15072.0"
+  s.version          = "1.17.15154.0"
   s.summary          = "A short description of mozu-ios-sdk."
   s.description      = <<-DESC
                        An optional longer description of mozu-ios-sdk
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.author           = { "Noel Artiles" => "noel_artiles@volusion.com" }
   s.public_header_files = "MozuApi/*.h"
   s.source           = { :git => "https://github.com/Mozu/mozu-ios-sdk.git" }
-  # s.source           = { :path => '~/Documents/mozu-ios-sdk' }
+  #s.source           = { :path => '~/projects/git/mozu-ios-sdk' }
   s.social_media_url = 'https://twitter.com/NAME'
 
   # s.platform     = :ios, '5.0'

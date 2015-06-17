@@ -22,6 +22,7 @@
 #import "MOZUBehavior.h"
 #import "MOZUUnitOfMeasureCollection.h"
 #import "MOZUAddressSchema.h"
+#import "MOZUCountryWithStatesCollection.h"
 
 
 @interface MOZUReferenceDataClient : NSObject
@@ -57,7 +58,7 @@ Retrieves the details of a behavior based on the behavior ID specified in the re
 
 /**
 Retrieves the details of the behavior category specified in the request.
-@param categoryId Unique identifier of the behavior category.
+@param categoryId Unique identifier of the category to modify.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -91,6 +92,13 @@ Retrieves the entire list of countries that the system supports.
 */
 
 + (MOZUClient *)clientForGetCountriesOperationWithResponseFields:(NSString *)responseFields;
+
+/**
+Retrieves the entire list of countries that the system supports.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
++ (MOZUClient *)clientForGetCountriesWithStatesOperationWithResponseFields:(NSString *)responseFields;
 
 /**
 Retrieves the entire list of currencies that the system supports.

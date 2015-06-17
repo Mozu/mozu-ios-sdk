@@ -71,7 +71,7 @@ Retrieves a collection of document lists.
 
 /**
 Retrieve the details of a document list by providing the list name.
-@param documentListName The name of the document list.
+@param documentListName Name of content documentListName to delete
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -94,8 +94,8 @@ Retrieve the details of a document list by providing the list name.
 //
 
 /**
-
-@param body 
+Creates a new documentList
+@param body The list of document types and related properties that define content used by the content management system (CMS).
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -118,9 +118,9 @@ Retrieve the details of a document list by providing the list name.
 //
 
 /**
-
-@param body 
-@param documentListName 
+Updates a `DocumentListName`.
+@param body The list of document types and related properties that define content used by the content management system (CMS).
+@param documentListName Name of content documentListName to delete
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -143,8 +143,8 @@ Retrieve the details of a document list by providing the list name.
 //
 
 /**
-
-@param documentListName 
+Deletes the specified `DocumentListName`.
+@param documentListName Name of content documentListName to delete
 */
 
 - (void)deleteDocumentListWithDocumentListName:(NSString *)documentListName completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler

@@ -22,15 +22,15 @@
 //
 
 /**
-
-@param attributeFQN 
+Retrieves a collection of localized content for attributes based on a `localeCode`.
+@param attributeFQN Fully qualified name for an attribute.
 */
 
 + (MOZUClient *)clientForGetAttributeLocalizedContentsOperationWithAttributeFQN:(NSString *)attributeFQN;
 
 /**
-
-@param attributeFQN 
+Retrieves the localized content for an attribute  based on a `localeCode`. 
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -45,9 +45,9 @@
 //
 
 /**
-
-@param body 
-@param attributeFQN 
+Adds new localized content for an attribute  based on a `localeCode`. 
+@param body The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+@param attributeFQN Fully qualified name for an attribute.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -61,17 +61,17 @@
 //
 
 /**
-
-@param body 
-@param attributeFQN 
+Updates the localized content for a collection of existing attributes  based on a `localeCode`. 
+@param body The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+@param attributeFQN Fully qualified name for an attribute.
 */
 
 + (MOZUClient *)clientForUpdateLocalizedContentsOperationWithBody:(NSArray<MOZUAdminAttributeLocalizedContent> *)body attributeFQN:(NSString *)attributeFQN;
 
 /**
-
-@param body 
-@param attributeFQN 
+Updates the localized content for an existing attribute  based on a `localeCode`. 
+@param body The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 @param responseFields Use this field to include those fields which are not included by default.
 */
@@ -86,8 +86,8 @@
 //
 
 /**
-
-@param attributeFQN 
+Removes all localized content. Localized content is translated text information and data based on a `localeCode`. 
+@param attributeFQN Fully qualified name for an attribute.
 @param localeCode Language used for the entity. Currently, only "en-US" is supported.
 */
 

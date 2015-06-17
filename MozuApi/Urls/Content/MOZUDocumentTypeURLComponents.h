@@ -54,7 +54,7 @@ Resource Url Components for createDocumentType
 
 /**
 Resource Url Components for updateDocumentType
-@param documentTypeName 
+@param documentTypeName The name of the document type to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateDocumentTypeOperationWithDocumentTypeName:(NSString *)documentTypeName responseFields:(NSString *)responseFields;

@@ -27,14 +27,19 @@
 @interface MOZUReturnItem : JSONModel<MOZUReturnItem>
 
 /**
-Unique identifier of the return whose items you want to get.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 
 /**
-Unique identifier of the item in the original completed order. All return items should be associated with a corresponding order item.
+Unique identifier of the order item associated with a validation message, order, or return.
 */
 @property(nonatomic) NSString * orderItemId;
+
+/**
+The OrderLineId that this ReturnItem is associated with. If order item is present, the orderLineId should be present also.
+*/
+@property(nonatomic) NSNumber * orderLineId;
 
 /**
 The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
@@ -72,17 +77,17 @@ The total tax amount levied on the shipping loss amount.
 @property(nonatomic) NSNumber * shippingLossTaxAmount;
 
 /**
-Properties of a collection of component products that make up a single returned product bundle with its own product code.
+Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
 */
 @property(nonatomic) NSArray<MOZUReturnBundle> *bundledProducts;
 
 /**
-List of merchant-supplied notes associated with the return item.
+Paged list collection of note content for objects including customers, orders, and returns. 
 */
 @property(nonatomic) NSArray<MOZUOrderNote> *notes;
 
 /**
-Properties of the product definition associated with the item in the return.
+The properties of a product, referenced and used by carts, orders, wish lists, and returns.
 */
 @property(nonatomic) MOZUCommerceProduct *product;
 

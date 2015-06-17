@@ -33,7 +33,7 @@ Retrieves a list of the Mozu tenants or development stores for which the specifi
 /**
 Retrieves the details of the specified administrator user account.
 @param responseFields Use this field to include those fields which are not included by default.
-@param userId Unique identifier of the administrator account to retrieve.
+@param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 */
 
 + (MOZUClient *)clientForGetUserOperationWithUserId:(NSString *)userId responseFields:(NSString *)responseFields;

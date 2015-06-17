@@ -29,7 +29,7 @@ Checksum function used to validate the local version of the file against the ver
 @property(nonatomic) NSString * checkSum;
 
 /**
-Unique identifier of the file.
+Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 */
 @property(nonatomic) NSString * id;
 

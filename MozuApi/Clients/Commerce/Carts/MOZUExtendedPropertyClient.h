@@ -13,7 +13,7 @@
 #import "MOZUExtendedProperty.h"
 
 
-@interface MOZUExtendedPropertyClientCarts : NSObject
+@interface MOZUExtendedPropertyClient : NSObject
 
 //
 #pragma mark -
@@ -22,7 +22,7 @@
 //
 
 /**
-
+carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
 */
 
 + (MOZUClient *)clientForGetExtendedPropertiesOperation;
@@ -35,8 +35,8 @@
 //
 
 /**
-
-@param body 
+carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 */
 
 + (MOZUClient *)clientForAddExtendedPropertiesOperationWithBody:(NSArray<MOZUExtendedProperty> *)body;
@@ -49,18 +49,18 @@
 //
 
 /**
-
-@param body 
+carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param key 
-@param responseFields 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 @param upsert 
 */
 
 + (MOZUClient *)clientForUpdateExtendedPropertyOperationWithBody:(MOZUExtendedProperty *)body key:(NSString *)key upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields;
 
 /**
-
-@param body 
+carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param upsert 
 */
 
@@ -74,14 +74,14 @@
 //
 
 /**
-
+carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
 @param body 
 */
 
 + (MOZUClient *)clientForDeleteExtendedPropertiesOperationWithBody:(NSArray *)body;
 
 /**
-
+carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
 @param key 
 */
 

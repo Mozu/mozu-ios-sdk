@@ -28,12 +28,12 @@ URL displayed with the shipping validation message that links to help informatio
 @property(nonatomic) NSString * helpLink;
 
 /**
-Content of the shipping rate validation message.
+The text of the change message, such as "This product is no longer available." System-supplied and read-only.
 */
 @property(nonatomic) NSString * message;
 
 /**
-Severity level of the shipping rate validation failure.
+The severity level of validation failures for shipping rates and products.
 */
 @property(nonatomic) NSString * severity;
 

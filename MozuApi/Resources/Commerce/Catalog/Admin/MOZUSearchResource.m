@@ -41,8 +41,8 @@
 //
 
 /**
-
-@param responseFields 
+Get site search settings
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
 - (void)settingsWithResponseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSearchSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
@@ -71,9 +71,9 @@
 //
 
 /**
-
-@param body 
-@param responseFields 
+Adds or Updates (Upsert) the Search Settings for a specific site
+@param body The settings to control product search and indexing behavior.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
 
 - (void)updateSettingsWithBody:(MOZUSearchSettings *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUSearchSettings *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler

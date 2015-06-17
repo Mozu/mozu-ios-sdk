@@ -47,8 +47,8 @@ Retrieves a system-defined document type.
 //
 
 /**
-
-@param body 
+Creates a new DocumentType
+@param body The type of documents used in the CMS such as "web_page" or "template" or "image_url".
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
@@ -62,9 +62,9 @@ Retrieves a system-defined document type.
 //
 
 /**
-
-@param body 
-@param documentTypeName 
+Updates a DocumentType
+@param body The type of documents used in the CMS such as "web_page" or "template" or "image_url".
+@param documentTypeName The name of the document type to retrieve.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 

@@ -24,12 +24,12 @@
 @interface MOZUShippingDiscount : JSONModel<MOZUShippingDiscount>
 
 /**
-Carrier-supplied code that represents the shipping method service type associated with the shipping discount.
+Carrier-supplied, unique code that represents the shipping method service type associated with the shipping discount.
 */
 @property(nonatomic) NSString * methodCode;
 
 /**
-Properties of the shipping discount.
+Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
 */
 @property(nonatomic) MOZUAppliedDiscount *discount;
 

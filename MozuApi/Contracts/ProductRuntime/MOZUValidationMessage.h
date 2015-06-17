@@ -23,25 +23,28 @@
 @interface MOZUValidationMessage : JSONModel<MOZUValidationMessage>
 
 /**
+The text of the change message, such as "This product is no longer available." System-supplied and read-only.
+*/
+@property(nonatomic) NSString * message;
+
+/**
+The severity level of validation failures for shipping rates and products.
+*/
+@property(nonatomic) NSString * severity;
+
+/**
+Source for an action or container for originating content. Source is used as an origin for validation and notification messages based on successful or failed actions. For originating content, source is used for the facet source information, including the category, price, or attribute properties.
+*/
+@property(nonatomic) NSString * source;
+
+/**
 Unique identifier of the entity that triggered the validation.
 */
 @property(nonatomic) NSString * sourceId;
 
 /**
-The contents of the message displayed to the user when the product validation failure occurs.
+Type of validation error that occurred. This can be checked programatically.              Must be one of the values in ValidationTypeConst.
 */
-@property(nonatomic) NSString * message;
-
-/**
-The severity level of the product validation failure.
-*/
-@property(nonatomic) NSString * severity;
-
-/**
-The entity that triggered the product validation.
-*/
-@property(nonatomic) NSString * source;
-
 @property(nonatomic) NSString * validationType;
 
 @end

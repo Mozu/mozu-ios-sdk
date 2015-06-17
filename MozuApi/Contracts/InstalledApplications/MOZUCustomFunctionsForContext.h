@@ -18,10 +18,19 @@
 @end
 
 
+/**
+	Mozu.InstalledApplications.Contracts.CustomFunctionsForContext ApiType DOCUMENT_HERE 
+*/
 @interface MOZUCustomFunctionsForContext : JSONModel<MOZUCustomFunctionsForContext>
 
+/**
+Mozu.InstalledApplications.Contracts.CustomFunctionsForContext context ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) NSNumber * context;
 
+/**
+Mozu.InstalledApplications.Contracts.CustomFunctionsForContext customFunctions ApiTypeMember DOCUMENT_HERE 
+*/
 @property(nonatomic) NSArray<MOZUCustomFunction> *customFunctions;
 
 @end

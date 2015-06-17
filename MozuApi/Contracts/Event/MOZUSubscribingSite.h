@@ -18,13 +18,19 @@
 @end
 
 
+/**
+	Properties for the site associated with a subscription including audit info, if active, and the unique ID for the site.
+*/
 @interface MOZUSubscribingSite : JSONModel<MOZUSubscribingSite>
 
 /**
-This specifies if the subscription is active at the site level.
+Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
 */
 @property(nonatomic) NSNumber * isActive;
 
+/**
+Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
+*/
 @property(nonatomic) NSNumber * siteId;
 
 /**

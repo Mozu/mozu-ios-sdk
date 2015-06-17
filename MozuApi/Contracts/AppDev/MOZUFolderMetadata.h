@@ -30,7 +30,7 @@ The directory of the file location of the folder in the package.
 @property(nonatomic) NSString * fullPath;
 
 /**
-The name of the folder.
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 

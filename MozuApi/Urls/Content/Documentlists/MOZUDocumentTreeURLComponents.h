@@ -19,15 +19,15 @@
 
 /**
 Resource Url Components for getTreeDocumentContent
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
 */
 + (MOZUURLComponents *)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 /**
 Resource Url Components for getTreeDocument
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields;
@@ -48,8 +48,8 @@ Resource Url Components for getTreeDocument
 
 /**
 Resource Url Components for updateTreeDocumentContent
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
@@ -62,8 +62,8 @@ Resource Url Components for updateTreeDocumentContent
 
 /**
 Resource Url Components for deleteTreeDocumentContent
-@param documentListName The name of the document list associated with the document.
-@param documentName The name of the document, which is unique within its folder.
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
 */
 + (MOZUURLComponents *)URLComponentsForDeleteTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
