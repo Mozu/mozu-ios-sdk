@@ -2,13 +2,9 @@
 
 ### How to install the Mozu iOS SDK.
 * The easiest way is to use [CocoPods](http://cocoapods.org).
-* Add this to your Podfile to obtain the latest beta version (1.17.15072.0) of the api:
+* Add this to your Podfile to obtain the latest beta version (1.18.15266.2) of the api:
 
 		pod 'mozu-ios-sdk', :git => 'https://github.com/Mozu/mozu-ios-sdk.git'
-
-* Or, to obtain the most recent stable release (1.15.15075.0), add this:
-
-		pod 'mozu-ios-sdk', :git => 'https://github.com/Mozu/mozu-ios-sdk.git', :branch => '1.15.x'
 
 * Run
 

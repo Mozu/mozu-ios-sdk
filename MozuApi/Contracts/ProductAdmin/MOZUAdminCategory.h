@@ -12,6 +12,7 @@
 #import "JSONModel.h"
 #import "MOZUAuditInfo.h"
 #import "MOZUCategoryLocalizedContent.h"
+#import "MOZUDynamicExpression.h"
 
 
 
@@ -30,6 +31,11 @@
 External unique identifier of the category.
 */
 @property(nonatomic) NSString * categoryCode;
+
+/**
+The Type of Category Static, Dyanmic, DynamicPreComputed
+*/
+@property(nonatomic) NSString * categoryType;
 
 /**
 The number of children (subcategories, for example) that stem from a parent (top-level category).
@@ -70,6 +76,11 @@ Identifier and datetime stamp information recorded when a user or application cr
 Complex type that contains content for a language specified by LocaleCode.
 */
 @property(nonatomic) MOZUCategoryLocalizedContent *content;
+
+/**
+Mozu.ProductAdmin.Contracts.Category dynamicExpression ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) MOZUDynamicExpression *dynamicExpression;
 
 @end
 

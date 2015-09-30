@@ -55,6 +55,18 @@ Resource Url Components for addCategory
 */
 + (MOZUURLComponents *)URLComponentsForAddCategoryOperationWithIncrementSequence:(NSNumber *)incrementSequence responseFields:(NSString *)responseFields;
 
+/**
+Resource Url Components for validateDynamicExpression
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForValidateDynamicExpressionOperationWithResponseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for validateRealTimeDynamicExpression
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForValidateRealTimeDynamicExpressionOperationWithResponseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -65,7 +77,7 @@ Resource Url Components for addCategory
 /**
 Resource Url Components for updateCategory
 @param categoryId Unique identifier of the category to modify.
-@param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. Default: False.
+@param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. The default value is false.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateCategoryOperationWithCategoryId:(NSInteger)categoryId cascadeVisibility:(NSNumber *)cascadeVisibility responseFields:(NSString *)responseFields;

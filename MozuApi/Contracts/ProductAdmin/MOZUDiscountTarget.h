@@ -27,6 +27,11 @@
 @interface MOZUDiscountTarget : JSONModel<MOZUDiscountTarget>
 
 /**
+Applies to Included categories Defaults to Any
+*/
+@property(nonatomic) NSString * excludedCategoriesOperator;
+
+/**
 Prevents order scoped discounts from layering over items that already have a product discount with the same type.
 */
 @property(nonatomic) NSNumber * excludeItemsWithExistingProductDiscounts;
@@ -40,6 +45,11 @@ Prevents order scoped discounts from layering over items that already have a shi
 If true, the target discount applies to all products sold on the site, regardless of product category.
 */
 @property(nonatomic) NSNumber * includeAllProducts;
+
+/**
+Applies to Included categories Defaults to Any
+*/
+@property(nonatomic) NSString * includedCategoriesOperator;
 
 /**
 When a condition is specified, this property limits the number of items that are targeted for each discount redemption with an order. If multiple redemptions are allowed for each order then multiples of this value are allowed in multiples of the associated condition. If no condition is specified, then this value is not used. If null and condition exists, then defaults to 1.
@@ -77,7 +87,7 @@ The list of shipping method codes that represents the shipping service types to 
 @property(nonatomic) NSArray<MOZUTargetedShippingMethod> *shippingMethods;
 
 /**
-Shipping Zones that are applicable for this discount
+The list of shipping zones that are applicable for this discount.
 */
 @property(nonatomic) NSArray<MOZUTargetedShippingZone> *shippingZones;
 

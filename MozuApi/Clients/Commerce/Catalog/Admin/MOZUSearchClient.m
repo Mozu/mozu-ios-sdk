@@ -11,6 +11,8 @@
 #import "MOZUSearchClient.h"
 #import "MOZUSearchURLComponents.h"
 #import "MozuSearchSettings.h"
+#import "MozuSearchTuningRuleCollection.h"
+#import "MozuSearchTuningRule.h"
 
 
 @implementation MOZUSearchClient
@@ -20,6 +22,40 @@
 #pragma mark Get Operations
 #pragma mark -
 //
+
++ (MOZUClient *)clientForGetSearchTuningRuleOperationWithSearchTuningRuleCode:(NSString *)searchTuningRuleCode responseFields:(NSString *)responseFields {
+	id url = [MOZUSearchURLComponents URLComponentsForGetSearchTuningRuleOperationWithSearchTuningRuleCode:searchTuningRuleCode responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUSearchTuningRule alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetSearchTuningRulesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
+	id url = [MOZUSearchURLComponents URLComponentsForGetSearchTuningRulesOperationWithStartIndex:startIndex pageSize:pageSize sortBy:sortBy filter:filter responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUSearchTuningRuleCollection alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetSearchTuningRuleSortFieldsOperation {
+	id url = [MOZUSearchURLComponents URLComponentsForGetSearchTuningRuleSortFieldsOperation];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
 
 + (MOZUClient *)clientForGetSettingsOperationWithResponseFields:(NSString *)responseFields {
 	id url = [MOZUSearchURLComponents URLComponentsForGetSettingsOperationWithResponseFields:responseFields];
@@ -41,12 +77,49 @@
 #pragma mark -
 //
 
++ (MOZUClient *)clientForAddSearchTuningRuleOperationWithBody:(MOZUSearchTuningRule *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUSearchURLComponents URLComponentsForAddSearchTuningRuleOperationWithResponseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUSearchTuningRule alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForUpdateSearchTuningRuleSortFieldsOperationWithBody:(MOZUSearchTuningRuleSortFields *)body {
+	id url = [MOZUSearchURLComponents URLComponentsForUpdateSearchTuningRuleSortFieldsOperation];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+	return client;
+}
+
 
 //
 #pragma mark -
 #pragma mark Put Operations
 #pragma mark -
 //
+
++ (MOZUClient *)clientForUpdateSearchTuningRuleOperationWithBody:(MOZUSearchTuningRule *)body searchTuningRuleCode:(NSString *)searchTuningRuleCode responseFields:(NSString *)responseFields {
+	id url = [MOZUSearchURLComponents URLComponentsForUpdateSearchTuningRuleOperationWithSearchTuningRuleCode:searchTuningRuleCode responseFields:responseFields];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUSearchTuningRule alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
 
 + (MOZUClient *)clientForUpdateSettingsOperationWithBody:(MOZUSearchSettings *)body responseFields:(NSString *)responseFields {
 	id url = [MOZUSearchURLComponents URLComponentsForUpdateSettingsOperationWithResponseFields:responseFields];
@@ -68,6 +141,14 @@
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUClient *)clientForDeleteSearchTuningRuleOperationWithSearchTuningRuleCode:(NSString *)searchTuningRuleCode {
+	id url = [MOZUSearchURLComponents URLComponentsForDeleteSearchTuningRuleOperationWithSearchTuningRuleCode:searchTuningRuleCode];
+	id verb = @"DELETE";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
 
 
 

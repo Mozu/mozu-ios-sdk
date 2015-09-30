@@ -32,8 +32,16 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields {
-	id url = [MOZUDocumentTreeURLComponents URLComponentsForGetTreeDocumentOperationWithDocumentListName:documentListName documentName:documentName responseFields:responseFields];
++ (MOZUClient *)clientForTransformTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality {
+	id url = [MOZUDocumentTreeURLComponents URLComponentsForTransformTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName width:width height:height max:max maxWidth:maxWidth maxHeight:maxHeight crop:crop quality:quality];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields {
+	id url = [MOZUDocumentTreeURLComponents URLComponentsForGetTreeDocumentOperationWithDocumentListName:documentListName documentName:documentName includeInactive:includeInactive responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

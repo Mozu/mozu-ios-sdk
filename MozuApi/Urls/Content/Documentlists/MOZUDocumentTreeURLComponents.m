@@ -27,11 +27,29 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}?responseFields={responseFields}";
++ (MOZUURLComponents *)URLComponentsForTransformTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}/transform?width={width}&height={height}&maxWidth={maxWidth}&maxHeight={maxHeight}&crop={crop}&quality={quality}";
 	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"documentName" : documentName,
+		@"width" : width ? width : @"",
+		@"height" : height ? height : @"",
+		@"max" : max ? max : @"",
+		@"maxWidth" : maxWidth ? maxWidth : @"",
+		@"maxHeight" : maxHeight ? maxHeight : @"",
+		@"crop" : crop ? crop : @"",
+		@"quality" : quality ? quality : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documentTree/{documentName}?includeInactive={includeInactive}&responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"documentListName" : documentListName,
+		@"documentName" : documentName,
+		@"includeInactive" : includeInactive ? includeInactive : @"",
 		@"responseFields" : responseFields ? responseFields : @"",
 	};
 

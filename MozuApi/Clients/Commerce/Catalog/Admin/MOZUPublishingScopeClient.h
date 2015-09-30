@@ -11,6 +11,8 @@
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
 #import "MOZUPublishingScope.h"
+#import "MOZUPublishSet.h"
+#import "MOZUPublishSetCollection.h"
 
 
 @interface MOZUPublishingScopeClient : NSObject
@@ -20,6 +22,21 @@
 #pragma mark Get Operations
 #pragma mark -
 //
+
+/**
+Retrieves the details of a single PublishSet.
+@param publishSetCode 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
++ (MOZUClient *)clientForGetPublishSetOperationWithPublishSetCode:(NSString *)publishSetCode responseFields:(NSString *)responseFields;
+
+/**
+Retrieves a list of PublishSets including the product counts.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
++ (MOZUClient *)clientForGetPublishSetsOperationWithResponseFields:(NSString *)responseFields;
 
 
 //
@@ -42,6 +59,14 @@ Publishes the draft version of product changes for each product code specified i
 
 + (MOZUClient *)clientForPublishDraftsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode body:(MOZUPublishingScope *)body;
 
+/**
+admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
+@param body Mozu.ProductAdmin.Contracts.PublishSet ApiType DOCUMENT_HERE 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
++ (MOZUClient *)clientForAssignProductsToPublishSetOperationWithBody:(MOZUPublishSet *)body responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -55,6 +80,14 @@ Publishes the draft version of product changes for each product code specified i
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
+@param discardDrafts 
+@param publishSetCode 
+*/
+
++ (MOZUClient *)clientForDeletePublishSetOperationWithPublishSetCode:(NSString *)publishSetCode discardDrafts:(NSNumber *)discardDrafts;
 
 
 

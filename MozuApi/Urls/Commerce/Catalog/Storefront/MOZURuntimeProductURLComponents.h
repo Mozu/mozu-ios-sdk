@@ -46,6 +46,13 @@ Resource Url Components for getProduct
 */
 + (MOZUURLComponents *)URLComponentsForGetProductOperationWithProductCode:(NSString *)productCode variationProductCode:(NSString *)variationProductCode allowInactive:(NSNumber *)allowInactive skipInventoryCheck:(NSNumber *)skipInventoryCheck supressOutOfStock404:(NSNumber *)supressOutOfStock404 responseFields:(NSString *)responseFields;
 
+/**
+Resource Url Components for getProductForIndexing
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForGetProductForIndexingOperationWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -

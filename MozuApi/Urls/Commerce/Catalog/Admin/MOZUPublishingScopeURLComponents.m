@@ -17,6 +17,25 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForGetPublishSetOperationWithPublishSetCode:(NSString *)publishSetCode responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/publishing/publishsets/{publishSetCode}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"publishSetCode" : publishSetCode,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetPublishSetsOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/publishing/publishsets?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
@@ -38,6 +57,15 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
++ (MOZUURLComponents *)URLComponentsForAssignProductsToPublishSetOperationWithResponseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/catalog/admin/publishing/publishsets?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 
 //
 #pragma mark -
@@ -51,6 +79,16 @@
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUURLComponents *)URLComponentsForDeletePublishSetOperationWithPublishSetCode:(NSString *)publishSetCode discardDrafts:(NSNumber *)discardDrafts {
+	NSString *template = @"/api/commerce/catalog/admin/publishing/publishsets/{publishSetCode}?discardDrafts={discardDrafts}";
+	NSDictionary *params = @{
+		@"publishSetCode" : publishSetCode,
+		@"discardDrafts" : discardDrafts ? discardDrafts : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
 
 
 

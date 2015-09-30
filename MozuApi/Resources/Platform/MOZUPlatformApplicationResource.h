@@ -13,9 +13,9 @@
 #import "MOZUAPIContext.h"
 
 #import "MOZUApplicationVersionsCollection.h"
+#import "MOZUFolderMetadata.h"
 #import "MOZURenameInfo.h"
 #import "MOZUFileMetadata.h"
-#import "MOZUFolderMetadata.h"
 #import "MOZUPackageNamesCollection.h"
 
 

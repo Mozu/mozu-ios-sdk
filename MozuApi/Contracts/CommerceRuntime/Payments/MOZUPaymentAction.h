@@ -50,6 +50,11 @@ If applicable, the check number associated with the payment action or interactio
 @property(nonatomic) NSString * currencyCode;
 
 /**
+Mozu.CommerceRuntime.Contracts.Payments.PaymentAction externalTransactionId ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSString * externalTransactionId;
+
+/**
 Date and time of a payment interaction, including handling and processing a payment and validating and completing a payment with a payment gateway.
 */
 @property(nonatomic) NSDate * interactionDate;
@@ -63,6 +68,8 @@ Unique ID that references an original transaction in the event of a credit back.
 The URL provided to redirect users who submit payments using PayPal Express or another non-gateway payment provider.
 */
 @property(nonatomic) NSString * returnUrl;
+
+@property(nonatomic) NSObject * data;
 
 /**
 Properties of a manually performed interaction with the payment gateway.

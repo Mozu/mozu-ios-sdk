@@ -35,6 +35,11 @@ The line id associated with the fulfillment.
 @property(nonatomic) NSNumber * lineId;
 
 /**
+Fully qualified name of the selected option's attribute. Bundledproducts result from a static bundle or are dynamically added as a result of the shopper selecting products as extras. When the bundled item is dynamic, it includes the attribute's fully qualified name of the extra that it came from. When `optionAttributeFQN `is null, the bundled item was statically defined. When not null, the item came from an extra selection.
+*/
+@property(nonatomic) NSString * optionAttributeFQN;
+
+/**
 The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
 */
 @property(nonatomic) NSString * productCode;

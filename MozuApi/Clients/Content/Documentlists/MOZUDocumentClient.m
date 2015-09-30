@@ -10,8 +10,8 @@
 
 #import "MOZUDocumentClient.h"
 #import "MOZUDocumentURLComponents.h"
-#import "MozuDocument.h"
 #import "MozuDocumentCollection.h"
+#import "MozuDocument.h"
 
 
 @implementation MOZUDocumentClient
@@ -33,8 +33,16 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields {
-	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentOperationWithDocumentListName:documentListName documentId:documentId responseFields:responseFields];
++ (MOZUClient *)clientForTransformDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality {
+	id url = [MOZUDocumentURLComponents URLComponentsForTransformDocumentContentOperationWithDocumentListName:documentListName documentId:documentId width:width height:height max:max maxWidth:maxWidth maxHeight:maxHeight crop:crop quality:quality];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentId:(NSString *)documentId includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields {
+	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentOperationWithDocumentListName:documentListName documentId:documentId includeInactive:includeInactive responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 
@@ -49,8 +57,8 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForGetDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
-	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentsOperationWithDocumentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex responseFields:responseFields];
++ (MOZUClient *)clientForGetDocumentsOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields {
+	id url = [MOZUDocumentURLComponents URLComponentsForGetDocumentsOperationWithDocumentListName:documentListName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex includeInactive:includeInactive responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

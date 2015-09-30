@@ -14,6 +14,7 @@
 #import "MOZUAuditInfo.h"
 #import "MOZUCommerceSummary.h"
 #import "MOZUCustomerContact.h"
+#import "MOZUCurrencyAmount.h"
 #import "MOZUCustomerNote.h"
 #import "MOZUCustomerSegment.h"
 
@@ -37,6 +38,11 @@ Indicates if the customer account is opted to receive marketing materials. If tr
 The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 */
 @property(nonatomic) NSString * companyOrOrganization;
+
+/**
+Mozu.Customer.Contracts.CustomerAccount customerSinceDate ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSDate * customerSinceDate;
 
 /**
 The email address for the customer account and contact. This email may be used for login to the storefront and for subscription mailing lists.
@@ -84,6 +90,11 @@ The full last name of a customer or contact name.
 @property(nonatomic) NSString * lastName;
 
 /**
+Mozu.Customer.Contracts.CustomerAccount lifeTimeValueSetDate ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSDate * lifeTimeValueSetDate;
+
+/**
 Language used for the entity. Currently, only "en-US" is supported.
 */
 @property(nonatomic) NSString * localeCode;
@@ -127,6 +138,11 @@ Properties of the commerce summary associated with a customer account, which inc
 Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.
 */
 @property(nonatomic) NSArray<MOZUCustomerContact> *contacts;
+
+/**
+Mozu.Customer.Contracts.CustomerAccount lifetimeValue ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) MOZUCurrencyAmount *lifetimeValue;
 
 /**
 Paged list collection of note content for objects including customers, orders, and returns. 

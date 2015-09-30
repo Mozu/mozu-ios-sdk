@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUOrderItem.h"
 #import "MOZUAdjustment.h"
 #import "MOZUOrderAttribute.h"
 #import "MOZUAuditInfo.h"
@@ -21,6 +20,7 @@
 #import "MOZUFulfillmentInfo.h"
 #import "MOZUAppliedDiscount.h"
 #import "MOZUInvalidCoupon.h"
+#import "MOZUOrderItem.h"
 #import "MOZUOrderNote.h"
 #import "MOZUPackage.h"
 #import "MOZUPayment.h"
@@ -41,11 +41,6 @@
 	Properties of an order, including its components.
 */
 @interface MOZUOrder : JSONModel<MOZUOrder>
-
-/**
-Order level duty or tariff amount. Does not take into account duties or tariffs specifically on items on the order
-*/
-@property(nonatomic) NSNumber * dutyAmount;
 
 /**
 The date and time the order was accepted by the tenant.
@@ -131,6 +126,11 @@ The subtotal of the cart, order, and wishlist items, including any applied disco
 Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
 */
 @property(nonatomic) NSNumber * discountTotal;
+
+/**
+Order level duty or tariff amount. Does not take into account duties or tariffs specifically on items on the order
+*/
+@property(nonatomic) NSNumber * dutyAmount;
 
 /**
 Duties or tariffs for the Order as well as OrderItems (e.g. if the Order has a $5 duty or tariff for any reason and an OrderItem has a $2 duty or tariff then the value in this property would be $7)
@@ -348,11 +348,6 @@ Unique identifier of the web session in which the cart, order, return, or wish l
 @property(nonatomic) NSString * webSessionId;
 
 /**
-An array list of objects in the returned collection.
-*/
-@property(nonatomic) NSArray<MOZUOrderItem> *items;
-
-/**
 Properties of an ad-hoc price adjustment for an order.
 */
 @property(nonatomic) MOZUAdjustment *adjustment;
@@ -406,6 +401,11 @@ The list of historically-applied handling discounts.  The active one will have I
 The list of invalid coupons the shopper attempted to enter for the cart or order. These coupons may no longer be valid or incorrectly entered.
 */
 @property(nonatomic) NSArray<MOZUInvalidCoupon> *invalidCoupons;
+
+/**
+An array list of objects in the returned collection.
+*/
+@property(nonatomic) NSArray<MOZUOrderItem> *items;
 
 /**
 Paged list collection of note content for objects including customers, orders, and returns. 

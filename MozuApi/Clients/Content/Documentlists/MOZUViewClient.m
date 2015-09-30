@@ -21,8 +21,8 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForGetViewDocumentsOperationWithDocumentListName:(NSString *)documentListName viewName:(NSString *)viewName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
-	id url = [MOZUViewURLComponents URLComponentsForGetViewDocumentsOperationWithDocumentListName:documentListName viewName:viewName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex responseFields:responseFields];
++ (MOZUClient *)clientForGetViewDocumentsOperationWithDocumentListName:(NSString *)documentListName viewName:(NSString *)viewName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields {
+	id url = [MOZUViewURLComponents URLComponentsForGetViewDocumentsOperationWithDocumentListName:documentListName viewName:viewName filter:filter sortBy:sortBy pageSize:pageSize startIndex:startIndex includeInactive:includeInactive responseFields:responseFields];
 	id verb = @"GET";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
 

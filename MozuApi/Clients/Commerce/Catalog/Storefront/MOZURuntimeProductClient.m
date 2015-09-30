@@ -74,6 +74,22 @@
 	return client;
 }
 
++ (MOZUClient *)clientForGetProductForIndexingOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode productCode:(NSString *)productCode responseFields:(NSString *)responseFields {
+	id url = [MOZURuntimeProductURLComponents URLComponentsForGetProductForIndexingOperationWithProductCode:productCode responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	NSString *dataViewModeString = [@(dataViewMode) stringValue];
+	[client setHeader:MOZU_X_VOL_DATAVIEW_MODE value:dataViewModeString];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZURuntimeProduct alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
 
 //
 #pragma mark -

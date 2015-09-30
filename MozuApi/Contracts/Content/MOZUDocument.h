@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+#import "MOZUActiveDateRange.h"
 
 
 
@@ -68,6 +69,11 @@ The display name of the source product property. For a product field it will be 
 @property(nonatomic) NSString * name;
 
 /**
+The name of the publish set that this document belongs to, if any.
+*/
+@property(nonatomic) NSString * publishSetCode;
+
+/**
 The current state of the document or product definition. States for documents include Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft. States for product include New, Draft, or Live.
 */
 @property(nonatomic) NSString * publishState;
@@ -76,6 +82,11 @@ The current state of the document or product definition. States for documents in
 Date and time when the entity was last updated, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * updateDate;
+
+/**
+Mozu.Content.Contracts.Document activeDateRange ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) MOZUActiveDateRange *activeDateRange;
 
 /**
 Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.

@@ -18,6 +18,13 @@
 //
 
 /**
+Resource Url Components for getThirdPartyPaymentWorkflowWithValues
+@param fullyQualifiedName 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForGetThirdPartyPaymentWorkflowWithValuesOperationWithFullyQualifiedName:(NSString *)fullyQualifiedName responseFields:(NSString *)responseFields;
+
+/**
 Resource Url Components for getThirdPartyPaymentWorkflows
 */
 + (MOZUURLComponents *)URLComponentsForGetThirdPartyPaymentWorkflowsOperation;
@@ -36,12 +43,23 @@ Resource Url Components for getThirdPartyPaymentWorkflows
 #pragma mark -
 //
 
+/**
+Resource Url Components for addThirdPartyPaymentWorkflow
+*/
++ (MOZUURLComponents *)URLComponentsForAddThirdPartyPaymentWorkflowOperation;
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+Resource Url Components for deleteThirdPartyPaymentWorkflow
+@param fullyQualifiedName 
+*/
++ (MOZUURLComponents *)URLComponentsForDeleteThirdPartyPaymentWorkflowOperationWithFullyQualifiedName:(NSString *)fullyQualifiedName;
 
 
 

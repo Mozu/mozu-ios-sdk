@@ -32,5 +32,10 @@ List of product codes of associated products, used for pending product changes t
 */
 @property(nonatomic) NSArray *productCodes;
 
+/**
+The Publish Set to publish
+*/
+@property(nonatomic) NSString * publishSetCode;
+
 @end
 

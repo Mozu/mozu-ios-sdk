@@ -10,6 +10,8 @@
 
 #import "MOZUPublishingScopeClient.h"
 #import "MOZUPublishingScopeURLComponents.h"
+#import "MozuPublishSet.h"
+#import "MozuPublishSetCollection.h"
 
 
 @implementation MOZUPublishingScopeClient
@@ -19,6 +21,32 @@
 #pragma mark Get Operations
 #pragma mark -
 //
+
++ (MOZUClient *)clientForGetPublishSetOperationWithPublishSetCode:(NSString *)publishSetCode responseFields:(NSString *)responseFields {
+	id url = [MOZUPublishingScopeURLComponents URLComponentsForGetPublishSetOperationWithPublishSetCode:publishSetCode responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUPublishSet alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetPublishSetsOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUPublishingScopeURLComponents URLComponentsForGetPublishSetsOperationWithResponseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUPublishSetCollection alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
 
 
 //
@@ -51,6 +79,20 @@
 	return client;
 }
 
++ (MOZUClient *)clientForAssignProductsToPublishSetOperationWithBody:(MOZUPublishSet *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUPublishingScopeURLComponents URLComponentsForAssignProductsToPublishSetOperationWithResponseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUPublishSet alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
 
 //
 #pragma mark -
@@ -64,6 +106,14 @@
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUClient *)clientForDeletePublishSetOperationWithPublishSetCode:(NSString *)publishSetCode discardDrafts:(NSNumber *)discardDrafts {
+	id url = [MOZUPublishingScopeURLComponents URLComponentsForDeletePublishSetOperationWithPublishSetCode:publishSetCode discardDrafts:discardDrafts];
+	id verb = @"DELETE";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
 
 
 

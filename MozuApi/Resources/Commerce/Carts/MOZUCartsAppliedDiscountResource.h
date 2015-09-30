@@ -61,7 +61,7 @@ Applies a defined coupon to the cart specified in the request.
 //
 
 /**
-Removes one or more applied coupons from the cart specified in the request.
+Removes all coupons from the cart specified in the request.
 @param cartId Identifier of the cart to delete.
 */
 

@@ -41,7 +41,7 @@ The external payment workflwo definitions configured for the site's payment sett
 @property(nonatomic) NSArray<MOZUExternalPaymentWorkflowDefinition> *externalPaymentWorkflowDefinitions;
 
 /**
-List of name and account information for a payment gateway. Additional payment gateway providers will be supported in future releases.
+List of name and account information for a payment gateway.
 */
 @property(nonatomic) NSArray<MOZUGateway> *gateways;
 

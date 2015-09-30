@@ -36,6 +36,11 @@ Date and time in UTC format when a discount, credit, wish list, or cart expires.
 @property(nonatomic) NSDate * expirationDate;
 
 /**
+List of payment types that trigger this discount to be valid.
+*/
+@property(nonatomic) NSArray *includedPaymentWorkflows;
+
+/**
 The maximum number of times the discount can be redeemed.
 */
 @property(nonatomic) NSNumber * maxRedemptionCount;

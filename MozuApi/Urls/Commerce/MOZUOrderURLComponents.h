@@ -84,6 +84,14 @@ Resource Url Components for performOrderAction
 //
 
 /**
+Resource Url Components for processDigitalWallet
+@param orderId Unique identifier of the order.
+@param digitalWalletType 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForProcessDigitalWalletOperationWithOrderId:(NSString *)orderId digitalWalletType:(NSString *)digitalWalletType responseFields:(NSString *)responseFields;
+
+/**
 Resource Url Components for updateOrderDiscount
 @param orderId Unique identifier of the order.
 @param discountId Unique identifier of the discount. System-supplied and read only.

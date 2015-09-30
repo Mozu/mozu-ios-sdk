@@ -37,5 +37,10 @@ The current publishing state of this product in the catalog, which is Live, New,
 */
 @property(nonatomic) NSString * publishedState;
 
+/**
+Mozu.ProductAdmin.Contracts.ProductPublishingInfo publishSetCode ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSString * publishSetCode;
+
 @end
 

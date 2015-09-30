@@ -22,7 +22,7 @@
 //
 
 /**
-orders-extendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
+Retrieves the extended property string associated with the order. 
 @param draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
 @param orderId Unique identifier of the order.
 */
@@ -37,7 +37,7 @@ orders-extendedproperties Get GetExtendedProperties description DOCUMENT_HERE
 //
 
 /**
-orders-extendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+Create an extended property for the order.
 @param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param orderId Unique identifier of the order.
 @param updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
@@ -54,24 +54,26 @@ orders-extendedproperties Post AddExtendedProperties description DOCUMENT_HERE
 //
 
 /**
-orders-extendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+Updates one ore more extended properties.
 @param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param key 
 @param orderId Unique identifier of the order.
 @param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 @param updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-@param upsert 
+@param upsert Inserts and updates an extended property.
+        
 @param version Determines whether or not to check versioning of items for concurrency purposes.
 */
 
 + (MOZUClient *)clientForUpdateExtendedPropertyOperationWithBody:(MOZUExtendedProperty *)body orderId:(NSString *)orderId key:(NSString *)key updateMode:(NSString *)updateMode version:(NSString *)version upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields;
 
 /**
-orders-extendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+Updates one or more extended properties.
 @param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param orderId Unique identifier of the order.
 @param updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-@param upsert 
+@param upsert Inserts and updates the extended property.
+        
 @param version Determines whether or not to check versioning of items for concurrency purposes.
 */
 
@@ -85,7 +87,7 @@ orders-extendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE
 //
 
 /**
-orders-extendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
+Deletes one or more extended properties.
 @param key 
 @param orderId Unique identifier of the order.
 @param updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
@@ -95,7 +97,7 @@ orders-extendedproperties Delete DeleteExtendedProperty description DOCUMENT_HER
 + (MOZUClient *)clientForDeleteExtendedPropertyOperationWithOrderId:(NSString *)orderId key:(NSString *)key updateMode:(NSString *)updateMode version:(NSString *)version;
 
 /**
-orders-extendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
+Deletes the extended property associated with the order. 
 @param body 
 @param orderId Unique identifier of the order.
 @param updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."

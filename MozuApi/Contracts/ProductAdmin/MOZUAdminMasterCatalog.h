@@ -23,6 +23,11 @@
 @interface MOZUAdminMasterCatalog : JSONModel<MOZUAdminMasterCatalog>
 
 /**
+If the publishingMode is Pending and LiveEditsEnabled = true, DataViewMode live can be passed in the header and live products can be directly edited.
+*/
+@property(nonatomic) NSNumber * enableLiveEdit;
+
+/**
 The unique identifier of the master catalog associated with the entity.
 */
 @property(nonatomic) NSInteger id;

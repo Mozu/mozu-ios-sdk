@@ -27,25 +27,44 @@
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/content/documentlists/{documentListName}/documents/{documentId}?responseFields={responseFields}";
++ (MOZUURLComponents *)URLComponentsForTransformDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documents/{documentId}/transform?width={width}&height={height}&maxWidth={maxWidth}&maxHeight={maxHeight}&crop={crop}&quality={quality}";
 	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"documentId" : documentId,
+		@"width" : width ? width : @"",
+		@"height" : height ? height : @"",
+		@"max" : max ? max : @"",
+		@"maxWidth" : maxWidth ? maxWidth : @"",
+		@"maxHeight" : maxHeight ? maxHeight : @"",
+		@"crop" : crop ? crop : @"",
+		@"quality" : quality ? quality : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
++ (MOZUURLComponents *)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documents/{documentId}?includeInactive={includeInactive}&responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"documentListName" : documentListName,
+		@"documentId" : documentId,
+		@"includeInactive" : includeInactive ? includeInactive : @"",
 		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
 }
 
-+ (MOZUURLComponents *)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/content/documentlists/{documentListName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
++ (MOZUURLComponents *)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/{documentListName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&includeInactive={includeInactive}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"filter" : filter ? filter : @"",
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
+		@"includeInactive" : includeInactive ? includeInactive : @"",
 		@"responseFields" : responseFields ? responseFields : @"",
 	};
 

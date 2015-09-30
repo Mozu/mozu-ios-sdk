@@ -41,7 +41,8 @@ Resource Url Components for createRefund
 /**
 Resource Url Components for resendRefundEmail
 @param orderId Unique identifier of the order.
-@param refundId 
+@param refundId Unique ID of the refund.
+        
 */
 + (MOZUURLComponents *)URLComponentsForResendRefundEmailOperationWithOrderId:(NSString *)orderId refundId:(NSString *)refundId;
 

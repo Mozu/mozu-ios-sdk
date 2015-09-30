@@ -17,6 +17,19 @@
 #pragma mark -
 //
 
+/**
+Resource Url Components for getPublishSet
+@param publishSetCode 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForGetPublishSetOperationWithPublishSetCode:(NSString *)publishSetCode responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getPublishSets
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForGetPublishSetsOperationWithResponseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -34,6 +47,12 @@ Resource Url Components for publishDrafts
 */
 + (MOZUURLComponents *)URLComponentsForPublishDraftsOperation;
 
+/**
+Resource Url Components for assignProductsToPublishSet
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForAssignProductsToPublishSetOperationWithResponseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -47,6 +66,13 @@ Resource Url Components for publishDrafts
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+Resource Url Components for deletePublishSet
+@param publishSetCode 
+@param discardDrafts 
+*/
++ (MOZUURLComponents *)URLComponentsForDeletePublishSetOperationWithPublishSetCode:(NSString *)publishSetCode discardDrafts:(NSNumber *)discardDrafts;
 
 
 

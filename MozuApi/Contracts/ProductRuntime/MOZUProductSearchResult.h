@@ -12,6 +12,7 @@
 #import "JSONModel.h"
 #import "MOZURuntimeFacet.h"
 #import "MOZURuntimeProduct.h"
+#import "MOZUSolrDebugInfo.h"
 
 
 
@@ -50,6 +51,11 @@ The facets applied to index products in the product search result.
 An array list of objects in the returned collection.
 */
 @property(nonatomic) NSArray<MOZURuntimeProduct> *items;
+
+/**
+Mozu.ProductRuntime.Contracts.ProductSearchResult solrDebugInfo ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) MOZUSolrDebugInfo *solrDebugInfo;
 
 @end
 

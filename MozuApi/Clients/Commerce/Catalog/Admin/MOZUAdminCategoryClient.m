@@ -11,6 +11,7 @@
 #import "MOZUAdminCategoryClient.h"
 #import "MOZUAdminCategoryURLComponents.h"
 #import "MozuAdminCategory.h"
+#import "MozuDynamicExpression.h"
 #import "MozuAdminCategoryPagedCollection.h"
 #import "MozuAdminCategoryCollection.h"
 
@@ -78,6 +79,34 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUAdminCategory alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForValidateDynamicExpressionOperationWithBody:(MOZUDynamicExpression *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForValidateDynamicExpressionOperationWithResponseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUDynamicExpression alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForValidateRealTimeDynamicExpressionOperationWithBody:(MOZUDynamicExpression *)body responseFields:(NSString *)responseFields {
+	id url = [MOZUAdminCategoryURLComponents URLComponentsForValidateRealTimeDynamicExpressionOperationWithResponseFields:responseFields];
+	id verb = @"POST";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUDynamicExpression alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

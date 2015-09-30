@@ -110,6 +110,23 @@ Retrieves information about a single product given its product code.
 	}];
 }
 
+/**
+Retrieves information about a single product given its product code for Mozu to index in the search engine
+@param productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)productForIndexingWithProductCode:(NSString *)productCode responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZURuntimeProduct *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZURuntimeProductClient clientForGetProductForIndexingOperationWithDataViewMode:self.dataViewMode productCode:productCode responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
 
 //
 #pragma mark -

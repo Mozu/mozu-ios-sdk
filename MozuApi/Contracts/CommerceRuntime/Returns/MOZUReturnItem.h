@@ -37,6 +37,11 @@ Unique identifier of the order item associated with a validation message, order,
 @property(nonatomic) NSString * orderItemId;
 
 /**
+This is the Option attribute FQN for the item being returned .. typically only when the return item is a product bundle item.
+*/
+@property(nonatomic) NSString * orderItemOptionAttributeFQN;
+
+/**
 The OrderLineId that this ReturnItem is associated with. If order item is present, the orderLineId should be present also.
 */
 @property(nonatomic) NSNumber * orderLineId;

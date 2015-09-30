@@ -18,6 +18,28 @@
 //
 
 /**
+Resource Url Components for getSearchTuningRule
+@param searchTuningRuleCode 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForGetSearchTuningRuleOperationWithSearchTuningRuleCode:(NSString *)searchTuningRuleCode responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getSearchTuningRules
+@param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.
+@param pageSize The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.
+@param sortBy The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
+@param filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForGetSearchTuningRulesOperationWithStartIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for getSearchTuningRuleSortFields
+*/
++ (MOZUURLComponents *)URLComponentsForGetSearchTuningRuleSortFieldsOperation;
+
+/**
 Resource Url Components for getSettings
 @param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 */
@@ -30,12 +52,30 @@ Resource Url Components for getSettings
 #pragma mark -
 //
 
+/**
+Resource Url Components for addSearchTuningRule
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForAddSearchTuningRuleOperationWithResponseFields:(NSString *)responseFields;
+
+/**
+Resource Url Components for updateSearchTuningRuleSortFields
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateSearchTuningRuleSortFieldsOperation;
+
 
 //
 #pragma mark -
 #pragma mark PUT Operations
 #pragma mark -
 //
+
+/**
+Resource Url Components for updateSearchTuningRule
+@param searchTuningRuleCode 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
++ (MOZUURLComponents *)URLComponentsForUpdateSearchTuningRuleOperationWithSearchTuningRuleCode:(NSString *)searchTuningRuleCode responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for updateSettings
@@ -49,6 +89,12 @@ Resource Url Components for updateSettings
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+Resource Url Components for deleteSearchTuningRule
+@param searchTuningRuleCode 
+*/
++ (MOZUURLComponents *)URLComponentsForDeleteSearchTuningRuleOperationWithSearchTuningRuleCode:(NSString *)searchTuningRuleCode;
 
 
 

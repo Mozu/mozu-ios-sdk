@@ -53,6 +53,11 @@ Unique identifier of the source product property. For a product field it will be
 @property(nonatomic) NSString * id;
 
 /**
+Mozu.Customer.Contracts.Card isDefaultPayMethod ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) BOOL isDefaultPayMethod;
+
+/**
 The full name printed on a credit card. The name should match what is printed on the card exactly, used in validation during a payment.
 */
 @property(nonatomic) NSString * nameOnCard;

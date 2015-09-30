@@ -22,6 +22,14 @@
 //
 
 /**
+checkout-paymentsettings Get GetThirdPartyPaymentWorkflowWithValues description DOCUMENT_HERE 
+@param fullyQualifiedName 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
++ (MOZUClient *)clientForGetThirdPartyPaymentWorkflowWithValuesOperationWithFullyQualifiedName:(NSString *)fullyQualifiedName responseFields:(NSString *)responseFields;
+
+/**
 Retrieves the details of the third-party payment service workflows configured for the site.
 */
 
@@ -41,12 +49,26 @@ Retrieves the details of the third-party payment service workflows configured fo
 #pragma mark -
 //
 
+/**
+checkout-paymentsettings Put AddThirdPartyPaymentWorkflow description DOCUMENT_HERE 
+@param body Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.
+*/
+
++ (MOZUClient *)clientForAddThirdPartyPaymentWorkflowOperationWithBody:(MOZUExternalPaymentWorkflowDefinition *)body;
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
+/**
+checkout-paymentsettings Delete DeleteThirdPartyPaymentWorkflow description DOCUMENT_HERE 
+@param fullyQualifiedName 
+*/
+
++ (MOZUClient *)clientForDeleteThirdPartyPaymentWorkflowOperationWithFullyQualifiedName:(NSString *)fullyQualifiedName;
 
 
 

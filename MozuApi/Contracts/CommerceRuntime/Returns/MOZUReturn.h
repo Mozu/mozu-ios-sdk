@@ -29,6 +29,11 @@
 @interface MOZUReturn : JSONModel<MOZUReturn>
 
 /**
+Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
+*/
+@property(nonatomic) NSString * webSessionId;
+
+/**
 Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
 */
 @property(nonatomic) NSArray *availableActions;
@@ -142,11 +147,6 @@ Unique identifier of the customer account (shopper or system user). System-suppl
 Unique identifier of the customer visit in which the cart was created or last modified.
 */
 @property(nonatomic) NSString * visitId;
-
-/**
-Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
-*/
-@property(nonatomic) NSString * webSessionId;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

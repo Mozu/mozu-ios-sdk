@@ -25,12 +25,27 @@ Resource Url Components for getTreeDocumentContent
 + (MOZUURLComponents *)URLComponentsForGetTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 /**
+Resource Url Components for transformTreeDocumentContent
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
+@param width 
+@param height 
+@param max 
+@param maxWidth 
+@param maxHeight 
+@param crop 
+@param quality 
+*/
++ (MOZUURLComponents *)URLComponentsForTransformTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality;
+
+/**
 Resource Url Components for getTreeDocument
 @param documentListName Name of content documentListName to delete
 @param documentName The name of the document in the site.
+@param includeInactive 
 @param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields;
++ (MOZUURLComponents *)URLComponentsForGetTreeDocumentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields;
 
 
 //

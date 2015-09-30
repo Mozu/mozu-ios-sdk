@@ -36,9 +36,13 @@ Resource Url Components for search
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex 
 @param searchSettings 
+@param enableSearchTuningRules 
+@param searchTuningRuleContext 
+@param searchTuningRuleCode 
+@param facetTemplateExclude 
 @param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForSearchOperationWithQuery:(NSString *)query filter:(NSString *)filter facetTemplate:(NSString *)facetTemplate facetTemplateSubset:(NSString *)facetTemplateSubset facet:(NSString *)facet facetFieldRangeQuery:(NSString *)facetFieldRangeQuery facetHierPrefix:(NSString *)facetHierPrefix facetHierValue:(NSString *)facetHierValue facetHierDepth:(NSString *)facetHierDepth facetStartIndex:(NSString *)facetStartIndex facetPageSize:(NSString *)facetPageSize facetSettings:(NSString *)facetSettings facetValueFilter:(NSString *)facetValueFilter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex searchSettings:(NSString *)searchSettings responseFields:(NSString *)responseFields;
++ (MOZUURLComponents *)URLComponentsForSearchOperationWithQuery:(NSString *)query filter:(NSString *)filter facetTemplate:(NSString *)facetTemplate facetTemplateSubset:(NSString *)facetTemplateSubset facet:(NSString *)facet facetFieldRangeQuery:(NSString *)facetFieldRangeQuery facetHierPrefix:(NSString *)facetHierPrefix facetHierValue:(NSString *)facetHierValue facetHierDepth:(NSString *)facetHierDepth facetStartIndex:(NSString *)facetStartIndex facetPageSize:(NSString *)facetPageSize facetSettings:(NSString *)facetSettings facetValueFilter:(NSString *)facetValueFilter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex searchSettings:(NSString *)searchSettings enableSearchTuningRules:(NSNumber *)enableSearchTuningRules searchTuningRuleContext:(NSString *)searchTuningRuleContext searchTuningRuleCode:(NSString *)searchTuningRuleCode facetTemplateExclude:(NSString *)facetTemplateExclude responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for suggest

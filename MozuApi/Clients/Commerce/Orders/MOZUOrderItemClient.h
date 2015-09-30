@@ -25,7 +25,7 @@
 //
 
 /**
-orders-orderitems Get GetOrderItemViaLineId description DOCUMENT_HERE 
+Retrieves an order item with the order line ID.
 @param draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
 @param lineId 
 @param orderId Unique identifier of the order.
@@ -93,8 +93,9 @@ Update the discount applied to an item in an order.
 + (MOZUClient *)clientForUpdateOrderItemDiscountOperationWithBody:(MOZUAppliedDiscount *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields;
 
 /**
-orders-orderitems Put UpdateItemDuty description DOCUMENT_HERE 
-@param dutyAmount 
+Update the duty fee information for an order item.
+@param dutyAmount The amount added to the order item for duty fees.
+        
 @param orderId Unique identifier of the order.
 @param orderItemId Unique identifier of the item to remove from the order.
 @param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.

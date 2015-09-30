@@ -12,8 +12,8 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUDocument.h"
 #import "MOZUDocumentCollection.h"
+#import "MOZUDocument.h"
 
 
 @interface MOZUDocumentResource : NSObject
@@ -42,25 +42,42 @@ Retrieve the content associated with a document, such as a product image or PDF 
 - (void)documentContentWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
+documentlists-documents Get TransformDocumentContent description DOCUMENT_HERE 
+@param crop 
+@param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param documentListName Name of content documentListName to delete
+@param height 
+@param max 
+@param maxHeight 
+@param maxWidth 
+@param quality 
+@param width 
+*/
+
+- (void)transformDocumentContentWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+;
+/**
 Retrieves a document within the specified document list.
 @param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
 @param documentListName Name of content documentListName to delete
+@param includeInactive 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)documentWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 /**
 Retrieves a collection of documents according to any filter and sort criteria.
 @param documentListName Name of content documentListName to delete
 @param filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+@param includeInactive 
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 */
 
-- (void)documentsWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)documentsWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

@@ -22,7 +22,7 @@
 //
 
 /**
-carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
+Retrieves a list of cart extended properties specified in the request.
 */
 
 + (MOZUClient *)clientForGetExtendedPropertiesOperation;
@@ -35,7 +35,7 @@ carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE
 //
 
 /**
-carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+Adds one or more specified extended properties to the carts extended properties collection.
 @param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 */
 
@@ -49,7 +49,7 @@ carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HER
 //
 
 /**
-carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+Updates one or more details of the extended property  specified in the request.
 @param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 @param key 
 @param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
@@ -59,9 +59,9 @@ carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HER
 + (MOZUClient *)clientForUpdateExtendedPropertyOperationWithBody:(MOZUExtendedProperty *)body key:(NSString *)key upsert:(NSNumber *)upsert responseFields:(NSString *)responseFields;
 
 /**
-carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+Updates one or more details of the extended properties specified in the request.
 @param body Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-@param upsert 
+@param upsert Any set of key value pairs to be stored in the extended properties of a cart.
 */
 
 + (MOZUClient *)clientForUpdateExtendedPropertiesOperationWithBody:(NSArray<MOZUExtendedProperty> *)body upsert:(NSNumber *)upsert;
@@ -74,14 +74,14 @@ carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_H
 //
 
 /**
-carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
+Deletes the extended properties  cart extended properties collection.
 @param body 
 */
 
 + (MOZUClient *)clientForDeleteExtendedPropertiesOperationWithBody:(NSArray *)body;
 
 /**
-carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
+Deletes a specific extended property from the cart extended property collection.
 @param key 
 */
 

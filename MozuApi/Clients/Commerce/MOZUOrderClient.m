@@ -126,6 +126,20 @@
 #pragma mark -
 //
 
++ (MOZUClient *)clientForProcessDigitalWalletOperationWithBody:(MOZUDigitalWallet *)body orderId:(NSString *)orderId digitalWalletType:(NSString *)digitalWalletType responseFields:(NSString *)responseFields {
+	id url = [MOZUOrderURLComponents URLComponentsForProcessDigitalWalletOperationWithOrderId:orderId digitalWalletType:digitalWalletType responseFields:responseFields];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUOrder alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
 + (MOZUClient *)clientForUpdateOrderDiscountOperationWithBody:(MOZUAppliedDiscount *)body orderId:(NSString *)orderId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
 	id url = [MOZUOrderURLComponents URLComponentsForUpdateOrderDiscountOperationWithOrderId:orderId discountId:discountId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";

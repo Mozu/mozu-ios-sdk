@@ -33,12 +33,12 @@ Unique identifier of an app available in your Mozu tenant or within Mozu Dev Cen
 @property(nonatomic) NSString * appId;
 
 /**
-App Key
+The application's key.
 */
 @property(nonatomic) NSString * appKey;
 
 /**
-App Name
+The application's name.
 */
 @property(nonatomic) NSString * appName;
 
@@ -98,7 +98,7 @@ If true, the change associated with the message executed successfully.
 @property(nonatomic) NSNumber * success;
 
 /**
-User First Name
+The user's first name.
 */
 @property(nonatomic) NSString * userFirstName;
 
@@ -108,12 +108,12 @@ Unique identifier of the customer account (shopper or system user). System-suppl
 @property(nonatomic) NSString * userId;
 
 /**
-User Last Name
+The user's last name.
 */
 @property(nonatomic) NSString * userLastName;
 
 /**
-User Type (e.g. Shopper, Admin, etc.)
+The user type (e.g. Shopper, Admin, etc.).
 */
 @property(nonatomic) NSString * userScopeType;
 

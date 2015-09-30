@@ -25,12 +25,27 @@ Resource Url Components for getDocumentContent
 + (MOZUURLComponents *)URLComponentsForGetDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId;
 
 /**
+Resource Url Components for transformDocumentContent
+@param documentListName Name of content documentListName to delete
+@param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param width 
+@param height 
+@param max 
+@param maxWidth 
+@param maxHeight 
+@param crop 
+@param quality 
+*/
++ (MOZUURLComponents *)URLComponentsForTransformDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality;
+
+/**
 Resource Url Components for getDocument
 @param documentListName Name of content documentListName to delete
 @param documentId Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+@param includeInactive 
 @param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId responseFields:(NSString *)responseFields;
++ (MOZUURLComponents *)URLComponentsForGetDocumentOperationWithDocumentListName:(NSString *)documentListName documentId:(NSString *)documentId includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields;
 
 /**
 Resource Url Components for getDocuments
@@ -39,9 +54,10 @@ Resource Url Components for getDocuments
 @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+@param includeInactive 
 @param responseFields Use this field to include those fields which are not included by default.
 */
-+ (MOZUURLComponents *)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields;
++ (MOZUURLComponents *)URLComponentsForGetDocumentsOperationWithDocumentListName:(NSString *)documentListName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields;
 
 
 //

@@ -14,6 +14,7 @@
 #import "MOZUOrderAction.h"
 #import "MOZUOrderCollection.h"
 #import "MOZUAppliedDiscount.h"
+#import "MOZUDigitalWallet.h"
 #import "MOZUPricingTaxableOrder.h"
 
 
@@ -99,6 +100,16 @@ Perform the specified action for an order. The actions you can perform depend on
 #pragma mark Put Operations
 #pragma mark -
 //
+
+/**
+commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE 
+@param digitalWalletType 
+@param orderId Unique identifier of the order.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
++ (MOZUClient *)clientForProcessDigitalWalletOperationWithBody:(MOZUDigitalWallet *)body orderId:(NSString *)orderId digitalWalletType:(NSString *)digitalWalletType responseFields:(NSString *)responseFields;
 
 /**
 Update the properties of a discount applied to an order.

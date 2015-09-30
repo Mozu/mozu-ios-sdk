@@ -34,6 +34,7 @@
 Retrieves a collection of documents associated with a view.
 @param documentListName Name of content documentListName to delete
 @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+@param includeInactive 
 @param pageSize The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.
 @param responseFields Use this field to include those fields which are not included by default.
 @param sortBy The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
@@ -41,7 +42,7 @@ Retrieves a collection of documents associated with a view.
 @param viewName The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 */
 
-- (void)viewDocumentsWithDocumentListName:(NSString *)documentListName viewName:(NSString *)viewName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)viewDocumentsWithDocumentListName:(NSString *)documentListName viewName:(NSString *)viewName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocumentCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

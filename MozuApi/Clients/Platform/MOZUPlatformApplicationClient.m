@@ -11,8 +11,8 @@
 #import "MOZUPlatformApplicationClient.h"
 #import "MOZUPlatformApplicationURLComponents.h"
 #import "MozuApplicationVersionsCollection.h"
-#import "MozuFileMetadata.h"
 #import "MozuFolderMetadata.h"
+#import "MozuFileMetadata.h"
 #import "MozuPackageNamesCollection.h"
 
 

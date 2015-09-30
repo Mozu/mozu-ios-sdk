@@ -82,7 +82,8 @@ Resource Url Components for updateOrderItemDiscount
 Resource Url Components for updateItemDuty
 @param orderId Unique identifier of the order.
 @param orderItemId Unique identifier of the item to remove from the order.
-@param dutyAmount 
+@param dutyAmount The amount added to the order item for duty fees.
+        
 @param updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 @param version Determines whether or not to check versioning of items for concurrency purposes.
 @param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.

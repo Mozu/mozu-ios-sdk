@@ -17,8 +17,8 @@
 #pragma mark -
 //
 
-+ (MOZUURLComponents *)URLComponentsForGetViewDocumentsOperationWithDocumentListName:(NSString *)documentListName viewName:(NSString *)viewName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/content/documentlists/{documentListName}/views/{viewName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
++ (MOZUURLComponents *)URLComponentsForGetViewDocumentsOperationWithDocumentListName:(NSString *)documentListName viewName:(NSString *)viewName filter:(NSString *)filter sortBy:(NSString *)sortBy pageSize:(NSNumber *)pageSize startIndex:(NSNumber *)startIndex includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/content/documentlists/{documentListName}/views/{viewName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&includeInactive={includeInactive}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"documentListName" : documentListName,
 		@"viewName" : viewName,
@@ -26,6 +26,7 @@
 		@"sortBy" : sortBy ? sortBy : @"",
 		@"pageSize" : pageSize ? pageSize : @"",
 		@"startIndex" : startIndex ? startIndex : @"",
+		@"includeInactive" : includeInactive ? includeInactive : @"",
 		@"responseFields" : responseFields ? responseFields : @"",
 	};
 

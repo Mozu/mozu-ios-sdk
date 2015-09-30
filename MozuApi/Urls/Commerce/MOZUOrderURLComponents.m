@@ -104,6 +104,17 @@
 #pragma mark -
 //
 
++ (MOZUURLComponents *)URLComponentsForProcessDigitalWalletOperationWithOrderId:(NSString *)orderId digitalWalletType:(NSString *)digitalWalletType responseFields:(NSString *)responseFields {
+	NSString *template = @"/api/commerce/orders/{orderId}/digitalWallet/{digitalWalletType}?responseFields={responseFields}";
+	NSDictionary *params = @{
+		@"orderId" : orderId,
+		@"digitalWalletType" : digitalWalletType,
+		@"responseFields" : responseFields ? responseFields : @"",
+	};
+
+	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUTenantPod useSSL:NO];
+}
+
 + (MOZUURLComponents *)URLComponentsForUpdateOrderDiscountOperationWithOrderId:(NSString *)orderId discountId:(NSInteger)discountId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
 	NSString *template = @"/api/commerce/orders/{orderId}/discounts/{discountId}?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 	NSDictionary *params = @{

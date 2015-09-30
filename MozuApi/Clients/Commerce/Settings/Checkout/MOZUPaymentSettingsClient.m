@@ -21,6 +21,19 @@
 #pragma mark -
 //
 
++ (MOZUClient *)clientForGetThirdPartyPaymentWorkflowWithValuesOperationWithFullyQualifiedName:(NSString *)fullyQualifiedName responseFields:(NSString *)responseFields {
+	id url = [MOZUPaymentSettingsURLComponents URLComponentsForGetThirdPartyPaymentWorkflowWithValuesOperationWithFullyQualifiedName:fullyQualifiedName responseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUExternalPaymentWorkflowDefinition alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
 + (MOZUClient *)clientForGetThirdPartyPaymentWorkflowsOperation {
 	id url = [MOZUPaymentSettingsURLComponents URLComponentsForGetThirdPartyPaymentWorkflowsOperation];
 	id verb = @"GET";
@@ -49,12 +62,29 @@
 #pragma mark -
 //
 
++ (MOZUClient *)clientForAddThirdPartyPaymentWorkflowOperationWithBody:(MOZUExternalPaymentWorkflowDefinition *)body {
+	id url = [MOZUPaymentSettingsURLComponents URLComponentsForAddThirdPartyPaymentWorkflowOperation];
+	id verb = @"PUT";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	client.body = body;
+	return client;
+}
+
 
 //
 #pragma mark -
 #pragma mark Delete Operations
 #pragma mark -
 //
+
++ (MOZUClient *)clientForDeleteThirdPartyPaymentWorkflowOperationWithFullyQualifiedName:(NSString *)fullyQualifiedName {
+	id url = [MOZUPaymentSettingsURLComponents URLComponentsForDeleteThirdPartyPaymentWorkflowOperationWithFullyQualifiedName:fullyQualifiedName];
+	id verb = @"DELETE";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+	return client;
+}
 
 
 

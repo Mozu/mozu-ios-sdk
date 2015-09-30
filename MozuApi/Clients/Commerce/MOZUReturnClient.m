@@ -14,6 +14,7 @@
 #import "MozuReturn.h"
 #import "MozuReturnCollection.h"
 #import "MozuReturnItem.h"
+#import "MozuReasonCollection.h"
 #import "MozuPaymentCollection.h"
 #import "MozuPayment.h"
 
@@ -115,6 +116,19 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		return [[MOZUReturn alloc] initWithString:jsonResult error:nil];
+	};
+
+	return client;
+}
+
++ (MOZUClient *)clientForGetReasonsOperationWithResponseFields:(NSString *)responseFields {
+	id url = [MOZUReturnURLComponents URLComponentsForGetReasonsOperationWithResponseFields:responseFields];
+	id verb = @"GET";
+	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
+
+
+	client.JSONParser = ^id(NSString *jsonResult) {
+		return [[MOZUReasonCollection alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

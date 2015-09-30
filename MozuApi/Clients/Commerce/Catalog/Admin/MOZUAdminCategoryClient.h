@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
 #import "MOZUAdminCategory.h"
+#import "MOZUDynamicExpression.h"
 #import "MOZUAdminCategoryPagedCollection.h"
 #import "MOZUAdminCategoryCollection.h"
 
@@ -66,6 +67,22 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 
 + (MOZUClient *)clientForAddCategoryOperationWithBody:(MOZUAdminCategory *)body incrementSequence:(NSNumber *)incrementSequence responseFields:(NSString *)responseFields;
 
+/**
+admin-categories Post ValidateDynamicExpression description DOCUMENT_HERE 
+@param body Mozu.ProductAdmin.Contracts.DynamicExpression ApiType DOCUMENT_HERE 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
++ (MOZUClient *)clientForValidateDynamicExpressionOperationWithBody:(MOZUDynamicExpression *)body responseFields:(NSString *)responseFields;
+
+/**
+admin-categories Post ValidateRealTimeDynamicExpression description DOCUMENT_HERE 
+@param body Mozu.ProductAdmin.Contracts.DynamicExpression ApiType DOCUMENT_HERE 
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
++ (MOZUClient *)clientForValidateRealTimeDynamicExpressionOperationWithBody:(MOZUDynamicExpression *)body responseFields:(NSString *)responseFields;
+
 
 //
 #pragma mark -
@@ -76,7 +93,7 @@ Adds a new category to the site's category hierarchy. Specify a ParentCategoryID
 /**
 Update the properties of a defined category or move it to another location in the category hierarchy. Because this operation replaces the defined resource,include all the information to maintain for the category in the request.
 @param body A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.
-@param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. Default: False.
+@param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. The default value is false.
 @param categoryId Unique identifier of the category to modify.
 @param responseFields Use this field to include those fields which are not included by default.
 */

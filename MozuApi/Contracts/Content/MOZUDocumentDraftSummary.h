@@ -28,6 +28,16 @@ Detailed information of the date and time for the active update date for the doc
 @property(nonatomic) NSDate * activeUpdateDate;
 
 /**
+Mozu.Content.Contracts.DocumentDraftSummary activeUpdatedBy ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSString * activeUpdatedBy;
+
+/**
+The unique identifier for the product catalog. Catalogs are part of a master catalog.
+*/
+@property(nonatomic) NSNumber * catalogId;
+
+/**
 Fully qualified name of the document type. 
 */
 @property(nonatomic) NSString * documentTypeFQN;
@@ -48,14 +58,29 @@ The fully qualified name of the document list.
 @property(nonatomic) NSString * listFQN;
 
 /**
+Unique identifier for the master catalog. 
+*/
+@property(nonatomic) NSNumber * masterCatalogId;
+
+/**
 The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 */
 @property(nonatomic) NSString * name;
 
 /**
+Mozu.Content.Contracts.DocumentDraftSummary publishSetCode ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSString * publishSetCode;
+
+/**
 Whether the draft has been published.
 */
 @property(nonatomic) NSString * publishType;
+
+/**
+Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
+*/
+@property(nonatomic) NSNumber * siteId;
 
 /**
 Unique identifier of the user who last modified the item. This value is system-supplied and read-only.

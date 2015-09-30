@@ -69,15 +69,40 @@ Retrieve the content associated with the document, such as a product image or PD
 }
 
 /**
+documentlists-documentTree Get TransformTreeDocumentContent description DOCUMENT_HERE 
+@param crop 
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
+@param height 
+@param max 
+@param maxHeight 
+@param maxWidth 
+@param quality 
+@param width 
+*/
+
+- (void)transformTreeDocumentContentWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality completionHandler:(void(^)(NSInputStream *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUDocumentTreeClient clientForTransformTreeDocumentContentOperationWithDocumentListName:documentListName documentName:documentName width:width height:height max:max maxWidth:maxWidth maxHeight:maxHeight crop:crop quality:quality];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
 Retrieves a document based on its document list and folder path in the document hierarchy.
 @param documentListName Name of content documentListName to delete
 @param documentName The name of the document in the site.
+@param includeInactive 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)treeDocumentWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)treeDocumentWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUDocument *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
-	MOZUClient *client = [MOZUDocumentTreeClient clientForGetTreeDocumentOperationWithDataViewMode:self.dataViewMode documentListName:documentListName documentName:documentName responseFields:responseFields];
+	MOZUClient *client = [MOZUDocumentTreeClient clientForGetTreeDocumentOperationWithDataViewMode:self.dataViewMode documentListName:documentListName documentName:documentName includeInactive:includeInactive responseFields:responseFields];
 	client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {

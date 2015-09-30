@@ -51,7 +51,7 @@ Resource Url Components for updateExtendedProperty
 
 /**
 Resource Url Components for updateExtendedProperties
-@param upsert 
+@param upsert Any set of key value pairs to be stored in the extended properties of a cart.
 */
 + (MOZUURLComponents *)URLComponentsForUpdateExtendedPropertiesOperationWithUpsert:(NSNumber *)upsert;
 

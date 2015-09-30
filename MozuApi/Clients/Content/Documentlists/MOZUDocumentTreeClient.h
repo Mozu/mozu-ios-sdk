@@ -30,13 +30,29 @@ Retrieve the content associated with the document, such as a product image or PD
 + (MOZUClient *)clientForGetTreeDocumentContentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName;
 
 /**
+documentlists-documentTree Get TransformTreeDocumentContent description DOCUMENT_HERE 
+@param crop 
+@param documentListName Name of content documentListName to delete
+@param documentName The name of the document in the site.
+@param height 
+@param max 
+@param maxHeight 
+@param maxWidth 
+@param quality 
+@param width 
+*/
+
++ (MOZUClient *)clientForTransformTreeDocumentContentOperationWithDocumentListName:(NSString *)documentListName documentName:(NSString *)documentName width:(NSNumber *)width height:(NSNumber *)height max:(NSNumber *)max maxWidth:(NSNumber *)maxWidth maxHeight:(NSNumber *)maxHeight crop:(NSString *)crop quality:(NSNumber *)quality;
+
+/**
 Retrieves a document based on its document list and folder path in the document hierarchy.
 @param documentListName Name of content documentListName to delete
 @param documentName The name of the document in the site.
+@param includeInactive 
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName responseFields:(NSString *)responseFields;
++ (MOZUClient *)clientForGetTreeDocumentOperationWithDataViewMode:(MOZUDataViewMode)dataViewMode documentListName:(NSString *)documentListName documentName:(NSString *)documentName includeInactive:(NSNumber *)includeInactive responseFields:(NSString *)responseFields;
 
 
 //

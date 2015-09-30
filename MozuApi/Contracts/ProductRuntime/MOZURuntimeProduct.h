@@ -36,9 +36,29 @@
 @interface MOZURuntimeProduct : JSONModel<MOZURuntimeProduct>
 
 /**
+Mozu.ProductRuntime.Contracts.Product catalogEndDate ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSDate * catalogEndDate;
+
+/**
+Mozu.ProductRuntime.Contracts.Product catalogStartDate ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSDate * catalogStartDate;
+
+/**
 Date and time when the entity was created, represented in UTC Date/Time.
 */
 @property(nonatomic) NSDate * createDate;
+
+/**
+Mozu.ProductRuntime.Contracts.Product dateFirstAvailableInCatalog ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSDate * dateFirstAvailableInCatalog;
+
+/**
+Mozu.ProductRuntime.Contracts.Product daysAvailableInCatalog ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSNumber * daysAvailableInCatalog;
 
 /**
 List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
@@ -94,6 +114,11 @@ Integer that represents the sequential order of the product.
 The product type template associated with the product on the storefront.
 */
 @property(nonatomic) NSString * productType;
+
+/**
+Mozu.ProductRuntime.Contracts.Product productTypeId ApiTypeMember DOCUMENT_HERE 
+*/
+@property(nonatomic) NSNumber * productTypeId;
 
 /**
 The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
@@ -181,7 +206,7 @@ The current state of the configured product determines whether or not the produc
 @property(nonatomic) MOZUProductPurchasableState *purchasableState;
 
 /**
-Mozu.ProductRuntime.Contracts.Product variations ApiTypeMember DOCUMENT_HERE 
+A summary of all variations that exist for the product.
 */
 @property(nonatomic) NSArray<MOZUVariationSummary> *variations;
 

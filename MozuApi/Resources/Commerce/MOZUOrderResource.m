@@ -179,6 +179,25 @@ Perform the specified action for an order. The actions you can perform depend on
 //
 
 /**
+commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+@param body Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE 
+@param digitalWalletType 
+@param orderId Unique identifier of the order.
+@param responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+*/
+
+- (void)processDigitalWalletWithBody:(MOZUDigitalWallet *)body orderId:(NSString *)orderId digitalWalletType:(NSString *)digitalWalletType responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUOrder *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+ {
+	MOZUClient *client = [MOZUOrderClient clientForProcessDigitalWalletOperationWithBody:body orderId:orderId digitalWalletType:digitalWalletType responseFields:responseFields];
+	client.context = self.apiContext;
+	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+		if (handler != nil) {
+			handler(result, error, response);
+		}
+	}];
+}
+
+/**
 Update the properties of a discount applied to an order.
 @param body Properties of all applied discounts for an associated cart, order, or product. 
 @param discountId Unique identifier of the discount. System-supplied and read only.
