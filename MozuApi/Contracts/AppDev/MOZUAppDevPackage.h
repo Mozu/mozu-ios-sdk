@@ -19,14 +19,14 @@
 
 
 
-@protocol MOZUPackage
+@protocol MOZUAppDevPackage
 @end
 
 
 /**
 	Properties for a package for fulfillment and shipment. A package may include one to many products, or a bundle of products.
 */
-@interface MOZUPackage : JSONModel<MOZUPackage>
+@interface MOZUAppDevPackage : JSONModel<MOZUAppDevPackage>
 
 /**
 Mozu.AppDev.Contracts.Package alert ApiTypeMember DOCUMENT_HERE 
