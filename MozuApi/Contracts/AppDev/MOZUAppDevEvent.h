@@ -20,7 +20,7 @@
 /**
 	Mozu.AppDev.Contracts.Event ApiType DOCUMENT_HERE 
 */
-@interface MOZUAppDevEvent : JSONModel<MOZUEvent>
+@interface MOZUAppDevEvent : JSONModel<MOZUAppDevEvent>
 
 /**
 The Api Version Number which defines what events are available for a given API version.
