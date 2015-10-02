@@ -24,11 +24,6 @@
 @interface MOZUAdminProductCollection : JSONModel<MOZUAdminProductCollection>
 
 /**
-The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
-*/
-@property(nonatomic) NSInteger pageCount;
-
-/**
 The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 */
 @property(nonatomic) NSInteger pageSize;
@@ -39,6 +34,11 @@ The number of results to display on each page when creating paged results from a
 The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
 */
 @property(nonatomic) NSInteger totalCount;
+
+/**
+The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
+*/
+@property(nonatomic) NSInteger pageCount;
 
 /**
 An array list of objects in the returned collection.

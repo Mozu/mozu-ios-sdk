@@ -18,14 +18,14 @@
 
 
 
-@protocol MOZUOrderItem
+@protocol MOZUCommerceOrderItem
 @end
 
 
 /**
 	The details associated with a specific item in an order.
 */
-@interface MOZUOrderItem : JSONModel<MOZUOrderItem>
+@interface MOZUCommerceOrderItem : JSONModel<MOZUCommerceOrderItem>
 
 /**
 The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.

@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUOrderItem.h"
+#import "MOZUPackage.h"
 
-@implementation MOZUOrderItem
+@implementation MOZUPackage
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;

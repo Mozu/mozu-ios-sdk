@@ -13,7 +13,7 @@
 #import "MOZUAddress.h"
 #import "MOZUContact.h"
 #import "MOZUCustomData.h"
-#import "MOZUOrderItem.h"
+#import "MOZUPaymentOrderItem.h"
 
 
 
@@ -109,7 +109,7 @@ Mozu.PaymentService.Contracts.Request.FraudScreenRequest customData ApiTypeMembe
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest orderItems ApiTypeMember DOCUMENT_HERE 
 */
-@property(nonatomic) NSArray<MOZUOrderItem> *orderItems;
+@property(nonatomic) NSArray<MOZUPaymentOrderItem> *orderItems;
 
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest shippingAddress ApiTypeMember DOCUMENT_HERE 

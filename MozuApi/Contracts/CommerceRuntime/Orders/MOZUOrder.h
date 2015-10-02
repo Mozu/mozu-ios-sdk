@@ -20,7 +20,7 @@
 #import "MOZUFulfillmentInfo.h"
 #import "MOZUAppliedDiscount.h"
 #import "MOZUInvalidCoupon.h"
-#import "MOZUOrderItem.h"
+#import "MOZUCommerceOrderItem.h"
 #import "MOZUOrderNote.h"
 #import "MOZUPackage.h"
 #import "MOZUPayment.h"
@@ -405,7 +405,7 @@ The list of invalid coupons the shopper attempted to enter for the cart or order
 /**
 An array list of objects in the returned collection.
 */
-@property(nonatomic) NSArray<MOZUOrderItem> *items;
+@property(nonatomic) NSArray<MOZUCommerceOrderItem> *items;
 
 /**
 Paged list collection of note content for objects including customers, orders, and returns. 
