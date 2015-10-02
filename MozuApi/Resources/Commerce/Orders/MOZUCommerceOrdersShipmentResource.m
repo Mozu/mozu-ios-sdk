@@ -88,7 +88,7 @@ Creates a shipment from one or more package associated with an order and assign 
 @param orderId Unique identifier of the order.
 */
 
-- (void)createPackageShipmentsWithBody:(NSArray *)body orderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUPackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageShipmentsWithBody:(NSArray *)body orderId:(NSString *)orderId completionHandler:(void(^)(NSArray<MOZUFulfillmentPackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCommerceOrdersShipmentClient clientForCreatePackageShipmentsOperationWithBody:body orderId:orderId];
 	client.context = self.apiContext;

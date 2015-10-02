@@ -12,7 +12,7 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUPackage.h"
+#import "MOZUFulfillmentPackage.h"
 
 
 @interface MOZUCommerceOrdersPackageResource : NSObject
@@ -53,7 +53,7 @@ Retrieves the details of a package of order items.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageWithOrderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -69,7 +69,7 @@ Creates a new physical package of order items.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)createPackageWithBody:(MOZUPackage *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageWithBody:(MOZUFulfillmentPackage *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -86,7 +86,7 @@ Updates one or more properties of a physical package of order items.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
-- (void)updatePackageWithBody:(MOZUPackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePackageWithBody:(MOZUFulfillmentPackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

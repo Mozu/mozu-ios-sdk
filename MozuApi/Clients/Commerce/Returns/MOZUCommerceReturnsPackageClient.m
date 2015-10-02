@@ -10,7 +10,7 @@
 
 #import "MOZUCommerceReturnsPackageClient.h"
 #import "MOZUCommerceReturnsPackageURLComponents.h"
-#import "MozuPackage.h"
+#import "MozuFulfillmentPackage.h"
 
 
 @implementation MOZUCommerceReturnsPackageClient
@@ -36,7 +36,7 @@
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUPackage alloc] initWithString:jsonResult error:nil];
+		return [[MOZUFulfillmentPackage alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -49,7 +49,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields {
++ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUFulfillmentPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields {
 	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForCreatePackageOperationWithReturnId:returnId responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -57,7 +57,7 @@
 	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUPackage alloc] initWithString:jsonResult error:nil];
+		return [[MOZUFulfillmentPackage alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -70,7 +70,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields {
++ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUFulfillmentPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields {
 	id url = [MOZUCommerceReturnsPackageURLComponents URLComponentsForUpdatePackageOperationWithReturnId:returnId packageId:packageId responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -78,7 +78,7 @@
 	client.body = body;
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUPackage alloc] initWithString:jsonResult error:nil];
+		return [[MOZUFulfillmentPackage alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;

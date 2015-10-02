@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUEvent.h"
+#import "MOZUFulfillmentPackage.h"
 
-@implementation MOZUEvent
+@implementation MOZUFulfillmentPackage
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;

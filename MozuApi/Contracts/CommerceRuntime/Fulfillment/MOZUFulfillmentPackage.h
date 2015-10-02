@@ -17,14 +17,14 @@
 
 
 
-@protocol MOZUPackage
+@protocol MOZUFulfillmentPackage
 @end
 
 
 /**
 	Properties of a physical package shipped for an order.
 */
-@interface MOZUPackage : JSONModel<MOZUPackage>
+@interface MOZUFulfillmentPackage : JSONModel<MOZUFulfillmentPackage>
 
 /**
 Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.

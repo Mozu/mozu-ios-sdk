@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUPackage.h"
+#import "MOZUFulfillmentPackage.h"
 
 
 @interface MOZUCommerceReturnsPackageClient : NSObject
@@ -52,7 +52,7 @@ Creates a new physical package of return replacement items.
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-+ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields;
++ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUFulfillmentPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields;
 
 
 //
@@ -69,7 +69,7 @@ Updates one or more properties of a package associated with a return replacement
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-+ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
++ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUFulfillmentPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
 
 
 //

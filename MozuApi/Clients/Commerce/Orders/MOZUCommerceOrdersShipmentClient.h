@@ -12,7 +12,7 @@
 #import "MOZUClient.h"
 #import "MOZUShipment.h"
 #import "MOZUCommerceShippingRate.h"
-#import "MOZUPackage.h"
+#import "MOZUFulfillmentPackage.h"
 
 
 @interface MOZUCommerceOrdersShipmentClient : NSObject

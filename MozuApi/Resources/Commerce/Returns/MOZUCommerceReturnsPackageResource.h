@@ -12,7 +12,7 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUPackage.h"
+#import "MOZUFulfillmentPackage.h"
 
 
 @interface MOZUCommerceReturnsPackageResource : NSObject
@@ -45,7 +45,7 @@ Retrieves the details of a package of return replacement items.
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-- (void)packageWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -61,7 +61,7 @@ Creates a new physical package of return replacement items.
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-- (void)createPackageWithBody:(MOZUPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageWithBody:(MOZUFulfillmentPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //
@@ -78,7 +78,7 @@ Updates one or more properties of a package associated with a return replacement
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-- (void)updatePackageWithBody:(MOZUPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePackageWithBody:(MOZUFulfillmentPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

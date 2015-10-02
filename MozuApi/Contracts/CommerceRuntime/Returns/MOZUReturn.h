@@ -14,7 +14,7 @@
 #import "MOZUChangeMessage.h"
 #import "MOZUReturnItem.h"
 #import "MOZUOrderNote.h"
-#import "MOZUPackage.h"
+#import "MOZUFulfillmentPackage.h"
 #import "MOZUPayment.h"
 
 
@@ -27,11 +27,6 @@
 	Properties of a return of one or more previously fulfilled items.
 */
 @interface MOZUReturn : JSONModel<MOZUReturn>
-
-/**
-Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
-*/
-@property(nonatomic) NSString * webSessionId;
 
 /**
 Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
@@ -149,6 +144,11 @@ Unique identifier of the customer visit in which the cart was created or last mo
 @property(nonatomic) NSString * visitId;
 
 /**
+Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
+*/
+@property(nonatomic) NSString * webSessionId;
+
+/**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 */
 @property(nonatomic) MOZUAuditInfo *auditInfo;
@@ -171,7 +171,7 @@ Paged list collection of note content for objects including customers, orders, a
 /**
 Array list of physical packages shipped for a specified order.
 */
-@property(nonatomic) NSArray<MOZUPackage> *packages;
+@property(nonatomic) NSArray<MOZUFulfillmentPackage> *packages;
 
 /**
 Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 

@@ -22,7 +22,7 @@
 #import "MOZUInvalidCoupon.h"
 #import "MOZUCommerceOrderItem.h"
 #import "MOZUOrderNote.h"
-#import "MOZUPackage.h"
+#import "MOZUFulfillmentPackage.h"
 #import "MOZUPayment.h"
 #import "MOZUPickup.h"
 #import "MOZURefund.h"
@@ -420,7 +420,7 @@ List of order-level discounts projected to apply to the cart at checkout or orde
 /**
 Array list of physical packages shipped for a specified order.
 */
-@property(nonatomic) NSArray<MOZUPackage> *packages;
+@property(nonatomic) NSArray<MOZUFulfillmentPackage> *packages;
 
 /**
 Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 

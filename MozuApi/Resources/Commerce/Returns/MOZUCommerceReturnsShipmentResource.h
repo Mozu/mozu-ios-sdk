@@ -12,7 +12,7 @@
 #import "MOZUClient.h"
 #import "MOZUAPIContext.h"
 
-#import "MOZUPackage.h"
+#import "MOZUFulfillmentPackage.h"
 #import "MOZUShipment.h"
 
 
@@ -53,7 +53,7 @@ Creates a shipment from one or more packages associated with a return replacemen
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-- (void)createPackageShipmentsWithBody:(NSArray *)body returnId:(NSString *)returnId completionHandler:(void(^)(NSArray<MOZUPackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageShipmentsWithBody:(NSArray *)body returnId:(NSString *)returnId completionHandler:(void(^)(NSArray<MOZUFulfillmentPackage> *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
 ;
 
 //

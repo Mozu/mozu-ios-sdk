@@ -10,7 +10,7 @@
 
 #import "MOZUCommerceReturnsShipmentClient.h"
 #import "MOZUCommerceReturnsShipmentURLComponents.h"
-#import "MozuPackage.h"
+#import "MozuFulfillmentPackage.h"
 #import "MozuShipment.h"
 
 
@@ -51,7 +51,7 @@
 
 	client.JSONParser = ^id(NSString *jsonResult) {
 		NSArray *jsonAsArray = [NSJSONSerialization JSONObjectWithData:[jsonResult dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-		return [MOZUPackage arrayOfModelsFromDictionaries:jsonAsArray error:nil];
+		return [MOZUFulfillmentPackage arrayOfModelsFromDictionaries:jsonAsArray error:nil];
 	};
 
 	return client;
