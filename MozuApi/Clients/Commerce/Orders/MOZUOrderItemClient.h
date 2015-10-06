@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
 #import "MOZUOrder.h"
-#import "MOZUCommerceOrderItem.h"
+#import "MOZUOrderItem.h"
 #import "MOZUAppliedDiscount.h"
 #import "MOZUOrderItemCollection.h"
 
@@ -70,7 +70,7 @@ Adds a new item to a defined order.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+ (MOZUClient *)clientForCreateOrderItemOperationWithBody:(MOZUCommerceOrderItem *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
++ (MOZUClient *)clientForCreateOrderItemOperationWithBody:(MOZUOrderItem *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields;
 
 
 //
@@ -115,7 +115,7 @@ Updates the item fulfillment information for the order specified in the request.
 @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 */
 
-+ (MOZUClient *)clientForUpdateItemFulfillmentOperationWithBody:(MOZUCommerceOrderItem *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields;
++ (MOZUClient *)clientForUpdateItemFulfillmentOperationWithBody:(MOZUOrderItem *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields;
 
 /**
 Override the price of an individual product on a line item in the specified order.

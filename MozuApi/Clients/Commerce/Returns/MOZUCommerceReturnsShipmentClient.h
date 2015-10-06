@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUFulfillmentPackage.h"
+#import "MOZUPackage.h"
 #import "MOZUShipment.h"
 
 

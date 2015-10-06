@@ -24,26 +24,6 @@
 @interface MOZUCredit : JSONModel<MOZUCredit>
 
 /**
-The current remaining balance of the credit applied to the customer account.
-*/
-@property(nonatomic) NSNumber * currentBalance;
-
-/**
-Unique identifier of the customer in Mozu, used to associate customers with data, orders, returns, and in-store credit.
-*/
-@property(nonatomic) NSNumber * customerId;
-
-/**
-Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
-*/
-@property(nonatomic) NSDate * expirationDate;
-
-/**
-The initial balance of the credit applied to the customer account. This value cannot be changed after it is set.
-*/
-@property(nonatomic) NSNumber * initialBalance;
-
-/**
 The date and time the store credit or gift card was activated by the shopper. Credits cannot be used until activated. After the credit is activated, this property value is read-only.
 */
 @property(nonatomic) NSDate * activationDate;
@@ -62,6 +42,26 @@ The type of customer credit, which is "GiftCard" or "StoreCredit".
 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 */
 @property(nonatomic) NSString * currencyCode;
+
+/**
+The current remaining balance of the credit applied to the customer account.
+*/
+@property(nonatomic) NSNumber * currentBalance;
+
+/**
+Unique identifier of the customer in Mozu, used to associate customers with data, orders, returns, and in-store credit.
+*/
+@property(nonatomic) NSNumber * customerId;
+
+/**
+Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
+*/
+@property(nonatomic) NSDate * expirationDate;
+
+/**
+The initial balance of the credit applied to the customer account. This value cannot be changed after it is set.
+*/
+@property(nonatomic) NSNumber * initialBalance;
 
 /**
 Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

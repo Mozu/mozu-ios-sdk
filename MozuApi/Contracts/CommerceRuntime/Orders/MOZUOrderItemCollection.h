@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUCommerceOrderItem.h"
+#import "MOZUOrderItem.h"
 
 
 
@@ -31,7 +31,7 @@ The number of results listed in the query collection, represented by a signed 64
 /**
 An array list of objects in the returned collection.
 */
-@property(nonatomic) NSArray<MOZUCommerceOrderItem> *items;
+@property(nonatomic) NSArray<MOZUOrderItem> *items;
 
 @end
 

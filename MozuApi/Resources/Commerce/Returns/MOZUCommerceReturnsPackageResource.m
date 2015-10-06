@@ -64,7 +64,7 @@ Retrieves the details of a package of return replacement items.
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-- (void)packageWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)packageWithReturnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForGetPackageOperationWithReturnId:returnId packageId:packageId responseFields:responseFields];
 	client.context = self.apiContext;
@@ -89,7 +89,7 @@ Creates a new physical package of return replacement items.
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-- (void)createPackageWithBody:(MOZUFulfillmentPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)createPackageWithBody:(MOZUPackage *)body returnId:(NSString *)returnId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForCreatePackageOperationWithBody:body returnId:returnId responseFields:responseFields];
 	client.context = self.apiContext;
@@ -115,7 +115,7 @@ Updates one or more properties of a package associated with a return replacement
 @param returnId Unique identifier of the return whose items you want to get.
 */
 
-- (void)updatePackageWithBody:(MOZUFulfillmentPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUFulfillmentPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
+- (void)updatePackageWithBody:(MOZUPackage *)body returnId:(NSString *)returnId packageId:(NSString *)packageId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUPackage *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUCommerceReturnsPackageClient clientForUpdatePackageOperationWithBody:body returnId:returnId packageId:packageId responseFields:responseFields];
 	client.context = self.apiContext;

@@ -14,7 +14,7 @@
 #import "MOZUChangeMessage.h"
 #import "MOZUReturnItem.h"
 #import "MOZUOrderNote.h"
-#import "MOZUFulfillmentPackage.h"
+#import "MOZUPackage.h"
 #import "MOZUPayment.h"
 
 
@@ -171,7 +171,7 @@ Paged list collection of note content for objects including customers, orders, a
 /**
 Array list of physical packages shipped for a specified order.
 */
-@property(nonatomic) NSArray<MOZUFulfillmentPackage> *packages;
+@property(nonatomic) NSArray<MOZUPackage> *packages;
 
 /**
 Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 

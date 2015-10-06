@@ -11,7 +11,7 @@
 #import "MOZUOrderItemClient.h"
 #import "MOZUOrderItemURLComponents.h"
 #import "MozuOrder.h"
-#import "MozuCommerceOrderItem.h"
+#import "MozuOrderItem.h"
 #import "MozuOrderItemCollection.h"
 
 
@@ -30,7 +30,7 @@
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUCommerceOrderItem alloc] initWithString:jsonResult error:nil];
+		return [[MOZUOrderItem alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -43,7 +43,7 @@
 
 
 	client.JSONParser = ^id(NSString *jsonResult) {
-		return [[MOZUCommerceOrderItem alloc] initWithString:jsonResult error:nil];
+		return [[MOZUOrderItem alloc] initWithString:jsonResult error:nil];
 	};
 
 	return client;
@@ -69,7 +69,7 @@
 #pragma mark -
 //
 
-+ (MOZUClient *)clientForCreateOrderItemOperationWithBody:(MOZUCommerceOrderItem *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
++ (MOZUClient *)clientForCreateOrderItemOperationWithBody:(MOZUOrderItem *)body orderId:(NSString *)orderId updateMode:(NSString *)updateMode version:(NSString *)version skipInventoryCheck:(NSNumber *)skipInventoryCheck responseFields:(NSString *)responseFields {
 	id url = [MOZUOrderItemURLComponents URLComponentsForCreateOrderItemOperationWithOrderId:orderId updateMode:updateMode version:version skipInventoryCheck:skipInventoryCheck responseFields:responseFields];
 	id verb = @"POST";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];
@@ -117,7 +117,7 @@
 	return client;
 }
 
-+ (MOZUClient *)clientForUpdateItemFulfillmentOperationWithBody:(MOZUCommerceOrderItem *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
++ (MOZUClient *)clientForUpdateItemFulfillmentOperationWithBody:(MOZUOrderItem *)body orderId:(NSString *)orderId orderItemId:(NSString *)orderItemId updateMode:(NSString *)updateMode version:(NSString *)version responseFields:(NSString *)responseFields {
 	id url = [MOZUOrderItemURLComponents URLComponentsForUpdateItemFulfillmentOperationWithOrderId:orderId orderItemId:orderItemId updateMode:updateMode version:version responseFields:responseFields];
 	id verb = @"PUT";
 	MOZUClient *client = [[MOZUClient alloc] initWithResourceURLComponents:url verb:verb];

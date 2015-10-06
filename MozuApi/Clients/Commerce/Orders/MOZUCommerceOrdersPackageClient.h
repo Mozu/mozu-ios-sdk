@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MOZUClient.h"
-#import "MOZUFulfillmentPackage.h"
+#import "MOZUPackage.h"
 
 
 @interface MOZUCommerceOrdersPackageClient : NSObject
@@ -60,7 +60,7 @@ Creates a new physical package of order items.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUFulfillmentPackage *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields;
++ (MOZUClient *)clientForCreatePackageOperationWithBody:(MOZUPackage *)body orderId:(NSString *)orderId responseFields:(NSString *)responseFields;
 
 
 //
@@ -77,7 +77,7 @@ Updates one or more properties of a physical package of order items.
 @param responseFields Use this field to include those fields which are not included by default.
 */
 
-+ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUFulfillmentPackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
++ (MOZUClient *)clientForUpdatePackageOperationWithBody:(MOZUPackage *)body orderId:(NSString *)orderId packageId:(NSString *)packageId responseFields:(NSString *)responseFields;
 
 
 //

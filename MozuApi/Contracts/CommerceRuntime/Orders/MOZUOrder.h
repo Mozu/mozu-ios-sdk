@@ -20,9 +20,9 @@
 #import "MOZUFulfillmentInfo.h"
 #import "MOZUAppliedDiscount.h"
 #import "MOZUInvalidCoupon.h"
-#import "MOZUCommerceOrderItem.h"
+#import "MOZUOrderItem.h"
 #import "MOZUOrderNote.h"
-#import "MOZUFulfillmentPackage.h"
+#import "MOZUPackage.h"
 #import "MOZUPayment.h"
 #import "MOZUPickup.h"
 #import "MOZURefund.h"
@@ -405,7 +405,7 @@ The list of invalid coupons the shopper attempted to enter for the cart or order
 /**
 An array list of objects in the returned collection.
 */
-@property(nonatomic) NSArray<MOZUCommerceOrderItem> *items;
+@property(nonatomic) NSArray<MOZUOrderItem> *items;
 
 /**
 Paged list collection of note content for objects including customers, orders, and returns. 
@@ -420,7 +420,7 @@ List of order-level discounts projected to apply to the cart at checkout or orde
 /**
 Array list of physical packages shipped for a specified order.
 */
-@property(nonatomic) NSArray<MOZUFulfillmentPackage> *packages;
+@property(nonatomic) NSArray<MOZUPackage> *packages;
 
 /**
 Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 

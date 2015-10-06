@@ -85,6 +85,21 @@ Indicates whether or not Mozu should assign a generated identifier for each enti
 @property(nonatomic) BOOL useSystemAssignedId;
 
 /**
+An IndexedProperty defintion which indicates the property on every entity provided should be used as the unique identifier for the document. Within an EntityList instance each entity must have a unique identifier.
+*/
+@property(nonatomic) MOZUIndexedProperty *idProperty;
+
+/**
+An IndexedProperty defintion which indicates a property on every entity provided that should be indexed to enable querying and sorting.  Non-indexed properties may be used in queries as long as at least one indexed property is also provided in the query.
+*/
+@property(nonatomic) MOZUIndexedProperty *indexA;
+
+/**
+An IndexedProperty defintion which indicates a property on every entity provided that should be indexed to enable querying and sorting.  Non-indexed properties may be used in queries as long as at least one indexed property is also provided in the query.
+*/
+@property(nonatomic) MOZUIndexedProperty *indexB;
+
+/**
 An IndexedProperty defintion which indicates a property on every entity provided that should be indexed to enable querying and sorting.  Non-indexed properties may be used in queries as long as at least one indexed property is also provided in the query.
 */
 @property(nonatomic) MOZUIndexedProperty *indexC;
@@ -103,21 +118,6 @@ Metadata content for entities, used by document lists, document type lists, docu
 The view in the site used by associated entities or document lists/list types.
 */
 @property(nonatomic) NSArray<MOZUListView> *views;
-
-/**
-An IndexedProperty defintion which indicates the property on every entity provided should be used as the unique identifier for the document. Within an EntityList instance each entity must have a unique identifier.
-*/
-@property(nonatomic) MOZUIndexedProperty *idProperty;
-
-/**
-An IndexedProperty defintion which indicates a property on every entity provided that should be indexed to enable querying and sorting.  Non-indexed properties may be used in queries as long as at least one indexed property is also provided in the query.
-*/
-@property(nonatomic) MOZUIndexedProperty *indexA;
-
-/**
-An IndexedProperty defintion which indicates a property on every entity provided that should be indexed to enable querying and sorting.  Non-indexed properties may be used in queries as long as at least one indexed property is also provided in the query.
-*/
-@property(nonatomic) MOZUIndexedProperty *indexB;
 
 @end
 
