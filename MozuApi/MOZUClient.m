@@ -280,10 +280,16 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                                     self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                     self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult error:error];
                                                     if (self.error) {
-                                                        completionHandler(nil, httpResponse, self.error);
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            completionHandler(nil, httpResponse, self.error);
+                                                        });
+                                                        
                                                     } else {
                                                         self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
-                                                        completionHandler(self.result, httpResponse, nil);
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            completionHandler(self.result, httpResponse, nil);                                                        });
                                                     }
                                                 }];
     [dataTask resume];
