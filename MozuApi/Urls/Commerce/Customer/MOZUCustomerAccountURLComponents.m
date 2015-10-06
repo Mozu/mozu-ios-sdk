@@ -27,7 +27,7 @@
 		@"fields" : fields ? fields : @"",
 		@"q" : q ? q : @"",
 		@"qLimit" : qLimit ? qLimit : @"",
-		@"isAnonymous" : isAnonymous ? isAnonymous : @"",
+		@"isAnonymous" : [isAnonymous boolValue] ? @"true" : @"false",
 		@"responseFields" : responseFields ? responseFields : @"",
 	};
 
