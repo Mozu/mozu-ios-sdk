@@ -257,7 +257,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
     
     // Wait until all dispatch groups leave.
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    dispatch_group_wait(group, 30.0);
     
     [self.mutableHeaders addEntriesFromDictionary:request.allHTTPHeaderFields];
     [request setAllHTTPHeaderFields:[self.mutableHeaders copy]];
