@@ -269,7 +269,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         [request setHTTPBody:body];
     }
     
-    DDLogDebug(@"%@", request);
+    NSLog(@"%@", request.URL.description);
     DDLogDebug(@"%@", request.allHTTPHeaderFields);
     NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
@@ -286,10 +286,14 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                                         });
                                                         
                                                     } else {
-                                                        self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
+                                                        
+                                                        if (self.JSONParser) {
+                                                            self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
+                                                        }
                                                         
                                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                                            completionHandler(self.result, httpResponse, nil);                                                        });
+                                                            completionHandler(self.result, httpResponse, nil);
+                                                        });
                                                     }
                                                 }];
     [dataTask resume];
