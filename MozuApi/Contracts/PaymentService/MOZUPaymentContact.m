@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUActiveDateRange.h"
+#import "MOZUPaymentContact.h"
 
-@implementation MOZUActiveDateRange
+@implementation MOZUPaymentContact
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;
