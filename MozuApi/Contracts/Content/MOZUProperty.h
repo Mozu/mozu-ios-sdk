@@ -24,6 +24,11 @@
 @interface MOZUProperty : JSONModel<MOZUProperty>
 
 /**
+The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+*/
+@property(nonatomic) NSString * name;
+
+/**
 If true, the attribute can have more than one value.
 */
 @property(nonatomic) BOOL isMultiValued;
@@ -32,11 +37,6 @@ If true, the attribute can have more than one value.
 Indicates if the property, attribute, product option, or product extra is required. If true, the object must have a defined value.
 */
 @property(nonatomic) BOOL isRequired;
-
-/**
-The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
-*/
-@property(nonatomic) NSString * name;
 
 /**
 The type of a property. These types are associated to properties for documents and document types.

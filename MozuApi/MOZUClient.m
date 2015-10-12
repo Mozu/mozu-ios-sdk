@@ -257,7 +257,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
     
     // Wait until all dispatch groups leave.
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    dispatch_group_wait(group, 30.0);
     
     [self.mutableHeaders addEntriesFromDictionary:request.allHTTPHeaderFields];
     [request setAllHTTPHeaderFields:[self.mutableHeaders copy]];
@@ -269,7 +269,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         [request setHTTPBody:body];
     }
     
-    DDLogDebug(@"%@", request);
+    NSLog(@"%@", request.URL.description);
     DDLogDebug(@"%@", request.allHTTPHeaderFields);
     NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
@@ -280,10 +280,20 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                                     self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                                     self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult error:error];
                                                     if (self.error) {
-                                                        completionHandler(nil, httpResponse, self.error);
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            completionHandler(nil, httpResponse, self.error);
+                                                        });
+                                                        
                                                     } else {
-                                                        self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
-                                                        completionHandler(self.result, httpResponse, nil);
+                                                        
+                                                        if (self.JSONParser) {
+                                                            self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
+                                                        }
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            completionHandler(self.result, httpResponse, nil);
+                                                        });
                                                     }
                                                 }];
     [dataTask resume];

@@ -18,7 +18,7 @@
 //
 
 + (MOZUURLComponents *)URLComponentsForGetLocationInventoriesOperationWithProductCode:(NSString *)productCode startIndex:(NSNumber *)startIndex pageSize:(NSNumber *)pageSize sortBy:(NSString *)sortBy filter:(NSString *)filter responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/commerce/catalog/admin/products/{ProductCode}/LocationInventory/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/LocationInventory/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"startIndex" : startIndex ? startIndex : @"",
@@ -32,7 +32,7 @@
 }
 
 + (MOZUURLComponents *)URLComponentsForGetLocationInventoryOperationWithProductCode:(NSString *)productCode locationCode:(NSString *)locationCode responseFields:(NSString *)responseFields {
-	NSString *template = @"/api/commerce/catalog/admin/products/{ProductCode}/LocationInventory/{LocationCode}?responseFields={responseFields}";
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/LocationInventory/{LocationCode}?responseFields={responseFields}";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"locationCode" : locationCode,
@@ -50,7 +50,7 @@
 //
 
 + (MOZUURLComponents *)URLComponentsForAddLocationInventoryOperationWithProductCode:(NSString *)productCode performUpserts:(NSNumber *)performUpserts {
-	NSString *template = @"/api/commerce/catalog/admin/products/{ProductCode}/LocationInventory?performUpserts={performUpserts}";
+	NSString *template = @"/api/commerce/catalog/admin/products/{productCode}/LocationInventory?performUpserts={performUpserts}";
 	NSDictionary *params = @{
 		@"productCode" : productCode,
 		@"performUpserts" : performUpserts ? performUpserts : @"",

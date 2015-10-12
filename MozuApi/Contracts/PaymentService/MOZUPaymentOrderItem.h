@@ -14,14 +14,14 @@
 
 
 
-@protocol MOZUOrderItem
+@protocol MOZUPaymentOrderItem
 @end
 
 
 /**
 	Mozu.PaymentService.Contracts.OrderItem ApiType DOCUMENT_HERE 
 */
-@interface MOZUOrderItem : JSONModel<MOZUOrderItem>
+@interface MOZUPaymentOrderItem : JSONModel<MOZUPaymentOrderItem>
 
 /**
 Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 

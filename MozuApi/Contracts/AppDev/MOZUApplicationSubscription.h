@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUEvent.h"
+#import "MOZUAppDevEvent.h"
 
 
 
@@ -46,7 +46,7 @@ Mozu.AppDev.Contracts.ApplicationSubscription packageId ApiTypeMember DOCUMENT_H
 /**
 Mozu.AppDev.Contracts.ApplicationSubscription events ApiTypeMember DOCUMENT_HERE 
 */
-@property(nonatomic) NSArray<MOZUEvent> *events;
+@property(nonatomic) NSArray<MOZUAppDevEvent> *events;
 
 @end
 

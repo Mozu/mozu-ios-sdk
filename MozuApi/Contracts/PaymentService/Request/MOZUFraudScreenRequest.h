@@ -10,10 +10,10 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUAddress.h"
+#import "MOZUPaymentAddress.h"
 #import "MOZUContact.h"
 #import "MOZUCustomData.h"
-#import "MOZUOrderItem.h"
+#import "MOZUPaymentOrderItem.h"
 
 
 
@@ -94,7 +94,7 @@ Mozu.PaymentService.Contracts.Request.FraudScreenRequest requestorUserAgent ApiT
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest billingAddress ApiTypeMember DOCUMENT_HERE 
 */
-@property(nonatomic) MOZUAddress *billingAddress;
+@property(nonatomic) MOZUPaymentAddress *billingAddress;
 
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest billingContact ApiTypeMember DOCUMENT_HERE 
@@ -109,12 +109,12 @@ Mozu.PaymentService.Contracts.Request.FraudScreenRequest customData ApiTypeMembe
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest orderItems ApiTypeMember DOCUMENT_HERE 
 */
-@property(nonatomic) NSArray<MOZUOrderItem> *orderItems;
+@property(nonatomic) NSArray<MOZUPaymentOrderItem> *orderItems;
 
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest shippingAddress ApiTypeMember DOCUMENT_HERE 
 */
-@property(nonatomic) MOZUAddress *shippingAddress;
+@property(nonatomic) MOZUPaymentAddress *shippingAddress;
 
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest shippingContact ApiTypeMember DOCUMENT_HERE 

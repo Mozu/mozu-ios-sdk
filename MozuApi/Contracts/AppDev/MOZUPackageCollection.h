@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUPackage.h"
+#import "MOZUAppDevPackage.h"
 
 
 
@@ -46,7 +46,7 @@ Total number of objects in am item collection. Total counts are calculated for n
 /**
 Collection list of items. All returned data is provided in an items array. For a failed request, the returned response may be success with an empty item collection. Items are used throughout APIs for carts, wish lists, documents, payments, returns, properties, and more.
 */
-@property(nonatomic) NSArray<MOZUPackage> *items;
+@property(nonatomic) NSArray<MOZUAppDevPackage> *items;
 
 @end
 
