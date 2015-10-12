@@ -13,14 +13,14 @@
 
 
 
-@protocol MOZUContact
+@protocol MOZUPaymentContact
 @end
 
 
 /**
 	Mozu.PaymentService.Contracts.Contact ApiType DOCUMENT_HERE 
 */
-@interface MOZUContact : JSONModel<MOZUContact>
+@interface MOZUContact : JSONModel<MOZUPaymentContact>
 
 /**
 Mozu.PaymentService.Contracts.Contact country ApiTypeMember DOCUMENT_HERE 

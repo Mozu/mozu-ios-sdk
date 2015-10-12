@@ -8,9 +8,9 @@
 * </auto-generated>
 */
 
-#import "MOZUContact.h"
+#import "MOZUPaymentContact.h"
 
-@implementation MOZUContact
+@implementation MOZUPaymentContact
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return YES;

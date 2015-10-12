@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "MOZUPaymentAddress.h"
-#import "MOZUContact.h"
+#import "MOZUPaymentContact.h"
 #import "MOZUCustomData.h"
 #import "MOZUPaymentOrderItem.h"
 
@@ -119,7 +119,7 @@ Mozu.PaymentService.Contracts.Request.FraudScreenRequest shippingAddress ApiType
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest shippingContact ApiTypeMember DOCUMENT_HERE 
 */
-@property(nonatomic) MOZUContact *shippingContact;
+@property(nonatomic) MOZUPaymentContact *shippingContact;
 
 @end
 
