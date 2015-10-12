@@ -20,7 +20,7 @@
 /**
 	Mozu.PaymentService.Contracts.Contact ApiType DOCUMENT_HERE 
 */
-@interface MOZUContact : JSONModel<MOZUPaymentContact>
+@interface MOZUPaymentContact : JSONModel<MOZUPaymentContact>
 
 /**
 Mozu.PaymentService.Contracts.Contact country ApiTypeMember DOCUMENT_HERE 
