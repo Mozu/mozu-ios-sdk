@@ -99,7 +99,7 @@ Mozu.PaymentService.Contracts.Request.FraudScreenRequest billingAddress ApiTypeM
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest billingContact ApiTypeMember DOCUMENT_HERE 
 */
-@property(nonatomic) MOZUContact *billingContact;
+@property(nonatomic) MOZUPaymentContact *billingContact;
 
 /**
 Mozu.PaymentService.Contracts.Request.FraudScreenRequest customData ApiTypeMember DOCUMENT_HERE 
