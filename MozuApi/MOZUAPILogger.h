@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "DDLegacyMacros.h"
-#import "DDLog.h"
+//#import "DDLog.h"
 
 #ifndef MOZUiOS_MOZUAPILogger_h
 #define MOZUiOS_MOZUAPILogger_h
 
-//#import <CocoaLumberjack/CocoaLumberjack.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 // Sets global loggin level. See DDlog.h for values.
 FOUNDATION_EXPORT const int ddLogLevel;
