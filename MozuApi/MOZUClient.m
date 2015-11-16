@@ -101,9 +101,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 {
     NSParameterAssert(userClaims);
     
-    if (userClaims.scope == MOZUCustomerAuthenticationScope) {
+    //if (userClaims.scope == MOZUCustomerAuthenticationScope) {
         // TODO: newAuthTicket = CustomerAuthenticator.EnsureAuthTicket(authTicket);
-    } else {
+    //} else {
         [[MOZUUserAuthenticator sharedUserAuthenticator] ensureUserAuthTicket:userClaims completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
             if (error) {
                 DDLogError(@"%@", error);
@@ -122,7 +122,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                 DDLogWarn(@"Unexpected else. Header not set.");
             }
         }];
-    }
+    //}
 }
 
 - (void)setHeader:(NSString *)header value:(NSString *)value
