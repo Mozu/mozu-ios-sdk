@@ -216,4 +216,36 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return sessionConfiguration;
 }
 
+// Shopper App
+
+- (void)authenticateIfNecessaryWithCompletion: (void (^) (MOZUAuthTicket *appAuthTicket, MOZUAPIError *error)) completion {
+    
+    if (!self.authTicket || [self.refreshInterval.refreshTokenExpirationDate timeIntervalSinceNow] < 0) {
+        // No authTicket or refresh token expiration date is in the past.
+        [self authenticateAppWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *apiError) {
+
+            if (apiError != nil) {
+                completion(nil, apiError);
+            }
+            else {
+                completion(self.authTicket, nil);
+            }
+        }];
+    } else if ([self.refreshInterval.accessTokenExpirationDate timeIntervalSinceNow] < 0) {
+        // Access token expiration date is in the past.
+        [self refreshAppAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *apiError) {
+
+            if (apiError != nil) {
+                completion(nil, apiError);
+            }
+            else {
+                completion(self.authTicket, nil);
+            }
+            
+        }];
+    } else {
+        completion(nil, nil);
+    }
+}
+
 @end
