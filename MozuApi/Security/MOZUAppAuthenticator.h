@@ -54,4 +54,10 @@ typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
 - (void)addAuthHeaderToRequest:(NSMutableURLRequest *)request
              completionHandler:(MOZUAppAuthenticationCompletionBlock)completion;
 
+
+// Shopper App
+
+- (void)authenticateIfNecessaryWithCompletion: (void (^) (MOZUAuthTicket *appAuthTicket, MOZUAPIError *error)) completion;
+
+
 @end
