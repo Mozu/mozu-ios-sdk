@@ -445,5 +445,17 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return sessionConfiguration;
 }
 
+// Shopper App
+
+- (void)authenticateIfNecessaryWithCompletion: (void (^) (MOZUUserAuthTicket *userAuthTicket, MOZUAPIError *error)) completion {
+    
+    // Step 1: Check if user auth ticket exists
+    // Step 2: Check if user auth ticket is valid
+    // Step 3: Refresh user auth ticket if necessary
+    // Step 4: Call completion block
+    
+    completion(nil, nil);
+}
+
 
 @end
