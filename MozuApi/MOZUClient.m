@@ -221,7 +221,30 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
 }
 
-- (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
+- (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler {
+    
+    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateIfNecessaryWithCompletion:^(MOZUAuthTicket *appAuthTicket, MOZUAPIError *error) {
+        
+        if (error != nil) {
+            completionHandler(nil, nil, error);
+            return;
+        }
+        self.context.appAuthTicket = appAuthTicket;
+        
+        [[MOZUUserAuthenticator sharedUserAuthenticator] authenticateIfNecessaryWithCompletion:^(MOZUUserAuthTicket *userAuthTicket, MOZUAPIError *error) {
+            
+            if (error != nil) {
+                completionHandler(nil, nil, error);
+                return;
+            }
+            self.context.userAuthTicket = userAuthTicket;
+            
+            [self continueExecutionWithCompletionHandler:completionHandler];
+        }];
+    }];
+}
+
+- (void)continueExecutionWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
 {
     __block NSMutableURLRequest *request = [NSMutableURLRequest new];
     
@@ -299,6 +322,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     [dataTask resume];
     
 }
+
+
 
 - (NSURLSessionConfiguration *)sessionConfigurationFromEnum:(MOZUClientSessionConfiguration)configuration
 {
