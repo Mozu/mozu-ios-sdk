@@ -52,7 +52,7 @@
 //
 
 + (MOZUURLComponents *)URLComponentsForRemoveCouponOperationWithOrderId:(NSString *)orderId couponCode:(NSString *)couponCode updateMode:(NSString *)updateMode version:(NSString *)version {
-	NSString *template = @"/api/commerce/orders/{orderId}/coupons/{couponcode}?updatemode={updateMode}&version={version}";
+	NSString *template = @"/api/commerce/orders/{orderId}/coupons/{couponCode}?updatemode={updateMode}&version={version}";
 	NSDictionary *params = @{
 		@"orderId" : orderId,
 		@"couponCode" : couponCode,
