@@ -116,10 +116,16 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
                                                           completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error)
      {
          XCTAssertNil(error, @"Result not nil but had error.");
-         [[MOZUUserAuthenticator sharedUserAuthenticator] authenticateWithUserAuthInfo:userAuthInfo
-                                                                                 scope:MOZUTenantAuthenticationScope
-                                                                            identifier:nil
-                                                                     completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
+         
+         MOZUUserAuthenticator *userAuth = [MOZUUserAuthenticator sharedUserAuthenticator];
+         userAuth.tenant =  [@(self.tenantID) stringValue];
+         userAuth.site = [self.siteID stringValue];
+         userAuth.host = self.tenantHost;
+         
+         [userAuth authenticateWithUserAuthInfo:userAuthInfo
+                                          scope:MOZUCustomerAuthenticationScope
+                                     identifier:nil
+                              completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
           {
               XCTAssertNil(error, @"Result not nil but had error.");
               self.waitingForBlock = NO;
@@ -295,7 +301,7 @@ typedef void(^MOZUTenantSelectionCompletionBlock)(MOZUScope *scope, MOZUAuthenti
 - (MOZUUserAuthInfo *)userAuthInfo
 {
     MOZUUserAuthInfo *userAuthInfo = [MOZUUserAuthInfo new];
-    userAuthInfo.emailAddress = self.emailAddress;
+    userAuthInfo.username = self.emailAddress;
     userAuthInfo.password = self.password;
     
     return userAuthInfo;
