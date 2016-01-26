@@ -15,8 +15,10 @@
 #import "MOZUTenantAdminUserAuthTicketURLComponents.h"
 #import "MOZUDeveloperAdminUserAuthTicketURLComponents.h"
 #import "MOZUUserAuthInfo.h"
+#import "MOZUCustomerAuthTicket.h"
 #import "MOZUTenantAdminUserAuthTicket.h"
 #import "MOZUDeveloperAdminUserAuthTicket.h"
+#import "MOZUCustomerAuthTicketURLComponents.h"
 
 static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBackgroundSessionIdentifier";
 
@@ -181,6 +183,20 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
 }
 
+- (void)addAuthHeaderToRequest:(NSMutableURLRequest *)request
+             completionHandler:(MOZUAppAuthenticationCompletionBlock)completion {
+    [[MOZUAppAuthenticator sharedAppAuthenticator] ensureAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        NSString *tenantId = self.tenant ? self.tenant : @"";
+        NSString *siteId = self.site ? self.site : @"";
+        
+        [request setValue:[MOZUAppAuthenticator sharedAppAuthenticator].authTicket.accessToken forHTTPHeaderField:MOZU_X_VOL_APP_CLAIMS];
+        [request setValue:tenantId forHTTPHeaderField:MOZU_X_VOL_TENANT];
+        [request setValue:siteId forHTTPHeaderField:MOZU_X_VOL_SITE];
+        
+        completion(response, error);
+    }];
+}
+
 - (void)refreshWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
                        identifier:(NSNumber *)identifier
                 completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
@@ -231,7 +247,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSData *body = [[userAuthInfo toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:body];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUUserAuthenticator sharedUserAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (error) {
             DDLogError(@"%@", error.localizedDescription);
             completion(nil, response, error);
@@ -353,6 +369,33 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
             }
         }
             break;
+        case MOZUCustomerAuthenticationScope: {
+            JSONModelError *JSONError = nil;
+            
+            MOZUCustomerAuthTicket *customerAuthTicket = [[MOZUCustomerAuthTicket alloc] initWithString:JSONData error:&JSONError];
+            if (!customerAuthTicket) {
+                DDLogError(@"%@", JSONError.localizedDescription);
+            }else{
+                
+                userAuthTicket = [[MOZUUserAuthTicket alloc] initWithScope:scope
+                                                                  tenentId:nil
+                                                               accessToken:customerAuthTicket.accessToken
+                                                     accessTokenExpiration:customerAuthTicket.accessTokenExpiration
+                                                              refreshToken:customerAuthTicket.refreshToken
+                                                    refreshTokenExpiration:customerAuthTicket.refreshTokenExpiration];
+                
+                authProfile.shopperAccount = customerAuthTicket.customerAccount;
+                
+                if (customerAuthTicket.customerAccount) {
+                    MOZUScope *scope = [MOZUScope new];
+                    scope.id = customerAuthTicket.customerAccount.id;
+                    scope.name = customerAuthTicket.customerAccount.userId;
+                    authProfile.activeScope = scope;
+                }
+                
+            }
+        }
+            break;
         default:
             DDLogError(@"Not implemented: %@", [@(scope) stringValue]);
             break;
@@ -395,12 +438,15 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         case MOZUDeveloperAuthenticationScope:
             components = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForCreateDeveloperUserAuthTicketOperationWithDeveloperAccountId:identifier responseFields:nil];
             break;
+        case MOZUCustomerAuthenticationScope:
+            components = [MOZUCustomerAuthTicketURLComponents URLComponentsForCreateUserAuthTicketOperationWithResponseFields:nil];
+            break;
         default:
             DDLogError(@"Not implemented: %@", [@(scope) stringValue]);
             break;
     }
     
-    components.host = [MOZUAppAuthenticator sharedAppAuthenticator].host;
+    components.host = [MOZUUserAuthenticator sharedUserAuthenticator].host;
     components.useSSL = [MOZUAppAuthenticator sharedAppAuthenticator].useSSL; // TODO: Remove this when ssl bug is fixed.
     return components.URL;
 }

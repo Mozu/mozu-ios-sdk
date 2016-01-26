@@ -25,7 +25,7 @@
 /**
 The email address of the specified user or the email address associated with the specified entity.
 */
-@property(nonatomic) NSString * emailAddress;
+@property(nonatomic) NSString * username;
 
 /**
 The saved password for the customer account. 

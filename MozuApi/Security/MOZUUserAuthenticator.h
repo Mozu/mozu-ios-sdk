@@ -66,6 +66,10 @@ typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
 
 @property (nonatomic, assign) MOZUUserAuthenticatorSessionConfiguration sessionConfiguration; // Default is MOZUUserAuthenticatorDefaultSessionConfiguration
 @property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUUserAuthenticatorBackgroundSessionIdentifier
+//Must be set in order to successfully authenticate.
+@property (nonatomic) NSString *host;
+@property (nonatomic) NSString *tenant;
+@property (nonatomic) NSString *site;
 
 + (MOZUUserAuthenticator *)sharedUserAuthenticator;
 
