@@ -202,20 +202,14 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
     
     if (![[headers allKeys] containsObject:MOZU_X_VOL_APP_CLAIMS]) {
-        // Add MOZU_X_VOL_APP_CLAIMS to headers
-        if (!self.context || !self.context.appAuthTicket || [self.context.appAuthTicket.accessToken isEqualToString:@""]) {
-            [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
-                if (error) {
-                    DDLogError(@"%@", error.localizedDescription);
-                    completion(error);
-                } else {
-                    completion(nil);
-                }
-            }];
-        } else {
-            [self setHeader:MOZU_X_VOL_APP_CLAIMS value:self.context.appAuthTicket.accessToken];
-            completion(nil);
-        }
+        [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+            if (error) {
+                DDLogError(@"%@", error.localizedDescription);
+                completion(error);
+            } else {
+                completion(nil);
+            }
+        }];
     } else {
         completion(nil);
     }
@@ -257,7 +251,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
     
     // Wait until all dispatch groups leave.
-    dispatch_group_wait(group, 30.0);
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     
     [self.mutableHeaders addEntriesFromDictionary:request.allHTTPHeaderFields];
     [request setAllHTTPHeaderFields:[self.mutableHeaders copy]];
