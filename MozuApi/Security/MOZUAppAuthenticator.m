@@ -20,8 +20,6 @@
 
 @interface MOZUAppAuthenticator ()
 
-@property (nonatomic, strong) NSURLComponents *URLComponents;
-
 @end
 
 static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBackgroundSessionIdentifier";
