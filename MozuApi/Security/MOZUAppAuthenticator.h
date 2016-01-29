@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger, MOZUAppAuthenticatorSessionConfiguration)
 @property (nonatomic) BOOL useSSL;
 @property (nonatomic, readonly) NSString *scheme;
 @property (nonatomic) MOZURefreshInterval *refreshInterval;
+@property (nonatomic, strong) NSURLComponents *URLComponents;
 
 @property (nonatomic, assign) MOZUAppAuthenticatorSessionConfiguration sessionConfiguration; // Default is MOZUAppAuthenticatorDefaultSessionConfiguration
 @property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUAppAuthenticatorBackgroundSessionIdentifier
