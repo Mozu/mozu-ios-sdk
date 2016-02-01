@@ -66,6 +66,7 @@ typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
 
 @property (nonatomic, assign) MOZUUserAuthenticatorSessionConfiguration sessionConfiguration; // Default is MOZUUserAuthenticatorDefaultSessionConfiguration
 @property (nonatomic, strong) NSString *backgroundSessionIdentifier; // Default is MOZUUserAuthenticatorBackgroundSessionIdentifier
+@property (nonatomic) MOZUUserAuthTicket *userAuthTicket;
 //Must be set in order to successfully authenticate.
 @property (nonatomic) NSString *host;
 @property (nonatomic) NSString *tenant;
@@ -87,6 +88,8 @@ typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
                    completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
 - (void)logoutWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
                completionHandler:(void (^)(NSHTTPURLResponse *response, MOZUAPIError *error))completion;
+
+- (MOZUAuthenticationProfile *)authenticationProfileWithJSON:(NSString *)JSONData scope:(MOZUAuthenticationScope)scope;
 
 
 @end

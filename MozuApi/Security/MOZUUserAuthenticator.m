@@ -171,9 +171,9 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 - (void)ensureUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
            completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
 {
-    NSDate *refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:userAuthTicket.accessTokenExpiration];
+    NSDate *refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:self.userAuthTicket.accessTokenExpiration];
     if ([refreshTime timeIntervalSinceNow] < 0) {
-        [self refreshWithUserAuthTicket:userAuthTicket
+        [self refreshWithUserAuthTicket:self.userAuthTicket
                              identifier:nil
                       completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
                           completion(profile, response, error);
@@ -205,10 +205,8 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"PUT"];
-    NSData *body = [[userAuthTicket toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setHTTPBody:body];
     
-    [[MOZUAppAuthenticator sharedAppAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+    [[MOZUUserAuthenticator sharedUserAuthenticator] addAuthHeaderToRequest:request completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
         if (error) {
             DDLogError(@"%@", error.localizedDescription);
             completion(nil, response, error);
@@ -227,6 +225,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
                                                                 completion(nil, httpResponse, apiError);
                                                             } else {
                                                                 MOZUAuthenticationProfile *authProfile = [self authenticationProfileWithJSON:json scope:userAuthTicket.scope];
+                                                                self.userAuthTicket = authProfile.authTicket;
                                                                 completion(authProfile, httpResponse, nil);
                                                             }
                                                         }];
@@ -417,12 +416,15 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
         case MOZUDeveloperAuthenticationScope:
             components = [MOZUDeveloperAdminUserAuthTicketURLComponents URLComponentsForRefreshDeveloperAuthTicketOperationWithDeveloperAccountId:identifier responseFields:nil];
             break;
+        case MOZUCustomerAuthenticationScope:
+            components = [MOZUCustomerAuthTicketURLComponents URLComponentsForRefreshUserAuthTicketOperationWithRefreshToken:authTicket.refreshToken responseFields:nil];
+            break;
         default:
             DDLogError(@"Not implemented: %@", [@(authTicket.scope) stringValue]);
             break;
     }
     
-    components.host = [MOZUAppAuthenticator sharedAppAuthenticator].host;
+    components.host = [MOZUUserAuthenticator sharedUserAuthenticator].host;
     components.useSSL = [MOZUAppAuthenticator sharedAppAuthenticator].useSSL; // TODO: Remove this when ssl bug is fixed.
     return components.URL;
 }
