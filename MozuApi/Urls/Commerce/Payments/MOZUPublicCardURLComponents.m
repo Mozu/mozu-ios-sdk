@@ -25,7 +25,7 @@
 //
 
 + (MOZUURLComponents *)URLComponentsForCreateOperation {
-	NSString *template = @"/payment/commerce/payments/cards/";
+	NSString *template = @"/payments/commerce/payments/cards/";
 	NSDictionary *params = nil;
 
 	return [[MOZUURLComponents alloc] initWithTemplate:template parameters:params location:MOZUPCIPod useSSL:NO];

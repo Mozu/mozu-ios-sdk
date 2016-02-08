@@ -18,7 +18,11 @@
 
 @interface MOZUPublicCardResource : NSObject
 
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext;
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification;
 
 //
 #pragma mark -
