@@ -12,9 +12,27 @@
 #import "MOZUPublicCardResource.h"
 
 
+@interface MOZUPublicCardResource()
+@property(readwrite, nonatomic) MOZUAPIContext * apiContext;
+@end
 
 @implementation MOZUPublicCardResource
 
+-(id)initWithAPIContext:(MOZUAPIContext *)apiContext {
+    if (self = [super init]) {
+        self.apiContext = apiContext;
+        return self;
+    }
+    else {
+        return nil;
+    }
+}
+
+
+-(id)cloneWithAPIContextModification:(MOZUAPIContextModificationBlock)apiContextModification {
+    MOZUAPIContext* cloned = [self.apiContext cloneWith:apiContextModification];
+    return [self initWithAPIContext:cloned];
+}
 
 //
 #pragma mark -
@@ -35,13 +53,14 @@ payments-cards Post Create description DOCUMENT_HERE
 */
 
 - (void)createWithBody:(MOZUPublicCard *)body completionHandler:(void(^)(MOZUSyncResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUPublicCardClient clientForCreateOperationWithBody:body];
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
+{
+    MOZUClient *client = [MOZUPublicCardClient clientForCreateOperationWithBody:body];
+    client.context = self.apiContext;
+    [client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (handler != nil) {
+            handler(result, error, response);
+        }
+    }];
 }
 
 
@@ -58,13 +77,14 @@ payments-cards Put Update description DOCUMENT_HERE
 */
 
 - (void)updateWithBody:(MOZUPublicCard *)body cardId:(NSString *)cardId completionHandler:(void(^)(MOZUSyncResponse *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUPublicCardClient clientForUpdateOperationWithBody:body cardId:cardId];
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(result, error, response);
-		}
-	}];
+{
+    MOZUClient *client = [MOZUPublicCardClient clientForUpdateOperationWithBody:body cardId:cardId];
+    client.context = self.apiContext;
+    [client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (handler != nil) {
+            handler(result, error, response);
+        }
+    }];
 }
 
 
@@ -80,13 +100,14 @@ payments-cards Delete Delete description DOCUMENT_HERE
 */
 
 - (void)deleteWithCardId:(NSString *)cardId completionHandler:(void(^)(MOZUAPIError *error, NSHTTPURLResponse *response))handler
- {
-	MOZUClient *client = [MOZUPublicCardClient clientForDeleteOperationWithCardId:cardId];
-	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
-		if (handler != nil) {
-			handler(error, response);
-		}
-	}];
+{
+    MOZUClient *client = [MOZUPublicCardClient clientForDeleteOperationWithCardId:cardId];
+    client.context = self.apiContext;
+    [client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+        if (handler != nil) {
+            handler(error, response);
+        }
+    }];
 }
 
 

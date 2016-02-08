@@ -256,6 +256,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     [self.mutableHeaders addEntriesFromDictionary:request.allHTTPHeaderFields];
     [request setAllHTTPHeaderFields:[self.mutableHeaders copy]];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+    [request setValue:@"text/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPMethod:self.verb];
     
     if (![self.verb isEqualToString:@"GET"]) {
