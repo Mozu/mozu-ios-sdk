@@ -171,9 +171,13 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 - (void)ensureUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
            completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
 {
-    NSDate *refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:self.userAuthTicket.accessTokenExpiration];
+    if (self.userAuthTicket == nil){
+        self.userAuthTicket = userAuthTicket;
+    }
+    
+    NSDate *refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:userAuthTicket.accessTokenExpiration];
     if ([refreshTime timeIntervalSinceNow] < 0) {
-        [self refreshWithUserAuthTicket:self.userAuthTicket
+        [self refreshWithUserAuthTicket:userAuthTicket
                              identifier:nil
                       completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error) {
                           completion(profile, response, error);
