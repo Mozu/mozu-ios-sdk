@@ -85,6 +85,7 @@ typedef NS_ENUM(NSUInteger, MOZUUserAuthenticatorSessionConfiguration)
 - (void)authenticateWithUserAuthInfo:(MOZUUserAuthInfo *)userAuthInfo
                                scope:(MOZUAuthenticationScope)scope
                           identifier:(NSNumber *)identifier
+                 guestUserAuthTicket:(MOZUAuthTicket *)guestAuthTicket
                    completionHandler:(MOZUUserAuthenticationCompletionBlock)completion;
 - (void)logoutWithUserAuthTicket:(MOZUUserAuthTicket *)userAuthTicket
                completionHandler:(void (^)(NSHTTPURLResponse *response, MOZUAPIError *error))completion;
