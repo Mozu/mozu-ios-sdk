@@ -241,12 +241,16 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 - (void)authenticateWithUserAuthInfo:(MOZUUserAuthInfo *)userAuthInfo
                                scope:(MOZUAuthenticationScope)scope
                           identifier:(NSNumber *)identifier
+                 guestUserAuthTicket:(MOZUAuthTicket *)guestAuthTicket
                    completionHandler:(MOZUUserAuthenticationCompletionBlock)completion
 {
     NSURL *url = [self resourceURLWithUserScope:scope identifier:identifier];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPMethod:@"POST"];
+    if (guestAuthTicket != nil){
+        [request setValue:guestAuthTicket.accessToken forHTTPHeaderField:MOZU_X_VOL_USER_CLAIMS];
+    }
     NSData *body = [[userAuthInfo toJSONString] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:body];
     
