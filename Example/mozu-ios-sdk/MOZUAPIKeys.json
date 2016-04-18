@@ -1,0 +1,10 @@
+{
+    "appID" : "Bluefly.MobileShopperPOC.1.0.0.Release",
+    "sharedSecret" : "5c14afddea7a4b5980a08984056095be",
+    "emailAddress" : "501378test@gmail.com",
+    "password" : "pass12345",
+    "tenantHost" : "t11259.staging-sb.mozu.com",
+    "tenantID" : "11259",
+    "siteID": "14615",
+    "productCode" : "MS-CMP-TNT-021"
+}

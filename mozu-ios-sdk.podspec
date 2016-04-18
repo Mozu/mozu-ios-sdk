@@ -31,4 +31,6 @@ s.source           = { :git => "https://github.com/Mozu/mozu-ios-sdk.git", :tag 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+    s.dependency 'JSONModel'
+    s.dependency 'CocoaLumberjack'
 end
