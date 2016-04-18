@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'mozu-ios-sdk_Example', :exclusive => true do
+  pod 'mozu-ios-sdk', :path => '../'
+end
+
+target 'mozu-ios-sdk_Tests', :exclusive => true do
+  pod 'mozu-ios-sdk', :path => '../'
+
+  pod 'Specta'
+  pod 'Expecta'
+end

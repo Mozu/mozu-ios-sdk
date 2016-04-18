@@ -1,71 +1,34 @@
 #
-# Be sure to run `pod spec lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
+# Be sure to run `pod lib lint mozu-ios-sdk.podspec' to ensure this is a
+# valid spec before submitting.
 #
-# To learn more about the attributes see http://guides.cocoapods.org/syntax/podspec.html
+# Any lines starting with a # are optional, but their use is encouraged
+# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
+
 Pod::Spec.new do |s|
   s.name             = "mozu-ios-sdk"
   s.version          = "1.18.15266.2"
-  s.summary          = "A short description of mozu-ios-sdk."
+  s.summary          = "Objective-C API for connecting to Mozu web services."
   s.description      = <<-DESC
-                       An optional longer description of mozu-ios-sdk
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+The Mozu iOS SDK exposes the complete functionality of the Mozu REST API enabling you to create robust Mozu applications on the iOS platform
                        DESC
-  s.homepage         = "http://EXAMPLE/NAME"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+
+  s.homepage         = "https://github.com/Mozu/mozu-ios-sdk.git"
+  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Noel Artiles" => "noel_artiles@volusion.com" }
-  s.public_header_files = "MozuApi/*.h"
-  s.source           = { :git => "https://github.com/Mozu/mozu-ios-sdk.git" }
-  #s.source           = { :path => '~/projects/git/mozu-ios-sdk' }
-  s.social_media_url = 'https://twitter.com/NAME'
+  s.author           = { "rabin-joshi-volusion" => "rabin_joshi@volusion.com" }
+s.source           = { :git => "https://github.com/Mozu/mozu-ios-sdk.git", :tag => "v1.18.15266.2" }
+  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  # s.platform     = :ios, '5.0'
-  s.ios.deployment_target = '7.1'
-  s.osx.deployment_target = '10.9'
-  s.requires_arc = true
+  s.ios.deployment_target = '8.0'
 
-  s.header_mappings_dir = 'MozuApi'
-  # s.header_dir = 'Classes'
-  s.source_files = 'MozuApi/*.{m,h}'
+  s.source_files = 'mozu-ios-sdk/Classes/**/*'
+  s.resource_bundles = {
+    'mozu-ios-sdk' => ['mozu-ios-sdk/Assets/*.png']
+  }
 
-
-  s.ios.exclude_files = 'MozuApi/osx'
-  s.osx.exclude_files = 'MozuApi/ios'
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  s.dependency 'JSONModel'
-  s.dependency 'CocoaLumberjack'
-
-  s.subspec 'Cache' do |ss|
-    ss.source_files = 'MozuApi/Cache/**/*.{m,h}'
-  end
-
-  s.subspec 'Clients' do |ss|
-    ss.source_files = 'MozuApi/Clients/**/*.{m,h}'
-  end
-
-  s.subspec 'Contracts' do |ss|
-    ss.source_files = 'MozuApi/Contracts/**/*.{m,h}'
-  end
-
-  s.subspec 'Resources' do |ss|
-    ss.source_files = 'MozuApi/Resources/**/*.{m,h}'
-  end
-
-  s.subspec 'Security' do |ss|
-    ss.source_files = 'MozuApi/Security/**/*.{m,h}'
-  end
-
-  s.subspec 'Urls' do |ss|
-    ss.source_files = 'MozuApi/Urls/**/*.{m,h}'
-  end
-
-  s.subspec 'Utilities' do |ss|
-    ss.source_files = 'MozuApi/Utilities/**/*.{m,h}'
-  end
-
+  # s.public_header_files = 'Pod/Classes/**/*.h'
+  # s.frameworks = 'UIKit', 'MapKit'
+  # s.dependency 'AFNetworking', '~> 2.3'
 end

@@ -1,47 +1,29 @@
 # mozu-ios-sdk
 
-### How to install the Mozu iOS SDK.
-* The easiest way is to use [CocoPods](http://cocoapods.org).
-* Add this to your Podfile to obtain the latest beta version (1.18.15266.2) of the api:
+[![CI Status](http://img.shields.io/travis/rabin-joshi-volusion/mozu-ios-sdk.svg?style=flat)](https://travis-ci.org/rabin-joshi-volusion/mozu-ios-sdk)
+[![Version](https://img.shields.io/cocoapods/v/mozu-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/mozu-ios-sdk)
+[![License](https://img.shields.io/cocoapods/l/mozu-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/mozu-ios-sdk)
+[![Platform](https://img.shields.io/cocoapods/p/mozu-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/mozu-ios-sdk)
 
-		pod 'mozu-ios-sdk', :git => 'https://github.com/Mozu/mozu-ios-sdk.git'
+## Usage
 
-* Run
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-		pod update
+## Requirements
 
-* We will eventually submit our Pod to CocoaPods so you won't need the explicit refrence to git repo
-### How to authenticate your app.
-* Obtain your authentication host, app secret and shared secret from the Mozu developer portal.
-* Add this to your app:
+## Installation
 
-		MOZUAppAuthInfo *appAuthInfo = [MOZUAppAuthInfo new];
-	    appAuthInfo.ApplicationId = <YOUR APP ID>
-	    appAuthInfo.SharedSecret = <YOUR SHARED SECRET>
-	    NSString *authenticationHost = <YOUR AUTHENTICATION HOST DOMAIN>
-	    
-	    
-	    [[MOZUAppAuthenticator sharedAppAuthenticator] authenticateWithAuthInfo:appAuthInfo
-	                                                                    appHost:authenticationHost
-	                                                                     useSSL:YES
-	                                                             refeshInterval:nil
-	                                                          completionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error)
-	     {
+mozu-ios-sdk is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
 
-	     }];
+```ruby
+pod "mozu-ios-sdk"
+```
 
-### How to authenticate your user.
-* Prompt user for username (i.e. email address) and password.
-* Add this to your app:
+## Author
 
-	    MOZUUserAuthInfo *userAuthInfo = [MOZUUserAuthInfo new];
-	    userAuthInfo.emailAddress = emailAddress;
-	    userAuthInfo.password = password;
-	
-		[[MOZUUserAuthenticator sharedUserAuthenticator] authenticateWithUserAuthInfo:userAuthInfo
-		                                                                     scope:MOZUTenantAuthenticationScope
-		                                                                identifier:nil
-		                                                         completionHandler:^(MOZUAuthenticationProfile *profile, NSHTTPURLResponse *response, MOZUAPIError *error)
-		{
+rabin-joshi-volusion, rabin_joshi@volusion.com
 
-		}];
+## License
+
+mozu-ios-sdk is available under the MIT license. See the LICENSE file for more info.
