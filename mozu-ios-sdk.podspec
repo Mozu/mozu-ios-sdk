@@ -18,7 +18,7 @@ The Mozu iOS SDK exposes the complete functionality of the Mozu REST API enablin
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "rabin-joshi-volusion" => "rabin_joshi@volusion.com" }
-s.source           = { :git => "https://github.com/Mozu/mozu-ios-sdk.git", :tag => "v1.18.15266.2" }
+s.source           = { :git => "https://github.com/Mozu/mozu-ios-sdk.git", :branch => "1.1613" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
