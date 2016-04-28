@@ -265,7 +265,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
     
     NSLog(@"%@", request.URL.description);
-    NSLog(@"%@", request.allHTTPHeaderFields);
+    //NSLog(@"%@", request.allHTTPHeaderFields);
     NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
