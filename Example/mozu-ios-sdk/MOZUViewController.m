@@ -9,17 +9,20 @@
 #import "MOZUViewController.h"
 
 #import "MOZUAPIError.h"
-#import "MOZUResponseHelper.h"
+#import "MOZUAPIVersion.h"
 #import "MOZUAppAuthenticator.h"
+#import "MOZUResponseHelper.h"
 #import "MOZUAppAuthInfo.h"
 #import "MOZUUserAuthInfo.h"
 #import "MOZUUserAuthenticator.h"
 #import "MOZUAuthTicket.h"
 #import "MOZUAuthTicketRequest.h"
+#import "MOZUCustomerAuthenticator.h"
 #import "MOZURefreshInterval.h"
 #import "MOZUHeaders.h"
 #import "MOZUAPILogger.h"
 #import "MOZURuntimeCategoryResource.h"
+
 
 
 @interface MOZUViewController ()
@@ -90,7 +93,7 @@
         }
         
         NSLog(@"App Authenticated!");
-        [self testUserAuthentication];
+        [self testCustomerAuthentication];
 
     }];
 }
@@ -120,6 +123,38 @@
                                   NSLog(@"User Authenticated!");
                                   [self testFetchingCategoryTree];
                               }];
+}
+
+
+#pragma mark - Customer Authentication
+
+- (void)testCustomerAuthentication
+{
+    MOZUCustomerUserAuthInfo *customerUserAuthInfo = [[MOZUCustomerUserAuthInfo alloc] init];
+    customerUserAuthInfo.username = self.emailAddress;
+    customerUserAuthInfo.password = self.password;
+    
+    MOZUCustomerAuthenticator *authenticator = [MOZUCustomerAuthenticator sharedCustomerAuthenticator];
+    authenticator.apiVersion = [MOZUAPIVersion version];
+    authenticator.appToken = [MOZUAppAuthenticator sharedAppAuthenticator].authTicket.accessToken;
+    authenticator.host =  self.tenantHost;
+    authenticator.tenant = self.tenantID;
+    authenticator.site = self.siteID;
+    
+    [authenticator createCustomerAuthTicket:customerUserAuthInfo
+                          completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                              
+                              if (error != nil ) {
+                                  NSLog(@"Error: %@", error);
+                                  return;
+                              }
+                              
+                              NSLog(@"Customer Authenticated!");
+                              [self testFetchingCategoryTree];
+                              
+                              
+                          }];
+
 }
 
 #pragma mark - Products
