@@ -25,6 +25,8 @@
 
 - (void)ensureCustomerAuthTicketWithCompletionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler;
 
+- (void)createCustomerAuthTicketWithCustomerUserAuthInfo:(MOZUCustomerUserAuthInfo *)customerUserAuthInfo completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler;
+
 @end
 
 #pragma mark - Helper Categories

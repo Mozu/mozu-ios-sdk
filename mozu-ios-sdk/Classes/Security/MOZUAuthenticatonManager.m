@@ -20,6 +20,7 @@
 
 @implementation MOZUAuthenticatonManager
 
+
 + (MOZUAuthenticatonManager *)sharedManager {
     static MOZUAuthenticatonManager *_sharedManager = nil;
     static dispatch_once_t onceToken = 0;
@@ -55,9 +56,7 @@
         [authenticator refreshCustomerAuthTicket:self.customerAuthTicket
                                completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                                    
-                                   if (error == nil) {
-                                       self.customerAuthTicket = result;
-                                   }
+                                   self.customerAuthTicket = result;
                                    handler(result, error, response);
                                }];
         return;
@@ -65,6 +64,24 @@
     
     // handle if accessToken not expired
     handler(self.customerAuthTicket, nil, nil);
+}
+
+- (void)createCustomerAuthTicketWithCustomerUserAuthInfo:(MOZUCustomerUserAuthInfo *)customerUserAuthInfo
+                                       completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler {
+    
+    MOZUCustomerAuthenticator *authenticator = [[MOZUCustomerAuthenticator alloc] init];
+    authenticator.apiVersion = [MOZUAPIVersion version];
+    authenticator.appToken = [MOZUAppAuthenticator sharedAppAuthenticator].authTicket.accessToken;
+    authenticator.host =  self.host;
+    authenticator.tenant = self.tenant;
+    authenticator.site = self.site;
+    
+    [authenticator createCustomerAuthTicketWithCustomerUserAuthInfo:customerUserAuthInfo
+                                                  completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                                                      
+                                                      self.customerAuthTicket = result;
+                                                      handler(result, error, response);
+                                                  }];
 }
 
 - (BOOL)isAccessTokenExpired {

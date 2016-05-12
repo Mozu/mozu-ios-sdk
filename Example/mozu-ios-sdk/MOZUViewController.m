@@ -136,25 +136,25 @@
     customerUserAuthInfo.username = self.emailAddress;
     customerUserAuthInfo.password = self.password;
     
-    MOZUCustomerAuthenticator *authenticator = [[MOZUCustomerAuthenticator alloc] init];
+    MOZUAuthenticatonManager *authenticator = [MOZUAuthenticatonManager sharedManager];
     authenticator.apiVersion = [MOZUAPIVersion version];
     authenticator.appToken = [MOZUAppAuthenticator sharedAppAuthenticator].authTicket.accessToken;
     authenticator.host =  self.tenantHost;
     authenticator.tenant = self.tenantID;
     authenticator.site = self.siteID;
-    
-    [authenticator createCustomerAuthTicketWithCustomerUserAuthInfo:customerUserAuthInfo
-                          completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-                              
-                              if (error != nil ) {
-                                  NSLog(@"Error: %@", error);
-                                  return;
-                              }
-                              
-                              NSLog(@"Customer Authenticated!");
-                              [self testCustomerAuthenticationRefresh:result];
-                          }];
 
+    [authenticator createCustomerAuthTicketWithCustomerUserAuthInfo:customerUserAuthInfo
+                                                  completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                                                      
+                                                      if (error != nil ) {
+                                                          NSLog(@"Error: %@", error);
+                                                          return;
+                                                      }
+                                                      
+                                                      NSLog(@"Customer Authenticated!");
+                                                      [self testCustomerAuthenticationRefresh:result];
+                                                  }];
+    
 }
 
 - (void)testCustomerAuthenticationRefresh:(MOZUCustomerAuthTicket *)customerAuthTicket
