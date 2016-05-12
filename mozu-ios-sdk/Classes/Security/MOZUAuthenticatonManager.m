@@ -14,7 +14,7 @@
 #import "MOZUCustomerAuthenticator.h"
 
 @interface MOZUAuthenticatonManager()
-@property (nonatomic, strong) MOZUCustomerAuthTicket *customerAuthTicket;
+
 @end
 
 
@@ -60,6 +60,7 @@
                                    }
                                    handler(result, error, response);
                                }];
+        return;
     }
     
     // handle if accessToken not expired

@@ -18,6 +18,7 @@
 #import "MOZUAuthTicket.h"
 #import "MOZUAuthTicketRequest.h"
 #import "MOZUCustomerAuthenticator.h"
+#import "MOZUCustomerAuthTicket.h"
 #import "MOZURefreshInterval.h"
 #import "MOZUHeaders.h"
 #import "MOZUAPILogger.h"
@@ -165,6 +166,9 @@
     authenticator.host =  self.tenantHost;
     authenticator.tenant = self.tenantID;
     authenticator.site = self.siteID;
+    
+    authenticator.customerAuthTicket = customerAuthTicket;
+    
     [authenticator ensureCustomerAuthTicketWithCompletionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
         
                 if (error != nil ) {
@@ -175,19 +179,7 @@
                 NSLog(@"Customer Auth Token Refreshed!");
     }
      
-     ];
-    
-//    MOZUCustomerAuthenticator *authenticator = [MOZUCustomerAuthenticator sharedCustomerAuthenticator];
-//    [authenticator refreshCustomerAuthTicket:customerAuthTicket completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-//        
-//        if (error != nil ) {
-//            NSLog(@"Error: %@", error);
-//            return;
-//        }
-//        
-//        NSLog(@"Customer Auth Token Refreshed!");
-//    }];
-    
+     ];    
 }
 
 #pragma mark - Products

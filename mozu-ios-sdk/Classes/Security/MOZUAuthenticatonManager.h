@@ -18,8 +18,8 @@
 @property (nonatomic, copy) NSString *apiVersion;
 @property (nonatomic, copy) NSString *tenant;
 @property (nonatomic, copy) NSString *site;
-
 @property (nonatomic, copy) NSString *host;
+@property (nonatomic, strong) MOZUCustomerAuthTicket *customerAuthTicket;
 
 + (MOZUAuthenticatonManager *)sharedManager;
 
