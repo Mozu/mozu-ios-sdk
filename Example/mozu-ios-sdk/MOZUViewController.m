@@ -22,6 +22,7 @@
 #import "MOZUHeaders.h"
 #import "MOZUAPILogger.h"
 #import "MOZURuntimeCategoryResource.h"
+#import "MOZUAuthenticatonManager.h"
 
 
 
@@ -32,8 +33,8 @@
 @property (nonatomic, copy) NSString *emailAddress;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSString *tenantHost;
-@property (nonatomic, strong) NSString *tenantID;
-@property (nonatomic, strong) NSString *siteID;
+@property (nonatomic, copy) NSString *tenantID;
+@property (nonatomic, copy) NSString *siteID;
 @property (nonatomic, copy) NSString *productCode;
 
 @end
@@ -134,7 +135,7 @@
     customerUserAuthInfo.username = self.emailAddress;
     customerUserAuthInfo.password = self.password;
     
-    MOZUCustomerAuthenticator *authenticator = [MOZUCustomerAuthenticator sharedCustomerAuthenticator];
+    MOZUCustomerAuthenticator *authenticator = [[MOZUCustomerAuthenticator alloc] init];
     authenticator.apiVersion = [MOZUAPIVersion version];
     authenticator.appToken = [MOZUAppAuthenticator sharedAppAuthenticator].authTicket.accessToken;
     authenticator.host =  self.tenantHost;
@@ -157,17 +158,35 @@
 
 - (void)testCustomerAuthenticationRefresh:(MOZUCustomerAuthTicket *)customerAuthTicket
 {
+
+    MOZUAuthenticatonManager *authenticator = [MOZUAuthenticatonManager sharedManager];
+    authenticator.apiVersion = [MOZUAPIVersion version];
+    authenticator.appToken = [MOZUAppAuthenticator sharedAppAuthenticator].authTicket.accessToken;
+    authenticator.host =  self.tenantHost;
+    authenticator.tenant = self.tenantID;
+    authenticator.site = self.siteID;
+    [authenticator ensureCustomerAuthTicketWithCompletionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+                if (error != nil ) {
+                    NSLog(@"Error: %@", error);
+                    return;
+                }
+        
+                NSLog(@"Customer Auth Token Refreshed!");
+    }
+     
+     ];
     
-    MOZUCustomerAuthenticator *authenticator = [MOZUCustomerAuthenticator sharedCustomerAuthenticator];
-    [authenticator refreshCustomerAuthTicket:customerAuthTicket completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-        
-        if (error != nil ) {
-            NSLog(@"Error: %@", error);
-            return;
-        }
-        
-        NSLog(@"Customer Auth Token Refreshed!");
-    }];
+//    MOZUCustomerAuthenticator *authenticator = [MOZUCustomerAuthenticator sharedCustomerAuthenticator];
+//    [authenticator refreshCustomerAuthTicket:customerAuthTicket completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+//        
+//        if (error != nil ) {
+//            NSLog(@"Error: %@", error);
+//            return;
+//        }
+//        
+//        NSLog(@"Customer Auth Token Refreshed!");
+//    }];
     
 }
 

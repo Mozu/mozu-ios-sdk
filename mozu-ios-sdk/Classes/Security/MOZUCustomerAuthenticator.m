@@ -15,22 +15,22 @@
 
 @implementation MOZUCustomerAuthenticator
 
-+ (MOZUCustomerAuthenticator *)sharedCustomerAuthenticator {
-    static MOZUCustomerAuthenticator *_sharedCustomerAuthenticator = nil;
-    static dispatch_once_t onceToken = 0;
-    dispatch_once(&onceToken, ^{
-        _sharedCustomerAuthenticator = [[self alloc] init];
-    });
-    
-    return _sharedCustomerAuthenticator;
-}
-
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
     }
     return self;
+}
+
+- (void)ensureCustomerAuthTicket:(MOZUCustomerAuthTicket *)customerAuthTicket
+completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler {
+    
+    NSDate *refreshTime = [NSDate dateWithTimeInterval:-180 sinceDate:customerAuthTicket.accessTokenExpiration];
+    if ([refreshTime timeIntervalSinceNow] < 0) {
+        [self refreshCustomerAuthTicket:customerAuthTicket completionHandler:handler];
+    } else {
+        handler(customerAuthTicket, nil, nil);
+    }
 }
 
 - (void)refreshCustomerAuthTicket:(MOZUCustomerAuthTicket *)customerAuthTicket

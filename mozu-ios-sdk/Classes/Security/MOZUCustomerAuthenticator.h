@@ -18,11 +18,8 @@
 @property (nonatomic, copy) NSString *apiVersion;
 @property (nonatomic, copy) NSString *tenant;
 @property (nonatomic, copy) NSString *site;
-
 @property (nonatomic, copy) NSString *host;
 
-
-+ (MOZUCustomerAuthenticator *)sharedCustomerAuthenticator;
 
 - (void)refreshCustomerAuthTicket:(MOZUCustomerAuthTicket *)customerAuthTicket
                 completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler;
