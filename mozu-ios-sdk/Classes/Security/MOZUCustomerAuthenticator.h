@@ -24,6 +24,9 @@
 
 + (MOZUCustomerAuthenticator *)sharedCustomerAuthenticator;
 
-- (void)createCustomerAuthTicket:(MOZUCustomerUserAuthInfo *)customerUserAuthInfo
-               completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler;
+- (void)refreshCustomerAuthTicket:(MOZUCustomerAuthTicket *)customerAuthTicket
+                completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler;
+
+- (void)createCustomerAuthTicketWithCustomerUserAuthInfo:(MOZUCustomerUserAuthInfo *)customerUserAuthInfo
+                                       completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler;
 @end

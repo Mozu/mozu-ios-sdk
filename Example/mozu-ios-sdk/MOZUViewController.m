@@ -141,7 +141,7 @@
     authenticator.tenant = self.tenantID;
     authenticator.site = self.siteID;
     
-    [authenticator createCustomerAuthTicket:customerUserAuthInfo
+    [authenticator createCustomerAuthTicketWithCustomerUserAuthInfo:customerUserAuthInfo
                           completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                               
                               if (error != nil ) {
@@ -150,11 +150,25 @@
                               }
                               
                               NSLog(@"Customer Authenticated!");
-                              [self testFetchingCategoryTree];
-                              
-                              
+                              [self testCustomerAuthenticationRefresh:result];
                           }];
 
+}
+
+- (void)testCustomerAuthenticationRefresh:(MOZUCustomerAuthTicket *)customerAuthTicket
+{
+    
+    MOZUCustomerAuthenticator *authenticator = [MOZUCustomerAuthenticator sharedCustomerAuthenticator];
+    [authenticator refreshCustomerAuthTicket:customerAuthTicket completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+        if (error != nil ) {
+            NSLog(@"Error: %@", error);
+            return;
+        }
+        
+        NSLog(@"Customer Auth Token Refreshed!");
+    }];
+    
 }
 
 #pragma mark - Products
