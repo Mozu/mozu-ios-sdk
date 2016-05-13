@@ -23,6 +23,12 @@
 
 + (MOZUAuthenticatonManager *)sharedManager;
 
+#pragma mark - App Authentication
+
+
+
+#pragma mark - User Authentication
+
 - (void)ensureCustomerAuthTicketWithCompletionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler;
 
 - (void)createCustomerAuthTicketWithCustomerUserAuthInfo:(MOZUCustomerUserAuthInfo *)customerUserAuthInfo completionHandler:(void(^)(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler;

@@ -15,6 +15,7 @@
 #import "MOZUAPIVersion.h"
 #import "MOZUAPILogger.h"
 #import "MOZUConfig.h"
+#import "MOZUAuthenticatonManager.h"
 
 @interface MOZUClient()
 
@@ -215,7 +216,109 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     }
 }
 
-- (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler
+- (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler {
+    
+    [self validateAppClaimsWithCompletion:completionHandler];
+}
+
+- (void)validateAppClaimsWithCompletion:(MOZUClientCompletionBlock)completion {
+    
+    [[MOZUAppAuthenticator sharedAppAuthenticator] ensureAppAuthTicketWithCompletion:^(MOZUAuthTicket *result, MOZUAPIError *error) {
+        
+        if (error != nil) {
+            completion(nil, nil, error);
+            return;
+        }
+        
+        // add headers
+        NSString *appToken = result.accessToken;
+        if (appToken.length > 0) {
+            [self.mutableHeaders setObject:appToken forKey:MOZU_X_VOL_APP_CLAIMS];
+        }
+        else {
+            // return error
+        }
+        
+        [self validateUserClaimsWithCompletion:completion];
+        
+    }];
+    
+}
+
+- (void)validateUserClaimsWithCompletion:(MOZUClientCompletionBlock)completion {
+    
+    [[MOZUAuthenticatonManager sharedManager] ensureCustomerAuthTicketWithCompletionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+        if (error != nil) {
+            completion(nil, nil, error);
+            return;
+        }
+        
+        // add headers
+        NSString *userToken = result.accessToken;
+        if (userToken.length > 0) {
+            [self.mutableHeaders setObject:userToken forKey:MOZU_X_VOL_USER_CLAIMS];
+        }
+        else {
+            // return error
+        }
+        
+        [self executeRequestWithCompletion:completion];
+        
+    }];
+}
+
+- (void)executeRequestWithCompletion:(MOZUClientCompletionBlock)completion {
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    self.resourceURLComponents.useSSL = YES;
+    self.resourceURLComponents.host = self.context.tenantHost;
+    request.URL = self.resourceURLComponents.URL;
+    
+    
+    [self.mutableHeaders addEntriesFromDictionary:request.allHTTPHeaderFields];
+    [request setAllHTTPHeaderFields:[self.mutableHeaders copy]];
+    [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+    [request setValue:@"text/json" forHTTPHeaderField:@"Accept"];
+    [request setHTTPMethod:self.verb];
+    
+    if (![self.verb isEqualToString:@"GET"]) {
+        NSData *body = [self.bodyString dataUsingEncoding:NSUTF8StringEncoding];
+        [request setHTTPBody:body];
+    }
+    
+    NSLog(@"%@", request.URL.description);
+    //NSLog(@"%@", request.allHTTPHeaderFields);
+    NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                    self.statusCode = [httpResponse statusCode];
+                                                    self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult error:error];
+                                                    if (self.error) {
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            completion(nil, httpResponse, self.error);
+                                                        });
+                                                        
+                                                    } else {
+                                                        
+                                                        if (self.JSONParser) {
+                                                            self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
+                                                        }
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            completion(self.result, httpResponse, nil);
+                                                        });
+                                                    }
+                                                }];
+    [dataTask resume];
+
+}
+
+- (void)executeWithCompletionHandler2:(MOZUClientCompletionBlock)completionHandler
 {
     __block NSMutableURLRequest *request = [NSMutableURLRequest new];
     

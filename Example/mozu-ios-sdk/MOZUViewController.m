@@ -159,7 +159,6 @@
 
 - (void)testCustomerAuthenticationRefresh:(MOZUCustomerAuthTicket *)customerAuthTicket
 {
-
     MOZUAuthenticatonManager *authenticator = [MOZUAuthenticatonManager sharedManager];
     authenticator.apiVersion = [MOZUAPIVersion version];
     authenticator.appToken = [MOZUAppAuthenticator sharedAppAuthenticator].authTicket.accessToken;
@@ -177,6 +176,7 @@
                 }
         
                 NSLog(@"Customer Auth Token Refreshed!");
+        [self testFetchingCategoryTree];
     }
      
      ];    
@@ -193,6 +193,8 @@
     NSNumber *siteIDNumber = [f numberFromString:self.siteID];
     
     MOZUAPIContext *context = [[MOZUAPIContext alloc] initWithTenantId:tenantIdInteger siteId:siteIDNumber masterCatalogId:nil catalogId:nil];
+    context.tenantHost = self.tenantHost;
+    
     MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:context];
     [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
         

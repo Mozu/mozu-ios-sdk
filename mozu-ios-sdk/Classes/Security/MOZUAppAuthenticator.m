@@ -214,4 +214,20 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     return sessionConfiguration;
 }
 
+- (void)ensureAppAuthTicketWithCompletion:(void(^)(MOZUAuthTicket *result, MOZUAPIError *error))completion {
+    
+    [self ensureAuthTicketWithCompletionHandler:^(NSHTTPURLResponse *response, MOZUAPIError *error) {
+        
+        if (error != nil) {
+            completion(nil, error);
+            return;
+        }
+        
+        MOZUAuthTicket *appAuthTicket = self.authTicket;
+        completion(appAuthTicket, nil);
+        
+    }];
+    
+}
+
 @end
