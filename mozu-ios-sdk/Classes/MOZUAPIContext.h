@@ -13,10 +13,14 @@
 @class MOZUSite;
 @class MOZUAuthTicket;
 @class MOZUUserAuthTicket;
-
 @class MOZUAPIContext;
 typedef void(^MOZUAPIContextModificationBlock)(MOZUAPIContext* apiContext);
 
+#import "MOZUAppAuthInfo.h"
+#import "MOZUAuthTicket.h"
+#import "MOZUDeveloperAdminUserAuthTicket.h"
+#import "MOZUTenantAdminUserAuthTicket.h"
+#import "MOZUCustomerAuthTicket.h"
 
 @interface MOZUAPIContext : JSONModel
 
@@ -26,7 +30,13 @@ typedef void(^MOZUAPIContextModificationBlock)(MOZUAPIContext* apiContext);
 @property(nonatomic) NSString *siteHost;
 @property(nonatomic) NSString *correlationId;
 @property(nonatomic) NSString *hmacSHA256;
-@property(nonatomic) MOZUAuthTicket *appAuthTicket;
+
+@property(nonatomic, strong) MOZUAppAuthInfo *appAuthInfo;
+@property(nonatomic, strong) MOZUAuthTicket *appAuthTicket;
+@property(nonatomic, strong) MOZUDeveloperAdminUserAuthTicket *developerAdminUserAuthTicket;
+@property(nonatomic, strong) MOZUTenantAdminUserAuthTicket *tenantAdminUserAuthTicket;
+@property(nonatomic, strong) MOZUCustomerAuthTicket *customerAuthTicket;
+
 @property(nonatomic) MOZUUserAuthTicket *userAuthTicket;
 @property(nonatomic) NSNumber *masterCatalogId;
 @property(nonatomic) NSNumber *catalogId;
