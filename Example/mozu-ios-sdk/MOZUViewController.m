@@ -108,18 +108,30 @@
         }
         
         NSLog(@"Products fetched!");
-        [self testAppAuthRefresh];
+        [self testAppAuthIfAccessTokenExpired];
     }];
 }
 
-- (void)testAppAuthRefresh
+- (void)testAppAuthIfAccessTokenExpired
 {
-    
-    MOZUAppAuthInfo *appAuthInfo = [[MOZUAppAuthInfo alloc] init];
-    appAuthInfo.applicationId = self.appID;
-    appAuthInfo.sharedSecret = self.sharedSecret;
-    
     self.context.appAuthTicket.accessTokenExpiration = [NSDate date];
+    
+    MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:self.context];
+    [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+        if (error != nil ) {
+            NSLog(@"Error: %@", error);
+            return;
+        }
+        
+        NSLog(@"Products fetched!");
+        [self testAppAuthIfRefreshTokenExpired];
+    }];
+}
+
+- (void)testAppAuthIfRefreshTokenExpired
+{
+    self.context.appAuthTicket.refreshTokenExpiration = [NSDate date];
     
     MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:self.context];
     [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
