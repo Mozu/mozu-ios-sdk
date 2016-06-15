@@ -108,6 +108,28 @@
         }
         
         NSLog(@"Products fetched!");
+        [self testAppAuthRefresh];
+    }];
+}
+
+- (void)testAppAuthRefresh
+{
+    
+    MOZUAppAuthInfo *appAuthInfo = [[MOZUAppAuthInfo alloc] init];
+    appAuthInfo.applicationId = self.appID;
+    appAuthInfo.sharedSecret = self.sharedSecret;
+    
+    self.context.appAuthTicket.accessTokenExpiration = [NSDate date];
+    
+    MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:self.context];
+    [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+        if (error != nil ) {
+            NSLog(@"Error: %@", error);
+            return;
+        }
+        
+        NSLog(@"Products fetched!");
     }];
 }
 
