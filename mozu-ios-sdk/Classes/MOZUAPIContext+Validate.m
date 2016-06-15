@@ -21,6 +21,10 @@
 #import "MOZUDeveloperAdminUserAuthTicketResource.h"
 #import "MOZUDeveloperAdminUserAuthTicket.h"
 
+#import "MOZUCustomerAuthTicketResource.h"
+#import "MOZUCustomerAuthTicket.h"
+
+
 
 @implementation MOZUAPIContext (Validate)
 
@@ -45,6 +49,23 @@
         }
         else if (self.developerAdminUserAuthTicket != nil) {
             
+            [self ensureDeveloperAdminUserAuthTicketWithCompletionHandler:^(MOZUAPIError *error) {
+                if (error != nil) {
+                    handler(error);
+                    return;
+                }
+                handler(nil);
+            }];
+        }
+        else if (self.developerAdminUserAuthTicket != nil) {
+            
+            [self ensureDeveloperAdminUserAuthTicketWithCompletionHandler:^(MOZUAPIError *error) {
+                if (error != nil) {
+                    handler(error);
+                    return;
+                }
+                handler(nil);
+            }];
         }
         
         
@@ -183,6 +204,42 @@
                               self.developerAdminUserAuthTicket = result;
                               handler(nil);
                           }];
+}
+
+#pragma mark: - Customer Auth
+
+- (void)ensureCustomerAuthTicketWithCompletionHandler: (void(^)(MOZUAPIError *error))handler {
+    
+    // customer auth ticket doesn't exist
+    if (self.customerAuthTicket == nil) {
+        return;
+    }
+    
+    // CustomerAuthTicket token expiration date is in the past.
+    if ([self.customerAuthTicket.accessTokenExpiration timeIntervalSinceNow] < 0) {
+        [self refreshDeveloperAdminUserWithCompletionHandler:handler];
+        return;
+    }
+    
+    handler(nil);
+    
+}
+
+- (void)refreshCustomerWithCompletionHandler: (void(^)(MOZUAPIError *error))handler {
+    
+    MOZUCustomerAuthTicketResource *res = [[MOZUCustomerAuthTicketResource alloc] init];
+    [res refreshUserAuthTicketWithRefreshToken:self.customerAuthTicket
+                                responseFields:nil
+                             completionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                                 
+                                 if (error != nil) {
+                                     handler(error);
+                                     return;
+                                 }
+                                 
+                                 self.customerAuthTicket = result;
+                                 handler(nil);
+                             }];
 }
 
 

@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
-#import "MOZUAPIError.h"
 #import "MOZUAPIContext.h"
+#import "MOZUAPIContext+Validate.h"
+#import "MOZUAPIError.h"
 #import "MOZUUserAuthenticator.h"
 #import "MOZUURLComponents.h"
 #import "MOZUHeaders.h"

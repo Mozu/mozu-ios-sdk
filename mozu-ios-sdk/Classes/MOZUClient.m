@@ -218,55 +218,17 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 
 - (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler {
     
-    [self validateAppClaimsWithCompletion:completionHandler];
-}
-
-- (void)validateAppClaimsWithCompletion:(MOZUClientCompletionBlock)completion {
-    
-    [[MOZUAppAuthenticator sharedAppAuthenticator] ensureAppAuthTicketWithCompletion:^(MOZUAuthTicket *result, MOZUAPIError *error) {
+    [self.context validateWithCompletion:^(MOZUAPIError *error) {
         
         if (error != nil) {
-            completion(nil, nil, error);
+            completionHandler(nil, nil, error);
             return;
         }
         
-        // add headers
-        NSString *appToken = result.accessToken;
-        if (appToken.length > 0) {
-            [self.mutableHeaders setObject:appToken forKey:MOZU_X_VOL_APP_CLAIMS];
-        }
-        else {
-            // return error
-        }
-        
-        [self validateUserClaimsWithCompletion:completion];
-        
+        [self executeRequestWithCompletion:completionHandler];
     }];
-    
 }
 
-- (void)validateUserClaimsWithCompletion:(MOZUClientCompletionBlock)completion {
-    
-    [[MOZUAuthenticatonManager sharedManager] ensureCustomerAuthTicketWithCompletionHandler:^(MOZUCustomerAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
-        
-        if (error != nil) {
-            completion(nil, nil, error);
-            return;
-        }
-        
-        // add headers
-        NSString *userToken = result.accessToken;
-        if (userToken.length > 0) {
-            [self.mutableHeaders setObject:userToken forKey:MOZU_X_VOL_USER_CLAIMS];
-        }
-        else {
-            // return error
-        }
-        
-        [self executeRequestWithCompletion:completion];
-        
-    }];
-}
 
 - (void)executeRequestWithCompletion:(MOZUClientCompletionBlock)completion {
     
@@ -317,6 +279,27 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     [dataTask resume];
 
 }
+
+- (NSURLSessionConfiguration *)sessionConfigurationFromEnum:(MOZUClientSessionConfiguration)configuration
+{
+    NSURLSessionConfiguration *sessionConfiguration = nil;
+    switch (configuration) {
+        case MOZUClientBackgroundSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration backgroundSessionConfiguration:self.backgroundSessionIdentifier];
+            break;
+        case MOZUClientDefaultSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+            break;
+        case MOZUClientEphemeralSessionConfiguration:
+            sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+            break;
+        default:
+            break;
+    }
+    return sessionConfiguration;
+}
+
+#pragma mark - Old
 
 - (void)executeWithCompletionHandler2:(MOZUClientCompletionBlock)completionHandler
 {
@@ -397,25 +380,5 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     [dataTask resume];
     
 }
-
-- (NSURLSessionConfiguration *)sessionConfigurationFromEnum:(MOZUClientSessionConfiguration)configuration
-{
-    NSURLSessionConfiguration *sessionConfiguration = nil;
-    switch (configuration) {
-        case MOZUClientBackgroundSessionConfiguration:
-            sessionConfiguration = [NSURLSessionConfiguration backgroundSessionConfiguration:self.backgroundSessionIdentifier];
-            break;
-        case MOZUClientDefaultSessionConfiguration:
-            sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-            break;
-        case MOZUClientEphemeralSessionConfiguration:
-            sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-            break;
-        default:
-            break;
-    }
-    return sessionConfiguration;
-}
-
 
 @end
