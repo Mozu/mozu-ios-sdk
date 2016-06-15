@@ -24,19 +24,20 @@ typedef void(^MOZUAPIContextModificationBlock)(MOZUAPIContext* apiContext);
 
 @interface MOZUAPIContext : JSONModel
 
+@property(nonatomic, strong) MOZUAppAuthInfo *appAuthInfo;
+@property(nonatomic, strong) MOZUAuthTicket *appAuthTicket;
+@property(nonatomic, strong) MOZUDeveloperAdminUserAuthTicket *developerAdminUserAuthTicket;
+@property(nonatomic, strong) MOZUTenantAdminUserAuthTicket *tenantAdminUserAuthTicket;
+@property(nonatomic, strong) MOZUCustomerAuthTicket *customerAuthTicket;
+@property(nonatomic, copy) NSString *tenantIdString;
+@property(nonatomic, copy) NSString *siteIdString;
+
 @property(nonatomic) NSInteger tenantId;
 @property(nonatomic) NSNumber *siteId;
 @property(nonatomic) NSString *tenantHost;
 @property(nonatomic) NSString *siteHost;
 @property(nonatomic) NSString *correlationId;
 @property(nonatomic) NSString *hmacSHA256;
-
-@property(nonatomic, strong) MOZUAppAuthInfo *appAuthInfo;
-@property(nonatomic, strong) MOZUAuthTicket *appAuthTicket;
-@property(nonatomic, strong) MOZUDeveloperAdminUserAuthTicket *developerAdminUserAuthTicket;
-@property(nonatomic, strong) MOZUTenantAdminUserAuthTicket *tenantAdminUserAuthTicket;
-@property(nonatomic, strong) MOZUCustomerAuthTicket *customerAuthTicket;
-
 @property(nonatomic) MOZUUserAuthTicket *userAuthTicket;
 @property(nonatomic) NSNumber *masterCatalogId;
 @property(nonatomic) NSNumber *catalogId;

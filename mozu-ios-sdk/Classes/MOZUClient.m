@@ -36,6 +36,13 @@
 static NSString * const MOZUAPIClientErrorDomain = @"MOZUAPIClientErrorDomain";
 static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBackgroundSessionIdentifier";
 
+
+// Auth specific
+static NSString * const MOZUAppAuthHost = @"home.staging.mozu.com";
+//static NSString * const MOZUAppId = @"Bluefly.MobileShopperPOC.1.0.0.Release";
+//static NSString * const MOZUAppSharedSecret = @"5c14afddea7a4b5980a08984056095be";
+
+
 @implementation MOZUClient
 
 - (instancetype)init
@@ -218,15 +225,21 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 
 - (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler {
     
-    [self.context validateWithCompletion:^(MOZUAPIError *error) {
-        
-        if (error != nil) {
-            completionHandler(nil, nil, error);
-            return;
-        }
-        
-        [self executeRequestWithCompletion:completionHandler];
-    }];
+    if (self.context == nil) {
+        [self executeRequestWithCompletion2:completionHandler];
+    }
+    else {
+    
+        [self.context validateWithCompletion:^(MOZUAPIError *error) {
+            
+            if (error != nil) {
+                completionHandler(nil, nil, error);
+                return;
+            }
+            
+            [self executeRequestWithCompletion:completionHandler];
+        }];
+    }
 }
 
 
@@ -235,6 +248,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     self.resourceURLComponents.useSSL = YES;
     self.resourceURLComponents.host = self.context.tenantHost;
+    
     request.URL = self.resourceURLComponents.URL;
     
     
@@ -242,6 +256,38 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     [request setAllHTTPHeaderFields:[self.mutableHeaders copy]];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [request setValue:@"text/json" forHTTPHeaderField:@"Accept"];
+    
+    NSString *appToken = self.context.appAuthTicket.accessToken;
+    if (appToken != nil) {
+        [request setValue:appToken forHTTPHeaderField:MOZU_X_VOL_APP_CLAIMS];
+    }
+    
+    NSString *tenantUserToken = self.context.tenantAdminUserAuthTicket.accessToken;
+    if (tenantUserToken != nil) {
+        [request setValue:tenantUserToken forHTTPHeaderField:MOZU_X_VOL_USER_CLAIMS];
+    }
+    
+    NSString *developerUserToken = self.context.developerAdminUserAuthTicket.accessToken;
+    if (developerUserToken != nil) {
+        [request setValue:developerUserToken forHTTPHeaderField:MOZU_X_VOL_USER_CLAIMS];
+    }
+    
+    NSString *customerToken = self.context.customerAuthTicket.accessToken;
+    if (customerToken != nil) {
+        [request setValue:customerToken forHTTPHeaderField:MOZU_X_VOL_USER_CLAIMS];
+    }
+    
+    NSString *tenantIdString = self.context.tenantIdString;
+    if (tenantIdString != nil) {
+        [request setValue:tenantIdString forHTTPHeaderField:MOZU_X_VOL_TENANT];
+    }
+    
+    NSString *siteIdString = self.context.siteIdString;
+    if (siteIdString != nil) {
+        [request setValue:siteIdString forHTTPHeaderField:MOZU_X_VOL_SITE];
+    }
+    
+    
     [request setHTTPMethod:self.verb];
     
     if (![self.verb isEqualToString:@"GET"]) {
@@ -279,6 +325,56 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
     [dataTask resume];
 
 }
+
+- (void)executeRequestWithCompletion2:(MOZUClientCompletionBlock)completion {
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    self.resourceURLComponents.useSSL = YES;
+    self.resourceURLComponents.host = MOZUAppAuthHost;
+    
+    request.URL = self.resourceURLComponents.URL;
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+    [request setValue:@"text/json" forHTTPHeaderField:@"Accept"];
+    
+    [request setHTTPMethod:self.verb];
+    
+    if (![self.verb isEqualToString:@"GET"]) {
+        NSData *body = [self.bodyString dataUsingEncoding:NSUTF8StringEncoding];
+        [request setHTTPBody:body];
+    }
+    
+    NSLog(@"%@", request.URL.description);
+    //NSLog(@"%@", request.allHTTPHeaderFields);
+    NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                    self.statusCode = [httpResponse statusCode];
+                                                    self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult error:error];
+                                                    if (self.error) {
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            completion(nil, httpResponse, self.error);
+                                                        });
+                                                        
+                                                    } else {
+                                                        
+                                                        if (self.JSONParser) {
+                                                            self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
+                                                        }
+                                                        
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            completion(self.result, httpResponse, nil);
+                                                        });
+                                                    }
+                                                }];
+    [dataTask resume];
+    
+}
+
 
 - (NSURLSessionConfiguration *)sessionConfigurationFromEnum:(MOZUClientSessionConfiguration)configuration
 {

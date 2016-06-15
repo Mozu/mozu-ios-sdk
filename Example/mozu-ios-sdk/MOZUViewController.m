@@ -38,6 +38,8 @@
 @property (nonatomic, copy) NSString *siteID;
 @property (nonatomic, copy) NSString *productCode;
 
+@property (nonatomic, strong) MOZUAPIContext *context;
+
 @end
 
 @implementation MOZUViewController
@@ -46,7 +48,7 @@
 {
     [super viewDidLoad];
     [self loadSecurityInfo];
-    [self testAppAuthentication];
+    [self testAppAuth];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,6 +83,38 @@
     self.productCode = securityDictionary[@"productCode"];
 }
 
+#pragma mark - App Authentication 
+
+- (void)testAppAuth
+{
+    
+    MOZUAppAuthInfo *appAuthInfo = [[MOZUAppAuthInfo alloc] init];
+    appAuthInfo.applicationId = self.appID;
+    appAuthInfo.sharedSecret = self.sharedSecret;
+    
+    MOZUAPIContext *theContext = [[MOZUAPIContext alloc] init];
+    theContext.appAuthInfo = appAuthInfo;
+    theContext.tenantHost = self.tenantHost;
+    theContext.tenantIdString = self.tenantID;
+    theContext.siteIdString = self.siteID;
+    self.context = theContext;
+    
+    MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:self.context];
+    [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+        if (error != nil ) {
+            NSLog(@"Error: %@", error);
+            return;
+        }
+        
+        NSLog(@"Products fetched!");
+    }];
+}
+
+
+
+#pragma mark - Old
+
 - (void)testAppAuthentication
 {
     MOZUAppAuthInfo *authInfo = [[MOZUAppAuthInfo alloc] init];
@@ -95,6 +129,8 @@
         }
         
         NSLog(@"App Authenticated!");
+        
+        
         [self testCustomerAuthentication];
 
     }];
@@ -126,7 +162,6 @@
                                   [self testFetchingCategoryTree];
                               }];
 }
-
 
 #pragma mark - Customer Authentication
 

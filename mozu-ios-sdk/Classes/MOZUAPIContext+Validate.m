@@ -67,6 +67,9 @@
                 handler(nil);
             }];
         }
+        else {
+            handler(nil);
+        }
         
         
     }];
