@@ -18,7 +18,7 @@
 
 @interface MOZUTenantAdminUserAuthTicketResource : NSObject
 
-
+@property(strong, nonatomic) MOZUAPIContext * apiContext;
 
 //
 #pragma mark -

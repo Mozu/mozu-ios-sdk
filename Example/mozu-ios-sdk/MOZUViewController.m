@@ -25,6 +25,9 @@
 #import "MOZURuntimeCategoryResource.h"
 #import "MOZUAuthenticatonManager.h"
 
+#import "MOZUTenantAdminUserAuthTicketResource.h"
+#import "MOZUUserAuthInfo.h"
+#import "MOZUTenantAdminUserAuthTicket.h"
 
 
 @interface MOZUViewController ()
@@ -142,7 +145,33 @@
         }
         
         NSLog(@"Products fetched!");
+        [self testTenantUserAuth];
     }];
+}
+
+#pragma mark - Tenant User Authentication
+
+- (void)testTenantUserAuth
+{
+    MOZUUserAuthInfo *info = [[MOZUUserAuthInfo alloc] init];
+    info.emailAddress = @"rabin_joshi@volusion.com";
+    info.password = @"R@bin1987";
+    
+    MOZUTenantAdminUserAuthTicketResource *res = [[MOZUTenantAdminUserAuthTicketResource alloc] init];
+    res.apiContext = self.context;
+    [res createUserAuthTicketWithBody:info
+                             tenantId:nil//@([self.tenantID integerValue])
+                       responseFields:nil
+                    completionHandler:^(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                        
+                        if (error != nil ) {
+                            NSLog(@"Error: %@", error);
+                            return;
+                        }
+                        
+                        NSLog(@"Tenant User Authenticated!");
+                        
+                    }];
 }
 
 

@@ -39,6 +39,7 @@ Creates an authentication ticket for the supplied user to specify in API request
 - (void)createUserAuthTicketWithBody:(MOZUUserAuthInfo *)body tenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUTenantAdminUserAuthTicketClient clientForCreateUserAuthTicketOperationWithBody:body tenantId:tenantId responseFields:responseFields];
+     client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
