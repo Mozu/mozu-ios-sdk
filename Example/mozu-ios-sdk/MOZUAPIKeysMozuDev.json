@@ -3,7 +3,7 @@
     "sharedSecret" : "a60cabe75d304ff6bf806665baa6f8ef",
     "emailAddress" : "501378test@gmail.com",
     "password" : "pass12345",
-    "tenantHost" : "t11259.staging-sb.mozu.com",
+    "tenantHost" : "t12018.sandbox.mozu.com",
     "tenantID" : "12018",
     "siteID": "16629",
     "productCode" : "MS-CMP-TNT-021"

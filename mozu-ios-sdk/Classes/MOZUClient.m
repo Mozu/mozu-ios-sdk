@@ -38,7 +38,7 @@ static NSString * const MOZUClientBackgroundSessionIdentifier = @"MOZUClientBack
 
 
 // Auth specific
-static NSString * const MOZUAppAuthHost = @"home.staging.mozu.com";
+static NSString * const MOZUAppAuthHost = @"home.mozu.com";
 //static NSString * const MOZUAppId = @"Bluefly.MobileShopperPOC.1.0.0.Release";
 //static NSString * const MOZUAppSharedSecret = @"5c14afddea7a4b5980a08984056095be";
 

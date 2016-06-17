@@ -26,6 +26,8 @@
 #import "MOZUAuthenticatonManager.h"
 #import "MOZUCartResource.h"
 
+#import "MOZUAuthTicketResource.h"
+
 #import "MOZUTenantAdminUserAuthTicketResource.h"
 #import "MOZUUserAuthInfo.h"
 #import "MOZUTenantAdminUserAuthTicket.h"
@@ -54,7 +56,7 @@
 {
     [super viewDidLoad];
     [self loadSecurityInfo];
-    [self testProductFetchAfterAppAuth];
+    [self testAppAuth];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +67,7 @@
 
 - (void)loadSecurityInfo
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"MOZUAPIKeysBFDev" ofType:@"json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"MOZUAPIKeysMozuDev" ofType:@"json"];
     NSAssert(path.length, @"Invalid API Keys or file missing");
     
     NSError *error = nil;
@@ -91,7 +93,7 @@
 
 #pragma mark - App Authentication 
 
-- (void)testProductFetchAfterAppAuth
+- (void)testAppAuth
 {
     
     MOZUAppAuthInfo *appAuthInfo = [[MOZUAppAuthInfo alloc] init];
@@ -105,6 +107,44 @@
     theContext.siteIdString = self.siteID;
     self.context = theContext;
     
+    MOZUAuthTicketResource *res = [[MOZUAuthTicketResource alloc] init];
+    [res authenticateAppWithBody:appAuthInfo
+                  responseFields:nil
+               completionHandler:^(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+
+                   if (error != nil ) {
+                       NSLog(@"Error: %@", error);
+                       return;
+                   }
+                   NSLog(@"App Authenticated!");
+                   self.context.appAuthTicket = result;
+                   [self testAppAuthRefresh];
+               }];
+}
+
+- (void)testAppAuthRefresh
+{
+    MOZUAuthTicketRequest *request = [[MOZUAuthTicketRequest alloc] init];
+    request.refreshToken = self.context.appAuthTicket.refreshToken;
+    
+    MOZUAuthTicketResource *res = [[MOZUAuthTicketResource alloc] init];
+    [res refreshAppAuthTicketWithBody:request
+                       responseFields:nil
+                    completionHandler:^(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                        
+                        if (error != nil ) {
+                            NSLog(@"Error: %@", error);
+                            return;
+                        }
+                        NSLog(@"App Refreshed!");
+                        [self testProductFetchAfterAppAuth];
+                    }];
+
+}
+
+
+- (void)testProductFetchAfterAppAuth
+{
     MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:self.context];
     [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
         
