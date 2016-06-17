@@ -64,6 +64,7 @@ Generates a new user authentication ticket for the specified tenant by supplying
 - (void)refreshAuthTicketWithBody:(MOZUTenantAdminUserAuthTicket *)body tenantId:(NSNumber *)tenantId responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUTenantAdminUserAuthTicketClient clientForRefreshAuthTicketOperationWithBody:body tenantId:tenantId responseFields:responseFields];
+     client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);

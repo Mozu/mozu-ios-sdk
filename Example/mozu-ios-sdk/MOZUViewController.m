@@ -24,10 +24,13 @@
 #import "MOZUAPILogger.h"
 #import "MOZURuntimeCategoryResource.h"
 #import "MOZUAuthenticatonManager.h"
+#import "MOZUCartResource.h"
 
 #import "MOZUTenantAdminUserAuthTicketResource.h"
 #import "MOZUUserAuthInfo.h"
 #import "MOZUTenantAdminUserAuthTicket.h"
+
+
 
 
 @interface MOZUViewController ()
@@ -170,14 +173,76 @@
                         }
                         
                         NSLog(@"Tenant User Authenticated!");
-                        
+                        self.context.tenantAdminUserAuthTicket = result;
+                        [self testTenantUserAuthRefresh];
                     }];
+}
+
+- (void)testTenantUserAuthRefresh
+{
+    MOZUTenantAdminUserAuthTicket *ticket = [[MOZUTenantAdminUserAuthTicket alloc] init];
+    ticket.refreshToken = self.context.tenantAdminUserAuthTicket.refreshToken;
+    
+    MOZUTenantAdminUserAuthTicketResource *res = [[MOZUTenantAdminUserAuthTicketResource alloc] init];
+    res.apiContext = self.context;
+    [res refreshAuthTicketWithBody:ticket
+                          tenantId:@([self.tenantID integerValue])
+                    responseFields:nil
+                 completionHandler:^(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                     
+                     if (error != nil) {
+                         NSLog(@"Error: %@", error);
+                         return;
+                     }
+                     
+                     NSLog(@"TenantUserAuthRefresh successful!");
+                     self.context.tenantAdminUserAuthTicket = result;
+                     [self testProductFetchAfterTenantAdminUserAuth];
+                 }];
+    
+}
+
+
+- (void)testProductFetchAfterTenantAdminUserAuth
+{
+    MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:self.context];
+    [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+        if (error != nil ) {
+            NSLog(@"\n\n ProductFetch After TenantAdminUserAuth failed!");
+            NSLog(@"Error: %@", error);
+            return;
+        }
+        
+        NSLog(@"ProductFetch After TenantAdminUserAuth successful!");
+        [self testProductFetchWithExpiredTenantAdminUserAuthTicket];
+    }];
+    
+}
+
+- (void)testProductFetchWithExpiredTenantAdminUserAuthTicket
+{
+    self.context.tenantAdminUserAuthTicket.accessTokenExpiration = [NSDate date];
+    
+    MOZURuntimeCategoryResource *categoryResource = [[MOZURuntimeCategoryResource alloc] initWithAPIContext:self.context];
+    [categoryResource categoryTreeWithResponseFields:nil completionHandler:^(MOZURuntimeCategoryCollection *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+        
+        if (error != nil ) {
+            NSLog(@"ProductFetch With Expired TenantAdminUserAuthTicket failed!");
+            NSLog(@"Error: %@", error);
+            return;
+        }
+        
+        NSLog(@"ProductFetch With Expired TenantAdminUserAuthTicket successful!");
+    }];
+    
 }
 
 
 
 #pragma mark - Old
 
+/*
 - (void)testAppAuthentication
 {
     MOZUAppAuthInfo *authInfo = [[MOZUAppAuthInfo alloc] init];
@@ -304,5 +369,6 @@
         NSLog(@"Products fetched!");
     }];
 }
+*/
 
 @end

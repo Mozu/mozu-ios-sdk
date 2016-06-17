@@ -99,6 +99,7 @@
 - (void)authenticateAppWithCompletionHandler: (void(^)(MOZUAPIError *error))handler {
     
     NSAssert(self.appAuthInfo, @"appAuthInfo is nil");
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     
     MOZUAuthTicketResource *res = [[MOZUAuthTicketResource alloc] init];
     [res authenticateAppWithBody:self.appAuthInfo
@@ -117,6 +118,8 @@
 }
 
 - (void)refreshAppWithCompletionHandler: (void(^)(MOZUAPIError *error))handler {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     
     MOZUAuthTicketResource *res = [[MOZUAuthTicketResource alloc] init];
     [res refreshAppAuthTicketWithBody:self.appAuthTicket
@@ -156,9 +159,17 @@
 
 - (void)refreshTenantAdminUserWithCompletionHandler: (void(^)(MOZUAPIError *error))handler {
     
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    MOZUTenantAdminUserAuthTicket *body = [[MOZUTenantAdminUserAuthTicket alloc] init];
+    body.refreshToken = self.tenantAdminUserAuthTicket.refreshToken;
+    
+    
     MOZUTenantAdminUserAuthTicketResource *res = [[MOZUTenantAdminUserAuthTicketResource alloc] init];
-    [res refreshAuthTicketWithBody:self.tenantAdminUserAuthTicket
-                          tenantId:@(self.tenantId)
+    res.apiContext = self;
+    res.apiContext.tenantAdminUserAuthTicket = nil;
+    [res refreshAuthTicketWithBody:body
+                          tenantId:nil
                     responseFields:nil
                  completionHandler:^(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
                      
@@ -192,6 +203,8 @@
 }
 
 - (void)refreshDeveloperAdminUserWithCompletionHandler: (void(^)(MOZUAPIError *error))handler {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     
     MOZUDeveloperAdminUserAuthTicketResource *res = [[MOZUDeveloperAdminUserAuthTicketResource alloc] init];
     [res refreshDeveloperAuthTicketWithBody:self.developerAdminUserAuthTicket
@@ -229,6 +242,8 @@
 }
 
 - (void)refreshCustomerWithCompletionHandler: (void(^)(MOZUAPIError *error))handler {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     
     MOZUCustomerAuthTicketResource *res = [[MOZUCustomerAuthTicketResource alloc] init];
     [res refreshUserAuthTicketWithRefreshToken:self.customerAuthTicket
