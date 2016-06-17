@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FFBD6781CC6B1AB00CFCF88 /* MOZUAPIKeys.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FFBD6771CC6B1AB00CFCF88 /* MOZUAPIKeys.json */; };
-		1FFBD6791CC6B1AB00CFCF88 /* MOZUAPIKeys.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FFBD6771CC6B1AB00CFCF88 /* MOZUAPIKeys.json */; };
+		1F44338B1D1484A9005F69FC /* MOZUAPIKeysBFDev.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F4433891D1484A9005F69FC /* MOZUAPIKeysBFDev.json */; };
+		1F44338C1D1484A9005F69FC /* MOZUAPIKeysMozuDev.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F44338A1D1484A9005F69FC /* MOZUAPIKeysMozuDev.json */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -38,7 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1FFBD6771CC6B1AB00CFCF88 /* MOZUAPIKeys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MOZUAPIKeys.json; sourceTree = "<group>"; };
+		1F4433891D1484A9005F69FC /* MOZUAPIKeysBFDev.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MOZUAPIKeysBFDev.json; sourceTree = "<group>"; };
+		1F44338A1D1484A9005F69FC /* MOZUAPIKeysMozuDev.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MOZUAPIKeysMozuDev.json; sourceTree = "<group>"; };
 		2202F85FC056A466C52CC4D5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2E74F22231E8E2E8027FF1A2 /* Pods-mozu-ios-sdk_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mozu-ios-sdk_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mozu-ios-sdk_Example/Pods-mozu-ios-sdk_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* mozu-ios-sdk_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mozu-ios-sdk_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +149,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1FFBD6771CC6B1AB00CFCF88 /* MOZUAPIKeys.json */,
+				1F4433891D1484A9005F69FC /* MOZUAPIKeysBFDev.json */,
+				1F44338A1D1484A9005F69FC /* MOZUAPIKeysMozuDev.json */,
 				6003F595195388D20070C39A /* mozu-ios-sdk-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -280,8 +282,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F44338B1D1484A9005F69FC /* MOZUAPIKeysBFDev.json in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				1FFBD6781CC6B1AB00CFCF88 /* MOZUAPIKeys.json in Resources */,
+				1F44338C1D1484A9005F69FC /* MOZUAPIKeysMozuDev.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -292,7 +295,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
-				1FFBD6791CC6B1AB00CFCF88 /* MOZUAPIKeys.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

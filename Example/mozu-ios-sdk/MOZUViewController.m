@@ -54,7 +54,7 @@
 {
     [super viewDidLoad];
     [self loadSecurityInfo];
-    [self testAppAuth];
+    [self testProductFetchAfterAppAuth];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +65,7 @@
 
 - (void)loadSecurityInfo
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"MOZUAPIKeys" ofType:@"json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"MOZUAPIKeysBFDev" ofType:@"json"];
     NSAssert(path.length, @"Invalid API Keys or file missing");
     
     NSError *error = nil;
@@ -91,7 +91,7 @@
 
 #pragma mark - App Authentication 
 
-- (void)testAppAuth
+- (void)testProductFetchAfterAppAuth
 {
     
     MOZUAppAuthInfo *appAuthInfo = [[MOZUAppAuthInfo alloc] init];
@@ -114,11 +114,11 @@
         }
         
         NSLog(@"Products fetched!");
-        [self testAppAuthIfAccessTokenExpired];
+        [self testProductFetchIfAppAuthTokenExpired];
     }];
 }
 
-- (void)testAppAuthIfAccessTokenExpired
+- (void)testProductFetchIfAppAuthTokenExpired
 {
     self.context.appAuthTicket.accessTokenExpiration = [NSDate date];
     
@@ -131,11 +131,11 @@
         }
         
         NSLog(@"Products fetched!");
-        [self testAppAuthIfRefreshTokenExpired];
+        [self testProductFetchIfRefreshTokenExpired];
     }];
 }
 
-- (void)testAppAuthIfRefreshTokenExpired
+- (void)testProductFetchIfRefreshTokenExpired
 {
     self.context.appAuthTicket.refreshTokenExpiration = [NSDate date];
     
