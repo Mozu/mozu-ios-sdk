@@ -82,8 +82,8 @@ static
 	@returns none
  */
 - (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler;
-- (void)executeWithCompletionHandler2:(MOZUClientCompletionBlock)completion;
-- (void)executeWithCompletionHandler3:(MOZUClientCompletionBlock)completion;
+- (void)executeUserAuthWithCompletion:(MOZUClientCompletionBlock)completion;
+- (void)executeAppAuthWithCompletion:(MOZUClientCompletionBlock)completion;
 
 
 @end

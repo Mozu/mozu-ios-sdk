@@ -288,38 +288,11 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
         [request setHTTPBody:body];
     }
     
-    NSLog(@"%@ %@", self.verb, request.URL.description);
-    //NSLog(@"%@", request.allHTTPHeaderFields);
-    NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
-                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-                                                    self.statusCode = [httpResponse statusCode];
-                                                    self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult error:error];
-                                                    if (self.error) {
-                                                        
-                                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                                            completion(nil, httpResponse, self.error);
-                                                        });
-                                                        
-                                                    } else {
-                                                        
-                                                        if (self.JSONParser) {
-                                                            self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
-                                                        }
-                                                        
-                                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                                            completion(self.result, httpResponse, nil);
-                                                        });
-                                                    }
-                                                }];
-    [dataTask resume];
+    [self executeRequest:request completionHandler:completion];
 
 }
 
-- (void)executeWithCompletionHandler2:(MOZUClientCompletionBlock)completion {
+- (void)executeUserAuthWithCompletion:(MOZUClientCompletionBlock)completion {
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     self.resourceURLComponents.useSSL = YES;
@@ -337,38 +310,10 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
         [request setHTTPBody:body];
     }
     
-    NSLog(@"%@ %@", self.verb, request.URL.description);
-    //NSLog(@"%@", request.allHTTPHeaderFields);
-    NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
-                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-                                                    self.statusCode = [httpResponse statusCode];
-                                                    self.JSONResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                    self.error = [MOZUResponseHelper ensureSuccessOfResponse:httpResponse JSONResult:self.JSONResult error:error];
-                                                    if (self.error) {
-                                                        
-                                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                                            completion(nil, httpResponse, self.error);
-                                                        });
-                                                        
-                                                    } else {
-                                                        
-                                                        if (self.JSONParser) {
-                                                            self.result = self.JSONResult ? self.JSONParser(self.JSONResult) : nil;
-                                                        }
-                                                        
-                                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                                            completion(self.result, httpResponse, nil);
-                                                        });
-                                                    }
-                                                }];
-    [dataTask resume];
-    
+    [self executeRequest:request completionHandler:completion];
 }
 
-- (void)executeWithCompletionHandler3:(MOZUClientCompletionBlock)completion {
+- (void)executeAppAuthWithCompletion:(MOZUClientCompletionBlock)completion {
     
     [self.context ensureAppAuthTicketWithCompletionHandler:^(MOZUAPIError *error) {
         
