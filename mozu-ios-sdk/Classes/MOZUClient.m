@@ -289,7 +289,7 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
         [request setHTTPBody:body];
     }
     
-    NSLog(@"%@", request.URL.description);
+    NSLog(@"%@ %@", self.verb, request.URL.description);
     //NSLog(@"%@", request.allHTTPHeaderFields);
     NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
@@ -338,7 +338,7 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
         [request setHTTPBody:body];
     }
     
-    NSLog(@"%@", request.URL.description);
+    NSLog(@"%@ %@", self.verb, request.URL.description);
     //NSLog(@"%@", request.allHTTPHeaderFields);
     NSURLSessionConfiguration *sessionConfiguration = [self sessionConfigurationFromEnum:self.sessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
