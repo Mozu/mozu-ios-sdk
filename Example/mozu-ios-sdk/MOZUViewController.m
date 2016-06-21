@@ -237,8 +237,56 @@
                      
                      NSLog(@"TenantUserAuthRefresh successful!");
                      self.context.tenantAdminUserAuthTicket = result;
-                     [self testProductFetchAfterTenantAdminUserAuth];
+                     [self testTenantUserAuthWithNoAppAuth];
                  }];
+    
+}
+
+- (void)testTenantUserAuthWithNoAppAuth
+{
+    self.context.appAuthTicket = nil;
+    
+    MOZUUserAuthInfo *info = [[MOZUUserAuthInfo alloc] init];
+    info.emailAddress = @"rabin_joshi@volusion.com";
+    info.password = @"R@bin1987";
+    
+    MOZUTenantAdminUserAuthTicketResource *res = [[MOZUTenantAdminUserAuthTicketResource alloc] init];
+    res.apiContext = self.context;
+    [res createUserAuthTicketWithBody:info
+                             tenantId:nil//@([self.tenantID integerValue])
+                       responseFields:nil
+                    completionHandler:^(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                        
+                        if (error != nil ) {
+                            NSLog(@"Error: %@", error);
+                            return;
+                        }
+                        
+                        NSLog(@"Tenant User Authenticated With No AppAuth!");
+                        self.context.tenantAdminUserAuthTicket = result;
+                        
+                        
+                        MOZUTenantAdminUserAuthTicket *ticket = [[MOZUTenantAdminUserAuthTicket alloc] init];
+                        ticket.refreshToken = self.context.tenantAdminUserAuthTicket.refreshToken;
+                        
+                        MOZUTenantAdminUserAuthTicketResource *res = [[MOZUTenantAdminUserAuthTicketResource alloc] init];
+                        res.apiContext = self.context;
+                        [res refreshAuthTicketWithBody:ticket
+                                              tenantId:@([self.tenantID integerValue])
+                                        responseFields:nil
+                                     completionHandler:^(MOZUTenantAdminUserAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+                                         
+                                         if (error != nil) {
+                                             NSLog(@"Error: %@", error);
+                                             return;
+                                         }
+                                         
+                                         NSLog(@"TenantUserAuthRefresh successful!");
+                                         self.context.tenantAdminUserAuthTicket = result;
+                                         [self testProductFetchAfterTenantAdminUserAuth];
+                                     }];
+                        
+                    }];
     
 }
 

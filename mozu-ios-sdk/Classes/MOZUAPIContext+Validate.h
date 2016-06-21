@@ -20,5 +20,6 @@
 
 
 - (void)validateWithCompletion: (void(^)(MOZUAPIError *error))handler;
+- (void)ensureAppAuthTicketWithCompletionHandler: (void(^)(MOZUAPIError *error))handler;
 
 @end
