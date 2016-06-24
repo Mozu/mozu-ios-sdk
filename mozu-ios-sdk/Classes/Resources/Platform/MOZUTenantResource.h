@@ -17,7 +17,7 @@
 
 @interface MOZUTenantResource : NSObject
 
-
+@property(readonly, nonatomic) MOZUAPIContext * apiContext;
 
 //
 #pragma mark -

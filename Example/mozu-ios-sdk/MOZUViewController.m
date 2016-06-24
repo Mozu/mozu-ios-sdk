@@ -25,6 +25,7 @@
 #import "MOZURuntimeCategoryResource.h"
 #import "MOZUAuthenticatonManager.h"
 #import "MOZUCartResource.h"
+#import "MOZUTenantResource.h"
 
 #import "MOZUAuthTicketResource.h"
 
@@ -322,8 +323,27 @@
         }
         
         NSLog(@"ProductFetch With Expired TenantAdminUserAuthTicket successful!");
+        
+        [self testFetchTenants];
     }];
+}
+
+- (void)testFetchTenants
+{
+    MOZUTenantResource *res  = [[MOZUTenantResource alloc] init];
     
+    [res tenantWithTenantId:self.tenantID.integerValue
+             responseFields:nil
+          completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
+              
+              if (error != nil ) {
+                  NSLog(@"Tenant fetch failed!");
+                  NSLog(@"Error: %@", error);
+                  return;
+              }
+              
+              NSLog(@"Tenant fetch successful!");
+          }];
 }
 
 
