@@ -292,7 +292,7 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
 
 }
 
-- (void)executeUserAuthWithCompletion:(MOZUClientCompletionBlock)completion {
+- (void)executeWithCompletion1:(MOZUClientCompletionBlock)completion {
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     self.resourceURLComponents.useSSL = YES;
@@ -313,7 +313,7 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
     [self executeRequest:request completionHandler:completion];
 }
 
-- (void)executeAppAuthWithCompletion:(MOZUClientCompletionBlock)completion {
+- (void)executeWithCompletion2:(MOZUClientCompletionBlock)completion {
     
     [self.context ensureAppAuthTicketWithCompletionHandler:^(MOZUAPIError *error) {
         

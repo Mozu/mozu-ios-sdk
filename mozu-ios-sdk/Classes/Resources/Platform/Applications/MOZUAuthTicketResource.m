@@ -38,7 +38,7 @@ Generate an authentication ticket for an application.
 - (void)authenticateAppWithBody:(MOZUAppAuthInfo *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUAuthTicketClient clientForAuthenticateAppOperationWithBody:body responseFields:responseFields];
-	[client executeUserAuthWithCompletion:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+	[client executeWithCompletion1:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
@@ -61,7 +61,7 @@ Refreshes the application's authentication ticket and generates a new access tok
 - (void)refreshAppAuthTicketWithBody:(MOZUAuthTicketRequest *)body responseFields:(NSString *)responseFields completionHandler:(void(^)(MOZUAuthTicket *result, MOZUAPIError *error, NSHTTPURLResponse *response))handler
  {
 	MOZUClient *client = [MOZUAuthTicketClient clientForRefreshAppAuthTicketOperationWithBody:body responseFields:responseFields];
-	[client executeUserAuthWithCompletion:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
+	[client executeWithCompletion1:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		if (handler != nil) {
 			handler(result, error, response);
 		}
