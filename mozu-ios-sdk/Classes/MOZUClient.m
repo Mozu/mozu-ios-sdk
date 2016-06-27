@@ -223,6 +223,12 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
     }
 }
 
+
+/*
+ Validates App auth ticket
+ Validates User auth ticket (if exists)
+ Used for requests that need app claims & user claims
+*/
 - (void)executeWithCompletionHandler:(MOZUClientCompletionBlock)completionHandler {
     
     [self.context validateWithCompletion:^(MOZUAPIError *error) {
@@ -292,6 +298,12 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
 
 }
 
+/*
+ Does not vaidate App auth ticket
+ Does not validate User auth ticket
+ Used for requests that do NOT need app claims & user claims
+ Eg. App Authentication etc
+*/
 - (void)executeWithCompletion1:(MOZUClientCompletionBlock)completion {
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -313,6 +325,12 @@ static NSString * const MOZUAppAuthHost = @"home.mozu.com";
     [self executeRequest:request completionHandler:completion];
 }
 
+/*
+ Vaidates App auth ticket
+ Does NOT validate User auth ticket
+ Used for requests that do NOT need user claims
+ Eg. User Authentication, Get Tenants etc
+*/
 - (void)executeWithCompletion2:(MOZUClientCompletionBlock)completion {
     
     [self.context ensureAppAuthTicketWithCompletionHandler:^(MOZUAPIError *error) {
