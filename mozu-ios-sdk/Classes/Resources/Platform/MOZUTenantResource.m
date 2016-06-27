@@ -39,6 +39,7 @@ Retrieve details about a specific tenant by providing the tenant ID.
 	}
 
 	MOZUClient *client = [MOZUTenantClient clientForGetTenantOperationWithTenantId:tenantId responseFields:responseFields];
+     client.context = self.apiContext;
 	[client executeWithCompletionHandler:^(id result, NSHTTPURLResponse *response, MOZUAPIError *error) {
 		NSString *key = [@(tenantId) stringValue];
 		[MOZUCacheManager setCache:result forKey:key];

@@ -331,7 +331,7 @@
 - (void)testFetchTenants
 {
     MOZUTenantResource *res  = [[MOZUTenantResource alloc] init];
-    
+    res.apiContext = self.context;
     [res tenantWithTenantId:self.tenantID.integerValue
              responseFields:nil
           completionHandler:^(MOZUTenant *result, MOZUAPIError *error, NSHTTPURLResponse *response) {
@@ -342,7 +342,7 @@
                   return;
               }
               
-              NSLog(@"Tenant fetch successful!");
+              NSLog(@"Tenant fetch successful! %lu sites", (unsigned long)result.sites.count);
           }];
 }
 
